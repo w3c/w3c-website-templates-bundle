@@ -1,0 +1,16 @@
+{
+    "name": "w3c/website-templates-bundle",
+    "type": "symfony-bundle",
+    "description": "W3C Website Templates",
+    "homepage": "https://github.com/w3c/w3c-website-templates-bundle",
+    "license": "W3C-20150513",
+    "require": {
+        "php": ">=7.3",
+        "symfony/http-kernel": "^5.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "W3C\\WebsiteTemplatesBundle\\": ""
+        }
+    }
+}

@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}W3C{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    {% block javascripts %}{% endblock %}
+</head>
+<body>
+    <h1>{{ block('title') }}</h1>
+    {% block body %}{% endblock %}
+</body>
+</html>
