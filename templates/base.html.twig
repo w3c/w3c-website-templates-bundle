@@ -1,13 +1,16 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ app.request.locale }}">
 <head>
     <meta charset="utf-8"/>
-    <title>{% block title %}W3C{% endblock %}</title>
+    <title>{% block title %}World Wide Web Consortium (W3C){% endblock %}</title>
+    <meta name="description" content="{{ 'w3c.description'|trans({}, 'w3c_website_templates_bundle') }}"/>
     {% block stylesheets %}{% endblock %}
     {% block javascripts %}{% endblock %}
 </head>
 <body>
-    <h1>{{ block('title') }}</h1>
-    {% block body %}{% endblock %}
+    <div class="example-wrapper">
+        <h1>{{ block('title') }}</h1>
+        {% block body %}{% endblock %}
+    </div>
 </body>
 </html>
