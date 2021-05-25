@@ -6,7 +6,8 @@
     "license": "W3C-20150513",
     "require": {
         "php": ">=7.3",
-        "symfony/http-kernel": "^5.2"
+        "symfony/http-kernel": "^5.2",
+        "symfony/asset": "^5.2"
     },
     "autoload": {
         "psr-4": {
