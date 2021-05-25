@@ -100,7 +100,9 @@
             </div>
         </main>
         {% block crosslinks %}
-            {{ include('@W3CWebsiteTemplates/components/base/crosslinks.html.twig') }}
+            {% if crosslinks is defined %}
+                {{ include('@W3CWebsiteTemplates/components/base/crosslinks.html.twig') }}
+            {% endif %}
         {% endblock crosslinks %}
     </div>
     {% block footer %}
