@@ -14,7 +14,7 @@
           content="{{ 'w3c.description'|trans({}, 'w3c_website_templates_bundle') }}"/>
     
     {% block stylesheets %}
-        <link rel="stylesheet" href="https://w3c-dev.studio24.dev/dist/assets/styles/core.css?ver=1.1.27"
+        <link rel="stylesheet" href="{{ asset('styles/core.css?ver=1.1.27', 'main') }}"
               media="screen"/>
 
         <!--
@@ -24,7 +24,7 @@
         FF 47+
         -->
         <link rel="stylesheet" id="advanced-stylesheet"
-              href="https://w3c-dev.studio24.dev/dist/assets/styles/advanced.css?ver=1.1.27" media="
+              href="{{ asset('styles/advanced.css?ver=1.1.27', 'main') }}" media="
             only print,
             only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
             only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
@@ -32,7 +32,7 @@
     {% endblock stylesheets %}
 
     {% block javascripts %}
-        <script src="https://w3c-dev.studio24.dev/dist/assets/js/libraries/fontfaceobserver.js"></script>
+        <script src="{{ asset('js/libraries/fontfaceobserver.js', 'main') }}"></script>
 
         <script>
             var myFont = new FontFaceObserver('Noto Sans');
@@ -47,7 +47,7 @@
                 var linkEl = document.getElementById('advanced-stylesheet');
                 if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
                     var script = document.createElement('script');
-                    script.src = 'https://w3c-dev.studio24.dev/dist/assets/js/main.js?ver=1.1.27';
+                    script.src = '{{ asset('js/main.js?ver=1.1.27', 'main') }}';
                     script.defer = true;
                     document.querySelector('head').appendChild(script);
                     (function (H) {
@@ -129,8 +129,8 @@
                         </div>
                         <figure class="component component--image">
                             <div class="l-frame l-frame--16-9">
-                                <img src="https://w3c-dev.studio24.dev/dist/assets/images/temp-developers-920.jpg"
-                                     srcset="https://w3c-dev.studio24.dev/dist/assets/images/temp-developers-360.jpg 360w, https://w3c-dev.studio24.dev/dist/assets/images/temp-developers-580.jpg 580w, https://w3c-dev.studio24.dev/dist/assets/images/temp-developers-920.jpg 920w, https://w3c-dev.studio24.dev/dist/assets/images/temp-developers-1520.jpg 1520w"
+                                <img src="https://w3c-dev.studio24.devimages/temp-developers-920.jpg"
+                                     srcset="{{ asset('images/temp-developers-360.jpg', 'main') }} 360w, {{ asset('images/temp-developers-580.jpg', 'main') }} 580w, {{ asset('images/temp-developers-920.jpg', 'main') }} 920w, {{ asset('images/temp-developers-1520.jpg', 'main') }} 1520w"
                                      sizes="100vw"
                                      loading="lazy"
                                      alt="A Macbook screen with code, as seen from over the developer's shoulder"/>
@@ -368,12 +368,12 @@
                     </div>
                     <ul class="clean-list" role="list">
                         <li><a class="with-icon--larger" href="https://twitter.com/W3C">
-                                <img class="icon icon--larger" src="https://w3c-dev.studio24.dev/dist/assets/svg/twitter.svg" width="20" height="20" alt
+                                <img class="icon icon--larger" src="{{ asset('svg/twitter.svg') }}" width="20" height="20" alt
                                      aria-hidden="true"/>
                                 <span class="visuallyhidden">W3C on Twitter</span></a>
                         </li>
                         <li><a class="with-icon--larger" href="https://github.com/w3c/">
-                                <img class="icon icon--larger" src="https://w3c-dev.studio24.dev/dist/assets/svg/github.svg" width="20" height="20" alt
+                                <img class="icon icon--larger" src="{{ asset('svg/github.svg', 'main') }}" width="20" height="20" alt
                                      aria-hidden="true"/>
                                 <span class="visuallyhidden">W3C on GitHub</span></a>
                         </li>
