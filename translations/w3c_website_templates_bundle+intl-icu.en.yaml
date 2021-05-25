@@ -1,3 +1,6 @@
+lang:
+    code: en
+    dir: ltr
 w3c:
     description: >-
         The World Wide Web Consortium (W3C) is an international community where Member organizations, a full-time staff,
