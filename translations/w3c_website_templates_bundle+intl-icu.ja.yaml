@@ -3,7 +3,7 @@ page:
         dir: ltr
     default_title: __page.default_title
     default_description: >-
-        万维网联盟（北航）总部
+        __page.default_description
     skip_to_content: __page.skip_to_content
 footer:
     copyright: >-

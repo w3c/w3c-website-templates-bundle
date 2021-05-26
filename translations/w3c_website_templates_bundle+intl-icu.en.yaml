@@ -8,7 +8,7 @@ page:
     skip_to_content: Skip to content
 footer:
     copyright: >-
-        Copyright © {year, date, ::y} W3C <sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr
+        Copyright © {date, date, ::y} W3C <sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr
         title="Massachusetts Institute of Technology">MIT</abbr></a>, <a
         href="https://www.ercim.eu/"><abbr
         title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
