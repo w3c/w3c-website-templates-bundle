@@ -1,17 +1,17 @@
 <!doctype html>
-<html dir="{% block lang_dir %}{{ 'lang.dir'|trans({}, 'w3c_website_templates_bundle') }}{% endblock %}"
-      lang="{% block lang %}{{ 'lang.code'|trans({}, 'w3c_website_templates_bundle') }}{% endblock %}" class="no-js">
+<html dir="{% block lang_dir %}{{ 'page.lang.dir'|trans({}, 'w3c_website_templates_bundle') }}{% endblock %}"
+      lang="{% block lang %}{{ app.request.locale }}{% endblock %}" class="no-js">
 
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% block title %}World Wide Web Consortium (W3C){% endblock %}</title>
+    <title>{% block title %}{{ 'page.default_title'|trans({}, 'w3c_website_templates_bundle') }}{% endblock %}</title>
 
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <meta property="og:description" name="description"
-          content="{{ 'w3c.description'|trans({}, 'w3c_website_templates_bundle') }}"/>
+          content="{% block description %}{{ 'page.default_description'|trans({}, 'w3c_website_templates_bundle') }}{% endblock %}"/>
     
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('styles/core.css?ver=1.1.27', 'main') }}"
@@ -60,7 +60,7 @@
 </head>
 
 <body class="default">
-<a class="skip-link" href="#main">Skip to content</a>
+<a class="skip-link" href="#main">{{ 'page.skip_to_content'|trans({}, 'w3c_website_templates_bundle') }}</a>
 <div class="grid-wrap">
     <div class="wrap">
         <header class="global-header">

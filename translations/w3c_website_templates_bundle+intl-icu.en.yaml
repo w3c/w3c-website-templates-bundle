@@ -1,10 +1,11 @@
-lang:
-    code: en
-    dir: ltr
-w3c:
+page:
+    lang:
+        dir: ltr
+    default_title: World Wide Web Consortium (W3C)
     description: >-
         The World Wide Web Consortium (W3C) is an international community where Member organizations, a full-time staff,
         and the public work together to develop Web standards.
+    skip_to_content: Skip to content
 footer:
     copyright: >-
         Copyright © {year, date, ::y} W3C <sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr
@@ -23,4 +24,9 @@ footer:
         system_status: System Status
         twitter: W3C on Twitter
         github: W3C on GitHub
-
+banner:
+    beta:
+        text: >-
+            This is a new website. <a href="mailto:team-website-redesign@w3.org">Give feedback</a> to help us
+            improve it.
+        icon: beta icon
