@@ -111,34 +111,29 @@
                 <div class="global-footer__links">
                     <div class="l-cluster">
                         <ul class="clean-list" role="list">
-                            <li><a href="../page.html">Home</a></li>
-                            <li><a href="../page.html">Contact</a></li>
-                            <li><a href="../page.html">Help</a></li>
-                            <li><a href="../page.html">Sponsor and donate</a></li>
-                            <li><a href="../page.html">Privacy policy</a></li>
-                            <li><a href="../page.html">Legal</a></li>
-                            <li><a href="../page.html">System status</a></li>
+                            <li><a href="../page.html">{{ 'footer.links.home'|trans({}, 'w3c_website_templates_bundle') }}</a></li>
+                            <li><a href="../page.html">{{ 'footer.links.contact'|trans({}, 'w3c_website_templates_bundle') }}</a></li>
+                            <li><a href="../page.html">{{ 'footer.links.help'|trans({}, 'w3c_website_templates_bundle') }}</a></li>
+                            <li><a href="../page.html">{{ 'footer.links.sponsor_donate'|trans({}, 'w3c_website_templates_bundle') }}</a></li>
+                            <li><a href="../page.html">{{ 'footer.links.privacy_policy'|trans({}, 'w3c_website_templates_bundle') }}</a></li>
+                            <li><a href="../page.html">{{ 'footer.links.legal'|trans({}, 'w3c_website_templates_bundle') }}</a></li>
+                            <li><a href="../page.html">{{ 'footer.links.system_status'|trans({}, 'w3c_website_templates_bundle') }}</a></li>
                         </ul>
                     </div>
                     <ul class="clean-list" role="list">
                         <li><a class="with-icon--larger" href="https://twitter.com/W3C">
                                 <img class="icon icon--larger" src="{{ asset('svg/twitter.svg', 'main') }}" width="20" height="20" alt
                                      aria-hidden="true"/>
-                                <span class="visuallyhidden">W3C on Twitter</span></a>
+                                <span class="visuallyhidden">{{ 'footer.links.twitter'|trans({}, 'w3c_website_templates_bundle') }}</span></a>
                         </li>
                         <li><a class="with-icon--larger" href="https://github.com/w3c/">
                                 <img class="icon icon--larger" src="{{ asset('svg/github.svg', 'main') }}" width="20" height="20" alt
                                      aria-hidden="true"/>
-                                <span class="visuallyhidden">W3C on GitHub</span></a>
+                                <span class="visuallyhidden">{{ 'footer.links.github'|trans({}, 'w3c_website_templates_bundle') }}</span></a>
                         </li>
                     </ul>
                 </div>
-                <p class="copyright">Copyright © {{ 'now'|date('Y')}} W3C <sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr
-                                title="Massachusetts Institute of Technology">MIT</abbr></a>, <a
-                            href="https://www.ercim.eu/"><abbr
-                                title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
-                    <a href="https://www.keio.ac.jp/">Keio</a>, <a href="https://ev.buaa.edu.cn/">Beihang</a>) <a
-                            href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.</p>
+                <p class="copyright">{{ 'footer.copyright'|trans({'year': date('now')}, 'w3c_website_templates_bundle')|raw }}</p>
             </div>
         </footer>
     {% endblock %}

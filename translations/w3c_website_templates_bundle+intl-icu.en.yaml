@@ -5,3 +5,22 @@ w3c:
     description: >-
         The World Wide Web Consortium (W3C) is an international community where Member organizations, a full-time staff,
         and the public work together to develop Web standards.
+footer:
+    copyright: >-
+        Copyright © {year, date, ::y} W3C <sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr
+        title="Massachusetts Institute of Technology">MIT</abbr></a>, <a
+        href="https://www.ercim.eu/"><abbr
+        title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+        <a href="https://www.keio.ac.jp/">Keio</a>, <a href="https://ev.buaa.edu.cn/">Beihang</a>) <a
+        href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.
+    links:
+        home: Home
+        contact: Contact
+        help: Help
+        sponsor_donate: Sponsor and donate
+        privacy_policy: Privacy Policy
+        legal: Legal
+        system_status: System Status
+        twitter: W3C on Twitter
+        github: W3C on GitHub
+
