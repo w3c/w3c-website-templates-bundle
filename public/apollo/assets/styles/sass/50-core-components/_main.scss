@@ -1,0 +1,38 @@
+/*------------------------------------*\
+    #Main
+\*------------------------------------*/
+/**
+1. We use left and right padding to add some minimum space between the
+contents of <main> and the edges of the parent element or viewport.
+To avoid making the content narrower than intended, we add an exception
+to our global box-sizing rule.
+ */
+
+main,
+#main {
+
+	box-sizing: content-box /* 1 */;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: rem($max-width);
+	padding: rem(24) 5vw rem(100);
+
+}
+
+#main .component + .component {
+
+	margin-top: rem(80);
+
+	@include mq($bp-tab-small) {
+
+		margin-top: rem(100);
+
+	}
+
+}
+
+#main .component.u-full-width + .component.u-full-width {
+
+	margin-top: 0;
+
+}

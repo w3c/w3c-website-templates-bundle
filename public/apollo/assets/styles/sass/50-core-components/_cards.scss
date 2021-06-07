@@ -1,0 +1,130 @@
+/*------------------------------------*\
+    #Cards
+\*------------------------------------*/
+
+.card {
+
+	background-color: $white;
+	border-radius: rem(4);
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow: hidden;
+
+}
+
+.card--event {
+
+	border-left: solid rem(6);
+
+}
+
+[dir="rtl"] {
+
+	.card--event {
+
+		border-left: 0;
+		border-right: solid rem(6);
+
+	}
+
+}
+
+.card--event,
+.card--member,
+.card--news,
+.card--group {
+
+	box-shadow: -1px 1px 4px 0 rgba(55,70,95,0.12);
+
+}
+
+.card--event {
+
+	&.conference {
+
+		border-color: $teal-green;
+
+	}
+
+	&.meeting {
+
+		border-color: $aqua;
+
+	}
+
+	&.talk {
+
+		border-color: $deep-yellow;
+
+	}
+
+	&.workshop {
+
+		border-color: $red;
+
+	}
+
+}
+
+.card__text {
+
+	@include stack(1rem);
+
+	flex-grow: 1;
+	order: 1;
+	padding-top: 1rem;
+
+}
+
+.card--group .card__text {
+
+	max-width: rem($text-measure);
+
+}
+
+.card__text > a:not([class]) {
+
+	align-self: flex-start;
+	margin-top: rem(6);
+	padding-bottom: rem(10);
+	padding-top: rem(10);
+
+}
+
+.card__heading {
+
+	@include txt-saturn;
+
+}
+
+.card__image img {
+
+	border-radius: rem(4);
+
+}
+
+.card__link {
+
+	border: 0;
+	color: $off-black;
+	text-decoration: none;
+
+	&:hover {
+
+		text-decoration: underline; /* 1 */
+		text-decoration-skip-ink: auto; // Not supported by Safari
+		text-underline-offset: 0.25em; // Supported by Safari
+
+	}
+
+	&:focus {
+
+		background-color: $focus-color;
+		background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
+		color: $black;
+		text-decoration: none;
+
+	}
+
+}

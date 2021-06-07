@@ -1,0 +1,26 @@
+/*------------------------------------*\
+    #Focus
+\*------------------------------------*/
+
+:focus {
+
+	/**
+	Ideally we would specify the background-color here to cover all circumstances.
+	Unfortunately, this does not work at all well for Internet Explorer, so we can't.
+	 */
+	outline: 2px solid transparent;
+	outline-offset: -2px;
+
+}
+
+/**
+Where focus is moved to the target via JavaScript, it is
+acceptable not to show a focus outline.
+ */
+main:focus,
+#main:focus,
+[tabindex="-1"]:focus {
+
+	outline: none;
+
+}

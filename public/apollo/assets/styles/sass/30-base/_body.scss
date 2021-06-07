@@ -1,0 +1,38 @@
+/*------------------------------------*\
+    #Body
+\*------------------------------------*/
+
+
+html {
+
+	height: 100%;
+
+}
+
+/**
+ Typographical styles for fonts are in 40-base/_typography.scss
+ */
+body {
+
+	background-color: $white;
+	color: $off-black;
+	min-height: 100%;
+	overflow-x: hidden;
+
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+
+}
+
+/**
+Styles needed for a sticky footer
+ */
+
+.grid-wrap {
+
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: 1fr auto;
+	min-height: 100vh;
+
+}

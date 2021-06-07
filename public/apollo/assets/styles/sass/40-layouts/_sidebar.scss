@@ -1,0 +1,89 @@
+/*------------------------------------*\
+    #Sidebar layout primitive
+
+    From https://absolutely.every-layout.dev/layouts/sidebar/
+
+    `.l-sidebar` creates a container for a larger panel next to
+    a smaller - sidebar - panel.
+
+    When there is enough horizontal space for them to sit alongside
+    each other, they do so. Otherwise they stack vertically. The
+    point at which this happens is determined by setting a flex-basis
+    on the sidebar panel and a min-width on the other panel.
+
+    N.B: because this layout uses Flexbox, we can use the `order`
+    property on either `.not-sidebar` or `.sidebar` (depending upon
+    the source order of the HTML) to determine whether the sidebar
+    sits on the left or right side.
+\*------------------------------------*/
+
+/**
+Suppress horizontal scrolling caused by the negative margin
+in some circumstances.
+ */
+.l-sidebar {
+	overflow: hidden;
+}
+
+/**
+We target the intermediary wrapper and give it a negative margin
+to create a gutter between the `.sidebar` and `.not-sidebar`.
+ */
+.l-sidebar > * {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin: -0.75rem; /* 1 */
+}
+
+
+/**
+We apply an even, symmetrical margin to `.sidebar` and `.not-sidebar`,
+but halve it to to account for 'doubling up' at the edges.
+ */
+.l-sidebar > * > * {
+	margin: 0.75rem;
+}
+
+
+/**
+Flex-basis determines the ideal width of the `.sidebar`. This can be
+omitted to let the contents of `.sidebar` determine the width of
+`.sidebar` (e.g. an image with a specified max-width).
+ */
+.l-sidebar .sidebar {
+
+	@include stack;
+
+	flex-basis: rem(320);
+	flex-grow: 1;
+
+}
+
+
+/**
+Min-width determines the point at which `.sidebar` and `.not-sidebar`
+will sit side-by-side rather than vertically. This negates the use of
+a viewport media query.
+ */
+.l-sidebar .not-sidebar {
+
+	@include stack;
+
+	flex-basis: 0;
+	flex-grow: 999;
+	min-width: calc(55% - 1.5rem);
+
+}
+
+
+
+.l-sidebar--expanded {
+	width: 100%;
+}
+
+.l-sidebar .sidebar.sidebar--compact {
+
+	flex-basis: rem(180);
+
+}

@@ -1,0 +1,90 @@
+/*------------------------------------*\
+    #Default page
+\*------------------------------------*/
+
+.default .content {
+
+	max-width: rem(752);
+
+}
+
+@supports(grid-column-gap: 8%) {
+
+	.default .content {
+
+		max-width: none;
+
+		@include mq($bp-tab-large) {
+
+			display: grid;
+			grid-column-gap: 7.857%;
+			grid-template-areas: "article related";
+			grid-template-columns: 67.143% 25%;
+
+		}
+
+	}
+
+	.default .content article {
+
+		@include mq($bp-tab-large) {
+
+			grid-area: article;
+
+		}
+
+	}
+
+	.default .content .related {
+
+		@include mq($bp-tab-large) {
+
+			grid-area: related;
+
+		}
+
+	}
+
+}
+
+.default .related {
+
+	border-top: solid 10px $w3c-blue;
+	margin-top: rem(40);
+	padding-top: rem(20);
+
+}
+
+@supports(grid-column-gap: 8%) {
+
+	.default .related {
+
+		@include mq($bp-tab-large) {
+
+			margin-top: 0;
+
+		}
+
+	}
+
+}
+
+.default .related__inner {
+
+	@include mq($bp-tab-large) {
+
+		border-inline-start: solid 1px $border-color;
+		padding-left: rem(20);
+		padding-right: rem(20);
+
+	}
+
+}
+
+.default .related__inner ul a {
+
+	display: inline-block;
+	padding-bottom: rem(10);
+	padding-top: rem(10);
+
+}

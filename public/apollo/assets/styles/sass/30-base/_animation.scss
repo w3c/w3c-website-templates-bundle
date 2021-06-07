@@ -1,0 +1,18 @@
+/*------------------------------------*\
+    #Animation
+\*------------------------------------*/
+
+/*
+ * Respect the choices of users who do not want animations.
+ */
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+
+        animation-play-state: paused!important;
+        scroll-behavior: auto!important;
+        transition: none!important;
+
+    }
+
+}

@@ -45,5 +45,5 @@
 # PHPStorm
 /.idea
 
-#Front-end build tools
+#Front-end - build tools and compiled assets
 node_modules

@@ -1,0 +1,32 @@
+/*------------------------------------*\
+    #Image component
+\*------------------------------------*/
+
+.component--image {
+
+	figcaption {
+
+		@include txt-pluto;
+		@include stack;
+
+		margin-block-start: 1em;
+
+		> * {
+
+			max-width: rem(540);
+
+		}
+
+		> a {
+
+			align-self: flex-start;
+			display: inline-block;
+			margin: 0;
+			padding-bottom: rem(10);
+			padding-top: rem(10);
+
+		}
+
+	}
+
+}

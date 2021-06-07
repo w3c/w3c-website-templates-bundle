@@ -1,0 +1,45 @@
+/*------------------------------------*\
+    #Cluster layout primitive
+
+    From https://absolutely.every-layout.dev/layouts/cluster/
+
+    `.l-cluster` suits any groups of elements that differ in length and
+    are liable to wrap. Use the Cluster to align any groups of horizontally
+    laid out elements to the left or right, or in the center, with even
+    spacing between elements.
+
+    The size variable used below defines the desired spacing between
+    elements inside `.l-cluster` (currently 1rem). Sizes are defined
+    in /10-settings/sizes
+\*------------------------------------*/
+
+/**
+Suppress horizontal scrolling caused by the negative margin
+in some circumstances.
+ */
+.l-cluster {
+	overflow: hidden;
+}
+
+
+/**
+We use flexbox to configure the elements into clusters without creating
+white space. We can control how we align items within the cluster,
+by using 'align-items` and `justify-content`.
+ */
+.l-cluster > * {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin: rem(-10);
+}
+
+
+/**
+We apply an even, symmetrical margin to the elements that we wish to space
+out, but halve it to to account for 'doubling up' at the edges.
+ */
+.l-cluster.l-cluster > * > * {
+	display: inline-block; // IE9
+	margin: rem(10);
+}

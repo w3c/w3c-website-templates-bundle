@@ -1,0 +1,132 @@
+/*------------------------------------*\
+    #Lists
+\*------------------------------------*/
+
+/**
+Remove default list styles on lists with a class name (e.g. 'nav-list')
+ */
+ol[class],
+ul[class] {
+
+	list-style: none;
+	padding: 0;
+
+}
+
+ul:not([class]),
+ol:not([class]) {
+
+	> * + *,
+	li ul,
+	li ol {
+
+		margin-top: 0.75em;
+
+	}
+
+}
+
+ul:not([class]) {
+
+	padding-inline-start: 2.4em;
+
+}
+
+ol:not([class]) {
+
+	counter-reset: count;
+	list-style-type: none;
+	padding-inline-start: 1.25em;
+
+	> li {
+
+		counter-increment: count;
+
+		&::before {
+
+			content: counters(count, ".") " ";
+			padding-inline-end: 0.5em;
+
+		}
+
+	}
+
+}
+
+
+// No bullets or numbering
+.clean-list {
+
+	li {
+
+		display: block;
+
+	}
+
+}
+
+
+/**
+Description lists / Definition lists
+ */
+
+dl {
+
+	dt {
+
+		font-weight: bold;
+
+	}
+
+	dd + dt {
+
+		margin-top: 0.5em;
+
+	}
+
+	dt + dd,
+	dd + dd {
+
+		margin-top: 0.25em;
+
+	}
+
+}
+
+// With a grid layout for a more tabulated feel
+
+dl.grid {
+
+	@supports (grid-row-start: auto) {
+
+		column-gap: 1rem;
+		display: grid;
+		grid-template-columns: 1fr 4fr;
+		grid-template-rows: 1fr;
+		row-gap: 1rem;
+
+		dd + dt,
+		dt + dd,
+		dd + dd {
+
+			margin-top: 0;
+
+		}
+
+		dt {
+
+			grid-column-start: 1;
+			grid-column-end: 2;
+
+		}
+
+		dd {
+
+			grid-column-start: 2;
+			grid-column-end: 3;
+
+		}
+
+	}
+
+}

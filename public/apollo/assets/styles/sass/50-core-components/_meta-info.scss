@@ -1,0 +1,26 @@
+/*------------------------------------*\
+    #Meta info
+\*------------------------------------*/
+
+.meta {
+
+	border-bottom: solid 1px $border-color;
+	border-top: solid 1px $border-color;
+	margin-bottom: rem(50);
+	padding: rem(24) 0;
+
+}
+
+.meta .with-link {
+
+	padding-bottom: rem(10);
+	padding-top: rem(10);
+
+}
+
+.meta .icon {
+
+	height: rem(24);
+	width: rem(24);
+
+}

@@ -1,0 +1,80 @@
+/*------------------------------------*\
+    #Disclosure widget
+\*------------------------------------*/
+
+.no-js {
+
+	[data-toggle="true"] {
+
+		display: none;
+
+	}
+
+	[data-toggle="true"] + * {
+
+		display: initial;
+
+	}
+
+}
+
+[data-toggle="true"] {
+
+	@include txt-pluto;
+
+	align-items: center;
+	font-weight: bold;
+
+	svg {
+
+		pointer-events: none;
+
+	}
+
+	&:hover {
+
+		box-shadow: 0 0 4px 2px rgba(84,84,84,0.25);
+
+	}
+
+	&:focus {
+
+		background-color: $focus-color;
+		border-color: $black;
+		box-shadow: none;
+
+	}
+
+}
+
+[data-toggle="true"][aria-expanded="false"] {
+
+	.angle-up {
+
+		display: none;
+
+	}
+
+	+ * {
+
+		display: none;
+
+	}
+
+}
+
+[data-toggle="true"][aria-expanded="true"] {
+
+	.angle-down {
+
+		display: none;
+
+	}
+
+	+ * {
+
+		display: block;
+
+	}
+
+}

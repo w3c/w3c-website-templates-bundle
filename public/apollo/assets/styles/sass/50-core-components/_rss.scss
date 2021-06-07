@@ -1,0 +1,19 @@
+/*------------------------------------*\
+    #RSS feed
+\*------------------------------------*/
+
+.rss {
+
+	@include stack();
+
+	margin-top: rem(40);
+
+	a {
+
+		display: block;
+		padding-bottom: rem(10);
+		padding-top: rem(10);
+
+	}
+
+}

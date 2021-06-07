@@ -1,0 +1,44 @@
+/*------------------------------------*\
+    #Landing page
+\*------------------------------------*/
+
+.landing,
+.ecosystem {
+
+	h1 {
+
+		@include txt-mercury;
+
+	}
+
+	#breadcrumb {
+
+		background-color: $mist-gray;
+
+	}
+
+	main,
+	#main {
+
+		padding-top: 0;
+
+	}
+
+	.component--text,
+	.component--image,
+	.component--video,
+	.component--quote {
+
+		margin-left: auto;
+		margin-right: auto;
+		max-width: rem(711);
+
+	}
+
+	.component--quote {
+
+		max-width: rem(691);
+
+	}
+
+}

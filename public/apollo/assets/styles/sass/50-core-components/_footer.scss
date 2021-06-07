@@ -1,0 +1,99 @@
+/*------------------------------------*\
+    #Global footer
+\*------------------------------------*/
+
+.global-footer {
+
+	border-top: solid 1px $border-color;
+	grid-row-start: 2; // Needed for sticky footer
+	grid-row-end: 3; // Needed for sticky footer
+	padding: rem(20) 0 rem(25);
+
+	.l-center {
+
+		@include stack(1rem);
+
+	}
+
+	a,
+	.copyright {
+
+		@include txt-eris;
+
+	}
+
+	a {
+
+		color: $off-black;
+
+		&:visited,
+		&:hover,
+		&:active {
+
+			color: $off-black;
+
+		}
+
+	}
+
+}
+
+.global-footer__links {
+
+	display: flex;
+	flex-wrap: wrap;
+
+	> ul {
+
+		display: flex;
+		flex-wrap: wrap;
+
+		@include mq($bp-tab-large) {
+
+			margin-inline-start: auto;
+
+		}
+
+	}
+
+	.l-cluster > * {
+
+		margin: 0 rem(-10);
+
+	}
+
+	.l-cluster.l-cluster > * > * {
+
+		margin: 0 rem(10);
+
+	}
+
+	a:not([class]) {
+
+		display: block;
+		padding-bottom: rem(12);
+		padding-top: rem(12);
+
+	}
+
+	.with-icon--larger {
+
+		padding: rem(12);
+
+		img {
+
+			height: rem(20);
+			width: rem(20);
+
+		}
+
+		&:focus {
+
+			background-color: $focus-color;
+			background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
+
+		}
+
+	}
+
+}

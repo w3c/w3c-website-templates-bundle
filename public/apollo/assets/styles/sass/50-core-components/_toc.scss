@@ -1,0 +1,57 @@
+/*------------------------------------*\
+    #Table of contents (TOC)
+\*------------------------------------*/
+
+.toc {
+
+	@include stack;
+
+}
+
+.toc + * {
+
+	margin-top: rem(30);
+
+	@include mq($max-width) {
+
+		margin-top: rem(80);
+
+	}
+
+}
+
+.toc h2 {
+
+	font-size: 1rem;
+	font-weight: normal;
+
+}
+
+.toc ul {
+
+	border-left: solid 3px $deep-yellow;
+	padding-left: rem(15);
+
+}
+
+[dir="rtl"] {
+
+	.toc ul {
+
+		border-left: 0;
+		border-right: solid 3px $deep-yellow;
+		padding-left: 0;
+		padding-right: rem(15);
+
+	}
+
+}
+
+.toc ul a {
+
+	display: inline-block;
+	padding-bottom: rem(10);
+	padding-top: rem(10);
+
+}
+

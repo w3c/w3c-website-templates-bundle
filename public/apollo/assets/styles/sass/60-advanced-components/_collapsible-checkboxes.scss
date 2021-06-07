@@ -1,0 +1,86 @@
+/*------------------------------------*\
+    #Collapsible sections
+\*------------------------------------*/
+
+.js {
+
+    [data-heading="collapsible-checkboxes"] {
+        width: 100%;
+    }
+
+    // Added via JavaScript
+    [data-heading="collapsible-checkboxes"] button {
+
+        // v-align elements in this button
+        align-items: center;
+        border-radius: 0;
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        width: 100%;
+        border: 2px solid;
+        border-radius: 0;
+        line-height: 1.25;
+        padding: rem(5);
+
+        &:focus {
+
+            box-shadow: inset 0 0 0 2px;
+            outline: solid 3px $focus-color;
+            outline-offset: 0;
+
+        }
+
+
+
+        &[aria-expanded="false"] .angle-up {
+
+            display: none;
+
+        }
+
+        &[aria-expanded="true"] .angle-down {
+
+            display: none;
+
+        }
+
+        svg {
+
+            flex-shrink: 0;
+            //height: 1em;
+            //width: 1em;
+
+        }
+
+    }
+
+    [data-heading="collapsible-checkboxes"] button span {
+
+        align-items: flex-start;
+
+    }
+
+    [data-heading="collapsible-checkboxes"] + * {
+
+        @include stack;
+
+        padding: 1rem;
+        border: 1px solid $w3c-blue;
+        border-radius: rem(4);
+
+        &[aria-hidden="true"] {
+
+            display: none;
+
+        }
+
+    }
+
+    * + [data-heading="collapsible-checkboxes"] {
+
+        margin-top: 1rem;
+
+    }
+
+}

@@ -1,0 +1,103 @@
+/*------------------------------------*\
+    #Typography
+\*------------------------------------*/
+
+body {
+
+	font-family: $font-family;
+	font-size: 1rem; // Equivalent to 16px browser default
+	font-style: $font-style;
+	font-weight: $font-weight;
+	line-height: 1.5;
+
+}
+
+
+
+h1, h2, h3, h4, h5, h6 {
+
+	font-weight: $emphasis;
+	margin: 0;
+
+}
+
+h1 {
+
+	margin-bottom: 1em;
+
+}
+
+.txt-mercury {
+
+	@include txt-mercury;
+
+}
+
+h1,
+.txt-venus {
+
+	@include txt-venus;
+
+}
+
+h2,
+.txt-earth {
+
+	@include txt-earth;
+
+}
+
+h3,
+.lead,
+.txt-mars {
+
+	@include txt-mars;
+
+}
+
+h4,
+.txt-jupiter {
+
+	@include txt-jupiter;
+
+}
+
+h5,
+.txt-saturn {
+
+	@include txt-saturn;
+
+}
+
+h6 {
+
+	font-size: 1rem;
+
+}
+
+.txt-pluto {
+
+	@include txt-pluto;
+
+}
+
+.txt-eris {
+
+	@include txt-eris;
+
+}
+
+
+/**
+When Font Face Observer has detected that the @font-face files are loaded, then we
+can safely use the web fonts instead of the system fonts.
+ */
+.fonts-loaded {
+
+	body {
+
+		font-family: $font-loaded-family;
+
+	}
+
+}

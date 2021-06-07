@@ -1,0 +1,102 @@
+/*------------------------------------*\
+    #Family/Series list
+\*------------------------------------*/
+
+/* dl */
+dl.family-series-list {
+
+    @supports (grid-row-start: auto) {
+
+        column-gap: 1rem;
+        display: grid;
+        // we `auto` the first column to let the text length direct the container width
+        grid-template-columns: auto 4fr;
+        grid-template-rows: 1fr;
+        row-gap: 1rem;
+
+        dd + dt,
+        dt + dd,
+        dd + dd {
+
+            margin-block-start: 0;
+
+        }
+
+        dt {
+
+            font-weight: bold;
+
+            grid-column-start: 1;
+            grid-column-end: 2;
+
+        }
+
+        dd {
+
+            grid-column-start: 2;
+            grid-column-end: 3;
+
+        }
+
+    }
+
+}
+
+dl.family-series-list {
+
+    dt:nth-of-type(2) {
+        margin-inline-start: 1.5em;
+        position: relative;
+    }
+
+    dt:nth-of-type(2)::before {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: -1.5rem;
+        width: 1rem;
+        height: 1rem;
+        border: 2px solid #979797;
+        border-width: 0 0 2px 2px;
+
+    }
+
+}
+
+.family-grouping {
+
+    //padding: rem(20);
+    padding-inline-start: rem(20);
+    position: relative;
+
+    &::before {
+
+        background-color: #D8D8D8;
+        border-radius: rem(5);
+        content: '';
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: rem(6);
+
+    }
+
+    [dir="rtl"] {
+
+        blockquote::before {
+
+            left: auto;
+            right: 0;
+
+        }
+
+    }
+
+}
+
+.family-grouping + .family-grouping {
+
+    margin-top: rem(44);
+
+}

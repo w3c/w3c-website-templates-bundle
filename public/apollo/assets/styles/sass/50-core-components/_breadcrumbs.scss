@@ -1,0 +1,122 @@
+/*------------------------------------*\
+    #Breadcrumbs
+    See: https://scottaohara.github.io/a11y_breadcrumbs/
+\*------------------------------------*/
+
+#breadcrumb {
+
+	padding-bottom: rem(15);
+	padding-top: rem(10);
+
+	.l-cluster > * {
+
+		margin: 0 rem(-11);
+
+	}
+
+	.l-cluster.l-cluster > * > * {
+
+		margin: 0 0 0 rem(11);
+		padding-right: 1em;
+		position: relative;
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	#breadcrumb .l-cluster.l-cluster > * > * {
+
+		margin: 0 rem(11) 0 0;
+		padding-left: 1em;
+		padding-right: 0;
+
+	}
+
+}
+
+
+.breadcrumbs a {
+
+	@include txt-pluto;
+
+	color: $off-black;
+	display: block;
+	padding-bottom: rem(11);
+	padding-top: rem(11);
+
+	&:visited,
+	&:hover,
+	&:active {
+
+		color: $off-black;
+
+	}
+
+}
+
+.breadcrumbs [aria-current] {
+
+	font-weight: $emphasis;
+	text-decoration: none;
+
+
+	&:hover,
+	&:focus {
+
+		outline-color: $off-black;
+
+	}
+
+}
+
+
+/**
+Separator chevron - see https://codepen.io/jonneal/pen/kptBs
+*/
+.breadcrumbs li:not(:last-child) {
+
+	&::after {
+
+		border-style: solid;
+		border-width: 0.1em 0.1em 0 0;
+		content: '';
+		display: block;
+		height: 0.5em;
+		position: absolute;
+		right: 0.4em;
+		top: 50%;
+		transform: rotate(45deg) translateY(-50%);
+		width: 0.5em;
+
+	}
+
+}
+
+.breadcrumbs li:not(:last-child) {
+
+	&::after {
+
+
+
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.breadcrumbs li:not(:last-child) {
+
+		&::after {
+
+			border-width: 0 0 0.1em 0.1em;
+			left: 0.1em;
+			right: auto;
+
+		}
+
+	}
+
+}
