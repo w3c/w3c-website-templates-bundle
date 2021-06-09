@@ -1,5 +1,5 @@
 {
   "copy-from-package": {
-    "public/": "%PUBLIC_DIR%/"
+    "public/dist": "%PUBLIC_DIR%/"
   }
 }
