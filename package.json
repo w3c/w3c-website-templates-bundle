@@ -5,7 +5,7 @@
   "description": "NPM scripts for building front-end website files",
   "license": "MIT",
   "config": {
-    "from": "public/apollo/assets",
+    "from": "assets-src",
     "to": "public/dist/assets"
   },
   "scripts": {
