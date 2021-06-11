@@ -1,0 +1,41 @@
+<aside class="crosslinks">
+    <div class="l-center">
+        <div class="component component--columns component--columns--images">
+            <div class="component--columns__intro">
+                <h2>{{ crosslinks['title'] }}</h2>
+                <p>{{ crosslinks['text'] }}</p>
+            </div>
+            <ul class="clean-list" role="presentation">
+                {% for crosslink in crosslinks['links'] %}
+                    <li>
+                        <div class="card" data-component="card">
+                            <div class="card__text">
+                                <h3 class="card__heading">
+                                    <a href="{{ crosslink['url'] }}" class="card__link">{{ crosslink['title'] }}</a>
+                                </h3>
+                                <p>{{ crosslink['text'] }}</p>
+                                <p class="txt-pluto">{{ crosslink['category'] }}</p>
+                            </div>
+                            {% if crosslink['img'] is defined %}
+                                <div class="l-frame l-frame--16-9 card__image">
+                                    {% set attr = {'loading': 'lazy'}|merge(crosslink['img']) %}
+                                    {% set attributes -%}
+                                        {%- for attrname, attrvalue in attr -%}
+                                            {{- " " -}}
+                                            {%- if attrvalue is same as(true) -%}
+                                                {{- attrname }}="{{ attrname }}"
+                                            {%- elseif attrvalue is not same as(false) -%}
+                                                {{- attrname }}="{{ attrvalue }}"
+                                            {%- endif -%}
+                                        {%- endfor -%}
+                                    {%- endset -%}
+                                    <img {{ attributes }} />
+                                </div>
+                            {% endif %}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</aside>

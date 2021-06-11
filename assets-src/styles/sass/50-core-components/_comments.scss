@@ -1,0 +1,191 @@
+/*------------------------------------*\
+    #Comments
+\*------------------------------------*/
+
+.comments {
+
+	background-color: $mist-gray;
+	padding-bottom: rem(50);
+	padding-top: rem(50);
+
+	h2 {
+
+		@include txt-mars;
+
+	}
+
+}
+
+.comment-list {
+
+	margin-top: rem(30);
+
+	> li {
+
+		border-bottom: solid 1px $border-color;
+		padding-bottom: rem(50);
+
+	}
+
+	> li + li {
+
+		margin-top: rem(20);
+
+	}
+
+}
+
+.l-sidebar.comment {
+
+	overflow: visible;
+
+}
+
+.l-sidebar.comment,
+.l-sidebar.comment-form-wrap {
+
+	.sidebar {
+
+		flex-basis: auto;
+		order: -1;
+
+		img {
+
+			width: rem(50);
+
+		}
+
+	}
+
+	.not-sidebar {
+
+		min-width: calc(80% - 1.5rem);
+
+	}
+
+}
+
+.reply-list.reply-list {
+
+	margin-left: rem(70);
+	margin-top: rem(30);
+	padding-left: rem(30);
+	position: relative;
+
+	&::before {
+
+		background-color: $w3c-blue;
+		border-radius: rem(3);
+		content: '';
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: rem(3);
+
+	}
+
+	> li {
+
+		border-top: solid 1px $border-color;
+
+	}
+
+	> li + li {
+
+		margin-top: rem(20);
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.reply-list.reply-list {
+
+		margin-left: 0;
+		margin-right: rem(70);
+		padding-left: 0;
+		padding-right: rem(30);
+
+		&::before {
+
+			left: auto;
+			right: 0;
+
+		}
+
+	}
+
+}
+
+.reply-list .comment {
+
+	padding-top: rem(20);
+
+}
+
+.comment__author {
+
+	font-size: 1rem;
+	font-weight: bold;
+	line-height: calc(32 / 24);
+
+}
+
+.comment__body {
+
+	@include stack;
+
+	max-width: rem($text-measure);
+
+}
+
+[data-replylink] {
+
+	@include txt-pluto;
+
+	align-self: flex-start;
+	padding-bottom: rem(11);
+	padding-top: rem(11)
+
+}
+
+#respond {
+
+	margin-top: 1rem;
+
+	> div:first-of-type {
+
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+
+	}
+
+}
+
+.comment-form-wrap {
+
+	margin-top: rem(30);
+
+}
+
+#comment-form {
+
+	max-width: rem($text-measure);
+
+	.l-switcher > * {
+
+		margin: rem(-10);
+
+	}
+
+	.l-switcher > * > * {
+
+		padding: rem(10);
+		width: calc(660px * 660 - 100% * 660);
+
+	}
+
+}

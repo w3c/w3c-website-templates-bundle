@@ -1,0 +1,114 @@
+/*------------------------------------*\
+    #Hide and show items inclusively
+
+    See https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
+\*------------------------------------*/
+
+/*
+ * Hide from everybody and remove from the document flow, using the hidden
+ * attribute.
+ *
+ * Use if a component should remain hidden regardless of CSS being
+ * available or not (the style below provides support for legacy browsers).
+ */
+[hidden] {
+
+	display: none !important;
+
+}
+
+/*
+ * Hide from everybody and remove from the document flow, using the %hidden
+ * placeholder (extend the placeholder with Sass to avoid it appearing
+ * repeatedly in your markup).
+ *
+ * Use if a component requires a basic show and hide interaction, and the
+ * content should become available were CSS to fail.
+ */
+%hidden {
+
+	display: none !important;
+
+}
+
+/*
+ * Hide from everybody while maintaining layout, using the %invisible
+ * placeholder (extend the placeholder with Sass to avoid it appearing
+ * repeatedly in your markup).
+ *
+ * Use if a more complex transition is required, like when transitioning an
+ * off-screen navigation into the viewport. Best paired with other CSS
+ * properties that negate its position in the DOM e.g. `position: absolute;`
+ */
+%invisible {
+
+	visibility: hidden;
+
+}
+
+/*
+ * Hide visually only - remains available to Assistive Technology -
+ * using the %visually-hidden placeholder (extend the placeholder with
+ * Sass to avoid it appearing repeatedly in your markup).
+ */
+%visuallyhidden {
+
+	border: 0;
+	clip: rect(0 0 0 0);
+	clip-path: inset(100%);
+	height: 1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+
+}
+
+/*
+ *The :not portions of the following selector allow a means for any
+ * focusable element to become visible when focused/active by a user.
+ */
+.visuallyhidden:not(:focus):not(:active) {
+
+	@extend %visuallyhidden;
+
+}
+
+/*
+ * Make sure that the siblings of hidden components do not cause the hidden
+ * component to take up any vertical space.
+ */
+[hidden] + *,
+.hidden + *,
+.visuallyhidden + * {
+
+	margin-top: 0 !important;
+
+}
+
+br {
+
+	margin-top: 0; // Firefox adds margins to <br> elements
+
+}
+
+/*
+ * Restore an element that has been visually hidden, using the %visually-hidden
+ * placeholder (extend the placeholder with Sass to avoid it appearing
+ * repeatedly in your markup).
+ */
+%visible {
+
+	border: initial;
+	clip: auto;
+	clip-path: none;
+	height: auto;
+	margin: initial;
+	overflow: initial;
+	padding: initial;
+	position: static;
+	white-space: initial;
+	width: auto;
+
+}

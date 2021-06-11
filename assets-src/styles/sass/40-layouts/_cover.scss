@@ -1,0 +1,48 @@
+/*------------------------------------*\
+    #Cover layout primitive
+
+    From https://absolutely.every-layout.dev/layouts/cover/
+
+    `.l-cover` uses Flexbox to vertically center a principal item
+    of content. It is given a min-height value to achieve this
+    which could be 100vh, or less.
+
+    Horizontal centering of content can be achieved using the `.l-center`
+    layout within `.l-cover`, or with the `.u-center` utility found in
+    /90-utilities/layout
+
+    The size variable provides optional padding to the container
+    (currently 1rem). Sizes are defined in /10-settings/sizes
+\*------------------------------------*/
+
+.l-cover {
+	display: flex;
+	flex-direction: column;
+	min-height: 30vh;
+	padding: 1rem;
+}
+
+
+.l-cover > * {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+
+.l-cover > .principal {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+
+/**
+These styles space out an optional header/footer area without
+disturbing the vertically centered element.
+ */
+.l-cover > :first-child:not(.principal) {
+	margin-top: 0;
+}
+
+.l-cover > :last-child:not(.principal) {
+	margin-bottom: 0;
+}

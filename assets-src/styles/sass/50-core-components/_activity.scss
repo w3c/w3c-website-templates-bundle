@@ -1,0 +1,47 @@
+/*------------------------------------*\
+    #Actitivy
+\*------------------------------------*/
+
+.component--activity {
+
+	background-color: $mist-gray;
+	padding-bottom: rem(50);
+	padding-top: rem(50);
+
+}
+
+.component--activity .component--columns--images {
+
+	// Specify flex item behaviour if exactly 4 items
+	li:nth-last-child(n+4):nth-last-child(-n+4):first-child,
+	li:nth-last-child(n+4):nth-last-child(-n+4):first-child ~ li {
+
+		@include mq($bp-tab-large) {
+
+			flex-basis: 25%;
+
+		}
+
+	}
+
+}
+
+.component--activity .card {
+
+	background-color: $white;
+	border-radius: rem(4);
+	overflow: hidden;
+
+}
+
+.component--activity .card__text {
+
+	padding: rem(20);
+
+}
+
+.component--activity .card__image img {
+
+	border-radius: 0;
+
+}

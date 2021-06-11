@@ -1,0 +1,1056 @@
+/*------------------------------------*\
+    #Forms
+\*------------------------------------*/
+
+
+/**
+Start of resets for the fieldset element
+https://thatemil.com/blog/2015/01/03/reset-your-fieldset/
+ */
+fieldset {
+
+	// If you want a border etc., apply this to a wrapping container for the fieldset
+
+	border: 0;
+	margin: 0;
+	min-width: 0;
+	padding: 0.01em 0 0 0;
+
+}
+
+body:not(:-moz-handler-blocked) fieldset {
+
+	display: table-cell; // Deal with fieldset width in Firefox
+
+}
+/**
+End of resets for the fieldset element
+ */
+
+
+fieldset + fieldset {
+
+	margin-top: 2.5rem;
+
+}
+
+form > * + *,
+fieldset > * + * {
+
+	margin-top: 1.75rem;
+
+}
+
+/**
+Group inputs to line up side-by-side
+ */
+.input-group {
+
+	display: flex;
+
+}
+
+.input-group > * + * {
+
+	margin-left: rem(30);
+
+}
+
+[dir="rtl"] {
+
+	.input-group > * + * {
+
+		margin-left: 0;
+		margin-right: rem(30);
+
+	}
+
+}
+
+.field-legend {
+
+	@include txt-saturn;
+
+	font-weight: bold;
+
+}
+
+.field {
+
+	max-width: rem($text-measure);
+
+}
+
+label,
+.field-label,
+.field-hint,
+.field-error-msg,
+.faux-label {
+
+	display: block;
+
+}
+
+.field-label,
+.faux-label {
+
+	margin-bottom: 0.25rem;
+
+}
+
+.field-label,
+.group-legend {
+
+	font-weight: bold;
+
+	+ .field-hint {
+
+		margin-top: 0.25rem;
+
+	}
+
+}
+
+.field-hint {
+
+	@include txt-pluto;
+
+	color: $storm-gray;
+	margin-bottom: 0.25rem;
+	max-width: rem($text-measure);
+
+
+}
+
+.required {
+
+	color: $storm-gray;
+	font-weight: normal;
+
+}
+
+textarea,
+[type=date],
+[type=email],
+[type=file],
+[type=number],
+[type=password],
+[type=search],
+[type=tel],
+[type=text],
+[type=time],
+[type=url] {
+
+	appearance: none;
+	-webkit-appearance: none;
+	border: 2px solid;
+	border-radius: 0;
+	line-height: 1.25;
+	padding: rem(5);
+	width: 100%;
+
+	&:focus {
+
+		box-shadow: inset 0 0 0 2px;
+		outline: solid 3px $focus-color;
+		outline-offset: 0;
+
+	}
+
+}
+
+select,
+[type=date],
+[type=email],
+[type=number],
+[type=password],
+[type=search],
+[type=tel],
+[type=text],
+[type=time],
+[type=url] {
+
+	height: rem(47); // Matches button height
+
+}
+
+[type="file"] {
+
+	border-color: transparent;
+
+	&:focus {
+
+		border-color: currentColor;
+		box-shadow: inset 0 0 0 4px;
+		margin-left: rem(-5);
+		margin-right: rem(-5);
+		outline: 3px solid $focus-color;
+		padding-left: rem(5);
+		padding-right: rem(5);
+
+	}
+
+}
+
+
+/**
+Search
+ */
+[type="search"]::-webkit-search-decoration,
+[type="search"]::-webkit-search-cancel-button {
+
+	appearance: none;
+
+}
+
+
+/**
+Select
+ */
+select {
+
+	background-color: transparent;
+	border: 2px solid;
+	border-radius: 0;
+	line-height: 1.25;
+	padding: rem(5);
+	width: 100%;
+
+	&:focus {
+
+		box-shadow: inset 0 0 0 2px;
+		outline: solid 3px $focus-color;
+		outline-offset: 0;
+
+	}
+
+}
+
+/**
+Select with custom arrow icon
+ */
+@supports (padding-inline-start: 1em) {
+
+	select {
+
+		appearance: none;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath d='M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z'/%3E%3C/svg%3E");
+		background-position: center right 0.5em;
+		background-repeat: no-repeat;
+		background-size: 1em;
+		padding-inline-end: rem(34);
+
+	}
+
+	[dir="rtl"] select {
+
+		background-position: center left 0.5em;
+
+	}
+
+}
+
+
+/**
+Textarea
+ */
+textarea {
+
+	height: 10em;
+	resize: vertical;
+
+}
+
+
+/**
+Memorable dates (e.g. date of birth)
+ */
+.memorable-date {
+
+	display: inline-block;
+	margin-top: 0;
+
+}
+
+.memorable-date + .memorable-date {
+
+	margin-left: 1rem;
+
+}
+
+[dir="rtl"] {
+
+	.memorable-date + .memorable-date {
+
+		margin-left: auto;
+		margin-right: 1rem;
+
+	}
+
+}
+
+
+/**
+Radio/checkbox inputs
+ */
+.radio-item,
+.checkbox-item {
+
+	clear: left;
+	float: left;
+	margin-top: 0.25rem;
+	padding-left: rem(34);
+	position: relative;
+
+	&::after {
+
+		clear: both;
+		content: '';
+		display: block;
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.radio-item,
+	.checkbox-item {
+
+		clear: right;
+		float: right;
+		padding-left: 0;
+		padding-right: rem(34);
+
+	}
+
+}
+
+.radio-item input,
+.checkbox-item input {
+
+	cursor: pointer;
+	height: rem(44);
+	left: rem(-10);
+	margin: 0;
+	opacity: 0;
+	position: absolute;
+	top: rem(-2);
+	width: rem(44);
+	z-index: 1;
+
+}
+
+[dir="rtl"] {
+
+	.radio-item input,
+	.checkbox-item input {
+
+		left: auto;
+		right: rem(-10);
+
+	}
+
+}
+
+.radio-item label,
+.checkbox-item label {
+
+	cursor: pointer;
+	display: inline-block;
+	margin-bottom: 0;
+	margin-top: rem(-2);
+	padding: rem(11) rem(15) rem(10) rem(1);
+	touch-action: manipulation;
+
+	&::before,
+	&::after {
+
+		content: '';
+		position: absolute;
+
+	}
+
+	&::before {
+
+		background: transparent;
+		border: 2px solid;
+		height: rem(24);
+		left: 0;
+		top: rem(8);
+		width: rem(24);
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.radio-item label,
+	.checkbox-item label {
+
+		padding: rem(11) rem(1) rem(10) rem(15);
+
+		&::before {
+
+			left: auto;
+			right: 0;
+
+		}
+
+	}
+
+}
+
+.radio-item label {
+
+	&::before,
+	&::after {
+
+		border-radius: 50%;
+
+	}
+
+	&::after {
+
+		background: currentColor;
+		border: 5px solid;
+		height: 0;
+		left: rem(7);
+		opacity: 0;
+		top: rem(15);
+		width: 0;
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.radio-item label::after {
+
+		left: auto;
+		right: rem(7);
+
+	}
+
+}
+
+.checkbox-item label {
+
+	&::after {
+
+		background: transparent;
+		border: solid;
+		border-top-color: transparent;
+		border-width: 0 0 3px 3px;
+		height: rem(6.5);
+		left: rem(6);
+		opacity: 0;
+		top: rem(15);
+		transform: rotate(-45deg);
+		width: rem(12);
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.checkbox-item label::after {
+
+		auto: rem(6);
+		right: rem(6);
+
+	}
+
+}
+
+// Radio/checkbox input with hover
+.radio-item:hover input:not(:disabled) + label,
+.checkbox-item:hover input:not(:disabled) + label {
+
+	&::before {
+
+		box-shadow: 0 0 0 4px $blue;
+
+	}
+
+}
+
+// Radio/checkbox input with focus
+.radio-item input:focus + label,
+.checkbox-item input:focus + label {
+
+	&::before {
+
+		border-width: 4px;
+		box-shadow: 0 0 0 4px $focus-color;
+
+	}
+
+}
+
+// Radio/checkbox input with focus and hover
+.radio-item:hover input:focus + label,
+.checkbox-item:hover input:focus + label {
+
+	&::before {
+
+		box-shadow: 0 0 0 4px $focus-color;
+
+	}
+
+}
+
+// Radio/checkbox input checked
+.radio-item input:checked + label,
+.checkbox-item input:checked + label {
+
+	&::after {
+
+		opacity: 1;
+
+	}
+
+}
+
+// Radio/checkbox input disabled
+[type="radio"]:disabled,
+[type="radio"]:disabled + label
+[type="checkbox"]:disabled,
+[type="checkbox"]:disabled + label {
+
+	cursor: default
+
+}
+
+[type="radio"]:disabled + label,
+[type="checkbox"]:disabled + label {
+
+	opacity: .5;
+
+}
+
+
+/**
+Segmented options. Can use either radio or checkbox inputs. The purpose is to
+show all available options outright, rather than hide them behind a <select>
+ */
+.segmented-group-wrapper {
+
+	max-width: none;
+
+}
+
+.segmented-group {
+
+	display: flex;
+	flex-flow: row wrap;
+	margin-top: 0;
+
+	> div {
+
+		flex: 1 1 33.333%; // Modify the percentage according to the number of choices and what looks best
+		max-width: 100%;
+		min-width: rem(155); // Prevent the options from becoming too narrow to read
+		position: relative;
+
+	}
+
+	label {
+
+		border: 2px solid;
+		cursor: pointer;
+		display: block;
+		margin: rem(2);
+
+		&:before,
+		&:after {
+
+			content: '';
+			position: absolute;
+
+		}
+
+		&::before {
+
+			background: transparent;
+			height: rem(24);
+			right: rem(10);
+			top: rem(10);
+			width: rem(24);
+
+		}
+
+		&::after {
+
+			background: transparent;
+			border: solid;
+			border-top-color: transparent;
+			border-width: 0 0 3px 3px;
+			height: rem(6.5);
+			right: rem(16);
+			opacity: 0;
+			top: rem(17);
+			transform: rotate(-45deg);
+			width: rem(12);
+
+		}
+
+	}
+
+	input {
+
+		cursor: pointer;
+		height: rem(44);
+		margin: 0;
+		opacity: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: rem(44);
+		z-index: 1;
+
+	}
+
+	.segmented-label {
+
+		@include stack(.5em);
+
+		display: block;
+		padding: rem(10);
+		padding-right: rem(44);
+
+		span {
+
+			display: block;
+
+		}
+
+		span:first-of-type {
+
+			font-weight: bold;
+
+		}
+
+	}
+
+	// Input with hover
+	> div:hover label {
+
+		background-color: $light-blue;
+
+	}
+
+	// Input with focus
+	input:focus + label {
+
+		border-color: $focus-color;
+		box-shadow: inset 0 0 0 4px;
+		outline: solid 2px $focus-color;
+
+	}
+
+	// Input checked
+	input:checked + label {
+
+		&::after {
+
+			opacity: 1;
+
+		}
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.segmented-group {
+
+		label::before {
+
+			left: rem(10);
+			right: auto;
+
+		}
+		label::after {
+
+			left: rem(16);
+			right: auto;
+
+		}
+
+		input {
+
+			left: 0;
+			right: auto;
+
+		}
+
+		.segmented-label {
+
+			padding: rem(10);
+			padding-left: rem(44);
+
+		}
+
+	}
+
+}
+
+
+/**
+Fixed input widths
+ */
+.input-width-30 {
+
+	max-width: 59ex;
+
+}
+
+.input-width-20 {
+
+	max-width: 41ex;
+
+}
+
+.input-width-10 {
+
+	max-width: 23ex;
+
+}
+
+.input-width-7 {
+
+	max-width: 15ex;
+
+}
+
+.input-width-5 {
+
+	max-width: 10.8ex;
+
+}
+
+.input-width-5 {
+
+	max-width: 10.8ex;
+
+}
+
+.input-width-4 {
+
+	max-width: 9ex;
+
+}
+
+.input-width-3 {
+
+	max-width: 7.2ex;
+
+}
+
+.input-width-2 {
+
+	max-width: 5.4ex;
+
+}
+
+/**
+Error styles
+ */
+.error-summary.error-summary {
+
+	@include stack(1rem);
+
+	border-color: $input-error-color;
+	border-width: rem(5);
+
+	a {
+
+		color: $input-error-color;
+		display: inline-block;
+		font-weight: bold;
+		padding-bottom: rem(10);
+		padding-top: rem(10);
+
+		&:hover,
+		&:visited {
+
+			color: $input-error-color;
+
+		}
+
+		&:focus {
+
+			color: $black;
+
+		}
+
+	}
+
+}
+
+.field--error {
+
+	border-left: solid rem(5) $input-error-color;
+	padding-left: rem(15);
+
+	input:not([type="file"]),
+	textarea:not(:focus),
+	.segmented-group label {
+
+		border-color: $input-error-color;
+
+	}
+
+	input:focus,
+	textarea:focus {
+
+		border-color: inherit;
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.field--error {
+
+		border-left: none;
+		border-right: solid rem(5) $input-error-color;
+		padding-left: 0;
+		padding-right: rem(15);
+
+	}
+
+}
+
+.field-error-msg {
+
+	color: $input-error-color;
+	font-weight: bold;
+	margin-top: rem(15);
+
+}
+
+/**
+Progress bar
+ */
+.progress-list {
+
+	margin-bottom: rem(30);
+
+	@include mq($bp-tab-small) {
+
+		display: flex;
+		flex-wrap: wrap;
+
+	}
+
+}
+
+.progress-list li {
+
+	position: relative;
+
+	&::after {
+
+		background-color: $storm-gray;
+		bottom: rem(-16);
+		content:'';
+		height: rem(13);
+		left: rem(19);
+		position: absolute;
+		width: rem(3);
+
+		@include mq($bp-tab-small) {
+
+			bottom: auto;
+			height: rem(3);
+			left: 50%;
+			top: rem(32);
+			width: 100%;
+			z-index: -1;
+
+		}
+
+	}
+
+	+ li {
+
+		margin-top: rem(20);
+
+		@include mq($bp-tab-small) {
+
+			margin-top: 0;
+
+		}
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.progress-list li::after {
+
+		left: auto;
+		right: rem(19);
+
+		@include mq($bp-tab-small) {
+
+			left: auto;
+			right: 50%;
+
+		}
+
+	}
+
+}
+
+.progress-list li.complete {
+
+	&::after {
+
+		background-color: $teal-green;
+
+	}
+
+}
+
+.progress-list li:last-child {
+
+	&::after {
+
+		display: none;
+
+	}
+
+}
+
+.progress-step__inner {
+
+	align-items: center;
+	display: flex;
+
+	@include mq($bp-tab-small) {
+
+		flex-direction: column;
+		padding-top: rem(10);
+		text-align: center;
+
+	}
+
+	> span {
+
+		@include txt-pluto;
+
+		padding: rem(10);
+
+		@include mq($bp-tab-small) {
+
+			width: rem(150);
+
+		}
+
+	}
+
+}
+.progress-step__marker {
+
+	align-items: center;
+	background-color: $white;
+	border: solid 3px $storm-gray;
+	border-radius: 50%;
+	display: flex;
+	height: rem(44);
+	justify-content: center;
+	width: rem(44);
+
+	@include mq($bp-tab-small) {
+
+		box-shadow: 0 0 0 rem(10) $white;
+
+	}
+
+}
+
+.progress-step__marker.complete {
+
+	background-color: $teal-green;
+	border-color: $teal-green;
+	color: $white;
+	position: relative;
+
+	&::before,
+	&::after {
+
+		background-color: $teal-green;
+		content: '';
+		position: absolute;
+
+	}
+
+	&::before {
+
+		border-radius: 50%;
+		height: rem(38);
+		left: 0;
+		top: 0;
+		width: rem(38);
+
+	}
+
+	&::after {
+
+		border: solid;
+		border-top-color: transparent;
+		border-width: 0 0 3px 3px;
+		height: rem(9);
+		left: rem(10);
+		top: rem(13);
+		transform: rotate(-45deg);
+		width: rem(18);
+
+	}
+
+}
+
+.progress-list a {
+
+	color: $storm-gray;
+	text-decoration-skip-ink: auto; // Not supported by Safari
+	text-underline-offset: 0.25em; // Supported by Safari
+
+	&:visited {
+
+		color: $link-color--visited;
+
+	}
+
+	&:hover {
+
+		color: $link-color--hover;
+
+	}
+
+	&:focus {
+
+		box-shadow: 0 0 0 2px;
+		color: $black;
+		outline: solid 3px $focus-color;
+		outline-offset: 2px;
+		text-decoration: none;
+
+	}
+
+	&:active {
+
+		color: $black;
+
+	}
+
+}

@@ -1,0 +1,113 @@
+/*------------------------------------*\
+    #Global header core
+\*------------------------------------*/
+
+.no-js {
+
+	[data-trigger="account-menu"],
+	.account-menu {
+
+		display: none;
+
+	}
+
+}
+
+.global-header {
+
+	background-color: $white;
+
+}
+
+.global-header .banner {
+
+	background-color: $light-blue;
+	padding-bottom: rem(10);
+	padding-top: rem(10);
+
+}
+
+.global-header .banner__inner {
+
+	align-items: center;
+	display: flex;
+
+	.icon--beta {
+
+		flex: none;
+		width: rem(61);
+
+	}
+
+	p {
+
+		@include txt-eris;
+
+	}
+
+	a {
+
+		color: $deep-blue;
+
+		&:focus {
+
+			color: $black;
+
+		}
+
+	}
+
+}
+
+.banner__inner p {
+
+	margin-left: rem(10);
+
+}
+
+[dir="rtl"] {
+
+	.banner__inner p {
+
+		margin-left: 0;
+		margin-right: rem(10);
+
+	}
+
+}
+
+#lang-nav {
+
+	background-color: $mist-gray;
+
+	.l-cluster > * {
+
+		justify-content: flex-end;
+		margin: 0 rem(-10);
+
+	}
+
+	.l-cluster.l-cluster > * > * {
+
+		margin: 0 rem(10);
+
+	}
+
+	a {
+
+		@include txt-eris;
+
+		color: $off-black;
+		display: block;
+		padding-bottom: rem(12);
+		padding-top: rem(12);
+
+	}
+
+}
+
+.global-header [role="status"] {
+
+	@extend %visuallyhidden;
+
+}

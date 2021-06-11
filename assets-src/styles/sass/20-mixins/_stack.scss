@@ -1,0 +1,36 @@
+/*------------------------------------*\
+    #Stack
+\*------------------------------------*/
+
+/**
+This mixin allows us to add vertical spacing between a container's direct children,
+much like the 'axiomatic owl' technique but limited to specific use cases.
+
+By applying Flexbox to the parent container, we can use auto margin on a specific
+child element. This way, we can choose to group elements inside the stack to the
+top/bottom of the vertical space, which is useful for card-like components.
+
+Use with a specific measure, or without for the default measure, e.g.
+
+main {
+	@include stack(4rem);
+}
+
+article {
+	@include stack;
+}
+ */
+
+@mixin stack($measure: 1em) {
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+
+	& > * + * {
+
+		margin-top: $measure;
+
+	}
+
+}

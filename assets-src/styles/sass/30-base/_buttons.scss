@@ -1,0 +1,227 @@
+/*------------------------------------*\
+    #Buttons
+
+    1. High contrast themes tend to eliminate background-color.
+    With no border set, we need to apply a transparent outline to
+    maintain the button shape. The negative outline-offset moves
+    the outline inside the perimeter so it behaves like a border.
+\*------------------------------------*/
+
+button,
+.button {
+
+	background-color: $link-color;
+	border: solid 2px $link-color;
+	border-radius: rem(24);
+	color: $white;
+	font-size: rem(14);
+	font-weight: $emphasis;
+	line-height: 1.5;
+	outline: 2px solid transparent; /* 1 */
+	outline-offset: -2px; /* 1 */
+	padding: rem(11) rem(24);
+
+	&:hover {
+
+		background-color: $link-color--hover;
+		border-color: $link-color--hover;
+
+	}
+
+	&:focus,
+	&:active {
+
+		color: $black;
+		background-color: $focus-color;
+		border-color: $black;
+
+	}
+
+}
+
+button:not([type="submit"]) {
+
+	text-align: start;
+
+}
+
+
+/**
+Remove link styling from links styled as buttons.
+ */
+.button {
+
+	text-decoration: none;
+
+}
+
+
+/**
+Remove link styling from actual buttons styled as buttons.
+ */
+button.button,
+input[type="submit"].button {
+
+	text-decoration: none;
+
+}
+
+
+// Full-width buttons
+.button--wide {
+
+	text-align: center;
+	width: 100%;
+
+}
+
+
+// For buttons with a visible border
+.button--alt {
+
+	background-color: transparent;
+	color: $link-color;
+
+	&:hover {
+
+		background-color: $light-blue;
+		color: $link-color--hover;
+
+	}
+
+	&:focus,
+	&:active {
+
+		background-color: $focus-color;
+		border-width: 3px;
+		color: $black;
+		padding: rem(10) rem(23);
+
+	}
+
+}
+
+
+// For buttons with no visible background or border
+.button--ghost {
+
+	background-color: transparent;
+	border-color: transparent;
+	border-radius: 0;
+	color: $black;
+	font-weight: normal;
+	padding-left: 0;
+	padding-right: 0;
+
+	&:hover {
+
+		background-color: transparent;
+		border-color: transparent;
+
+	}
+
+	&:focus {
+
+		background-color: transparent;
+		border-color: transparent;
+		color: $black;
+
+	}
+
+}
+
+
+// Disabled buttons
+.button[disabled],
+.button.js-disabled {
+
+	background-color: $twiki-gray;
+	border-color: $twiki-gray;
+	box-shadow: none;
+	color: #303030;
+	cursor: not-allowed;
+
+	&:hover,
+	&:focus,
+	&:active {
+
+		background-color: $twiki-gray;
+		color: #303030;
+		outline: 0;
+
+	}
+
+}
+
+
+/**
+Double specificity so links as buttons keep their styling even within
+elements that would otherwise override it, without using !important
+ */
+.button--alert.button--alert {
+
+	background-color: $alert-color;
+	color: $black;
+
+	&:visited {
+
+		background-color: $alert-color;
+		color: $black;
+
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+
+		background-color: lighten($alert-color, 10%);
+
+	}
+
+}
+
+
+.button--success.button--success {
+
+	background-color: $success-color;
+	color: $black;
+
+	&:visited {
+
+		background-color: $success-color;
+		color: $black;
+
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+
+		background-color: lighten($success-color, 10%);
+
+	}
+
+}
+
+
+.button--warning.button--warning {
+
+	background-color: $warning-color;
+	color: $black;
+
+	&:visited {
+
+		background-color: $warning-color;
+		color: $black;
+
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+
+		background-color: lighten($warning-color, 10%);
+
+	}
+
+}

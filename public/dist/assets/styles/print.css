@@ -1,0 +1,560 @@
+/*------------------------------------*\
+    #Apollo: print styles
+\*------------------------------------*/
+/*------------------------------------*\
+    #Settings
+\*------------------------------------*/
+/*------------------------------------*\
+    #Fonts
+\*------------------------------------*/
+@font-face {
+  font-display: fallback;
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/notosans/notosans-regular.woff2") format("woff2"), url("../fonts/notosans/notosans-regular.woff") format("woff"); }
+
+@font-face {
+  font-display: fallback;
+  font-family: 'Noto Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: url("../fonts/notosans/notosans-italic.woff2") format("woff2"), url("../fonts/notosans/notosans-italic.woff") format("woff"); }
+
+@font-face {
+  font-display: fallback;
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/notosans/notosans-bold.woff2") format("woff2"), url("../fonts/notosans/notosans-bold.woff") format("woff"); }
+
+@font-face {
+  font-display: fallback;
+  font-family: 'Noto Sans';
+  font-style: italic;
+  font-weight: 600;
+  src: url("../fonts/notosans/notosans-bolditalic.woff2") format("woff2"), url("../fonts/notosans/notosans-bolditalic.woff") format("woff"); }
+
+/*------------------------------------*\
+    #Typesetting
+\*------------------------------------*/
+/**
+Use https://www.cssfontstack.com/ and https://meowni.ca/font-style-matcher/ to pick
+system fonts that are reasonably close to any web fonts needed for the project.
+
+This improves performance, avoids Flash Of Invisible Text (FOIT) and minimises
+Flash of Unstyled Content (FOUC) - see https://helenvholmes.com/writing/type-is-your-right/
+
+Be sure to include fonts for both Mac OS and Windows. Use quote marks around
+fonts with white space in their name.
+
+When Font Face Observer has detected that the @font-face files are loaded, then we
+can safely use the web fonts instead of the system fonts.
+ */
+/*------------------------------------*\
+    #Mixins
+\*------------------------------------*/
+/*------------------------------------*\
+    #Stack
+\*------------------------------------*/
+/**
+This mixin allows us to add vertical spacing between a container's direct children,
+much like the 'axiomatic owl' technique but limited to specific use cases.
+
+By applying Flexbox to the parent container, we can use auto margin on a specific
+child element. This way, we can choose to group elements inside the stack to the
+top/bottom of the vertical space, which is useful for card-like components.
+
+Use with a specific measure, or without for the default measure, e.g.
+
+main {
+	@include stack(4rem);
+}
+
+article {
+	@include stack;
+}
+ */
+/*------------------------------------*\
+    #Base
+\*------------------------------------*/
+/**
+* Print stylesheet
+* @version         1.0
+* @lastmodified    16.06.2016
+
+We aim to:
+- Hide everything that is irrelevant for print
+- Make everything black and white and easy to read
+
+It is perfectly acceptable to use !important for print
+styles as they should override everything else.
+
+IMPORTANT: Anything that uses flexbox or grid on screen
+and which needs to display correctly in print must be
+refactored to use block or inline block layout. This can
+be checked using the print preview in Chrome/Firefox:
+
+https://css-tricks.com/can-you-view-print-stylesheets-applied-directly-in-the-browser/
+*/
+@page {
+  /*
+	Use PA4 (L4) transitional paper size, with a 2cm margin:
+	https://en.wikipedia.org/wiki/Paper_size#Transitional_paper_sizes
+	*/
+  margin: 2cm;
+  size: 21cm 28cm; }
+
+*,
+*:before,
+*:after,
+blockquote:first-line,
+li:first-line,
+p:first-line {
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #000 !important;
+  overflow: visible !important;
+  position: static;
+  text-shadow: none !important; }
+
+body {
+  font: 12pt "Noto Sans", "Trebuchet MS", Geneva, sans-serif;
+  line-height: 1.3; }
+
+body,
+img {
+  display: block !important; }
+
+img {
+  height: auto !important;
+  width: 100% !important; }
+
+code,
+pre {
+  font-family: Monaco, "Lucida Console", "Courier New", monospace; }
+
+a,
+blockquote,
+figure,
+h1, h2, h3, h4, h5, h6,
+img,
+li,
+pre,
+table {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  -webkit-column-break-inside: avoid; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin: 0; }
+
+h1 {
+  font-size: 24pt;
+  margin-top: 36pt; }
+
+h2 {
+  font-size: 20pt;
+  margin-top: 30pt; }
+
+h3 {
+  font-size: 18pt;
+  margin-top: 27pt; }
+
+h4 {
+  font-size: 16pt;
+  margin-top: 24pt; }
+
+h5 {
+  font-size: 15pt;
+  margin-top: 22pt; }
+
+h6 {
+  font-size: 14pt;
+  margin-top: 21pt; }
+
+h1, h2, h3, h4, h5, h6,
+img {
+  page-break-after: avoid; }
+
+dl,
+ol,
+ul {
+  page-break-before: avoid; }
+
+ul:not([class]) > * + *,
+ul:not([class]) li ul,
+ul:not([class]) li ol,
+ol:not([class]) > * + *,
+ol:not([class]) li ul,
+ol:not([class]) li ol,
+.clean-list > * + *,
+.clean-list li ul,
+.clean-list li ol {
+  margin-top: 8pt; }
+
+.clean-list {
+  padding: 0; }
+
+ol:not([class]) {
+  counter-reset: count;
+  list-style-type: none;
+  -webkit-padding-start: 15pt;
+          padding-inline-start: 15pt; }
+  ol:not([class]) > li {
+    counter-increment: count; }
+    ol:not([class]) > li::before {
+      content: counters(count, ".") " ";
+      -webkit-padding-end: 6pt;
+              padding-inline-end: 6pt; }
+
+a:link, a:visited, a {
+  text-decoration: underline;
+  text-decoration-skip-ink: auto; }
+
+.logo {
+  display: block;
+  width: 2cm; }
+
+main a[href]::after,
+footer a[href]::after {
+  content: " <" attr(href) "> "; }
+
+abbr[title]::after {
+  content: " (" attr(title) ")"; }
+
+table {
+  border-collapse: collapse;
+  width: 100%; }
+
+table,
+th,
+td {
+  border: 1px solid; }
+
+th,
+td,
+table caption {
+  padding: 9pt;
+  text-align: start; }
+
+table caption {
+  font-size: 14pt;
+  font-weight: 600;
+  padding-left: 0;
+  padding-right: 0; }
+
+blockquote,
+figure {
+  margin-left: 0;
+  margin-right: 0; }
+
+.l-frame {
+  padding: 0 !important; }
+
+.l-sidebar > div {
+  display: block !important; }
+
+.l-cluster > * > * {
+  display: inline-block;
+  padding: 3pt; }
+
+.home .hero,
+.landing .hero {
+  margin-top: 36pt;
+  min-height: 6cm;
+  padding-right: 6cm;
+  position: relative; }
+  .home .hero h1,
+  .landing .hero h1 {
+    margin-top: 0; }
+  .home .hero .sidebar,
+  .landing .hero .sidebar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 6cm; }
+
+[dir="rtl"] .hero {
+  padding-left: 6cm;
+  padding-right: 0; }
+  [dir="rtl"] .hero .sidebar {
+    left: 0;
+    right: auto; }
+
+.card--event .icon {
+  display: none !important; }
+
+.component + .component {
+  margin-top: 42pt; }
+
+.component--fifty-fifty {
+  min-height: 6cm;
+  padding-right: 6cm;
+  position: relative; }
+  .component--fifty-fifty .l-frame {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 6cm; }
+  .component--fifty-fifty a {
+    display: block; }
+
+[dir="rtl"] .component--fifty-fifty {
+  padding-left: 6cm;
+  padding-right: 0; }
+  [dir="rtl"] .component--fifty-fifty .l-frame {
+    left: 0;
+    right: auto; }
+
+.component--image,
+.component--quote {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative !important;
+  width: 70%; }
+
+.component--quote {
+  -webkit-border-start: solid 4pt;
+          border-inline-start: solid 4pt;
+  -webkit-padding-start: 8pt;
+          padding-inline-start: 8pt; }
+  .component--quote blockquote {
+    font-size: 14pt;
+    font-weight: 600; }
+
+.component--collapsibles button {
+  border: 0;
+  display: block !important;
+  text-align: left; }
+
+.component--collapsibles button > span {
+  display: block; }
+
+.component--collapsibles [aria-hidden] {
+  display: block !important; }
+
+.component--collapsibles .icon {
+  display: none !important; }
+
+.component--collapsibles a {
+  display: block;
+  margin: -18pt 0 18pt;
+  visibility: hidden; }
+
+.component--collapsibles a[href]::after {
+  content: " <" attr(href) "> ";
+  display: block;
+  font-size: 12pt;
+  visibility: visible; }
+
+[dir="rtl"] .component--collapsibles button {
+  text-align: right; }
+
+.component--columns ul {
+  padding: 0; }
+
+.component--columns li {
+  display: block; }
+
+.component--columns--icons .card {
+  padding-top: 1.5cm;
+  position: relative; }
+
+.component--columns--icons .card__heading {
+  margin-top: 0; }
+
+.component--columns--icons .icon {
+  height: 1cm;
+  position: absolute;
+  top: 0;
+  width: 1cm; }
+
+.component--columns--images .card {
+  min-height: 5cm;
+  padding-right: 6cm;
+  position: relative; }
+
+.component--columns--images .card__image {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 6cm; }
+
+[dir="rtl"] .component--columns--images .card {
+  padding-left: 6cm;
+  padding-right: 0; }
+
+[dir="rtl"] .component--columns--images .card__image {
+  left: 0;
+  right: auto; }
+
+.component--columns--icons a:not(.card__link),
+.component--columns--images a:not(.card__link) {
+  display: block;
+  margin: -18pt 0 18pt;
+  visibility: hidden; }
+
+.component--columns--icons a[href]::after,
+.component--columns--images a[href]::after {
+  content: " <" attr(href) "> ";
+  display: block;
+  font-size: 12pt;
+  visibility: visible; }
+
+.component--slider .clean-list {
+  display: block !important; }
+  .component--slider .clean-list li {
+    visibility: visible !important; }
+  .component--slider .clean-list li[style] {
+    left: 0 !important; }
+  .component--slider .clean-list li + li {
+    margin-top: 8pt; }
+
+.component--slider .slide__logo {
+  width: 3cm; }
+
+.component--slider .slider-controls {
+  display: none !important; }
+
+.component--members__grid > div {
+  display: inline-block;
+  width: 3cm; }
+
+.component--members__cta a {
+  display: block; }
+
+.avatar {
+  border-radius: 50%;
+  height: 75pt;
+  overflow: hidden !important;
+  position: relative;
+  width: 75pt; }
+  .avatar img {
+    margin-top: -8pt;
+    width: 100%; }
+
+.meta dt {
+  font-weight: bold; }
+
+.meta dd {
+  margin-left: 0;
+  margin-right: 0; }
+
+.meta dd + dt {
+  margin-top: 8pt; }
+
+.post .meta .with-icon--before {
+  line-height: 1.25cm;
+  padding-left: 1.5cm;
+  position: relative; }
+  .post .meta .with-icon--before .icon,
+  .post .meta .with-icon--before .avatar {
+    height: 1.25cm !important;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 1.25cm !important; }
+
+[dir="rtl"] .post .meta .with-icon--before {
+  padding-left: 0;
+  padding-right: 1.5cm; }
+  [dir="rtl"] .post .meta .with-icon--before .icon,
+  [dir="rtl"] .post .meta .with-icon--before .avatar {
+    left: auto;
+    right: 0; }
+
+.component--evangelists__list li {
+  display: block; }
+
+.component--evangelists__list .sidebar {
+  width: 3cm; }
+
+.component--evangelists__list a[href^=mailto]::after,
+.component--evangelists__list a[href^=tel]::after,
+.people-list a[href^=mailto]::after,
+.people-list a[href^=tel]::after {
+  display: none; }
+
+.people-list > li + li {
+  margin-top: 30pt; }
+
+.people-list .l-cluster > * > * {
+  display: block; }
+
+.people-list > li > div:not(.alumni) {
+  padding-top: 75pt;
+  position: relative; }
+  .people-list > li > div:not(.alumni) h2, .people-list > li > div:not(.alumni) h3 {
+    margin-top: 12pt; }
+  .people-list > li > div:not(.alumni) > .sidebar {
+    position: absolute;
+    top: 0; }
+
+.people-list .sidebar {
+  width: 75pt; }
+
+.event-list .card__image {
+  width: 120pt; }
+
+.group-list a[href]::after {
+  display: block; }
+
+.member-list .logo--member {
+  display: none; }
+
+.post-list > li > div {
+  min-height: 5cm;
+  padding-right: 6cm;
+  position: relative; }
+  .post-list > li > div .l-frame {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 6cm; }
+    .post-list > li > div .l-frame::after {
+      display: none !important; }
+
+[dir="rtl"] .post-list > li > div {
+  padding-right: 0;
+  padding-left: 6cm; }
+  [dir="rtl"] .post-list > li > div .l-frame {
+    left: 0;
+    right: auto; }
+
+footer {
+  margin-top: 36pt; }
+
+.skip-link,
+.skip-to-comments,
+.skip-to-comment-form,
+#cookie-banner,
+[role="status"],
+.banner,
+#lang-nav,
+.logo-link .visuallyhidden,
+[data-trigger],
+[data-toggle],
+#global-nav ul,
+#breadcrumb,
+.translations,
+.toc,
+.component--video,
+.calendar-link,
+.listing .lead,
+.listing .filters,
+.listing form,
+.date-location img,
+.card--group dl,
+.card--group .l-cluster,
+.people-list .icon,
+.post-list .icon,
+.post-list .tag,
+.post .rss .icon,
+.comments,
+.pre-footer,
+.pagination,
+.crosslinks,
+.global-footer__links {
+  display: none !important; }

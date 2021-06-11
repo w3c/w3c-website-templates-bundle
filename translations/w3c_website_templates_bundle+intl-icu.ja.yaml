@@ -1,0 +1,25 @@
+page:
+    lang:
+        dir: ltr
+    default_title: __page.default_title
+    default_description: >-
+        __page.default_description
+    skip_to_content: __page.skip_to_content
+footer:
+    copyright: >-
+        __footer.copyright {date, date, ::y}
+    links:
+        home: __footer.links.home
+        contact: __footer.links.contact
+        help: __footer.links.help
+        sponsor_donate: __footer.links.sponsor_donate
+        privacy_policy: __footer.links.privacy_policy
+        legal: __footer.links.legal
+        system_status: __footer.links.system_status
+        twitter: __footer.links.twitter
+        github: __footer.links.github
+banner:
+    beta:
+        text: >-
+            __banner.beta.text
+        icon: __banner.beta.icon

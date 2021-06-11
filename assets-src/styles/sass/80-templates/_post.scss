@@ -1,0 +1,276 @@
+/*------------------------------------*\
+    #Post template
+\*------------------------------------*/
+
+.post .content,
+.post .rss {
+
+	max-width: rem(752);
+
+}
+
+@supports(grid-column-gap: 8%) {
+
+	.post .content {
+
+		max-width: none;
+
+		@include mq($bp-tab-large) {
+
+			display: grid;
+			grid-column-gap: 7.857%;
+			grid-template-columns: 67.143% 25%;
+			grid-template-areas: "article related";
+
+		}
+
+	}
+
+	.post .content article {
+
+		@include mq($bp-tab-large) {
+
+			grid-area: article;
+
+		}
+
+	}
+
+	.post .content .related {
+
+		@include mq($bp-tab-large) {
+
+			grid-area: related;
+
+		}
+
+	}
+
+}
+
+.post .related {
+
+	margin-top: rem(40);
+
+}
+
+@supports(grid-column-gap: 8%) {
+
+	.post .content .related {
+
+		@include mq($bp-tab-large) {
+
+			margin-top: 0;
+
+		}
+
+	}
+
+}
+
+.post .related__inner {
+
+	background-color: $mist-gray;
+	padding: rem(28) rem(20);
+
+	h2 {
+
+		font-size: rem(19);
+		line-height: calc(33 / 17);
+
+	}
+
+	h3 {
+
+		font-size: 1rem;
+		line-height: calc(32 / 24);
+
+	}
+
+	a {
+
+		color: $storm-gray;
+
+		&:focus {
+
+			color: $black;
+
+		}
+
+	}
+
+}
+
+.post .related__inner > div {
+
+	margin-top: rem(18);
+
+	+ div {
+
+		border-top: solid 1px $border-color;
+		margin-top: rem(24);
+		padding-top: rem(15);
+
+	}
+
+}
+
+.post .related__inner ul {
+
+	margin-top: rem(6);
+
+}
+
+.post .related__inner li {
+
+	@include txt-pluto;
+
+	+ li {
+
+		margin-top: rem(22);
+
+	}
+
+}
+
+.post {
+
+	.sub-head {
+
+		@include txt-pluto;
+
+		margin-bottom: rem(30);
+		margin-top: rem(-20);
+
+	}
+
+	.meta {
+
+		position: relative;
+
+	}
+
+	.meta dl {
+
+		dd:first-of-type {
+
+			@include mq($bp-tab-small) {
+
+				padding-right: rem(150);
+
+			}
+
+		}
+
+		dd, dt {
+
+			margin: 0;
+			padding-bottom: rem(5);
+			padding-top: rem(5);
+
+		}
+
+		dt {
+
+			float: left;
+			font-weight: normal;
+			margin-right: 1em;
+
+		}
+
+	}
+
+	.skip-to-comments,
+	.skip-to-comment-form {
+
+		color: $storm-gray;
+		display: inline-block;
+		padding-bottom: rem(11);
+		padding-top: rem(11);
+		text-decoration: underline; /* 1 */
+		text-decoration-skip-ink: auto; // Not supported by Safari
+		text-underline-offset: 0.25em; // Supported by Safari
+
+		&:visited {
+
+			color: $storm-gray;
+
+		}
+
+		&:focus {
+
+			background-color: $focus-color;
+			background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
+			color: $black;
+			text-decoration: none;
+
+		}
+
+	}
+
+	.skip-to-comments {
+
+		@include mq($bp-tab-small) {
+
+			position: absolute;
+			right: 0;
+			top: rem(19);
+
+		}
+
+	}
+
+	.rss {
+
+		border-top: solid 1px $border-color;
+		padding-top:rem(40);
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.post .meta dl {
+
+		dd:first-of-type {
+
+			@include mq($bp-tab-small) {
+
+				padding-left: rem(150);
+				padding-right: 0;
+
+			}
+
+		}
+
+		dt {
+
+			float: right;
+			margin-left: 1em;
+			margin-right: 0;
+
+		}
+
+	}
+
+	.post .skip-to-comments {
+
+		@include mq($bp-tab-small) {
+
+			left: 0;
+			right: auto;
+
+		}
+
+	}
+
+}
+
+.post__notes {
+
+	border-top: solid 1px $border-color;
+	margin-top: rem(60);
+	padding-top: rem(20);
+
+}

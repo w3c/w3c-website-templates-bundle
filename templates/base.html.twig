@@ -1,30 +1,144 @@
 <!doctype html>
-<html lang="{{ app.request.locale }}">
+<html dir="{% block lang_dir %}{{ 'page.lang.dir'|trans({}, 'w3c_website_templates_bundle') }}{% endblock %}"
+      lang="{% block lang %}{{ app.request.locale }}{% endblock %}" class="no-js">
+
 <head>
     <meta charset="utf-8"/>
-    <title>{% block title %}World Wide Web Consortium (W3C){% endblock %}</title>
-    <meta name="description" content="{{ 'w3c.description'|trans({}, 'w3c_website_templates_bundle') }}"/>
-    {% block stylesheets %}
-        <style>
-            .example-wrapper {
-                margin: 1em auto;
-                max-width: 800px;
-                width: 95%;
-                font: 18px/1.5 sans-serif;
-            }
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-            .example-wrapper code {
-                background: #F5F5F5;
-                padding: 2px 6px;
-            }
-        </style>
-    {% endblock %}
-    {% block javascripts %}{% endblock %}
+    <title>{% block title %}{{ 'page.default_title'|trans({}, 'w3c_website_templates_bundle') }}{% endblock %}</title>
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <meta property="og:description" name="description"
+          content="{% block description %}{{ 'page.default_description'|trans({}, 'w3c_website_templates_bundle') }}{% endblock %}"/>
+    
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('styles/core.css?ver=1.1.27', 'main') }}"
+              media="screen"/>
+
+        <!--
+        CSS Mustard Cut
+        Print (Edge doesn't apply to print otherwise)
+        Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~11.8+
+        FF 47+
+        -->
+        <link rel="stylesheet" id="advanced-stylesheet"
+              href="{{ asset('styles/advanced.css?ver=1.1.27', 'main') }}" media="
+            only print,
+            only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+            only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
+        ">
+    {% endblock stylesheets %}
+
+    {% block javascripts %}
+        <script src="{{ asset('js/libraries/fontfaceobserver.js', 'main') }}"></script>
+
+        <script>
+            var myFont = new FontFaceObserver('Noto Sans');
+
+            Promise.all([myFont.load()]).then(function () {
+                document.documentElement.className += " fonts-loaded";
+            });
+        </script>
+
+        <script>
+            (function () {
+                var linkEl = document.getElementById('advanced-stylesheet');
+                if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+                    var script = document.createElement('script');
+                    script.src = '{{ asset('js/main.js?ver=1.1.27', 'main') }}';
+                    script.defer = true;
+                    document.querySelector('head').appendChild(script);
+                    (function (H) {
+                        H.className = H.className.replace(/\bno-js\b/, 'js')
+                    })(document.documentElement);
+                }
+            })();
+        </script>
+    {% endblock javascripts %}
 </head>
-<body>
-    <div class="example-wrapper">
-        <h1>{{ block('title') }}</h1>
-        {% block body %}{% endblock %}
+
+<body class="default">
+<a class="skip-link" href="#main">{{ 'page.skip_to_content'|trans({}, 'w3c_website_templates_bundle') }}</a>
+<div class="grid-wrap">
+    <div class="wrap">
+        <header class="global-header">
+            <span role="status" aria-live="polite"></span>
+            {% block banner %}
+                {{ include('@W3CWebsiteTemplates/components/base/banner.html.twig') }}
+            {% endblock banner %}
+            {% block lang_nav %}
+                {{ include('@W3CWebsiteTemplates/components/base/lang_nav.html.twig') }}
+            {% endblock lang_nav %}
+            {% block global_nav %}
+                {{ include('@W3CWebsiteTemplates/components/base/global_nav.html.twig') }}
+            {% endblock global_nav %}
+        </header>
+        {% block breadcrumbs %}
+            {% if breadcrumbs is defined %}
+                {{ include('@W3CWebsiteTemplates/components/base/breadcrumbs.html.twig') }}
+            {% endif %}
+        {% endblock breadcrumbs %}
+        <main id="main">
+            <div class="content">
+                <article>
+                    <h1>{{ block('title') }}</h1>
+                    {% if page_translations is defined %}
+                        {{ include('@W3CWebsiteTemplates/components/base/page_translations.html.twig') }}
+                    {% endif %}
+                    {% if toc is defined %}
+                        {{ include('@W3CWebsiteTemplates/components/base/toc.html.twig') }}
+                    {% endif %}
+                    {% block body %}{% endblock body %}
+                </article>
+                {% block related %}
+                    {% if related_links is defined %}
+                        {{ include('@W3CWebsiteTemplates/components/base/related.html.twig') }}
+                    {% endif %}
+                {% endblock %}
+            </div>
+        </main>
+        {% block crosslinks %}
+            {% if crosslinks is defined %}
+                {{ include('@W3CWebsiteTemplates/components/base/crosslinks.html.twig') }}
+            {% endif %}
+        {% endblock crosslinks %}
     </div>
+    {% block footer %}
+        <footer class="global-footer">
+            <div class="l-center">
+                <div class="global-footer__links">
+                    <div class="l-cluster">
+                        <ul class="clean-list" role="list">
+                            <li><a href="../page.html">{{ 'footer.links.home'|trans({}, 'w3c_website_templates_bundle') }}</a></li>
+                            <li><a href="../page.html">{{ 'footer.links.contact'|trans({}, 'w3c_website_templates_bundle') }}</a></li>
+                            <li><a href="../page.html">{{ 'footer.links.help'|trans({}, 'w3c_website_templates_bundle') }}</a></li>
+                            <li><a href="../page.html">{{ 'footer.links.sponsor_donate'|trans({}, 'w3c_website_templates_bundle') }}</a></li>
+                            <li><a href="../page.html">{{ 'footer.links.privacy_policy'|trans({}, 'w3c_website_templates_bundle') }}</a></li>
+                            <li><a href="../page.html">{{ 'footer.links.legal'|trans({}, 'w3c_website_templates_bundle') }}</a></li>
+                            <li><a href="../page.html">{{ 'footer.links.system_status'|trans({}, 'w3c_website_templates_bundle') }}</a></li>
+                        </ul>
+                    </div>
+                    <ul class="clean-list" role="list">
+                        <li><a class="with-icon--larger" href="https://twitter.com/W3C">
+                                <img class="icon icon--larger" src="{{ asset('svg/twitter.svg', 'main') }}" width="20" height="20" alt
+                                     aria-hidden="true"/>
+                                <span class="visuallyhidden">{{ 'footer.links.twitter'|trans({}, 'w3c_website_templates_bundle') }}</span></a>
+                        </li>
+                        <li><a class="with-icon--larger" href="https://github.com/w3c/">
+                                <img class="icon icon--larger" src="{{ asset('svg/github.svg', 'main') }}" width="20" height="20" alt
+                                     aria-hidden="true"/>
+                                <span class="visuallyhidden">{{ 'footer.links.github'|trans({}, 'w3c_website_templates_bundle') }}</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <p class="copyright">{{ 'footer.copyright'|trans({'date': date('now')}, 'w3c_website_templates_bundle')|raw }}</p>
+            </div>
+        </footer>
+    {% endblock %}
+</div>
+
 </body>
+
 </html>

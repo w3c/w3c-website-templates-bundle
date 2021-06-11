@@ -1,0 +1,101 @@
+/*------------------------------------*\
+    #Crosslinks (You may also like)
+\*------------------------------------*/
+
+.crosslinks {
+
+	background-color: $w3c-blue;
+	color: $white;
+	padding-bottom: rem(50);
+	padding-top: rem(50);
+
+}
+
+.crosslinks .component--columns__intro h2 {
+
+	@include txt-mars;
+
+}
+
+.crosslinks .component--columns--images > ul {
+
+	@include mq(700) {
+
+		display: flex;
+		flex-wrap: wrap;
+		margin: -1.5%;
+
+	}
+
+	> li {
+
+		@include mq(700) {
+
+			flex: 1 0 50%;
+			max-width: 50%;
+			padding: 1.5%;
+
+		}
+
+	}
+
+	li + li {
+
+		@include mq(700) {
+
+			margin-top: 0;
+
+		}
+
+	}
+
+}
+
+.crosslinks .component--columns--images {
+
+	// Specify flex item behaviour if exactly 3 items
+	li:nth-last-child(n+3):nth-last-child(-n+3):first-child,
+	li:nth-last-child(n+3):nth-last-child(-n+3):first-child ~ li {
+
+		@include mq(700) {
+
+			flex-basis: 33%;
+
+		}
+
+	}
+
+	// Specify flex item behaviour if exactly 4 items
+	li:nth-last-child(n+4):nth-last-child(-n+4):first-child,
+	li:nth-last-child(n+4):nth-last-child(-n+4):first-child ~ li {
+
+		@include mq($bp-tab-large) {
+
+			flex-basis: 25%;
+
+		}
+
+	}
+
+}
+
+.crosslinks .card {
+
+	background-color: $white;
+	border-radius: rem(4);
+	color: $off-black;
+	overflow: hidden;
+
+}
+
+.crosslinks .card__text {
+
+	padding: rem(20);
+
+}
+
+.crosslinks .card__image img {
+
+	border-radius: 0;
+
+}

@@ -1,0 +1,37 @@
+/*------------------------------------*\
+    #Cards advanced
+\*------------------------------------*/
+
+.js [data-component="card"] {
+
+	cursor: pointer;
+
+	&:hover .card__link {
+
+		text-decoration: underline; /* 1 */
+		text-decoration-skip-ink: auto; // Not supported by Safari
+		text-underline-offset: 0.25em; // Supported by Safari
+
+	}
+
+}
+
+.js [data-component="card"] .card__text {
+
+	/**
+	Minimum spacing between the penultimate and last child elements.
+	Matches the measure used for the stack mixin on `.card__text`
+	 */
+	> :nth-last-child(2) {
+
+		margin-bottom: 1rem;
+
+	}
+
+	> :last-child {
+
+		margin-top: auto;
+
+	}
+
+}

@@ -1,0 +1,31 @@
+/*------------------------------------*\
+    #Typesetting
+\*------------------------------------*/
+
+/**
+Use https://www.cssfontstack.com/ and https://meowni.ca/font-style-matcher/ to pick
+system fonts that are reasonably close to any web fonts needed for the project.
+
+This improves performance, avoids Flash Of Invisible Text (FOIT) and minimises
+Flash of Unstyled Content (FOUC) - see https://helenvholmes.com/writing/type-is-your-right/
+
+Be sure to include fonts for both Mac OS and Windows. Use quote marks around
+fonts with white space in their name.
+
+When Font Face Observer has detected that the @font-face files are loaded, then we
+can safely use the web fonts instead of the system fonts.
+ */
+
+$font-family:						'Trebuchet MS', Geneva, sans-serif;
+$font-loaded-family:                'Noto Sans', 'Trebuchet MS', Geneva, sans-serif;
+$font-style:						normal;
+$font-weight:						400;
+
+
+$emphasis:      					600;
+$emphasis--more:                    800;
+
+
+$mono-family:						Monaco, 'Lucida Console', 'Courier New', monospace;
+
+

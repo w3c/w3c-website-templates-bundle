@@ -1,0 +1,65 @@
+/*------------------------------------*\
+    #Alignment utilities
+
+    1. Logical property allows text-direction to change with `ltr`
+\*------------------------------------*/
+
+.u-float-left {
+	float: left; // IE fallback for next rule - only works for ltr languages
+	float: inline-start; /* 1 */
+}
+
+.u-float-right {
+	float: right; // IE fallback for next rule - only works for ltr languages
+	float: inline-end; /* 1 */
+}
+
+.u-text-center {
+	text-align: center;
+}
+
+.u-text-left {
+	text-align: left; // IE fallback for next rule - only works for ltr languages
+	text-align: start; /* 1 */
+}
+
+.u-text-right {
+	text-align: right; // IE fallback for next rule - only works for ltr languages
+	text-align: end; /* 1 */
+}
+
+
+
+/**
+Change text-alignment at the "laptop" breakpoint,
+as defined in /10-settings/breakpoints
+
+1. Logical property allows text-direction to change with `ltr`
+ */
+.u-text-left-from-lap {
+
+	@include mq($bp-lap) {
+		text-align: left; // IE fallback for next rule - only works for ltr languages
+		text-align: start; /* 1 */
+	}
+
+}
+
+
+.u-text-center-from-lap {
+
+	@include mq($bp-lap) {
+		text-align: center;
+	}
+
+}
+
+
+.u-text-right-from-lap {
+
+	@include mq($bp-lap) {
+		text-align: right; // IE fallback for next rule - only works for ltr languages
+		text-align: end; /* 1 */
+	}
+	
+}

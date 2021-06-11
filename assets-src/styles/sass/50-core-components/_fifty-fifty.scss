@@ -1,0 +1,111 @@
+/*------------------------------------*\
+    #Fifty-fifty
+\*------------------------------------*/
+
+.component--fifty-fifty {
+
+	@include mq($bp-tab-small) {
+
+		align-items: flex-start;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+	}
+
+	> * + * {
+
+		margin-top: 1rem;
+
+		@include mq($bp-tab-small) {
+
+			margin-top: 0;
+
+		}
+
+	}
+
+}
+
+.component--fifty-fifty figcaption {
+
+	@include stack(rem(30));
+
+	@include mq($bp-tab-small) {
+
+		flex-basis: 52%;
+
+	}
+
+	@include mq($bp-tab-large) {
+
+		flex-basis: 45%;
+
+	}
+
+}
+
+.component--fifty-fifty figcaption .l-box {
+
+	@include stack(1rem);
+
+	a {
+
+		align-self: flex-start;
+
+	}
+
+}
+
+.component--fifty-fifty .image,
+.component--fifty-fifty .illustration {
+
+	@include mq($bp-tab-small) {
+
+		flex-basis: 45%;
+
+	}
+
+}
+
+.component--fifty-fifty .image {
+
+	img {
+
+		border-radius: rem(4);
+
+	}
+
+}
+
+.component--fifty-fifty .image .l-frame {
+
+	padding-bottom: 66.67%;
+
+	@include mq($bp-tab-small) {
+
+		padding-bottom: 100%;
+
+	}
+
+}
+
+.component--fifty-fifty .illustration .l-frame {
+
+	padding-bottom: 75%;
+
+}
+
+.component--fifty-fifty.reversed {
+
+	figcaption {
+
+		@include mq($bp-tab-small) {
+
+			order: -1;
+
+		}
+
+	}
+
+}

@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    #Media query
+\*------------------------------------*/
+
+@mixin mq(
+	$point,
+	$query1: min,
+	$query2: width,
+	$context: $browser-context
+) {
+
+	@media screen and (#{$query1}-#{$query2}: $point / $context +em) {
+		@content;
+	}
+
+}

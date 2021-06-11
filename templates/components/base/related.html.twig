@@ -1,0 +1,10 @@
+<section class="related">
+    <div class="related__inner">
+        <h2 class="txt-jupiter">Related content</h2>
+        <ul class="clean-list" role="list">
+            {% for url, title in related_links %}
+                <li><a href="{{ url }}">{{ title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>

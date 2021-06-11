@@ -1,0 +1,87 @@
+/*------------------------------------*\
+    #Colors
+\*------------------------------------*/
+
+/**
+Base colors that can be used when prototyping. Taken from http://clrs.cc/
+
+1. We ideally avoid using pure white on pure black, because the contrast is
+so great that it creates the illusion that text is vibrating on screen.
+ */
+$black: #000;
+$off-black: #111; /* 1 */
+$white: #fff;
+$off-white: #fafafa; /* 1 */
+
+$aqua: #7fdbff;
+$blue: #0073d8;
+$fuchsia: #f012be;
+$green: #2ecc40;
+$grey: #aaa;
+$lime: #01ff70;
+$maroon: #85144b;
+$mercury-grey: #e5e5e5;
+$navy: #001f3f;
+$olive: #3d9970;
+$orange: #ff851b;
+$purple: #920ba6;
+$red: #ff4136;
+$silver: #ddd;
+$teal: #39cccc;
+$yellow: #ffdc00;
+
+
+/**
+Theme colors.
+ */
+$aqua: #1bc0d7;
+$azure: #0075ff;
+$blue: #005797;
+$coral: #fc7750;
+$deep-blue: #024488;
+$deep-green: #0a4343;
+$deep-yellow: #f9c818;
+$light-blue: #cbe0fb;
+$light-coral: #fea78d;
+$light-pink: #eeccdc;
+$light-red: #ec7070;
+$mist-gray: #f8f8fb;
+$pink: #ddb0c8;
+$red: #e93737;
+$sky-blue: #6bc8fe;
+$storm-gray: #545454;
+$teal-green: #237978;
+$twiki-gray: #bdbdbd;
+$w3c-blue: #005a9c;
+$yellow: #f9dc4a;
+
+
+/**
+Sass variables.
+ */
+$border-color:                  $twiki-gray;
+$focus-color:                   $yellow;
+
+$link-color:                    $blue;
+$link-color--visited:           $purple;
+$link-color--hover:             $deep-blue;
+
+$input-border-color:            $storm-gray;
+$input-error-color:             #a82615;
+
+$success-color:                 $green;
+$warning-color:                 $yellow;
+$alert-color:                   $red;
+
+
+/**
+Social media colours that might be useful.
+See: https://brandcolors.net/
+ */
+$facebook: #3b5998;
+$instagram: #405de6;
+$linkedin: #0077b5;
+$pinterest: #bd081c;
+$twitter: #1da1f2;
+$whatsapp: #25d366;
+$youtube: #ff0000;

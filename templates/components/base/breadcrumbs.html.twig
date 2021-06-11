@@ -1,0 +1,11 @@
+<nav id="breadcrumb" aria-label="Breadcrumb">
+    <div class="l-center">
+        <div class="l-cluster">
+            <ol class="breadcrumbs clean-list" role="list">
+                {% for url, title in breadcrumbs %}
+                    <li><a href="{{ url }}"{% if loop.last %} aria-current="page"{% endif %}>{{ title }}</a></li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+</nav>

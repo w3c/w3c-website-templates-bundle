@@ -1,0 +1,44 @@
+/*------------------------------------*\
+    #Switcher layout primitive
+
+    Uses this to switch between vertical and horizontal layouts:
+    https://www.freecodecamp.org/news/the-fab-four-technique-to-create-responsive-emails-without-media-queries-baf11fdfa848/
+
+    `.l-switcher` switches a Flexbox context between a horizontal and a
+    vertical layout at a given, CONTAINER-BASED breakpoint, rather than
+    using viewport media queries.
+
+    The child elements in the horizontal configuration will be of equal
+	width.
+
+	To apply gutter spacing, apply padding to the flex items and an
+    equivalent negative margin to the flex container. This will double up,
+    so use half the intended value.
+
+\*------------------------------------*/
+
+.l-switcher {
+	overflow: hidden;
+}
+
+
+.l-switcher > * {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+/**
+1. Determines the item width in the single column, vertical configuration
+
+2. Determines how many items will be in a row in the horizontal configuration
+
+3. The 690 value matches the desired breakpoint value. The 100% corresponds to
+the width of the columns' parent container. This calculation will create a
+value that's either bigger than the max-width or smaller than the min-width,
+so that either of these properties is applied instead.
+ */
+.l-switcher > * > * {
+	max-width: 100%; /* 1 */
+	min-width: 50%; /* 2 */
+	width: calc(690px * 690 - 100% * 690); /* 3 */
+}

@@ -1,0 +1,46 @@
+/*------------------------------------*\
+    #Fonts
+\*------------------------------------*/
+@font-face {
+
+  font-display: fallback;
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/notosans/notosans-regular.woff2') format('woff2'),
+  url('../fonts/notosans/notosans-regular.woff') format('woff');
+
+}
+
+@font-face {
+
+  font-display: fallback;
+  font-family: 'Noto Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/notosans/notosans-italic.woff2') format('woff2'),
+  url('../fonts/notosans/notosans-italic.woff') format('woff');
+
+}
+
+@font-face {
+
+  font-display: fallback;
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/notosans/notosans-bold.woff2') format('woff2'),
+  url('../fonts/notosans/notosans-bold.woff') format('woff');
+
+}
+
+@font-face {
+
+  font-display: fallback;
+  font-family: 'Noto Sans';
+  font-style: italic;
+  font-weight: 600;
+  src: url('../fonts/notosans/notosans-bolditalic.woff2') format('woff2'),
+  url('../fonts/notosans/notosans-bolditalic.woff') format('woff');
+
+}

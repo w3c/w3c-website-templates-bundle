@@ -1,0 +1,26 @@
+/*------------------------------------*\
+    #Home page
+\*------------------------------------*/
+
+.home {
+
+	.hero {
+
+		background-color: $white;
+
+	}
+
+	.component--members {
+
+		padding-bottom: rem(40);
+		padding-top: rem(40);
+
+	}
+
+	.component--members__grid {
+
+		margin-top: rem(40);
+
+	}
+
+}

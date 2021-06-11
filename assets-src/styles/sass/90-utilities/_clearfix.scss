@@ -1,0 +1,18 @@
+/*------------------------------------*\
+    #Clearfix utility
+
+    https://css-tricks.com/snippets/css/clear-fix/
+
+    Extend the clearfix placeholder with Sass to avoid
+    having it appear over and over in your markup.
+\*------------------------------------*/
+
+%clearfix {
+
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+
+}

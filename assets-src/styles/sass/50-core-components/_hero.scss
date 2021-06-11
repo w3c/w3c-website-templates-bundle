@@ -1,0 +1,81 @@
+/*------------------------------------*\
+    #Hero
+\*------------------------------------*/
+
+.hero {
+
+	background-color: $mist-gray;
+
+	@include mq($max-width) {
+
+		padding-top: rem(18);
+
+	}
+
+	.l-sidebar > *,
+	.l-sidebar > * > * {
+
+		margin: 0;
+
+	}
+
+	.l-sidebar .sidebar {
+
+		flex-basis: rem(500);
+
+	}
+
+	.l-sidebar .not-sidebar {
+
+		min-width: 50%;
+
+	}
+
+	.l-sidebar .not-sidebar > * {
+
+		max-width: 81.5%;
+
+	}
+
+	.lead {
+
+		margin-bottom: rem(18);
+		margin-top: 0;
+
+	}
+
+	img {
+
+		margin-left: auto;
+		margin-right: auto;
+		max-width: rem(500);
+
+	}
+
+}
+
+.hero + * {
+
+	margin-top: rem(50);
+
+}
+
+.hero .button {
+
+	align-self: flex-start;
+
+}
+
+.hero--listing {
+
+	background-color: $white;
+	margin-bottom: rem(20);
+	padding-bottom: rem(40);
+
+}
+
+.hero--listing + * {
+
+	margin-top: 0;
+
+}
