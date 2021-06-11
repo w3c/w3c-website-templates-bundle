@@ -1,0 +1,44 @@
+/*------------------------------------*\
+    #CSS unit functions
+\*------------------------------------*/
+
+$browser-context: 16; // Default
+
+/**
+ #em
+ */
+@function em($pixels, $context: $browser-context) {
+	@return #{$pixels/$context}em;
+}
+
+
+/**
+ #rem
+ */
+@function rem($pixels, $context: $browser-context) {
+	@return #{$pixels/$context}rem;
+}
+
+
+/**
+ #px
+ */
+@function px($target, $context: $browser-context) {
+	@return #{$target*$context}px
+}
+
+
+/**
+ #Return a number without a unit
+ */
+@function number($target, $context: $browser-context) {
+	@return $target/$context
+}
+
+
+/**
+ #Remove any unit present to return a unitless number
+ */
+@function unitless($number) {
+	@return $number / ($number * 0 + 1);
+}

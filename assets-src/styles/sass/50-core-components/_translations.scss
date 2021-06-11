@@ -1,0 +1,80 @@
+/*------------------------------------*\
+    #Translations
+\*------------------------------------*/
+
+.translations {
+
+	background-color: $mist-gray;
+	padding: rem(20);
+
+}
+
+.translations .l-sidebar > * {
+
+	margin-bottom: 0;
+	margin-top: 0;
+
+}
+
+.translations .l-sidebar > * > * {
+
+	margin-bottom: 0;
+	margin-top: 0;
+
+}
+
+.translations .l-sidebar .sidebar {
+
+	flex-basis: auto;
+
+}
+
+.translations .l-sidebar .not-sidebar {
+
+	min-width: 70%;
+
+}
+
+.translations.l-cluster {
+
+	> * {
+
+		margin: 0 rem(-10);
+
+	}
+
+	> * > * {
+
+		margin: 0 rem(10);
+
+	}
+
+}
+
+.translations + * {
+
+	margin-top: rem(30);
+
+}
+
+/*
+ * For the TR card, the language subheading is h5 for Family view and h3 for Search results view
+ */
+.translations h2,
+.translations h3,
+.translations h5 {
+
+	font-size: 1rem;
+	font-weight: normal;
+	padding-bottom: rem(10);
+	padding-top: rem(12);
+
+}
+
+.translations a {
+
+	display: block;
+	padding-bottom: rem(10);
+	padding-top: rem(10);
+
+}

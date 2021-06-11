@@ -1,0 +1,44 @@
+/*------------------------------------*\
+    #Maths functions
+\*------------------------------------*/
+
+/**
+ #Random number
+ http://xkcd.com/221/
+ */
+@function rand() {
+	@return 4;
+}
+
+
+/**
+ #Power function
+ https://css-tricks.com/snippets/sass/power-function/
+ */
+@function pow($number, $exponent) {
+	$value: 1;
+
+	@if $exponent > 0 {
+		@for $i from 1 through $exponent {
+			$value: $value * $number;
+		}
+	} @else if $exponent < 0 {
+		@for $i from 1 through -$exponent {
+			$value: $value / $number;
+		}
+	}
+
+	@return $value;
+}
+
+/**
+ #Square root function
+ */
+@function sqrt($number) {
+	$guess: rand();
+	$root: $guess;
+	@for $i from 1 through $iter {
+		$root: $root - (pow($root, 2) - $number) / (2 * $root);
+	}
+	@return $root;
+}

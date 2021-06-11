@@ -1,0 +1,91 @@
+/*------------------------------------*\
+    #Pagination
+    See: https://weboverhauls.github.io/demos/pagination/
+\*------------------------------------*/
+
+.pagination {
+
+	margin-top: rem(40);
+
+}
+
+.l-cluster.pagination > * {
+
+	margin-bottom: 0;
+	margin-top: 0;
+
+}
+
+.l-cluster.pagination > * > * {
+
+	display: inline-block; // IE9
+	margin-bottom: 0;
+	margin-top: 0;
+
+}
+
+.pagination + * {
+
+	border-top: solid 1px $border-color;
+	margin-top: rem(33);
+
+}
+
+.pagination__list {
+
+	@include mq($bp-tab-large) {
+
+		justify-content: flex-end;
+
+	}
+
+	a {
+
+		@include txt-pluto;
+
+		color: $black;
+		display: block;
+		text-decoration: none;
+		padding: rem(11) rem(18);
+
+		&:visited {
+
+			color: $black;
+
+		}
+
+		&:focus {
+
+			background-color: $focus-color;
+			background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
+			color: $black;
+			text-decoration: none;
+
+		}
+
+	}
+
+	a[href]:hover {
+
+		text-decoration: underline;
+		text-decoration-skip-ink: auto; // Not supported by Safari
+		text-underline-offset: 0.25em; // Supported by Safari
+
+	}
+
+	[aria-current] {
+
+		background-color: $link-color;
+		color: $white;
+		font-weight: bold;
+
+		&:hover {
+
+			color: $white;
+
+		}
+
+	}
+
+}
+

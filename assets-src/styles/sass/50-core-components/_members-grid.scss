@@ -1,0 +1,117 @@
+/*------------------------------------*\
+    #Members grid
+\*------------------------------------*/
+
+.component--members {
+
+	background-color: $mist-gray;
+	padding-bottom: rem(25);
+	padding-top: rem(25);
+
+}
+
+.component--members .l-center {
+
+	@include stack;
+
+	> h2,
+	> p {
+
+		max-width: rem($text-measure);
+
+	}
+
+}
+
+.component--members__grid {
+
+	display: flex;
+	flex-flow: row wrap;
+
+	@supports (display: grid) {
+
+		display: grid;
+		grid-gap: rem(22);
+		grid-template-columns: repeat(auto-fill, minmax(rem(120), 1fr));
+
+	}
+
+}
+
+.component--members__grid > div {
+
+	background-color: $white;
+	border: solid rem(22) $mist-gray;
+	flex-basis: rem(120);
+	padding: rem(24);
+	position: relative;
+
+	@supports (display: grid) {
+
+		border: none;
+		align-items: center;
+		display: grid;
+		justify-content: center;
+		position: static;
+
+	}
+
+	&::before {
+
+		content: '';
+		display: block;
+		padding-bottom: 100%;
+
+		@supports (display: grid) {
+
+			grid-area: 1 / 1 / 2 / 2;
+
+		}
+
+	}
+
+}
+
+.component--members__grid > div img {
+
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	max-width: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+
+	@supports (display: grid) {
+
+		grid-area: 1 / 1 / 2 / 2;
+		position: static;
+		width: 100%;
+
+	}
+
+}
+
+.component--members__grid + a {
+
+	align-self: flex-start;
+
+}
+
+.component--members__cta > * {
+
+	align-items: center;
+
+}
+
+.component--members__cta > * > *:not(a) {
+
+	flex-basis: 100%;
+
+	@include mq($bp-tab-small) {
+
+		flex-basis: auto;
+
+	}
+
+}

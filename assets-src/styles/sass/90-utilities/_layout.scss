@@ -1,0 +1,27 @@
+/*------------------------------------*\
+    #Layout utilities
+\*------------------------------------*/
+/**
+For a full-viewport-width element inside a limited width parent.
+The parent must be exactly centered in the browser in order for this
+to work - see https://css-tricks.com/full-width-containers-limited-width-parents/
+ */
+.u-full-width {
+	left: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	position: relative;
+	right: 50%;
+	width: 100vw;
+}
+
+
+
+/**
+To horizontally center a block-level item
+ */
+.u-center {
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}

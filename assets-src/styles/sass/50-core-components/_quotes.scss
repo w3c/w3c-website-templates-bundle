@@ -1,0 +1,43 @@
+/*------------------------------------*\
+    #Quotes
+\*------------------------------------*/
+
+.component--quote {
+
+	@include stack(1rem);
+
+	margin-inline-start: rem(10);
+	padding: rem(20);
+	position: relative;
+
+	&::before {
+
+		background-color: $w3c-blue;
+		border-radius: rem(5);
+		content: '';
+		height: 100%;
+		left: rem(-10);
+		position: absolute;
+		top: 0;
+		width: rem(10);
+
+	}
+
+	blockquote {
+
+		color: $w3c-blue;
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.component--quote::before {
+
+		left: auto;
+		right: rem(-10);
+
+	}
+
+}

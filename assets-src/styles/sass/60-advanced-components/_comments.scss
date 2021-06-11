@@ -1,0 +1,35 @@
+/*------------------------------------*\
+    #Comments advanced
+\*------------------------------------*/
+
+.button[data-replylink],
+#js-cancel-reply {
+
+	@include txt-pluto;
+
+	text-decoration: underline; /* 1 */
+	text-decoration-skip-ink: auto; // Not supported by Safari
+	text-underline-offset: 0.25em; // Supported by Safari
+
+	&:hover {
+
+		box-shadow: 0 0 4px 2px rgba(84,84,84,0.25);
+
+	}
+
+	&:focus {
+
+		background-color: $focus-color;
+		border-color: $black;
+		box-shadow: none;
+		text-decoration: none;
+
+	}
+
+}
+
+#js-cancel-reply {
+
+	margin-inline-start: rem(10);
+
+}

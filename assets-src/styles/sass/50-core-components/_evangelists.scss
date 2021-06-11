@@ -1,0 +1,110 @@
+/*------------------------------------*\
+    #Evangelists
+\*------------------------------------*/
+
+.component--evangelists {
+
+	@include mq($bp-tab-large) {
+
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+	}
+
+	> * + * {
+
+		margin-top: 1rem;
+
+		@include mq($bp-tab-large) {
+
+			margin-top: 0;
+
+		}
+
+	}
+
+}
+
+.component--evangelists__text {
+
+	@include stack;
+
+	@include mq($bp-tab-large) {
+
+		flex-basis: 45%;
+
+	}
+
+	h2 ~ * {
+
+		max-width: rem($text-measure);
+
+	}
+
+}
+
+.component--evangelists__list {
+
+	background-color: $w3c-blue;
+	border-radius: rem(6);
+	color: $white;
+	overflow: hidden;
+	padding-top: rem(24);
+
+	@include mq($bp-tab-large) {
+
+		flex-basis: 45%;
+
+	}
+
+	h3 {
+
+		padding-left: rem(24);
+		padding-right: rem(24);
+
+	}
+
+	li + li {
+
+		border-top: solid 1px #649bc5;
+
+	}
+
+	.sidebar {
+
+		flex-basis: auto;
+
+	}
+
+	.not-sidebar {
+
+		@include stack(0.75em);
+
+		min-width: calc(65% - 1.5rem);
+
+	}
+
+	a {
+
+		color: $white;
+
+		&:visited,
+		&:hover,
+		&:active {
+
+			color: $white;
+
+		}
+
+		&:focus {
+
+			background-color: $focus-color;
+			background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
+			color: $black;
+
+		}
+
+	}
+
+}

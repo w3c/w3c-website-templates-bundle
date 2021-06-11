@@ -1,0 +1,42 @@
+/*------------------------------------*\
+    #Tag list
+\*------------------------------------*/
+
+.tag-list.tag-list {
+
+	margin: rem(-10);
+
+	li {
+
+		margin: rem(10);
+
+	}
+
+}
+
+.tag {
+
+	@include txt-eris;
+
+	background-color: rgba(#CECDCD, 0.5);
+	border-radius: rem(4);
+	//color: $storm-gray;
+	display: inline-block;
+	padding: rem(2.5) rem(5) rem(2.5) rem(5);
+
+}
+
+
+/*
+Makes the tag links selectable if card link is stretched
+across entire card using pseudo element
+ */
+a.tag {
+
+	position: relative;
+	text-decoration: underline;
+	z-index: 10;
+	text-decoration-skip-ink: auto; // Not supported by Safari
+	text-underline-offset: 0.25em; // Supported by Safari
+
+}

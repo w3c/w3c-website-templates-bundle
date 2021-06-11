@@ -1,0 +1,36 @@
+/*------------------------------------*\
+    #Text component
+
+    1. The `stack` mixin applies flexbox in the column direction,
+    so we need to prevent buttons from stretching horizontally
+\*------------------------------------*/
+
+.component--text {
+
+	@include stack(1em);
+
+}
+
+.component--text > * {
+
+	max-width: rem($text-measure);
+
+	+ h2,
+	+ h3,
+	+ h4,
+	+ h5,
+	+ h6 {
+
+		margin-top: 2em;
+
+	}
+
+
+}
+
+.component--text button,
+.component--text .button {
+
+	align-self: flex-start; /* 1 */
+
+}

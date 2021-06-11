@@ -1,0 +1,114 @@
+/*------------------------------------*\
+    #Columns
+\*------------------------------------*/
+
+.component--columns {
+
+	overflow: hidden;
+
+}
+
+.component--columns__intro {
+
+	@include stack(1em);
+
+	max-width: rem($text-measure);
+	margin-bottom: rem(30);
+
+}
+
+.component--columns > ul {
+
+	@include mq($bp-tab-small) {
+
+		display: flex;
+		flex-wrap: wrap;
+		margin: -1.5%;
+
+	}
+
+	li + li {
+
+		margin-top: rem(20);
+
+		@include mq($bp-tab-small) {
+
+			margin-top: 0;
+
+		}
+
+	}
+
+}
+
+.component--columns--images {
+
+	> ul > li {
+
+		@include mq($bp-tab-small) {
+
+			flex: 1 0 33%;
+			max-width: 50%;
+			padding: 1.5%;
+
+		}
+
+	}
+
+	// Specify flex item behaviour if exactly 4 items
+	li:nth-last-child(n+4):nth-last-child(-n+4):first-child,
+	li:nth-last-child(n+4):nth-last-child(-n+4):first-child ~ li {
+
+		@include mq($bp-tab-small) {
+
+			flex-basis: 50%;
+
+		}
+
+	}
+
+}
+
+.component--columns--icons {
+
+	> ul > li {
+
+		@include mq($bp-tab-small) {
+
+			flex: 1 0 50%;
+			max-width: 50%;
+			padding: 1.5%;
+
+		}
+
+		@include mq($max-width) {
+
+			flex-basis: 25%;
+
+		}
+
+	}
+
+	// Specify flex item behaviour if at least 5 items
+	li:nth-last-child(n+5), li:nth-last-child(n+5) ~ li {
+
+		@include mq($max-width) {
+
+			flex-basis: 33%;
+
+		}
+
+	}
+
+	// Specify flex item behaviour if exactly 7 items
+	li:nth-last-child(n+7), li:nth-last-child(n+7) ~ li {
+
+		@include mq($max-width) {
+
+			flex-basis: 25%;
+
+		}
+
+	}
+
+}

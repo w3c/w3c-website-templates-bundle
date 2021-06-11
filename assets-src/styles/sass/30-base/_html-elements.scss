@@ -1,0 +1,69 @@
+/*------------------------------------*\
+    #HTML elements
+\*------------------------------------*/
+
+abbr {
+
+	text-decoration-skip-ink: auto; // Not supported by Safari
+	text-underline-offset: 0.25em; // Supported by Safari
+
+}
+
+
+dfn {
+
+	font-style: normal;
+	font-weight: $emphasis;
+
+}
+
+
+b,
+strong,
+.bold {
+
+	font-weight: $emphasis;
+
+}
+
+
+em,
+i {
+
+	font-style: italic;
+
+}
+
+
+small,
+.small,
+.small-caps {
+
+	@include txt-eris;
+
+}
+
+
+.small-caps {
+
+	text-shadow: 0 0 0 $off-black;
+	text-transform: uppercase;
+
+}
+
+
+code,
+samp,
+pre {
+
+	font-family: $mono-family;
+	font-size: .9em;
+	hyphens: none;
+	orphans: 3;
+	padding-left: rem(3);
+	padding-right: rem(3);
+	page-break-before: avoid;
+	text-transform: none;
+	widows: 3;
+
+}
