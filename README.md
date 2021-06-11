@@ -67,6 +67,40 @@ For the build tools to run every time you make a change to the assets source, pl
 ```bash
 npm run watch
 ```
+
+### Front-end standards and components usage
+
+Here are the front-end principles applied when building the templates: [Front-end standards](https://w3c.studio24.net/docs/front-end-standards/)
+
+Please refer to the design W3C design system (link TBC) for usage of the various components of this bundle.
+
 ### A note on the use of JavaScript
 
-JavaScript files are built using [webpack](https://webpack.js.org/). Webpack configuration options are defined in the `webpack.config.js` file.
+JavaScript files are built using [webpack](https://webpack.js.org/). Webpack configuration options are defined in:
+
+* `webpack.config.js` - for the build of the non-minified version of the JS files
+* `webpack.config.min.js` - for the build of the minified version of the JS files
+
+We are following the principles described in this article by Chris Ferdinandi when writing JavaScript: [How I structure my vanilla JS projects](https://gomakethings.com/how-i-structure-my-vanilla-js-projects/).
+
+One of these principles states that we should only load the JavaScript files that are needed on any page. We are therefore splitting the code into multiple files.
+
+At the moment these files are:
+
+* `comments.js` - functions that apply to the blog commenting section and is only loaded in the single blog post template
+* `main.js` - 'core' JS functions that are loaded on every page
+* `s24-autocomplete.js` - only loaded on pages that contain a select list with an autocomplete functionality
+
+If you need to add a new JS file to this project, you will need to add it to the list of entries in the webpack config files. For example, if you are
+adding a file named `mynewscript.js`, amend BOTH `webpack.config.js` and `webpack.config.min.js` in this manner:
+
+```javascript
+const path = require('path');
+module.exports = {
+	entry: {
+		'/public/dist/assets/js/s24-autocomplete': './assets-src/js/s24-autocomplete.js',
+		'/public/dist/assets/js/comments': './assets-src/js/comments.js',
+		'/public/dist/assets/js/main': './assets-src/js/main.js',
+        '/public/dist/assets/js/mynewscripts': './assets-src/js/mynewscript.js'
+	},
+```
