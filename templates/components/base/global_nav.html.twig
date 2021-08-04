@@ -1,9 +1,9 @@
 <nav id="global-nav" aria-label="Main">
     <div class="global-nav__inner l-center">
         <a class="logo-link" href="/">
-						<span class="logo">
-							<img src="{{ asset('svg/w3c-logo.svg', 'main') }}" alt="W3C logo" role="img"/>
-						</span>
+            <span class="logo">
+                <img src="{{ asset('svg/w3c-logo.svg', 'main') }}" alt="W3C logo" role="img"/>
+            </span>
             <span class="visuallyhidden">W3C homepage</span>
         </a>
         <button type="button" class="button button--ghost with-icon--after with-icon--larger" data-trigger="mobile-nav"
@@ -12,39 +12,41 @@
             {% for navItem in navigation %}
                 <li class="top-nav-item has-children">
                     <a href="{{ navItem.titleLink }}" class="nav-link">{{ navItem.title }}</a>
-                <div class="nav__submenu" style="display: none;">
-                    <div class="l-center">
-                        <div class="nav__submenu__intro">
-                            <div class="nav__submenu__intro__text">
-                                {% if navItem.introText is defined and navItem.introText %}
-                                    <p>{{ navItem.introText }}</p>
-                                {% endif %}
-                                {% for introLink in navItem.introLinks %}
-                                    <a href="{{ introLink.url }}" aria-hidden="true" tabindex="-1">{{ introLink.title }}</a>
-                                {% endfor %}
+                    <div class="nav__submenu" style="display: none;">
+                        <div class="l-center">
+                            <div class="nav__submenu__intro">
+                                <div class="nav__submenu__intro__text">
+                                    {% if navItem.introText is defined and navItem.introText %}
+                                        <p>{{ navItem.introText }}</p>
+                                    {% endif %}
+                                    {% for introLink in navItem.introLinks %}
+                                        <a href="{{ introLink.url }}" aria-hidden="true"
+                                           tabindex="-1">{{ introLink.title }}</a>
+                                    {% endfor %}
+                                </div>
                             </div>
+                            {% if navItem.children is defined and navItem.children|length > 0 %}
+                                <ul class="clean-list" role="list">
+                                    {% for child in navItem.children %}
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="{{ child.url }}">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512"
+                                                     class="icon icon--larger" focusable="false" aria-hidden="true"
+                                                     width="1em"
+                                                     height="1em">
+                                                    <use class="chevron-left"
+                                                         href="{{ asset('svg/nav-icons.svg#chevron-left', 'main') }}"></use>
+                                                    <use class="chevron-right"
+                                                         href="{{ asset('svg/nav-icons.svg#chevron-right', 'main') }}"></use>
+                                                </svg>
+                                                {{ child.title }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
                         </div>
-                        {% if navItem.children is defined and navItem.children|length > 0 %}
-                            <ul class="clean-list" role="list">
-                                {% for child in navItem.children %}
-                                    <li>
-                                        <a class="with-icon--before with-icon--larger" href="{{ child.url }}">
-                                            <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512"
-                                                 class="icon icon--larger" focusable="false" aria-hidden="true" width="1em"
-                                                 height="1em">
-                                                <use class="chevron-left"
-                                                     href="{{ asset('svg/nav-icons.svg#chevron-left', 'main') }}"></use>
-                                                <use class="chevron-right"
-                                                     href="{{ asset('svg/nav-icons.svg#chevron-right', 'main') }}"></use>
-                                            </svg>
-                                            {{ child.title }}</a>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        {% endif %}
                     </div>
-                </div>
-            </li>
+                </li>
             {% endfor %}
             <li class="top-nav-item">
                 <a href="../page.html" class="nav-link icon-link"><span class="visuallyhidden">Search</span> <img
