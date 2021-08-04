@@ -72,7 +72,9 @@
                 {{ include('@W3CWebsiteTemplates/components/base/lang_nav.html.twig') }}
             {% endblock lang_nav %}
             {% block global_nav %}
-                {{ include('@W3CWebsiteTemplates/components/base/global_nav.html.twig') }}
+                {% embed '@W3CWebsiteTemplates/components/base/global_nav.html.twig' with {
+                    'navigation': navigation
+                } %}{% endembed %}
             {% endblock global_nav %}
         </header>
         {% block breadcrumbs %}
