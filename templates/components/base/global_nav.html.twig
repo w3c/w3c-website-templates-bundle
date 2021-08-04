@@ -16,7 +16,9 @@
                     <div class="l-center">
                         <div class="nav__submenu__intro">
                             <div class="nav__submenu__intro__text">
-                                <p>{{ navItem.introText }}</p>
+                                {% if navItem.introText is defined and navItem.introText %}
+                                    <p>{{ navItem.introText }}</p>
+                                {% endif %}
                                 {% for introLink in navItem.introLinks %}
                                     <a href="{{ introLink.url }}" aria-hidden="true" tabindex="-1">{{ introLink.title }}</a>
                                 {% endfor %}
