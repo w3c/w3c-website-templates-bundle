@@ -1,13 +1,12 @@
-import {responsiveTables} from "./main/responsive-tables";
-import {collapsibles} from "./main/collapsibles";
-import {navigation} from "./main/navigation";
 import {accountMenu} from "./main/account-menu";
-import {contentSlider} from "./main/slider";
 import {cardEnhancement} from "./main/cards";
-import {formErrorSummary} from "./main/form-error-summary";
-import {disclosureWidget} from "./main/disclosure-widget";
 import {collapsibleCards} from "./main/collapsible-cards";
 import {collapsibleCheckboxes} from "./main/collapsible-checkboxes";
+import {collapsibles} from "./main/collapsibles";
+import {disclosureWidget} from "./main/disclosure-widget";
+import {formErrorSummary} from "./main/form-error-summary";
+import {navigation} from "./main/navigation";
+import {responsiveTables} from "./main/responsive-tables";
 
 responsiveTables();
 

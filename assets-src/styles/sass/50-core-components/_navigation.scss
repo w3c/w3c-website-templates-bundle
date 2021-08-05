@@ -267,3 +267,20 @@ li.top-nav-item + li.top-nav-item {
 	display: none;
 
 }
+
+#archive-nav ul,
+#category-nav ul {
+
+	background-color: $white;
+	border: solid 1px $border-color;
+	height: rem(180);
+	overflow: auto;
+
+	a {
+
+		display: block;
+		padding: rem(10);
+
+	}
+
+}

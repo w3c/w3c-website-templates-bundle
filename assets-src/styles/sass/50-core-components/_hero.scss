@@ -54,6 +54,23 @@
 
 }
 
+/*
+ * Hero variant for TR listing page
+ */
+.hero--tr {
+
+	background-color: $white;
+	margin-bottom: rem(20);
+	padding-bottom: rem(40);
+
+	.l-sidebar .not-sidebar > * {
+
+		max-width: none;
+
+	}
+
+}
+
 .hero + * {
 
 	margin-top: rem(50);

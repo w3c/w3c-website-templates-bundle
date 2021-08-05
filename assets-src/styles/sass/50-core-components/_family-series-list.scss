@@ -65,38 +65,19 @@ dl.family-series-list {
 
 .family-grouping {
 
-    //padding: rem(20);
-    padding-inline-start: rem(20);
-    position: relative;
+    padding-top: rem(40);
+    padding-bottom: rem(40);
 
-    &::before {
-
-        background-color: #D8D8D8;
-        border-radius: rem(5);
-        content: '';
-        height: 100%;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: rem(6);
-
-    }
-
-    [dir="rtl"] {
-
-        blockquote::before {
-
-            left: auto;
-            right: 0;
-
-        }
-
+    > * {
+        max-width: 41.25rem;
     }
 
 }
 
 .family-grouping + .family-grouping {
 
-    margin-top: rem(44);
+    //margin-top: rem(64);
+
+    border-top:1px solid #bdbdbd;
 
 }

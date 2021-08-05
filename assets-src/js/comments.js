@@ -5,12 +5,12 @@
 window.addComment = (function(window) {
 
 	// Avoid scope lookups on commonly used variables.
-	var document = window.document;
-	var commentReplyTitle = document.querySelector('[data-title="reply"]');
-	var origReplyTitle = commentReplyTitle.textContent;
+	let document = window.document;
+	let commentReplyTitle = document.querySelector('[data-title="reply"]');
+	let origReplyTitle = commentReplyTitle.textContent;
 
 	// I18N
-	var cancelText;
+	let cancelText;
 
 	if (document.documentElement.lang === 'ja') {
 
@@ -28,16 +28,16 @@ window.addComment = (function(window) {
 
 	function changeLinksToBtns() {
 
-		var linksArray = Array.prototype.slice.call(document.querySelectorAll('[data-replylink]'));
+		let linksArray = Array.prototype.slice.call(document.querySelectorAll('[data-replylink]'));
 
 		linksArray.forEach(function (link) {
 
-			var attributes = link.dataset;
-			var btn = document.createElement('button');
+			let attributes = link.dataset;
+			let btn = document.createElement('button');
 			btn.setAttribute('class', 'button button--ghost');
 			btn.innerHTML = link.innerHTML;
 
-			for (var key in attributes) {
+			for (let key in attributes) {
 
 				btn.setAttribute('data-' + key, attributes[key]);
 
@@ -51,8 +51,8 @@ window.addComment = (function(window) {
 
 	function addPlaceHolder(respondElement) {
 
-		var temporaryFormId = 'js-temp-form-div';
-		var temporaryElement = document.getElementById(temporaryFormId);
+		let temporaryFormId = 'js-temp-form-div';
+		let temporaryElement = document.getElementById(temporaryFormId);
 
 		if (temporaryElement) {
 
@@ -70,8 +70,8 @@ window.addComment = (function(window) {
 
 	function addCancelBtn(respondElement) {
 
-		var cancelBtnId = 'js-cancel-reply';
-		var cancelBtn = document.getElementById(cancelBtnId);
+		let cancelBtnId = 'js-cancel-reply';
+		let cancelBtn = document.getElementById(cancelBtnId);
 
 		if (cancelBtn) {
 
@@ -80,7 +80,7 @@ window.addComment = (function(window) {
 
 		}
 
-		var targetDiv = respondElement.querySelector('div');
+		let targetDiv = respondElement.querySelector('div');
 		cancelBtn = document.createElement('button');
 		cancelBtn.setAttribute('id', cancelBtnId);
 		cancelBtn.setAttribute('class','button button--ghost');
@@ -91,8 +91,8 @@ window.addComment = (function(window) {
 
 	function moveForm(addBelowId, commentId, postId) {
 
-		var addBelowElement = document.getElementById(addBelowId);
-		var respondElement = document.querySelector('[data-respondelement]');
+		let addBelowElement = document.getElementById(addBelowId);
+		let respondElement = document.querySelector('[data-respondelement]');
 
 		addPlaceHolder(respondElement);
 
@@ -111,11 +111,11 @@ window.addComment = (function(window) {
 
 			if (event.target.matches('[data-replylink]')) {
 
-				var replyLink = event.target;
-				var newReplyTitle = replyLink.getAttribute('data-replyto');
-				var commentId = replyLink.getAttribute('data-belowelement');
-				var parentId = replyLink.getAttribute('data-commentid');
-				var postId = replyLink.getAttribute('data-postid');
+				let replyLink = event.target;
+				let newReplyTitle = replyLink.getAttribute('data-replyto');
+				let commentId = replyLink.getAttribute('data-belowelement');
+				let parentId = replyLink.getAttribute('data-commentid');
+				let postId = replyLink.getAttribute('data-postid');
 
 				if (!commentId || !parentId || !postId) return;
 
@@ -129,8 +129,8 @@ window.addComment = (function(window) {
 
 			if (event.target.matches('#js-cancel-reply')) {
 
-				var temporaryElement = document.getElementById('js-temp-form-div');
-				var respondElement = document.querySelector('[data-respondelement]');
+				let temporaryElement = document.getElementById('js-temp-form-div');
+				let respondElement = document.querySelector('[data-respondelement]');
 
 				commentReplyTitle.textContent = origReplyTitle;
 

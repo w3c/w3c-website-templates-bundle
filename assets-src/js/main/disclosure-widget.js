@@ -9,7 +9,6 @@ var disclosureWidget = (function () {
 			if (btn.getAttribute('aria-expanded') === 'true') {
 
 				btn.setAttribute('aria-expanded', 'false');
-				btn.nextElementSibling.setAttribute('aria-hidden', 'true');
 
 			}
 
@@ -21,11 +20,8 @@ var disclosureWidget = (function () {
 
 		toggleButtonArray.forEach(function (btn) {
 
-			var content = btn.nextElementSibling;
-
 			btn.style = "";
 			btn.setAttribute('aria-expanded', 'false');
-			content.setAttribute('aria-hidden', 'true');
 
 		});
 
@@ -40,17 +36,14 @@ var disclosureWidget = (function () {
 			function WidthChange(mq) {
 
 				var toggleButton = document.querySelector('[data-toggle="true"]');
-				var target = toggleButton.nextElementSibling;
 
 				if (!(mq.matches)) {
 
 					toggleButton.setAttribute('aria-expanded', 'false');
-					target.setAttribute('aria-hidden', 'true');
 
 				} else {
 
 					toggleButton.removeAttribute('aria-expanded');
-					target.removeAttribute('aria-hidden');
 
 				}
 			}
@@ -61,17 +54,14 @@ var disclosureWidget = (function () {
 
 			if (event.target.matches('[data-toggle="true"]')) {
 
-				var content = event.target.nextElementSibling;
+				if (event.target.matches('[aria-expanded="false"]')) {
 
-				if (content.getAttribute('aria-hidden') === 'true') {
-
+					closeDisclosures();
 					event.target.setAttribute('aria-expanded', 'true');
-					content.setAttribute('aria-hidden', 'false');
 
 				} else {
 
 					event.target.setAttribute('aria-expanded', 'false');
-					content.setAttribute('aria-hidden', 'true');
 
 				}
 

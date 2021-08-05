@@ -2,11 +2,29 @@
     #Maturity levels
 \*------------------------------------*/
 
-.maturity-level {}
+.maturity-level,
 .maturity-level-highlighted {
 
-    background-color: $yellow;
-    border-radius: rem(4);
-    padding: rem(10);
+    @include txt-pluto;
 
+    display: inline-block;
+}
+.maturity-level-highlighted {
+
+    background-color: $w3c-blue;
+    color: $white;
+    border-radius: rem(4);
+    padding: em(2.5) em(7.5) em(2.5) em(7.5);
+    margin-bottom: em(4);
+
+}
+
+* + .maturity-level,
+* + .maturity-level-highlighted {
+    margin-top: rem(36);
+}
+
+h2 + .maturity-level,
+h2 + .maturity-level-highlighted {
+    margin-top: rem(32);
 }

@@ -14,7 +14,7 @@
           content="{% block description %}{{ 'page.default_description'|trans({}, 'w3c_website_templates_bundle') }}{% endblock %}"/>
     
     {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('styles/core.css?ver=1.1.27', 'main') }}"
+        <link rel="stylesheet" href="{{ asset('styles/core.css?ver=1.4', 'main') }}"
               media="screen"/>
 
         <!--
@@ -24,7 +24,7 @@
         FF 47+
         -->
         <link rel="stylesheet" id="advanced-stylesheet"
-              href="{{ asset('styles/advanced.css?ver=1.1.27', 'main') }}" media="
+              href="{{ asset('styles/advanced.css?ver=1.4', 'main') }}" media="
             only print,
             only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
             only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
@@ -47,7 +47,7 @@
                 var linkEl = document.getElementById('advanced-stylesheet');
                 if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
                     var script = document.createElement('script');
-                    script.src = '{{ asset('js/main.js?ver=1.1.27', 'main') }}';
+                    script.src = '{{ asset('js/main.js?ver=1.4', 'main') }}';
                     script.defer = true;
                     document.querySelector('head').appendChild(script);
                     (function (H) {

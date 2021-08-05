@@ -5,13 +5,20 @@
 /*
  * Respect the choices of users who do not want animations.
  */
-@media (prefers-reduced-motion: reduce) {
+@media screen and (prefers-reduced-motion: reduce),
+(update: slow) {
 
-    * {
+    *,
+    ::before,
+    ::after {
 
-        animation-play-state: paused!important;
-        scroll-behavior: auto!important;
-        transition: none!important;
+        animation-delay: -1ms !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        background-attachment: initial !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+        transition-delay: 0s !important;
 
     }
 

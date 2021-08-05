@@ -31,6 +31,33 @@
 
 	}
 
+	.browse {
+
+		margin: rem(-10);
+		overflow: visible;
+
+	}
+
+	.browse > * {
+
+		display: flex;
+		flex-wrap: wrap;
+
+	}
+
+	.browse > * > * {
+
+		padding: rem(10);
+
+	}
+
+	.browse h2 {
+
+		font-size: 1rem;
+		font-weight: normal;
+
+	}
+
 	.filters.l-switcher {
 
 		margin: rem(-10);
@@ -84,56 +111,13 @@
 
 	}
 
-	.archive-links,
-	.category-links {
+}
 
-		@include stack();
+.js .listing .browse {
 
-		align-self: flex-start;
-		margin-top: rem(40);
+	h2 {
 
-		ul {
-
-			background-color: $white;
-			border: solid 1px $border-color;
-			height: rem(180);
-			overflow-y: scroll;
-
-			&:focus {
-
-				border-color: $black;
-				box-shadow: inset 0 0 0 4px;
-				outline: 3px solid $focus-color;
-
-			}
-
-		}
-
-		ul a {
-
-			display: inline-block;
-			padding: rem(10);
-
-		}
-
-		details[open] ul {
-
-			width: rem(200);
-
-		}
-
-	}
-
-	.archive-links ul {
-
-		width: rem(180);
-
-	}
-
-	.filters .archive-links,
-	.filters .category-links {
-
-		margin-top: 0;
+		display: none;
 
 	}
 
@@ -142,14 +126,14 @@
 .people-list,
 .post-list {
 
-	> li {
+	> * {
 
 		padding-bottom: rem(30);
 		padding-top: rem(40);
 
 	}
 
-	> li + li {
+	> * + * {
 
 		border-top: solid 1px $border-color;
 
@@ -240,19 +224,13 @@
 
 	}
 
-	.l-sidebar .sidebar {
+	.l-sidebar .not-sidebar > div {
 
 		@include mq($bp-tab-large) {
 
-			order: 1;
+			margin-bottom: rem(40);
 
 		}
-
-	}
-
-	.l-sidebar .not-sidebar > div {
-
-		margin-bottom: rem(40);
 
 	}
 
@@ -290,7 +268,7 @@
 
 	margin-top: rem(40);
 
-	> li + li {
+	> * + * {
 
 		margin-top: 1rem;
 
@@ -422,5 +400,11 @@
 .group-list {
 
 	margin-top: 0;
+
+}
+
+.archive-links h2 + * {
+
+	margin-top: 0.8em;
 
 }
