@@ -102,7 +102,7 @@
             </div>
         </main>
         {% block crosslinks %}
-            {% if crosslinks is defined %}
+            {% if crosslinks is defined and crosslinks|length > 0 %}
                 {{ include('@W3CWebsiteTemplates/components/base/crosslinks.html.twig') }}
             {% endif %}
         {% endblock crosslinks %}

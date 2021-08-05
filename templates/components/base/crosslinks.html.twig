@@ -13,10 +13,14 @@
                                 <h3 class="card__heading">
                                     <a href="{{ crosslink['url'] }}" class="card__link">{{ crosslink['title'] }}</a>
                                 </h3>
-                                <p>{{ crosslink['text'] }}</p>
-                                <p class="txt-pluto">{{ crosslink['category'] }}</p>
+                                <p>
+                                    {% if crosslink['text'] is defined %}{{ crosslink['text'] }}{% endif %}
+                                </p>
+                                <p class="txt-pluto">
+                                    {% if crosslink['category'] is defined %}{{ crosslink['category'] }}{% endif %}
+                                </p>
                             </div>
-                            {% if crosslink['img'] is defined %}
+                            {% if crosslink['img'] is defined and crosslink['img'] %}
                                 <div class="l-frame l-frame--16-9 card__image">
                                     {% set attr = {'loading': 'lazy'}|merge(crosslink['img']) %}
                                     {% set attributes -%}
