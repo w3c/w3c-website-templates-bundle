@@ -52,7 +52,6 @@ var navigation = (function () {
 		subNavTriggers.forEach(function (trigger) {
 			trigger.setAttribute('aria-expanded', 'false');
 			trigger.removeAttribute('class');
-			trigger.nextElementSibling.setAttribute('aria-hidden', 'true');
 		});
 	}
 
@@ -63,7 +62,6 @@ var navigation = (function () {
 
 			mobileNavToggler.innerHTML = menuText + menuIcon;
 			mobileNavToggler.setAttribute('aria-expanded', 'false');
-			nav.setAttribute('aria-hidden', 'true');
 
 			document.addEventListener('click', function (event) {
 
@@ -72,12 +70,10 @@ var navigation = (function () {
 					if (event.target.getAttribute('aria-expanded') === 'false') {
 
 						event.target.setAttribute('aria-expanded', 'true');
-						nav.setAttribute('aria-hidden', 'false');
 
 					} else {
 
 						event.target.setAttribute('aria-expanded', 'false');
-						nav.setAttribute('aria-hidden', 'true');
 						closeSubNavs();
 
 					}
@@ -101,7 +97,6 @@ var navigation = (function () {
 			toggleMobileNav();
 		} else {
 			mobileNavToggler.setAttribute('aria-expanded', 'true');
-			nav.setAttribute('aria-hidden', 'false');
 		}
 	}
 
@@ -137,7 +132,6 @@ var navigation = (function () {
 
 		for (let i = 0; i < subNavArray.length; i++) {
 
-			subNavArray[i].setAttribute('aria-hidden', 'true');
 			subNavArray[i].style = "";
 
 		}
@@ -146,26 +140,21 @@ var navigation = (function () {
 
 			if (event.target.matches('[data-trigger="subnav"]')) {
 
-				let targetNav = event.target.nextElementSibling;
-
-				if (targetNav.getAttribute('aria-hidden') === 'true') {
+				if (event.target.matches('[aria-expanded="false"]')) {
 
 					closeSubNavs();
 					event.target.setAttribute('aria-expanded', 'true');
 					event.target.setAttribute('class', 'js-active');
-					targetNav.setAttribute('aria-hidden', 'false');
 
 				} else {
 
 					event.target.setAttribute('aria-expanded', 'false');
 					event.target.removeAttribute('class');
-					targetNav.setAttribute('aria-hidden', 'true');
 
 				}
 
 			} else if (event.target.matches('[data-trigger="mobile-back"]')) {
 
-				event.target.parentElement.setAttribute('aria-hidden', 'true');
 				event.target.closest('li').querySelector('[data-trigger="subnav"]').setAttribute('aria-expanded', 'false');
 
 			} else {

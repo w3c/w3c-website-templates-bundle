@@ -8,7 +8,6 @@ let contentSlider = (function () {
 
 		// I18N
 		let sliderDescription;
-		let slideListDescription;
 		let controlsDescription;
 		let previousSlide;
 		let nextSlide;
@@ -18,7 +17,6 @@ let contentSlider = (function () {
 		if (document.documentElement.lang === 'ja') {
 
 			sliderDescription = 'カルーセル';
-			slideListDescription = 'カルーセルコンテンツ';
 			controlsDescription = 'カルーセルコントロール';
 			previousSlide = '前のスライド';
 			nextSlide = '次のスライド';
@@ -28,7 +26,6 @@ let contentSlider = (function () {
 		} else if (document.documentElement.lang === 'zh-hans') {
 
 			sliderDescription = '轮播';
-			slideListDescription = '轮播内容';
 			controlsDescription = '轮播控件';
 			previousSlide = '上一张幻灯片';
 			nextSlide = '下一张幻灯片';
@@ -38,7 +35,6 @@ let contentSlider = (function () {
 		} else {
 
 			sliderDescription = 'carousel'
-			slideListDescription = 'carousel content';
 			controlsDescription = 'carousel controls';
 			previousSlide = 'previous slide';
 			nextSlide = 'next slide';
@@ -47,7 +43,6 @@ let contentSlider = (function () {
 
 		}
 
-		//let timeout;
 		const slider = document.querySelector('[data-component="slider"] section');
 		let dir = document.documentElement.getAttribute('dir');
 
@@ -61,7 +56,6 @@ let contentSlider = (function () {
 			if (slides.length > 1) {
 
 				list.setAttribute('tabindex', '0');
-				list.setAttribute('aria-label', slideListDescription);
 
 				for (let slide = 1; slide < slides.length; slide++) {
 					slides[slide].classList.add('js-hidden');
@@ -72,7 +66,7 @@ let contentSlider = (function () {
 					let group = slide.querySelector('.slide');
 					group.setAttribute('role', 'group');
 					group.setAttribute('aria-roledescription', 'slide');
-					group.setAttribute('aria-label', (index + 1) + ofText + slides.length);
+					group.setAttribute('aria-label', slideText + (index + 1) + ofText + slides.length);
 
 				});
 
@@ -329,6 +323,3 @@ let contentSlider = (function () {
 	}
 
 })();
-
-
-export {contentSlider};

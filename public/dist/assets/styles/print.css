@@ -81,7 +81,7 @@ article {
 /**
 * Print stylesheet
 * @version         1.0
-* @lastmodified    16.06.2016
+* @lastmodified    21.06.2021
 
 We aim to:
 - Hide everything that is irrelevant for print
@@ -208,6 +208,93 @@ ol:not([class]) {
       content: counters(count, ".") " ";
       -webkit-padding-end: 6pt;
               padding-inline-end: 6pt; }
+
+form > * + *,
+.field-group > * + *,
+.radio-item + .radio-item,
+.checkbox-item + .checkbox-item,
+.segmented-group > * > * + * {
+  margin-top: 8pt; }
+
+fieldset {
+  border: 0;
+  margin: 0;
+  min-width: 0;
+  padding: 0.12pt 0 0 0; }
+
+.field {
+  max-width: 15cm; }
+
+.field > * {
+  display: block; }
+
+.field-label,
+.group-legend {
+  font-weight: bold; }
+
+select,
+textarea,
+[type=date],
+[type=email],
+[type=file],
+[type=number],
+[type=password],
+[type=search],
+[type=tel],
+[type=text],
+[type=time],
+[type=url] {
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  border: 2px solid;
+  border-radius: 0;
+  line-height: 1.25;
+  padding: 3.75pt;
+  width: 100%; }
+
+[type=file] {
+  border: 0; }
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-size: 12pt; }
+
+.memorable-date,
+.input-group > * {
+  display: inline-block;
+  margin-top: 0; }
+
+.memorable-date .faux-label,
+.input-group .faux-label {
+  display: block; }
+
+.segmented-label span:first-of-type::after {
+  content: ':'; }
+
+.input-width-30 {
+  max-width: 59ex; }
+
+.input-width-20 {
+  max-width: 41ex; }
+
+.input-width-10 {
+  max-width: 23ex; }
+
+.input-width-5 {
+  max-width: 10.8ex; }
+
+.input-width-4 {
+  max-width: 9ex; }
+
+.input-width-3 {
+  max-width: 7.2ex; }
+
+.input-width-2 {
+  max-width: 5.4ex; }
 
 a:link, a:visited, a {
   text-decoration: underline;
@@ -544,7 +631,10 @@ footer {
 .calendar-link,
 .listing .lead,
 .listing .filters,
+.listing .browse,
 .listing form,
+.progress-list,
+.autocomplete__wrapper svg,
 .date-location img,
 .card--group dl,
 .card--group .l-cluster,

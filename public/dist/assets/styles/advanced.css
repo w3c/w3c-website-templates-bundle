@@ -855,27 +855,27 @@ br {
 
     N.B. `.js-slider` is added by JS
 \*------------------------------------*/
-[data-component="slider"] .js-slider {
+.js [data-component="slider"] .js-slider {
   overflow: hidden; }
-  [data-component="slider"] .js-slider:focus-within {
+  .js [data-component="slider"] .js-slider:focus-within {
     box-shadow: 0 0 0 3px #f9dc4a;
     outline: 0.125rem solid #111;
     outline-offset: -0.125rem; }
 
-[data-component="slider"] .js-slider > ul {
+.js [data-component="slider"] .js-slider > ul {
   display: -ms-flexbox;
   display: flex;
   padding-bottom: 0.625rem;
   padding-top: 0.625rem;
   position: relative; }
-  [data-component="slider"] .js-slider > ul > li {
+  .js [data-component="slider"] .js-slider > ul > li {
     -ms-flex: 0 0 100%;
         flex: 0 0 100%; }
-  [data-component="slider"] .js-slider > ul > li.js-current {
+  .js [data-component="slider"] .js-slider > ul > li.js-current {
     visibility: visible; }
-  [data-component="slider"] .js-slider > ul > li.js-hidden {
+  .js [data-component="slider"] .js-slider > ul > li.js-hidden {
     visibility: hidden; }
-  [data-component="slider"] .js-slider > ul > li + li {
+  .js [data-component="slider"] .js-slider > ul > li + li {
     margin-top: 0; }
 
 .slider-controls .js-previous svg,
