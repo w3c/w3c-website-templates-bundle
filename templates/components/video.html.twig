@@ -1,9 +1,6 @@
 <figure class="component component--video">
     <div class="l-frame l-frame--16-9">
-        <iframe title="{{ title }}" loading="lazy" width="{{ width }}" height="{{ height }}"
-                src="{{ src }}"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+        {{ iframe|raw }}
     </div>
     <figcaption>
         {% block caption %}{% endblock %}
