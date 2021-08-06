@@ -7,8 +7,16 @@
             <div class="not-sidebar">
                 <div class="l-cluster">
                     <ul class="clean-list">
-                        {% for url, value in page_translations %}
-                            <li><a href="{{ url }}" hreflang="{{ value['code'] }}" lang="{{ value['code'] }}" dir="{{ value['dir'] }}">{{ value['title'] }}</a></li>
+                        {% for translation in page_translations %}
+                            <li>
+                                <a href="/{{ translation.language_code }}/{{ translation.uri }}"
+                                   hreflang="{{ translation.language_code }}"
+                                   lang="{{ translation.language_code }}"
+                                   dir="auto"
+                                >
+                                    {{ translation.language_code|language_name(translation.language_code) }}
+                                </a>
+                            </li>
                         {% endfor %}
                     </ul>
                 </div>
