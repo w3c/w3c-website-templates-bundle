@@ -30,3 +30,5 @@ banner:
             This is a new website. <a href="mailto:team-website-redesign@w3.org">Give feedback</a> to help us
             improve it.
         icon: beta icon
+breadcrumbs:
+    home: Home
