@@ -9,7 +9,8 @@
                     <ul class="clean-list">
                         {% for translation in page_translations %}
                             <li>
-                                <a href="/{{ translation.language_code }}/{{ translation.uri }}"
+                                {% set prefix = (translation.language_code == 'en' ? '/' : '/' ~ translation.language_code ~ '/') %}
+                                <a href="{{ prefix }}{{ translation.uri }}"
                                    hreflang="{{ translation.language_code }}"
                                    lang="{{ translation.language_code }}"
                                    dir="auto"
