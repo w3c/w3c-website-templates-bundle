@@ -14,7 +14,7 @@
                                    lang="{{ translation.language_code }}"
                                    dir="auto"
                                 >
-                                    {{ translation.language_code|language_name(translation.language_code) }}
+                                    {{ translation.language_code|replace({'-': '_'})|language_name(translation.language_code) }}
                                 </a>
                             </li>
                         {% endfor %}
