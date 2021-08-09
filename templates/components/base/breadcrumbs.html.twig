@@ -5,14 +5,16 @@
     {% endif %}
 {% endmacro %}
 
-<nav id="breadcrumb" aria-label="Breadcrumb">
-    <div class="l-center">
-        <div class="l-cluster">
-            <ol class="breadcrumbs clean-list" role="list">
-                <li><a href="/">{{ 'breadcrumbs.home'|trans({}, 'w3c_website_templates_bundle') }}</a></li>
-                {{ _self.breadcrumbs(breadcrumbs) }}
-                <li><a href="/{{ page.uri }}" aria-current="page">{{ page.title }}</a></li>
-            </ol>
+{% if breadcrumbs %}
+    <nav id="breadcrumb" aria-label="Breadcrumb">
+        <div class="l-center">
+            <div class="l-cluster">
+                <ol class="breadcrumbs clean-list" role="list">
+                    <li><a href="/">{{ 'breadcrumbs.home'|trans({}, 'w3c_website_templates_bundle') }}</a></li>
+                    {{ _self.breadcrumbs(breadcrumbs) }}
+                    <li><a href="/{{ page.uri }}" aria-current="page">{{ page.title }}</a></li>
+                </ol>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+{% endif %}
