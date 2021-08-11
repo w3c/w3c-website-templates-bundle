@@ -21,7 +21,7 @@ class TwigExtension extends AbstractExtension
             return $url;
         }
 
-        if (strpos($url, '/') != 0) {
+        if (strpos($url, '/') !== 0) {
             $url = '/' . $url;
         }
 
