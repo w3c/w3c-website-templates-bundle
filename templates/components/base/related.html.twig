@@ -3,7 +3,7 @@
         <h2 class="txt-jupiter">Related content</h2>
         <ul class="clean-list" role="list">
             {% for link in related_links %}
-                <li><a href="/{{ link.uri }}">{{ link.title }}</a></li>
+                <li><a href="{{ link.uri|absolute_url(app.request.locale) }}">{{ link.title }}</a></li>
             {% endfor %}
         </ul>
     </div>

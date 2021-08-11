@@ -1,5 +1,5 @@
 {% macro breadcrumbs(breadcrumb) %}
-    <li><a href="/{{ breadcrumb.uri }}">{{ breadcrumb.title }}</a></li>
+    <li><a href="{{ breadcrumb.uri|absolute_url(app.request.locale) }}">{{ breadcrumb.title }}</a></li>
     {% if breadcrumb.parent is defined and breadcrumb.parent %}
         {{ _self.breadcrumbs(breadcrumb.parent) }}
     {% endif %}
@@ -10,9 +10,17 @@
         <div class="l-center">
             <div class="l-cluster">
                 <ol class="breadcrumbs clean-list" role="list">
-                    <li><a href="/">{{ 'breadcrumbs.home'|trans({}, 'w3c_website_templates_bundle') }}</a></li>
+                    <li>
+                        <a href="{{ "/"|absolute_url(app.request.locale) }}">
+                            {{ 'breadcrumbs.home'|trans({}, 'w3c_website_templates_bundle') }}
+                        </a>
+                    </li>
                     {{ _self.breadcrumbs(breadcrumbs) }}
-                    <li><a href="/{{ page.uri }}" aria-current="page">{{ page.title }}</a></li>
+                    <li>
+                        <a href="{{ page.uri|absolute_url(app.request.locale) }}" aria-current="page">
+                            {{ page.title }}
+                        </a>
+                    </li>
                 </ol>
             </div>
         </div>

@@ -8,6 +8,9 @@
         "php": ">=7.3",
         "symfony/http-kernel": "^4.4 || ^5.2",
         "symfony/asset": "^4.4 || ^5.2",
+        "symfony/config": "^4.4 || ^5.2",
+        "symfony/dependency-injection": "^4.4 || ^5.2",
+        "twig/twig": "^3.3",
         "twig/intl-extra": "^3.3"
     },
     "autoload": {
