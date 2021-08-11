@@ -2,7 +2,9 @@
     <div class="l-frame l-frame--16-9">
         {{ iframe|raw }}
     </div>
-    <figcaption>
-        {% block caption %}{% endblock %}
-    </figcaption>
+    {% if caption is defined and caption %}
+        <figcaption>
+            {{ caption|raw }}
+        </figcaption>
+    {% endif %}
 </figure>

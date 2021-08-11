@@ -5,7 +5,9 @@
             loading="lazy"
             {% if alt %}alt="{{ alt }}"{% endif %}/>
     </div>
-    <figcaption>
-        {% block caption %}{% endblock %}
-    </figcaption>
+    {% if caption is defined and caption %}
+        <figcaption>
+            {{ caption|raw }}
+        </figcaption>
+    {% endif %}
 </figure>
