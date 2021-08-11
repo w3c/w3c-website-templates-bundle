@@ -1,12 +1,9 @@
 <figure class="component component--image">
     <div class="l-frame l-frame--16-9">
-        <img src="{{ src }}"
-             {% if srcset is defined %}
-                srcset="{{ srcset }}"
-             {% endif %}
-             sizes="100vw"
-             loading="lazy"
-             {% if alt %}alt="{{ alt }}"{% endif %}/>
+        <img {% for key, value in attr %}{{ key }}="{{ value }}" {% endfor %}
+            sizes="100vw"
+            loading="lazy"
+            {% if alt %}alt="{{ alt }}"{% endif %}/>
     </div>
     <figcaption>
         {% block caption %}{% endblock %}
