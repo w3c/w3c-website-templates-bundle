@@ -2,7 +2,7 @@
 
 ## Archive banner
 
-Use the archive banner component to clearly indicate to users that a page they are visiting is an archive version and no longer updated. Place it directly after `<span role="status" aria-live="polite"></span>`, or as the first item inside of `<header>` on pages not using Apollo.
+Use the archive banner component to clearly indicate to users that a page they are visiting is an archive version and no longer updated. Place it directly after `<span role="status" aria-live="polite"></span>`, or as the first item inside of `<header>` on pages not using this design system.
 
 ```
 <section id="archive-banner">

@@ -24,7 +24,7 @@ To provide hint text advising how to complete a field, add a `<div class="field-
 
 Each instance of `<div class="field-hint">` must have a unique ID that is used as the value of the `aria-describedby` attribute that must be added to the associated `<input>`. 
 
-Apollo uses the pattern `id="hint-...`. Replace the `...` with your unique wording.
+Use the pattern `id="hint-...`, replacing the `...` with your unique wording.
 
 Provide hint text when users are more likely to make a mistake, such as when having to satisfy a complex set of password rules. Error messages should be a last resort. Keep hint text brief and to the point. Do not use long paragraphs and lists.
 
@@ -387,7 +387,7 @@ Before using the `<select>` element, try asking users questions which will allow
 
 ## Auto-complete
 
-A `<select>` can be enhanced into an accessible auto-complete via JavaScript. Apollo uses [Accessible autocomplete](https://github.com/alphagov/accessible-autocomplete) to achieve this, and there are a number of [example customisations](https://alphagov.github.io/accessible-autocomplete/examples/) which can be followed.
+A `<select>` can be enhanced into an accessible auto-complete via JavaScript. The design system uses [Accessible autocomplete](https://github.com/alphagov/accessible-autocomplete) to achieve this, and there are a number of [example customisations](https://alphagov.github.io/accessible-autocomplete/examples/) which can be followed.
 
 Follow the default markup for a `<select>`, making sure to give it a unique ID which can be referenced in the JavaScript.
 
@@ -417,7 +417,7 @@ Notice the use of the [box layout](../layouts/box.md) and [sidebar layout](../la
 
 ## Grouping inputs to line up side-by-side
 
-Apollo includes the class `.input-group` that can be used to align form inputs horizontally with each other, by applying Flexbox behaviour. You can see an example of this in the preceding example for [dealing with times](#dealing-with-dates-and-times).
+The class `.input-group` can be used to align form inputs horizontally with each other, by applying Flexbox behaviour. You can see an example of this in the preceding example for [dealing with times](#dealing-with-dates-and-times).
 
 ### Considerations
 
@@ -425,7 +425,7 @@ This class should not be used in conjunction with radios or checkboxes. The patt
 
 ## Fixed width inputs
 
-Apollo includes several CSS classes which, when added to an `<input>`, will reduce the maximum width of the input field to better suit the intended contents:
+There is a collection of CSS classes which, when added to an `<input>`, will reduce the maximum width of the input field to better suit the intended contents:
 
 ```
 <form novalidate>
@@ -483,7 +483,7 @@ To notify a user of an error with their form submission:
 3. Add an error message to each problematic input
 
 ```
-<div class="l-box error-summary" role="alert" aria-labelledby="error-summary-title" tabindex="-1" data-component="error-summary">
+<div class="l-box note note--error" role="alert" aria-labelledby="error-summary-title" tabindex="-1" data-component="error-summary">
     <h2 id="error-summary-title" class="txt-mars">There is a problem</h2>
     <ul class="clean-list" role="list">
         <li>
@@ -807,7 +807,7 @@ Alternatively, you could roll your own thanks to [Chris Ferdinandi's series on f
 
 ## Progress indicators
 
-While it is [recommended not to use progress indicators](https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators) for forms, Apollo does cater for one:
+While it is [recommended not to use progress indicators](https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators) for forms, the design system does include one:
 
 ```
 <section>

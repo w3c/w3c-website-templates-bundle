@@ -7,7 +7,7 @@ The frame layout is useful for cropping media (images and video) to a specific a
 ```
 <figure>
     <div class="l-frame l-frame--16-9">
-        <img src="../assets/apollo-dist/assets/images/steve-johnson--zASKXkwkIY-unsplash.jpg" alt="Multicolored abstract painting">
+        <img src="path/to/image" alt="Multicolored abstract painting">
     </div>
     <figcaption>An example of the 16:9 frame modifier</figcaption>
 </figure>
@@ -18,7 +18,7 @@ The frame layout is useful for cropping media (images and video) to a specific a
 ```
 <figure>
     <div class="l-frame l-frame--3-2">
-        <img src="../assets/apollo-dist/assets/images/steve-johnson--zASKXkwkIY-unsplash.jpg" alt="Multicolored abstract painting">
+        <img src="path/to/image" alt="Multicolored abstract painting">
     </div>
     <figcaption>An example of the 3:2 frame modifier</figcaption>
 </figure>
@@ -29,7 +29,7 @@ The frame layout is useful for cropping media (images and video) to a specific a
 ```
 <figure>
     <div class="l-frame l-frame--4-3">
-        <img src="../assets/apollo-dist/assets/images/steve-johnson--zASKXkwkIY-unsplash.jpg" alt="Multicolored abstract painting">
+        <img src="path/to/image" alt="Multicolored abstract painting">
     </div>
     <figcaption>An example of the 4:3 frame modifier</figcaption>
 </figure>
@@ -40,7 +40,7 @@ The frame layout is useful for cropping media (images and video) to a specific a
 ```
 <figure>
     <div class="l-frame l-frame--square">
-        <img src="../assets/apollo-dist/assets/images/steve-johnson--zASKXkwkIY-unsplash.jpg" alt="Multicolored abstract painting">
+        <img src="path/to/image" alt="Multicolored abstract painting">
     </div>
     <figcaption>An example of the square frame modifier</figcaption>
 </figure>

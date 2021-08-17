@@ -40,7 +40,7 @@ Variables for font families and weights.
 
 ### Avoiding flash of invisible text (FOIT)
 
-Apollo uses [Bram Stein's](https://github.com/bramstein) [Font Face Observer](https://fontfaceobserver.com/) web font loader to optimise font loading and prevent (FOIT).
+The design system uses [Bram Stein's](https://github.com/bramstein) [Font Face Observer](https://fontfaceobserver.com/) web font loader to optimise font loading and prevent (FOIT).
 
 The default font stack is limited to a choice of system fonts similar to the desired web font. Use [CSS Font Stack](https://www.cssfontstack.com/) and [Font Style Matcher](https://meowni.ca/font-style-matcher/) to help pick suitable system fonts. This will [minimise the flash of un-styled content (FOUC)](https://helenvholmes.com/writing/type-is-your-right/).
 

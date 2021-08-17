@@ -65,7 +65,7 @@ FF 47+
 ">
 ```
 
-This technique is known as [‘cutting the mustard’](https://www.zeldman.com/2015/09/01/youre-welcome-cutting-the-mustard-then-and-now/). It can be done via a JavaScript query but Apollo, inspired by the [Springer Nature Frontend Playbook](https://github.com/springernature/frontend-playbook/blob/main/practices/graded-browser-support.md), uses the [CSS Only Mustard Cut](https://github.com/Fall-Back/CSS-Mustard-Cut).
+This technique is known as [‘cutting the mustard’](https://www.zeldman.com/2015/09/01/youre-welcome-cutting-the-mustard-then-and-now/). It can be done via a JavaScript query but the design system, inspired by the [Springer Nature Frontend Playbook](https://github.com/springernature/frontend-playbook/blob/main/practices/graded-browser-support.md), uses the [CSS Only Mustard Cut](https://github.com/Fall-Back/CSS-Mustard-Cut).
 
 ## JavaScript (JS)
 
@@ -81,7 +81,7 @@ The architecture takes inspiration from Chris Ferdinandi's [How I structure my v
 All JS is found within `/assets-src/js`. This directory contains a mixture of individual files, and the following subdirectories:
 
 - `/libraries`: contains third party scripts, e.g. [Font Face Observer](https://fontfaceobserver.com/) and [Accessible autocomplete](https://github.com/alphagov/accessible-autocomplete).
-- `/libraries-extensions`: contains any custom implementations for the third party scripts that may be required for Apollo.
+- `/libraries-extensions`: contains any custom implementations for the third party scripts that may be required to work with the design system.
 - `/main`: contains code used on most/all pages.
 
 ### JS compilation
