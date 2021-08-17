@@ -17,5 +17,8 @@
         "psr-4": {
             "W3C\\WebsiteTemplatesBundle\\": "src/"
         }
+    },
+    "require-dev": {
+        "studio24/design-system": "dev-main"
     }
 }
