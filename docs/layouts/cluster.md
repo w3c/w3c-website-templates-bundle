@@ -8,7 +8,7 @@ The cluster items - `<li>` in this example - sit within this container. Each ite
 
 The flexbox container has a negative margin of the same size as the cluster items, creating even spacing between them. `overflow: hidden;` is used to tidy up the edges.
 
-```
+```html
 <div class="l-cluster">
     <ul class="clean-list">
         <li><a href="#1">Item One</a></li>

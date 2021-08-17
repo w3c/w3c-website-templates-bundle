@@ -17,13 +17,18 @@
  * @see Studio24\DesignSystem\Config::$config
  */
 $config = [
+    'debug' => true,
     'navigation'        => [
         'Home'          => '/',
-        'Styles'        => '/styles/',
+        'Settings'      => '/settings/',
+        'Styles'        => '/base/',
+        'Layouts'       => '/layouts/',
         'Components'    => '/components/',
-        'Guidelines'    => '/guidelines/',
-        'Templates'     => '/code/templates/',
+        'Templates'     => '/templates/',
+        '3rd party'     => '/third-party-plugins/',
     ],
     'build_templates'   => [
+        'example-pages'
     ],
+    'templates_path'    => 'design-system-templates',
 ];

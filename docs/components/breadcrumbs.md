@@ -1,18 +1,12 @@
 # Breadcrumbs
 
-```
-<nav id="breadcrumb" aria-label="Breadcrumb">
-    <div class="l-center">
-        <div class="l-cluster">
-            <ol class="breadcrumbs clean-list" role="list">
-                <li><a href="/">Home</a></li>
-                <li><a href="/pg2">Second Page</a></li>
-                <li><a href="/pg2/this-pg" aria-current="page">This page</a></li>
-            </ol>
-        </div>
-    </div>
-</nav>
-```
+Here is an example:
+
+<example title="Breadcrumbs" src="components/breadcrumbs.html.twig">
+
+Here is the code of the example:
+
+<exampleHtml src="components/breadcrumbs.html.twig">
 
 ## Considerations
 
