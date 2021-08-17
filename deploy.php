@@ -24,7 +24,7 @@ $repository = 'git@github.com:w3c/w3c-website-templates-bundle.git';
 set('application', $project_name);
 set('repository', $repository);
 set('http_user', 'apache');
-set('webroot', 'web');
+set('webroot', '');
 set('keep_releases', 10);
 set('git_tty', true);
 set('allow_anonymous_stats', false);
@@ -60,7 +60,6 @@ task('deploy', [
     // Run initial checks
     'deploy:info',
     's24:check-branch',
-    's24:show-summary',
     's24:display-disk-space',
 
     // Request confirmation to continue (default N)
@@ -72,9 +71,6 @@ task('deploy', [
     'deploy:release',
     'local:build',
     'deploy:update_code',
-
-    'deploy:clear_paths',
-    's24:build-summary',
 
     // Build complete, deploy is live once deploy:symlink runs
     'deploy:symlink',
