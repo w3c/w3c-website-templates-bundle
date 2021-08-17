@@ -74,7 +74,7 @@ There are two general rules for JS:
 - `data-attributes` are preferred as hooks within the HTML for applying JS functionality. They are less likely to be accidentally over-written than classes. In the case of some third-party scripts, it may be necessary to use an `id` instead.
 - If a class is added to the HTML by JS, prefix it with `.js-`, e.g. `.js-slider`. This helps provide context within the stylesheets.
 
-### Architecture
+### JS architecture
 
 The architecture takes inspiration from Chris Ferdinandi's [How I structure my vanilla JS projects](https://gomakethings.com/how-i-structure-my-vanilla-js-projects/).
 
