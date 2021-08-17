@@ -1872,11 +1872,6 @@
             ],
             "description": "Deployment Tool",
             "homepage": "https://deployer.org",
-            "support": {
-                "docs": "https://deployer.org/docs",
-                "issues": "https://github.com/deployphp/deployer/issues",
-                "source": "https://github.com/deployphp/deployer"
-            },
             "funding": [
                 {
                     "url": "https://github.com/antonmedv",
@@ -1943,10 +1938,6 @@
                 "phar",
                 "update"
             ],
-            "support": {
-                "issues": "https://github.com/deployphp/phar-update/issues",
-                "source": "https://github.com/deployphp/phar-update/tree/v2.2.0"
-            },
             "abandoned": true,
             "time": "2019-12-12T13:45:57+00:00"
         },
@@ -2258,9 +2249,6 @@
                 "container",
                 "dependency injection"
             ],
-            "support": {
-                "source": "https://github.com/silexphp/Pimple/tree/v3.4.0"
-            },
             "time": "2021-03-06T08:28:00+00:00"
         },
         {
@@ -2310,10 +2298,6 @@
             ],
             "description": "Deployer recipes to aid deployment",
             "homepage": "https://github.com/studio24/deployer-recipes",
-            "support": {
-                "issues": "https://github.com/studio24/deployer-recipes/issues",
-                "source": "https://github.com/studio24/deployer-recipes/tree/v1.1.0"
-            },
             "time": "2021-04-09T08:59:19+00:00"
         },
         {
@@ -2322,12 +2306,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/studio24/design-system.git",
-                "reference": "bd50b98620b09b443ce1dfa00dd8a3fd9b960095"
+                "reference": "0086ff64562a874e20d4239855f830942d7ef22e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studio24/design-system/zipball/bd50b98620b09b443ce1dfa00dd8a3fd9b960095",
-                "reference": "bd50b98620b09b443ce1dfa00dd8a3fd9b960095",
+                "url": "https://api.github.com/repos/studio24/design-system/zipball/0086ff64562a874e20d4239855f830942d7ef22e",
+                "reference": "0086ff64562a874e20d4239855f830942d7ef22e",
                 "shasum": ""
             },
             "require": {
@@ -2343,7 +2327,6 @@
                 "phpunit/phpunit": "^8",
                 "squizlabs/php_codesniffer": "^3.5"
             },
-            "default-branch": true,
             "bin": [
                 "bin/design-system"
             ],
@@ -2362,7 +2345,7 @@
                 "issues": "https://github.com/studio24/design-system/issues",
                 "source": "https://github.com/studio24/design-system/tree/main"
             },
-            "time": "2021-08-17T16:41:04+00:00"
+            "time": "2021-08-17T14:34:26+00:00"
         },
         {
             "name": "symfony/console",
@@ -2531,9 +2514,6 @@
             ],
             "description": "Provides powerful methods to fetch HTTP resources synchronously or asynchronously",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/http-client/tree/v5.3.4"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2758,9 +2738,6 @@
             ],
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/process/tree/v5.3.4"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2978,9 +2955,6 @@
             ],
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/yaml/tree/v5.3.6"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3009,5 +2983,5 @@
         "php": ">=7.3"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "1.1.0"
 }
