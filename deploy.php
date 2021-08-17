@@ -3,41 +3,90 @@
 namespace Deployer;
 
 require 'recipe/common.php';
+require 'vendor/studio24/deployer-recipes/all.php';
 
+/**
+ * Deployment configuration variables - set on a per-project basis
+ */
+
+// Friendly project name
+$project_name = 'W3C Design System documentation website';
+
+// The repo for the project
+$repository = 'git@github.com:w3c/w3c-website-templates-bundle.git';
+
+/**
+ * Apply configuration to Deployer
+ *
+ * Don't edit beneath here unless you know what you're doing!
+ */
+
+set('application', $project_name);
+set('repository', $repository);
 set('http_user', 'apache');
-
-// Project name
-set('application', 'W3C Design System documentation website');
-
-// Project repository
-set('repository', 'git@github.com:w3c/w3c-website-templates-bundle.git');
-
-// [Optional] Allocate tty for git clone. Default value is false.
+set('webroot', 'web');
+set('keep_releases', 10);
 set('git_tty', true);
-
-// Shared files/dirs between deploys
-set('shared_files', []);
-set('shared_dirs', []);
-
-// Writable dirs by web server
-set('writable_dirs', []);
 set('allow_anonymous_stats', false);
 
-// Custom
-set('keep_releases', 10);
+// Folder to help build clean copy of design system site
 set('build_root', getenv('HOME') . '/.deployer');
 
-// Hosts
+// Default stage - prevents accidental deploying to production with dep deploy
+set('default_stage', 'staging');
 
-host('development')
-    ->stage('development')
+/**
+ * Hosts
+ */
+
+host('staging')
+    ->stage('staging')
     ->hostname('mercury.w3.org')
     ->user('studio24')
-    ->set('deploy_path','/srv/design-system.w3.org');
+    ->set('deploy_path','/srv/design-system.w3.org')
+    ->set('url', 'https://design-system.w3.org/');
 
+/**
+ * Deployment task
+ * The task that will be run when using dep deploy
+ */
 
-// Tasks
-desc('Build Design System');
+desc('Deploy ' . get('application'));
+task('deploy', [
+
+    // Check that we are using local deployer
+    's24:check-local-deployer',
+
+    // Run initial checks
+    'deploy:info',
+    's24:check-branch',
+    's24:show-summary',
+    's24:display-disk-space',
+
+    // Request confirmation to continue (default N)
+    's24:confirm-continue',
+
+    // Deploy site
+    'deploy:prepare',
+    'deploy:lock',
+    'deploy:release',
+    'local:build',
+    'deploy:update_code',
+
+    'deploy:clear_paths',
+    's24:build-summary',
+
+    // Build complete, deploy is live once deploy:symlink runs
+    'deploy:symlink',
+
+    // Cleanup
+    'deploy:unlock',
+    'cleanup',
+    'success'
+]);
+
+// Build tasks
+desc('Build Design System website');
 task('local:build', function () {
 
     //  Set local Deployment directory
@@ -70,18 +119,18 @@ task('local:build', function () {
 
     cd($buildPath);
 
-    //  Set NVM via the .nvmrc file
-    run('source ~/.nvm/nvm.sh && nvm use');
+    // Install PHP packages
+    run('composer install');
 
     // Build site
     writeln('Build Design System website');
-    run('./vendor/bin design-system');
+    run('./vendor/bin/design-system');
 
     writeln('Build complete.');
 
 })->local();
 
-
+desc('Copy static website files to remote server');
 task('deploy:update_code', function () {
 
     $buildRoot = get('build_root');
@@ -91,22 +140,6 @@ task('deploy:update_code', function () {
     upload($buildRoot.'/'.$directory.'/_dist/', '{{release_path}}');
 });
 
-
-task('deploy', [
-    'deploy:info',
-    'deploy:prepare',
-    'deploy:lock',
-    'deploy:release',
-    'local:build',
-    'deploy:update_code',
-    'deploy:clear_paths',
-    'deploy:symlink',
-    'deploy:unlock',
-    'cleanup',
-    'success'
-]);
-
-// [Optional] If deploy fails automatically unlock.
+// Add unlock to failed deployment event.
 after('deploy:failed', 'deploy:unlock');
-
 

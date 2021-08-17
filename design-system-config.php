@@ -28,7 +28,6 @@ $config = [
         '3rd party'     => '/third-party-plugins/',
     ],
     'build_templates'   => [
-        'example-pages'
     ],
     'templates_path'    => 'design-system-templates',
 ];

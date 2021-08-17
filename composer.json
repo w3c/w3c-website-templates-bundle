@@ -19,6 +19,7 @@
         }
     },
     "require-dev": {
-        "studio24/design-system": "dev-main"
+        "studio24/design-system": "dev-main",
+        "studio24/deployer-recipes": "^1.1"
     }
 }
