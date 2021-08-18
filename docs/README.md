@@ -16,16 +16,16 @@ The architecture is split into a series of levels, each level representing a dir
 
 More generic and wide-reaching styles sit within the lower numbered levels, with specificity increasing with each level:
 
-- [Settings](settings/README.md) (global [Sass variables](https://sass-lang.com/documentation/variables) for your project)
-- Functions (global [Sass functions](https://sass-lang.com/documentation/values/functions) e.g. em/rem calculation, unit stripping)
-- Mixins (global [Sass mixins](https://sass-lang.com/documentation/at-rules/mixin) for font size/line-height combinations, media queries and vertical spacing)
-- [Base](styles/README.md) (styles related to the basic styles of your project, like typography, reset and global elements like links and lists. Print styles also reside here.)
-- [Layouts](layouts/README.md) (styles for the basic layout types, which can be combined and customised to make a variety of components and templates. Heavily influenced by [Every Layout](https://every-layout.dev/).)
-- Core [components](components/README.md) (the basic components available for use, un-enhanced by JavaScript)
-- Advanced [components](components/README.md) (styles required for components that are enhanced in some way with JavaScript)
-- [Third-party plugins](third-party-plugins/README.md)
-- [Templates](templates/README.md)
-- [Utilities](utilities/README.md)
+- **00-settings:**<br> global [Sass variables](https://sass-lang.com/documentation/variables) for your project - [more about settings](/settings)
+- **10-functions:**<br> global [Sass functions](https://sass-lang.com/documentation/values/functions) e.g. em/rem calculation, unit stripping
+- **20-mixins:**<br> global [Sass mixins](https://sass-lang.com/documentation/at-rules/mixin) for font size/line-height combinations, media queries and vertical spacing
+- **30-base:**<br> essential styles forming the base of your project, like typography, reset and global elements like links and lists. Print styles also reside here - [more about styles](/styles)
+- **40-layouts:**<br> heavily influenced by [Every Layout](https://every-layout.dev/), these are the styles for the basic layout types, which can be combined and customised to make a variety of components and templates - [more about layouts](/layouts)
+- **50-core-components:**<br> the basic components available for use, un-enhanced by JavaScript - [more about components](/components)
+- **60-advanced-components:**<br> components that are enhanced in some way with JavaScript - [more about components](/components)
+- **70-third-party-plugins:**<br> any functionality that comes from external sources - [more about third-party plugins](/third-party-plugins)
+- **80-templates:**<br> styles required for specific page templates and/or content types - [more about templates](/templates)
+- **90-utilities:**<br> overrides or helper classes - [more about utilities](/styles/utilities.html)
 
 ### CSS compilation
 
