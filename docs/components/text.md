@@ -12,4 +12,4 @@ Here is the code of the example:
 
 To help maintain the page heading hierarchy, `<h1>` is not an available option within the CMS as this has its own specific location within the page template.
 
-If you have prose split across multiple text components, with other components interspersed (e.g. image components), be sure to check that no heading levels are accidentally skipped in the text components.
+If you have prose split across multiple text components, with other components interspersed (e.g. the [image component](image.md)), be sure to check that no heading levels are accidentally skipped in the text components.
