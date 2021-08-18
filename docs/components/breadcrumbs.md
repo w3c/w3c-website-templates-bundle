@@ -1,7 +1,5 @@
 # Breadcrumbs
 
-Here is an example:
-
 <example title="Breadcrumbs" src="components/breadcrumbs.html.twig"></example>
 
 Here is the code of the example:
