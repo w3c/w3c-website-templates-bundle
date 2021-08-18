@@ -19,7 +19,7 @@ More generic and wide-reaching styles sit within the lower numbered levels, with
 - [Settings](settings/README.md) (global [Sass variables](https://sass-lang.com/documentation/variables) for your project)
 - Functions (global [Sass functions](https://sass-lang.com/documentation/values/functions) e.g. em/rem calculation, unit stripping)
 - Mixins (global [Sass mixins](https://sass-lang.com/documentation/at-rules/mixin) for font size/line-height combinations, media queries and vertical spacing)
-- [Base](base/README.md) (styles related to the basic styles of your project, like typography, reset and global elements like links and lists. Print styles also reside here.)
+- [Base](styles/README.md) (styles related to the basic styles of your project, like typography, reset and global elements like links and lists. Print styles also reside here.)
 - [Layouts](layouts/README.md) (styles for the basic layout types, which can be combined and customised to make a variety of components and templates. Heavily influenced by [Every Layout](https://every-layout.dev/).)
 - Core [components](components/README.md) (the basic components available for use, un-enhanced by JavaScript)
 - Advanced [components](components/README.md) (styles required for components that are enhanced in some way with JavaScript)
@@ -40,14 +40,14 @@ The Sass files are compiled into three separate CSS stylesheets:
     - Utility styles
 - `advanced.css`, which contains
     - Settings, Functions and Mixins (referenced elsewhere within the stylesheet)
-    - Styles from Base for [hiding and showing items](base/how-to-hide-and-show-things.md) (to allow for extending [SASS placeholders](https://sass-lang.com/documentation/style-rules/placeholder-selectors))
+    - Styles from Base for [hiding and showing items](styles/how-to-hide-and-show-things.md) (to allow for extending [SASS placeholders](https://sass-lang.com/documentation/style-rules/placeholder-selectors))
     - Advanced component styles
     - Third party plugins involving JavaScript
 - `print.css` (print stylesheet)
 
 The files `core.scss`, `advanced.scss` determine which Sass files will be compiled into which stylesheets. CSS is organised in specificity order, from low to high. The individual Sass partials should be included using the [`@import` directive](https://sass-lang.com/documentation/at-rules/import#partials) in the order denoted by the level in which they reside, remembering the impact of the [CSS cascade](https://wattenberger.com/blog/css-cascade). 
 
-Print styles are a slight exception - as noted previously, they reside in [Base](base/README.md) but are included within `print.css`.
+Print styles are a slight exception - as noted previously, they reside in [Base](styles/README.md) but are included within `print.css`.
 
 Both `core.css` and `print.css` are served to all browsers. `advanced.css`, is only served to browsers that meet the following CSS media query that sits within `<head>`:
 

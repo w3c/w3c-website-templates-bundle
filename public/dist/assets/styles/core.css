@@ -511,7 +511,7 @@ html {
   height: 100%; }
 
 /**
- Typographical styles for fonts are in 40-base/_typography.scss
+ Typographical styles for fonts are in 40-styles/_typography.scss
  */
 body {
   background-color: #fff;

@@ -1,6 +1,6 @@
 # Text component
 
-The most commonly-used component for adding content to a page. Use for prose, [lists](../base/lists.md) and [tables](../base/tables.md). For quotations, use the [quote component](quote.md).
+The most commonly-used component for adding content to a page. Use for prose, [lists](../styles/lists.md) and [tables](../styles/tables.md). For quotations, use the [quote component](quote.md).
 
 ```
 <div class="component component--text">

@@ -22,7 +22,7 @@
 
 ### Considerations
 
-Note the use of the [center layout](../layouts/center.md) and [sidebar layout](../layouts/sidebar.md), and the pattern used for the decorative [SVG image](../base/svg-images.md).
+Note the use of the [center layout](../layouts/center.md) and [sidebar layout](../layouts/sidebar.md), and the pattern used for the decorative [SVG image](../styles/svg-images.md).
 
 ## Listing page hero
 
