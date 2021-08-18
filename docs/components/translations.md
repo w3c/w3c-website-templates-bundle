@@ -2,25 +2,11 @@
 
 If translated versions of a page exist, link to them using the translation component.
 
-```
-<section class="l-box l-box--no-border translations">
-    <div class="l-sidebar">
-        <div>
-            <div class="sidebar">
-                <h2>Read this page in:</h2>
-            </div>
-            <div class="not-sidebar">
-                <div class="l-cluster">
-                    <ul class="clean-list">
-                        <li><a href="/fr" hreflang="fr" lang="fr">Français</a></li>
-                        <li><a href="/zh" hreflang="zh-hans" lang="zh-hans">简体中文首页</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-```
+<example title="Translations" src="components/translations.html.twig"></example>
+
+Here is the code of the example:
+
+<exampleHtml src="components/translations.html.twig"></exampleHtml>
 
 ## Considerations
 
