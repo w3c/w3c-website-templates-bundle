@@ -40,14 +40,14 @@ The Sass files are compiled into three separate CSS stylesheets:
     - Utility styles
 - `advanced.css`, which contains
     - Settings, Functions and Mixins (referenced elsewhere within the stylesheet)
-    - Styles from Base for [hiding and showing items](styles/how-to-hide-and-show-things.md) (to allow for extending [SASS placeholders](https://sass-lang.com/documentation/style-rules/placeholder-selectors))
+    - Styles from Base for [hiding and showing items](/styles/how-to-hide-and-show-things.html) (to allow for extending [SASS placeholders](https://sass-lang.com/documentation/style-rules/placeholder-selectors))
     - Advanced component styles
     - Third party plugins involving JavaScript
 - `print.css` (print stylesheet)
 
-The files `core.scss`, `advanced.scss` determine which Sass files will be compiled into which stylesheets. CSS is organised in specificity order, from low to high. The individual Sass partials should be included using the [`@import` directive](https://sass-lang.com/documentation/at-rules/import#partials) in the order denoted by the level in which they reside, remembering the impact of the [CSS cascade](https://wattenberger.com/blog/css-cascade). 
+The files `core.scss` and `advanced.scss` determine which Sass files will be compiled into the relevant stylesheet. CSS is organised in specificity order, from low to high. The individual Sass partials are included using the [`@import` directive](https://sass-lang.com/documentation/at-rules/import#partials) in the order denoted by the level in which they reside, remembering the impact of the [CSS cascade](https://wattenberger.com/blog/css-cascade). 
 
-Print styles are a slight exception - as noted previously, they reside in [Base](styles/README.md) but are included within `print.css`.
+Print styles are a slight exception - as noted previously, they reside in **30-base** but are included in `print.scss`.
 
 Both `core.css` and `print.css` are served to all browsers. `advanced.css`, is only served to browsers that meet the following CSS media query that sits within `<head>`:
 
