@@ -1,6 +1,6 @@
 # Video component
 
-<example title="Breadcrumbs" src="components/video.html.twig"></example>
+<example title="Video component" src="components/video.html.twig"></example>
 
 Here is the code of the example:
 
