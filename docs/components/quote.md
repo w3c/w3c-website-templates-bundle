@@ -1,13 +1,10 @@
 # Quote component
 
-```
-<figure class="component component--quote">
-    <blockquote>
-        <p>The goal of the Web is to serve humanity. We build it now so that those who come to it later will be able to create things we cannot ourselves imagine.</p>
-    </blockquote>
-    <figcaption>Sir Tim Berners-Lee</figcaption>
-</figure>
-```
+<example title="Quote component" src="components/quote.html.twig"></example>
+
+Here is the code of the example:
+
+<exampleHtml src="components/quote.html.twig"></exampleHtml>
 
 ## Considerations
 
