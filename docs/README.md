@@ -16,16 +16,16 @@ The architecture is split into a series of levels, each level representing a dir
 
 More generic and wide-reaching styles sit within the lower numbered levels, with specificity increasing with each level:
 
-- **00-settings:**<br> global [Sass variables](https://sass-lang.com/documentation/variables) for your project - [more about settings](/settings)
+- **00-settings:**<br> global [Sass variables](https://sass-lang.com/documentation/variables) for your project - [more about settings](settings/README.md)
 - **10-functions:**<br> global [Sass functions](https://sass-lang.com/documentation/values/functions) e.g. em/rem calculation, unit stripping
 - **20-mixins:**<br> global [Sass mixins](https://sass-lang.com/documentation/at-rules/mixin) for font size/line-height combinations, media queries and vertical spacing
-- **30-base:**<br> essential styles forming the base of your project, like typography, reset and global elements like links and lists. Print styles also reside here - [more about styles](/styles)
-- **40-layouts:**<br> heavily influenced by [Every Layout](https://every-layout.dev/), these are the styles for the basic layout types, which can be combined and customised to make a variety of components and templates - [more about layouts](/layouts)
-- **50-core-components:**<br> the basic components available for use, un-enhanced by JavaScript - [more about components](/components)
-- **60-advanced-components:**<br> components that are enhanced in some way with JavaScript - [more about components](/components)
-- **70-third-party-plugins:**<br> any functionality that comes from external sources - [more about third-party plugins](/third-party-plugins)
-- **80-templates:**<br> styles required for specific page templates and/or content types - [more about templates](/templates)
-- **90-utilities:**<br> overrides or helper classes - [more about utilities](/styles/utilities.html)
+- **30-base:**<br> essential styles forming the base of your project, like typography, reset and global elements like links and lists. Print styles also reside here - [more about styles](styles/README.md)
+- **40-layouts:**<br> heavily influenced by [Every Layout](https://every-layout.dev/), these are the styles for the basic layout types, which can be combined and customised to make a variety of components and templates - [more about layouts](layouts/README.md)
+- **50-core-components:**<br> the basic components available for use, un-enhanced by JavaScript - [more about components](components/README.md)
+- **60-advanced-components:**<br> components that are enhanced in some way with JavaScript - [more about components](components/README.md)
+- **70-third-party-plugins:**<br> any functionality that comes from external sources - [more about third-party plugins](third-party-plugins/README.md)
+- **80-templates:**<br> styles required for specific page templates and/or content types - [more about templates](templates/README.md)
+- **90-utilities:**<br> overrides or helper classes - [more about utilities](styles/utilities.md)
 
 ### CSS compilation
 
@@ -40,7 +40,7 @@ The Sass files are compiled into three separate CSS stylesheets:
     - Utility styles
 - `advanced.css`, which contains
     - Settings, Functions and Mixins (referenced elsewhere within the stylesheet)
-    - Styles from Base for [hiding and showing items](/styles/how-to-hide-and-show-things.html) (to allow for extending [SASS placeholders](https://sass-lang.com/documentation/style-rules/placeholder-selectors))
+    - Styles from Base for [hiding and showing items](styles/how-to-hide-and-show-things.md) (to allow for extending [SASS placeholders](https://sass-lang.com/documentation/style-rules/placeholder-selectors))
     - Advanced component styles
     - Third party plugins involving JavaScript
 - `print.css` (print stylesheet)
