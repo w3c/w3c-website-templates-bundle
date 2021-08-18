@@ -1993,16 +1993,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "2.2.1",
+            "version": "2.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "f186fa328e0687b562fdf530f2642e1109ce261f"
+                "reference": "629cd411b1eb56808ce85b1dd6f9b5bf422932ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/f186fa328e0687b562fdf530f2642e1109ce261f",
-                "reference": "f186fa328e0687b562fdf530f2642e1109ce261f",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/629cd411b1eb56808ce85b1dd6f9b5bf422932ad",
+                "reference": "629cd411b1eb56808ce85b1dd6f9b5bf422932ad",
                 "shasum": ""
             },
             "require": {
@@ -2056,10 +2056,6 @@
                 "sftp",
                 "storage"
             ],
-            "support": {
-                "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/2.2.1"
-            },
             "funding": [
                 {
                     "url": "https://offset.earth/frankdejonge",
@@ -2074,7 +2070,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-08-17T13:57:50+00:00"
+            "time": "2021-08-18T08:51:30+00:00"
         },
         {
             "name": "league/mime-type-detection",
@@ -2306,19 +2302,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/studio24/design-system.git",
-                "reference": "0086ff64562a874e20d4239855f830942d7ef22e"
+                "reference": "98b5f9ca40fd93c7bc6dc78523e9c2d3166b1cb6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studio24/design-system/zipball/0086ff64562a874e20d4239855f830942d7ef22e",
-                "reference": "0086ff64562a874e20d4239855f830942d7ef22e",
+                "url": "https://api.github.com/repos/studio24/design-system/zipball/98b5f9ca40fd93c7bc6dc78523e9c2d3166b1cb6",
+                "reference": "98b5f9ca40fd93c7bc6dc78523e9c2d3166b1cb6",
                 "shasum": ""
             },
             "require": {
                 "erusev/parsedown": "^1.7",
                 "league/flysystem": "^2.2",
                 "masterminds/html5": "^2.7",
-                "php": ">7.3.0",
+                "php": ">7.4.0",
                 "symfony/console": "^5.0",
                 "symfony/stopwatch": "^5.0",
                 "twig/twig": "^3.0"
@@ -2341,11 +2337,7 @@
                 "MIT"
             ],
             "description": "PHP based build system for a static Design System, based on Twig",
-            "support": {
-                "issues": "https://github.com/studio24/design-system/issues",
-                "source": "https://github.com/studio24/design-system/tree/main"
-            },
-            "time": "2021-08-17T14:34:26+00:00"
+            "time": "2021-08-18T13:26:16+00:00"
         },
         {
             "name": "symfony/console",
