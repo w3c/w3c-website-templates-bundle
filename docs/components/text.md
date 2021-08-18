@@ -2,12 +2,11 @@
 
 The most commonly-used component for adding content to a page. Use for prose, [lists](../styles/lists.md) and [tables](../styles/tables.md). For quotations, use the [quote component](quote.md).
 
-```
-<div class="component component--text">
-    <h2></h2>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-</div>
-```
+<example title="Text component" src="components/text.html.twig"></example>
+
+Here is the code of the example:
+
+<exampleHtml src="components/text.html.twig"></exampleHtml>
 
 ## Considerations
 
