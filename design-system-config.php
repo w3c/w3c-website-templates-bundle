@@ -17,15 +17,15 @@
  * @see Studio24\DesignSystem\Config::$config
  */
 $config = [
-    'debug' => true,
-    'navigation'        => [
-        'Home'          => '/',
-        'Settings'      => '/settings/',
-        'Styles'        => '/styles/',
-        'Layouts'       => '/layouts/',
-        'Components'    => '/components/',
-        'Templates'     => '/templates/',
-        '3rd party'     => '/third-party-plugins/',
+    'debug'                     => true,
+    'navigation'                => [
+        'Home'                  => '/',
+        'Settings'              => '/settings/',
+        'Styles'                => '/styles/',
+        'Layouts'               => '/layouts/',
+        'Components'            => '/components/',
+        'Third party plugins'   => '/third-party-plugins/',
+        'Templates'             => '/templates/',
     ],
     'build_templates'   => [
     ],
