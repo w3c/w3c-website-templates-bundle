@@ -1,10 +1,6 @@
 # Image component
 
-<example title="Image component" src="components/image.html.twig"></example>
-
-Here is the code of the example:
-
-<exampleHtml src="components/image.html.twig"></exampleHtml>
+<example title="Image component" src="components/image.html.twig" />
 
 ## Considerations
 

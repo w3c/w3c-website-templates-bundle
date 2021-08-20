@@ -1,10 +1,6 @@
 # Quote component
 
-<example title="Quote component" src="components/quote.html.twig"></example>
-
-Here is the code of the example:
-
-<exampleHtml src="components/quote.html.twig"></exampleHtml>
+<example title="Quote component" src="components/quote.html.twig" />
 
 ## Considerations
 

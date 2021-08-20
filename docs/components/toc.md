@@ -2,11 +2,7 @@
 
 Part of the [default page](../templates/default.md) template.
 
-<example title="Table of contents" src="components/toc.html.twig"></example>
-
-Here is the code of the example:
-
-<exampleHtml src="components/toc.html.twig"></exampleHtml>
+<example title="Table of contents" src="components/toc.html.twig" />
 
 ## Considerations
 

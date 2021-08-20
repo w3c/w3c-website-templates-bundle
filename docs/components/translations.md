@@ -2,11 +2,7 @@
 
 If translated versions of a page exist, link to them using the translation component.
 
-<example title="Translations" src="components/translations.html.twig"></example>
-
-Here is the code of the example:
-
-<exampleHtml src="components/translations.html.twig"></exampleHtml>
+<example title="Translations" src="components/translations.html.twig" />
 
 ## Considerations
 

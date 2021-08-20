@@ -1872,6 +1872,11 @@
             ],
             "description": "Deployment Tool",
             "homepage": "https://deployer.org",
+            "support": {
+                "docs": "https://deployer.org/docs",
+                "issues": "https://github.com/deployphp/deployer/issues",
+                "source": "https://github.com/deployphp/deployer"
+            },
             "funding": [
                 {
                     "url": "https://github.com/antonmedv",
@@ -1938,6 +1943,10 @@
                 "phar",
                 "update"
             ],
+            "support": {
+                "issues": "https://github.com/deployphp/phar-update/issues",
+                "source": "https://github.com/deployphp/phar-update/tree/v2.2.0"
+            },
             "abandoned": true,
             "time": "2019-12-12T13:45:57+00:00"
         },
@@ -1993,16 +2002,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "2.2.2",
+            "version": "2.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "629cd411b1eb56808ce85b1dd6f9b5bf422932ad"
+                "reference": "811bdc2d52a07eafbb6cb68a7b368b0668b362c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/629cd411b1eb56808ce85b1dd6f9b5bf422932ad",
-                "reference": "629cd411b1eb56808ce85b1dd6f9b5bf422932ad",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/811bdc2d52a07eafbb6cb68a7b368b0668b362c8",
+                "reference": "811bdc2d52a07eafbb6cb68a7b368b0668b362c8",
                 "shasum": ""
             },
             "require": {
@@ -2056,6 +2065,10 @@
                 "sftp",
                 "storage"
             ],
+            "support": {
+                "issues": "https://github.com/thephpleague/flysystem/issues",
+                "source": "https://github.com/thephpleague/flysystem/tree/2.2.3"
+            },
             "funding": [
                 {
                     "url": "https://offset.earth/frankdejonge",
@@ -2070,7 +2083,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-08-18T08:51:30+00:00"
+            "time": "2021-08-18T19:59:31+00:00"
         },
         {
             "name": "league/mime-type-detection",
@@ -2245,6 +2258,9 @@
                 "container",
                 "dependency injection"
             ],
+            "support": {
+                "source": "https://github.com/silexphp/Pimple/tree/v3.4.0"
+            },
             "time": "2021-03-06T08:28:00+00:00"
         },
         {
@@ -2294,6 +2310,10 @@
             ],
             "description": "Deployer recipes to aid deployment",
             "homepage": "https://github.com/studio24/deployer-recipes",
+            "support": {
+                "issues": "https://github.com/studio24/deployer-recipes/issues",
+                "source": "https://github.com/studio24/deployer-recipes/tree/v1.1.0"
+            },
             "time": "2021-04-09T08:59:19+00:00"
         },
         {
@@ -2302,12 +2322,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/studio24/design-system.git",
-                "reference": "98b5f9ca40fd93c7bc6dc78523e9c2d3166b1cb6"
+                "reference": "1d02725108c21f0e744e8f27306256b066908a0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studio24/design-system/zipball/98b5f9ca40fd93c7bc6dc78523e9c2d3166b1cb6",
-                "reference": "98b5f9ca40fd93c7bc6dc78523e9c2d3166b1cb6",
+                "url": "https://api.github.com/repos/studio24/design-system/zipball/1d02725108c21f0e744e8f27306256b066908a0d",
+                "reference": "1d02725108c21f0e744e8f27306256b066908a0d",
                 "shasum": ""
             },
             "require": {
@@ -2323,6 +2343,7 @@
                 "phpunit/phpunit": "^8",
                 "squizlabs/php_codesniffer": "^3.5"
             },
+            "default-branch": true,
             "bin": [
                 "bin/design-system"
             ],
@@ -2336,8 +2357,12 @@
             "license": [
                 "MIT"
             ],
-            "description": "PHP based build system for a static Design System, based on Twig",
-            "time": "2021-08-18T13:26:16+00:00"
+            "description": "Simple documentation-first tool to build a static design system website based on Markdown documentation files and Twig templates",
+            "support": {
+                "issues": "https://github.com/studio24/design-system/issues",
+                "source": "https://github.com/studio24/design-system/tree/main"
+            },
+            "time": "2021-08-20T16:05:19+00:00"
         },
         {
             "name": "symfony/console",
@@ -2506,6 +2531,9 @@
             ],
             "description": "Provides powerful methods to fetch HTTP resources synchronously or asynchronously",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/http-client/tree/v5.3.4"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2730,6 +2758,9 @@
             ],
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/process/tree/v5.3.4"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2947,6 +2978,9 @@
             ],
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/yaml/tree/v5.3.6"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2975,5 +3009,5 @@
         "php": ">=7.3"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }

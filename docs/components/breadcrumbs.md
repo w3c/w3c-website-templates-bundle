@@ -1,10 +1,6 @@
 # Breadcrumbs
 
-<example title="Breadcrumbs" src="components/breadcrumbs.html.twig"></example>
-
-Here is the code of the example:
-
-<exampleHtml src="components/breadcrumbs.html.twig"></exampleHtml>
+<example title="Breadcrumbs" src="components/breadcrumbs.html.twig" />
 
 ## Considerations
 

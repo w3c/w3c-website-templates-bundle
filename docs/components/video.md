@@ -1,10 +1,6 @@
 # Video component
 
-<example title="Video component" src="components/video.html.twig"></example>
-
-Here is the code of the example:
-
-<exampleHtml src="components/video.html.twig"></exampleHtml>
+<example title="Video component" src="components/video.html.twig" />
 
 ## Considerations
 
