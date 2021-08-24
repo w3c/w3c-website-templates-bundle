@@ -2,7 +2,7 @@
 
 The switcher layout switches the alignment of items from horizontal to vertical at a given, container-based breakpoint. It's a good choice for situations where each child item should be considered of equal importance and has an equal width.
 
-As with the [cluster](cluster.md) and [sidebar](sidebar.md) layouts, an inner flexbox container holds the switcher items., and the negative margin technique to create gutter soacing between items.
+As with the [cluster](cluster.md) and [sidebar](sidebar.md) layouts, an inner flexbox container holds the switcher items, and the negative margin technique to create gutter spacing between items.
 
 As there are no viewport media queries, the switcher layout will nest nicely inside other containers.
 

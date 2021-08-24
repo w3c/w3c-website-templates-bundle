@@ -16,7 +16,7 @@ Links can be made to look more like buttons by adding the classes used for styli
 
 ## Grouping links
 
-Links can be arranged in groups using the [cluster layout](../layouts/cluster.md). The following example is from the [business ecosystem](../templates/business-ecosystem.md) template.
+Links can be arranged in groups using the [cluster layout](../layouts/cluster.md). The following example is from the [business ecosystem](../templates/business-ecosystem.md) template:
 
 ```
 <div class="l-cluster component--members__cta">
