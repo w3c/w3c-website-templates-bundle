@@ -4,47 +4,19 @@ The frame layout is useful for cropping media (images and video) to a specific a
 
 ## 16:9 aspect ratio
 
-```
-<figure>
-    <div class="l-frame l-frame--16-9">
-        <img src="path/to/image" alt="Multicolored abstract painting">
-    </div>
-    <figcaption>An example of the 16:9 frame modifier</figcaption>
-</figure>
-```
+<example title="Frame layout: 16:9 aspect ratio" src="components/frame-16-9.html.twig" />
 
 ## 3:2 aspect ratio
 
-```
-<figure>
-    <div class="l-frame l-frame--3-2">
-        <img src="path/to/image" alt="Multicolored abstract painting">
-    </div>
-    <figcaption>An example of the 3:2 frame modifier</figcaption>
-</figure>
-```
+<example title="Frame layout: 3:2 aspect ratio" src="components/frame-3-2.html.twig" />
 
 ## 4:3 aspect ratio
 
-```
-<figure>
-    <div class="l-frame l-frame--4-3">
-        <img src="path/to/image" alt="Multicolored abstract painting">
-    </div>
-    <figcaption>An example of the 4:3 frame modifier</figcaption>
-</figure>
-```
+<example title="Frame layout: 4:3 aspect ratio" src="components/frame-4-3.html.twig" />
 
 ## Square aspect ratio
 
-```
-<figure>
-    <div class="l-frame l-frame--square">
-        <img src="path/to/image" alt="Multicolored abstract painting">
-    </div>
-    <figcaption>An example of the square frame modifier</figcaption>
-</figure>
-```
+<example title="Frame layout: square aspect ratio" src="components/frame-square.html.twig" />
 
 ## Considerations
 
