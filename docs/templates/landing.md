@@ -193,4 +193,4 @@ An example of the landing page template. This example does not include:
 
 ## Considerations
 
-Note the `.landing` class applied to `<body>`.
+Note the `.landing` class applied to `<body>`. The `<h1>` on this template uses the larger `.txt-mercury` font-size.

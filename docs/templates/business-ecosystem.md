@@ -164,7 +164,7 @@ An example of the business ecosystem page template. This example does not includ
 
 ## Considerations
 
-Note the `.ecosystem` class applied to `<body>`.
+Note the `.ecosystem` class applied to `<body>`. The `<h1>` on this template uses the larger `.txt-mercury` font-size.
 
 If the carousel is being used, the following script must be added before the closing body tag `</body>`:
 

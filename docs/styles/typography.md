@@ -12,9 +12,7 @@ The default paragraph font size is 1rem, equivalent to 16px unless a user has ch
 
 A lead paragraph is an introductory paragraph that you can use at the top of a page to summarise the content. The lead paragraph font size is 1.5rem, equivalent to 24px, and should only be used once per page if needed.
 
-```
-<p class="lead">This is a lead paragraph.</p>
-```
+<example title="Lead paragraph" src="components/lead.html.twig" />
 
 ## Headings
 
@@ -32,22 +30,6 @@ Heading | Class
 
 ### Font override classes
 
-Eight classes are available in total. `.txt-mercury` is used for the `<h1>` on the landing and business ecosystem page templates. Note that the font size and line-height of `.txt-mercury`, `.txt-venus` and `.txt-earth` increase at the `$bp-tab-small` media query breakpoint, defined in [Settings](../settings/README.md).
+Eight classes are available in total. Note that the font size and line-height of `.txt-mercury`, `.txt-venus` and `.txt-earth` increase at the `$bp-tab-small` media query breakpoint, defined in [Settings](../settings/README.md).
 
-```
-<p class="txt-mercury">txt-mercury</p>
-
-<p class="txt-venus">txt-venus</h2>
-
-<p class="txt-earth">txt-earth</p>
-
-<p class="txt-mars">txt-mars</p>
-
-<p class="txt-jupiter">txt-jupiter</p>
-
-<p class="txt-saturn">txt-saturn</p>
-
-<p class="txt-pluto">txt-pluto</p>
-
-<p class="txt-eris">txt-eris</p>
-```
+<example title="Font override classes" src="components/font-overrides.html.twig" />
