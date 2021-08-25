@@ -8,19 +8,4 @@ The cluster items - `<li>` in this example - sit within this container. Each ite
 
 The flexbox container has a negative margin of the same size as the cluster items, creating even spacing between them. `overflow: hidden;` is used to tidy up the edges.
 
-```html
-<div class="l-cluster">
-    <ul class="clean-list">
-        <li><a href="#1">Item One</a></li>
-        <li><a href="#2">Item Two</a></li>
-        <li><a href="#3">Item Three</a></li>
-        <li><a href="#4">Item Four</a></li>
-        <li><a href="#5">Item Five</a></li>
-        <li><a href="#6">Item Six</a></li>
-        <li><a href="#7">Item Seven</a></li>
-        <li><a href="#8">Item Eight</a></li>
-        <li><a href="#9">Item Nine</a></li>
-        <li><a href="#10">Item Ten</a></li>
-    </ul>
-</div>
-```
+<example title="Cluster layout" src="components/cluster.html.twig" />
