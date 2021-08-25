@@ -1,0 +1,289 @@
+<div class="l-box note note--error" role="alert" aria-labelledby="error-summary-title" tabindex="-1" data-component="error-summary">
+	<h2 id="error-summary-title" class="txt-mars">There is a problem</h2>
+	<ul class="clean-list" role="list">
+		<li>
+			<a href="#name">Enter a name</a>
+		</li>
+		<li>
+			<a href="#message">Enter a message</a>
+		</li>
+		<li>
+			<a href="#account-number">Enter an account number</a>
+		</li>
+		<li>
+			<a href="#arrival-date">Enter an arrival date</a>
+		</li>
+		<li>
+			<a href="#meeting-time">Enter a start time</a>
+		</li>
+		<li>
+			<a href="#bday-day">Enter a date of birth</a>
+		</li>
+		<li>
+			<a href="#file">The file must be 2MB or smaller</a>
+		</li>
+		<li>
+			<a href="#pets_yes">Select yes if you do own pets</a>
+		</li>
+		<li>
+			<a href="#segmented-option-1">Choose a segmented option</a>
+		</li>
+		<li>
+			<a href="#chocolate">Choose at least one item you like</a>
+		</li>
+		<li>
+			<a href="#day">Choose your preferred day</a>
+		</li>
+	</ul>
+</div>
+
+<h1>Page title</h1>
+<h2>Example form showcasing error messages</h2>
+<form novalidate>
+	<div class="field-group">
+		<h3 class="field-legend">Dealing with text</h3>
+		<div class="field field--error">
+			<label for="name">
+				<span class="field-label">Name (Required)</span>
+				<span class="field-error-msg" id="error-name"><span class="visuallyhidden">Error:</span> Enter a name</span>
+			</label>
+			<div class="field-hint" id="hint-name">E.g. Robin Smith</div>
+			<input type="text" id="name" name="name" autocomplete="name" aria-describedby="hint-name error-name">
+		</div>
+
+		<div class="field field--error">
+			<label for="message">
+				<span class="field-label">Your message (Required)</span>
+				<span class="field-error-msg" id="error-msg"><span class="visuallyhidden">Error:</span> Enter a message</span>
+			</label>
+			<textarea id="message" name="message" aria-describedby="error-msg"></textarea>
+		</div>
+	</div>
+
+	<div class="field-group">
+		<h3 class="field-legend">Dealing with numbers</h3>
+		<div class="field field--error">
+			<label for="account-number">
+				<span class="field-label">Account number (Required)</span>
+				<span class="field-error-msg" id="error-account-number"><span class="visuallyhidden">Error:</span> Enter an account number</span>
+			</label>
+			<div class="field-hint" id="hint-account-number">Must be between 6 and 8 numbers long</div>
+			<input type="text" class="input-width-10" id="account-number" name="account-number" pattern="[0-9]*" maxlength="8" inputmode="numeric" aria-describedby="hint-account-number error-account-number">
+		</div>
+	</div>
+
+	<div class="field-group">
+		<h3 class="field-legend">Dealing with dates and times</h3>
+		<div class="field field--error">
+			<label for="arrival-date">
+				<span class="field-label">Date of arrival (Required)</span>
+				<span class="field-error-msg" id="error-arrival-date"><span class="visuallyhidden">Error:</span> Enter an arrival date</span>
+			</label>
+			<div class="field-hint" id="hint-arrival-date">For example 30/05/2021</div>
+			<input type="text" class="input-width-10" id="arrival-date" name="arrival-date" aria-describedby="hint-arrival-date error-arrival-date">
+		</div>
+		<div class="field field--error">
+			<fieldset role="group" aria-describedby="hint-date-of-birth error-date-of-birth">
+				<legend>
+					<span class="field-label">Date of birth (Required) (an example of a memorable date)</span>
+					<span class="field-error-msg" id="error-date-of-birth"><span class="visuallyhidden">Error:</span> Enter a date of birth</span>
+				</legend>
+				<div class="field-hint u-no-margin-top" id="hint-date-of-birth">For example 20 07 1972</div>
+				<div class="memorable-date">
+					<label for="bday-day" class="field-label">Day</label>
+					<input type="text" class="input-width-2" id="bday-day" name="bday-day" autocomplete="bday-day" pattern="[0-9]*" inputmode="numeric" min="0" max="31">
+				</div>
+				<div class="memorable-date">
+					<label for="bday-month" class="field-label">Month</label>
+					<input type="text" class="input-width-2" id="bday-month" name="bday-month" autocomplete="bday-month" pattern="[0-9]*" inputmode="numeric" min="1" max="12">
+				</div>
+				<div class="memorable-date">
+					<label for="bday-year" class="field-label">Year</label>
+					<input type="text" class="input-width-4" id="bday-year" name="bday-year" autocomplete="bday-year" pattern="[0-9]*" inputmode="numeric" min="1900" max="2050">
+				</div>
+			</fieldset>
+		</div>
+
+		<div class="field field--error">
+			<fieldset role="group" aria-describedby="hint-meeting-time error-meeting-time">
+				<legend>
+					<span class="field-label">Specify a start time for your meeting</span>
+					<span class="field-error-msg" id="error-meeting-time"><span class="visuallyhidden">Error:</span> Enter a start time</span>
+				</legend>
+				<div class="field-hint u-no-margin-top" id="hint-meeting-time">Use <dfn id="utc"><abbr title="Coordinated Universal Time">UTC</abbr></dfn> and your local time zone</div>
+				<div class="input-group">
+					<div>
+						<label for="meeting-time" class="faux-label">Start time</label>
+						<input type="text" class="input-width-5" id="meeting-time" name="meeting-time">
+					</div>
+					<div>
+						<label for="meeting-time" class="faux-label">Time zone</label>
+						<select id="timezone" name="timezone">
+							<option value="UTC−12:00">UTC−12:00</option>
+							<option value="UTC−11:00">UTC−11:00</option>
+							<option value="UTC−10:00">UTC−10:00</option>
+							<option value="UTC−09:30">UTC−09:30</option>
+							<option value="UTC−09:00">UTC−09:00</option>
+							<option value="UTC−08:00">UTC−08:00</option>
+							<option value="UTC−07:00">UTC−07:00</option>
+							<option value="UTC−06:00">UTC−06:00</option>
+							<option value="UTC−05:00">UTC−05:00</option>
+							<option value="UTC−04:00">UTC−04:00</option>
+							<option value="UTC−03:30">UTC−03:30</option>
+							<option value="UTC−03:00">UTC−03:00</option>
+							<option value="UTC−02:00">UTC−02:00</option>
+							<option value="UTC−01:00">UTC−01:00</option>
+							<option value="UTC±00:00" selected="">UTC±00:00</option>
+							<option value="UTC+01:00">UTC+01:00</option>
+							<option value="UTC+02:00">UTC+02:00</option>
+							<option value="UTC+03:00">UTC+03:00</option>
+							<option value="UTC+03:30">UTC+03:30</option>
+							<option value="UTC+04:00">UTC+04:00</option>
+							<option value="UTC+04:30">UTC+04:30</option>
+							<option value="UTC+05:00">UTC+05:00</option>
+							<option value="UTC+05:30">UTC+05:30</option>
+							<option value="UTC+05:45">UTC+05:45</option>
+							<option value="UTC+06:00">UTC+06:00</option>
+							<option value="UTC+06:30">UTC+06:30</option>
+							<option value="UTC+07:00">UTC+07:00</option>
+							<option value="UTC+08:00">UTC+08:00</option>
+							<option value="UTC+08:45">UTC+08:45</option>
+							<option value="UTC+09:00">UTC+09:00</option>
+							<option value="UTC+09:30">UTC+09:30</option>
+							<option value="UTC+10:00">UTC+10:00</option>
+							<option value="UTC+10:30">UTC+10:30</option>
+							<option value="UTC+11:00">UTC+11:00</option>
+							<option value="UTC+12:00">UTC+12:00</option>
+							<option value="UTC+12:45">UTC+12:45</option>
+							<option value="UTC+13:00">UTC+13:00</option>
+							<option value="UTC+14:00">UTC+14:00</option>
+						</select>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+
+	<div class="field-group">
+		<h3 class="field-legend">Other input types</h3>
+		<div class="field field--error">
+			<label for="file">
+				<span class="field-label">Upload an image</span>
+				<span class="field-error-msg" id="error-file"><span class="visuallyhidden">Error:</span> The file must be 2MB or smaller</span>
+			</label>
+			<div class="field-hint" id="hint-file">Maximum file size 2MB</div>
+			<input type="file" id="file" name="file" aria-describedby="hint-file error-file">
+		</div>
+
+		<div class="field field--error">
+			<fieldset aria-describedby="error-pets">
+				<legend class="group-legend">Do you own any pets? (Required)</legend>
+				<span class="field-error-msg" id="error-pets"><span class="visuallyhidden">Error:</span> Select yes if you do own pets</span>
+				<div class="radio-item">
+					<input type="radio" id="pets_yes" name="pets" value="yes">
+					<label for="pets_yes">
+						<span class="field-label">Yes</span>
+					</label>
+				</div>
+				<div class="radio-item">
+					<input type="radio" id="pets_no" name="pets" value="no">
+					<label for="pets_no">
+						<span class="field-label">No</span>
+					</label>
+				</div>
+				<div class="radio-item">
+					<input type="radio" id="pets_none" name="pets" value="none">
+					<label for="pets_none">
+						<span class="field-label">Prefer not to say</span>
+					</label>
+				</div>
+			</fieldset>
+		</div>
+
+		<div class="field field--error segmented-group-wrapper">
+			<fieldset role="group" aria-describedby="hint-segmented-options error-segmented-options">
+				<legend class="group-legend">Segmented options (Radio)</legend>
+				<span class="field-error-msg" id="error-segmented-options"><span class="visuallyhidden">Error:</span> Choose an option</span>
+				<div class="field-hint" id="hint-segmented-options">We understand that different people enjoy books in different ways, which is why we’re giving you lots of options.</div>
+				<div class="l-switcher segmented-group">
+					<div>
+						<div>
+							<input type="radio" class="input--radio" id="segmented-option-1" name="segmented-options">
+							<label for="segmented-option-1">
+                        <span class="segmented-label">
+                            <span>Budget option</span>
+                            <span>Copy to explain this option in more detail.</span>
+                        </span>
+							</label>
+						</div>
+						<div>
+							<input type="radio" class="input--radio" id="segmented-option-2" name="segmented-options">
+							<label for="segmented-option-2">
+                        <span class="segmented-label">
+                            <span>Value option</span>
+                            <span>Copy to explain this option in more detail.</span>
+                        </span>
+							</label>
+						</div>
+						<div>
+							<input type="radio" class="input--radio" id="segmented-option-3" name="segmented-options">
+							<label for="segmented-option-3">
+                        <span class="segmented-label">
+                            <span>Expensive option</span>
+                            <span>Copy to explain this option in more detail.</span>
+                        </span>
+							</label>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+
+		<div class="field field--error">
+			<fieldset aria-describedby="error-like">
+				<legend class="group-legend">Things you like</legend>
+				<span class="field-error-msg" id="error-like"><span class="visuallyhidden">Error:</span> Choose at least one item</span>
+				<div class="checkbox-item">
+					<input type="checkbox" name="chocolate" id="chocolate" appearance="base">
+					<label for="chocolate">
+						<span class="field-label">Chocolate</span>
+					</label>
+				</div>
+				<div class="checkbox-item">
+					<input type="checkbox" name="coffee" id="coffee" appearance="base">
+					<label for="coffee">
+						<span class="field-label">Coffee</span>
+					</label>
+				</div>
+				<div class="checkbox-item">
+					<input type="checkbox" name="cake" id="cake" appearance="base">
+					<label for="cake">
+						<span class="field-label">Cake</span>
+					</label>
+				</div>
+				<div class="checkbox-item">
+					<input type="checkbox" name="chips" id="chips" appearance="base">
+					<label for="chips">
+						<span class="field-label">Chips</span>
+					</label>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+
+	<div class="field field--error">
+		<label for="sort">
+			<span class="field-label">Preferred day of appointment</span>
+			<span class="field-error-msg"><span class="visuallyhidden">Error:</span> Choose your preferred day</span>
+		</label>
+		<select id="day" name="day">
+			<option value="Monday">Monday</option>
+			<option value="Tuesday">Tuesday</option>
+			<option value="Wednesday">Wednesday</option>
+			<option value="Thursday">Thursday</option>
+			<option value="Friday">Friday</option>
+			<option value="Saturday">Saturday</option>
+			<option value="Sunday">Sunday</option>
+		</select>
+	</div>
+</form>

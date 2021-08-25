@@ -1,0 +1,24 @@
+<form novalidate>
+	<div class="field">
+		<label for="account-number">
+			<span class="field-label">Account number</span>
+		</label>
+		<div class="field-hint" id="hint-account-number">Must be between 6 and 8 numbers long</div>
+		<input type="text" class="input-width-10" id="account-number" name="account-number" pattern="[0-9]*" maxlength="8" inputmode="numeric" aria-describedby="hint-account-number">
+	</div>
+
+	<div class="field">
+		<label for="telephone-number">
+			<span class="field-label">Phone number</span>
+		</label>
+		<div class="field-hint" id="hint-telephone-number">Please include your country code</div>
+		<input type="tel" class="input-width-20" id="telephone-number" name="telephone-number" autocomplete="tel" inputmode="tel" aria-describedby="hint-telephone-number">
+	</div>
+
+	<div class="field">
+		<label for="guests">
+			<span class="field-label">Number of guest tickets required</span>
+		</label>
+		<input type="number" class="input-width-3" id="guests" name="guests" value="0" pattern="[0-9]*">
+	</div>
+</form>

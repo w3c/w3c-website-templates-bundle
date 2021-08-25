@@ -1,0 +1,22 @@
+<form novalidate>
+	<div class="field">
+		<fieldset role="group" aria-describedby="hint-name-change">
+			<legend class="group-legend">Have you changed your name?</legend>
+			<div class="field-hint" id="hint-name-change">This includes changing your family name or spelling your name differently.</div>
+			<div class="radio-item">
+				<input type="radio" id="name-change_yes" name="name-change" value="yes">
+				<label for="name-change_yes">
+					<span class="faux-label">Yes</span>
+				</label>
+			</div>
+
+			<div class="radio-item">
+				<input type="radio" id="name-change_no" name="name-change" value="no" aria-describedby="hint-name-change">
+				<label for="name-change_no">
+					<span class="faux-label">No</span>
+				</label>
+				<div class="field-hint" id="hint-name-change">Hint text for this radio item would go here.</div>
+			</div>
+		</fieldset>
+	</div>
+</form>

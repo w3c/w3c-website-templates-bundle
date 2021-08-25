@@ -1,0 +1,39 @@
+<form novalidate>
+	<div class="field">
+		<label for="name">
+			<span class="field-label">Name <span class="required">(Required)</span></span>
+		</label>
+		<div class="field-hint" id="hint-name">E.g. Robin Smith</div>
+		<input type="text" id="name" name="name" autocomplete="name" aria-describedby="hint-name">
+	</div>
+
+	<div class="field">
+		<label for="email">
+			<span class="field-label">Email</span>
+		</label>
+		<div class="field-hint" id="hint-email">E.g. robin.smith@example.co.uk</div>
+		<input type="email" id="email" name="email" autocomplete="email" autocapitalize="none" autocorrect="off" spellcheck="false" inputmode="email" aria-describedby="hint-email">
+	</div>
+
+	<div class="field">
+		<label for="website">
+			<span class="field-label">Website address</span>
+		</label>
+		<input type="url" id="website" name="website" autocomplete="url" autocapitalize="none" autocorrect="off" spellcheck="false" inputmode="url">
+	</div>
+
+	<div class="field">
+		<label for="password">
+			<span class="field-label">Password</span>
+		</label>
+		<div class="field-hint" id="hint-password">Must contain 8+ characters with at least 1 number</div>
+		<input type="password" id="password" name="password" autocapitalize="none" autocorrect="off" spellcheck="false" aria-describedby="hint-password">
+	</div>
+
+	<div class="field">
+		<label for="message">
+			<span class="field-label">Your message</span>
+		</label>
+		<textarea id="message" name="message"></textarea>
+	</div>
+</form>
