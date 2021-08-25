@@ -6,6 +6,4 @@ Padding on the sides of the center layout maintains a space between its contents
 
 The center layout uses an exception to the global `box-sizing: border-box;` declaration. It uses `box-sizing: content-box;` to prevent the padding from making the content narrower than intended.
 
-```
-<div class="l-center">Center layout in action</div>
-```
+<example title="Center layout" src="components/center.html.twig" />
