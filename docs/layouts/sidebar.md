@@ -10,54 +10,16 @@ The point at which the panels sit side-by-side horizontally is determined by a `
 
 In the default configuration there is no spacing between the content of the two panels and the panel edges.
 
-```
-<div class="l-sidebar">
-    <div>
-        <div class="not-sidebar">Wide panel</div>
-        <div class="sidebar">Narrow &quot;sidebar&quot; panel</div>
-    </div>
-</div> 
-```
+<example title="Sidebar layout: default" src="components/sidebar-default.html.twig" />
 
 ## Using nested containers for spacing content
 
 Nesting a [box layout](box.md) inside the panels allows us to space content away from the edges.
 
-```
-<div class="l-sidebar">
-    <div>
-        <div class="not-sidebar">
-            <div class="l-box l-box--no-border">Wide panel</div>
-        </div>
-        <div class="sidebar">
-            <div class="l-box l-box--no-border">Narrow &quot;sidebar&quot; panel</div>
-        </div>
-    </div>
-</div> 
-```
+<example title="Sidebar layout with nested box layouts for internal spacing" src="components/sidebar-with-box.html.twig" />
 
 ## Using intrinsic content width for the sidebar
 
 We can choose to not specify a width on the narrow "sidebar" panel (by not declaring a `flex-basis` value) and let the content of the sidebar determine how wide it is. The following example shows how to override the default styles by using an additional class and omitting the `.sidebar` class.
 
-``` 
-<style>
-    // Overriding the default min-width of the wider panel
-    .search-bar .not-sidebar {
-        min-width: 70%;
-    }
-    
-    // To omit the `flex-basis` we have not used the `.sidebar` class on this element.
-    // So we must manually re-apply the required `flex-grow` property.
-    .search-bar button {
-        flex-grow: 1;
-    }
-</style>
-
-<div class="l-sidebar search-bar">
-    <form onsubmit="return false;">
-        <input type="text" class="not-sidebar" aria-label="Search the site">
-        <button type="submit">Search</button>
-    </form>
-</div>
-```
+<example title="Sidebar layout intrinsic content width" src="components/sidebar-intrinsic.html.twig" />

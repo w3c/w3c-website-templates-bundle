@@ -1,0 +1,19 @@
+<style>
+	/* Overriding the default min-width of the wider panel */
+	.search-bar .not-sidebar {
+		min-width: 70%;
+	}
+
+	/* To omit the `flex-basis` we have not used the `.sidebar` class on this element.
+	So we must manually re-apply the required `flex-grow` property. */
+	   .search-bar button {
+		   flex-grow: 1;
+	   }
+</style>
+
+<div class="l-sidebar search-bar">
+	<form onsubmit="return false;">
+		<input type="text" class="not-sidebar" aria-label="Search the site">
+		<button type="submit">Search</button>
+	</form>
+</div>
