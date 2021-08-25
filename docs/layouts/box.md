@@ -6,25 +6,19 @@ The box layout deliberately treats padding and borders equally on all sides. If 
 
 ## Default box
 
-```
-<div class="l-box">Default box layout, with padding and border</div>
-```
+<example title="Box layout: default" src="components/box-default.html.twig" />
 
 ## Box without padding
 
 Add the modifier class `.l-box--no-padding`.
 
-```
-<div class="l-box l-box--no-padding">Box layout with no padding</div>
-```
+<example title="Box layout with no padding" src="components/box-no-padding.html.twig" />
 
 ## Box without border
 
 Add the modifier class `.l-box--no-border`.
 
-```
-<div class="l-box l-box--no-border">Box layout with no border</div>
-```
+<example title="Box layout with no border" src="components/box-no-border.html.twig" />
 
 ### Considerations
 
@@ -32,6 +26,4 @@ Because high contrast themes can eliminate `background-color`, this class adds a
 
 ## Box without padding or border
 
-```
-<div class="l-box l-box--no-padding l-box--no-border">Box layout with no padding and no border</div>
-```
+<example title="Box layout with no padding and no border" src="components/box-none.html.twig" />
