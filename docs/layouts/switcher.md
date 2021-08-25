@@ -6,21 +6,7 @@ As with the [cluster](cluster.md) and [sidebar](sidebar.md) layouts, an inner fl
 
 As there are no viewport media queries, the switcher layout will nest nicely inside other containers.
 
-``` 
-<div class="l-switcher">
-    <div>
-        <div>
-            <div class="l-box l-box">Item 1</div>
-        </div>
-        <div>
-            <div class="l-box">Item 2</div>
-        </div>
-        <div>
-            <div class="l-box">Item 3</div>
-        </div>
-    </div>
-</div>
-```
+<example title="Switcher layout" src="components/switcher.html.twig" />
 
 ## Considerations
 
