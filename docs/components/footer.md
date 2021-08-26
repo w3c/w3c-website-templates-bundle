@@ -1,5 +1,7 @@
 # Footer
 
+This example does not include a complete list of site links in the footer, as which links are included and how they are named can be changed. It only includes a home page link.
+
 <example title="Footer" src="components/footer.html.twig" />
 
 ## Considerations
