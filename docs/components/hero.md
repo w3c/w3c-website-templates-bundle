@@ -2,23 +2,7 @@
 
 ## Decorative hero (home, landing and business ecosystem page templates)
 
-```
-<div class="u-full-width hero">
-    <div class="l-center">
-        <div class="l-sidebar">
-            <div>
-                <div class="not-sidebar">
-                    <h1>Landing page</h1>
-                    <p class="lead">A very short introduction/summary of the page.</p>
-                </div>
-                <div class="sidebar">
-                    <img src="/dist/assets/svg/illustration-2.svg" alt role="presentation" />
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-```
+<example title="Landing page hero" src="components/hero-landing.html.twig" />
 
 ### Considerations
 
