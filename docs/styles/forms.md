@@ -114,6 +114,26 @@ A `<select>` can be enhanced into an accessible auto-complete via JavaScript. Th
 
 Follow the default markup for a `<select>`, making sure to give it a unique ID which can be referenced in the JavaScript.
 
+<example title="Auto-complete enhancement of a select list of countries" src="components/auto-complete.html.twig" />
+
+### Considerations
+
+Note the link to a specific JavaScript file for the auto-complete functionality in the preceding example.
+
+In practice, add the following script before the closing body tag </body> for the auto-complete to work correctly:
+
+```
+<script>
+	if (document.documentElement.classList.contains('js')) {
+
+		let jsAutocompleteCountry = document.createElement('script');
+		jsAutocompleteCountry.src = 'dist/assets/js/country-autocomplete.js';
+		document.querySelector('body').appendChild(jsAutocompleteCountry);
+
+	}
+</script>
+```
+
 ## An example of a simple search form
 
 Here is one example of how to use `<input type="search">`. It is recommended to include `role="search"` on the parent `<form>` element.
