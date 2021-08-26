@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Business ecosystem template{% endblock %}
+{% block meta_description %}Business ecosystem page template from the W3C design system{% endblock %}
+
+{% block body_class %}class="ecosystem"{% endblock %}
+
+{% block breadcrumbs %}
+	{% include 'components/breadcrumbs.html.twig' %}
+{% endblock %}
+
+{% block content %}
+
+	{% include 'components/hero-landing.html.twig' %}
+
+	{% include 'components/fifty-fifty.html.twig' %}
+
+	{% include 'components/text.html.twig' %}
+
+	{% include 'components/fifty-fifty-reversed.html.twig' %}
+
+	{% include 'components/group-list.html.twig' %}
+
+	{% include 'components/text.html.twig' %}
+
+	{% include 'components/activity.html.twig' %}
+
+	{% include 'components/content-slider.html.twig' %}
+
+	{% include 'components/members.html.twig' %}
+
+	{% include 'components/evangelists.html.twig' %}
+
+{% endblock %}
+
+{% block crosslinks %}
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+	if (document.documentElement.classList.contains('js')) {
+
+		let sliderScript = document.createElement('script');
+		sliderScript.src = '/assets/js/slider.js';
+		document.querySelector('body').appendChild(sliderScript);
+
+	}
+</script>
+
+{% endblock %}
