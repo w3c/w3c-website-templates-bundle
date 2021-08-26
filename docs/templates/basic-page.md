@@ -8,7 +8,7 @@ This example shows the minimum required for a basic page. It does not include:
   
 The beta banner is contained within `<div class="banner">` and can be removed when no longer required.
 
-<example title="Default page" src="example-pages/default.html.twig" standalone />
+<example title="Basic page" src="example-pages/basic-page.html.twig" standalone />
 
 ## Considerations
 
