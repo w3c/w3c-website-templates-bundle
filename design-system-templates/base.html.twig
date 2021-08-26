@@ -5,11 +5,11 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>W3C Mission (Default template) | W3C Redesign Prototypes</title>
+    <title>{% block title %}{% endblock %} - W3C Design System</title>
 
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <meta property="og:description" name="description" content="Default template prototype for the W3C website redesign"/>
+    <meta property="og:description" name="description" content="{% block meta_description %}{% endblock %}"/>
     <meta property="og:image" name="image" content="/assets/images/w3c-opengraph-image.png">
 
     <script src="/assets/js/libraries/fontfaceobserver.js"></script>
@@ -55,28 +55,33 @@
 </head>
 
 <body class="default">
-<a class="skip-link" href="#main">Skip to content</a>
-<div class="grid-wrap">
-    <div class="wrap">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="grid-wrap">
+        <div class="wrap">
 
-        {% include 'components/header.html.twig' %}
+            {% include 'components/header.html.twig' %}
 
-        {% block breadcrumbs %}
-        {% endblock %}
+            {% block breadcrumbs %}
+            {% endblock %}
 
-        <main id="main">
-            <div class="content">
-                {% block content %}
-                {% endblock %}
-            </div>
-        </main>
+            <main id="main">
+                <div class="content">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </main>
 
-        {% block crosslinks %}
-        {% endblock %}
+            {% block crosslinks %}
+            {% endblock %}
+
+        </div>
+
+        {% include 'components/footer.html.twig' %}
 
     </div>
-    {% include 'components/footer.html.twig' %}
-</div>
+
+        {% block scripts %}
+        {% endblock %}
 
 </body>
 
