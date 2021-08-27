@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bare bones listing template{% endblock %}
+{% block meta_description %}Bare bones listing template from the W3C design system{% endblock %}
+
+{% block body_class %}class="listing"{% endblock %}
+
+{% block breadcrumbs %}
+	{% include 'components/breadcrumbs.html.twig' %}
+{% endblock %}
+
+{% block content %}
+	<div class="u-full-width hero hero--listing">
+		<div class="l-center">
+			<h1>Bare bones listing template</h1>
+			<p class="lead">Page introduction</p>
+
+			<!-- custom search/filtering options go here -->
+		</div>
+	</div>
+
+	<div aria-live="polite" aria-atomic="true">There are x results when searching for 'blah'</div>
+
+	<!-- custom listings go here -->
+
+	<!-- pagination goes here -->
+
+	<!-- optional pre-footer component goes here -->
+
+{% endblock %}
+
+{% block crosslinks %}{% endblock %}
+
+{% block scripts %}
+{% endblock %}

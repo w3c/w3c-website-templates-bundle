@@ -17,7 +17,8 @@ On [listing pages](../templates/listings.md), the hero is used to hold any marku
     <div class="l-center">
         <h1>Posts</h1>
         <p class="lead">Search for posts, or browse posts by category or archive.</p>
-        [Search and/or filter markup...]
+        
+        <!-- search and/or filter markup goes here -->
     </div>
 </div>
 ```
