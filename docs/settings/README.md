@@ -45,6 +45,8 @@ We advise you to use the Sass variables provided, rather than copying the hexade
 
 Only use the variables in the context they’re designed for. In all other cases, you should reference the colour palette directly. For example, `$blue` is used as the default link color; if you want to use it for an additional purpose you should use `$blue` rather than `$link-color`.
 
+<colors src="guidelines/colours.json" />
+
 ## Debug
 
 `$pesticide` is a useful variable which, when enabled, can help you [debug your CSS layouts](https://github.com/mrmrs/pesticide).

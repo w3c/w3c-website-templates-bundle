@@ -1,0 +1,193 @@
+[
+	{
+		"title": "Text",
+		"colors": [
+			{
+				"color": "#111111",
+				"variable": "$off-black",
+				"notes": "Default text color"
+			}
+		]
+	},
+	{
+		"title": "Links",
+		"colors": [
+			{
+				"color": "#005797",
+				"variable": "$link-color",
+				"alt-variable": "$blue",
+				"notes": "Link default color"
+			},
+			{
+				"color": "#024488",
+				"variable": "$link-color--hover",
+				"alt-variable": "$deep-blue",
+				"notes": "Link hover color"
+			},
+			{
+				"color": "#920ba6",
+				"variable": "$link-color--visited",
+				"alt-variable": "$purple",
+				"notes": "Link visited color"
+			}
+		]
+	},
+	{
+		"title": "Borders",
+		"colors": [
+			{
+				"color": "#bdbdbd",
+				"variable": "$border-color",
+				"alt-variable": "$twiki-gray"
+			},
+			{
+				"color": "#545454",
+				"variable": "$input-border-color",
+				"alt-variable": "$storm-gray",
+				"notes": "Use for form input borders"
+			}
+		]
+	},
+	{
+		"title": "Focus state",
+		"colors": [
+			{
+				"color": "#f9dc4a",
+				"variable": "$focus-color",
+				"alt-variable": "$yellow"
+			}
+		]
+	},
+	{
+		"title": "Notifications",
+		"colors": [
+			{
+				"color": "#005a9c",
+				"variable": "$info-color",
+				"alt-variable": "$w3c-blue",
+				"notes": "Border color for 'info' messages"
+			},
+			{
+				"color": "#046704",
+				"variable": "$success-color",
+				"notes": "Use for 'success' messages"
+			},
+			{
+				"color": "#c28605",
+				"variable": "$warning-color",
+				"notes": "Border color for 'warning' messages"
+			},
+			{
+				"color": "#a82615",
+				"variable": "$error-color",
+				"notes": "Use for 'error' messages"
+			}
+		]
+	},
+	{
+		"title": "All theme colors",
+		"colors": [
+			{
+				"color": "#e93737",
+				"variable": "$red"
+			},
+			{
+				"color": "#ec7070",
+				"variable": "$light-red"
+			},
+			{
+				"color": "#fc7750",
+				"variable": "$coral"
+			},
+			{
+				"color": "#fea78d",
+				"variable": "$light-coral"
+			},
+			{
+				"color": "#f9c818",
+				"variable": "$deep-yellow"
+			},
+			{
+				"color": "#f9dc4a",
+				"variable": "$yellow"
+			},
+			{
+				"color": "#0a4343",
+				"variable": "$deep-green"
+			},
+			{
+				"color": "#237978",
+				"variable": "$teal-green"
+			},
+			{
+				"color": "#1bc0d7",
+				"variable": "$aqua"
+			},
+			{
+				"color": "#cbe0fb",
+				"variable": "$light-blue"
+			},
+			{
+				"color": "#6bc8fe",
+				"variable": "$sky-blue"
+			},
+			{
+				"color": "#0075ff",
+				"variable": "$azure"
+			},
+			{
+				"color": "#005a9c",
+				"variable": "$w3c-blue",
+				"notes": "Main brand color"
+			},
+			{
+				"color": "#005797",
+				"variable": "$blue"
+			},
+			{
+				"color": "#024488",
+				"variable": "$deep-blue"
+			},
+			{
+				"color": "#920ba6",
+				"variable": "$purple"
+			},
+			{
+				"color": "#ddb0c8",
+				"variable": "$pink"
+			},
+			{
+				"color": "#eeccdc",
+				"variable": "$light-pink"
+			},
+			{
+				"color": "#000000",
+				"variable": "$black"
+			},
+			{
+				"color": "#111111",
+				"variable": "$off-black"
+			},
+			{
+				"color": "#545454",
+				"variable": "$storm-gray"
+			},
+			{
+				"color": "#bdbdbd",
+				"variable": "$twiki-gray"
+			},
+			{
+				"color": "#f8f8fb",
+				"variable": "$mist-gray"
+			},
+			{
+				"color": "#fafafa",
+				"variable": "$off-white"
+			},
+			{
+				"color": "#ffffff",
+				"variable": "$white"
+			}
+		]
+	}
+]
