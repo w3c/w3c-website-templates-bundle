@@ -9,7 +9,7 @@
 
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-	<script src="/assets/js/libraries/fontfaceobserver.js"></script>
+	<script src="/dist/assets/js/libraries/fontfaceobserver.js"></script>
 
 	<script>
 		let myFont = new FontFaceObserver('Noto Sans');
@@ -19,7 +19,7 @@
 		});
 	</script>
 
-	<link rel="stylesheet" href="/assets/styles/core.css?ver=1.4.1" media="screen"/>
+	<link rel="stylesheet" href="/dist/assets/styles/core.css?ver=1.4.1" media="screen"/>
 
 	<!--
     CSS Mustard Cut
@@ -27,7 +27,7 @@
     Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~11.8+
     FF 47+
     -->
-	<link rel="stylesheet" id="advanced-stylesheet" href="/assets/styles/advanced.css?ver=1.4.1" media="
+	<link rel="stylesheet" id="advanced-stylesheet" href="/dist/assets/styles/advanced.css?ver=1.4.1" media="
         only print,
         only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
         only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
@@ -40,7 +40,7 @@
 				let head = document.querySelector('head');
 				// Add main JS
 				let jsMain = document.createElement('script');
-				jsMain.src = '/assets/js/main.js?ver=1.4.1';
+				jsMain.src = '/dist/assets/js/main.js?ver=1.4.1';
 				jsMain.defer = true;
 				head.appendChild(jsMain);
 				// Update classname to show JS is available
