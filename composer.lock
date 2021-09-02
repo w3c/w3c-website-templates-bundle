@@ -2687,12 +2687,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/studio24/design-system.git",
-                "reference": "2684d2ffda65a74224b00ae1b30ca841a236a3b7"
+                "reference": "365e6c83a95c74ba23302e25ce846cdda4215051"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studio24/design-system/zipball/2684d2ffda65a74224b00ae1b30ca841a236a3b7",
-                "reference": "2684d2ffda65a74224b00ae1b30ca841a236a3b7",
+                "url": "https://api.github.com/repos/studio24/design-system/zipball/365e6c83a95c74ba23302e25ce846cdda4215051",
+                "reference": "365e6c83a95c74ba23302e25ce846cdda4215051",
                 "shasum": ""
             },
             "require": {
@@ -2727,7 +2727,7 @@
                 "issues": "https://github.com/studio24/design-system/issues",
                 "source": "https://github.com/studio24/design-system/tree/main"
             },
-            "time": "2021-09-02T19:13:31+00:00"
+            "time": "2021-09-02T19:18:30+00:00"
         },
         {
             "name": "symfony/console",
