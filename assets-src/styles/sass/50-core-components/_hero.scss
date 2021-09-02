@@ -41,6 +41,7 @@
 
 		margin-bottom: rem(18);
 		margin-top: 0;
+		max-width: rem($text-measure);
 
 	}
 
@@ -49,23 +50,6 @@
 		margin-left: auto;
 		margin-right: auto;
 		max-width: rem(500);
-
-	}
-
-}
-
-/*
- * Hero variant for TR listing page
- */
-.hero--tr {
-
-	background-color: $white;
-	margin-bottom: rem(20);
-	padding-bottom: rem(40);
-
-	.l-sidebar .not-sidebar > * {
-
-		max-width: none;
 
 	}
 
@@ -80,19 +64,5 @@
 .hero .button {
 
 	align-self: flex-start;
-
-}
-
-.hero--listing {
-
-	background-color: $white;
-	margin-bottom: rem(20);
-	padding-bottom: rem(40);
-
-}
-
-.hero--listing + * {
-
-	margin-top: 0;
 
 }

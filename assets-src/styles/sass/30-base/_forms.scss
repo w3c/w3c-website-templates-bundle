@@ -318,6 +318,11 @@ Radio/checkbox inputs
 
 }
 
+.checkbox-group--cluster .checkbox-item {
+	clear: none;
+	margin-right: rem(12);
+}
+
 [dir="rtl"] {
 
 	.radio-item,
@@ -752,33 +757,24 @@ Fixed input widths
 /**
 Error styles
  */
-.error-summary.error-summary {
+[data-component="error-summary"] li a {
 
-	@include stack(1rem);
+	color: $error-color;
+	display: inline-block;
+	font-weight: bold;
+	padding-bottom: rem(10);
+	padding-top: rem(10);
 
-	border-color: $input-error-color;
-	border-width: rem(5);
+	&:hover,
+	&:visited {
 
-	a {
+		color: $error-color;
 
-		color: $input-error-color;
-		display: inline-block;
-		font-weight: bold;
-		padding-bottom: rem(10);
-		padding-top: rem(10);
+	}
 
-		&:hover,
-		&:visited {
+	&:focus {
 
-			color: $input-error-color;
-
-		}
-
-		&:focus {
-
-			color: $black;
-
-		}
+		color: $black;
 
 	}
 
@@ -786,14 +782,14 @@ Error styles
 
 .field--error {
 
-	border-left: solid rem(5) $input-error-color;
+	border-left: solid rem(5) $error-color;
 	padding-left: rem(15);
 
 	input:not([type="file"]),
 	textarea:not(:focus),
 	.segmented-group label {
 
-		border-color: $input-error-color;
+		border-color: $error-color;
 
 	}
 
@@ -811,7 +807,7 @@ Error styles
 	.field--error {
 
 		border-left: none;
-		border-right: solid rem(5) $input-error-color;
+		border-right: solid rem(5) $error-color;
 		padding-left: 0;
 		padding-right: rem(15);
 
@@ -821,7 +817,7 @@ Error styles
 
 .field-error-msg {
 
-	color: $input-error-color;
+	color: $error-color;
 	font-weight: bold;
 	margin-top: rem(15);
 

@@ -159,7 +159,7 @@ li.top-nav-item + li.top-nav-item {
 	align-items: center;
 	color: $off-black;
 	display: flex;
-	padding: rem(14) 0;
+	min-height: rem(44);
 	text-decoration: none !important;
 
 	@include mq($max-width) {
@@ -207,13 +207,6 @@ li.top-nav-item + li.top-nav-item {
 
 	}
 
-	.icon {
-
-		height: rem(24);
-		width: rem(24);
-
-	}
-
 }
 
 .global-nav__inner .top-nav-item > *:first-child {
@@ -221,6 +214,7 @@ li.top-nav-item + li.top-nav-item {
 	@include mq($max-width) {
 
 		font-size: 1rem;
+		height: 100%;
 		padding: rem(10) rem(5) rem(7) !important;
 		position: relative;
 		white-space: nowrap;

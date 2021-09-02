@@ -13,65 +13,64 @@ $off-black: #111; /* 1 */
 $white: #fff;
 $off-white: #fafafa; /* 1 */
 
+$maroon: #85144b;
+$red: #ff4136;
+$orange: #ff851b;
+$yellow: #ffdc00;
+$olive: #3d9970;
+$green: #2ecc40;
+$lime: #01ff70;
+$teal: #39cccc;
 $aqua: #7fdbff;
 $blue: #0073d8;
-$fuchsia: #f012be;
-$green: #2ecc40;
-$grey: #aaa;
-$lime: #01ff70;
-$maroon: #85144b;
-$mercury-grey: #e5e5e5;
 $navy: #001f3f;
-$olive: #3d9970;
-$orange: #ff851b;
 $purple: #920ba6;
-$red: #ff4136;
+$fuchsia: #f012be;
+$grey: #aaa;
+$mercury-grey: #e5e5e5;
 $silver: #ddd;
-$teal: #39cccc;
-$yellow: #ffdc00;
 
 
 /**
 Theme colors.
  */
-$aqua: #1bc0d7;
-$azure: #0075ff;
-$blue: #005797;
-$coral: #fc7750;
-$deep-blue: #024488;
-$deep-green: #0a4343;
-$deep-yellow: #f9c818;
-$light-blue: #cbe0fb;
-$light-coral: #fea78d;
-$light-pink: #eeccdc;
-$light-red: #ec7070;
-$mist-gray: #f8f8fb;
-$pink: #ddb0c8;
 $red: #e93737;
-$sky-blue: #6bc8fe;
-$storm-gray: #545454;
-$teal-green: #237978;
-$twiki-gray: #bdbdbd;
-$w3c-blue: #005a9c;
+$light-red: #ec7070;
+$coral: #fc7750;
+$light-coral: #fea78d;
+$deep-yellow: #f9c818;
 $yellow: #f9dc4a;
+$deep-green: #0a4343;
+$teal-green: #237978;
+$aqua: #1bc0d7;
+$light-blue: #cbe0fb;
+$sky-blue: #6bc8fe;
+$azure: #0075ff;
+$w3c-blue: #005a9c;
+$blue: #005797;
+$deep-blue: #024488;
+$pink: #ddb0c8;
+$light-pink: #eeccdc;
+$storm-gray: #545454;
+$twiki-gray: #bdbdbd;
+$mist-gray: #f8f8fb;
 
 
 /**
 Sass variables.
  */
 $border-color:                  $twiki-gray;
+$input-border-color:            $storm-gray;
 $focus-color:                   $yellow;
 
 $link-color:                    $blue;
 $link-color--visited:           $purple;
 $link-color--hover:             $deep-blue;
 
-$input-border-color:            $storm-gray;
-$input-error-color:             #a82615;
-
-$success-color:                 $green;
-$warning-color:                 $yellow;
-$alert-color:                   $red;
+$success-color:                 #046704;
+$info-color:                    #005a9c;
+$warning-color:                 #C28605;
+$error-color:                   #a82615;
 
 
 /**

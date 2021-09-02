@@ -101,23 +101,18 @@
 
 }
 
-.post .related__inner > div {
+.post .related__inner > div,
+.post .related__inner h3 + * {
 
 	margin-top: rem(18);
 
-	+ div {
-
-		border-top: solid 1px $border-color;
-		margin-top: rem(24);
-		padding-top: rem(15);
-
-	}
-
 }
 
-.post .related__inner ul {
+.post .related__inner > div + div {
 
-	margin-top: rem(6);
+	border-top: solid 1px $border-color;
+	margin-top: rem(24);
+	padding-top: rem(15);
 
 }
 
@@ -165,8 +160,14 @@
 		dd, dt {
 
 			margin: 0;
-			padding-bottom: rem(5);
+			padding-bottom: rem(8);
 			padding-top: rem(5);
+
+		}
+
+		dt:first-of-type {
+
+			padding-top: rem(8);
 
 		}
 

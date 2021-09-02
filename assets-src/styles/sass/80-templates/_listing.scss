@@ -16,6 +16,20 @@
 
 	}
 
+	.hero {
+
+		background-color: $white;
+		margin-bottom: rem(20);
+		padding-bottom: rem(40);
+
+		+ * {
+
+			margin-top: 0;
+
+		}
+
+	}
+
 	h1 {
 
 		@include txt-mercury;
@@ -31,47 +45,51 @@
 
 	}
 
-	.browse {
+}
 
-		margin: rem(-10);
-		overflow: visible;
+.hero--listing .browse {
 
-	}
+	margin: rem(-10);
+	overflow: visible;
 
-	.browse > * {
+	> * {
 
 		display: flex;
 		flex-wrap: wrap;
 
 	}
 
-	.browse > * > * {
+	> * > * {
 
 		padding: rem(10);
 
 	}
 
-	.browse h2 {
+	h2 {
 
 		font-size: 1rem;
 		font-weight: normal;
 
 	}
 
-	.filters.l-switcher {
+}
 
-		margin: rem(-10);
-		overflow: visible;
+.js .hero--listing .browse {
 
-	}
+	h2 {
 
-	.filters > div {
-
-		align-items: flex-end;
+		display: none;
 
 	}
 
-	.filters.l-switcher > * > * {
+}
+
+.hero--listing .filters.l-switcher {
+
+	margin: rem(-10);
+	overflow: visible;
+
+	> * > * {
 
 		min-width: 33.333%;
 		padding: rem(10);
@@ -79,13 +97,23 @@
 
 	}
 
-	.filters .field {
+}
+
+.hero--listing .filters {
+
+	> div {
+
+		align-items: flex-end;
+
+	}
+
+	.field {
 
 		margin-top: 0;
 
 	}
 
-	.filters .button--ghost {
+	.button--ghost {
 
 		padding-left: rem(3);
 		padding-right: rem(3);
@@ -108,16 +136,6 @@
 			outline-offset: 0;
 
 		}
-
-	}
-
-}
-
-.js .listing .browse {
-
-	h2 {
-
-		display: none;
 
 	}
 

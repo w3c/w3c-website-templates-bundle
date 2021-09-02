@@ -105,7 +105,7 @@ var accountMenu = function () {
     toggleButton.setAttribute('class', 'button button--ghost with-icon--larger');
     toggleButton.setAttribute('data-trigger', 'account-menu');
     toggleButton.setAttribute('aria-expanded', 'false');
-    toggleButton.innerHTML = '<span class="sr-only">My account </span><div class="avatar avatar--small"><img alt="" src="' + profile.avatar + '"/></div>'; // Media query event handler
+    toggleButton.innerHTML = '<span class="sr-only">My account </span><div class="avatar avatar--small icon"><img alt="" src="' + profile.avatar + '"/></div>'; // Media query event handler
 
     var mq = window.matchMedia('(min-width: 71.25em)');
     mq.addListener(insertAccountBtn);
@@ -202,100 +202,6 @@ var cardEnhancement = function () {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "collapsibleCards": () => (/* binding */ collapsibleCards)
-/* harmony export */ });
-/**
- * Collapsible sections
- * See https://heydon.github.io/inclusive-components-demos/collapsible-sections/progressive.html
- */
-var collapsibleCards = function () {
-  // Get all the collapsible containers
-  var collapseArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="collapsible-cards"]'));
-
-  if (collapseArray) {
-    // Loop through containers
-    collapseArray.forEach(function (item) {
-      // Get headings inside a collapsible container
-      var headingsArray = Array.prototype.slice.call(item.querySelectorAll('[data-heading="collapsible-cards"]')); // Loop through headings
-
-      headingsArray.forEach(function (heading, index) {
-        var headingTitle = heading.getAttribute('data-title'); // Insert a button for opening/closing the collapsible section
-
-        heading.innerHTML = heading.innerHTML + '<button class="button--ghost" aria-expanded="false"><span class="visuallyhidden">' + headingTitle + '</span><svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 448 512" width="30px" height="30px"><path class="plus" d="M416 208H272V64a32 32 0 00-32-32h-32a32 32 0 00-32 32v144H32a32 32 0 00-32 32v32a32 32 0 0032 32h144v144a32 32 0 0032 32h32a32 32 0 0032-32V304h144a32 32 0 0032-32v-32a32 32 0 00-32-32z"/><path class="minus" d="M416 208H32a32 32 0 00-32 32v32a32 32 0 0032 32h384a32 32 0 0032-32v-32a32 32 0 00-32-32z"/></svg></button>'; // Add appropriate aria role to the collapsible section
-
-        heading.nextElementSibling.setAttribute('aria-hidden', 'true'); // Assign the button
-
-        var btn = heading.querySelector('button'); // Add click event listener
-
-        btn.addEventListener('click', function (event) {
-          // Cast the state as a boolean
-          var expanded = btn.getAttribute('aria-expanded') === 'true'; // Switch the state
-
-          btn.setAttribute('aria-expanded', !expanded); // Switch the collapsible section's visibility
-
-          heading.nextElementSibling.setAttribute('aria-hidden', expanded);
-        });
-      }); // End loop
-    }); // End loop
-  } // End if statement
-
-}();
-
-
-
-/***/ }),
-/* 8 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "collapsibleCheckboxes": () => (/* binding */ collapsibleCheckboxes)
-/* harmony export */ });
-/**
- * Collapsible sections
- * See https://heydon.github.io/inclusive-components-demos/collapsible-sections/progressive.html
- */
-var collapsibleCheckboxes = function () {
-  // Get all the collapsible containers
-  var collapseArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="collapsible-checkboxes"]'));
-
-  if (collapseArray) {
-    // Loop through containers
-    collapseArray.forEach(function (item) {
-      // Get headings inside a collapsible container
-      var headingsArray = Array.prototype.slice.call(item.querySelectorAll('[data-heading="collapsible-checkboxes"]')); // Loop through headings
-
-      headingsArray.forEach(function (heading, index) {
-        var headingText = heading.innerText; // Insert a button for opening/closing the collapsible section
-
-        heading.innerHTML = '<span class="faux-label">' + headingText + '</span><button class="button--alt" aria-expanded="false"><span>' + headingText + '</span><svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 320 512" width="30px" height="30px"><path class="angle-down" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/><path class="angle-up" d="M177 159.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 255.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 329.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1z"/></svg></button>'; // Add appropriate aria role to the collapsible section
-
-        heading.nextElementSibling.setAttribute('aria-hidden', 'true'); // Assign the button
-
-        var btn = heading.querySelector('button'); // Add click event listener
-
-        btn.addEventListener('click', function (event) {
-          // Cast the state as a boolean
-          var expanded = btn.getAttribute('aria-expanded') === 'true'; // Switch the state
-
-          btn.setAttribute('aria-expanded', !expanded); // Switch the collapsible section's visibility
-
-          heading.nextElementSibling.setAttribute('aria-hidden', expanded);
-        });
-      }); // End loop
-    }); // End loop
-  } // End if statement
-
-}();
-
-
-
-/***/ }),
-/* 9 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "collapsibles": () => (/* binding */ collapsibles)
 /* harmony export */ });
 /**
@@ -337,7 +243,7 @@ var collapsibles = function () {
 
 
 /***/ }),
-/* 10 */
+/* 8 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -408,7 +314,7 @@ var disclosureWidget = function () {
 
 
 /***/ }),
-/* 11 */
+/* 9 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -431,7 +337,7 @@ var formErrorSummary = function () {
 
 
 /***/ }),
-/* 12 */
+/* 10 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -585,7 +491,7 @@ var navigation = function () {
 
 
 /***/ }),
-/* 13 */
+/* 11 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -692,13 +598,11 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_account_menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
 /* harmony import */ var _main_cards__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
-/* harmony import */ var _main_collapsible_cards__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
-/* harmony import */ var _main_collapsible_checkboxes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8);
-/* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(9);
-/* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(10);
-/* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(11);
-/* harmony import */ var _main_navigation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(12);
-/* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(13);
+/* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
+/* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8);
+/* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(9);
+/* harmony import */ var _main_navigation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(10);
+/* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(11);
 
 
 
@@ -706,9 +610,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_8__.responsiveTables)(); // Tie the responsiveTables function to a resize event, and debounce for performance
+(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__.responsiveTables)(); // Tie the responsiveTables function to a resize event, and debounce for performance
 
 var timeout;
 window.addEventListener('resize', function (event) {
@@ -719,7 +621,7 @@ window.addEventListener('resize', function (event) {
       // Reset timeout
       timeout = null; // Run our resize functions
 
-      (0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_8__.responsiveTables)();
+      (0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__.responsiveTables)();
     }, 66);
   }
 }, false);
