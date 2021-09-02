@@ -2,6 +2,8 @@
 
 This design system documents the styles, components and templates available to use on your website.
 
+Find out how to [get started](getting-started.md).
+
 How the front end assets (CSS and JavaScript) are organised and compiled is discussed below.
 
 ## CSS
