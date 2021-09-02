@@ -220,7 +220,7 @@ var collapsibles = function () {
 
       headingsArray.forEach(function (heading, index) {
         // Insert a button for opening/closing the collapsible section
-        heading.innerHTML = '<button class="button--ghost" aria-expanded="false">' + heading.innerHTML + '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="30px" height="30px"><use class="angle-down" href="dist/assets/svg/nav-icons.svg#angle-down"></use><use class="angle-up" href="dist/assets/svg/nav-icons.svg#angle-up"></use></svg></button>'; // Add appropriate aria role to the collapsible section
+        heading.innerHTML = '<button class="button--ghost" aria-expanded="false">' + heading.innerHTML + '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="30px" height="30px"><use class="angle-down" href="/dist/assets/svg/nav-icons.svg#angle-down"></use><use class="angle-up" href="/dist/assets/svg/nav-icons.svg#angle-up"></use></svg></button>'; // Add appropriate aria role to the collapsible section
 
         heading.nextElementSibling.setAttribute('aria-hidden', 'true'); // Assign the button
 
@@ -371,7 +371,7 @@ var navigation = function () {
   var nav = document.querySelector('.global-nav__inner ul');
   var mobileNavToggler = document.querySelector('[data-trigger="mobile-nav"]');
   mobileNavToggler.style = "";
-  var menuIcon = '<svg class="icon icon--larger" xmlns:xlink="http://www.w3.org/1999/xlink" focusable="false" aria-hidden="true" viewBox="0 0 448 512" width="1em" height="1em"><use class="menu-icon" href="dist/assets/svg/nav-icons.svg#menu-icon"></use><use class="close-icon" href="dist/assets/svg/nav-icons.svg#close-icon"></use></svg>';
+  var menuIcon = '<svg class="icon icon--larger" xmlns:xlink="http://www.w3.org/1999/xlink" focusable="false" aria-hidden="true" viewBox="0 0 448 512" width="1em" height="1em"><use class="menu-icon" href="/dist/assets/svg/nav-icons.svg#menu-icon"></use><use class="close-icon" href="/dist/assets/svg/nav-icons.svg#close-icon"></use></svg>';
   var parentLinks = [].slice.call(nav.querySelectorAll('.top-nav-item.has-children > a'));
   var subNavArray = [].slice.call(nav.querySelectorAll('.nav__submenu')); // I18N for 'Menu' button text
 
@@ -443,11 +443,11 @@ var navigation = function () {
       toggleButton.setAttribute('type', 'button');
       toggleButton.setAttribute('aria-expanded', 'false');
       toggleButton.setAttribute('data-trigger', 'subnav');
-      toggleButton.innerHTML = linkText + '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 512" class="icon nav-small" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-left" href="dist/assets/svg/nav-icons.svg#angle-left"></use><use class="angle-right" href="dist/assets/svg/nav-icons.svg#angle-right"></use></svg><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon nav-wide" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-down" href="dist/assets/svg/nav-icons.svg#angle-down"></use><use class="angle-up" href="dist/assets/svg/nav-icons.svg#angle-up"></use></svg>';
+      toggleButton.innerHTML = linkText + '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 512" class="icon nav-small" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-left" href="/dist/assets/svg/nav-icons.svg#angle-left"></use><use class="angle-right" href="/dist/assets/svg/nav-icons.svg#angle-right"></use></svg><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon nav-wide" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-down" href="/dist/assets/svg/nav-icons.svg#angle-down"></use><use class="angle-up" href="/dist/assets/svg/nav-icons.svg#angle-up"></use></svg>';
       backButton.setAttribute('type', 'button');
       backButton.setAttribute('class', 'button button--ghost u-full-width with-icon--before with-icon--larger');
       backButton.setAttribute('data-trigger', 'mobile-back');
-      backButton.innerHTML = '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-left" href="dist/assets/svg/nav-icons.svg#angle-left"></use><use class="angle-right" href="dist/assets/svg/nav-icons.svg#angle-right"></use></svg>' + backText;
+      backButton.innerHTML = '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-left" href="/dist/assets/svg/nav-icons.svg#angle-left"></use><use class="angle-right" href="/dist/assets/svg/nav-icons.svg#angle-right"></use></svg>' + backText;
       fragment.appendChild(backButton);
       fragment.appendChild(clonedLink);
       subNav.insertBefore(fragment, submenuFirstChild);
