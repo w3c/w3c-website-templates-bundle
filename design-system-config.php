@@ -20,4 +20,5 @@ $config = [
         'Templates'             => '/templates/',
     ],
     'templates_path'    => 'design-system-templates',
+    'zip_folder'        => 'public/dist/assets',
 ];

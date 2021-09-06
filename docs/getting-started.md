@@ -13,7 +13,11 @@ Please note this requires PHP 7.4+
 
 To update these at any time, simply run `composer update`
 
-_Todo: review with W3C whether we need a ZIP file that can be downloaded from the Design System site for the frontend assets_
+### Installing via ZIP file
+
+You can also download a [ZIP archive file](/assets/assets.zip) of the frontend assets and use these within your project.
+
+_Todo: Review with W3C whether we can get users to point directly to the WSC assets on beta.w3.org / w3.org_
 
 ### Frontend assets
 This will install the built front-end assets for the Design System into `vendor/w3c/website-templates-bundle/public/dist/assets`
