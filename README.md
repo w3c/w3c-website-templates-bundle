@@ -1,6 +1,12 @@
 # w3c-website-templates-bundle
 Symfony Bundle containing generic templates and front-end assets for the W3C applications.
 
+## Design System documentation
+
+Frontend usage documentation for implementing the W3C website design can be found on the [Design System website](https://design-system.w3.org/).
+
+To make updates to these see [design system](design-system.md).
+
 ## Installation
 Install the bundle using the command
 
