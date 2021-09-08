@@ -865,10 +865,6 @@ Radio/checkbox inputs
     content: '';
     display: block; }
 
-.checkbox-group--cluster .checkbox-item {
-  clear: none;
-  margin-right: 0.75rem; }
-
 [dir="rtl"] .radio-item,
 [dir="rtl"] .checkbox-item {
   clear: right;
@@ -955,6 +951,10 @@ Radio/checkbox inputs
 [dir="rtl"] .checkbox-item label::after {
   auto: 0.375rem;
   right: 0.375rem; }
+
+.checkbox-group--cluster .checkbox-item {
+  clear: none;
+  margin-right: 0.75rem; }
 
 .radio-item:hover input:not(:disabled) + label::before,
 .checkbox-item:hover input:not(:disabled) + label::before {
@@ -2613,6 +2613,57 @@ main,
   -ms-flex-item-align: start;
       align-self: flex-start; }
 
+.hero--listing {
+  background-color: #fff;
+  margin-bottom: 1.25rem;
+  padding-bottom: 2.5rem; }
+  .hero--listing + * {
+    margin-top: 0; }
+
+.hero--listing .filters.l-switcher {
+  margin: -0.625rem;
+  overflow: visible; }
+  .hero--listing .filters.l-switcher > * > * {
+    min-width: 33.333%;
+    padding: 0.625rem;
+    width: calc(920px * 920 - 100% * 920); }
+
+.hero--listing .filters > div {
+  -ms-flex-align: end;
+      align-items: flex-end; }
+
+.hero--listing .filters .field {
+  margin-top: 0; }
+
+.hero--listing .filters .button--ghost {
+  padding-left: 0.1875rem;
+  padding-right: 0.1875rem;
+  text-decoration: underline;
+  /* 1 */
+  text-decoration-skip-ink: auto;
+  text-underline-offset: 0.25em; }
+  .hero--listing .filters .button--ghost:hover {
+    box-shadow: 0 0 4px 2px rgba(84, 84, 84, 0.25); }
+  .hero--listing .filters .button--ghost:focus {
+    border-color: inherit;
+    box-shadow: inset 0 0 0 2px;
+    outline: solid 3px #f9dc4a;
+    outline-offset: 0; }
+
+.hero--listing .browse {
+  margin: -0.625rem;
+  overflow: visible; }
+  .hero--listing .browse > * {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+  .hero--listing .browse > * > * {
+    padding: 0.625rem; }
+  .hero--listing .browse h2 {
+    font-size: 1rem;
+    font-weight: normal; }
+
 /*------------------------------------*\
     #Translations
 \*------------------------------------*/
@@ -4149,13 +4200,6 @@ input[type=search] {
 .listing #breadcrumb {
   background-color: #fff; }
 
-.listing .hero {
-  background-color: #fff;
-  margin-bottom: 1.25rem;
-  padding-bottom: 2.5rem; }
-  .listing .hero + * {
-    margin-top: 0; }
-
 .listing h1 {
   font-size: 2.125rem;
   line-height: calc(43 / 34);
@@ -4168,53 +4212,6 @@ input[type=search] {
 .listing main,
 .listing #main {
   padding-top: 0; }
-
-.hero--listing .browse {
-  margin: -0.625rem;
-  overflow: visible; }
-  .hero--listing .browse > * {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap; }
-  .hero--listing .browse > * > * {
-    padding: 0.625rem; }
-  .hero--listing .browse h2 {
-    font-size: 1rem;
-    font-weight: normal; }
-
-.js .hero--listing .browse h2 {
-  display: none; }
-
-.hero--listing .filters.l-switcher {
-  margin: -0.625rem;
-  overflow: visible; }
-  .hero--listing .filters.l-switcher > * > * {
-    min-width: 33.333%;
-    padding: 0.625rem;
-    width: calc(920px * 920 - 100% * 920); }
-
-.hero--listing .filters > div {
-  -ms-flex-align: end;
-      align-items: flex-end; }
-
-.hero--listing .filters .field {
-  margin-top: 0; }
-
-.hero--listing .filters .button--ghost {
-  padding-left: 0.1875rem;
-  padding-right: 0.1875rem;
-  text-decoration: underline;
-  /* 1 */
-  text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em; }
-  .hero--listing .filters .button--ghost:hover {
-    box-shadow: 0 0 4px 2px rgba(84, 84, 84, 0.25); }
-  .hero--listing .filters .button--ghost:focus {
-    border-color: inherit;
-    box-shadow: inset 0 0 0 2px;
-    outline: solid 3px #f9dc4a;
-    outline-offset: 0; }
 
 .people-list > *,
 .post-list > * {
@@ -4448,7 +4445,7 @@ input[type=search] {
   .technical-reports .hero .l-box {
     background-color: #f3f3f6;
     border-radius: 0.25rem; }
-  .technical-reports .hero form > div:first-child {
+  .technical-reports .hero .field {
     max-width: none; }
   .technical-reports .hero .field-hint {
     color: #111; }

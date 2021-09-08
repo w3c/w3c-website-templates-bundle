@@ -671,6 +671,12 @@ br {
     margin-top: auto; }
 
 /*------------------------------------*\
+    #Hero advanced
+\*------------------------------------*/
+.js .hero--listing .browse h2 {
+  display: none; }
+
+/*------------------------------------*\
     #Slider advanced
 
     N.B. `.js-slider` is added by JS

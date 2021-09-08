@@ -318,11 +318,6 @@ Radio/checkbox inputs
 
 }
 
-.checkbox-group--cluster .checkbox-item {
-	clear: none;
-	margin-right: rem(12);
-}
-
 [dir="rtl"] {
 
 	.radio-item,
@@ -475,6 +470,11 @@ Radio/checkbox inputs
 
 	}
 
+}
+
+.checkbox-group--cluster .checkbox-item {
+	clear: none;
+	margin-right: rem(12);
 }
 
 // Radio/checkbox input with hover
