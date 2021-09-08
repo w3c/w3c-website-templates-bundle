@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Technical reports landing template{% endblock %}
+{% block meta_description %}Technical reports landing template from the W3C design system{% endblock %}
+
+{% block body_class %}class="listing technical-reports"{% endblock %}
+
+{% block breadcrumbs %}
+    {% include 'components/breadcrumbs.html.twig' %}
+{% endblock %}
+
+{% block content %}
+
+    {% include 'components/tr-search.html.twig' %}
+
+    <div aria-live="polite" aria-atomic="true">Showing <strong>1017</strong>
+        reports across 281 families, filtered by Draft Standards, Candidate Standards, Standards, Draft Notes, Notes
+    </div>
+
+    <div class="tr-list">
+        {% include 'components/tr-search-results-family.html.twig' %}
+    </div>
+
+{% endblock %}
+
+{% block crosslinks %}
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
