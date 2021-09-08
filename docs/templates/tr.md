@@ -10,7 +10,7 @@ This example shows the minimum markup of an Technical reports template. It does 
 
 ## Considerations
 
-Note the `.listing` and `.techical-reports` classes applied to `<body>`.
+Note the `.listing` and `.technical-reports` classes applied to `<body>`.
 
 ### Search
 
