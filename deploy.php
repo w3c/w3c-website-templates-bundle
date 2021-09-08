@@ -39,12 +39,19 @@ set('default_stage', 'staging');
  * Hosts
  */
 
-host('staging')
-    ->stage('staging')
+host('production')
+    ->stage('production')
     ->hostname('mercury.w3.org')
     ->user('studio24')
     ->set('deploy_path','/srv/design-system.w3.org')
     ->set('url', 'https://design-system.w3.org/');
+
+host('staging')
+    ->stage('staging')
+    ->hostname('mercury.w3.org')
+    ->user('studio24')
+    ->set('deploy_path','/srv/staging-design-system.w3.org')
+    ->set('url', 'https://staging-design-system.w3.org/');
 
 /**
  * Deployment task
