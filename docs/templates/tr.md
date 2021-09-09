@@ -31,7 +31,7 @@ Note that report titles and their maturity status is contained by `.tr-list__ite
 Maturity statues are contained in `span` elements with the following class, `.maturity-level`. Additionally, we use the following classes to further qualify statuses:
 
 - Standard: Add `.maturity-level--highlighted` (previously: Recommendation)
-- All standards which are in progress: only `maturity-level`
+- All standards which are in progress: only `.maturity-level`
 - Note: Add `.maturity-level--note`
 
 #### Standard
