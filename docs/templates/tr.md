@@ -16,9 +16,11 @@ Note the `.listing` and `.technical-reports` classes applied to `<body>`.
 
 #### Filtering options for the hero
 
-To help users we provide links directly to certain results. These results have been carefully selected based on user needs as well as illustrating how the search options works.  
+To help users we provide links directly to certain results. These results have been carefully selected based on user needs as well as illustrating how the search options work:  
 
-Not sure where to start? Search for <a href="">Standards only</a>, <a href="">any reports in progress</a>, <a href="">everything tagged with Accessibility</a>, or <a href="">all reports</a>.
+```
+<p>Not sure where to start? Search for <a href="">Standards only</a>, <a href="path/to/page">any reports in progress</a>, <a href="path/to/page">everything tagged with Accessibility</a>, or <a href="path/to/page">all reports</a>.</p>
+```
 
 <example title="Search options" src="components/tr-search.html.twig" />
 
