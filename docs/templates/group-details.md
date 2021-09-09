@@ -1,4 +1,4 @@
-#Group details
+# Group details
 
 An example of the group details page template. This example does not include:
 
