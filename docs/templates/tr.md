@@ -1,6 +1,6 @@
 # Technical reports template
 
-This example shows the minimum markup of an Technical reports template. It does not include:
+This example shows the minimum markup of the technical reports template. It does not include:
 
 - the complete [global navigation](../components/navigation.md)
 - the optional [translations component](../components/translations.md)
@@ -16,11 +16,7 @@ Note the `.listing` and `.technical-reports` classes applied to `<body>`.
 
 #### Filtering options for the hero
 
-To help users we provide links directly to certain results. These results have been carefully selected based on user needs as well as illustrating how the search options work:  
-
-```
-<p>Not sure where to start? Search for <a href="path/to/page">Standards only</a>, <a href="path/to/page">any reports in progress</a>, <a href="path/to/page">everything tagged with Accessibility</a>, or <a href="path/to/page">all reports</a>.</p>
-```
+To help users we provide links directly to certain results, just below the search input. These results have been carefully selected based on user needs as well as illustrating how the search options work:
 
 <example title="Search options" src="components/tr-search.html.twig" />
 
@@ -30,7 +26,7 @@ To help users we provide links directly to certain results. These results have b
 
 Note that report titles and their maturity status is contained by `.tr-list__item__header` class. This is so that we can use flex-box to change their visual order. *Whenever you're changing the visual order, make sure the tab order remains predictable.*
 
-Maturity statues are contained in `span` elements with the following class, `.maturity-level`. Additionally, we use the following classes to further qualify statuses:
+Maturity statuses are contained in `span` elements with the following class, `.maturity-level`. Additionally, we use the following classes to further qualify statuses:
 
 - Standard: Add `.maturity-level--highlighted` (previously: Recommendation)
 - All standards which are in progress: only `.maturity-level`
