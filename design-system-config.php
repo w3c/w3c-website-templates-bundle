@@ -10,6 +10,7 @@
  * @see https://github.com/studio24/design-system/blob/main/docs/configuration.md
  */
 $config = [
+    'site_title'                => 'W3C Design System',
     'navigation'                => [
         'Home'                  => '/',
         'Settings'              => '/settings/',

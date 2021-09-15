@@ -7,6 +7,10 @@ Frontend usage documentation for implementing the W3C website design can be foun
 
 To make updates to these see [design system](design-system.md).
 
+## Reporting issues
+
+Please report any issues to the [w3c-website](https://github.com/w3c/w3c-website/issues) repo.
+
 ## Installation
 Install the bundle using the command
 
