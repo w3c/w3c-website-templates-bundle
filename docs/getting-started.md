@@ -1,17 +1,22 @@
 # Getting started
 
+_**Please note:** the design system is currently being updated while Studio 24 is working on the W3C redesign project. These
+instructions are currently intended for W3C to test the design system. We plan to release a tagged version of the design
+system once this work is done (in November)._
+
 ## In a standalone project
 
 ### Installing via Composer
 You can install the Design System via [Composer](https://getcomposer.org/) via:
 
 ```
-composer require w3c/website-templates-bundle
+composer require w3c/website-templates-bundle:dev-main
 ```
 
-Please note this requires PHP 7.4+
+This requires PHP 7.4+
 
-To update these at any time, simply run `composer update`
+_Please note, this currently works best within a Symfony project. We are working on improved methods to install the Design 
+System for non-Symfony sites._
 
 ### Installing via ZIP file
 
