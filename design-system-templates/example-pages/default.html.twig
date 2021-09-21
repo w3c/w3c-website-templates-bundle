@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Default page template{% endblock %}
+{% block meta_description %}Default page template from the W3C design system{% endblock %}
+
+{% block body_class %}class="default"{% endblock %}
+
+{% block breadcrumbs %}
+    {% include 'components/breadcrumbs.html.twig' %}
+{% endblock %}
+
+{% block content %}
+<div class="content">
+    <article>
+
+        <h1>W3C Mission (Default template)</h1>
+
+        <!-- translations component would go here -->
+
+        <!-- table of contents would go here -->
+
+        {% include 'components/text.html.twig' %}
+
+        {% include 'components/image.html.twig' %}
+
+        {% include 'components/video.html.twig' %}
+
+        {% include 'components/quote.html.twig' %}
+
+    </article>
+
+    <section class="related">
+        <div class="related__inner">
+            <h2 class="txt-jupiter">Related content</h2>
+            <ul class="clean-list" role="list">
+                <li><a href="path/to/page">Excepteur sint occaeca</a></li>
+                <li><a href="path/to/page">Excepteur sint occaeca</a></li>
+                <li><a href="path/to/page">Excepteur sint occaeca</a></li>
+                <li><a href="path/to/page">Excepteur sint occaeca</a></li>
+                <li><a href="path/to/page">Excepteur sint occaeca</a></li>
+                <li><a href="path/to/page">Excepteur sint occaeca</a></li>
+            </ul>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block crosslinks %}
+    {% include 'components/crosslinks.html.twig' %}
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

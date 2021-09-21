@@ -31,125 +31,19 @@
 
 	}
 
-	.filters.l-switcher {
-
-		margin: rem(-10);
-		overflow: visible;
-
-	}
-
-	.filters > div {
-
-		align-items: flex-end;
-
-	}
-
-	.filters.l-switcher > * > * {
-
-		min-width: 33.333%;
-		padding: rem(10);
-		width: calc(920px * 920 - 100% * 920);
-
-	}
-
-	.filters .field {
-
-		margin-top: 0;
-
-	}
-
-	.filters .button--ghost {
-
-		padding-left: rem(3);
-		padding-right: rem(3);
-		text-decoration: underline; /* 1 */
-		text-decoration-skip-ink: auto; // Not supported by Safari
-		text-underline-offset: 0.25em; // Supported by Safari
-
-
-		&:hover {
-
-			box-shadow: 0 0 4px 2px rgba(84,84,84,0.25);
-
-		}
-
-		&:focus {
-
-			border-color: inherit;
-			box-shadow: inset 0 0 0 2px;
-			outline: solid 3px $focus-color;
-			outline-offset: 0;
-
-		}
-
-	}
-
-	.archive-links,
-	.category-links {
-
-		@include stack();
-
-		align-self: flex-start;
-		margin-top: rem(40);
-
-		ul {
-
-			background-color: $white;
-			border: solid 1px $border-color;
-			height: rem(180);
-			overflow-y: scroll;
-
-			&:focus {
-
-				border-color: $black;
-				box-shadow: inset 0 0 0 4px;
-				outline: 3px solid $focus-color;
-
-			}
-
-		}
-
-		ul a {
-
-			display: inline-block;
-			padding: rem(10);
-
-		}
-
-		details[open] ul {
-
-			width: rem(200);
-
-		}
-
-	}
-
-	.archive-links ul {
-
-		width: rem(180);
-
-	}
-
-	.filters .archive-links,
-	.filters .category-links {
-
-		margin-top: 0;
-
-	}
-
 }
 
 .people-list,
 .post-list {
 
-	> li {
+	> * {
 
 		padding-bottom: rem(30);
 		padding-top: rem(40);
 
 	}
 
-	> li + li {
+	> * + * {
 
 		border-top: solid 1px $border-color;
 
@@ -240,19 +134,13 @@
 
 	}
 
-	.l-sidebar .sidebar {
+	.l-sidebar .not-sidebar > div {
 
 		@include mq($bp-tab-large) {
 
-			order: 1;
+			margin-bottom: rem(40);
 
 		}
-
-	}
-
-	.l-sidebar .not-sidebar > div {
-
-		margin-bottom: rem(40);
 
 	}
 
@@ -290,7 +178,7 @@
 
 	margin-top: rem(40);
 
-	> li + li {
+	> * + * {
 
 		margin-top: 1rem;
 
@@ -422,5 +310,11 @@
 .group-list {
 
 	margin-top: 0;
+
+}
+
+.archive-links h2 + * {
+
+	margin-top: 0.8em;
 
 }

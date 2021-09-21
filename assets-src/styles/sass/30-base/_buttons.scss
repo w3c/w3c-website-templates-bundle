@@ -14,6 +14,7 @@ button,
 	border: solid 2px $link-color;
 	border-radius: rem(24);
 	color: $white;
+	display: inline-block;
 	font-size: rem(14);
 	font-weight: $emphasis;
 	line-height: 1.5;
@@ -148,79 +149,6 @@ input[type="submit"].button {
 		background-color: $twiki-gray;
 		color: #303030;
 		outline: 0;
-
-	}
-
-}
-
-
-/**
-Double specificity so links as buttons keep their styling even within
-elements that would otherwise override it, without using !important
- */
-.button--alert.button--alert {
-
-	background-color: $alert-color;
-	color: $black;
-
-	&:visited {
-
-		background-color: $alert-color;
-		color: $black;
-
-	}
-
-	&:hover,
-	&:focus,
-	&:active {
-
-		background-color: lighten($alert-color, 10%);
-
-	}
-
-}
-
-
-.button--success.button--success {
-
-	background-color: $success-color;
-	color: $black;
-
-	&:visited {
-
-		background-color: $success-color;
-		color: $black;
-
-	}
-
-	&:hover,
-	&:focus,
-	&:active {
-
-		background-color: lighten($success-color, 10%);
-
-	}
-
-}
-
-
-.button--warning.button--warning {
-
-	background-color: $warning-color;
-	color: $black;
-
-	&:visited {
-
-		background-color: $warning-color;
-		color: $black;
-
-	}
-
-	&:hover,
-	&:focus,
-	&:active {
-
-		background-color: lighten($warning-color, 10%);
 
 	}
 

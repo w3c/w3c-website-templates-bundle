@@ -36,9 +36,8 @@
 
     Normalize comes first for the cascade
 \*------------------------------------*/
-@import "../../node_modules/normalize-scss/sass/normalize";
+@import "sass/30-base/normalize";
 @import "sass/30-base/animation";
-@import "sass/30-base/bg-color";
 @import "sass/30-base/quotes";
 @import "sass/30-base/body";
 @import "sass/30-base/box-sizing";
@@ -88,12 +87,14 @@
 @import "sass/50-core-components/quotes";
 @import "sass/50-core-components/images";
 @import "sass/50-core-components/video";
+@import "sass/50-core-components/notes";
 @import "sass/50-core-components/columns";
 @import "sass/50-core-components/cards";
 @import "sass/50-core-components/tag-list";
 @import "sass/50-core-components/fifty-fifty";
 @import "sass/50-core-components/evangelists";
 @import "sass/50-core-components/activity";
+@import "sass/50-core-components/collapsibles";
 @import "sass/50-core-components/group-list";
 @import "sass/50-core-components/members-grid";
 @import "sass/50-core-components/slide";
@@ -101,14 +102,13 @@
 @import "sass/50-core-components/you-may-also-like";
 @import "sass/50-core-components/search";
 @import "sass/50-core-components/meta-info";
+@import "sass/50-core-components/family-series-list";
+@import "sass/50-core-components/maturity-levels";
 @import "sass/50-core-components/pagination";
-//@import "sass/50-core-components/payment-details";
 @import "sass/50-core-components/rss";
 @import "sass/50-core-components/comments";
 @import "sass/50-core-components/pre-footer";
 @import "sass/50-core-components/footer";
-@import "sass/50-core-components/maturity-levels";
-@import "sass/50-core-components/family-series-list";
 
 
 
@@ -122,6 +122,7 @@
 @import "sass/80-templates/landing";
 @import "sass/80-templates/listing";
 @import "sass/80-templates/group";
+@import "sass/80-templates/technical-reports";
 
 
 
@@ -131,3 +132,4 @@
 @import "sass/90-utilities/alignments";
 @import "sass/90-utilities/clearfix";
 @import "sass/90-utilities/layout";
+@import "sass/90-utilities/margins";

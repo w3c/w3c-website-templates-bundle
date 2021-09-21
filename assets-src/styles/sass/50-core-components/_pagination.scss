@@ -1,6 +1,5 @@
 /*------------------------------------*\
     #Pagination
-    See: https://weboverhauls.github.io/demos/pagination/
 \*------------------------------------*/
 
 .pagination {
@@ -73,7 +72,7 @@
 
 	}
 
-	[aria-current] {
+	a[href][aria-current] {
 
 		background-color: $link-color;
 		color: $white;
@@ -82,8 +81,17 @@
 		&:hover {
 
 			color: $white;
+			text-decoration: none;
 
 		}
+
+		&:focus {
+
+			color: $black;
+
+		}
+
+
 
 	}
 

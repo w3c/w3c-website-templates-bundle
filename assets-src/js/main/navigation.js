@@ -27,7 +27,7 @@ var navigation = (function () {
 	let nav = document.querySelector('.global-nav__inner ul');
 	let mobileNavToggler = document.querySelector('[data-trigger="mobile-nav"]');
 	mobileNavToggler.style = "";
-	let menuIcon = '<svg class="icon icon--larger" xmlns:xlink="http://www.w3.org/1999/xlink" focusable="false" aria-hidden="true" viewBox="0 0 448 512" width="1em" height="1em"><use class="menu-icon" href="dist/assets/svg/nav-icons.svg#menu-icon"></use><use class="close-icon" href="dist/assets/svg/nav-icons.svg#close-icon"></use></svg>';
+	let menuIcon = '<svg class="icon icon--larger" xmlns:xlink="http://www.w3.org/1999/xlink" focusable="false" aria-hidden="true" viewBox="0 0 448 512" width="1em" height="1em"><use class="menu-icon" href="/dist/assets/svg/nav-icons.svg#menu-icon"></use><use class="close-icon" href="/dist/assets/svg/nav-icons.svg#close-icon"></use></svg>';
 	let parentLinks = [].slice.call(nav.querySelectorAll('.top-nav-item.has-children > a'));
 	let subNavArray = [].slice.call(nav.querySelectorAll('.nav__submenu'));
 
@@ -52,7 +52,6 @@ var navigation = (function () {
 		subNavTriggers.forEach(function (trigger) {
 			trigger.setAttribute('aria-expanded', 'false');
 			trigger.removeAttribute('class');
-			trigger.nextElementSibling.setAttribute('aria-hidden', 'true');
 		});
 	}
 
@@ -63,7 +62,6 @@ var navigation = (function () {
 
 			mobileNavToggler.innerHTML = menuText + menuIcon;
 			mobileNavToggler.setAttribute('aria-expanded', 'false');
-			nav.setAttribute('aria-hidden', 'true');
 
 			document.addEventListener('click', function (event) {
 
@@ -72,12 +70,10 @@ var navigation = (function () {
 					if (event.target.getAttribute('aria-expanded') === 'false') {
 
 						event.target.setAttribute('aria-expanded', 'true');
-						nav.setAttribute('aria-hidden', 'false');
 
 					} else {
 
 						event.target.setAttribute('aria-expanded', 'false');
-						nav.setAttribute('aria-hidden', 'true');
 						closeSubNavs();
 
 					}
@@ -101,7 +97,6 @@ var navigation = (function () {
 			toggleMobileNav();
 		} else {
 			mobileNavToggler.setAttribute('aria-expanded', 'true');
-			nav.setAttribute('aria-hidden', 'false');
 		}
 	}
 
@@ -120,12 +115,12 @@ var navigation = (function () {
 			toggleButton.setAttribute('type', 'button');
 			toggleButton.setAttribute('aria-expanded', 'false');
 			toggleButton.setAttribute('data-trigger', 'subnav');
-			toggleButton.innerHTML = linkText + '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 512" class="icon nav-small" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-left" href="dist/assets/svg/nav-icons.svg#angle-left"></use><use class="angle-right" href="dist/assets/svg/nav-icons.svg#angle-right"></use></svg><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon nav-wide" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-down" href="dist/assets/svg/nav-icons.svg#angle-down"></use><use class="angle-up" href="dist/assets/svg/nav-icons.svg#angle-up"></use></svg>';
+			toggleButton.innerHTML = linkText + '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 512" class="icon nav-small" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-left" href="/dist/assets/svg/nav-icons.svg#angle-left"></use><use class="angle-right" href="/dist/assets/svg/nav-icons.svg#angle-right"></use></svg><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon nav-wide" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-down" href="/dist/assets/svg/nav-icons.svg#angle-down"></use><use class="angle-up" href="/dist/assets/svg/nav-icons.svg#angle-up"></use></svg>';
 
 			backButton.setAttribute('type', 'button');
 			backButton.setAttribute('class', 'button button--ghost u-full-width with-icon--before with-icon--larger');
 			backButton.setAttribute('data-trigger', 'mobile-back');
-			backButton.innerHTML = '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-left" href="dist/assets/svg/nav-icons.svg#angle-left"></use><use class="angle-right" href="dist/assets/svg/nav-icons.svg#angle-right"></use></svg>' + backText;
+			backButton.innerHTML = '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-left" href="/dist/assets/svg/nav-icons.svg#angle-left"></use><use class="angle-right" href="/dist/assets/svg/nav-icons.svg#angle-right"></use></svg>' + backText;
 
 			fragment.appendChild(backButton);
 			fragment.appendChild(clonedLink);
@@ -137,7 +132,6 @@ var navigation = (function () {
 
 		for (let i = 0; i < subNavArray.length; i++) {
 
-			subNavArray[i].setAttribute('aria-hidden', 'true');
 			subNavArray[i].style = "";
 
 		}
@@ -146,26 +140,21 @@ var navigation = (function () {
 
 			if (event.target.matches('[data-trigger="subnav"]')) {
 
-				let targetNav = event.target.nextElementSibling;
-
-				if (targetNav.getAttribute('aria-hidden') === 'true') {
+				if (event.target.matches('[aria-expanded="false"]')) {
 
 					closeSubNavs();
 					event.target.setAttribute('aria-expanded', 'true');
 					event.target.setAttribute('class', 'js-active');
-					targetNav.setAttribute('aria-hidden', 'false');
 
 				} else {
 
 					event.target.setAttribute('aria-expanded', 'false');
 					event.target.removeAttribute('class');
-					targetNav.setAttribute('aria-hidden', 'true');
 
 				}
 
 			} else if (event.target.matches('[data-trigger="mobile-back"]')) {
 
-				event.target.parentElement.setAttribute('aria-hidden', 'true');
 				event.target.closest('li').querySelector('[data-trigger="subnav"]').setAttribute('aria-expanded', 'false');
 
 			} else {

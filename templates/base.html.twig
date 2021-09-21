@@ -14,7 +14,7 @@
           content="{% block description %}{{ 'page.default_description'|trans({}, 'w3c_website_templates_bundle') }}{% endblock %}"/>
     
     {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('styles/core.css?ver=1.1.27', 'main') }}"
+        <link rel="stylesheet" href="{{ asset('styles/core.css?ver=1.4', 'main') }}"
               media="screen"/>
 
         <!--
@@ -24,7 +24,7 @@
         FF 47+
         -->
         <link rel="stylesheet" id="advanced-stylesheet"
-              href="{{ asset('styles/advanced.css?ver=1.1.27', 'main') }}" media="
+              href="{{ asset('styles/advanced.css?ver=1.4', 'main') }}" media="
             only print,
             only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
             only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
@@ -47,7 +47,7 @@
                 var linkEl = document.getElementById('advanced-stylesheet');
                 if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
                     var script = document.createElement('script');
-                    script.src = '{{ asset('js/main.js?ver=1.1.27', 'main') }}';
+                    script.src = '{{ asset('js/main.js?ver=1.4', 'main') }}';
                     script.defer = true;
                     document.querySelector('head').appendChild(script);
                     (function (H) {
@@ -66,42 +66,44 @@
         <header class="global-header">
             <span role="status" aria-live="polite"></span>
             {% block banner %}
-                {{ include('@W3CWebsiteTemplates/components/base/banner.html.twig') }}
+                {{ include('@W3CWebsiteTemplates/components/styles/banner.html.twig') }}
             {% endblock banner %}
             {% block lang_nav %}
-                {{ include('@W3CWebsiteTemplates/components/base/lang_nav.html.twig') }}
+                {{ include('@W3CWebsiteTemplates/components/styles/lang_nav.html.twig') }}
             {% endblock lang_nav %}
             {% block global_nav %}
-                {{ include('@W3CWebsiteTemplates/components/base/global_nav.html.twig') }}
+                {% embed '@W3CWebsiteTemplates/components/styles/global_nav.html.twig' with {
+                    'navigation': navigation
+                } %}{% endembed %}
             {% endblock global_nav %}
         </header>
         {% block breadcrumbs %}
             {% if breadcrumbs is defined %}
-                {{ include('@W3CWebsiteTemplates/components/base/breadcrumbs.html.twig') }}
+                {{ include('@W3CWebsiteTemplates/components/styles/breadcrumbs.html.twig') }}
             {% endif %}
         {% endblock breadcrumbs %}
         <main id="main">
             <div class="content">
                 <article>
                     <h1>{{ block('title') }}</h1>
-                    {% if page_translations is defined %}
-                        {{ include('@W3CWebsiteTemplates/components/base/page_translations.html.twig') }}
+                    {% if page_translations is defined and page_translations|length > 0 %}
+                        {{ include('@W3CWebsiteTemplates/components/styles/page_translations.html.twig') }}
                     {% endif %}
                     {% if toc is defined %}
-                        {{ include('@W3CWebsiteTemplates/components/base/toc.html.twig') }}
+                        {{ include('@W3CWebsiteTemplates/components/styles/toc.html.twig') }}
                     {% endif %}
                     {% block body %}{% endblock body %}
                 </article>
                 {% block related %}
                     {% if related_links is defined %}
-                        {{ include('@W3CWebsiteTemplates/components/base/related.html.twig') }}
+                        {{ include('@W3CWebsiteTemplates/components/styles/related.html.twig') }}
                     {% endif %}
                 {% endblock %}
             </div>
         </main>
         {% block crosslinks %}
-            {% if crosslinks is defined %}
-                {{ include('@W3CWebsiteTemplates/components/base/crosslinks.html.twig') }}
+            {% if crosslinks is defined and crosslinks|length > 0 %}
+                {{ include('@W3CWebsiteTemplates/components/styles/crosslinks.html.twig') }}
             {% endif %}
         {% endblock crosslinks %}
     </div>

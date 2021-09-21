@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Groups listing template{% endblock %}
+{% block meta_description %}Groups listing template from the W3C design system{% endblock %}
+
+{% block body_class %}class="listing"{% endblock %}
+
+{% block breadcrumbs %}
+{% include 'components/breadcrumbs.html.twig' %}
+{% endblock %}
+
+{% block content %}
+<div class="u-full-width hero hero--listing">
+	<div class="l-center">
+		<h1>Groups</h1>
+		<p class="lead">Providing examples of group listing cards</p>
+	</div>
+</div>
+
+<div class="u-full-width component component--group-list">
+	<div class="l-center">
+		<div class="group-list">
+
+			<div class="card card--group" data-component="card">
+				<div class="card__text">
+					<h2 class="card__heading"><a class="card__link" href="path/to/page">Accessibility Education and Outreach Working Group (EOWG)</a></h2>
+					<p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.</p>
+					<dl class="txt-pluto">
+						<dt class="visuallyhidden">Business ecosystem</dt>
+						<dd>Name of business ecosystem</dd>
+					</dl>
+					<div class="l-cluster">
+						<ul class="clean-list">
+							<li>
+								<span class="tag">Accessibility</span>
+							</li>
+							<li>
+								<span class="tag">Privacy</span>
+							</li>
+							<li>
+								<span class="tag">Security</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="card card--group" data-component="card">
+				<div class="card__text">
+					<h2 class="card__heading"><a class="card__link" href="path/to/page">Accessibility Guidelines Working Group</a></h2>
+					<p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.</p>
+					<dl class="txt-pluto">
+						<dt class="visuallyhidden">Business ecosystem</dt>
+						<dd>Name of business ecosystem</dd>
+					</dl>
+					<div class="l-cluster">
+						<ul class="clean-list">
+							<li>
+								<span class="tag">Accessibility</span>
+							</li>
+							<li>
+								<span class="tag">Privacy</span>
+							</li>
+							<li>
+								<span class="tag">Security</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<!-- pagination goes here -->
+
+{% endblock %}
+
+{% block crosslinks %}{% endblock %}
+
+{% block scripts %}
+{% endblock %}

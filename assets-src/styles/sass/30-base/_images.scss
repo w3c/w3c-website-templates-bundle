@@ -11,6 +11,7 @@ img {
 
 .avatar {
 
+	border: solid 1px $w3c-blue;
 	border-radius: 50%;
 	height: rem(100);
 	overflow: hidden;
@@ -42,8 +43,8 @@ img {
 
 .avatar--small {
 
-	height: rem(30);
-	width: rem(30);
+	height: rem(32);
+	width: rem(32);
 
 	img {
 

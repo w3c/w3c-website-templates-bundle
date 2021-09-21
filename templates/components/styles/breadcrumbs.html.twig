@@ -1,11 +1,28 @@
-<nav id="breadcrumb" aria-label="Breadcrumb">
-    <div class="l-center">
-        <div class="l-cluster">
-            <ol class="breadcrumbs clean-list" role="list">
-                {% for url, title in breadcrumbs %}
-                    <li><a href="{{ url }}"{% if loop.last %} aria-current="page"{% endif %}>{{ title }}</a></li>
-                {% endfor %}
-            </ol>
+{% macro breadcrumbs(breadcrumb) %}
+    <li><a href="{{ breadcrumb.uri|absolute_url(app.request.locale) }}">{{ breadcrumb.title }}</a></li>
+    {% if breadcrumb.parent is defined and breadcrumb.parent %}
+        {{ _self.breadcrumbs(breadcrumb.parent) }}
+    {% endif %}
+{% endmacro %}
+
+{% if breadcrumbs %}
+    <nav id="breadcrumb" aria-label="Breadcrumb">
+        <div class="l-center">
+            <div class="l-cluster">
+                <ol class="breadcrumbs clean-list" role="list">
+                    <li>
+                        <a href="{{ "/"|absolute_url(app.request.locale) }}">
+                            {{ 'breadcrumbs.home'|trans({}, 'w3c_website_templates_bundle') }}
+                        </a>
+                    </li>
+                    {{ _self.breadcrumbs(breadcrumbs) }}
+                    <li>
+                        <a href="{{ page.uri|absolute_url(app.request.locale) }}" aria-current="page">
+                            {{ page.title }}
+                        </a>
+                    </li>
+                </ol>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+{% endif %}

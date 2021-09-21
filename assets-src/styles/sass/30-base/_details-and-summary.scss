@@ -68,6 +68,12 @@ summary {
 
 }
 
+details[open] > summary {
+
+	margin-bottom: rem(16);
+
+}
+
 details[open] > summary::before {
 
 	transform: rotate(90deg);

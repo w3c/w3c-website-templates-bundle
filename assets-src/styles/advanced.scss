@@ -46,11 +46,9 @@
 \*------------------------------------*/
 @import "sass/60-advanced-components/header";
 @import "sass/60-advanced-components/navigation";
-@import "sass/60-advanced-components/collapsible-cards";
-@import "sass/60-advanced-components/collapsible-checkboxes";
 @import "sass/60-advanced-components/collapsibles";
 @import "sass/60-advanced-components/cards";
-//@import "sass/60-advanced-components/tabs";
+@import "sass/60-advanced-components/hero";
 @import "sass/60-advanced-components/slider";
 @import "sass/60-advanced-components/disclosure-widget";
 @import "sass/60-advanced-components/comments";
@@ -63,4 +61,3 @@
     Add third-party plugins here.
 \*------------------------------------*/
 @import "sass/70-third-party-plugins/accessible-autocomplete";
-@import "sass/70-third-party-plugins/pikaday";

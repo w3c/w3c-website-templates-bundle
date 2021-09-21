@@ -1,0 +1,59 @@
+/*------------------------------------*\
+    #Collapsible sections
+\*------------------------------------*/
+
+.component--collapsibles {
+
+	> div {
+
+		@include stack(1rem);
+
+		background-color: $white;
+		border-radius: rem(6);
+		box-shadow: rem(-1) rem(1) rem(4) rgba(55, 70, 95, 0.12);
+		padding: rem(25);
+
+	}
+
+	> div + div {
+
+		margin-top: 1rem;
+
+	}
+
+}
+
+[data-heading="collapsibles"] span {
+
+	@include stack(1rem);
+
+}
+
+[data-heading="collapsibles"] h3 {
+
+	@include txt-saturn;
+
+}
+
+[data-heading="collapsibles"] > * {
+
+	@include txt-pluto;
+
+	display: block;
+	font-weight: normal;
+	margin-top: 1rem;
+
+}
+
+[data-heading="collapsibles"] + * {
+
+	@include stack(1rem);
+
+	// Restrict line-length for readability
+	> * {
+
+		max-width: rem($text-measure);
+
+	}
+
+}

@@ -1,8 +1,4 @@
 <section class="toc">
     <h2>Page contents skip to links</h2>
-    <ul class="clean-list" role="list">
-        {% for url, title in toc %}
-            <li><a href="{{ url }}">{{ title }}</a></li>
-        {% endfor %}
-    </ul>
+    {{ toc.headings.ul({'class': 'clean-list', 'role': 'list'})|raw }}
 </section>

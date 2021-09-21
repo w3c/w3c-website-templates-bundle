@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home template{% endblock %}
+{% block meta_description %}Home page template from the W3C design system{% endblock %}
+
+{% block body_class %}class="home"{% endblock %}
+
+{% block content %}
+
+	{% include 'components/hero-home.html.twig' %}
+
+	{% include 'components/members-home.html.twig' %}
+
+	{% include 'components/fifty-fifty.html.twig' %}
+
+{% endblock %}
+
+{% block crosslinks %}
+	{% include 'components/crosslinks.html.twig' %}
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

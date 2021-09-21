@@ -41,6 +41,7 @@
 
 		margin-bottom: rem(18);
 		margin-top: 0;
+		max-width: rem($text-measure);
 
 	}
 
@@ -72,10 +73,94 @@
 	margin-bottom: rem(20);
 	padding-bottom: rem(40);
 
+	+ * {
+
+		margin-top: 0;
+
+	}
+
 }
 
-.hero--listing + * {
+.hero--listing .filters.l-switcher {
 
-	margin-top: 0;
+	margin: rem(-10);
+	overflow: visible;
+
+	> * > * {
+
+		min-width: 33.333%;
+		padding: rem(10);
+		width: calc(920px * 920 - 100% * 920);
+
+	}
+
+}
+
+.hero--listing .filters {
+
+	> div {
+
+		align-items: flex-end;
+
+	}
+
+	.field {
+
+		margin-top: 0;
+
+	}
+
+	.button--ghost {
+
+		padding-left: rem(3);
+		padding-right: rem(3);
+		text-decoration: underline; /* 1 */
+		text-decoration-skip-ink: auto; // Not supported by Safari
+		text-underline-offset: 0.25em; // Supported by Safari
+
+
+		&:hover {
+
+			box-shadow: 0 0 4px 2px rgba(84,84,84,0.25);
+
+		}
+
+		&:focus {
+
+			border-color: inherit;
+			box-shadow: inset 0 0 0 2px;
+			outline: solid 3px $focus-color;
+			outline-offset: 0;
+
+		}
+
+	}
+
+}
+
+.hero--listing .browse {
+
+	margin: rem(-10);
+	overflow: visible;
+
+	> * {
+
+		display: flex;
+		flex-wrap: wrap;
+
+	}
+
+	> * > * {
+
+		padding: rem(10);
+
+	}
+
+	h2 {
+
+		font-size: 1rem;
+		font-weight: normal;
+
+	}
 
 }

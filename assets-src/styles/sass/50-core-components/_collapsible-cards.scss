@@ -1,0 +1,36 @@
+/*------------------------------------*\
+    #Collapsible cards
+\*------------------------------------*/
+
+.component--collapsible-cards {
+
+	> div {
+
+		@include stack(1rem);
+
+		background-color: $white;
+		border-radius: rem(6);
+		box-shadow: rem(-1) rem(1) rem(4) rgba(55, 70, 95, 0.12);
+		padding: rem(25);
+
+	}
+
+	// TR cards have less space between them
+	> div + div {
+
+		margin-top: rem(10);
+
+	}
+
+}
+
+[data-heading="collapsibles"] + * {
+
+	// Don't restrict line-length when we nest collapsibles in each other (see TR, Associated documents)
+	> .component--collapsible-cards {
+
+		max-width: none;
+
+	}
+
+}

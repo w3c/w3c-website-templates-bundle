@@ -16,3 +16,15 @@
 	width: calc(920px * 920 - 100% * 920);
 
 }
+
+.pre-footer h2 + * {
+
+	margin-top: 1em;
+
+}
+
+.pre-footer a {
+
+	display: block;
+
+}

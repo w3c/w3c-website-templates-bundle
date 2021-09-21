@@ -23,3 +23,5 @@ banner:
         text: >-
             __banner.beta.text
         icon: __banner.beta.icon
+breadcrumbs:
+    home: __breadcrumbs.home

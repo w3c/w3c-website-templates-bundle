@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Group details template{% endblock %}
+{% block meta_description %}Group details template from the W3C design system{% endblock %}
+
+{% block body_class %}class="group"{% endblock %}
+
+{% block breadcrumbs %}
+	{% include 'components/breadcrumbs.html.twig' %}
+{% endblock %}
+
+{% block content %}
+	<div class="content">
+
+		<h1>Name of group</h1>
+
+		<button type="button" class="button button--ghost with-icon with-icon--after" style="display:none;" data-toggle="true">Toggle group navigation <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-down" href="/dist/assets/svg/nav-icons.svg#angle-down"></use><use class="angle-up" href="/dist/assets/svg/nav-icons.svg#angle-up"></use></svg></button>
+
+		<nav id="group-nav" aria-label="Group details">
+			<div class="group-nav__inner">
+				<ul class="clean-list" role="list">
+					<li><a href="#" aria-current="true">Summary</a></li>
+					<li><a href="path/to/page">News</a></li>
+					<li><a href="path/to/page">Activity</a></li>
+					<li><a href="path/to/page">Participants</a></li>
+					<li><a href="path/to/page">Calendar</a></li>
+					<li><a href="path/to/page">Tools</a></li>
+					<li><a href="path/to/page">Publications</a></li>
+					<li><a href="path/to/page">Task Forces</a></li>
+					<li><a href="path/to/page">IPR</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="details">
+
+			{% include 'components/text.html.twig' %}
+
+		</div>
+
+	</div>
+{% endblock %}
+
+{% block crosslinks %}
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

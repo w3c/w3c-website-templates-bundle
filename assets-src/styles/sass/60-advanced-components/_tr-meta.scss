@@ -1,0 +1,46 @@
+/*------------------------------------*\
+    #TR Meta
+\*------------------------------------*/
+
+
+.tr-list {
+    padding-top: 0;
+}
+
+// if you put links in this list, you'll need to use .tag-list (links needs more space around them for a11y)
+.tr-meta.tr-meta {
+
+    //margin: rem(-5);
+    margin-top: 0.5rem;
+
+    li {
+
+        //margin: rem(5);
+
+    }
+
+}
+
+.tr-meta li {
+
+    display: inline-block;
+
+}
+
+.tr-meta li:first-child {
+
+    //margin-right: 1rem;
+
+    &:after {
+        content: " — ";
+    }
+}
+
+.tr-meta li:nth-child(1n+2) span::after {
+    content: ", ";
+}
+
+// last one
+.tr-meta li:nth-last-child(1) span::after {
+    content: none;
+}

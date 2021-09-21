@@ -2,5 +2,7 @@
     <blockquote>
         {% block text %}{% endblock %}
     </blockquote>
-    <figcaption>{{ author }}</figcaption>
+    {% if author is defined and author is not empty %}
+        <figcaption>{{ author }}</figcaption>
+    {% endif %}
 </figure>

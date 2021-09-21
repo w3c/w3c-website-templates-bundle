@@ -1,0 +1,211 @@
+<div class="u-full-width hero hero--listing">
+    <div class="l-center">
+        <h1>Technical reports</h1>
+        <p class="lead">W3C publishes a range of technical reports (Standards and supporting Notes) which help move the web forward.</p>
+
+        <div class="l-box l-box--no-border">
+            <form role="search" onsubmit="return false" novalidate>
+
+                <div class="field">
+                    <div id="hint-search">Search for terms such as API, Internationalization, or WAI-ARIA</div>
+                    <input type="search" name="filter-tr-name" id="filter-tr-name" aria-label="Search technical reports" aria-describedby="hint-search">
+                </div>
+
+                <p>Not sure where to start? Search for <a href="">Standards only</a>, <a href="">any reports in progress</a>, <a href="">everything tagged with Accessibility</a>, or <a href="">all reports</a>.</p>
+
+                <details>
+                    <summary>Advanced filter options</summary>
+
+                    <div class="field-group">
+
+                        <h2 class="field-group__heading txt-mars">Filter by status</h2>
+
+                        <div class="field">
+                            <fieldset role="group" aria-describedby="hint-standards">
+                                <legend class="group-legend">
+                                    Standards
+                                </legend>
+
+                                <div class="field-hint u-no-margin-top" id="hint-standards">W3C publishes Recommendations which are considered Web Standards. Standards are normative. They are endorsed by W3C and its Members. Learn about <a href="path/to/page">our Standards process</a>.</div>
+
+                                <div class="checkbox-group--cluster">
+
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="filterByTagsOptions" id="draftstandards" appearance="base">
+                                        <label for="draftstandards">
+                                            <span class="field-label">Draft Standards (288)</span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="filterByTagsOptions" id="candidatestandard" appearance="base">
+                                        <label for="candidatestandard">
+                                            <span class="field-label">Candidate Standards (62)</span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="filterByTagsOptions" id="standard" appearance="base">
+                                        <label for="standard">
+                                            <span class="field-label">Standards (298)</span>
+                                        </label>
+                                    </div>
+
+                                </div>
+
+                            </fieldset>
+                        </div>
+
+                        <div class="field">
+                            <fieldset role="group" aria-describedby="hint-notes">
+                                <legend class="group-legend">
+                                    Supporting Notes
+                                </legend>
+
+                                <div class="field-hint u-no-margin-top" id="hint-notes">Notes are informative. They give you use cases, practices, and code examples.</div>
+
+                                <div class="checkbox-group--cluster">
+
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="filterByTagsOptions" id="draftnote" appearance="base">
+                                        <label for="draftnote">
+                                            <span class="field-label">Draft Notes</span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="filterByTagsOptions" id="notes" appearance="base">
+                                        <label for="notes">
+                                            <span class="field-label">Notes (369)</span>
+                                        </label>
+                                    </div>
+
+                                </div>
+
+                            </fieldset>
+                        </div>
+
+                    </div>
+
+                    <div class="field-group">
+
+                        <h2 class="field-group__heading txt-mars">Filter by tags</h2>
+
+                        <div class="field">
+                            <fieldset role="group" aria-describedby="hint-tags">
+                                <legend class="group-legend">
+                                    Tags
+                                </legend>
+
+
+                                <div class="field-hint u-no-margin-top" id="hint-tags">Tags are broad groups of web technologies.</div>
+
+
+                                <div class="checkbox-group--cluster">
+
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="filterByTagsOptions" id="accessibility" appearance="base">
+                                        <label for="accessibility">
+                                            <span class="field-label">Accessibility</span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="filterByTagsOptions" id="css" appearance="base">
+                                        <label for="css">
+                                            <span class="field-label">CSS</span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="filterByTagsOptions" id="data" appearance="base">
+                                        <label for="data">
+                                            <span class="field-label">Data</span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="filterByTagsOptions" id="dom" appearance="base">
+                                        <label for="dom">
+                                            <span class="field-label">DOM</span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="filterByTagsOptions" id="graphics" appearance="base">
+                                        <label for="graphics">
+                                            <span class="field-label">Graphics</span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="filterByTagsOptions" id="html" appearance="base">
+                                        <label for="html">
+                                            <span class="field-label">HTML</span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="filterByTagsOptions" id="http" appearance="base">
+                                        <label for="http">
+                                            <span class="field-label">HTTP</span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="filterByTagsOptions" id="i18n" appearance="base">
+                                        <label for="i18n">
+                                            <span class="field-label">i18n</span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="filterByTagsOptions" id="media" appearance="base">
+                                        <label for="media">
+                                            <span class="field-label">Media</span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="filterByTagsOptions" id="performance" appearance="base">
+                                        <label for="performance">
+                                            <span class="field-label">Performance</span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="filterByTagsOptions" id="privacy" appearance="base">
+                                        <label for="privacy">
+                                            <span class="field-label">Privacy</span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="filterByTagsOptions" id="security" appearance="base">
+                                        <label for="security">
+                                            <span class="field-label">Security</span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="filterByTagsOptions" id="webapi" appearance="base">
+                                        <label for="webapi">
+                                            <span class="field-label">Web API</span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="filterByTagsOptions" id="wot" appearance="base">
+                                        <label for="wot">
+                                            <span class="field-label">WoT</span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="filterByTagsOptions" id="xml" appearance="base">
+                                        <label for="xml">
+                                            <span class="field-label">XML</span>
+                                        </label>
+                                    </div>
+
+                                </div>
+
+                            </fieldset>
+                        </div>
+
+                    </div>
+
+                </details>
+
+                <div class="input-group">
+                    <button class="button" type="submit">Show reports</button>
+                    <a href="path/to/page">Clear all</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

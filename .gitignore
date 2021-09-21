@@ -47,3 +47,6 @@
 
 #node modules
 node_modules
+
+# Design system build files
+_dist
