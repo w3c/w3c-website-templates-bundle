@@ -59,7 +59,7 @@
     {% endblock javascripts %}
 </head>
 
-<body class="default">
+<body class="{{ body_classes|default('default') }}">
 <a class="skip-link" href="#main">{{ 'page.skip_to_content'|trans({}, 'w3c_website_templates_bundle') }}</a>
 <div class="grid-wrap">
     <div class="wrap">
