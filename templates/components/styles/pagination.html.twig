@@ -1,0 +1,56 @@
+<nav aria-label="pagination" class="l-cluster pagination">
+    <ul class="pagination__list">
+        {% if pagination.current > 1 %}
+            <li>
+                <a class="pagination__list__first" href="{{ path(app.request.attributes.get('_route')) }}">
+                    <span aria-hidden="true">&lt;&lt;</span><span class="visuallyhidden">
+                        {{ 'pagination.first'|trans({}, 'w3c_website_templates_bundle') }}
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ path(app.request.attributes.get('_route'), { page: pagination.current - 1}) }}">
+                    {{ 'pagination.previous'|trans({}, 'w3c_website_templates_bundle')|raw }}
+                </a>
+            </li>
+        {% endif %}
+        {% for pagination_page in 1..min(5, pagination.total) %}
+            <li>
+            {% if pagination_page == pagination.current %}
+                <a href="#" aria-label="page {{ pagination_page }}" aria-current="page">
+                    {{ 'pagination.current_page'|trans({'page': pagination_page}, 'w3c_website_templates_bundle')|raw }}
+                </a>
+            {% else %}
+                <a href="{{ path(app.request.attributes.get('_route'), { page: pagination_page}) }}">
+                    {{ 'pagination.page'|trans({'page': pagination_page}, 'w3c_website_templates_bundle')|raw }}
+                </a>
+            {% endif %}
+            </li>
+            <li></li>
+        {% endfor %}
+        {% if pagination.total > 6 %}
+            <li><a class="ellipsis">&#8230;</a></li>
+        {% endif %}
+        {% if pagination.total > 5 %}
+            <li>
+                <a href="{{ path(app.request.attributes.get('_route'), { page: pagination.total}) }}">
+                    {{ 'pagination.page'|trans({'page': pagination.total}, 'w3c_website_templates_bundle')|raw }}
+                </a>
+            </li>
+        {% endif %}
+        {% if pagination.current < pagination.total %}
+            <li>
+                <a href="{{ path(app.request.attributes.get('_route'), { page: pagination.current + 1}) }}">
+                    {{ 'pagination.next'|trans({}, 'w3c_website_templates_bundle')|raw }}
+                </a>
+            </li>
+            <li>
+                <a class="pagination__list__last" href="{{ path(app.request.attributes.get('_route'), { page: pagination.total}) }}">
+                    <span aria-hidden="true">&gt;&gt;</span><span class="visuallyhidden">
+                        {{ 'pagination.last'|trans({}, 'w3c_website_templates_bundle') }}
+                    </span>
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>

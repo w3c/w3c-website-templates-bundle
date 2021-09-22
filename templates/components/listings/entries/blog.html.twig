@@ -1,0 +1,59 @@
+<div class="l-sidebar">
+    <div>
+        <div class="not-sidebar">
+            <div>
+                <h2 class="txt-mars"><a href="{{ entry.uri|absolute_url(app.request.locale) }}">{{ entry.title }}</a></h2>
+                <div class="l-cluster">
+                    <div>
+                        {% if entry.categories|length > 0 %}
+                            <div>
+                                {% for category in entry.categories %}
+                                    <a href="{{ category.uri }}">{{ category.title }}</a>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        {% if entry.date %}
+                            <div>
+                                <p>
+                                    <span class="visuallyhidden">Published:</span>
+                                    <time datetime="{{ entry.date|date('Y-m-d') }}">{{ entry.date|date('d F Y') }}</time>
+                                </p>
+                            </div>
+                        {% endif %}
+                            <div>
+                                <p>
+                                    By:
+                                    {% if entry.authors %}
+                                        {{ entry.authors|map(a => a.name)|join(', ', ' and ') }}
+                                    {% else %}
+                                        {{ entry.author.name }}
+                                    {% endif %}
+                                </p>
+                            </div>
+                    </div>
+                </div>
+                <p>{{ entry.excerpt }}</p>
+                {% if entry.tags|length > 0 %}
+                <div class="l-cluster">
+                    <ul class="clean-list">
+                        {% for tag in entry.tags %}
+                        <li>
+                            <span class="tag">{{ tag.title }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% if entry.thumbnailImage %}
+            <div class="sidebar">
+                <a href="{{ entry.uri|absolute_url(app.request.locale) }}" class="l-frame" aria-hidden="true" tabindex="-1">
+                    <img {% for key, value in entry.thumbnailImage[0] %}{{ key }}="{{ value }}" {% endfor %}
+                    loading="lazy"
+                    {% if entry.thumbnailAltText %}alt="{{ entry.thumbnailAltText }}"{% endif %}/>
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</div>

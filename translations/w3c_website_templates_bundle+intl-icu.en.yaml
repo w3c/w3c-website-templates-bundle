@@ -32,3 +32,10 @@ banner:
         icon: beta icon
 breadcrumbs:
     home: Home
+pagination:
+    first: First Page
+    previous: Previous<span class="visuallyhidden">page</span>
+    next: Next <span class="visuallyhidden">page</span>
+    last: Last Page
+    page: "<span class=\"visuallyhidden\">page</span> {page}"
+    current_page: "{page}"

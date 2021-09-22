@@ -25,3 +25,10 @@ banner:
         icon: __banner.beta.icon
 breadcrumbs:
     home: __breadcrumbs.home
+pagination:
+    first: __pagination.first
+    previous: __pagination.previous
+    next: __pagination.next
+    last: __pagination.last
+    page: "__pagination.page {page}"
+    current_page: "{page}"
