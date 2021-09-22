@@ -11,6 +11,7 @@ class TwigExtension extends AbstractExtension
     {
         return [
             new TwigFilter('absolute_url', [$this, 'absoluteUrl']),
+            new TwigFilter('preg_replace', [$this, 'pregReplace']),
         ];
     }
 
@@ -31,5 +32,10 @@ class TwigExtension extends AbstractExtension
         }
 
         return $prefix . $url;
+    }
+
+    public function pregReplace(string $subject, string $pattern, string $replacement, int $limit = -1): string
+    {
+        return preg_replace($pattern, $replacement, $subject, $limit);
     }
 }
