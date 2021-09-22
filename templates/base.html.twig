@@ -6,13 +6,51 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% block title %}{{ 'page.default_title'|trans({}, 'w3c_website_templates_bundle') }}{% endblock %}</title>
+    <title>{{ seo.title|default(block('title')) }}</title>
+    <meta name="description" content="{% block description %}{{ seo.description|default(page.excerpt|default('page.default_description'|trans({}, 'w3c_website_templates_bundle'))) }}{% endblock %}"/>
+
+    {% if seo.social.facebook is defined %}
+        {% set fb = seo.social.facebook -%}
+        {# <meta property="fb:app_id" content="__hardcoded_fb_app_id__"> #}
+        <meta property="og:url" content="{{ app.request.uri }}"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="{{ fb.title }}"/>
+        <meta property="og:image" content="{{ seo.social.twitter.image.url }}"/>
+        <meta property="og:image:width" content="1200"/>
+        <meta property="og:image:height" content="630"/>
+        <meta property="og:description"
+              content="{{ fb.description|default(block('description')) }}"/>
+        <meta property="og:site_name" content="W3C"/>
+        {# <meta property="og:locale" content="{{ locale|replace('-', '_') }}"/> #}
+        {#
+        {% for locale in locales -%}
+            <meta property="og:locale:alternate" content="{{ locale|replace('-', '_') }}"/>
+        {% endfor %}
+        #}
+    {% endif %}
+    {% if seo.social.twitter is defined %}
+        {% set tw = seo.social.twitter -%}
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:site" content="w3c"/>
+        <meta name="twitter:url" content="{{ app.request.uri }}"/>
+        <meta name="twitter:title" content="{{ tw.title }}"/>
+        <meta name="twitter:description" content="{{ tw.description|default(block('description')) }}"/>
+        <meta name="twitter:image" content="{{ seo.social.twitter.image.url }}"/>
+    {% endif %}
+    {% if seo.advanced.robots is defined and seo.advanced.robots -%}
+        <meta name="robots" content="{{ seo.advanced.robots|join(', ') }}"/>
+    {% endif %}
+    {%- if seo.expiry is defined and seo.expiry -%}
+        <meta name="robots" content="unavailable_after: {{ seo.expiry }}"/>
+    {% endif %}
+
+    <link rel="home" href="https://www.w3.org/"/>
+    {% if seo.advanced.canonical is defined and seo.advanced.canonical %}
+        <link rel="canonical" href="{{ seo.advanced.canonical }}">
+    {% endif %}
 
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <meta property="og:description" name="description"
-          content="{% block description %}{{ 'page.default_description'|trans({}, 'w3c_website_templates_bundle') }}{% endblock %}"/>
-    
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('styles/core.css?ver=1.4', 'main') }}"
               media="screen"/>
