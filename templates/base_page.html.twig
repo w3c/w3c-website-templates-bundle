@@ -3,7 +3,7 @@
 {% block main %}
     <div class="content">
         <article>
-            <h1>{{ block('title') }}</h1>
+            <h1>{% block title %}W3C{% endblock %}</h1>
             {% if page_translations is defined and page_translations|length > 0 %}
                 {{ include('@W3CWebsiteTemplates/components/styles/page_translations.html.twig') }}
             {% endif %}
