@@ -38,7 +38,9 @@
                     <ul class="clean-list">
                         {% for tag in entry.tags %}
                         <li>
-                            <span class="tag">{{ tag.title }}</span>
+                            <a href="{{ ('blog/tag/' ~ tag.slug)|absolute_url(app.request.locale) }}">
+                                <span class="tag">{{ tag.title }}</span>
+                            </a>
                         </li>
                         {% endfor %}
                     </ul>
