@@ -2,14 +2,14 @@
     <ul class="pagination__list">
         {% if pagination.page > 1 %}
             <li>
-                <a class="pagination__list__first" href="{{ path(app.request.attributes.get('_route')) }}">
+                <a class="pagination__list__first" href="{{ path(app.request.attributes.get('_route'), app.request.attributes) }}">
                     <span aria-hidden="true">&lt;&lt;</span><span class="visuallyhidden">
                         {{ 'pagination.first'|trans({}, 'w3c_website_templates_bundle') }}
                     </span>
                 </a>
             </li>
             <li>
-                <a href="{{ path(app.request.attributes.get('_route'), { page: pagination.page - 1}) }}">
+                <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({ page: pagination.page - 1})) }}">
                     {{ 'pagination.previous'|trans({}, 'w3c_website_templates_bundle')|raw }}
                 </a>
             </li>
@@ -21,7 +21,7 @@
                     {{ 'pagination.current_page'|trans({'page': pagination_page}, 'w3c_website_templates_bundle')|raw }}
                 </a>
             {% else %}
-                <a href="{{ path(app.request.attributes.get('_route'), { page: pagination_page}) }}">
+                <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({ page: pagination_page})) }}">
                     {{ 'pagination.page'|trans({'page': pagination_page}, 'w3c_website_templates_bundle')|raw }}
                 </a>
             {% endif %}
@@ -38,7 +38,7 @@
                         {{ 'pagination.current_page'|trans({'page': pagination.totalPages}, 'w3c_website_templates_bundle')|raw }}
                     </a>
                 {% else %}
-                    <a href="{{ path(app.request.attributes.get('_route'), { page: pagination.totalPages}) }}">
+                    <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({ page: pagination.totalPages})) }}">
                         {{ 'pagination.page'|trans({'page': pagination.totalPages}, 'w3c_website_templates_bundle')|raw }}
                     </a>
                 {% endif %}
@@ -46,12 +46,12 @@
         {% endif %}
         {% if pagination.page < pagination.totalPages %}
             <li>
-                <a href="{{ path(app.request.attributes.get('_route'), { page: pagination.page + 1}) }}">
+                <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({ page: pagination.page + 1})) }}">
                     {{ 'pagination.next'|trans({}, 'w3c_website_templates_bundle')|raw }}
                 </a>
             </li>
             <li>
-                <a class="pagination__list__last" href="{{ path(app.request.attributes.get('_route'), { page: pagination.totalPages}) }}">
+                <a class="pagination__list__last" href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({ page: pagination.totalPages})) }}">
                     <span aria-hidden="true">&gt;&gt;</span><span class="visuallyhidden">
                         {{ 'pagination.last'|trans({}, 'w3c_website_templates_bundle') }}
                     </span>
