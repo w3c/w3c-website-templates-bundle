@@ -33,9 +33,15 @@
         {% endif %}
         {% if pagination.totalPages > 5 %}
             <li>
-                <a href="{{ path(app.request.attributes.get('_route'), { page: pagination.totalPages}) }}">
-                    {{ 'pagination.page'|trans({'page': pagination.totalPages}, 'w3c_website_templates_bundle')|raw }}
-                </a>
+                {% if pagination.totalPages == pagination.page %}
+                    <a href="#" aria-label="page {{ pagination.totalPages }}" aria-current="page">
+                        {{ 'pagination.current_page'|trans({'page': pagination.totalPages}, 'w3c_website_templates_bundle')|raw }}
+                    </a>
+                {% else %}
+                    <a href="{{ path(app.request.attributes.get('_route'), { page: pagination.totalPages}) }}">
+                        {{ 'pagination.page'|trans({'page': pagination.totalPages}, 'w3c_website_templates_bundle')|raw }}
+                    </a>
+                {% endif %}
             </li>
         {% endif %}
         {% if pagination.page < pagination.totalPages %}
