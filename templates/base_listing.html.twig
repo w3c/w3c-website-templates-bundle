@@ -5,70 +5,10 @@
 {% block main %}
     <div class="u-full-width hero hero--listing">
         <div class="l-center">
-            <h1>{{ page.title }}</h1>
+            <h1>{% block title %}{% endblock %}</h1>
             <p class="lead">{{ page.lead }}</p>
 
-            <div class="l-sidebar search">
-                <form role="search" novalidate>
-                    <div class="not-sidebar">
-                        <h2 class="visuallyhidden">Search posts</h2>
-                        <input type="search" id="search" name="search" aria-label="Search posts">
-                    </div>
-                    <div class="sidebar">
-                        <button type="submit" class="button" name="search">Show results</button>
-                    </div>
-                </form>
-            </div>
-            <div class="browse">
-                <div>
-                    {% if categories is defined and categories|length > 0 %}
-                        <div>
-                            <h2>Browse categories</h2>
-                            <button type="button" class="button button--ghost with-icon with-icon--after"
-                                    style="display:none;" data-toggle="true">Browse categories
-                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon"
-                                     focusable="false" aria-hidden="true" width="1em" height="1em">
-                                    <use class="angle-down" href="/dist/assets/svg/nav-icons.svg#angle-down"></use>
-                                    <use class="angle-up" href="/dist/assets/svg/nav-icons.svg#angle-up"></use>
-                                </svg>
-                            </button>
-                            <nav id="category-nav" aria-label="Post categories">
-                                <ul class="clean-list" role="list">
-                                    <li><a href="{{ (page.uri)|absolute_url(app.request.locale) }}">All</a></li>
-                                    {% for category in categories %}
-                                        <li>
-                                            <a href="{{ (page.uri ~ '/' ~ category.uri)|absolute_url(app.request.locale) }}">
-                                                {{ category.title }}
-                                            </a>
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            </nav>
-                        </div>
-                    {% endif %}
-                    <div>
-                        <h2>Browse archives</h2>
-                        <button type="button" class="button button--ghost with-icon with-icon--after"
-                                style="display:none;" data-toggle="true">Browse archives
-                            <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon"
-                                 focusable="false" aria-hidden="true" width="1em" height="1em">
-                                <use class="angle-down" href="/dist/assets/svg/nav-icons.svg#angle-down"></use>
-                                <use class="angle-up" href="/dist/assets/svg/nav-icons.svg#angle-up"></use>
-                            </svg>
-                        </button>
-                        <nav id="archive-nav" aria-label="Post archive">
-                            <ul class="clean-list" role="list">
-                                <li><a href="path/to/page">All</a></li>
-                                <li><a href="path/to/page">2021</a></li>
-                                <li><a href="path/to/page">2020</a></li>
-                                <!-- etc. -->
-                                <li><a href="path/to/page">1995</a></li>
-                                <li><a href="path/to/page">1994</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
+            {% block filters %}{% endblock %}
         </div>
     </div>
     {% block list %}{% endblock %}
