@@ -2,7 +2,7 @@ page:
     lang:
         dir: ltr
     default_title: World Wide Web Consortium (W3C)
-    description: >-
+    default_description: >-
         The World Wide Web Consortium (W3C) is an international community where Member organizations, a full-time staff,
         and the public work together to develop Web standards.
     skip_to_content: Skip to content
