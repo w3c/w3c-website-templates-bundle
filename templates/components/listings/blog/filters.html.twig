@@ -37,7 +37,7 @@
                         </li>
                         {% for category in categories %}
                             <li>
-                                <a href="{{ (page.uri ~ '/' ~ category.uri)|absolute_url(app.request.locale) }}">
+                                <a href="{{ (page.uri ~ '/category/' ~ category.slug)|absolute_url(app.request.locale) }}">
                                     {{ category.title }}
                                 </a>
                             </li>
