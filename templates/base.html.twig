@@ -1,7 +1,5 @@
 <!doctype html>
-<html dir="{% block lang_dir %}{{ 'page.lang.dir'|trans({}, 'w3c_website_templates_bundle') }}{% endblock %}"
-      lang="{% block lang %}{{ app.request.locale }}{% endblock %}" class="no-js">
-
+<html dir="{{ site.textDirection|default('ltr') }}" lang="{{ site.locale|default('en') }}" class="no-js">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
