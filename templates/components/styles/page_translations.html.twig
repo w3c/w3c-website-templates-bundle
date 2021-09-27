@@ -7,7 +7,7 @@
             <div class="not-sidebar">
                 <div class="l-cluster">
                     <ul class="clean-list">
-                        {% for translation in page_translations %}
+                        {% for translation in page.localized %}
                             <li>
                                 <a href="{{ translation.uri|absolute_url(translation.language_code) }}"
                                    hreflang="{{ translation.language_code }}"
