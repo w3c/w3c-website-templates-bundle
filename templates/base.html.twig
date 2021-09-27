@@ -15,7 +15,11 @@
         <meta property="og:url" content="{{ app.request.uri }}"/>
         <meta property="og:type" content="website"/>
         <meta property="og:title" content="{{ fb.title }}"/>
-        <meta property="og:image" content="{{ seo.social.twitter.image.url }}"/>
+        {% if fb.image.url is defined and fb.image.url %}
+            <meta property="og:image" content="{{ fb.image.url }}"/>
+        {% else %}
+            <meta property="og:image" content="{{ asset('images/w3c-opengraph-image.png', 'main') }}"/>
+        {% endif %}
         <meta property="og:image:width" content="1200"/>
         <meta property="og:image:height" content="630"/>
         <meta property="og:description"
@@ -35,7 +39,11 @@
         <meta name="twitter:url" content="{{ app.request.uri }}"/>
         <meta name="twitter:title" content="{{ tw.title }}"/>
         <meta name="twitter:description" content="{{ tw.description|default(block('description')) }}"/>
-        <meta name="twitter:image" content="{{ seo.social.twitter.image.url }}"/>
+        {% if tw.image.url is defined and tw.image.url %}
+            <meta name="twitter:image" content="{{ tw.image.url }}"/>
+        {% else %}
+            <meta name="twitter:image" content="{{ asset('images/w3c-opengraph-image.png', 'main') }}"/>
+        {% endif %}
     {% endif %}
     {% if seo.advanced.robots is defined and seo.advanced.robots -%}
         <meta name="robots" content="{{ seo.advanced.robots|join(', ') }}"/>
