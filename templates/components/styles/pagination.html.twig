@@ -2,7 +2,7 @@
     <ul class="pagination__list">
         {% if pagination.page > 1 %}
             <li>
-                <a class="pagination__list__first" href="{{ path(app.request.attributes.get('_route'), app.request.attributes) }}">
+                <a class="pagination__list__first" href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">
                     <span aria-hidden="true">&lt;&lt;</span><span class="visuallyhidden">
                         {{ 'pagination.first'|trans({}, 'w3c_website_templates_bundle') }}
                     </span>
