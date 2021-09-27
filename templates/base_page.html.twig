@@ -7,7 +7,7 @@
             {% if page_translations is defined and page_translations|length > 0 %}
                 {{ include('@W3CWebsiteTemplates/components/styles/page_translations.html.twig') }}
             {% endif %}
-            {% if toc is defined %}
+            {% if page.displayOnThisPageNavigation and toc is defined %}
                 {{ include('@W3CWebsiteTemplates/components/styles/toc.html.twig') }}
             {% endif %}
             {% block body %}{% endblock body %}
