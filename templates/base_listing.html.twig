@@ -5,7 +5,7 @@
 {% block main %}
     <div class="u-full-width hero hero--listing">
         <div class="l-center">
-            <h1>{% block title %}{% endblock %}</h1>
+            <h1>{% block title %}{{ page.title|default('W3C') }}{% endblock %}</h1>
             <p class="lead">{{ page.lead }}</p>
 
             {% block filters %}{% endblock %}
