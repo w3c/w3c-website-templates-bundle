@@ -9,14 +9,14 @@
     <title>{{ seo.title|default(block('title')) }}</title>
     <meta name="description" content="{% block description %}{{ seo.description|default(page.excerpt|default('page.default_description'|trans({}, 'w3c_website_templates_bundle'))) }}{% endblock %}"/>
 
-    {% set defaultImage = '/bundles/w3cwebsitetemplates/dist/assets/images/w3c-opengraph-image.png' %}
+    {% set defaultImage = asset('images/w3c-opengraph-image.png', 'main') %}
     {% if seo.social.facebook is defined %}
         {% set fb = seo.social.facebook -%}
         {# <meta property="fb:app_id" content="__hardcoded_fb_app_id__"> #}
         <meta property="og:url" content="{{ app.request.uri }}"/>
         <meta property="og:type" content="website"/>
         <meta property="og:title" content="{{ fb.title }}"/>
-        <meta property="og:image" content="{{ seo.social.twitter.image.url|default(defaultImage) }}"/>
+        <meta property="og:image" content="{{ fb.image.url|default(defaultImage) }}"/>
         <meta property="og:image:width" content="1200"/>
         <meta property="og:image:height" content="630"/>
         <meta property="og:description"
@@ -36,7 +36,7 @@
         <meta name="twitter:url" content="{{ app.request.uri }}"/>
         <meta name="twitter:title" content="{{ tw.title }}"/>
         <meta name="twitter:description" content="{{ tw.description|default(block('description')) }}"/>
-        <meta name="twitter:image" content="{{ seo.social.twitter.image.url|default(defaultImage) }}"/>
+        <meta name="twitter:image" content="{{ tw.image.url|default(defaultImage) }}"/>
     {% endif %}
     {% if seo.advanced.robots is defined and seo.advanced.robots -%}
         <meta name="robots" content="{{ seo.advanced.robots|join(', ') }}"/>
