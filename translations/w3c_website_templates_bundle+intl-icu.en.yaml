@@ -49,3 +49,6 @@ listing:
             categories_label: Post categories
             archives: Browse archives
             archives_label: Post archives
+components:
+    video:
+        transcript: "View transcript <span class=\"visuallyhidden\">for {title}</span>"
