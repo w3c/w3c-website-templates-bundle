@@ -9,7 +9,6 @@
     "to": "public/dist/assets"
   },
   "scripts": {
-    "css:normalize": "shx cp ./node_modules/normalize.css/normalize.css ${npm_package_config_from}/styles/sass/30-base/_normalize.scss",
     "css:core:compressed": "node-sass --output-style=compressed --source-map=true ${npm_package_config_from}/styles/core.scss ${npm_package_config_to}/styles/core.min.css",
     "css:core:uncompressed": "node-sass ${npm_package_config_from}/styles/core.scss ${npm_package_config_to}/styles/core.css",
     "css:advanced:compressed": "node-sass --output-style=compressed --source-map=true ${npm_package_config_from}/styles/advanced.scss ${npm_package_config_to}/styles/advanced.min.css",
@@ -18,7 +17,7 @@
     "css:print:uncompressed": "node-sass ${npm_package_config_from}/styles/print.scss ${npm_package_config_to}/styles/print.css",
     "css:sass": "npm-run-all --parallel css:core:* css:advanced:* css:print:*",
     "css:autoprefixer": "autoprefixer-cli -d ${npm_package_config_to}/styles ${npm_package_config_to}/styles/*.css",
-    "css": "npm-run-all --sequential css:normalize css:sass css:autoprefixer",
+    "css": "npm-run-all --sequential css:sass css:autoprefixer",
     "images:imagemin": "imagemin ${npm_package_config_from}/images/* --out-dir=${npm_package_config_to}/images",
     "images:svg": "svgo --folder=${npm_package_config_from}/svg --output=${npm_package_config_to}/svg --disable='removeViewBox' --disable='cleanupIDs' | true",
     "images": "npm-run-all --parallel images:imagemin images:svg",
@@ -40,6 +39,7 @@
     "watch": "npm-run-all --parallel watch:* watch:*:*"
   },
   "dependencies": {
+    "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.6",
     "accessible-autocomplete": "^2.0.3",
     "autoprefixer-cli": "^1.0.0",
