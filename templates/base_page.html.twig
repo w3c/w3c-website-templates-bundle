@@ -1,0 +1,21 @@
+{% extends '@W3CWebsiteTemplates/base.html.twig' %}
+
+{% block main %}
+    <div class="content">
+        <article>
+            <h1>{% block title %}{{ page.title|default('W3C') }}{% endblock %}</h1>
+            {% if page.localized is defined and page.localized|length > 0 %}
+                {{ include('@W3CWebsiteTemplates/components/styles/page_translations.html.twig') }}
+            {% endif %}
+            {% if page.displayOnThisPageNavigation and toc is defined %}
+                {{ include('@W3CWebsiteTemplates/components/styles/toc.html.twig') }}
+            {% endif %}
+            {% block body %}{% endblock body %}
+        </article>
+        {% block related %}
+            {% if related_links is defined %}
+                {{ include('@W3CWebsiteTemplates/components/styles/related.html.twig') }}
+            {% endif %}
+        {% endblock %}
+    </div>
+{% endblock %}

@@ -6,6 +6,8 @@
     "license": "W3C-20150513",
     "require": {
         "php": ">=7.3",
+        "ext-dom": "*",
+        "ext-simplexml": "*",
         "symfony/http-kernel": "^4.4 || ^5.2",
         "symfony/asset": "^4.4 || ^5.2",
         "symfony/config": "^4.4 || ^5.2",

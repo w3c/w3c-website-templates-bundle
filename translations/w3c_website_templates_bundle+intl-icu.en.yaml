@@ -2,7 +2,7 @@ page:
     lang:
         dir: ltr
     default_title: World Wide Web Consortium (W3C)
-    description: >-
+    default_description: >-
         The World Wide Web Consortium (W3C) is an international community where Member organizations, a full-time staff,
         and the public work together to develop Web standards.
     skip_to_content: Skip to content
@@ -32,3 +32,23 @@ banner:
         icon: beta icon
 breadcrumbs:
     home: Home
+pagination:
+    first: First Page
+    previous: Previous<span class="visuallyhidden">page</span>
+    next: Next <span class="visuallyhidden">page</span>
+    last: Last Page
+    page: "<span class=\"visuallyhidden\">page</span> {page}"
+    current_page: "{page}"
+listing:
+    blog:
+        filters:
+            search: Search posts
+            search_button: Show results
+            all: All
+            categories: Browse categories
+            categories_label: Post categories
+            archives: Browse archives
+            archives_label: Post archives
+components:
+    video:
+        transcript: "Read transcript <span class=\"visuallyhidden\">for {title}</span>"

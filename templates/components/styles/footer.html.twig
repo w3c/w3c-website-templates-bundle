@@ -1,0 +1,43 @@
+<footer class="global-footer">
+    <div class="l-center">
+        <div class="global-footer__links">
+            <div class="l-cluster">
+                <ul class="clean-list" role="list">
+                    <li><a href="../page.html">{{ 'footer.links.home'|trans({}, 'w3c_website_templates_bundle') }}</a>
+                    </li>
+                    <li>
+                        <a href="../page.html">{{ 'footer.links.contact'|trans({}, 'w3c_website_templates_bundle') }}</a>
+                    </li>
+                    <li><a href="../page.html">{{ 'footer.links.help'|trans({}, 'w3c_website_templates_bundle') }}</a>
+                    </li>
+                    <li>
+                        <a href="../page.html">{{ 'footer.links.sponsor_donate'|trans({}, 'w3c_website_templates_bundle') }}</a>
+                    </li>
+                    <li>
+                        <a href="../page.html">{{ 'footer.links.privacy_policy'|trans({}, 'w3c_website_templates_bundle') }}</a>
+                    </li>
+                    <li><a href="../page.html">{{ 'footer.links.legal'|trans({}, 'w3c_website_templates_bundle') }}</a>
+                    </li>
+                    <li>
+                        <a href="../page.html">{{ 'footer.links.system_status'|trans({}, 'w3c_website_templates_bundle') }}</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="clean-list" role="list">
+                <li><a class="with-icon--larger" href="https://twitter.com/W3C">
+                        <img class="icon icon--larger" src="{{ asset('svg/twitter.svg', 'main') }}" width="20"
+                             height="20" alt
+                             aria-hidden="true"/>
+                        <span class="visuallyhidden">{{ 'footer.links.twitter'|trans({}, 'w3c_website_templates_bundle') }}</span></a>
+                </li>
+                <li><a class="with-icon--larger" href="https://github.com/w3c/">
+                        <img class="icon icon--larger" src="{{ asset('svg/github.svg', 'main') }}" width="20"
+                             height="20" alt
+                             aria-hidden="true"/>
+                        <span class="visuallyhidden">{{ 'footer.links.github'|trans({}, 'w3c_website_templates_bundle') }}</span></a>
+                </li>
+            </ul>
+        </div>
+        <p class="copyright">{{ 'footer.copyright'|trans({'date': date('now')}, 'w3c_website_templates_bundle')|raw }}</p>
+    </div>
+</footer>

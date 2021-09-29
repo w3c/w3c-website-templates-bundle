@@ -25,3 +25,24 @@ banner:
         icon: __banner.beta.icon
 breadcrumbs:
     home: __breadcrumbs.home
+pagination:
+    first: __pagination.first
+    previous: __pagination.previous
+    next: __pagination.next
+    last: __pagination.last
+    page: "__pagination.page {page}"
+    current_page: "{page}"
+listing:
+    blog:
+        filters:
+            search: __listing.blog.filters.search
+            search_button: __listing.blog.filters.search_button
+            all: __listing.blog.filters.all
+            categories: __listing.blog.filters.categories
+            categories_label: __listing.blog.filters.categories_label
+            archives: __listing.blog.filters.archives
+            archives_label: __listing.blog.filters.archives_label
+components:
+    video:
+        transcript: __components.video.transcript
+

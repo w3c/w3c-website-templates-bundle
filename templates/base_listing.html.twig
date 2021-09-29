@@ -1,0 +1,18 @@
+{% extends '@W3CWebsiteTemplates/base.html.twig' %}
+
+{% set body_classes = 'listing' %}
+
+{% block main %}
+    <div class="u-full-width hero hero--listing">
+        <div class="l-center">
+            <h1>{% block title %}{{ page.title|default('W3C') }}{% endblock %}</h1>
+            <p class="lead">{{ page.lead }}</p>
+
+            {% block filters %}{% endblock %}
+        </div>
+    </div>
+    {% block list %}{% endblock %}
+    {% block pagination %}
+        {% include '@W3CWebsiteTemplates/components/styles/pagination.html.twig' %}
+    {% endblock %}
+{% endblock %}
