@@ -32,3 +32,20 @@ banner:
         icon: beta icon
 breadcrumbs:
     home: Home
+pagination:
+    first: First Page
+    previous: Previous<span class="visuallyhidden">page</span>
+    next: Next <span class="visuallyhidden">page</span>
+    last: Last Page
+    page: "<span class=\"visuallyhidden\">page</span> {page}"
+    current_page: "{page}"
+listing:
+    blog:
+        filters:
+            search: Search posts
+            search_button: Show results
+            all: All
+            categories: Browse categories
+            categories_label: Post categories
+            archives: Browse archives
+            archives_label: Post archives
