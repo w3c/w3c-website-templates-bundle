@@ -4,6 +4,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    {% set seo = page.seo %}
     <title>{{ seo.title|default(block('title')) }}</title>
     <meta name="description" content="{% block description %}{{ seo.description|default(page.excerpt|default('page.default_description'|trans({}, 'w3c_website_templates_bundle'))) }}{% endblock %}"/>
 
@@ -115,11 +116,9 @@
             {% endblock global_nav %}
         </header>
         {% block breadcrumbs %}
-            {% if page.breadcrumbs is defined %}
                 {% embed '@W3CWebsiteTemplates/components/styles/breadcrumbs.html.twig' with {
-                    'breadcrumbs': page.breadcrumbs
+                    'breadcrumbs': page.breadcrumbs is defined ? page.breadcrumbs : {}
                 } %}{% endembed %}
-            {% endif %}
         {% endblock breadcrumbs %}
         <main id="main">
             {% block main %}{% endblock %}
