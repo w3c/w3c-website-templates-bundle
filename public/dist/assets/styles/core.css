@@ -550,8 +550,7 @@ button,
   border: solid 2px #005797;
   border-radius: 1.5rem;
   color: #fff;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: inline-block;
   font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.5;

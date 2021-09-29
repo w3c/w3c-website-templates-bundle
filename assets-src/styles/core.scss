@@ -36,7 +36,7 @@
 
     Normalize comes first for the cascade
 \*------------------------------------*/
-@import "sass/30-base/normalize";
+@import "../../node_modules/normalize.css/normalize";
 @import "sass/30-base/animation";
 @import "sass/30-base/quotes";
 @import "sass/30-base/body";
