@@ -115,8 +115,10 @@
             {% endblock global_nav %}
         </header>
         {% block breadcrumbs %}
-            {% if breadcrumbs is defined %}
-                {{ include('@W3CWebsiteTemplates/components/styles/breadcrumbs.html.twig') }}
+            {% if page.breadcrumbs is defined %}
+                {% embed '@W3CWebsiteTemplates/components/styles/breadcrumbs.html.twig' with {
+                    'breadcrumbs': page.breadcrumbs
+                } %}{% endembed %}
             {% endif %}
         {% endblock breadcrumbs %}
         <main id="main">
