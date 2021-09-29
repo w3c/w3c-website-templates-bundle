@@ -42,3 +42,6 @@ listing:
             categories_label: __listing.blog.filters.categories_label
             archives: __listing.blog.filters.archives
             archives_label: __listing.blog.filters.archives_label
+components:
+    video:
+        transcript: __components.video.transcript
