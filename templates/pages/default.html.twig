@@ -10,7 +10,7 @@
             {% if page.displayOnThisPageNavigation is defined and page.displayOnThisPageNavigation and toc is defined %}
                 {{ include('@W3CWebsiteTemplates/components/styles/toc.html.twig') }}
             {% endif %}
-            {% block body %}{% endblock body %}
+            {% block components %}{% endblock components %}
         </article>
         {% block related %}
             {% if related_links is defined %}

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% set seo = page.seo %}
-    <title>{{ seo.title|default(block('title')) }}</title>
+    <title>{{ seo.title|default(page.title|default('W3C')) }}</title>
     <meta name="description" content="{% block description %}{{ seo.description|default(page.excerpt|default('page.default_description'|trans({}, 'w3c_website_templates_bundle'))) }}{% endblock %}"/>
 
     {% set defaultImage = asset('images/w3c-opengraph-image.png', 'main') %}
