@@ -51,4 +51,4 @@ listing:
             archives_label: Post archives
 components:
     video:
-        transcript: "View transcript <span class=\"visuallyhidden\">for {title}</span>"
+        transcript: "Read transcript <span class=\"visuallyhidden\">for {title}</span>"
