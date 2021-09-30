@@ -3432,7 +3432,7 @@ a.tag {
         flex-basis: 45%; } }
 
 .slide__quote {
-  background: url("/dist/assets/images/quote-bg.png") no-repeat 0 0;
+  background: url("../images/quote-bg.png") no-repeat 0 0;
   font-size: 1.25rem;
   font-weight: bold;
   line-height: calc(32 / 20);
