@@ -52,3 +52,5 @@ listing:
 components:
     video:
         transcript: "Read transcript <span class=\"visuallyhidden\">for {title}</span>"
+    icon_card:
+        link_text: Learn more
