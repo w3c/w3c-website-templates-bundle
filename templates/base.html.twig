@@ -4,7 +4,8 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ seo.title|default(block('title')) }}</title>
+    {% set seo = page.seo %}
+    <title>{{ seo.title|default(page.title|default('W3C')) }}</title>
     <meta name="description" content="{% block description %}{{ seo.description|default(page.excerpt|default('page.default_description'|trans({}, 'w3c_website_templates_bundle'))) }}{% endblock %}"/>
 
     {% set defaultImage = asset('images/w3c-opengraph-image.png', 'main') %}
@@ -115,9 +116,9 @@
             {% endblock global_nav %}
         </header>
         {% block breadcrumbs %}
-            {% if breadcrumbs is defined %}
-                {{ include('@W3CWebsiteTemplates/components/styles/breadcrumbs.html.twig') }}
-            {% endif %}
+                {% embed '@W3CWebsiteTemplates/components/styles/breadcrumbs.html.twig' with {
+                    'breadcrumbs': page.breadcrumbs is defined ? page.breadcrumbs : {}
+                } %}{% endembed %}
         {% endblock breadcrumbs %}
         <main id="main">
             {% block main %}{% endblock %}

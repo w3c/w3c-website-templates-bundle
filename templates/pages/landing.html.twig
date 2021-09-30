@@ -1,0 +1,8 @@
+{% extends '@W3CWebsiteTemplates/base.html.twig' %}
+
+{% set body_classes = 'landing' %}
+
+{% block main %}
+    {{ include('@W3CWebsiteTemplates/components/styles/hero.html.twig') }}
+    {% block components %}{% endblock %}
+{% endblock %}
