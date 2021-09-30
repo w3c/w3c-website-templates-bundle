@@ -1,7 +1,7 @@
 <figure class="component component--fifty-fifty {% if order == 'reversed' %}reversed{% endif %}">
-	<div class="{% if attr.extension == 'svg' %}illustration{% else %}image{% endif %}">
-		{% if attr.extension == 'svg' %}
-			<img src="{{ attr.src }}"
+	<div class="{% if image.extension == 'svg' %}illustration{% else %}image{% endif %}">
+		{% if image.extension == 'svg' %}
+			<img src="{{ image.src }}"
 			     role="img"
 			     loading="lazy"
 				{% if informative_or_decorative == 'decorative' %}
@@ -11,7 +11,9 @@
 				{% endif %}
 			/>
 		{% else %}
-			<img {% for key, value in attr %}{{ key }}="{{ value }}" {% endfor %}
+			<img
+				src="{{ image.src }}"
+				srcset="{{ image.srcset }}"
 				sizes="(min-width: 48em) 50vw, 100vw"
 				loading="lazy"
 				{% if informative_or_decorative == 'decorative' %}
