@@ -49,3 +49,8 @@ listing:
             all: __listing.news.filters.all
             archives: __listing.news.filters.archives
             archives_label: __listing.news.filters.archives_label
+    press_releases:
+        filters:
+            all: __listing.press_releases.filters.all
+            archives: __listing.press_releases.filters.archives
+            archives_label: __listing.press_releases.filters.archives_label

@@ -56,3 +56,8 @@ listing:
             all: All
             archives: Browse archives
             archives_label: Post archives
+    press_releases:
+        filters:
+            all: All
+            archives: Browse archives
+            archives_label: Post archives
