@@ -49,3 +49,10 @@ listing:
             categories_label: Post categories
             archives: Browse archives
             archives_label: Post archives
+    news:
+        filters:
+            search: Search news
+            search_button: Show results
+            all: All
+            archives: Browse archives
+            archives_label: Post archives

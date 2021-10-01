@@ -1,0 +1,5 @@
+<div class="post-list">
+    {% for entry in entries %}
+        {% include '@W3CWebsiteTemplates/components/listings/news/entry.html.twig' with { 'entry': entry } %}
+    {% endfor %}
+</div>
