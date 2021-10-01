@@ -14,8 +14,34 @@
 			{% for card in cards %}
 				<li>
 					<div class="card">
-						<div class="card__text"></div>
-						<div class="l-frame l-frame--3-2 card__image"></div>
+						{% if card.heading is defined and card.heading or card.description is defined and card.description %}
+						<div class="card__text">
+							{% if card.heading is defined and card.heading and title is defined and title %}
+								<h3 class="card__heading">{{ card.heading }}</h3>
+							{% elseif card.heading is defined and card.heading %}
+								<h2 class="card__heading">{{ card.heading }}</h2>
+							{% endif %}
+							{{ card.description|raw }}
+							{% if card.linkDestination is defined and card.linkDestination %}
+								<a href="{{ card.linkDestination }}"><span class="visuallyhidden">{{ card.heading|trans({}) }}</span> {{ 'components.image_card.link_text'|trans({}, 'w3c_website_templates_bundle') }}</a>
+							{% endif %}
+						</div>
+						{% endif %}
+						{% if card.image[0] is defined and card.image[0] %}
+						<div class="l-frame l-frame--3-2 card__image">
+							<img
+								src="{{ card.image[0].src }}"
+								srcset="{{ card.image[0].srcset }}"
+								sizes="(min-width: 64em) 33vw, (min-width: 48em) 50vw, 100vw"
+								loading="lazy"
+								{% if card.AltText is defined and card.AltText %}
+								alt="{{ card.AltText }}"
+								{% else %}
+								alt=""
+								{% endif %}
+							/>
+						</div>
+						{% endif %}
 					</div>
 				</li>
 			{% endfor %}
