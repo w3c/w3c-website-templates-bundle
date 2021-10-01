@@ -1,8 +1,8 @@
-{% macro breadcrumbs(breadcrumb) %}
-    <li><a href="{{ breadcrumb.uri|absolute_url(app.request.locale) }}">{{ breadcrumb.title }}</a></li>
+{% macro breadcrumbs(breadcrumb, current = false) %}
     {% if breadcrumb.parent is defined and breadcrumb.parent %}
         {{ _self.breadcrumbs(breadcrumb.parent) }}
     {% endif %}
+    <li><a href="{{ breadcrumb.uri|absolute_url(app.request.locale) }}"{% if current %} aria-current="page"{% endif %}>{{ breadcrumb.title }}</a></li>
 {% endmacro %}
 
 <nav id="breadcrumb" aria-label="Breadcrumb">
@@ -15,13 +15,8 @@
                     </a>
                 </li>
                 {% if breadcrumbs %}
-                    {{ _self.breadcrumbs(breadcrumbs) }}
+                    {{ _self.breadcrumbs(breadcrumbs, true) }}
                 {% endif %}
-                <li>
-                    <a href="{{ page.uri|absolute_url(app.request.locale) }}" aria-current="page">
-                        {{ page.title }}
-                    </a>
-                </li>
             </ol>
         </div>
     </div>
