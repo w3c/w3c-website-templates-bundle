@@ -1,0 +1,41 @@
+<div class="l-sidebar">
+    <div>
+        <div class="not-sidebar">
+            <div>
+                <h2 class="txt-mars"><a href="{{ entry.uri|absolute_url(app.request.locale) }}">{{ entry.title }}</a></h2>
+                <div class="l-cluster">
+                    <div>
+                        {% if entry.date %}
+                            <div>
+                                <p>
+                                    <span class="visuallyhidden">Published:</span>
+                                    <time datetime="{{ entry.date|date('Y-m-d') }}">{{ entry.date|date('d F Y') }}</time>
+                                </p>
+                            </div>
+                        {% endif %}
+                            <div>
+                                <p>
+                                    By:
+                                    {% if entry.authors %}
+                                        {{ entry.authors|map(a => a.name)|join(', ', ' and ') }}
+                                    {% else %}
+                                        {{ entry.author.name }}
+                                    {% endif %}
+                                </p>
+                            </div>
+                    </div>
+                </div>
+                <p>{{ entry.excerpt }}</p>
+            </div>
+        </div>
+        {% if entry.thumbnailImage %}
+            <div class="sidebar">
+                <a href="{{ entry.uri|absolute_url(app.request.locale) }}" class="l-frame" aria-hidden="true" tabindex="-1">
+                    <img {% for key, value in entry.thumbnailImage[0] %}{{ key }}="{{ value }}" {% endfor %}
+                    loading="lazy"
+                    {% if entry.thumbnailAltText %}alt="{{ entry.thumbnailAltText }}"{% endif %}/>
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="l-sidebar search">
+    <form role="search" novalidate>
+        <div class="not-sidebar">
+            <h2 class="visuallyhidden">{{ 'listing.news.filters.search'|trans({}, 'w3c_website_templates_bundle') }}</h2>
+            <input type="search" id="search" name="search"
+                   aria-label="{{ 'listing.news.filters.search'|trans({}, 'w3c_website_templates_bundle') }}"
+                   value="{{ search }}"
+            >
+        </div>
+        <div class="sidebar">
+            <button type="submit" class="button">
+                {{ 'listing.news.filters.search_button'|trans({}, 'w3c_website_templates_bundle') }}
+            </button>
+        </div>
+    </form>
+</div>
+<div class="browse">
+    <div>
+        {% if archives is defined and archives|length > 0 %}
+            <div>
+                <h2>{{ 'listing.news.filters.archives'|trans({}, 'w3c_website_templates_bundle') }}</h2>
+                <button type="button" class="button button--ghost with-icon with-icon--after"
+                        style="display:none;" data-toggle="true">
+                    {{ 'listing.news.filters.archives'|trans({}, 'w3c_website_templates_bundle') }}
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon"
+                         focusable="false" aria-hidden="true" width="1em" height="1em">
+                        <use class="angle-down" href="/dist/assets/svg/nav-icons.svg#angle-down"></use>
+                        <use class="angle-up" href="/dist/assets/svg/nav-icons.svg#angle-up"></use>
+                    </svg>
+                </button>
+                <nav id="archive-nav" aria-label="{{ 'listing.news.filters.archives_label'|trans({}, 'w3c_website_templates_bundle') }}">
+                    <ul class="clean-list" role="list">
+                        <li>
+                            <a href="{{ (page.uri)|absolute_url(app.request.locale) }}">
+                                {{ 'listing.news.filters.all'|trans({}, 'w3c_website_templates_bundle') }}
+                            </a>
+                        </li>
+                        {% for archive in archives %}
+                            <li>
+                                <a href="{{ (page.uri ~ '/' ~ archive)|absolute_url(app.request.locale) }}">{{ archive }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+        {% endif %}
+    </div>
+</div>

@@ -42,6 +42,18 @@ listing:
             categories_label: __listing.blog.filters.categories_label
             archives: __listing.blog.filters.archives
             archives_label: __listing.blog.filters.archives_label
+    news:
+        filters:
+            search: __listing.news.filters.search
+            search_button: __listing.news.filters.search_button
+            all: __listing.news.filters.all
+            archives: __listing.news.filters.archives
+            archives_label: __listing.news.filters.archives_label
+    press_releases:
+        filters:
+            all: __listing.press_releases.filters.all
+            archives: __listing.press_releases.filters.archives
+            archives_label: __listing.press_releases.filters.archives_label
 components:
     video:
         transcript: __components.video.transcript

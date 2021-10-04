@@ -2,8 +2,9 @@
     <div class="l-center">
         <div class="l-cluster">
             <ul class="clean-list" role="list">
-                <li><a href="/zh-hans" hreflang="zh-hans" lang="zh-hans">简体中文首页</a></li>
-                <li><a href="/ja" hreflang="ja" lang="ja">日本語ホームページ</a></li>
+                {% for code, data in site.getData('siteLink', true) %}
+                    <li><a href="{{ data.url }}" hreflang="{{ code }}" lang="{{ code }}">{{ data.label }}</a></li>
+                {% endfor %}
             </ul>
         </div>
     </div>
