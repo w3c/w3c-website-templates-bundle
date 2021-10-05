@@ -6,7 +6,9 @@
     <div class="u-full-width hero hero--listing">
         <div class="l-center">
             <h1>{% block title %}{{ page.title|default('W3C') }}{% endblock %}</h1>
+            {% if page.lead is defined and page.lead %}
             <p class="lead">{{ page.lead }}</p>
+            {% endif %}
 
             {% block filters %}{% endblock %}
         </div>

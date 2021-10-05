@@ -1,60 +1,6 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ([
-/* 0 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var accessible_autocomplete__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var accessible_autocomplete__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(accessible_autocomplete__WEBPACK_IMPORTED_MODULE_0__);
-/**
- * Enhances a <select> element into an accessible autocomplete <input>
- * See https://github.com/alphagov/accessible-autocomplete#progressive-enhancement
- */
-
-
-function simpleAccessibleAutocomplete(id) {
-  var element = document.getElementById(id);
-
-  if (element) {
-    // If a reset button is used to clear the input, reflect this in the underlying <select>
-    // and collapse the dropdown menu
-    var resetHandler = function resetHandler() {
-      // Clear autocomplete and hidden select
-      var enhancedElement = element.parentElement.querySelector('input');
-      enhancedElement.value = '';
-      element.value = ''; // Collapse the dropdown menu
-
-      enhancedElement.click();
-      enhancedElement.focus();
-      enhancedElement.blur();
-    };
-
-    accessible_autocomplete__WEBPACK_IMPORTED_MODULE_0___default().enhanceSelectElement({
-      confirmOnBlur: false,
-      defaultValue: '',
-      displayMenu: 'overlay',
-      dropdownArrow: function dropdownArrow(config) {
-        return '<svg class="' + config.className + '" viewBox="0 0 320 512" focusable="false" aria-hidden="true"><path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/></svg>';
-      },
-      preserveNullOptions: true,
-      selectElement: element,
-      showAllValues: true
-    });
-    document.addEventListener('click', function (event) {
-      if (event.target.matches('button[type="reset"]')) {
-        resetHandler();
-      }
-    }, false);
-  }
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (simpleAccessibleAutocomplete);
-
-/***/ }),
+/* 0 */,
 /* 1 */
 /***/ ((module) => {
 
@@ -135,12 +81,54 @@ var __webpack_exports__ = {};
 (() => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _libraries_extensions_s24_autocomplete__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var accessible_autocomplete__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var accessible_autocomplete__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(accessible_autocomplete__WEBPACK_IMPORTED_MODULE_0__);
+/**
+ * Enhances a <select> element into an accessible autocomplete <input>
+ * See https://github.com/alphagov/accessible-autocomplete#progressive-enhancement
+ */
 
 
-if (document.documentElement.classList.contains('js')) {
-  (0,_libraries_extensions_s24_autocomplete__WEBPACK_IMPORTED_MODULE_0__["default"])('filter-wg');
+function simpleAccessibleAutocomplete(id) {
+  var element = document.getElementById(id);
+
+  if (element) {
+    // If a reset button is used to clear the input, reflect this in the underlying <select>
+    // and collapse the dropdown menu
+    var resetHandler = function resetHandler() {
+      // Clear autocomplete and hidden select
+      var enhancedElement = element.parentElement.querySelector('input');
+      enhancedElement.value = '';
+      element.value = ''; // Collapse the dropdown menu
+
+      enhancedElement.click();
+      enhancedElement.focus();
+      enhancedElement.blur();
+    };
+
+    accessible_autocomplete__WEBPACK_IMPORTED_MODULE_0___default().enhanceSelectElement({
+      confirmOnBlur: false,
+      defaultValue: '',
+      displayMenu: 'overlay',
+      dropdownArrow: function dropdownArrow(config) {
+        return '<svg class="' + config.className + '" viewBox="0 0 320 512" focusable="false" aria-hidden="true"><path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/></svg>';
+      },
+      preserveNullOptions: true,
+      selectElement: element,
+      showAllValues: true
+    });
+    document.addEventListener('click', function (event) {
+      if (event.target.matches('button[type="reset"]')) {
+        resetHandler();
+      }
+    }, false);
+  }
 }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (simpleAccessibleAutocomplete);
 })();
 
 /******/ })()

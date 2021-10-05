@@ -38,9 +38,7 @@
                     <ul class="clean-list">
                         {% for tag in entry.tags %}
                         <li>
-                            <a href="{{ ('blog/tag/' ~ tag.slug)|absolute_url(app.request.locale) }}">
-                                <span class="tag">{{ tag.title }}</span>
-                            </a>
+                            <span class="tag">{{ tag.title }}</span>
                         </li>
                         {% endfor %}
                     </ul>
@@ -51,9 +49,16 @@
         {% if entry.thumbnailImage %}
             <div class="sidebar">
                 <a href="{{ entry.uri|absolute_url(app.request.locale) }}" class="l-frame" aria-hidden="true" tabindex="-1">
-                    <img {% for key, value in entry.thumbnailImage[0] %}{{ key }}="{{ value }}" {% endfor %}
-                    loading="lazy"
-                    {% if entry.thumbnailAltText %}alt="{{ entry.thumbnailAltText }}"{% endif %}/>
+                    <img
+                        src="{{ entry.thumbnailImage[0].url }}"
+                        srcset="{{ entry.thumbnailImage[0].srcset }}"
+                        loading="lazy"
+                        {% if entry.thumbnailAltText %}
+                            alt="{{ entry.thumbnailAltText }}"
+                        {% else %}
+                            alt=""
+                        {% endif %}
+                    />
                 </a>
             </div>
         {% endif %}

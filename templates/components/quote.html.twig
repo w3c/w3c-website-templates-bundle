@@ -1,6 +1,8 @@
 <figure class="component component--quote">
     <blockquote>
-        {% block text %}{% endblock %}
+        <p>
+            {% block text %}{% endblock %}
+        </p>
     </blockquote>
     {% if author is defined and author is not empty %}
         <figcaption>{{ author }}</figcaption>

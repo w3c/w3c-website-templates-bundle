@@ -54,3 +54,11 @@ listing:
             all: __listing.press_releases.filters.all
             archives: __listing.press_releases.filters.archives
             archives_label: __listing.press_releases.filters.archives_label
+components:
+    video:
+        transcript: __components.video.transcript
+    icon_card:
+        link_text: __components.icon_card.link_text
+    image_card:
+        link_text: __components.image_card.link_text
+

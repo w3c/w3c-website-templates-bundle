@@ -1,0 +1,68 @@
+{% extends '@W3CWebsiteTemplates/base.html.twig' %}
+
+{% block main %}
+	<div class="content">
+		<article>
+			<h1>{% block title %}{{ page.title|default('W3C') }}{% endblock %}</h1>
+			{% if page.localized is defined and page.localized|length > 0 %}
+				{{ include('@W3CWebsiteTemplates/components/styles/page_translations.html.twig') }}
+			{% endif %}
+			{% block components %}
+				{% if page.defaultFlexibleComponents is defined and page.defaultFlexibleComponents %}
+					{% for component in page.defaultFlexibleComponents %}
+						{{ include('partials/defaultFlexibleComponents.html.twig') }}
+					{% endfor %}
+				{% endif %}
+			{% endblock components %}
+		</article>
+		{% block related %}
+			{% if page.tags is defined or page.ecosystems is defined or page.groups is defined or page.specifications is defined %}
+				<section class="related">
+					<div class="related__inner">
+						<h2 class="txt-jupiter">Related to this post</h2>
+						{% if page.tags is defined and page.tags %}
+							<div>
+								<h3>Tags</h3>
+								<ul class="clean-list" role="list">
+								{% for tag in page.tags %}
+									<li><a href="{{ tag.slug }}">{{ tag.title }}</a></li>
+								{% endfor %}
+								</ul>
+							</div>
+						{% endif %}
+						{% if page.ecosystems is defined and page.ecosystems %}
+							<div>
+								<h3>Ecosystems</h3>
+								<ul class="clean-list" role="list">
+									{% for ecosystem in page.ecosystems %}
+										<li><a href="{{ ecosystem.slug }}">{{ ecosystem.title }}</a></li>
+									{% endfor %}
+								</ul>
+							</div>
+						{% endif %}
+						{% if page.groups is defined and page.groups %}
+							<div>
+								<h3>Groups</h3>
+								<ul class="clean-list" role="list">
+									{% for group in page.groups %}
+										<li><a href="{{ group.slug }}">{{ group.title }}</a></li>
+									{% endfor %}
+								</ul>
+							</div>
+						{% endif %}
+						{% if page.specifications is defined and page.specifications %}
+							<div>
+								<h3>Specifications</h3>
+								<ul class="clean-list" role="list">
+									{% for spec in page.specifications %}
+										<li><a href="{{ spec.slug }}">{{ spec.title }}</a></li>
+									{% endfor %}
+								</ul>
+							</div>
+						{% endif %}
+					</div>
+				</section>
+			{% endif %}
+		{% endblock %}
+	</div>
+{% endblock %}

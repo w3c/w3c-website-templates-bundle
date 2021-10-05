@@ -2,9 +2,14 @@
     <div class="l-frame l-frame--16-9">
         {{ iframe|raw }}
     </div>
-    {% if caption is defined and caption %}
+    {% if caption is defined and caption or transcript is defined and transcript %}
         <figcaption>
-            {{ caption|raw }}
+            {% if caption is defined and caption %}
+                <p>{{ caption|raw }}</p>
+            {% endif %}
+            {% if transcript is defined and transcript %}
+                <a href="{{ transcript }}">{{ 'components.video.transcript'|trans({'title': title}, 'w3c_website_templates_bundle')|raw }}</a>
+            {% endif %}
         </figcaption>
     {% endif %}
 </figure>
