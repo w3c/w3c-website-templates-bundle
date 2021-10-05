@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {% set seo = page.seo %}
+    {% set seo = page.seo|default([]) %}
     <title>{{ seo.title|default(page.title|default('W3C')) }}</title>
     <meta name="description" content="{% block description %}{{ seo.description|default(page.excerpt|default('page.default_description'|trans({}, 'w3c_website_templates_bundle'))) }}{% endblock %}"/>
 
@@ -111,7 +111,7 @@
             {% endblock lang_nav %}
             {% block global_nav %}
                 {% embed '@W3CWebsiteTemplates/components/styles/global_nav.html.twig' with {
-                    'navigation': navigation
+                    'navigation': navigation|default([])
                 } %}{% endembed %}
             {% endblock global_nav %}
         </header>
