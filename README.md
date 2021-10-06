@@ -35,8 +35,10 @@ across different applications.
 You can install this in your Symfony app via:
 
 ```bash
-composer require w3c/w3c-website-templates-bundle
+composer require w3c/website-templates-bundle:dev-main
 ```
+
+This requires PHP 7.4+
 
 On installation, front-end assets (CSS, JavaScript, fonts, etc.) will be copied into the public directory of the application.
 You will find them in the folder `public/bundles/w3cwebsitetemplates/dist/assets`.
