@@ -54,7 +54,6 @@ listing:
             all: __listing.press_releases.filters.all
             archives: __listing.press_releases.filters.archives
             archives_label: __listing.press_releases.filters.archives_label
-
 components:
     video:
         transcript: __components.video.transcript
@@ -62,3 +61,18 @@ components:
         link_text: __components.icon_card.link_text
     image_card:
         link_text: __components.image_card.link_text
+blog:
+    comments:
+        count: __blog.comments.count <span>{count}</span>
+        skip_to_form: __blog.comments.skip_to_form
+        reply: __blog.comments.reply
+        form:
+            title: __blog.comments.form.title
+            comment:
+                label: __blog.comments.form.comment.label
+                help: __blog.comments.form.comment.help
+            name:
+                label: __blog.comments.form.name.label
+            email:
+                label: __blog.comments.form.email.label
+            submit: __blog.comments.form.submit

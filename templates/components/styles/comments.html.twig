@@ -1,0 +1,100 @@
+{% form_theme form '@W3CWebsiteTemplates/form/theme.html.twig' %}
+{%- macro comment(comment, post, form) -%}
+    <article id="comment-{{ comment.id }}" class="l-sidebar comment">
+        <div>
+            <div class="not-sidebar">
+                <div class="comment__author">{{ comment.name }} - {{ comment.date|time_diff }}</div>
+                <div class="comment__body">
+                    <p>{{ comment.comment|nl2br }}</p>
+                </div>
+                {% if form.parent.vars.data == comment.id %}
+                    {{ _self.comment_form(form) }}
+                {% else %}
+                    <a rel="nofollow" href="?replytocom={{ comment.id }}#respond"
+                       data-replylink
+                       data-commentid="{{ comment.id }}"
+                       data-postid="{{ post.id }}"
+                       data-belowelement="comment-{{ comment.id }}"
+                       data-replyto="Reply to {{ comment.name }}"
+                    >
+                        {{ 'blog.comments.reply'|trans({}, 'w3c_website_templates_bundle') }}
+                        <span class="visuallyhidden">to {{ comment.name }}</span>
+                    </a>
+                {% endif %}
+            </div>
+            <div class="sidebar comment__img">
+                <div class="avatar avatar--med">
+                    <img alt="" src="{{ comment.email|avatar }}" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </article>
+    {% if comment.children is defined and comment.children|length > 0 %}
+        <ul class="clean-list reply-list" role="list">
+            {% for child in comment.children %}
+                <li>
+                    {{ _self.comment(child, post, form) }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{%- endmacro -%}
+
+{%- macro comment_form(form) -%}
+    <div id="respond" class="l-box l-box--no-border l-box--no-padding" data-respondelement>
+        <div>
+            <h3 class="txt-saturn"
+                data-title="reply">{{ 'blog.comments.form.title'|trans({}, 'w3c_website_templates_bundle') }}</h3>
+        </div>
+        <div class="l-sidebar comment-form-wrap">
+            <div>
+                <div class="not-sidebar">
+                    <form id="comment-form" name="comment-form" method="post">
+                        {{ form_row(form.comment) }}
+                        <div class="l-switcher">
+                            <div>
+                                <div>
+                                    {{ form_row(form.name) }}
+                                </div>
+                                <div>
+                                    {{ form_row(form.email) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <button class="button"
+                                    type="submit">{{ 'blog.comments.form.submit'|trans({}, 'w3c_website_templates_bundle') }}</button>
+                        </div>
+                        {{ form_row(form.post) }}
+                        {{ form_row(form.parent) }}
+                        {{ form_row(form._token) }}
+                    </form>
+                </div>
+                <div class="sidebar">
+                    <div class="avatar avatar--med">
+                        <img src="/dist/assets/svg/avatar.svg" width="50" height="50" alt aria-hidden="true"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{%- endmacro -%}
+
+<section class="comments">
+    <div class="l-center">
+        <h2 id="comments">{{ 'blog.comments.count'|trans({'count': commentsCount}, 'w3c_website_templates_bundle')|raw }}</h2>
+        {% if comments|length > 0 %}
+            <a class="skip-to-comment-form" href="#respond">{{ 'blog.comments.skip_to_form'|trans({}, 'w3c_website_templates_bundle') }}</a>
+            <ol class="clean-list comment-list" role="list">
+                {% for comment in comments %}
+                <li>
+                    {{ _self.comment(comment, post, form) }}
+                </li>
+                {% endfor %}
+            </ol>
+        {% endif %}
+        {% if not form.rendered %}
+            {{ _self.comment_form(form) }}
+        {% endif %}
+    </div>
+</section>
