@@ -1,0 +1,94 @@
+{% use 'form_div_layout.html.twig' %}
+
+{%- block form_row -%}
+    {%- set widget_attr = {} -%}
+    {%- if help is not empty -%}
+        {%- set widget_attr = {attr: {'aria-describedby': "hint-" ~ id}} -%}
+    {%- endif -%}
+    {%- if form.vars.errors|length > 0 -%}
+        {% set widget_attr = {
+            attr: {
+                'aria-describedby': (widget_attr.attr['aria-describedby']|default('') ~ ' error-' ~ form.vars.id)|trim
+            }
+        } %}
+    {%- endif -%}
+
+    <div{% with {attr: row_attr|merge({class: (row_attr.class|default('') ~ ' field')|trim})} %}{{ block('attributes') }}{% endwith %}>
+        {{- form_label(form) -}}
+        {{- form_widget(form, widget_attr) -}}
+    </div>
+{%- endblock form_row -%}
+
+{%- block form_label -%}
+    {% if label is not same as(false) -%}
+        {% if not compound -%}
+            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' field-label')|trim}) %}
+        {%- endif -%}
+        {% if label is empty -%}
+            {%- if label_format is not empty -%}
+                {% set label = label_format|replace({
+                    '%name%': name,
+                    '%id%': id,
+                }) %}
+            {%- else -%}
+                {% set label = name|humanize %}
+            {%- endif -%}
+        {%- endif -%}
+        <{{ element|default('label') }} for="{{ id }}">
+            <span {% if label_attr %}{% with { attr: label_attr } %}{{ block('attributes') }}{% endwith %}{% endif %}>
+                {%- if translation_domain is same as(false) -%}
+                    {%- if label_html is same as(false) -%}
+                        {{- label -}}
+                    {%- else -%}
+                        {{- label|raw -}}
+                    {%- endif -%}
+                {%- else -%}
+                    {%- if label_html is same as(false) -%}
+                        {{- label|trans(label_translation_parameters, translation_domain) -}}
+                    {%- else -%}
+                        {{- label|trans(label_translation_parameters, translation_domain)|raw -}}
+                    {%- endif -%}
+                {%- endif -%}
+
+                {% if required %}
+                    <span class="required">(Required)</span>
+                {%- endif -%}
+            </span>
+        {{- form_errors(form) -}}
+        {% if form.vars.help %}
+            {{- form_help(form) -}}
+        {% endif %}
+        </{{ element|default('label') }}>
+    {%- endif -%}
+{%- endblock form_label -%}
+
+{%- block form_errors -%}
+    {%- if errors|length > 0 -%}
+        <span class="field-error-msg" id="error-{{ form.vars.id }}">
+            {%- for error in errors -%}
+                <span class="visuallyhidden">Error:</span> {{ error.message }}
+            {%- endfor -%}
+        </span>
+    {%- endif -%}
+{%- endblock form_errors -%}
+
+{% block form_help -%}
+    {%- if help is not empty -%}
+        {%- set help_attr = help_attr|merge({class: (help_attr.class|default('') ~ ' field-hint')|trim}) -%}
+        <span id="hint-{{ id }}"{% with { attr: help_attr } %}{{ block('attributes') }}{% endwith %}>
+            {%- if translation_domain is same as(false) -%}
+                {%- if help_html is same as(false) -%}
+                    {{- help -}}
+                {%- else -%}
+                    {{- help|raw -}}
+                {%- endif -%}
+            {%- else -%}
+                {%- if help_html is same as(false) -%}
+                    {{- help|trans(help_translation_parameters, translation_domain) -}}
+                {%- else -%}
+                    {{- help|trans(help_translation_parameters, translation_domain)|raw -}}
+                {%- endif -%}
+            {%- endif -%}
+        </span>
+    {%- endif -%}
+{%- endblock form_help %}

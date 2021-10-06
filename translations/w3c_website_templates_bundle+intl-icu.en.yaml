@@ -68,3 +68,18 @@ components:
         link_text: Learn more
     image_card:
         link_text: Learn more
+blog:
+    comments:
+        count: Comments <span>({count})</span>
+        skip_to_form: Skip to comment form
+        reply: Reply
+        form:
+            title: Post a new comment
+            comment:
+                label: Comment
+                help: Your email address will not be published.
+            name:
+                label: Name
+            email:
+                label: Email address
+            submit: Post comment
