@@ -66,3 +66,8 @@
 		{% endblock %}
 	</div>
 {% endblock %}
+
+{% block crosslinks %}
+	{{ parent() }}
+	{% block comments %}{% endblock %}
+{% endblock %}
