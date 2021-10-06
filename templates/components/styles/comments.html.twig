@@ -65,9 +65,7 @@
                             <button class="button"
                                     type="submit">{{ 'blog.comments.form.submit'|trans({}, 'w3c_website_templates_bundle') }}</button>
                         </div>
-                        {{ form_row(form.post) }}
-                        {{ form_row(form.parent) }}
-                        {{ form_row(form._token) }}
+                        {{ form_rest(form) }}
                     </form>
                 </div>
                 <div class="sidebar">
