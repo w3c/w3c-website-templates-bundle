@@ -1,27 +1,53 @@
+{% set footernavigation = links %}
+{% if links is empty %}
+    {% set footernavigation = [
+        {
+            'copy': 'footer.links.home'|trans({}, 'w3c_website_templates_bundle'),
+            'url' : 'footer.links.homeurl'|trans({}, 'w3c_website_templates_bundle')
+        },
+        {
+            'copy': 'footer.links.contact'|trans({}, 'w3c_website_templates_bundle'),
+            'url' : 'footer.links.contacturl'|trans({}, 'w3c_website_templates_bundle')
+        },
+        {
+            'copy': 'footer.links.help'|trans({}, 'w3c_website_templates_bundle'),
+            'url' : 'footer.links.helpurl'|trans({}, 'w3c_website_templates_bundle')
+        },
+        {
+            'copy': 'footer.links.sponsor'|trans({}, 'w3c_website_templates_bundle'),
+            'url' : 'footer.links.sponsorurl'|trans({}, 'w3c_website_templates_bundle')
+        }
+        ,
+        {
+            'copy': 'footer.links.donate'|trans({}, 'w3c_website_templates_bundle'),
+            'url' : 'footer.links.donateurl'|trans({}, 'w3c_website_templates_bundle')
+        },
+        {
+            'copy': 'footer.links.privacy_policy'|trans({}, 'w3c_website_templates_bundle'),
+            'url' : 'footer.links.privacy_policyurl'|trans({}, 'w3c_website_templates_bundle')
+        },
+        {
+            'copy': 'footer.links.legal'|trans({}, 'w3c_website_templates_bundle'),
+            'url' : 'footer.links.legalurl'|trans({}, 'w3c_website_templates_bundle')
+        },
+        {
+            'copy': 'footer.links.system_status'|trans({}, 'w3c_website_templates_bundle'),
+            'url' : 'footer.links.system_statusurl'|trans({}, 'w3c_website_templates_bundle')
+        }
+    ] %}
+{% endif %}
 <footer class="global-footer">
     <div class="l-center">
         <div class="global-footer__links">
             <div class="l-cluster">
+                {% if footernavigation is not empty %}
                 <ul class="clean-list" role="list">
-                    <li><a href="../page.html">{{ 'footer.links.home'|trans({}, 'w3c_website_templates_bundle') }}</a>
-                    </li>
-                    <li>
-                        <a href="../page.html">{{ 'footer.links.contact'|trans({}, 'w3c_website_templates_bundle') }}</a>
-                    </li>
-                    <li><a href="../page.html">{{ 'footer.links.help'|trans({}, 'w3c_website_templates_bundle') }}</a>
-                    </li>
-                    <li>
-                        <a href="../page.html">{{ 'footer.links.sponsor_donate'|trans({}, 'w3c_website_templates_bundle') }}</a>
-                    </li>
-                    <li>
-                        <a href="../page.html">{{ 'footer.links.privacy_policy'|trans({}, 'w3c_website_templates_bundle') }}</a>
-                    </li>
-                    <li><a href="../page.html">{{ 'footer.links.legal'|trans({}, 'w3c_website_templates_bundle') }}</a>
-                    </li>
-                    <li>
-                        <a href="https://status.w3.org/">{{ 'footer.links.system_status'|trans({}, 'w3c_website_templates_bundle') }}</a>
-                    </li>
+                    {% for link in footernavigation %}
+                        <li><a href="{{ link.url }}">{{ link.copy }}</a>
+                        </li>
+                    {% endfor %}
                 </ul>
+                {% endif %}
             </div>
             <ul class="clean-list" role="list">
                 <li><a class="with-icon--larger" href="https://twitter.com/W3C">

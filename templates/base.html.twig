@@ -130,7 +130,9 @@
         {% endblock crosslinks %}
     </div>
     {% block footer %}
-        {{ include('@W3CWebsiteTemplates/components/styles/footer.html.twig') }}
+        {% embed '@W3CWebsiteTemplates/components/styles/footer.html.twig' with {
+            'links': footerlinks is defined ? footerlinks : {}
+        } %}{% endembed %}
     {% endblock %}
 </div>
 

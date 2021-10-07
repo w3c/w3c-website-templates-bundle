@@ -16,12 +16,21 @@ footer:
         href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.
     links:
         home: Home
+        homeurl: /
         contact: Contact
+        contacturl: /contact
         help: Help
-        sponsor_donate: Sponsor and donate
+        helpurl: /help
+        sponsor: Sponsor
+        sponsorurl: /sponsor
+        donate: Donate
+        donateurl: /donate
         privacy_policy: Privacy Policy
+        privacy_policyurl: /policies/privacy
         legal: Legal
+        legalurl: /policies
         system_status: System Status
+        system_statusurl: https://status.w3.org/
         twitter: W3C on Twitter
         github: W3C on GitHub
 banner:
