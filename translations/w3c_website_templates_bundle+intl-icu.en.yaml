@@ -29,6 +29,8 @@ footer:
         privacy_policyurl: /policies/privacy
         legal: Legal
         legalurl: /policies
+        cookies: Cookies
+        cookiesurl: /cookies
         system_status: System Status
         system_statusurl: https://status.w3.org/
         twitter: W3C on Twitter

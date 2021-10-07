@@ -23,6 +23,8 @@ footer:
         privacy_policyurl: /ja/policies/privacy
         legal: __footer.links.legal
         legalurl: /ja/policies
+        cookies: __footer.links.cookies
+        cookiesurl: /ja/cookies
         system_status: __footer.links.system_status
         system_statusurl: https://status.w3.org/
         twitter: __footer.links.twitter
