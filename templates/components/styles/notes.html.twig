@@ -1,0 +1,60 @@
+{% macro form_errors(form) %}
+    {% set errors = form.vars.errors.form.getErrors(true) %}
+    {% if errors|length > 0 %}
+        <div class="l-box note note--error" role="alert" aria-labelledby="form-error-summary-title" tabindex="-1"
+             data-component="error-summary">
+            <h2 id="form-error-summary-title" class="txt-mars">{{ 'notes.errors.default_title'|trans({}, 'w3c_website_templates_bundle') }}</h2>
+            <ul class="clean-list" role="list">
+                {% for error in errors %}
+                    <li>
+                        <a href="#{{ error.origin.name }}">{{ error.message }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{%- macro notes(type, title, notes) -%}
+    {% if (notes|length > 0) %}
+        <div class="l-box note note--{{ type }}" role="{{ type == 'error' ? 'alert' : 'status' }}" aria-labelledby="{{ type }}-summary-title" tabindex="-1"
+             data-component="{{ type }}-summary">
+            <h2 id="{{ type }}-summary-title" class="txt-mars">{{ title }}</h2>
+            <ul class="clean-list" role="list">
+                {% for note in notes %}
+                    <li>
+                        {{ note|trans() }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{% macro info(messages, title = null) %}
+    {% if title == null %}
+        {% set title = 'notes.info.default_title'|trans({}, 'w3c_website_templates_bundle') %}
+    {% endif %}
+    {{ _self.notes('error', title, messages) }}
+{% endmacro %}
+
+{% macro successes(messages, title = null) %}
+    {% if title == null %}
+        {% set title = 'notes.successes.default_title'|trans({}, 'w3c_website_templates_bundle') %}
+    {% endif %}
+    {{ _self.notes('error', title, messages) }}
+{% endmacro %}
+
+{% macro warnings(messages, title = null) %}
+    {% if title == null %}
+        {% set title = 'notes.warnings.default_title'|trans({}, 'w3c_website_templates_bundle') %}
+    {% endif %}
+    {{ _self.notes('error', title, messages) }}
+{% endmacro %}
+
+{% macro errors(messages, title = null) %}
+    {% if title == null %}
+        {% set title = 'notes.errors.default_title'|trans({}, 'w3c_website_templates_bundle') %}
+    {% endif %}
+    {{ _self.notes('error', title, messages) }}
+{% endmacro %}

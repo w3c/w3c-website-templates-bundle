@@ -1,3 +1,4 @@
+{%- import "@W3CWebsiteTemplates/components/styles/notes.html.twig" as note_macros -%}
 <!doctype html>
 <html dir="{{ site.textDirection|default('ltr') }}" lang="{{ site.locale|default('en') }}" class="no-js">
 <head>
@@ -121,6 +122,12 @@
                 } %}{% endembed %}
         {% endblock breadcrumbs %}
         <main id="main">
+            {% block notes %}
+                {{ note_macros.errors(app.flashes('success')) }}
+                {{ note_macros.errors(app.flashes('info')) }}
+                {{ note_macros.errors(app.flashes('error')) }}
+                {{ note_macros.errors(app.flashes('warning')) }}
+            {% endblock %}
             {% block main %}{% endblock %}
         </main>
         {% block crosslinks %}
