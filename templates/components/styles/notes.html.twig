@@ -35,21 +35,21 @@
     {% if title == null %}
         {% set title = 'notes.info.default_title'|trans({}, 'w3c_website_templates_bundle') %}
     {% endif %}
-    {{ _self.notes('error', title, messages) }}
+    {{ _self.notes('info', title, messages) }}
 {% endmacro %}
 
 {% macro successes(messages, title = null) %}
     {% if title == null %}
         {% set title = 'notes.successes.default_title'|trans({}, 'w3c_website_templates_bundle') %}
     {% endif %}
-    {{ _self.notes('error', title, messages) }}
+    {{ _self.notes('success', title, messages) }}
 {% endmacro %}
 
 {% macro warnings(messages, title = null) %}
     {% if title == null %}
         {% set title = 'notes.warnings.default_title'|trans({}, 'w3c_website_templates_bundle') %}
     {% endif %}
-    {{ _self.notes('error', title, messages) }}
+    {{ _self.notes('warning', title, messages) }}
 {% endmacro %}
 
 {% macro errors(messages, title = null) %}

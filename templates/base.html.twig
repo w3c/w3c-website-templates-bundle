@@ -123,10 +123,10 @@
         {% endblock breadcrumbs %}
         <main id="main">
             {% block notes %}
-                {{ note_macros.errors(app.flashes('success')) }}
-                {{ note_macros.errors(app.flashes('info')) }}
+                {{ note_macros.successes(app.flashes('success')) }}
+                {{ note_macros.info(app.flashes('info')) }}
                 {{ note_macros.errors(app.flashes('error')) }}
-                {{ note_macros.errors(app.flashes('warning')) }}
+                {{ note_macros.warnings(app.flashes('warning')) }}
             {% endblock %}
             {% block main %}{% endblock %}
         </main>
