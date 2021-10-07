@@ -23,7 +23,11 @@
 						{% endif %}
 						{{ card.description|raw }}
 						{% if card.linkDestination is defined and card.linkDestination %}
-							<a href="{{ card.linkDestination }}"><span class="visuallyhidden">{{ card.heading|trans({}) }}</span> {{ 'components.icon_card.link_text'|trans({}, 'w3c_website_templates_bundle') }}</a>
+							{% if card.linkCopy is defined and card.linkCopy %}
+								<a href="{{ card.linkDestination }}">{{ card.linkCopy }}</a>
+							{% else %}
+								<a href="{{ card.linkDestination }}"><span class="visuallyhidden">{{ card.heading }}</span> {{ 'components.icon_card.link_text'|trans({}, 'w3c_website_templates_bundle') }}</a>
+							{% endif %}
 						{% endif %}
 					</div>
 					{% endif %}
