@@ -1,5 +1,6 @@
 {% form_theme form '@W3CWebsiteTemplates/form/theme.html.twig' %}
-{%- macro comment(comment, post, form) -%}
+
+{%- macro comment(comment, post, reply_to, rendered_form) -%}
     <article id="comment-{{ comment.id }}" class="l-sidebar comment">
         <div>
             <div class="not-sidebar">
@@ -7,8 +8,8 @@
                 <div class="comment__body">
                     <p>{{ comment.comment|nl2br }}</p>
                 </div>
-                {% if form.parent.vars.data == comment.id %}
-                    {{ _self.comment_form(form) }}
+                {% if reply_to == comment.id %}
+                    {{ _self.comment_form(rendered_form) }}
                 {% else %}
                     <a rel="nofollow" href="?replytocom={{ comment.id }}#respond"
                        data-replylink
@@ -33,14 +34,14 @@
         <ul class="clean-list reply-list" role="list">
             {% for child in comment.children %}
                 <li>
-                    {{ _self.comment(child, post, form) }}
+                    {{ _self.comment(child, post, reply_to, rendered_form) }}
                 </li>
             {% endfor %}
         </ul>
     {% endif %}
 {%- endmacro -%}
 
-{%- macro comment_form(form) -%}
+{%- macro comment_form(rendered_form) -%}
     <div id="respond" class="l-box l-box--no-border l-box--no-padding" data-respondelement>
         <div>
             <h3 class="txt-saturn"
@@ -49,24 +50,7 @@
         <div class="l-sidebar comment-form-wrap">
             <div>
                 <div class="not-sidebar">
-                    <form id="comment-form" name="comment-form" method="post" novalidate>
-                        {{ form_row(form.comment) }}
-                        <div class="l-switcher">
-                            <div>
-                                <div>
-                                    {{ form_row(form.name) }}
-                                </div>
-                                <div>
-                                    {{ form_row(form.email) }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <button class="button"
-                                    type="submit">{{ 'blog.comments.form.submit'|trans({}, 'w3c_website_templates_bundle') }}</button>
-                        </div>
-                        {{ form_rest(form) }}
-                    </form>
+                    {{ rendered_form }}
                 </div>
                 <div class="sidebar">
                     <div class="avatar avatar--med">
@@ -86,13 +70,13 @@
             <ol class="clean-list comment-list" role="list">
                 {% for comment in comments %}
                 <li>
-                    {{ _self.comment(comment, post, form) }}
+                    {{ _self.comment(comment, post, reply_to, rendered_form) }}
                 </li>
                 {% endfor %}
             </ol>
         {% endif %}
-        {% if not form.rendered %}
-            {{ _self.comment_form(form) }}
+        {% if not reply_to %}
+            {{ _self.comment_form(rendered_form) }}
         {% endif %}
     </div>
 </section>

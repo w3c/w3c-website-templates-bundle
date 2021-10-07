@@ -75,11 +75,12 @@ blog:
         reply: Reply
         form:
             title: Post a new comment
-            comment:
-                label: Comment
-                help: Your email address will not be published.
-            name:
-                label: Name
-            email:
-                label: Email address
-            submit: Post comment
+notes:
+    info:
+        default_title: Information
+    successes:
+        default_title: Success
+    warnings:
+        default_title: Warning
+    errors:
+        default_title: There is a problem
