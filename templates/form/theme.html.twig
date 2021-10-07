@@ -11,6 +11,7 @@
                 'aria-describedby': (widget_attr.attr['aria-describedby']|default('') ~ ' error-' ~ form.vars.id)|trim
             }
         } %}
+        {% set row_attr = row_attr|merge({class: (row_attr.class|default('') ~ ' field--error')|trim}) %}
     {%- endif -%}
 
     <div{% with {attr: row_attr|merge({class: (row_attr.class|default('') ~ ' field')|trim})} %}{{ block('attributes') }}{% endwith %}>
