@@ -10,12 +10,23 @@ footer:
         __footer.copyright {date, date, ::y}
     links:
         home: __footer.links.home
+        homeurl: /zh/
         contact: __footer.links.contact
+        contacturl: /zh/contact
         help: __footer.links.help
-        sponsor_donate: __footer.links.sponsor_donate
+        helpurl: /zh/help
+        sponsor: __footer.links.sponsor
+        sponsorurl: /zh/sponsor
+        donate: _footer.links.donate
+        donateurl: /zh/donate
         privacy_policy: __footer.links.privacy_policy
+        privacy_policyurl: /zh/policies/privacy
         legal: __footer.links.legal
+        legalurl: /zh/policies
+        cookies: __footer.links.cookies
+        cookiesurl: /zh/cookies
         system_status: __footer.links.system_status
+        system_statusurl: https://status.w3.org/
         twitter: __footer.links.twitter
         github: __footer.links.github
 banner:
