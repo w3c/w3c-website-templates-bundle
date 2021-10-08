@@ -1,6 +1,5 @@
-{% set footernavigation = links %}
 {% if links is empty %}
-    {% set footernavigation = [
+    {% set links = [
         {
             'copy': 'footer.links.home'|trans({}, 'w3c_website_templates_bundle'),
             'url' : 'footer.links.homeurl'|trans({}, 'w3c_website_templates_bundle')
@@ -44,14 +43,12 @@
     <div class="l-center">
         <div class="global-footer__links">
             <div class="l-cluster">
-                {% if footernavigation is not empty %}
                 <ul class="clean-list" role="list">
-                    {% for link in footernavigation %}
+                    {% for link in links %}
                         <li><a href="{{ link.url }}">{{ link.copy }}</a>
                         </li>
                     {% endfor %}
                 </ul>
-                {% endif %}
             </div>
             <ul class="clean-list" role="list">
                 <li><a class="with-icon--larger" href="https://twitter.com/W3C">
