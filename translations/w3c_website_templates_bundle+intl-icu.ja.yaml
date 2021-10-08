@@ -74,6 +74,11 @@ components:
         link_text: __components.image_card.link_text
     groups_list:
         link_text: __components.groups_list.link_text{{name}}
+    people:
+        tel: "__components.people.tel__Tel: <a href=\"tel:{number}}6\">{number}}</a>"
+        email: "__components.people.email__Email: <a href=\"mailto:{email}\">{email}</a>"
+    evangelists:
+        list_title: __components.evangelists.list_title__Our {ecosystem_name} Evangelists
 blog:
     comments:
         count: __blog.comments.count <span>{count}</span>
