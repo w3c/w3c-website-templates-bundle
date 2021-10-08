@@ -79,6 +79,8 @@ components:
         link_text: Learn more
     image_card:
         link_text: Learn more
+    groups_list:
+        link_text: Visit the {name} Group
 blog:
     comments:
         count: Comments <span>({count})</span>

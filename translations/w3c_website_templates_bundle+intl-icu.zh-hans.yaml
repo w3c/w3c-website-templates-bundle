@@ -72,6 +72,8 @@ components:
         link_text: __components.icon_card.link_text
     image_card:
         link_text: __components.image_card.link_text
+    groups_list:
+        link_text: __components.groups_list.link_text{{name}}
 blog:
     comments:
         count: __blog.comments.count <span>{count}</span>
