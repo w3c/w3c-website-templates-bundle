@@ -47,6 +47,7 @@ banner:
         icon: Beta icon
 header:
     logo_alt: W3C logo
+    logo_link: Visit the W3C homepage
 breadcrumbs:
     home: Home
 pagination:

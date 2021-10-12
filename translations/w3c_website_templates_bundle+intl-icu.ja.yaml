@@ -40,6 +40,7 @@ banner:
         icon: __banner.beta.icon
 header:
     logo_alt: __header.logo_alt
+    logo_link: __header.logo_link
 breadcrumbs:
     home: __breadcrumbs.home
 pagination:
