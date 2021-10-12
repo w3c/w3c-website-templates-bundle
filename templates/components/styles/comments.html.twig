@@ -25,7 +25,11 @@
             </div>
             <div class="sidebar comment__img">
                 <div class="avatar avatar--med">
-                    <img alt="" src="{{ comment.email|avatar }}" loading="lazy">
+                    {% if comment.email %}
+                        <img alt="" src="{{ comment.email|avatar }}" loading="lazy">
+                    {% else %}
+                        <img src="{{ asset('svg/avatar.svg', 'main') }}" width="50" height="50" alt aria-hidden="true"/>
+                    {% endif %}
                 </div>
             </div>
         </div>
