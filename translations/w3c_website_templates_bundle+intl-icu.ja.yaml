@@ -77,6 +77,12 @@ components:
     image_card:
         link_text: __components.image_card.link_text
 blog:
+    related:
+        heading: __blog.related.heading
+        heading_tags: __blog.related.heading_tags
+        heading_ecosystems: __blog.related.heading_ecosystems
+        heading_groups: __blog.related.heading_groups
+        heading_specifications: __blog.related.heading_specifications
     comments:
         count: __blog.comments.count <span>{count}</span>
         skip_to_form: __blog.comments.skip_to_form

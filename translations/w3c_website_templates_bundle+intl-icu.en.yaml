@@ -84,6 +84,12 @@ components:
     image_card:
         link_text: Learn more
 blog:
+    related:
+        heading: Related to this post
+        heading_tags: Tags
+        heading_ecosystems: Ecosystems
+        heading_groups: Groups
+        heading_specifications: Specifications
     comments:
         count: Comments <span>({count})</span>
         skip_to_form: Skip to comment form
