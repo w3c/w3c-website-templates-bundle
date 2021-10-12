@@ -6,6 +6,8 @@ page:
         The World Wide Web Consortium (W3C) is an international community where Member organizations, a full-time staff,
         and the public work together to develop Web standards.
     skip_to_content: Skip to content
+    translations: >
+        Read this page in:
 footer:
     copyright: >-
         Copyright © {date, date, ::y} W3C <sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr

@@ -5,6 +5,8 @@ page:
     default_description: >-
         万维网联盟（北航）总部
     skip_to_content: __page.skip_to_content
+    translations: >
+        __page.translations
 footer:
     copyright: >-
         __footer.copyright {date, date, ::y}
