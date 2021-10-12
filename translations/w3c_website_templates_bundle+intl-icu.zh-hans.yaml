@@ -42,6 +42,7 @@ header:
     logo_alt: __header.logo_alt
     logo_link: __header.logo_link
     search_link: __header.search_link
+    account_link: __header.account_link
 breadcrumbs:
     home: __breadcrumbs.home
 pagination:

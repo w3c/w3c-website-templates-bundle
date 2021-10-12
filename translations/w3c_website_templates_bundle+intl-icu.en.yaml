@@ -49,6 +49,7 @@ header:
     logo_alt: W3C logo
     logo_link: Visit the W3C homepage
     search_link: Search
+    account_link: My account
 breadcrumbs:
     home: Home
 pagination:
