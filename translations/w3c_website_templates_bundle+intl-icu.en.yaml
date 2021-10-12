@@ -8,6 +8,7 @@ page:
     skip_to_content: Skip to content
     translations: >
         Read this page in:
+    related_content: Related content
 footer:
     copyright: >-
         Copyright © {date, date, ::y} W3C <sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr

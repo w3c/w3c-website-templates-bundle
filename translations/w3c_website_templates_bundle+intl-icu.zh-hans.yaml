@@ -7,6 +7,7 @@ page:
     skip_to_content: __page.skip_to_content
     translations: >
         __page.translations
+    retaled_content: __page.related
 footer:
     copyright: >-
         __footer.copyright {date, date, ::y}
