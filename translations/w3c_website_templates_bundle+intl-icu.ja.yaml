@@ -38,6 +38,8 @@ banner:
         text: >-
             __banner.beta.text
         icon: __banner.beta.icon
+header:
+    logo_alt: __header.logo_alt
 breadcrumbs:
     home: __breadcrumbs.home
 pagination:

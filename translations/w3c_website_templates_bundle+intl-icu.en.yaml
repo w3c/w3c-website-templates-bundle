@@ -45,6 +45,8 @@ banner:
             This is a new website. <a href="mailto:team-website-redesign@w3.org">Give feedback</a> to help us
             improve it.
         icon: Beta icon
+header:
+    logo_alt: W3C logo
 breadcrumbs:
     home: Home
 pagination:
