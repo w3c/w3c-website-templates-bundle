@@ -79,6 +79,17 @@ components:
         email: "__components.people.email__Email: <a href=\"mailto:{email}\">{email}</a>"
     evangelists:
         list_title: __components.evangelists.list_title__Our {ecosystem_name} Evangelists
+    members:
+        title: __components.members.title
+        members_include: "__components.members.members_include {count} member organisations are involved in the web payment ecosystem, including:"
+        view_all: __components.members.view_all
+        get_involved: __components.members.get_involved
+        join: __components.members.join
+        joinurl: /membership/join
+        donate: __components.members.donate
+        donateurl: /donate
+    content_slider:
+        title: __components.content_slider.title
 blog:
     comments:
         count: __blog.comments.count <span>{count}</span>

@@ -86,6 +86,17 @@ components:
         email: "Email: <a href=\"mailto:{email}\">{email}</a>"
     evangelists:
         list_title: Our {ecosystem_name} Evangelists
+    members:
+        title: W3C Members
+        members_include: "{count} member organisations are involved in the web payment ecosystem, including:"
+        view_all: View all members of the web payment ecosystem
+        get_involved: "Ways to get involved:"
+        join: Join
+        joinurl: /membership/join
+        donate: Donate
+        donateurl: /donate
+    content_slider:
+        title: What organisations think about us
 blog:
     comments:
         count: Comments <span>({count})</span>
