@@ -1,7 +1,9 @@
 <figure class="component component--video">
-    <div class="l-frame l-frame--16-9">
-        {% block video_iframe %}{{ iframe|raw }}{% endblock %}
-    </div>
+    {% block video_iframe %}
+        <div class="l-frame l-frame--16-9">
+            {{ iframe|raw }}
+        </div>
+    {% endblock %}
     {% if caption is defined and caption or transcript is defined and transcript %}
         <figcaption>
             {% if caption is defined and caption %}
