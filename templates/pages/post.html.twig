@@ -25,7 +25,7 @@
 								<h3>Tags</h3>
 								<ul class="clean-list" role="list">
 								{% for tag in page.tags %}
-									<li><a href="{{ tag.slug }}">{{ tag.title }}</a></li>
+									<li><a href="{{ tag.uri|absolute_url(app.request.locale) }}">{{ tag.title }}</a></li>
 								{% endfor %}
 								</ul>
 							</div>
@@ -35,7 +35,7 @@
 								<h3>Ecosystems</h3>
 								<ul class="clean-list" role="list">
 									{% for ecosystem in page.ecosystems %}
-										<li><a href="{{ ecosystem.slug }}">{{ ecosystem.title }}</a></li>
+										<li><a href="{{ ecosystem.uri|absolute_url(app.request.locale) }}">{{ ecosystem.title }}</a></li>
 									{% endfor %}
 								</ul>
 							</div>
