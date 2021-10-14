@@ -82,6 +82,12 @@ components:
     image_card:
         link_text: __components.image_card.link_text
 blog:
+    meta:
+        credit: >
+            __blog.meta.credit
+        published: >
+            __blog.meta.published
+        skiplink: __blog.meta.skiplink
     related:
         heading: __blog.related.heading
         heading_tags: __blog.related.heading_tags

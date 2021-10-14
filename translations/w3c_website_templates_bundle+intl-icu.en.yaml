@@ -89,6 +89,12 @@ components:
     image_card:
         link_text: Learn more
 blog:
+    meta:
+        credit: >
+            By:
+        published: >
+            Published:
+        skiplink: Skip to ({count}) comments
     related:
         heading: Related to this post
         heading_tags: Tags
