@@ -4,7 +4,7 @@
 		<section aria-labelledby="slider-title">
 			<ul class="clean-list" role="presentation">
 				{% for testimonial in testimonials %}
-				<li lang="{{ testimonial.language }}">
+				<li lang="{{ testimonial.language }}" dir="{{ testimonial.text_direction }}">
 					<figure class="slide">
 						<blockquote class="slide__quote">
 							<p>{{ testimonial.quote }}</p>
