@@ -81,25 +81,26 @@ components:
         link_text: __components.icon_card.link_text
     image_card:
         link_text: __components.image_card.link_text
-blog:
+post:
     meta:
         credit: >
-            __blog.meta.credit
+            __post.meta.credit
         published: >
-            __blog.meta.published
-        skiplink: __blog.meta.skiplink
+            __post.meta.published
+        skiplink: __post.meta.skiplink
     related:
-        heading: __blog.related.heading
-        heading_tags: __blog.related.heading_tags
-        heading_ecosystems: __blog.related.heading_ecosystems
-        heading_groups: __blog.related.heading_groups
-        heading_specifications: __blog.related.heading_specifications
+        heading: __post.related.heading
+        heading_tags: __post.related.heading_tags
+        heading_ecosystems: __post.related.heading_ecosystems
+        heading_groups: __post.related.heading_groups
+        heading_specifications: __post.related.heading_specifications
+    feed: __post.feed
     comments:
-        count: __blog.comments.count <span>{count}</span>
-        skip_to_form: __blog.comments.skip_to_form
-        reply: __blog.comments.reply
+        count: __post.comments.count <span>{count}</span>
+        skip_to_form: __post.comments.skip_to_form
+        reply: __post.comments.reply
         form:
-            title: Post a new comment
+            title: __post.comments.form.title
 notes:
     info:
         default_title: __notes.info.default_title

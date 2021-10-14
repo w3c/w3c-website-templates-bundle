@@ -88,19 +88,20 @@ components:
         link_text: Learn more
     image_card:
         link_text: Learn more
-blog:
+post:
     meta:
         credit: >
             By:
         published: >
             Published:
-        skiplink: Skip to ({count}) comments
+        skiplink: Skip to {count} comments
     related:
         heading: Related to this post
         heading_tags: Tags
         heading_ecosystems: Ecosystems
         heading_groups: Groups
         heading_specifications: Specifications
+    feed: Subscribe to our {feed_type} feed
     comments:
         count: Comments <span>({count})</span>
         skip_to_form: Skip to comment form

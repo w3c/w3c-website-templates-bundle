@@ -12,7 +12,7 @@
 					<h2 class="visuallyhidden">Author(s) and publish date</h2>
 					<dl>
 						{% if page.authors is defined and page.authors %}
-							<dt>{{ 'blog.meta.credit'|trans({}, 'w3c_website_templates_bundle') }}</dt>
+							<dt>{{ 'post.meta.credit'|trans({}, 'w3c_website_templates_bundle') }}</dt>
 							<dd class="l-cluster">
 								<ul class="clean-list" role="presentation">
 									{% for author in page.authors %}
@@ -33,12 +33,12 @@
 							</dd>
 						{% endif %}
 						{% if page.postDate is defined and page.postDate %}
-							<dt>{{ 'blog.meta.published'|trans({}, 'w3c_website_templates_bundle') }}</dt>
+							<dt>{{ 'post.meta.published'|trans({}, 'w3c_website_templates_bundle') }}</dt>
 							<dd><time datetime="{{ page.postDate|date('Y-m-d') }}">{{ page.postDate|date('d F Y') }}</time></dd>
 						{% endif %}
 					</dl>
 					{% if comments is defined and comments|length > 0 %}
-						<a href="#comments" class="skip-to-comments txt-pluto">{{ 'blog.meta.skiplink'|trans({'count': commentsCount}, 'w3c_website_templates_bundle')|raw }}</a>
+						<a href="#comments" class="skip-to-comments txt-pluto">{{ 'post.meta.skiplink'|trans({'count': commentsCount}, 'w3c_website_templates_bundle')|raw }}</a>
 					{% endif %}
 				</section>
 			{% endif %}
@@ -54,10 +54,10 @@
 			{% if page.tags is defined or page.ecosystems is defined or page.groups is defined or page.specifications is defined %}
 				<section class="related">
 					<div class="related__inner">
-						<h2 class="txt-jupiter">{{ 'blog.related.heading'|trans({}, 'w3c_website_templates_bundle') }}</h2>
+						<h2 class="txt-jupiter">{{ 'post.related.heading'|trans({}, 'w3c_website_templates_bundle') }}</h2>
 						{% if page.tags is defined and page.tags %}
 							<div>
-								<h3>{{ 'blog.related.heading_tags'|trans({}, 'w3c_website_templates_bundle') }}</h3>
+								<h3>{{ 'post.related.heading_tags'|trans({}, 'w3c_website_templates_bundle') }}</h3>
 								<ul class="clean-list" role="list">
 								{% for tag in page.tags %}
 									<li><a href="{{ tag.uri|absolute_url(app.request.locale) }}">{{ tag.title }}</a></li>
@@ -67,7 +67,7 @@
 						{% endif %}
 						{% if page.ecosystems is defined and page.ecosystems %}
 							<div>
-								<h3>{{ 'blog.related.heading_ecosystems'|trans({}, 'w3c_website_templates_bundle') }}</h3>
+								<h3>{{ 'post.related.heading_ecosystems'|trans({}, 'w3c_website_templates_bundle') }}</h3>
 								<ul class="clean-list" role="list">
 									{% for ecosystem in page.ecosystems %}
 										<li><a href="{{ ecosystem.uri|absolute_url(app.request.locale) }}">{{ ecosystem.title }}</a></li>
@@ -77,7 +77,7 @@
 						{% endif %}
 						{% if page.groups is defined and page.groups %}
 							<div>
-								<h3>{{ 'blog.related.heading_groups'|trans({}, 'w3c_website_templates_bundle') }}</h3>
+								<h3>{{ 'post.related.heading_groups'|trans({}, 'w3c_website_templates_bundle') }}</h3>
 								<ul class="clean-list" role="list">
 									{% for group in page.groups %}
 										<li><a href="{{ group.slug }}">{{ group.title }}</a></li>
@@ -87,7 +87,7 @@
 						{% endif %}
 						{% if page.specifications is defined and page.specifications %}
 							<div>
-								<h3>{{ 'blog.related.heading_specifications'|trans({}, 'w3c_website_templates_bundle') }}</h3>
+								<h3>{{ 'post.related.heading_specifications'|trans({}, 'w3c_website_templates_bundle') }}</h3>
 								<ul class="clean-list" role="list">
 									{% for spec in page.specifications %}
 										<li><a href="{{ spec.slug }}">{{ spec.title }}</a></li>
@@ -100,13 +100,7 @@
 			{% endif %}
 		{% endblock %}
 		{% block feed %}
-			<section class="rss">
-				<h2 class="txt-jupiter">Related RSS feed</h2>
-				<p class="with-icon--before with-icon--larger">
-					<img class="icon icon--larger" src="{{ asset('svg/rss.svg', 'main') }}" width="30" height="30" alt="" aria-hidden="true">
-{#				TODO: insert correct feed link based on post type (blog, news, etc) #}
-				</p>
-			</section>
+			{% include 'components/styles/feed.html.twig' with { 'feed_url': 'https://www.w3.org/blog/feed', 'feed_type': 'Blog' } %}
 		{% endblock %}
 	</div>
 {% endblock %}
