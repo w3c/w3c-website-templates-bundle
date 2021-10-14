@@ -3739,19 +3739,21 @@ input[type=search] {
 .l-sidebar.comment {
   overflow: visible; }
 
-.l-sidebar.comment .sidebar,
-.l-sidebar.comment-form-wrap .sidebar {
-  -ms-flex-preferred-size: auto;
-      flex-basis: auto;
-  -ms-flex-order: -1;
-      order: -1; }
-  .l-sidebar.comment .sidebar img,
-  .l-sidebar.comment-form-wrap .sidebar img {
-    width: 3.125rem; }
-
-.l-sidebar.comment .not-sidebar,
-.l-sidebar.comment-form-wrap .not-sidebar {
-  min-width: calc(80% - 1.5rem); }
+.l-sidebar.comment,
+.l-sidebar.comment-form-wrap {
+  overflow: visible; }
+  .l-sidebar.comment .sidebar,
+  .l-sidebar.comment-form-wrap .sidebar {
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
+    -ms-flex-order: -1;
+        order: -1; }
+    .l-sidebar.comment .sidebar img,
+    .l-sidebar.comment-form-wrap .sidebar img {
+      width: 3.125rem; }
+  .l-sidebar.comment .not-sidebar,
+  .l-sidebar.comment-form-wrap .not-sidebar {
+    min-width: calc(80% - 1.5rem); }
 
 .reply-list.reply-list {
   margin-left: 4.375rem;
