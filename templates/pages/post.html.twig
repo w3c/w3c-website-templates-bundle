@@ -7,6 +7,44 @@
 			{% if page.localized is defined and page.localized|length > 0 %}
 				{{ include('@W3CWebsiteTemplates/components/styles/page_translations.html.twig') }}
 			{% endif %}
+			{% if page.authors is defined and page.authors or page.postDate is defined and page.postDate %}
+				<section class="meta">
+					<h2 class="visuallyhidden">Author(s) and publish date</h2>
+					<dl>
+						{% if page.authors is defined and page.authors %}
+							<dt>By:</dt>
+							<dd class="l-cluster">
+								<ul class="clean-list" role="presentation">
+									{% for author in page.authors %}
+									<li>
+										<p class="with-icon--before with-icon--larger">{{ author.name }}</p>
+									</li>
+									{% endfor %}
+								</ul>
+							</dd>
+						{% endif %}
+						{% if page.postDate is defined and page.postDate %}
+							<dt>Published:</dt>
+							<dd></dd>
+						{% endif %}
+					</dl>
+{#					<dl>#}
+{#						<dt>By:</dt>#}
+{#						<dd class="l-cluster">#}
+{#							<ul class="clean-list" role="presentation">#}
+{#								<li>#}
+{#									<p class="with-icon--before with-icon--larger"><span class="avatar avatar--small icon"><img src="/dist/assets/svg/avatar.svg" width="32" height="32" alt="" aria-hidden="true"></span> Bert Boss</p>#}
+{#								</li>#}
+{#								<li>#}
+{#									<p class="with-icon--before with-icon--larger"><span class="avatar avatar--small icon"><img src="/dist/assets/svg/avatar.svg" width="32" height="32" alt="" aria-hidden="true"></span> Coralie Mercier</p>#}
+{#								</li>#}
+{#							</ul>#}
+{#						</dd>#}
+{#						<dt>Published:</dt>#}
+{#						<dd>4 January 2021</dd>#}
+{#					</dl>#}
+				</section>
+			{% endif %}
 			{% block components %}
 				{% if page.defaultFlexibleComponents is defined and page.defaultFlexibleComponents %}
 					{% for component in page.defaultFlexibleComponents %}
