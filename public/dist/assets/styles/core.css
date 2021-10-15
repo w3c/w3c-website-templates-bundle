@@ -1819,7 +1819,8 @@ h4,
   line-height: calc(32 / 20); }
 
 h5,
-.txt-saturn {
+.txt-saturn,
+.post__notes h3 {
   font-size: 1.125rem;
   line-height: calc(27 / 18); }
 
@@ -3471,6 +3472,8 @@ a.tag {
     -ms-flex-preferred-size: auto;
         flex-basis: auto; }
   .slide__cite.l-sidebar .not-sidebar {
+    -ms-flex-align: start;
+        align-items: flex-start;
     min-width: calc(70% - 1.5rem); }
     .slide__cite.l-sidebar .not-sidebar p:first-child {
       font-weight: bold; }
@@ -3739,19 +3742,21 @@ input[type=search] {
 .l-sidebar.comment {
   overflow: visible; }
 
-.l-sidebar.comment .sidebar,
-.l-sidebar.comment-form-wrap .sidebar {
-  -ms-flex-preferred-size: auto;
-      flex-basis: auto;
-  -ms-flex-order: -1;
-      order: -1; }
-  .l-sidebar.comment .sidebar img,
-  .l-sidebar.comment-form-wrap .sidebar img {
-    width: 3.125rem; }
-
-.l-sidebar.comment .not-sidebar,
-.l-sidebar.comment-form-wrap .not-sidebar {
-  min-width: calc(80% - 1.5rem); }
+.l-sidebar.comment,
+.l-sidebar.comment-form-wrap {
+  overflow: visible; }
+  .l-sidebar.comment .sidebar,
+  .l-sidebar.comment-form-wrap .sidebar {
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
+    -ms-flex-order: -1;
+        order: -1; }
+    .l-sidebar.comment .sidebar img,
+    .l-sidebar.comment-form-wrap .sidebar img {
+      width: 3.125rem; }
+  .l-sidebar.comment .not-sidebar,
+  .l-sidebar.comment-form-wrap .not-sidebar {
+    min-width: calc(80% - 1.5rem); }
 
 .reply-list.reply-list {
   margin-left: 4.375rem;

@@ -107,6 +107,7 @@
 
 	&.l-sidebar .not-sidebar {
 
+		align-items: flex-start;
 		min-width: calc(70% - 1.5rem);
 
 		p:first-child {

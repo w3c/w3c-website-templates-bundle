@@ -5,6 +5,10 @@ page:
     default_description: >-
         __page.default_description
     skip_to_content: __page.skip_to_content
+    translations: >
+        __page.translations
+    toc: __page.toc
+    related_content: __page.related
 footer:
     copyright: >-
         __footer.copyright {date, date, ::y}
@@ -34,6 +38,11 @@ banner:
         text: >-
             __banner.beta.text
         icon: __banner.beta.icon
+header:
+    logo_alt: __header.logo_alt
+    logo_link: __header.logo_link
+    search_link: __header.search_link
+    account_link: __header.account_link
 breadcrumbs:
     home: __breadcrumbs.home
 pagination:
@@ -90,13 +99,27 @@ components:
         donateurl: /donate
     content_slider:
         title: __components.content_slider.title
-blog:
+post:
+    meta:
+        credit: >
+            __post.meta.credit
+        published: >
+            __post.meta.published
+        skiplink: __post.meta.skiplink
+    notes_heading: __post.notes_heading
+    related:
+        heading: __post.related.heading
+        heading_tags: __post.related.heading_tags
+        heading_ecosystems: __post.related.heading_ecosystems
+        heading_groups: __post.related.heading_groups
+        heading_specifications: __post.related.heading_specifications
+    feed: __post.feed
     comments:
-        count: __blog.comments.count <span>{count}</span>
-        skip_to_form: __blog.comments.skip_to_form
-        reply: __blog.comments.reply
+        count: __post.comments.count <span>{count}</span>
+        skip_to_form: __post.comments.skip_to_form
+        reply: __post.comments.reply
         form:
-            title: Post a new comment
+            title: __post.comments.form.title
 notes:
     info:
         default_title: __notes.info.default_title

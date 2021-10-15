@@ -2,9 +2,9 @@
     <div class="global-nav__inner l-center">
         <a class="logo-link" href="/">
             <span class="logo">
-                <img src="{{ asset('svg/w3c-logo.svg', 'main') }}" alt="W3C logo" role="img"/>
+                <img src="{{ asset('svg/w3c-logo.svg', 'main') }}" alt="{{ 'header.logo_alt'|trans({}, 'w3c_website_templates_bundle') }}" role="img"/>
             </span>
-            <span class="visuallyhidden">W3C homepage</span>
+            <span class="visuallyhidden">{{ 'header.logo_link'|trans({}, 'w3c_website_templates_bundle') }}</span>
         </a>
         <button type="button" class="button button--ghost with-icon--after with-icon--larger" data-trigger="mobile-nav"
                 style="display: none;"></button>
@@ -45,14 +45,16 @@
                 </li>
             {% endfor %}
             <li class="top-nav-item">
+{#                @TODO add correct URL to search page #}
                 <a href="../page.html" class="nav-link icon-link">
-                    <span class="visuallyhidden">Search</span> <img class="icon" src="{{ asset('svg/search.svg', 'main') }}"
+                    <span class="visuallyhidden">{{ 'header.search_link'|trans({}, 'w3c_website_templates_bundle') }}</span> <img class="icon" src="{{ asset('svg/search.svg', 'main') }}"
                          width="24" height="24" alt aria-hidden="true"/>
                 </a>
             </li>
             <li class="top-nav-item">
+{#                @TODO add correct URL to account login page #}
                 <a href="../page.html" class="account-login icon-link with-icon--after">
-                    My account <span class="avatar avatar--small icon">
+                    {{ 'header.account_link'|trans({}, 'w3c_website_templates_bundle') }} <span class="avatar avatar--small icon">
                         <img src="{{ asset('svg/avatar.svg', 'main') }}" width="24" height="24" alt aria-hidden="true"/>
                     </span>
                 </a>

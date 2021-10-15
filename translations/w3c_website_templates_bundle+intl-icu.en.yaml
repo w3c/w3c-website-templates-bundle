@@ -6,6 +6,10 @@ page:
         The World Wide Web Consortium (W3C) is an international community where Member organizations, a full-time staff,
         and the public work together to develop Web standards.
     skip_to_content: Skip to content
+    translations: >
+        Read this page in:
+    toc: Page contents skip to links
+    related_content: Related content
 footer:
     copyright: >-
         Copyright © {date, date, ::y} W3C <sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr
@@ -40,7 +44,12 @@ banner:
         text: >-
             This is a new website. <a href="mailto:team-website-redesign@w3.org">Give feedback</a> to help us
             improve it.
-        icon: beta icon
+        icon: Beta icon
+header:
+    logo_alt: W3C logo
+    logo_link: Visit the W3C homepage
+    search_link: Search
+    account_link: My account
 breadcrumbs:
     home: Home
 pagination:
@@ -97,7 +106,21 @@ components:
         donateurl: /donate
     content_slider:
         title: What organisations think about us
-blog:
+post:
+    meta:
+        credit: >
+            By:
+        published: >
+            Published:
+        skiplink: Skip to {count} comments
+    notes_heading: Notes
+    related:
+        heading: Related to this post
+        heading_tags: Tags
+        heading_ecosystems: Ecosystems
+        heading_groups: Groups
+        heading_specifications: Specifications
+    feed: Subscribe to our {feed_type} feed
     comments:
         count: Comments <span>({count})</span>
         skip_to_form: Skip to comment form
