@@ -1819,7 +1819,8 @@ h4,
   line-height: calc(32 / 20); }
 
 h5,
-.txt-saturn {
+.txt-saturn,
+.post__notes h3 {
   font-size: 1.125rem;
   line-height: calc(27 / 18); }
 
