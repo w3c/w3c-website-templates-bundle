@@ -88,6 +88,7 @@ post:
         published: >
             __post.meta.published
         skiplink: __post.meta.skiplink
+    notes_heading: Notes
     related:
         heading: __post.related.heading
         heading_tags: __post.related.heading_tags

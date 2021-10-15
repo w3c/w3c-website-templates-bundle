@@ -95,6 +95,7 @@ post:
         published: >
             Published:
         skiplink: Skip to {count} comments
+    notes_heading: Notes
     related:
         heading: Related to this post
         heading_tags: Tags

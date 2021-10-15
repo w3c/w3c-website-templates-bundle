@@ -49,6 +49,14 @@
 					{% endfor %}
 				{% endif %}
 			{% endblock components %}
+			{% block post_notes %}
+				{% if page.notes is defined and page.notes %}
+					<section class="post__notes component--text">
+						<h2 class="visuallyhidden">{{ 'post.notes_heading'|trans({}, 'w3c_website_templates_bundle') }}</h2>
+						{{ page.notes|raw }}
+					</section>
+				{% endif %}
+			{% endblock %}
 		</article>
 		{% block related %}
 			{% if page.tags is defined or page.ecosystems is defined or page.groups is defined or page.specifications is defined %}
