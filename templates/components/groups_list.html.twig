@@ -1,0 +1,27 @@
+<div class="u-full-width component component--group-list">
+    <div class="l-center">
+        {% if (list_title is defined and list_title) or (list_introduction is defined and list_introduction)  %}
+        <div class="component--group-list__intro">
+            {% if (list_title is defined and list_title) %}
+            <h2>{{ list_title }}</h2>
+            {% endif %}
+            {% if (list_introduction is defined and list_introduction) %}
+            <p>{{ list_introduction }}</p>
+            {% endif %}
+        </div>
+        {% endif %}
+        {% if groups is not empty %}
+        <div class="component--collapsibles" data-component="collapsibles">
+            {% for group in groups %}
+            <div>
+                <h3 data-heading="collapsibles">{{ group.name }} <span>{{ group.type|capitalize }}</span></h3>
+                <div>
+                    <p>{{ group.description }}</p>
+                    <a href="{{ group.url }}">{{ 'components.groups_list.link_text'|trans({'name':group.name}, 'w3c_website_templates_bundle')  }}</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>

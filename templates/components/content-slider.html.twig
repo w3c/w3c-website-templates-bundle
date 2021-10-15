@@ -1,0 +1,37 @@
+<div class="component component--slider u-full-width" data-component="slider">
+	<div class="l-center">
+		<h2 id="slider-title">{{ 'components.content_slider.title'|trans({}, 'w3c_website_templates_bundle') }}</h2>
+		<section aria-labelledby="slider-title">
+			<ul class="clean-list" role="presentation">
+				{% for testimonial in testimonials %}
+				<li lang="{{ testimonial.language }}" dir="{{ testimonial.text_direction }}">
+					<figure class="slide">
+						<blockquote class="slide__quote">
+							<p>{{ testimonial.quote }}</p>
+						</blockquote>
+						<figcaption class="slide__cite l-sidebar">
+							<div>
+								{% if testimonial.logo %}
+								<div class="sidebar">
+									<div class="slide__logo">
+										<img src="{{ testimonial.logo }}" alt="{{ testimonial.organization }}" loading="lazy" />
+									</div>
+								</div>
+								{% endif %}
+								{% if testimonial.author %}
+								<div class="not-sidebar">
+									<p>{{ testimonial.author }}</p>
+									{% if testimonial.authorJobTitle %}
+									<p>{{ testimonial.authorJobTitle }}</p>
+									{% endif %}
+								</div>
+								{% endif %}
+							</div>
+						</figcaption>
+					</figure>
+				</li>
+				{% endfor %}
+			</ul>
+		</section>
+	</div>
+</div>
