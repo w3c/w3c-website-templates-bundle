@@ -1,0 +1,42 @@
+<div class="component component--evangelists">
+	{% if (title is defined and title) or (introduction is defined and introduction) %}
+	<div class="component--evangelists__text">
+		{% if (title is defined and title) %}
+		<h2 class="txt-earth">{{ title }}</h2>
+		{% endif %}
+		{% if (introduction is defined and introduction) %}
+		{{ introduction|raw }}
+		{% endif %}
+	</div>
+	{% endif %}
+	{% if evangelists is not empty %}
+	<div class="component--evangelists__list">
+		<h3 class="txt-saturn">{{ 'components.evangelists.list_title'|trans({'ecosystem_name': ecosystem_name}, 'w3c_website_templates_bundle') }}</h3>
+		<ul class="clean-list" role="list">
+			{% for evangelist in evangelists %}
+			<li class="l-box l-box--no-border">
+				<div class="l-sidebar">
+					<div>
+						<div class="sidebar">
+							<div class="avatar">
+								<img alt src="{{ evangelist.email|avatar }}" loading="lazy">
+							</div>
+						</div>
+						<div class="not-sidebar">
+							<p class="txt-saturn bold">{{ evangelist.name }}</p>
+							<p>{{ evangelist.work_title }}</p>
+							{% if evangelist.phone %}
+							<p>{{ 'components.people.tel'|trans({'number': evangelist.phone}, 'w3c_website_templates_bundle')|raw }}</p>
+							{% endif %}
+							{% if evangelist.email %}
+							<p>{{ 'components.people.email'|trans({'email': evangelist.email}, 'w3c_website_templates_bundle')|raw }}</p>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+	{% endif %}
+</div>

@@ -1,8 +1,53 @@
 {% extends '@W3CWebsiteTemplates/base.html.twig' %}
 
+{% block javascripts %}
+    {{ parent() }}
+    {% if page.members is not empty %}
+    <script>
+        var membersData = {{ page.members|json_encode|raw }};
+    </script>
+    {% endif %}
+{% endblock %}
+
 {% set body_classes = 'ecosystem' %}
 
 {% block main %}
     {{ include('@W3CWebsiteTemplates/components/styles/hero.html.twig') }}
+    {% if page.localized is defined and page.localized|length > 0 %}
+        {{ include('@W3CWebsiteTemplates/components/styles/page_translations.html.twig') }}
+    {% endif %}
     {% block components %}{% endblock %}
+    {% block activities_testimonials_members %}
+        {% if page.testimonials is not empty %}
+            {{ include('@W3CWebsiteTemplates/components/content-slider.html.twig', {'testimonials': page.testimonials }) }}
+        {% endif %}
+        {% if page.members is not empty %}
+            {{ include('@W3CWebsiteTemplates/components/members.html.twig', {'members': page.members, 'ctas' : {} }) }}
+        {% endif %}
+    {% endblock %}
+    {% block bottom_components %}{% endblock %}
+{% endblock %}
+
+{% block closing_body_scripts %}
+    {% if page.testimonials is not empty or page.members is not empty %}
+            <script>
+        {% if page.testimonials is not empty%}
+                if (document.documentElement.classList.contains('js')) {
+
+                        let sliderScript = document.createElement('script');
+                        sliderScript.src = "{{ asset('js/slider.js','main') }}";
+                        document.querySelector('body').appendChild(sliderScript);
+
+                }
+
+        {% endif %}
+        {% if page.members is not empty %}
+
+                    var membersScript = document.createElement('script');
+                    membersScript.src = "{{ asset('js/members.js', 'main') }}";
+                    document.querySelector('body').appendChild(membersScript);
+
+        {% endif %}
+            </script>
+    {% endif %}
 {% endblock %}
