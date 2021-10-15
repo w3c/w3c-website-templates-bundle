@@ -3472,6 +3472,8 @@ a.tag {
     -ms-flex-preferred-size: auto;
         flex-basis: auto; }
   .slide__cite.l-sidebar .not-sidebar {
+    -ms-flex-align: start;
+        align-items: flex-start;
     min-width: calc(70% - 1.5rem); }
     .slide__cite.l-sidebar .not-sidebar p:first-child {
       font-weight: bold; }
