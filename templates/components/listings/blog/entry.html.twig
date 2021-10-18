@@ -23,7 +23,7 @@
                             <div>
                                 <p>
                                     By:
-                                    {% if entry.authors %}
+                                    {% if entry.authors is defined and entry.authors|length > 0 %}
                                         {{ entry.authors|map(a => a.name)|join(', ', ' and ') }}
                                     {% else %}
                                         {{ entry.author.name }}
