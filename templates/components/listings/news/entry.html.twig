@@ -13,16 +13,6 @@
                                 </p>
                             </div>
                         {% endif %}
-                            <div>
-                                <p>
-                                    By:
-                                    {% if entry.authors %}
-                                        {{ entry.authors|map(a => a.name)|join(', ', ' and ') }}
-                                    {% else %}
-                                        {{ entry.author.name }}
-                                    {% endif %}
-                                </p>
-                            </div>
                     </div>
                 </div>
                 <p>{{ entry.excerpt }}</p>
