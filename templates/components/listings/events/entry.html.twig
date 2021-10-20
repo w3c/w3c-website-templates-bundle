@@ -30,7 +30,7 @@
             {% endfor %}
         </p>
     {% endif %}
-    <p class="txt-pluto">{{ entry.type[0].title }}</p>
+    <p class="txt-pluto">{{ entry.type|capitalize }}</p>
 {% endmacro %}
 
 {% if entry.thumbnailImage %}
@@ -42,8 +42,8 @@
             <div class="sidebar">
                 <a href="{{ entry.uri|absolute_url(app.request.locale) }}" class="l-frame card__image">
                     <img
-                            src="{{ entry.thumbnailImage[0].url }}"
-                            srcset="{{ entry.thumbnailImage[0].srcset }}"
+                            src="{{ entry.thumbnailImage.src }}"
+                            srcset="{{ entry.thumbnailImage.srcset }}"
                             loading="lazy"
                             {% if entry.thumbnailAltText %}
                                 alt="{{ entry.thumbnailAltText }}"
