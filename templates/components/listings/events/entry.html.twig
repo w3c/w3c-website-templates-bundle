@@ -1,0 +1,64 @@
+{% macro base_entry(entry) %}
+    <div class="l-sidebar">
+        <div>
+            <div class="not-sidebar">
+                <h2 class="card__heading">
+                    <a class="card__link" href="{{ entry.uri|absolute_url(app.request.locale) }}">{{ entry.title }}</a>
+                </h2>
+                <p>{{ entry.excerpt }}</p>
+            </div>
+            <div class="sidebar">
+                <div class="date-location">
+                    <div>
+                        <img src="{{ asset('svg/calendar.svg', 'main') }}" width="18px" height="20px" alt role="img"
+                             aria-hidden="true"/>
+                    </div>
+                    <div>
+                        <p>
+                            <time datetime="2021-01-28T18:00Z">28 January 2021, 18:00 - 19:30 UTC</time>
+                        </p>
+                        <p>{{ entry.location }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if entry.categories|length > 0 %}
+        <p class="txt-pluto">
+            {% for category in entry.categories %}
+                <a href="{{ category.uri }}">{{ category.title }}</a>
+            {% endfor %}
+        </p>
+    {% endif %}
+    <p class="txt-pluto">{{ entry.type[0].title }}</p>
+{% endmacro %}
+
+{% if entry.thumbnailImage %}
+    <div class="l-sidebar card card--event {{ entry|event_type }}" data-component="card">
+        <div>
+            <div class="not-sidebar card__text">
+                {{ _self.base_entry(entry) }}
+            </div>
+            <div class="sidebar">
+                <a href="{{ entry.uri|absolute_url(app.request.locale) }}" class="l-frame card__image">
+                    <img
+                            src="{{ entry.thumbnailImage[0].url }}"
+                            srcset="{{ entry.thumbnailImage[0].srcset }}"
+                            loading="lazy"
+                            {% if entry.thumbnailAltText %}
+                                alt="{{ entry.thumbnailAltText }}"
+                            {% else %}
+                                alt=""
+                            {% endif %}
+                    />
+                </a>
+            </div>
+        </div>
+    </div>
+{% else %}
+    <div class="card card--event {{ entry|event_type }}" data-component="card">
+        <div class="card__text">
+            {{ _self.base_entry(entry) }}
+        </div>
+    </div>
+{% endif %}

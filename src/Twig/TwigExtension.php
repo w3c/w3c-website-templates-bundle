@@ -41,7 +41,8 @@ class TwigExtension extends AbstractExtension
             new TwigFilter('preg_replace', [$this, 'pregReplace']),
             new TwigFilter('markup_attrs', [$this, 'markupAttrs']),
             new TwigFilter('time_diff', [$this, 'timeDiff'], ['needs_environment' => true]),
-            new TwigFilter('avatar', [$this, 'avatar'])
+            new TwigFilter('avatar', [$this, 'avatar']),
+            new TwigFilter('event_type', [$this, 'eventType'])
         ];
     }
 
@@ -153,5 +154,21 @@ class TwigExtension extends AbstractExtension
         }
 
         return $url;
+    }
+
+    public function eventType(array $event): string
+    {
+        switch ($event['type'][0]['slug']) {
+            case 'global':
+            case 'ac-meeting':
+            case 'tpac-meeting':
+                return 'meeting';
+            case 'workshops':
+                return 'workshop';
+            case 'talks':
+                return 'talk';
+            case 'conferences':
+                return 'conference';
+        }
     }
 }

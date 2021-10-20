@@ -1,0 +1,39 @@
+<form class="l-switcher filters" novalidate>
+    <div>
+        <div>
+            <div class="field">
+                <label for="filter-event-type">
+                    <span class="faux-label">Event type</span>
+                </label>
+                <select id="filter-event-type" name="filter-event-type">
+                    <option value="">All</option>
+                    <option value="conferences">Conference</option>
+                    <option value="meetings">Meeting</option>
+                    <option value="ac-meeting">-- AC Meeting</option>
+                    <option value="tpac-meeting">-- TPAC Meeting</option>
+                    <option value="talks">Talk</option>
+                    <option value="workshops">Workshop</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <div class="field">
+                <label for="filter-event-cat">
+                    <span class="faux-label">Category</span>
+                </label>
+                <select id="filter-event-cat" name="filter-event-cat">
+                    <option value="">All</option>
+                    {% for category in categories %}
+                        <option value="{{ category.slug }}">{{ category.title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div>
+            <div class="input-group">
+                <button class="button" type="submit">Show results</button>
+                <button class="button button--ghost" type="reset">Clear all</button>
+            </div>
+        </div>
+    </div>
+</form>
