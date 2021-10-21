@@ -136,3 +136,11 @@ notes:
         default_title: Warning
     errors:
         default_title: There is a problem
+events:
+    date_range: >-
+        {same_day, select,
+            1  {{start, date, d MMMM YYYY, H:mm} - {end, date, H:mm z}}
+            other {{start, date, d MMMM YYYY, H:mm} - {end, date, d MMMM YYYY, H:mm z}}
+        }
+
+

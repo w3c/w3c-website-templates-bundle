@@ -15,7 +15,16 @@
                     </div>
                     <div>
                         <p>
-                            <time datetime="2021-01-28T18:00Z">28 January 2021, 18:00 - 19:30 UTC</time>
+                            <time datetime="{{ entry.start|date('c') }}">
+                                {{ 'events.date_range'|trans(
+                                    {
+                                        start: entry.start,
+                                        end: entry.end,
+                                        same_day: (entry.start|date('Y-m-d')) == (entry.end|date('Y-m-d'))
+                                    },
+                                    'w3c_website_templates_bundle'
+                                ) }}
+                            </time>
                         </p>
                         <p>{{ entry.location }}</p>
                     </div>
@@ -32,6 +41,7 @@
 {% endmacro %}
 
 {% if entry.thumbnailImage %}
+    {{ dump(app) }}
     <div class="l-sidebar card card--event {{ entry|event_type }}" data-component="card">
         <div>
             <div class="not-sidebar card__text">
