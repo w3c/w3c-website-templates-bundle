@@ -79,9 +79,9 @@
             Promise.all([myFont.load()]).then(function () {
                 document.documentElement.className += " fonts-loaded";
             });
-        </script>
 
-        <script>
+            var jsAssetsPath = "{{ asset('/', 'main') }}";
+
             (function () {
                 var linkEl = document.getElementById('advanced-stylesheet');
                 if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
