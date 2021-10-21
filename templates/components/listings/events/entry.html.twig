@@ -3,7 +3,7 @@
         <div>
             <div class="not-sidebar">
                 <h2 class="card__heading">
-                    <a class="card__link" href="{{ entry.uri|absolute_url(app.request.locale) }}">{{ entry.title }}</a>
+                    <a class="card__link" href="{{ entry.url }}">{{ entry.title }}</a>
                 </h2>
                 <p>{{ entry.excerpt }}</p>
             </div>
@@ -23,14 +23,12 @@
             </div>
         </div>
     </div>
-    {% if entry.categories|length > 0 %}
+    {% if entry.category %}
         <p class="txt-pluto">
-            {% for category in entry.categories %}
-                <a href="{{ category.uri }}">{{ category.title }}</a>
-            {% endfor %}
+            <a href="{{ entry.category.url }}">{{ entry.category.title }}</a>
         </p>
     {% endif %}
-    <p class="txt-pluto">{{ entry.type[0].title }}</p>
+    <p class="txt-pluto">{{ entry.type.title }}</p>
 {% endmacro %}
 
 {% if entry.thumbnailImage %}
@@ -40,10 +38,10 @@
                 {{ _self.base_entry(entry) }}
             </div>
             <div class="sidebar">
-                <a href="{{ entry.uri|absolute_url(app.request.locale) }}" class="l-frame card__image">
+                <a href="{{ entry.url }}" class="l-frame card__image">
                     <img
-                            src="{{ entry.thumbnailImage[0].url }}"
-                            srcset="{{ entry.thumbnailImage[0].srcset }}"
+                            src="{{ entry.thumbnailImage.url }}"
+                            srcset="{{ entry.thumbnailImage.srcset }}"
                             loading="lazy"
                             {% if entry.thumbnailAltText %}
                                 alt="{{ entry.thumbnailAltText }}"
