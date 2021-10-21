@@ -12,17 +12,15 @@
             </div>
             {% endif %}
             <ul class="clean-list" role="presentation">
-                {% if entries in not empty %}
-                    {% for entry in entries %}
-                        <li>
-
-                        </li>
+                {% if entries is not empty %}
+                    {% for blog in entries %}
+                            {{ include('@W3CWebsiteTemplates/components/styles/crosslink.html.twig', {'crosslink': blog}) }}
                     {% endfor %}
                 {% endif %}
                 {% if events is not empty %}
                     {% for event in events %}
                         <li>
-                            {{ include('@W3CWebsiteTemplates/components/listings/events/entry.html.twig', {'entry':event }) }}
+                            {{ include('@W3CWebsiteTemplates/components/listings/events/entry.html.twig', {'entry': event }) }}
                         </li>
                     {% endfor %}
                 {% endif %}

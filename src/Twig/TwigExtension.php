@@ -158,7 +158,7 @@ class TwigExtension extends AbstractExtension
 
     public function eventType(array $event): string
     {
-        switch ($event['type']) {
+        switch ($event['type']['slug']) {
             case 'global':
             case 'ac-meeting':
             case 'tpac-meeting':
