@@ -7,7 +7,6 @@ use DateTimeImmutable;
 use DateTimeZone;
 use Exception;
 use SimpleXMLElement;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Translation\IdentityTranslator;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Environment;
