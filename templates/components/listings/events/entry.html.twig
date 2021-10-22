@@ -1,21 +1,3 @@
-{% macro date_range(entry, locale) %}
-    {% if locale == 'en' %}
-        {% set locale = 'en-GB' %}
-    {% endif %}
-    {% set tz = entry.tz %}
-    {{ 'events.date_range'|trans(
-        {
-            'start_date': entry.start|format_datetime('long', 'none', locale=locale, timezone=tz),
-            'start_time': entry.start|format_datetime('none', 'short', locale=locale, timezone=tz),
-            'end_date': entry.end|format_datetime('long', 'none', locale=locale, timezone=tz),
-            'end_time': entry.end|format_datetime('none', 'short', locale=locale, timezone=tz),
-            'timezone': entry.tz,
-            'same_day': (entry.start|date('Y-m-d', tz)) == (entry.end|date('Y-m-d', tz))
-        },
-        'w3c_website_templates_bundle'
-    ) }}
-{% endmacro %}
-
 {% macro base_entry(entry) %}
     <div class="l-sidebar">
         <div>
@@ -34,7 +16,7 @@
                     <div>
                         <p>
                             <time datetime="{{ entry.start|date('c') }}">
-                                {{ _self.date_range(entry, site.locale) }}
+                                {{ entry|date_range(site.locale) }}
                             </time>
                         </p>
                         <p>{{ entry.location }}</p>
