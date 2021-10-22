@@ -1,6 +1,5 @@
 {% macro date(entry, locale) %}
     {% set tz = entry.start.getTimezone() %}
-    {% set tz = '+1' %}
     {% if entry.start|date('Y-m-d', tz) == entry.end|date('Y-m-d', tz) %}
         {{ entry.start|format_datetime('long', 'short', locale=locale, timezone=tz) }}
         -
