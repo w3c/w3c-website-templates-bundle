@@ -106,6 +106,17 @@ components:
         donateurl: /donate
     content_slider:
         title: What organisations think about us
+    crosslinks:
+        types:
+            blogpost: Blog
+            ecosystem: Ecosystem
+            ecosystems: Ecosystems
+            event: Event
+            events: Event
+            news: News
+            pressrelease: Press release
+            pressreleases: Press releases
+            page: Page
 post:
     meta:
         credit: >

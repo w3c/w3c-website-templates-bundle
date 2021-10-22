@@ -7,37 +7,7 @@
             </div>
             <ul class="clean-list" role="presentation">
                 {% for crosslink in crosslinks['links'] %}
-                    <li>
-                        <div class="card" data-component="card">
-                            <div class="card__text">
-                                <h3 class="card__heading">
-                                    <a href="{{ crosslink['url'] }}" class="card__link">{{ crosslink['title'] }}</a>
-                                </h3>
-                                <p>
-                                    {% if crosslink['text'] is defined %}{{ crosslink['text'] }}{% endif %}
-                                </p>
-                                <p class="txt-pluto">
-                                    {% if crosslink['category'] is defined %}{{ crosslink['category'] }}{% endif %}
-                                </p>
-                            </div>
-                            {% if crosslink['img'] is defined and crosslink['img'] %}
-                                <div class="l-frame l-frame--16-9 card__image">
-                                    {% set attr = {'loading': 'lazy'}|merge(crosslink['img']) %}
-                                    {% set attributes -%}
-                                        {%- for attrname, attrvalue in attr -%}
-                                            {{- " " -}}
-                                            {%- if attrvalue is same as(true) -%}
-                                                {{- attrname }}="{{ attrname }}"
-                                            {%- elseif attrvalue is not same as(false) -%}
-                                                {{- attrname }}="{{ attrvalue }}"
-                                            {%- endif -%}
-                                        {%- endfor -%}
-                                    {%- endset -%}
-                                    <img {{ attributes }} sizes="(min-width: 64em) 33vw, (min-width: 48em) 50vw, 100vw" />
-                                </div>
-                            {% endif %}
-                        </div>
-                    </li>
+                    {{ include('@W3CWebsiteTemplates/components/styles/crosslink.html.twig', {'crosslink': crosslink}) }}
                 {% endfor %}
             </ul>
         </div>

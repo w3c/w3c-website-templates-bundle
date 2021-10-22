@@ -3,7 +3,7 @@
         <div>
             <div class="not-sidebar">
                 <h2 class="card__heading">
-                    <a class="card__link" href="{{ entry.url }}">{{ entry.title }}</a>
+                    <a class="card__link" href="{{ entry.url|absolute_url(app.request.locale) }}">{{ entry.title }}</a>
                 </h2>
                 <p>{{ entry.excerpt }}</p>
             </div>
@@ -56,7 +56,7 @@
                             {% if entry.thumbnailAltText %}
                                 alt="{{ entry.thumbnailAltText }}"
                             {% else %}
-                                alt=""
+                                alt="" role="presentation"
                             {% endif %}
                     />
                 </a>

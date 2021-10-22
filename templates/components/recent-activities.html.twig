@@ -1,0 +1,30 @@
+<div class="component component--activity u-full-width">
+    <div class="l-center">
+        <div class="component component--columns component--columns--images">
+            {% if title is not empty or introduction is not empty %}
+            <div class="component--columns__intro">
+                {% if title is not empty %}
+                <h2 class="txt-earth">{{ title }}</h2>
+                {% endif %}
+                {% if introduction is not empty %}
+                <p>{{ introduction }}</p>
+                {% endif %}
+            </div>
+            {% endif %}
+            <ul class="clean-list" role="presentation">
+                {% if entries is not empty %}
+                    {% for blog in entries %}
+                            {{ include('@W3CWebsiteTemplates/components/styles/crosslink.html.twig', {'crosslink': blog}) }}
+                    {% endfor %}
+                {% endif %}
+                {% if events is not empty %}
+                    {% for event in events %}
+                        <li>
+                            {{ include('@W3CWebsiteTemplates/components/styles/related-event-card.html.twig', {'entry': event }) }}
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>

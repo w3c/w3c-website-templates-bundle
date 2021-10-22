@@ -99,6 +99,17 @@ components:
         donateurl: /donate
     content_slider:
         title: __components.content_slider.title
+    crosslinks:
+        types:
+            blogpost: __components.crosslinks.types.blogpost
+            ecosystem: __components.crosslinks.types.ecosystem
+            ecosystems: __components.crosslinks.types.ecosystems
+            event: __components.crosslinks.types.event
+            events: __components.crosslinks.types.events
+            news: __components.crosslinks.types.news
+            pressrelease: __components.crosslinks.types.pressrelease
+            pressreleases: __components.crosslinks.types.pressreleases
+            page: __components.crosslinks.types.page
 post:
     meta:
         credit: >

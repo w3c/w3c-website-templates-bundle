@@ -18,6 +18,14 @@
     {% endif %}
     {% block components %}{% endblock %}
     {% block activities_testimonials_members %}
+        {% if page.recentActivities.recentEntries is not empty or page.recentActivities.recentEvents is not empty %}
+            {{ include('@W3CWebsiteTemplates/components/recent-activities.html.twig', {
+                'title': page.recentActivitiesComponentTitle,
+                'introduction': page.recentActivitiesComponentIntroduction,
+                'entries': page.recentActivities.recentEntries,
+                'events': page.recentActivities.recentEvents
+            }) }}
+        {% endif %}
         {% if page.testimonials is not empty %}
             {{ include('@W3CWebsiteTemplates/components/content-slider.html.twig', {'testimonials': page.testimonials }) }}
         {% endif %}
