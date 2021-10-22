@@ -20,7 +20,7 @@
                 {% if events is not empty %}
                     {% for event in events %}
                         <li>
-                            {{ include('@W3CWebsiteTemplates/components/listings/events/entry.html.twig', {'entry': event }) }}
+                            {{ include('@W3CWebsiteTemplates/components/styles/related-event-card.html.twig', {'entry': event }) }}
                         </li>
                     {% endfor %}
                 {% endif %}
