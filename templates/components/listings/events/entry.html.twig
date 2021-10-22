@@ -1,14 +1,14 @@
 {% macro date(entry, locale) %}
     {% if entry.start|date('Y-m-d') == entry.end|date('Y-m-d') %}
-        {{ entry.start|format_datetime('long', 'short', locale=locale) }}
+        {{ entry.start|format_datetime('long', 'short', locale=locale, timezone=entry.start.getTimezone()) }}
         -
-        {{ entry.end|format_datetime('none', 'short', locale=locale) }}
+        {{ entry.end|format_datetime('none', 'short', locale=locale, timezone=entry.start.getTimezone()) }}
     {% else %}
-        {{ entry.start|format_datetime('long', 'short', locale=locale) }}
+        {{ entry.start|format_datetime('long', 'short', locale=locale, timezone=entry.start.getTimezone()) }}
         -
-        {{ entry.end|format_datetime('long', 'short', locale=locale) }}
+        {{ entry.end|format_datetime('long', 'short', locale=locale, timezone=entry.start.getTimezone()) }}
     {% endif %}
-    {{ entry.end|format_datetime(pattern='z', locale=locale) }}
+    {{ entry.end|format_datetime(pattern='v', locale=locale, timezone=entry.start.getTimezone()) }}
 {% endmacro %}
 
 {% macro base_entry(entry) %}
