@@ -42,7 +42,8 @@ class TwigExtension extends AbstractExtension
             new TwigFilter('markup_attrs', [$this, 'markupAttrs']),
             new TwigFilter('time_diff', [$this, 'timeDiff'], ['needs_environment' => true]),
             new TwigFilter('avatar', [$this, 'avatar']),
-            new TwigFilter('event_type', [$this, 'eventType'])
+            new TwigFilter('event_type', [$this, 'eventType']),
+            new TwigFilter('crosslink_type', [$this, 'crosslinkType'])
         ];
     }
 
@@ -169,6 +170,44 @@ class TwigExtension extends AbstractExtension
                 return 'talk';
             case 'conferences':
                 return 'conference';
+        }
+    }
+
+    /**
+     * Returns the translatable string reference that matches the Craft section handle.
+     * Useful in crosslink cards which indicate the type of content at the bottom.
+     *
+     * @param string $sectionHandle - Craft section handle
+     * @return string translatable string reference
+     */
+    public function crosslinkType(?string $category): string
+    {
+        $referencePrepend = "components.crosslinks.types.";
+        switch ($category) {
+            case 'blogPosts':
+            case 'blogListing':
+                return $referencePrepend . 'blogpost';
+            case 'ecosystems':
+                return $referencePrepend . 'ecosystem';
+            case 'ecosystemsLandingPage':
+                return $referencePrepend . 'ecosystems';
+            case 'events':
+                return $referencePrepend . 'event';
+            case 'eventsListing':
+                return $referencePrepend . 'events';
+            case 'newsArticles':
+            case 'newsListing':
+                return $referencePrepend . 'news';
+            case 'pressReleases':
+                return $referencePrepend . 'pressrelease';
+            case 'pressReleasesListing':
+                return $referencePrepend . 'pressreleases';
+            case 'pages':
+            case 'homepage':
+            case 'null':
+                return $referencePrepend. 'page';
+            default:
+                return ucfirst($category);
         }
     }
 }
