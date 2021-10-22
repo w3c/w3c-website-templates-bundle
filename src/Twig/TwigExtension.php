@@ -3,12 +3,15 @@
 namespace W3C\WebsiteTemplatesBundle\Twig;
 
 use DateTime;
+use DateTimeImmutable;
+use DateTimeZone;
 use Exception;
 use SimpleXMLElement;
 use Symfony\Component\Translation\IdentityTranslator;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Environment;
 use Twig\Extension\AbstractExtension;
+use Twig\Extra\Intl\IntlExtension;
 use Twig\TwigFilter;
 
 class TwigExtension extends AbstractExtension
@@ -23,8 +26,10 @@ class TwigExtension extends AbstractExtension
     ];
 
     private $translator;
+    private IntlExtension $intl;
+    private Environment $twig;
 
-    public function __construct(TranslatorInterface $translator = null)
+    public function __construct(IntlExtension $intl, TranslatorInterface $translator, Environment $twig)
     {
         // Ignore the IdentityTranslator, otherwise the parameters won't be replaced properly
         if ($translator instanceof IdentityTranslator) {
@@ -32,6 +37,8 @@ class TwigExtension extends AbstractExtension
         }
 
         $this->translator = $translator;
+        $this->intl = $intl;
+        $this->twig = $twig;
     }
 
     public function getFilters()
@@ -43,7 +50,8 @@ class TwigExtension extends AbstractExtension
             new TwigFilter('time_diff', [$this, 'timeDiff'], ['needs_environment' => true]),
             new TwigFilter('avatar', [$this, 'avatar']),
             new TwigFilter('event_type', [$this, 'eventType']),
-            new TwigFilter('crosslink_type', [$this, 'crosslinkType'])
+            new TwigFilter('crosslink_type', [$this, 'crosslinkType']),
+            new TwigFilter('date_range', [$this, 'dateRange'])
         ];
     }
 
@@ -171,6 +179,8 @@ class TwigExtension extends AbstractExtension
             case 'conferences':
                 return 'conference';
         }
+
+        return '';
     }
 
     /**
@@ -209,5 +219,37 @@ class TwigExtension extends AbstractExtension
             default:
                 return ucfirst($category);
         }
+    }
+
+    public function dateRange(array $event, string $locale): string
+    {
+        if ($locale == 'en') {
+            $locale = 'en-GB';
+        }
+        $locale = 'ar';
+
+        $tz        = $event['tz'];
+        $start     = DateTimeImmutable::createFromMutable($event['start'])->setTimezone(new DateTimeZone($tz));
+        $end       = DateTimeImmutable::createFromMutable($event['end'])->setTimezone(new DateTimeZone($tz));
+        $startDate = $this->intl->formatDate($this->twig, $start, 'long', '', $tz, 'gregorian', $locale);
+        $startTime = $this->intl->formatTime($this->twig, $start, 'short', '', $tz, 'gregorian', $locale);
+        $endDate   = $this->intl->formatDate($this->twig, $end, 'long', '', $tz, 'gregorian', $locale);
+        $endTime   = $this->intl->formatTime($this->twig, $end, 'short', '', $tz, 'gregorian', $locale);
+        $sameDay   = $start->format('Y-m-d') === $end->format('Y-m-d');
+
+        $timezone = $this->intl->formatDate($this->twig, $start, 'medium', 'v', $tz, $locale);
+
+        return $this->translator->trans(
+            'events.date_range',
+            [
+                'start_date' => $startDate,
+                'start_time' => $startTime,
+                'end_date'   => $endDate,
+                'end_time'   => $endTime,
+                'timezone'   => $timezone,
+                'same_day'   => $sameDay
+            ],
+            'w3c_website_templates_bundle'
+        );
     }
 }
