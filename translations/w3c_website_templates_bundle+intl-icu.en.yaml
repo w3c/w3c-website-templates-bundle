@@ -150,8 +150,6 @@ notes:
 events:
     date_range: >-
         {same_day, select,
-            1  {{start, date, d MMMM YYYY, H:mm} - {end, date, H:mm z}}
-            other {{start, date, d MMMM YYYY, H:mm} - {end, date, d MMMM YYYY, H:mm z}}
+            1  {{start_date}, {start_time} - {end_time} {timezone}}
+            other {{start_date}, {start_time} - {end_date}, {end_time} {timezone}}
         }
-
-

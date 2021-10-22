@@ -1,15 +1,19 @@
-{% macro date(entry, locale) %}
-    {% set tz = entry.start.getTimezone() %}
-    {% if entry.start|date('Y-m-d', tz) == entry.end|date('Y-m-d', tz) %}
-        {{ entry.start|format_datetime('long', 'short', locale=locale, timezone=tz) }}
-        -
-        {{ entry.end|format_datetime('none', 'short', locale=locale, timezone=tz) }}
-    {% else %}
-        {{ entry.start|format_datetime('long', 'short', locale=locale, timezone=tz) }}
-        -
-        {{ entry.end|format_datetime('long', 'short', locale=locale, timezone=tz) }}
+{% macro date_range(entry, locale) %}
+    {% if locale == 'en' %}
+        {% set locale = 'en-GB' %}
     {% endif %}
-    {{ entry.end|format_datetime(pattern='v', locale=locale, timezone=tz) }}
+    {% set tz = entry.tz %}
+    {{ 'events.date_range'|trans(
+        {
+            'start_date': entry.start|format_datetime('long', 'none', locale=locale, timezone=tz),
+            'start_time': entry.start|format_datetime('none', 'short', locale=locale, timezone=tz),
+            'end_date': entry.end|format_datetime('long', 'none', locale=locale, timezone=tz),
+            'end_time': entry.end|format_datetime('none', 'short', locale=locale, timezone=tz),
+            'timezone': entry.tz,
+            'same_day': (entry.start|date('Y-m-d', tz)) == (entry.end|date('Y-m-d', tz))
+        },
+        'w3c_website_templates_bundle'
+    ) }}
 {% endmacro %}
 
 {% macro base_entry(entry) %}
@@ -30,22 +34,7 @@
                     <div>
                         <p>
                             <time datetime="{{ entry.start|date('c') }}">
-                                {#
-                                {{ 'events.date_range'|trans(
-                                    {
-                                        start: entry.start,
-                                        end: entry.end,
-                                        same_day: (entry.start|date('Y-m-d')) == (entry.end|date('Y-m-d'))
-                                    },
-                                    'w3c_website_templates_bundle'
-                                ) }}
-                                #}
-                                <dl>
-                                {% for locale in ['en', 'en-US', 'en-UK', 'fr', 'ar'] %}
-                                    <dt>{{ locale }}:</dt>
-                                    <dd>{{ _self.date(entry, locale) }}</dd>
-                                {% endfor %}
-                                </dl>
+                                {{ _self.date_range(entry, site.locale) }}
                             </time>
                         </p>
                         <p>{{ entry.location }}</p>
