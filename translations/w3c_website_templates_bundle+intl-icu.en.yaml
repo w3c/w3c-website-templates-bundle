@@ -148,6 +148,7 @@ notes:
     errors:
         default_title: There is a problem
 events:
+    # same_day = 1 when start_date == end_date
     date_range: >-
         {same_day, select,
             1  {{start_date}, {start_time} - {end_time} {timezone}}
