@@ -25,7 +25,7 @@
     </div>
     {% if entry.category is not null %}
         <p class="txt-pluto">
-            <a href="{{ entry.category.uri }}">{{ entry.category.title }}</a>
+            <a href="{{ entry.category.url }}">{{ entry.category.title }}</a>
         </p>
     {% endif %}
     <p class="txt-pluto">{{ entry|event_type|capitalize }}</p>
