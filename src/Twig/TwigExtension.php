@@ -226,7 +226,6 @@ class TwigExtension extends AbstractExtension
         if ($locale == 'en') {
             $locale = 'en-GB';
         }
-        $locale = 'ar';
 
         $tz        = $event['tz'];
         $start     = DateTimeImmutable::createFromMutable($event['start'])->setTimezone(new DateTimeZone($tz));
@@ -237,7 +236,7 @@ class TwigExtension extends AbstractExtension
         $endTime   = $this->intl->formatTime($this->twig, $end, 'short', '', $tz, 'gregorian', $locale);
         $sameDay   = $start->format('Y-m-d') === $end->format('Y-m-d');
 
-        $timezone = $this->intl->formatDate($this->twig, $start, 'medium', 'v', $tz, $locale);
+        //$timezone = $this->intl->formatDate($this->twig, $start, 'medium', 'v', $tz, $locale);
 
         return $this->translator->trans(
             'events.date_range',
@@ -246,7 +245,7 @@ class TwigExtension extends AbstractExtension
                 'start_time' => $startTime,
                 'end_date'   => $endDate,
                 'end_time'   => $endTime,
-                'timezone'   => $timezone,
+                'timezone'   => $tz,
                 'same_day'   => $sameDay
             ],
             'w3c_website_templates_bundle'
