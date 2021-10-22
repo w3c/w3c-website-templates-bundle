@@ -23,12 +23,12 @@
             </div>
         </div>
     </div>
-    {% if entry.category is not null %}
+    {% if entry.category %}
         <p class="txt-pluto">
             <a href="{{ entry.category.url }}">{{ entry.category.title }}</a>
         </p>
     {% endif %}
-    <p class="txt-pluto">{{ entry|event_type|capitalize }}</p>
+    <p class="txt-pluto">{{ entry.type.title }}</p>
 {% endmacro %}
 
 {% if entry.thumbnailImage %}
@@ -38,9 +38,9 @@
                 {{ _self.base_entry(entry) }}
             </div>
             <div class="sidebar">
-                <a href="{{ entry.url|absolute_url(app.request.locale) }}" class="l-frame card__image">
+                <a href="{{ entry.url }}" class="l-frame card__image">
                     <img
-                            src="{{ entry.thumbnailImage.src }}"
+                            src="{{ entry.thumbnailImage.url }}"
                             srcset="{{ entry.thumbnailImage.srcset }}"
                             loading="lazy"
                             {% if entry.thumbnailAltText %}
