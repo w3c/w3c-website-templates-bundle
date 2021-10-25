@@ -235,7 +235,10 @@ class TwigExtension extends AbstractExtension
         $endDate   = $this->intl->formatDate($this->twig, $end, 'long', '', $tz, 'gregorian', $locale);
         $endTime   = $this->intl->formatTime($this->twig, $end, 'short', '', $tz, 'gregorian', $locale);
         $sameDay   = $start->format('Y-m-d') === $end->format('Y-m-d');
-
+        //$timezone = $this->intl->getTimezoneName($tz, $locale);
+        //$timezone = $this->intl->formatDate($this->twig, $start, 'short', 'zzz', $tz, 'gregorian', $locale);
+        $timezone = $this->intl->formatDate($this->twig, $start, 'short', 'zzzz', $tz, 'gregorian', $locale);
+        //$timezone = $start->format('T');
         return $this->translator->trans(
             'events.date_range',
             [
@@ -243,7 +246,7 @@ class TwigExtension extends AbstractExtension
                 'start_time' => $startTime,
                 'end_date'   => $endDate,
                 'end_time'   => $endTime,
-                'timezone'   => $start->format('T'),
+                'timezone'   => $timezone,
                 'same_day'   => $sameDay
             ],
             'w3c_website_templates_bundle'
