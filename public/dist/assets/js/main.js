@@ -23,7 +23,11 @@ var accountMenu = function () {
   var apiRequestsCompleted = 0; //when goes to two, it means we have all the data required to build the user menu
 
   var buildAccountMenu = function buildAccountMenu(userInfo, microCopy) {
-    //generating the menu markup
+    if (userInfo == null || userInfo.length < 1 || microCopy == null || microCopy.length < 1) {
+      return;
+    } //generating the menu markup
+
+
     var fragment = document.createDocumentFragment();
     var status = document.querySelector('.global-header [role="status"]');
     var statusText;
@@ -121,6 +125,7 @@ var accountMenu = function () {
   if (document.querySelector('#account-login-link')) {
     var userInfoRequest = new XMLHttpRequest();
     userInfoRequest.open('GET', 'https://www.w3.org/accounts/user-menu', true);
+    userInfoRequest.setRequestHeader('Cookie', document.cookie);
     var microCopyRequest = new XMLHttpRequest();
     var translationEndpointURI = document.documentElement.lang == 'en' ? '/translated-messages' : '/' + document.documentElement.lang + '/translated-messages';
     microCopyRequest.open('GET', translationEndpointURI, true);
@@ -128,7 +133,7 @@ var accountMenu = function () {
     userInfoRequest.onload = function () {
       if (this.status == 200) {
         if (this.response.length > 0) {
-          userInfo = this.response;
+          userInfo = JSON.parse(this.response);
           apiRequestsCompleted += 1;
         }
 
@@ -141,7 +146,7 @@ var accountMenu = function () {
     microCopyRequest.onload = function () {
       if (this.status == 200) {
         if (this.response.length > 0) {
-          microCopy = this.response;
+          microCopy = JSON.parse(this.response);
           apiRequestsCompleted += 1;
         }
 
