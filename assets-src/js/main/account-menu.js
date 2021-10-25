@@ -5,40 +5,189 @@ var accountMenu = (function () {
 		return (elem != null && (elem.length >= 0 || elem.innerHTML.length >= 0) )
 	}
 
-	if (document.querySelector('#account-login-link')) {
-		var request = new XMLHttpRequest()
+	let userInfo = null;
 
-		request.open('GET', 'https://www.w3.org/accounts/user-menu', true)
+	let microCopy = null;
 
-		request.onload = function () {
-			console.log(request.response);
+	let apiRequestsCompleted = 0; //when goes to two, it means we have all the data required to build the user menu
+
+	const buildAccountMenu = function(userInfo, microCopy) {
+		//generating the menu markup
+		let fragment = document.createDocumentFragment();
+		let status = document.querySelector('.global-header [role="status"]');
+		let statusText;
+		let toggleButton = document.createElement('button');
+		let accMenu = document.createElement('div');
+		accMenu.setAttribute('class', 'account-menu');
+
+		let list = document.createElement('ul');
+		list.setAttribute('class', 'clean-list');
+		list.setAttribute('role', 'list');
+
+		let nameLi = document.createElement('li');
+		nameLi.textContent = userInfo.given + ' ' + userInfo.family;
+		list.appendChild(nameLi);
+
+		let emailLi = document.createElement('li');
+		emailLi.textContent = userInfo.email;
+		list.appendChild(emailLi);
+
+		let userMenuKeys = Object.keys(userInfo.menus);
+		for (let menuItemIndex = 0; menuItemIndex < userMenuKeys.length; menuItemIndex++) {
+			let menuItemKey = userMenuKeys[menuItemIndex];
+			let menuLi = document.createElement('li');
+			menuLi.innerHTML = '<a href="' + userInfo.menus[menuItemKey]['url'] + '">' + microCopy[menuItemKey] + '</a>';
+			list.appendChild(menuLi);
 		}
 
-		request.send()
+		fragment.appendChild(list);
+		accMenu.appendChild(fragment);
 
-		// @todo Need JS to make API call to return JSON object with these properties
-		// let profile = {
-		// 	name: 'Simon Jones',
-		// 	email: 'simon@studio24.net',
-		// 	avatar: 'https://www.w3.org/2006/05/u/1682ihk1hqqo-tn.jpg',
-		// 	messages: true
-		// }
-		//
-		// let fragment = document.createDocumentFragment();
-		// let status = document.querySelector('.global-header [role="status"]');
-		// let statusText;
-		// let toggleButton = document.createElement('button');
-		// let accMenu = document.createElement('div');
-		// accMenu.setAttribute('class', 'account-menu');
+		//adding the menu to the header
+		let domTargetSmall = document.querySelector('.logo-link');
+		let domTargetWide = document.querySelector('.global-nav__inner ul');
+
+		toggleButton.setAttribute('type', 'button');
+		toggleButton.setAttribute('class', 'button button--ghost with-icon--larger');
+		toggleButton.setAttribute('data-trigger', 'account-menu');
+		toggleButton.setAttribute('aria-expanded', 'false');
+		toggleButton.innerHTML = '<span class="sr-only">' + microCopy['my-account'] + ' </span><div class="avatar avatar--small icon"><img alt="" src="' + userInfo.avatar.small + '"/></div>';
+
+		// Media query event handler
+		let mq = window.matchMedia('(min-width: 71.25em)');
+		mq.addListener(insertAccountBtn);
+		insertAccountBtn(mq);
+
+		function insertAccountBtn (mq) {
+
+			if (!(mq.matches)) {
+
+				domTargetSmall.parentNode.insertBefore(toggleButton, domTargetSmall.nextSibling);
+				toggleButton.parentNode.insertBefore(accMenu, toggleButton.nextSibling);
+				status.textContent = statusText;
+
+			} else {
+
+				domTargetWide.parentNode.insertBefore(toggleButton, domTargetWide.nextSibling);
+				toggleButton.parentNode.insertBefore(accMenu, toggleButton.nextSibling);
+				status.textContent = statusText;
+
+			}
+
+			document.querySelector('body').classList.add('signed-in');
+
+		}
+
+		//add toggling action to button
+		let accountToggler = document.querySelector('[data-trigger="account-menu"]');
+
+		if (exists(accountToggler)) {
+
+			// @todo Not sure if this is sufficient or whether there needs to be a re-usable function to check this. This is for the visual styling on button
+			// if (profile.messages === true) {
+			// 	accountToggler.classList.add('js-has-msg');
+			// } else {
+			// 	accountToggler.classList.remove('js-has-msg');
+			// }
+
+			document.addEventListener('click', function (event) {
+
+				if (event.target.matches('[data-trigger="account-menu"]')) {
+
+					if (event.target.getAttribute('aria-expanded') === 'false') {
+
+						event.target.setAttribute('aria-expanded', 'true');
+
+					} else {
+
+						event.target.setAttribute('aria-expanded', 'false');
+
+					}
+
+				} else {
+
+					if (accountToggler.getAttribute('aria-expanded') === 'true') {
+						accountToggler.setAttribute('aria-expanded', false);
+						accMenu.setAttribute('aria-hidden', 'true');
+					}
+
+				}
+
+			}, false);
+
+			document.addEventListener('keyup', function (event) {
+
+				if (event.defaultPrevented) {
+					return;
+				}
+
+				let key = event.key || event.keyCode;
+
+				if (key === 'Escape' || key === 'Esc' || key === 27) {
+
+					if (accountToggler.getAttribute('aria-expanded') === 'true') {
+						accountToggler.setAttribute('aria-expanded', false);
+						accMenu.setAttribute('aria-hidden', 'true');
+					}
+
+				}
+
+			});
+
+		}
+
+	};
+
+	if (document.querySelector('#account-login-link')) {
+		var userInfoRequest = new XMLHttpRequest();
+		userInfoRequest.open('GET', 'https://www.w3.org/accounts/user-menu', true)
+
+		var microCopyRequest = new XMLHttpRequest();
+		var translationEndpointURI = (document.documentElement.lang == 'en')?  '/translated-messages' : '/' + document.documentElement.lang + '/translated-messages' ;
+		microCopyRequest.open('GET',  translationEndpointURI , true)
+
+		userInfoRequest.onload = function () {
+			if (this.status == 200) {
+				if (this.response.length > 0) {
+					userInfo = this.response;
+					apiRequestsCompleted += 1;
+				}
+
+				if (apiRequestsCompleted == 2) {
+					buildAccountMenu(userInfo, microCopy);
+				}
+
+			}
+		}
+
+		microCopyRequest.onload = function() {
+			if (this.status == 200) {
+				if (this.response.length > 0) {
+					microCopy = this.response;
+					apiRequestsCompleted += 1;
+				}
+
+				if (apiRequestsCompleted == 2) {
+					buildAccountMenu(userInfo, microCopy);
+				}
+
+			}
+		}
+
+
+
+		userInfoRequest.send();
+		microCopyRequest.send();
+
+
+
 		//
 		// // @todo This array created from profile object should only contain those values needed for the dropdown menu (name and email)
 		// let profileArray = Object.keys(profile).map(function(item) {
 		// 	return profile[item];
 		// });
 		//
-		// let list = document.createElement('ul');
-		// list.setAttribute('class', 'clean-list');
-		// list.setAttribute('role', 'list');
+
 		// profileArray.forEach(function (item) {
 		//
 		// 	let li = document.createElement('li');
@@ -84,97 +233,7 @@ var accountMenu = (function () {
 		// list.append(accountLink);
 		// list.appendChild(signOutLink);
 		//
-		// fragment.appendChild(list);
-		// accMenu.appendChild(fragment);
-		//
-		// let domTargetSmall = document.querySelector('.logo-link');
-		// let domTargetWide = document.querySelector('.global-nav__inner ul');
-		//
-		// toggleButton.setAttribute('type', 'button');
-		// toggleButton.setAttribute('class', 'button button--ghost with-icon--larger');
-		// toggleButton.setAttribute('data-trigger', 'account-menu');
-		// toggleButton.setAttribute('aria-expanded', 'false');
-		// toggleButton.innerHTML = '<span class="sr-only">My account </span><div class="avatar avatar--small icon"><img alt="" src="' + profile.avatar + '"/></div>';
-		//
-		// // Media query event handler
-		// let mq = window.matchMedia('(min-width: 71.25em)');
-		// mq.addListener(insertAccountBtn);
-		// insertAccountBtn(mq);
-		//
-		// function insertAccountBtn (mq) {
-		//
-		// 	if (!(mq.matches)) {
-		//
-		// 		domTargetSmall.parentNode.insertBefore(toggleButton, domTargetSmall.nextSibling);
-		// 		toggleButton.parentNode.insertBefore(accMenu, toggleButton.nextSibling);
-		// 		status.textContent = statusText;
-		//
-		// 	} else {
-		//
-		// 		domTargetWide.parentNode.insertBefore(toggleButton, domTargetWide.nextSibling);
-		// 		toggleButton.parentNode.insertBefore(accMenu, toggleButton.nextSibling);
-		// 		status.textContent = statusText;
-		//
-		// 	}
-		//
-		// }
-		//
-		// let accountToggler = document.querySelector('[data-trigger="account-menu"]');
-		//
-		// if (exists(accountToggler)) {
-		//
-		// 	// @todo Not sure if this is sufficient or whether there needs to be a re-usable function to check this. This is for the visual styling on button
-		// 	if (profile.messages === true) {
-		// 		accountToggler.classList.add('js-has-msg');
-		// 	} else {
-		// 		accountToggler.classList.remove('js-has-msg');
-		// 	}
-		//
-		// 	document.addEventListener('click', function (event) {
-		//
-		// 		if (event.target.matches('[data-trigger="account-menu"]')) {
-		//
-		// 			if (event.target.getAttribute('aria-expanded') === 'false') {
-		//
-		// 				event.target.setAttribute('aria-expanded', 'true');
-		//
-		// 			} else {
-		//
-		// 				event.target.setAttribute('aria-expanded', 'false');
-		//
-		// 			}
-		//
-		// 		} else {
-		//
-		// 			if (accountToggler.getAttribute('aria-expanded') === 'true') {
-		// 				accountToggler.setAttribute('aria-expanded', false);
-		// 				accMenu.setAttribute('aria-hidden', 'true');
-		// 			}
-		//
-		// 		}
-		//
-		// 	}, false);
-		//
-		// 	document.addEventListener('keyup', function (event) {
-		//
-		// 		if (event.defaultPrevented) {
-		// 			return;
-		// 		}
-		//
-		// 		let key = event.key || event.keyCode;
-		//
-		// 		if (key === 'Escape' || key === 'Esc' || key === 27) {
-		//
-		// 			if (accountToggler.getAttribute('aria-expanded') === 'true') {
-		// 				accountToggler.setAttribute('aria-expanded', false);
-		// 				accMenu.setAttribute('aria-hidden', 'true');
-		// 			}
-		//
-		// 		}
-		//
-		// 	});
-		//
-		// }
+
 
 	}
 
