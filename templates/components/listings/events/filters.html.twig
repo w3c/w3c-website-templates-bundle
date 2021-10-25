@@ -2,29 +2,33 @@
     <div>
         <div>
             <div class="field">
-                <label for="filter-event-type">
+                <label for="type">
                     <span class="faux-label">Event type</span>
                 </label>
-                <select id="filter-event-type" name="filter-event-type">
+                <select id="type" name="type">
                     <option value="">All</option>
-                    <option value="conferences">Conference</option>
-                    <option value="meetings">Meeting</option>
-                    <option value="ac-meeting">-- AC Meeting</option>
-                    <option value="tpac-meeting">-- TPAC Meeting</option>
-                    <option value="talks">Talk</option>
-                    <option value="workshops">Workshop</option>
+                    {% for t in types|filter(t => t.level == 1) %}
+                        <option value="{{ t.slug }}"{% if type_slug == t.slug %} selected="selected"{% endif %}>
+                            {{ t.title }}
+                        </option>
+                        {% for child in t.children %}
+                            <option value="{{ child.slug }}"{% if type_slug == child.slug %} selected="selected"{% endif %}>-- {{ child.title }}</option>
+                        {% endfor %}
+                    {% endfor %}
                 </select>
             </div>
         </div>
         <div>
             <div class="field">
-                <label for="filter-event-cat">
+                <label for="category">
                     <span class="faux-label">Category</span>
                 </label>
-                <select id="filter-event-cat" name="filter-event-cat">
+                <select id="category" name="category">
                     <option value="">All</option>
                     {% for category in categories %}
-                        <option value="{{ category.slug }}">{{ category.title }}</option>
+                        <option value="{{ category.slug }}"{% if category.slug == category_slug %} selected="selected"{% endif %}>
+                            {{ category.title }}
+                        </option>
                     {% endfor %}
                 </select>
             </div>
@@ -32,7 +36,7 @@
         <div>
             <div class="input-group">
                 <button class="button" type="submit">Show results</button>
-                <button class="button button--ghost" type="reset">Clear all</button>
+                <a class="button button--ghost" type="reset" href="{{ reset_url }}">Clear all</a>
             </div>
         </div>
     </div>
