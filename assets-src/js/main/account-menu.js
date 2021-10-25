@@ -179,25 +179,6 @@ var accountMenu = (function () {
 		userInfoRequest.send();
 		microCopyRequest.send();
 
-
-
-		//
-		// // @todo This array created from profile object should only contain those values needed for the dropdown menu (name and email)
-		// let profileArray = Object.keys(profile).map(function(item) {
-		// 	return profile[item];
-		// });
-		//
-
-		// profileArray.forEach(function (item) {
-		//
-		// 	let li = document.createElement('li');
-		// 	li.textContent = item;
-		// 	list.appendChild(li);
-		// });
-		//
-		// let accountLink = document.createElement('li');
-		// let signOutLink = document.createElement('li');
-		//
 		// // I18N
 		// if (document.documentElement.lang === 'ja') {
 		// 	accountLink.innerHTML = '<a href="page.html" hreflang="ja">マイアカウント</a>';
@@ -221,18 +202,6 @@ var accountMenu = (function () {
 		// 		statusText = 'You have no unread messages';
 		// 	}
 		// }
-		//
-		// if (document.documentElement.lang === 'ja') {
-		// 	signOutLink.innerHTML = '<a href="page.html" hreflang="ja">サインアウト</a>';
-		// } else if (document.documentElement.lang === 'zh-hans') {
-		// 	signOutLink.innerHTML = '<a href="page.html" hreflang="zh-hans">登出</a>';
-		// } else {
-		// 	signOutLink.innerHTML = '<a href="page.html">Sign out</a>';
-		// }
-		//
-		// list.append(accountLink);
-		// list.appendChild(signOutLink);
-		//
 
 
 	}
