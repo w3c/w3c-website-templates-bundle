@@ -125,32 +125,31 @@ var accountMenu = function () {
   if (document.querySelector('#account-login-link')) {
     var userInfoRequest = new XMLHttpRequest();
     userInfoRequest.open('GET', 'https://www.w3.org/accounts/user-menu', true);
-    userInfoRequest.setRequestHeader('Cookie', document.cookie);
     var microCopyRequest = new XMLHttpRequest();
-    var translationEndpointURI = document.documentElement.lang == 'en' ? '/translated-messages' : '/' + document.documentElement.lang + '/translated-messages';
+    var translationEndpointURI = document.documentElement.lang === 'en' ? '/translated-messages' : '/' + document.documentElement.lang + '/translated-messages';
     microCopyRequest.open('GET', translationEndpointURI, true);
 
     userInfoRequest.onload = function () {
-      if (this.status == 200) {
+      if (this.status === 200) {
         if (this.response.length > 0) {
           userInfo = JSON.parse(this.response);
           apiRequestsCompleted += 1;
         }
 
-        if (apiRequestsCompleted == 2) {
+        if (apiRequestsCompleted === 2) {
           buildAccountMenu(userInfo, microCopy);
         }
       }
     };
 
     microCopyRequest.onload = function () {
-      if (this.status == 200) {
+      if (this.status === 200) {
         if (this.response.length > 0) {
           microCopy = JSON.parse(this.response);
           apiRequestsCompleted += 1;
         }
 
-        if (apiRequestsCompleted == 2) {
+        if (apiRequestsCompleted === 2) {
           buildAccountMenu(userInfo, microCopy);
         }
       }
