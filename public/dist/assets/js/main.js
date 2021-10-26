@@ -125,6 +125,7 @@ var accountMenu = function () {
   if (document.querySelector('#account-login-link')) {
     var userInfoRequest = new XMLHttpRequest();
     userInfoRequest.open('GET', 'https://www.w3.org/accounts/user-menu', true);
+    userInfoRequest.withCredentials = true;
     var microCopyRequest = new XMLHttpRequest();
     var translationEndpointURI = document.documentElement.lang === 'en' ? '/translated-messages' : '/' + document.documentElement.lang + '/translated-messages';
     microCopyRequest.open('GET', translationEndpointURI, true);
