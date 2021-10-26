@@ -134,9 +134,13 @@ class TwigExtension extends AbstractExtension
     private function getPluralizedInterval($count, $invert, $unit)
     {
         if ($this->translator) {
-            $id = sprintf('diff.%s.%s', $invert ? 'in' : 'ago', $unit);
+            $id = sprintf('time_diff.%s', $invert ? 'future' : 'past');
 
-            return $this->translator->transChoice($id, $count, ['%count%' => $count], 'date');
+            return $this->translator->trans(
+                $id,
+                ['count' => $count, 'unit' => $unit],
+                'w3c_website_templates_bundle'
+            );
         }
 
         if (1 !== $count) {

@@ -147,3 +147,6 @@ events:
             1  {{start_date}, {start_time} - {end_time} {timezone}}
             other {{start_date}, {start_time} - {end_date}, {end_time} {timezone}}
         }
+time_diff:
+    past: __post.comments.diff.past
+    future: __post.comments.diff.future
