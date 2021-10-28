@@ -4,13 +4,8 @@
 	<div class="content">
 		<article>
 			<h1>{% block title %}{{ page.title|default('W3C') }}{% endblock %}</h1>
-			{% if page.categories|length > 0 %}
-				<div class="sub-head">Part of
-					{% for category in page.categories %}
-						<a href="{{ category.uri }}">{{ category.title }}</a>
-						{%- if not loop.last %}, {% endif %}
-					{% endfor %}
-				</div>
+			{% if page.category %}
+				<div class="sub-head">Part of <a href="{{ page.category.url }}">{{ page.category.title }}</a></div>
 			{% endif %}
 
 			{% if page.localized is defined and page.localized|length > 0 %}
@@ -84,7 +79,7 @@
 								<h3>{{ 'post.related.heading_tags'|trans({}, 'w3c_website_templates_bundle') }}</h3>
 								<ul class="clean-list" role="list">
 								{% for tag in page.tags %}
-									<li><a href="{{ tag.uri|absolute_url(app.request.locale) }}">{{ tag.title }}</a></li>
+									<li><a href="{{ tag.url }}">{{ tag.title }}</a></li>
 								{% endfor %}
 								</ul>
 							</div>
@@ -94,7 +89,7 @@
 								<h3>{{ 'post.related.heading_ecosystems'|trans({}, 'w3c_website_templates_bundle') }}</h3>
 								<ul class="clean-list" role="list">
 									{% for ecosystem in page.ecosystems %}
-										<li><a href="{{ ecosystem.uri|absolute_url(app.request.locale) }}">{{ ecosystem.title }}</a></li>
+										<li><a href="{{ ecosystem.url }}">{{ ecosystem.title }}</a></li>
 									{% endfor %}
 								</ul>
 							</div>

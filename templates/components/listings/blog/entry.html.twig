@@ -5,11 +5,9 @@
                 <h2 class="txt-mars"><a href="{{ entry.uri|absolute_url(app.request.locale) }}">{{ entry.title }}</a></h2>
                 <div class="l-cluster">
                     <div>
-                        {% if entry.categories|length > 0 %}
+                        {% if entry.category %}
                             <div>
-                                {% for category in entry.categories %}
-                                    <a href="{{ category.uri }}">{{ category.title }}</a>
-                                {% endfor %}
+                                <a href="{{ entry.category.url }}">{{ entry.category.title }}</a>
                             </div>
                         {% endif %}
                         {% if entry.date %}
@@ -50,8 +48,8 @@
             <div class="sidebar">
                 <a href="{{ entry.uri|absolute_url(app.request.locale) }}" class="l-frame" aria-hidden="true" tabindex="-1">
                     <img
-                        src="{{ entry.thumbnailImage[0].url }}"
-                        srcset="{{ entry.thumbnailImage[0].srcset }}"
+                        src="{{ entry.thumbnailImage.url }}"
+                        srcset="{{ entry.thumbnailImage.srcset }}"
                         loading="lazy"
                         {% if entry.thumbnailAltText %}
                             alt="{{ entry.thumbnailAltText }}"
