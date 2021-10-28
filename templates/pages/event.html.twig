@@ -1,0 +1,62 @@
+{% extends '@W3CWebsiteTemplates/base.html.twig' %}
+
+{% block main %}
+    <div class="content">
+        <article>
+            <div class="intro {{ page|event_type }}">
+                <h1>{% block title %}{{ page.title|default('W3C') }}{% endblock %}</h1>
+                <p>{{ page.type.title }}</p>
+            </div>
+
+            {% if page.excerpt is not null %}
+                <p class="lead">{{ page.excerpt }}</p>
+            {% endif %}
+
+            {% if page.ical_url is defined and page.ical_url is not null %}
+            <a href="{{ page.ical_url }}" class="with-icon--before calendar-link txt-pluto">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 448 512" width="1em" height="1em"><defs/><path d="M336 292v24c0 6.6-5.4 12-12 12h-76v76c0 6.6-5.4 12-12 12h-24c-6.6 0-12-5.4-12-12v-76h-76c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h76v-76c0-6.6 5.4-12 12-12h24c6.6 0 12 5.4 12 12v76h76c6.6 0 12 5.4 12 12zm112-180v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"/></svg>
+                {{  'events.add_to_calendar'|trans({}, 'w3c_website_templates_bundle' ) }}
+            </a>
+            {% endif %}
+
+
+            {% if page.localized is defined and page.localized|length > 0 %}
+                {{ include('@W3CWebsiteTemplates/components/styles/page_translations.html.twig') }}
+            {% endif %}
+
+            <section class="meta">
+                <h2 class="visuallyhidden">{{ 'events.event_details'|trans({}, 'w3c_website_templates_bundle') }}</h2>
+                <dl class="grid">
+                    <dt>{{ 'events.date'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
+                    <dd><time datetime="2021-01-28T18:00Z">28 January 2021, 14:00 - 15:30 Eastern Daylight Time (18:00 - 19:30 UTC)</time></dd>
+                    <dt>{{ 'events.location'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
+                    <dd>Online</dd>
+                    <dt>{{ 'events.speakers'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
+                    <dd>Deidre De Veloper</dd>
+                    <dt>{{ 'events.host'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
+                    <dd>Jake Weary</dd>
+                    <dt class="with-link">{{ 'events.category'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
+                    <dd class="with-link">
+                        <a href="path/to/page">Category 1</a>
+                    </dd>
+                    {% if page.tags is not empty %}
+                        <dt class="with-link">{{ 'post.related.heading_tags'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
+                        <dd class="l-cluster with-link">
+                            <ul class="clean-list">
+                                {% for tag in page.tags %}
+                                <li><a href="{{ tag.url }}">{{ tag.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </dd>
+                    {% endif %}
+                    {% if page.website is not empty %}
+                        <dt class="with-link">{{ 'events.website'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
+                        <dd class="with-link"><a href="{{ page.website.url }}">{{ (page.website.name is not empty)? page.website.name : page.website.url }}</a></dd>
+                    {% endif %}
+                </dl>
+            </section>
+
+            {% block components %}{% endblock components %}
+        </article>
+    </div>
+{% endblock %}
