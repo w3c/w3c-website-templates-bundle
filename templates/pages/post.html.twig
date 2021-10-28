@@ -48,6 +48,9 @@
 						{{ include('partials/defaultFlexibleComponents.html.twig') }}
 					{% endfor %}
 				{% endif %}
+				{% if page.pageContent is defined and page.pageContent %}
+						{{ page.pageContent|raw }}
+				{% endif %}
 			{% endblock components %}
 			{% block post_notes %}
 				{% if page.notes is defined and page.notes %}
