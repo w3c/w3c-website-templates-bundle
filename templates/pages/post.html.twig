@@ -94,7 +94,7 @@
 								<h3>{{ 'post.related.heading_groups'|trans({}, 'w3c_website_templates_bundle') }}</h3>
 								<ul class="clean-list" role="list">
 									{% for group in page.groups %}
-										<li><a href="{{ group.slug }}">{{ group.title }}</a></li>
+										<li><a href="{{ group.url }}">{{ group.title }}</a></li>
 									{% endfor %}
 								</ul>
 							</div>
@@ -104,7 +104,7 @@
 								<h3>{{ 'post.related.heading_specifications'|trans({}, 'w3c_website_templates_bundle') }}</h3>
 								<ul class="clean-list" role="list">
 									{% for spec in page.specifications %}
-										<li><a href="{{ spec.slug }}">{{ spec.title }}</a></li>
+										<li><a href="{{ spec.url }}">{{ spec.title }}</a></li>
 									{% endfor %}
 								</ul>
 							</div>
