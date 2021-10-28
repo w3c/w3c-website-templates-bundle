@@ -4,9 +4,19 @@
 	<div class="content">
 		<article>
 			<h1>{% block title %}{{ page.title|default('W3C') }}{% endblock %}</h1>
+			{% if page.categories|length > 0 %}
+				<div class="sub-head">Part of
+					{% for category in page.categories %}
+						<a href="{{ category.uri }}">{{ category.title }}</a>
+						{%- if not loop.last %}, {% endif %}
+					{% endfor %}
+				</div>
+			{% endif %}
+
 			{% if page.localized is defined and page.localized|length > 0 %}
 				{{ include('@W3CWebsiteTemplates/components/styles/page_translations.html.twig') }}
 			{% endif %}
+
 			{% if page.authors is defined and page.authors or page.postDate is defined and page.postDate %}
 				<section class="meta">
 					<h2 class="visuallyhidden">Author(s) and publish date</h2>
