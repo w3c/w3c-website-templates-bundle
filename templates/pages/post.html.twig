@@ -62,7 +62,10 @@
 			{% endblock %}
 		</article>
 		{% block related %}
-			{% if page.tags is defined or page.ecosystems is defined or page.groups is defined or page.specifications is defined %}
+			{% if (page.tags is defined and page.tags is not empty)
+                or (page.ecosystems is defined and page.ecosystems is not empty)
+                or (page.groups is defined and page.groups is not empty)
+                or (page.specifications is defined and page.groups is not empty) %}
 				<section class="related">
 					<div class="related__inner">
 						<h2 class="txt-jupiter">{{ 'post.related.heading'|trans({}, 'w3c_website_templates_bundle') }}</h2>
