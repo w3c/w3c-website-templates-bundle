@@ -4,7 +4,7 @@
 	<div class="content">
 		<article>
 			<h1>{% block title %}{{ page.title|default('W3C') }}{% endblock %}</h1>
-			{% if page.category %}
+			{% if page.category is defined %}
 				<div class="sub-head">Part of <a href="{{ page.category.url }}">{{ page.category.title }}</a></div>
 			{% endif %}
 
