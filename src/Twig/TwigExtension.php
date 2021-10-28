@@ -225,13 +225,13 @@ class TwigExtension extends AbstractExtension
         }
     }
 
-    public function dateRange(array $event, string $locale): string
+    public function dateRange(array $event, string $locale, bool $utc = false): string
     {
         if ($locale == 'en') {
             $locale = 'en-GB';
         }
 
-        $tz        = $event['tz'];
+        $tz        = ($utc === true)? 'UTC' : $event['tz'];
         $start     = DateTimeImmutable::createFromMutable($event['start'])->setTimezone(new DateTimeZone($tz));
         $end       = DateTimeImmutable::createFromMutable($event['end'])->setTimezone(new DateTimeZone($tz));
         $startDate = $this->intl->formatDate($this->twig, $start, 'long', '', $tz, 'gregorian', $locale);

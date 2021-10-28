@@ -28,18 +28,34 @@
                 <h2 class="visuallyhidden">{{ 'events.event_details'|trans({}, 'w3c_website_templates_bundle') }}</h2>
                 <dl class="grid">
                     <dt>{{ 'events.date'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
-                    <dd><time datetime="2021-01-28T18:00Z">28 January 2021, 14:00 - 15:30 Eastern Daylight Time (18:00 - 19:30 UTC)</time></dd>
-                    <dt>{{ 'events.location'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
-                    <dd>Online</dd>
-                    <dt>{{ 'events.speakers'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
-                    <dd>Deidre De Veloper</dd>
-                    <dt>{{ 'events.host'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
-                    <dd>Jake Weary</dd>
-                    <dt class="with-link">{{ 'events.category'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
-                    <dd class="with-link">
-                        <a href="path/to/page">Category 1</a>
+                    <dd>
+                        <time datetime="{{ page.start|date('c') }}">
+                            {{ page|date_range(site.locale) }}
+                        </time>
+                        {% if page.tz is not same as('UTC') %}
+                            <br />
+                            (<time datetime="{{ page.start|date('c') }}">
+                                {{ page|date_range(site.locale, true) }}
+                            </time>)
+                        {% endif %}
                     </dd>
-                    {% if page.tags is not empty %}
+                    <dt>{{ 'events.location'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
+                    <dd>{{ page.location }}</dd>
+                    {% if page.speakers %}
+                        <dt>{{ 'events.speakers'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
+                        <dd>{{ page.speakers }}</dd>
+                    {% endif %}
+                    {% if page.host %}
+                        <dt>{{ 'events.host'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
+                        <dd>{{ page.host }}</dd>
+                    {% endif %}
+                    {% if page.category %}
+                        <dt class="with-link">{{ 'events.category'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
+                        <dd class="with-link">
+                            <a href="{{ page.category.url }}">{{ page.category.title }}</a>
+                        </dd>
+                    {% endif %}
+                    {% if page.tags %}
                         <dt class="with-link">{{ 'post.related.heading_tags'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
                         <dd class="l-cluster with-link">
                             <ul class="clean-list">
