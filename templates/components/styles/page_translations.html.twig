@@ -9,7 +9,7 @@
                     <ul class="clean-list">
                         {% for translation in page.localized %}
                             <li>
-                                <a href="{{ translation.uri|absolute_url(translation.language_code) }}"
+                                <a href="{{ translation.uri|absolute_url(translation.language_code|lower) }}"
                                    hreflang="{{ translation.language_code }}"
                                    lang="{{ translation.language_code }}"
                                    dir="auto"
