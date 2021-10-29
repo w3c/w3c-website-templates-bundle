@@ -147,6 +147,14 @@ events:
             1  {{start_date}, {start_time} - {end_time} {timezone}}
             other {{start_date}, {start_time} - {end_date}, {end_time} {timezone}}
         }
+    add_to_calendar: __events.add_to_calendar
+    event_details: __events.event_details
+    date: __events.date
+    location: __events.location
+    speakers: __events.speakers
+    host: __events.host
+    category: __events.category
+    website: __events.website
 time_diff:
     past: __post.comments.diff.past
     future: __post.comments.diff.future
