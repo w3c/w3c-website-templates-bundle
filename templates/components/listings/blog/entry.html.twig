@@ -2,7 +2,7 @@
     <div>
         <div class="not-sidebar">
             <div>
-                <h2 class="txt-mars"><a href="{{ entry.uri|absolute_url(app.request.locale) }}">{{ entry.title }}</a></h2>
+                <h2 class="txt-mars"><a href="{{ entry.url }}">{{ entry.title }}</a></h2>
                 <div class="l-cluster">
                     <div>
                         {% if entry.category %}
@@ -46,7 +46,7 @@
         </div>
         {% if entry.thumbnailImage %}
             <div class="sidebar">
-                <a href="{{ entry.uri|absolute_url(app.request.locale) }}" class="l-frame" aria-hidden="true" tabindex="-1">
+                <a href="{{ entry.url }}" class="l-frame" aria-hidden="true" tabindex="-1">
                     <img
                         src="{{ entry.thumbnailImage.url }}"
                         srcset="{{ entry.thumbnailImage.srcset }}"
