@@ -5,7 +5,7 @@
                 <h2 class="txt-mars"><a href="{{ entry.url }}">{{ entry.title }}</a></h2>
                 <div class="l-cluster">
                     <div>
-                        {% if entry.category %}
+                        {% if entry.category is defined and entry.category %}
                             <div>
                                 <a href="{{ entry.category.url }}">{{ entry.category.title }}</a>
                             </div>
