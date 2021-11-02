@@ -14,14 +14,9 @@
                 </button>
                 <nav id="archive-nav" aria-label="{{ 'listing.press_releases.filters.archives_label'|trans({}, 'w3c_website_templates_bundle') }}">
                     <ul class="clean-list" role="list">
-                        <li>
-                            <a href="{{ (page.uri)|absolute_url(app.request.locale) }}">
-                                {{ 'listing.press_releases.filters.all'|trans({}, 'w3c_website_templates_bundle') }}
-                            </a>
-                        </li>
                         {% for archive in archives %}
                             <li>
-                                <a href="{{ (page.uri ~ '/' ~ archive)|absolute_url(app.request.locale) }}">{{ archive }}</a>
+                                <a href="{{ archive.url }}">{{ archive.title }}</a>
                             </li>
                         {% endfor %}
                     </ul>
