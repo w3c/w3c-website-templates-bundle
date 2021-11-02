@@ -20,7 +20,7 @@
                                         <p>{{ navItem.introText }}</p>
                                     {% endif %}
                                     {% for introLink in navItem.introLinks %}
-                                        <a href="{{ introLink.url|absolute_url(app.request.locale) }}" aria-hidden="true"
+                                        <a href="{{ introLink.url }}" aria-hidden="true"
                                            tabindex="-1">{{ introLink.title }}</a>
                                     {% endfor %}
                                 </div>
@@ -29,7 +29,7 @@
                                 <ul class="clean-list" role="list">
                                     {% for child in navItem.children %}
                                         <li>
-                                            <a class="with-icon--before with-icon--larger" href="{{ child.url|absolute_url(app.request.locale) }}">
+                                            <a class="with-icon--before with-icon--larger" href="{{ child.url }}">
                                                 <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
                                                     <use class="chevron-left" href="{{ asset('svg/nav-icons.svg#chevron-left', 'main') }}"></use>
                                                     <use class="chevron-right" href="{{ asset('svg/nav-icons.svg#chevron-right', 'main') }}"></use>
