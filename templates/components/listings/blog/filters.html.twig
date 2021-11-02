@@ -30,14 +30,9 @@
                 </button>
                 <nav id="category-nav" aria-label="{{ 'listing.blog.filters.categories_label'|trans({}, 'w3c_website_templates_bundle') }}">
                     <ul class="clean-list" role="list">
-                        <li>
-                            <a href="{{ (page.uri)|absolute_url(app.request.locale) }}">
-                                {{ 'listing.blog.filters.all'|trans({}, 'w3c_website_templates_bundle') }}
-                            </a>
-                        </li>
                         {% for category in categories %}
                             <li>
-                                <a href="{{ (page.uri ~ '/category/' ~ category.slug)|absolute_url(app.request.locale) }}">
+                                <a href="{{ category.url }}">
                                     {{ category.title }}
                                 </a>
                             </li>
@@ -60,14 +55,9 @@
                 </button>
                 <nav id="archive-nav" aria-label="{{ 'listing.blog.filters.archives_label'|trans({}, 'w3c_website_templates_bundle') }}">
                     <ul class="clean-list" role="list">
-                        <li>
-                            <a href="{{ (page.uri)|absolute_url(app.request.locale) }}">
-                                {{ 'listing.blog.filters.all'|trans({}, 'w3c_website_templates_bundle') }}
-                            </a>
-                        </li>
                         {% for archive in archives %}
                             <li>
-                                <a href="{{ (page.uri ~ '/' ~ archive)|absolute_url(app.request.locale) }}">{{ archive }}</a>
+                                <a href="{{ archive.url }}">{{ archive.title }}</a>
                             </li>
                         {% endfor %}
                     </ul>
