@@ -1,7 +1,7 @@
 <div class="card card--event {{ entry|event_type }}" data-component="card">
     <div class="card__text">
         <h3 class="card__heading">
-            <a class="card__link" href="{{ entry.url|absolute_url(app.request.locale) }}">{{ entry.title }}</a>
+            <a class="card__link" href="{{ entry.url }}">{{ entry.title }}</a>
         </h3>
         <p class="txt-pluto with-icon--before">
             <img class="icon" src="{{ asset('svg/calendar.svg', 'main') }}" width="18px" height="20px" alt role="img" aria-hidden="true"/>
