@@ -2,18 +2,13 @@
     {% if breadcrumb.parent is defined and breadcrumb.parent %}
         {{ _self.breadcrumbs(breadcrumb.parent) }}
     {% endif %}
-    <li><a href="{{ breadcrumb.uri|absolute_url(app.request.locale) }}"{% if current %} aria-current="page"{% endif %}>{{ breadcrumb.title }}</a></li>
+    <li><a href="{{ breadcrumb.url }}"{% if current %} aria-current="page"{% endif %}>{{ breadcrumb.title }}</a></li>
 {% endmacro %}
 
 <nav id="breadcrumb" aria-label="Breadcrumb">
     <div class="l-center">
         <div class="l-cluster">
             <ol class="breadcrumbs clean-list" role="list">
-                <li>
-                    <a href="{{ "/"|absolute_url(app.request.locale) }}">
-                        {{ 'breadcrumbs.home'|trans({}, 'w3c_website_templates_bundle') }}
-                    </a>
-                </li>
                 {% if breadcrumbs %}
                     {{ _self.breadcrumbs(breadcrumbs, true) }}
                 {% endif %}
