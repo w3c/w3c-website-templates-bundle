@@ -53,6 +53,7 @@ pagination:
     last: __pagination.last
     page: "__pagination.page {page}"
     current_page: "{page}"
+    summary: __pagination.summary {page} {from}-{to}
 listing:
     blog:
         filters:
