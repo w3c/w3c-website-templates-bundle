@@ -60,6 +60,11 @@ pagination:
     last: Last Page
     page: "<span class=\"visuallyhidden\">page</span> {page}"
     current_page: "{page}"
+    summary: >-
+        {to, select,
+            0 {There are no results}
+            other {This is page {page}, displaying results {from}-{to}}
+        }
 listing:
     blog:
         filters:
