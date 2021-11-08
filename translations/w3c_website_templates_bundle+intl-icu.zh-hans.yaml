@@ -170,4 +170,4 @@ time_diff:
     past: __post.comments.diff.past
     future: __post.comments.diff.future
 alumni:
-    date_range: { start } to {end}
+    date_range: {start} to {end}
