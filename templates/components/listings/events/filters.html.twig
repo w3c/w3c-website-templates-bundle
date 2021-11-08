@@ -3,17 +3,13 @@
         <div>
             <div class="field">
                 <label for="type">
-                    <span class="faux-label">Event type</span>
+                    <span class="faux-label">{{ 'listing.events.filters.types'|trans({}, 'w3c_website_templates_bundle') }}</span>
                 </label>
                 <select id="type" name="type">
-                    <option value="">All</option>
-                    {% for t in types|filter(t => t.level == 1) %}
+                    {% for t in types %}
                         <option value="{{ t.slug }}"{% if type_slug == t.slug %} selected="selected"{% endif %}>
                             {{ t.title }}
                         </option>
-                        {% for child in t.children %}
-                            <option value="{{ child.slug }}"{% if type_slug == child.slug %} selected="selected"{% endif %}>-- {{ child.title }}</option>
-                        {% endfor %}
                     {% endfor %}
                 </select>
             </div>
@@ -21,10 +17,9 @@
         <div>
             <div class="field">
                 <label for="category">
-                    <span class="faux-label">Category</span>
+                    <span class="faux-label">{{ 'listing.events.filters.categories'|trans({}, 'w3c_website_templates_bundle') }}</span>
                 </label>
                 <select id="category" name="category">
-                    <option value="">All</option>
                     {% for category in categories %}
                         <option value="{{ category.slug }}"{% if category.slug == category_slug %} selected="selected"{% endif %}>
                             {{ category.title }}
@@ -35,8 +30,8 @@
         </div>
         <div>
             <div class="input-group">
-                <button class="button" type="submit">Show results</button>
-                <a class="button button--ghost" type="reset" href="{{ reset_url }}">Clear all</a>
+                <button class="button" type="submit">{{ 'listing.events.filters.search_button'|trans({}, 'w3c_website_templates_bundle') }}</button>
+                <a class="button button--ghost" type="reset" href="{{ reset_url }}">{{ 'listing.events.filters.clear'|trans({}, 'w3c_website_templates_bundle') }}</a>
             </div>
         </div>
     </div>

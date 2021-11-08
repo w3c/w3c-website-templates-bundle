@@ -1,6 +1,7 @@
 page:
     lang:
         dir: ltr
+        options: __page.lang.options
     default_title: __page.default_title
     default_description: >-
         __page.default_description
@@ -74,6 +75,13 @@ listing:
             all: __listing.press_releases.filters.all
             archives: __listing.press_releases.filters.archives
             archives_label: __listing.press_releases.filters.archives_label
+    events:
+        filters:
+            all: __listing.events.filters.all
+            types: __listing.events.filters.types
+            categories: __listing.events.filters.categories
+            search_button: __listing.events.filters.search_button
+            clear: __listing.events.filters.clear
 components:
     video:
         transcript: __components.video.transcript
@@ -114,6 +122,7 @@ post:
     meta:
         credit: >
             __post.meta.credit
+        credit_title: __post.meta.credit_title
         published: >
             __post.meta.published
         skiplink: __post.meta.skiplink
@@ -124,11 +133,14 @@ post:
         heading_ecosystems: __post.related.heading_ecosystems
         heading_groups: __post.related.heading_groups
         heading_specifications: __post.related.heading_specifications
-    feed: __post.feed
+    feed:
+        title: __post.feed.title
+        link: __post.feed.link {feed_type}
     comments:
         count: __post.comments.count <span>{count}</span>
         skip_to_form: __post.comments.skip_to_form
-        reply: __post.comments.reply
+        reply: __post.comments.reply <span class="visuallyhidden">{name}</span>
+        reply_attr: __post.comments.reply_attr {name}
         form:
             title: __post.comments.form.title
 notes:

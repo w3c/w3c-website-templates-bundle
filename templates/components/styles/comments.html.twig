@@ -16,10 +16,9 @@
                        data-commentid="{{ comment.id }}"
                        data-postid="{{ post.id }}"
                        data-belowelement="comment-{{ comment.id }}"
-                       data-replyto="Reply to {{ comment.name }}"
+                       data-replyto="{{ 'post.comments.reply_attr'|trans({'name': comment.name}, 'w3c_website_templates_bundle') }}"
                     >
-                        {{ 'post.comments.reply'|trans({}, 'w3c_website_templates_bundle') }}
-                        <span class="visuallyhidden">to {{ comment.name }}</span>
+                        {{ 'post.comments.reply'|trans({'name': comment.name}, 'w3c_website_templates_bundle')|raw }}
                     </a>
                 {% endif %}
             </div>

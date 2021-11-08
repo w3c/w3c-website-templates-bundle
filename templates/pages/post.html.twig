@@ -14,7 +14,7 @@
 
 			{% if page.authors is defined and page.authors or page.postDate is defined and page.postDate %}
 				<section class="meta">
-					<h2 class="visuallyhidden">Author(s) and publish date</h2>
+					<h2 class="visuallyhidden">{{ 'post.meta.credit_title'|trans({}, 'w3c_website_templates_bundle') }}</h2>
 					<dl>
 						{% if page.authors is defined and page.authors %}
 							<dt>{{ 'post.meta.credit'|trans({}, 'w3c_website_templates_bundle') }}</dt>

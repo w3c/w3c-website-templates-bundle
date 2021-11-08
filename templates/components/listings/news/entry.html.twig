@@ -8,7 +8,7 @@
                         {% if entry.date %}
                             <div>
                                 <p>
-                                    <span class="visuallyhidden">Published:</span>
+                                    <span class="visuallyhidden">{{ 'post.meta.published'|trans([], 'w3c_website_templates_bundle') }}</span>
                                     <time datetime="{{ entry.date|date('Y-m-d') }}">{{ entry.date|date('d F Y') }}</time>
                                 </p>
                             </div>

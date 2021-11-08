@@ -67,7 +67,7 @@
     {%- if errors|length > 0 -%}
         <span class="field-error-msg" id="error-{{ form.vars.id }}">
             {%- for error in errors -%}
-                <span class="visuallyhidden">Error:</span> {{ error.message }}
+                <span class="visuallyhidden">{{ 'Error'|trans({}, 'validators') }}</span> {{ error.message }}
             {%- endfor -%}
         </span>
     {%- endif -%}
