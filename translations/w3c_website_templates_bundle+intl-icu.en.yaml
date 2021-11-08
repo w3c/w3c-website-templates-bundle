@@ -193,4 +193,4 @@ time_diff:
             other {in # {unit}s}
         }
 alumni:
-    date_range: {start} to {end}
+    date_range: "{start} to {end}"
