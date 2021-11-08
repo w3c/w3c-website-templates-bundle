@@ -192,3 +192,5 @@ time_diff:
             one {in 1 {unit}}
             other {in # {unit}s}
         }
+alumni:
+    date_range: {start} to {end}
