@@ -5,8 +5,10 @@ import {disclosureWidget} from "./main/disclosure-widget";
 import {formErrorSummary} from "./main/form-error-summary";
 import {navigation} from "./main/navigation";
 import {responsiveTables} from "./main/responsive-tables";
+import {flashes} from "./main/flashes";
 
 responsiveTables();
+flashes();
 
 // Tie the responsiveTables function to a resize event, and debounce for performance
 var timeout;

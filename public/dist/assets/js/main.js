@@ -566,6 +566,64 @@ var responsiveTables = function responsiveTables() {
 
 
 
+/***/ }),
+/* 11 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "flashes": () => (/* binding */ flashes)
+/* harmony export */ });
+var flashes = function flashes() {
+  var getCookie = function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+
+    for (var _i = 0; _i < ca.length; _i++) {
+      var c = ca[_i].trim();
+
+      if (c.indexOf(name) === 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+
+    return false;
+  };
+
+  var cookie = getCookie("flashes");
+
+  if (!cookie) {
+    return;
+  }
+
+  var flashes = JSON.parse(decodeURIComponent(cookie));
+  var html = '';
+
+  for (var type in flashes) {
+    if (type.startsWith('title-') || type === 'length' || !flashes.hasOwnProperty(type)) {
+      continue;
+    }
+
+    html += '<div class="l-box note note--' + type + '" role="' + (type === 'error' ? 'alert' : 'status') + '" aria-labelledby="' + type + '-summary-title" tabindex="-1" data-component = "' + type + '-summary" >';
+    html += '<h2 id="' + type + '-summary-title" class="txt-mars">' + flashes['title-' + type] + '</h2>';
+    html += '<ul class="clean-list" role="list">';
+
+    for (var i in flashes[type]) {
+      html += '<li>' + flashes[type][i] + '</li>';
+    }
+
+    html += '</ul>';
+    html += '</div>';
+  }
+
+  document.querySelector("#main").insertAdjacentHTML('afterbegin', html); // remove the cookie to not show flashes again
+  // the cookie path is controlled by the fos_http_cache.flash_message.path configuration option
+
+  document.cookie = "flashes=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
+};
+
+
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -634,6 +692,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
 /* harmony import */ var _main_navigation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9);
 /* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(10);
+/* harmony import */ var _main_flashes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(11);
 
 
 
@@ -641,7 +700,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__.responsiveTables)(); // Tie the responsiveTables function to a resize event, and debounce for performance
+
+(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__.responsiveTables)();
+(0,_main_flashes__WEBPACK_IMPORTED_MODULE_7__.flashes)(); // Tie the responsiveTables function to a resize event, and debounce for performance
 
 var timeout;
 window.addEventListener('resize', function (event) {
