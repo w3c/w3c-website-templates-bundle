@@ -4,7 +4,7 @@
             <div>
                 <div class="not-sidebar">
                     <h1>{% block title %}{{ page.title|default('W3C') }}{% endblock %}</h1>
-                    <p class="lead">{{ page.pageLead }}</p>
+                    {% block heroLead %}<p class="lead">{{ page.pageLead }}</p>{% endblock %}
                 </div>
                 {% if page.heroIllustration %}
                     <div class="sidebar">

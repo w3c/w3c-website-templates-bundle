@@ -1,0 +1,11 @@
+{% extends '@W3CWebsiteTemplates/components/styles/hero.html.twig' %}
+
+{% block title %}{{ page.pageLead|default('W3C Home') }}{% endblock %}
+{% block heroLead %}
+    <div class="lead">{{ page.heroCopy|raw }}</div>
+
+    {% if page.heroCallToActionButton is not empty %}
+        <a class="button button--alt" href="{{ page.heroCallToActionButton.url }}">{{ page.heroCallToActionButton.buttonText }}</a>
+    {% endif %}
+
+{% endblock %}

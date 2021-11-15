@@ -1,0 +1,12 @@
+{% extends '@W3CWebsiteTemplates/base.html.twig' %}
+
+{% set body_classes = 'home' %}
+
+{% block breadcrumbs %}{% endblock breadcrumbs %}
+
+{% block main %}
+    {{ include('@W3CWebsiteTemplates/components/styles/hero--home.html.twig') }}
+    {% block components %}{% endblock %}
+{% endblock %}
+
+{% block crosslinks %}{% endblock %}
