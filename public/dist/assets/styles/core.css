@@ -2879,11 +2879,11 @@ main,
       flex-direction: column;
   -ms-flex-pack: start;
       justify-content: flex-start;
-  border-width: 5px; }
+  border-width: 5px;
+  margin-bottom: 1.875rem;
+  max-width: 47rem; }
   .note > * + * {
-    margin-top: 1rem; }
-  .note > * {
-    max-width: 41.25rem; }
+    margin-top: 1em; }
 
 .note--error {
   border-color: #a82615; }

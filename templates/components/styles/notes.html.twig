@@ -3,7 +3,7 @@
     {% if errors|length > 0 %}
         <div class="l-box note note--error" role="alert" aria-labelledby="form-error-summary-title" tabindex="-1"
              data-component="error-summary">
-            <h2 id="form-error-summary-title" class="txt-mars">{{ 'notes.errors.default_title'|trans({}, 'w3c_website_templates_bundle') }}</h2>
+            <h2 id="form-error-summary-title" class="txt-saturn">{{ 'notes.errors.default_title'|trans({}, 'w3c_website_templates_bundle') }}</h2>
             <ul class="clean-list" role="list">
                 {% for error in errors %}
                     <li>
@@ -19,7 +19,7 @@
     {% if (notes|length > 0) %}
         <div class="l-box note note--{{ type }}" role="{{ type == 'error' ? 'alert' : 'status' }}" aria-labelledby="{{ type }}-summary-title" tabindex="-1"
              data-component="{{ type }}-summary">
-            <h2 id="{{ type }}-summary-title" class="txt-mars">{{ title }}</h2>
+            <h2 id="{{ type }}-summary-title" class="txt-saturn">{{ title }}</h2>
             <ul class="clean-list" role="list">
                 {% for note in notes %}
                     <li>
