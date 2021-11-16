@@ -8,6 +8,7 @@ window.addComment = (function(window) {
 	let document = window.document;
 	let commentReplyTitle = document.querySelector('[data-title="reply"]');
 	let origReplyTitle = commentReplyTitle.textContent;
+	let commentForm = document.getElementById('comment-form');
 
 	// I18N
 	let cancelText;
@@ -94,6 +95,10 @@ window.addComment = (function(window) {
 		let addBelowElement = document.getElementById(addBelowId);
 		let respondElement = document.querySelector('[data-respondelement]');
 
+		// Get the hidden fields
+		let parentIdField = commentForm.querySelector('input[name="parent"]');
+		parentIdField.value = commentId;
+
 		addPlaceHolder(respondElement);
 
 		addCancelBtn(respondElement);
@@ -106,6 +111,9 @@ window.addComment = (function(window) {
 	if (document.readyState === 'interactive') {
 
 		changeLinksToBtns();
+
+		// Hide cancel link used for non-JS fallback
+		commentForm.querySelector('[type="submit"]').nextElementSibling.style.display = 'none';
 
 		document.addEventListener('click', function (event) {
 
@@ -135,6 +143,7 @@ window.addComment = (function(window) {
 				commentReplyTitle.textContent = origReplyTitle;
 
 				temporaryElement.parentNode.replaceChild(respondElement, temporaryElement);
+				respondElement.querySelector('input[name="parent"]').value = '';
 
 				event.target.style.display = 'none';
 
