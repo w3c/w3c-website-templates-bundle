@@ -23,14 +23,9 @@
 
 			{% for member in membersModified %}
 
-				{# Output the member #}
+				{# Output the member name #}
 				<figure>
 					<figcaption>{{ member.name }}</figcaption>
-					{% if member.logo is not null %}
-						<div class="l-box l-box--no-border" style="display: none">
-							<img src="{{ member.logo }}" alt="{{ member.name }}" loading="lazy" />
-						</div>
-					{% endif %}
 				</figure>
 			{% endfor %}
 
