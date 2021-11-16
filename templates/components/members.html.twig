@@ -14,32 +14,35 @@
 	<div class="l-center">
 		<h2 class="visuallyhidden">{{ "components.members.title"|trans({}, 'w3c_website_templates_bundle') }}</h2>
 		<p>{{ "components.members.members_include"|trans({ 'count' : members|length }, 'w3c_website_templates_bundle') }}</p>
+
 		<div class="component--members__grid">
-			<div>
-				<img src="{{ asset('svg/placeholder-logo.svg', 'main') }}" alt role="presentation" loading="lazy" />
-			</div>
-			<div>
-				<img src="{{ asset('svg/placeholder-logo.svg', 'main') }}" alt role="presentation" loading="lazy" />
-			</div>
-			<div>
-				<img src="{{ asset('svg/placeholder-logo.svg', 'main') }}" alt role="presentation" loading="lazy" />
-			</div>
-			<div>
-				<img src="{{ asset('svg/placeholder-logo.svg', 'main') }}" alt role="presentation" loading="lazy" />
-			</div>
-			<div>
-				<img src="{{ asset('svg/placeholder-logo.svg', 'main') }}" alt role="presentation" loading="lazy" />
-			</div>
-			<div>
-				<img src="{{ asset('svg/placeholder-logo.svg', 'main') }}" alt role="presentation" loading="lazy" />
-			</div>
-			<div>
-				<img src="{{ asset('svg/placeholder-logo.svg', 'main') }}" alt role="presentation" loading="lazy" />
-			</div>
-			<div>
-				<img src="{{ asset('svg/placeholder-logo.svg', 'main') }}" alt role="presentation" loading="lazy" />
-			</div>
+
+			{# Duplicate the members array (we as will be modifying it, and don't want those modifications to effect the default variable, as it could be used in other areas of the template) #}
+			{% set membersModified = page.members %}
+{#			{% set membersLength = membersModified|length %}#}
+			{% set membersModified = membersModified|shuffle|slice(0,6) %}
+
+			{# Loop 6 times #}
+{#			{% for i in 1..6 %}#}
+			{% for test in membersModified %}
+				{# Extract a random members from the duplicate array that we have created #}
+{#				{% set test = random(membersModified) %}#}
+{#				{% set itemToExtract = random(0, (membersLength - 1)) %}#}
+{#				{% set outputMember = membersModified|slice(itemToExtract, itemToExtract) %}#}
+
+				{# Output the member #}
+				<figure>
+					<figcaption>{{ test.name }}</figcaption>
+					{% if test.logo is not null %}
+						<div class="l-box l-box--no-border" style="display: none">
+							<img src="{{ test.logo }}" alt="{{ test.name }}" loading="lazy" />
+						</div>
+					{% endif %}
+				</figure>
+			{% endfor %}
+
 		</div>
+
 		<a href="https://www.w3.org/membership/list">{{ "components.members.view_all"|trans({}, 'w3c_website_templates_bundle') }}</a>
 		<div class="l-cluster component--members__cta">
 			<div>

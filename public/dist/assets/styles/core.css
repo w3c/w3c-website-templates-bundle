@@ -3343,54 +3343,44 @@ a.tag {
 .component--members__grid {
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-flow: row wrap;
-      flex-flow: row wrap; }
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
   @supports (display: grid) {
     .component--members__grid {
       display: -ms-grid;
       display: grid;
-      grid-gap: 1.375rem;
-      -ms-grid-columns: (minmax(7.5rem, 1fr))[auto-fill];
-          grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr)); } }
+      grid-auto-rows: minmax(10.625rem, auto);
+      grid-gap: 1.25rem;
+      -ms-grid-columns: (minmax(10.625rem, 1fr))[auto-fill];
+          grid-template-columns: repeat(auto-fill, minmax(10.625rem, 1fr)); } }
 
-.component--members__grid > div {
+.component--members__grid figure {
+  -ms-flex-align: center;
+      align-items: center;
   background-color: #fff;
-  border: solid 1.375rem #f8f8fb;
-  -ms-flex-preferred-size: 7.5rem;
-      flex-basis: 7.5rem;
-  padding: 1.5rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  margin-bottom: 1.25rem;
+  margin-left: 0.625rem;
+  margin-right: 0.625rem;
+  -ms-flex: 1 1 10.625rem;
+      flex: 1 1 10.625rem;
   position: relative; }
   @supports (display: grid) {
-    .component--members__grid > div {
-      border: none;
-      -ms-flex-align: center;
-          align-items: center;
-      display: -ms-grid;
-      display: grid;
-      -ms-flex-pack: center;
-          justify-content: center;
-      position: static; } }
-  .component--members__grid > div::before {
-    content: '';
-    display: block;
-    padding-bottom: 100%; }
-    @supports (display: grid) {
-      .component--members__grid > div::before {
-        grid-area: 1 / 1 / 2 / 2; } }
+    .component--members__grid figure {
+      margin: 0; } }
 
-.component--members__grid > div img {
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  max-width: 100%;
-  position: absolute;
-  right: 0;
-  top: 0; }
-  @supports (display: grid) {
-    .component--members__grid > div img {
-      grid-area: 1 / 1 / 2 / 2;
-      position: static;
-      width: 100%; } }
+.component--members__grid figcaption {
+  font-size: 0.9375rem;
+  line-height: calc(22.5 / 15);
+  font-weight: bold;
+  margin: 0.625rem;
+  text-align: center; }
+
+.component--members__grid .l-box {
+  max-width: 10.625rem; }
 
 .component--members__grid + a {
   -ms-flex-item-align: start;
