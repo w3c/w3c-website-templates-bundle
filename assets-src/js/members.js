@@ -7,16 +7,19 @@ let membersPick = (function (){
         .sort((a, b) => a.sort - b.sort)
         .map(({ value }) => value);
 
-    var pickedMembers = shuffledMembers.slice(0,8);
+    var pickedMembers = shuffledMembers.slice(0,6);
 
+		for (var membersIndex = 0; membersIndex < pickedMembers.length; membersIndex++) {
+			var memberWrap = document.createElement('figure');
+			if (pickedMembers[membersIndex].logo !== null) {
+				var membersLogoHref = pickedMembers[membersIndex].logo;
+				memberWrap.innerHTML = '<div class="l-box l-box--no-border"><img src="' + membersLogoHref + '" alt="' + pickedMembers[membersIndex].name + '" loading="lazy" /></div>';
+			} else {
+				memberWrap.innerHTML = '<figcaption>' + pickedMembers[membersIndex].name + '</figcaption>';
+			}
+			updatedMembersContainer.appendChild(memberWrap);
+		}
 
-    for (var membersIndex = 0; membersIndex < pickedMembers.length; membersIndex++) {
-        var memberDiv = document.createElement('div');
-        var membersLogoHref = (pickedMembers[membersIndex].logo !== null)? pickedMembers[membersIndex].logo : 'https://via.placeholder.com/150';
-        memberDiv.innerHTML = '<img src="' + membersLogoHref + '" alt="' + pickedMembers[membersIndex].name + '" loading="lazy" />';
-        updatedMembersContainer.appendChild(memberDiv);
-    }
-
-    membersContainer.parentNode.replaceChild(updatedMembersContainer, membersContainer);
+		membersContainer.parentNode.replaceChild(updatedMembersContainer, membersContainer);
 
 })();

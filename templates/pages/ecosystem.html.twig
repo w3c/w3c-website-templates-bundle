@@ -51,9 +51,9 @@
         {% endif %}
         {% if page.members is not empty %}
 
-                    {#var membersScript = document.createElement('script');#}
-                    {#membersScript.src = "{{ asset('js/members.js', 'main') }}";#}
-                    {#document.querySelector('body').appendChild(membersScript);#}
+                    var membersScript = document.createElement('script');
+                    membersScript.src = "{{ asset('js/members.js', 'main') }}";
+                    document.querySelector('body').appendChild(membersScript);
 
         {% endif %}
             </script>

@@ -19,23 +19,16 @@
 
 			{# Duplicate the members array (we as will be modifying it, and don't want those modifications to effect the default variable, as it could be used in other areas of the template) #}
 			{% set membersModified = page.members %}
-{#			{% set membersLength = membersModified|length %}#}
-			{% set membersModified = membersModified|shuffle|slice(0,6) %}
+			{% set membersModified = membersModified|array_shuffle|slice(0,6) %}
 
-			{# Loop 6 times #}
-{#			{% for i in 1..6 %}#}
-			{% for test in membersModified %}
-				{# Extract a random members from the duplicate array that we have created #}
-{#				{% set test = random(membersModified) %}#}
-{#				{% set itemToExtract = random(0, (membersLength - 1)) %}#}
-{#				{% set outputMember = membersModified|slice(itemToExtract, itemToExtract) %}#}
+			{% for member in membersModified %}
 
 				{# Output the member #}
 				<figure>
-					<figcaption>{{ test.name }}</figcaption>
-					{% if test.logo is not null %}
+					<figcaption>{{ member.name }}</figcaption>
+					{% if member.logo is not null %}
 						<div class="l-box l-box--no-border" style="display: none">
-							<img src="{{ test.logo }}" alt="{{ test.name }}" loading="lazy" />
+							<img src="{{ member.logo }}" alt="{{ member.name }}" loading="lazy" />
 						</div>
 					{% endif %}
 				</figure>

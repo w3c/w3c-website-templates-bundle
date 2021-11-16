@@ -239,7 +239,7 @@ class TwigExtension extends AbstractExtension
         );
     }
 
-    public function arrayShuffle(array &$sourceArray): array
+    public function arrayShuffle(array $sourceArray): array
     {
         shuffle($sourceArray);
         return $sourceArray;
