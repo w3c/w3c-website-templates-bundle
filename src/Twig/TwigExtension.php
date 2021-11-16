@@ -51,7 +51,8 @@ class TwigExtension extends AbstractExtension
             new TwigFilter('avatar', [$this, 'avatar']),
             new TwigFilter('event_type', [$this, 'eventType']),
             new TwigFilter('crosslink_type', [$this, 'crosslinkType']),
-            new TwigFilter('date_range', [$this, 'dateRange'])
+            new TwigFilter('date_range', [$this, 'dateRange']),
+            new TwigFilter( 'array_shuffle', [$this, 'arrayShuffle'])
         ];
     }
 
@@ -236,5 +237,11 @@ class TwigExtension extends AbstractExtension
             ],
             'w3c_website_templates_bundle'
         );
+    }
+
+    public function arrayShuffle(array &$sourceArray): array
+    {
+        shuffle($sourceArray);
+        return $sourceArray;
     }
 }
