@@ -177,8 +177,15 @@
 
 	max-width: rem($text-measure);
 
+	.l-switcher {
+
+		overflow: visible;
+
+	}
+
 	.l-switcher > * {
 
+		align-items: flex-end;
 		margin: rem(-10);
 
 	}
