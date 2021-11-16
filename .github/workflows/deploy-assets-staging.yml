@@ -24,7 +24,7 @@ jobs:
       - name: Upload to cdn-dev
         uses: jakejarvis/s3-sync-action@master
         env:
-          AWS_S3_BUCKET: ${{ secrets.AWS_CDN_W3_ORG }}
+          AWS_S3_BUCKET: ${{ secrets.AWS_CDN_STAGING_W3_ORG }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-1'
