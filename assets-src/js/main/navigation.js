@@ -26,7 +26,9 @@ var navigation = (function () {
 
 	let nav = document.querySelector('.global-nav__inner ul');
 	let mobileNavToggler = document.querySelector('[data-trigger="mobile-nav"]');
-	mobileNavToggler.style = "";
+	if (exists(mobileNavToggler)) {
+		mobileNavToggler.style = "";
+	}
 	let menuIcon = '<svg class="icon icon--larger" xmlns:xlink="http://www.w3.org/1999/xlink" focusable="false" aria-hidden="true" viewBox="0 0 448 512" width="1em" height="1em"><use class="menu-icon" href="' + jsAssetsPath + 'svg/nav-icons.svg#menu-icon"></use><use class="close-icon" href="' + jsAssetsPath + 'svg/nav-icons.svg#close-icon"></use></svg>';
 	let parentLinks = [].slice.call(nav.querySelectorAll('.top-nav-item.has-children > a'));
 	let subNavArray = [].slice.call(nav.querySelectorAll('.nav__submenu'));
