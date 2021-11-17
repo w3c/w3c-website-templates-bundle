@@ -23,7 +23,7 @@ jobs:
       - name: compile assets
         run: npm run build
 
-      - name: Upload to ${{ environment }}
+      - name: Upload to ${{ env.environment }}
         uses: jakejarvis/s3-sync-action@master
         env:
           AWS_S3_BUCKET: ${{ secrets.AWS_CDN_STAGING_W3_ORG }}
@@ -33,10 +33,10 @@ jobs:
           SOURCE_DIR: 'public/dist/assets'
           DEST_DIR: 'templates/website-2021'
 
-      - name: Purge cache for ${{ environment }}
+      - name: Purge cache for ${{ env.environment }}
         uses: nathanvaughn/actions-cloudflare-purge@master
         if: success()
         with:
           cf_zone: ${{ secrets.CLOUDFLARE_ZONE }}
           cf_auth: ${{ secrets.CLOUDFLARE_CACHEPURGE_TOKEN }}
-          prefixes: ${{ environment }}.w3.org/templates/website-2021/
+          prefixes: ${{ env.environment }}.w3.org/templates/website-2021/
