@@ -44,7 +44,6 @@ class TwigExtension extends AbstractExtension
     public function getFilters()
     {
         return [
-            new TwigFilter('absolute_url', [$this, 'absoluteUrl']),
             new TwigFilter('preg_replace', [$this, 'pregReplace']),
             new TwigFilter('markup_attrs', [$this, 'markupAttrs']),
             new TwigFilter('time_diff', [$this, 'timeDiff'], ['needs_environment' => true]),
