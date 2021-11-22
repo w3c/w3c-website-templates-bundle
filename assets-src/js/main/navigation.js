@@ -27,7 +27,7 @@ var navigation = (function () {
 	let nav = document.querySelector('.global-nav__inner ul');
 	let mobileNavToggler = document.querySelector('[data-trigger="mobile-nav"]');
 	mobileNavToggler.style = "";
-	let menuIcon = '<svg class="icon icon--larger" xmlns:xlink="http://www.w3.org/1999/xlink" focusable="false" aria-hidden="true" viewBox="0 0 448 512" width="1em" height="1em"><use class="menu-icon" href="' + jsAssetsPath + 'svg/nav-icons.svg#menu-icon"></use><use class="close-icon" href="' + jsAssetsPath + 'svg/nav-icons.svg#close-icon"></use></svg>';
+	let menuIcon = '<svg class="icon icon--larger" xmlns:xlink="http://www.w3.org/1999/xlink" focusable="false" aria-hidden="true" viewBox="0 0 448 512" width="1em" height="1em"><use crossorigin="anonymous" class="menu-icon" href="' + jsAssetsPath + 'svg/nav-icons.svg#menu-icon"></use><use class="close-icon" crossorigin="anonymous" href="' + jsAssetsPath + 'svg/nav-icons.svg#close-icon"></use></svg>';
 	let parentLinks = [].slice.call(nav.querySelectorAll('.top-nav-item.has-children > a'));
 	let subNavArray = [].slice.call(nav.querySelectorAll('.nav__submenu'));
 
@@ -115,12 +115,12 @@ var navigation = (function () {
 			toggleButton.setAttribute('type', 'button');
 			toggleButton.setAttribute('aria-expanded', 'false');
 			toggleButton.setAttribute('data-trigger', 'subnav');
-			toggleButton.innerHTML = linkText + '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 512" class="icon nav-small" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-left" href="' + jsAssetsPath + 'svg/nav-icons.svg#angle-left"></use><use class="angle-right" href="' + jsAssetsPath + 'svg/nav-icons.svg#angle-right"></use></svg><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon nav-wide" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-down" href="' + jsAssetsPath + 'svg/nav-icons.svg#angle-down"></use><use class="angle-up" href="' + jsAssetsPath + 'svg/nav-icons.svg#angle-up"></use></svg>';
+			toggleButton.innerHTML = linkText + '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 512" class="icon nav-small" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-left" crossorigin="anonymous" href="' + jsAssetsPath + 'svg/nav-icons.svg#angle-left"></use><use crossorigin="anonymous" class="angle-right" href="' + jsAssetsPath + 'svg/nav-icons.svg#angle-right"></use></svg><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon nav-wide" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-down" href="' + jsAssetsPath + 'svg/nav-icons.svg#angle-down"></use><use class="angle-up" href="' + jsAssetsPath + 'svg/nav-icons.svg#angle-up"></use></svg>';
 
 			backButton.setAttribute('type', 'button');
 			backButton.setAttribute('class', 'button button--ghost u-full-width with-icon--before with-icon--larger');
 			backButton.setAttribute('data-trigger', 'mobile-back');
-			backButton.innerHTML = '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-left" href="' + jsAssetsPath + 'svg/nav-icons.svg#angle-left"></use><use class="angle-right" href="' + jsAssetsPath + 'svg/nav-icons.svg#angle-right"></use></svg>' + backText;
+			backButton.innerHTML = '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-left" crossorigin="anonymous" href="' + jsAssetsPath + 'svg/nav-icons.svg#angle-left"></use><use crossorigin="anonymous" class="angle-right" href="' + jsAssetsPath + 'svg/nav-icons.svg#angle-right"></use></svg>' + backText;
 
 			fragment.appendChild(backButton);
 			fragment.appendChild(clonedLink);
