@@ -93,3 +93,7 @@ Scripts within `/main` are concatenated together into `main.js` and `main.min.js
 Individual files are minified into files of the same name, but are kept separate. They are typically used on only one or two templates.
 
 Webpack is used to concatenate and minify JS. the configuration files sit within the project root: `webpack.config.js` and `webpack.config.min.js`
+
+## Twig filters
+
+A number of filters exist to help format data in Twig templates. They are documented in [their dedicated page](twig/filters.md).
