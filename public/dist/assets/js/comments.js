@@ -7,7 +7,8 @@ window.addComment = function (window) {
   // Avoid scope lookups on commonly used variables.
   var document = window.document;
   var commentReplyTitle = document.querySelector('[data-title="reply"]');
-  var origReplyTitle = commentReplyTitle.textContent; // I18N
+  var origReplyTitle = commentReplyTitle.textContent;
+  var commentForm = document.getElementById('comment-form'); // I18N
 
   var cancelText;
 
@@ -69,7 +70,10 @@ window.addComment = function (window) {
 
   function moveForm(addBelowId, commentId, postId) {
     var addBelowElement = document.getElementById(addBelowId);
-    var respondElement = document.querySelector('[data-respondelement]');
+    var respondElement = document.querySelector('[data-respondelement]'); // Get the hidden fields
+
+    var parentIdField = commentForm.querySelector('input[name="parent"]');
+    parentIdField.value = commentId;
     addPlaceHolder(respondElement);
     addCancelBtn(respondElement);
     addBelowElement.parentNode.insertBefore(respondElement, addBelowElement.nextSibling);
@@ -77,7 +81,9 @@ window.addComment = function (window) {
 
 
   if (document.readyState === 'interactive') {
-    changeLinksToBtns();
+    changeLinksToBtns(); // Hide cancel link used for non-JS fallback
+
+    commentForm.querySelector('[type="submit"]').nextElementSibling.style.display = 'none';
     document.addEventListener('click', function (event) {
       if (event.target.matches('[data-replylink]')) {
         var replyLink = event.target;
@@ -96,6 +102,7 @@ window.addComment = function (window) {
         var respondElement = document.querySelector('[data-respondelement]');
         commentReplyTitle.textContent = origReplyTitle;
         temporaryElement.parentNode.replaceChild(respondElement, temporaryElement);
+        respondElement.querySelector('input[name="parent"]').value = '';
         event.target.style.display = 'none';
       }
     }, false);

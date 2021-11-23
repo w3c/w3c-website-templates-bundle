@@ -160,8 +160,8 @@ events:
     # same_day = 1 when start_date == end_date
     date_range: >-
         {same_day, select,
-            1  {{start_date}, {start_time} - {end_time} {timezone}}
-            other {{start_date}, {start_time} - {end_date}, {end_time} {timezone}}
+            1  {{start_date}, {start_time} - {end_time} <b>{timezone}</b>}
+            other {{start_date}, {start_time} - {end_date}, {end_time} <b>{timezone}</b>}
         }
     add_to_calendar: __events.add_to_calendar
     event_details: __events.event_details
