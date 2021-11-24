@@ -17,6 +17,16 @@
 
 }
 
+.crosslinks .component--columns__intro {
+
+	a,
+	a:visited,
+	a:hover,
+	a:active {
+		color: $white;
+	}
+}
+
 .crosslinks .component--columns--images > ul {
 
 	@include mq(700) {

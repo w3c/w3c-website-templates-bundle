@@ -5,7 +5,7 @@
                 <a href="{{ crosslink['url'] }}" class="card__link">{{ crosslink['title'] }}</a>
             </h3>
             <p>
-                {% if crosslink['text'] is defined %}{{ crosslink['text'] }}{% endif %}
+                {% if crosslink['text'] is defined %}{{ crosslink['text']|raw }}{% endif %}
             </p>
             <p class="txt-pluto">
                 {% if crosslink['category'] is defined %}{{ crosslink['category']|crosslink_type|trans({}, 'w3c_website_templates_bundle') }}{% endif %}

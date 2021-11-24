@@ -1,44 +1,37 @@
-{% if ctas is empty %}
-	{% set ctas = [
-		{
-			'label': 'components.members.join'|trans({} , 'w3c_website_templates_bundle'),
-			'url': 'components.members.joinurl'|trans({} , 'w3c_website_templates_bundle')
-		},
-		{
-			'label': 'components.members.donate'|trans({} , 'w3c_website_templates_bundle'),
-			'url': 'components.members.donateurl'|trans({} , 'w3c_website_templates_bundle')
-		}
-	] %}
-{% endif %}
 <div class="component component--members u-full-width">
 	<div class="l-center">
-		<h2 class="visuallyhidden">{{ "components.members.title"|trans({}, 'w3c_website_templates_bundle') }}</h2>
-		<p>{{ "components.members.members_include"|trans({ 'count' : members|length }, 'w3c_website_templates_bundle') }}</p>
+		{% block membersgridintro %}
+			<h2 class="visuallyhidden">{{ "components.members.title"|trans({}, 'w3c_website_templates_bundle') }}</h2>
+			<p>{{ "components.members.members_include"|trans({ 'count' : members|length }, 'w3c_website_templates_bundle') }}</p>
+		{% endblock %}
 
-		<div class="component--members__grid">
+		{% block membersgrid %}
+			{{ include('@W3CWebsiteTemplates/components/members-grid.html.twig', {'members': page.members}) }}
+		{% endblock %}
 
-			{# Duplicate the members array (we as will be modifying it, and don't want those modifications to effect the default variable, as it could be used in other areas of the template) #}
-			{% set membersModified = page.members %}
-			{% set membersModified = membersModified|array_shuffle|slice(0,6) %}
+		{% block membersgridfollowup %}
+			{% if ctas is empty %}
+				{% set ctas = [
+					{
+						'label': 'components.members.join'|trans({} , 'w3c_website_templates_bundle'),
+						'url': 'components.members.joinurl'|trans({} , 'w3c_website_templates_bundle')
+					},
+					{
+						'label': 'components.members.donate'|trans({} , 'w3c_website_templates_bundle'),
+						'url': 'components.members.donateurl'|trans({} , 'w3c_website_templates_bundle')
+					}
+				] %}
+			{% endif %}
 
-			{% for member in membersModified %}
-
-				{# Output the member name #}
-				<figure>
-					<figcaption>{{ member.name }}</figcaption>
-				</figure>
-			{% endfor %}
-
-		</div>
-
-		<a href="https://www.w3.org/membership/list">{{ "components.members.view_all"|trans({}, 'w3c_website_templates_bundle') }}</a>
-		<div class="l-cluster component--members__cta">
-			<div>
-				<p>{{ "components.members.get_involved"|trans({}, 'w3c_website_templates_bundle') }}</p>
-				{% for cta in ctas %}
-				<a class="button button--alt" href="{{ cta.url }}">{{ cta.label }}</a>
-				{% endfor %}
+			<a href="https://www.w3.org/membership/list">{{ "components.members.view_all"|trans({}, 'w3c_website_templates_bundle') }}</a>
+			<div class="l-cluster component--members__cta">
+				<div>
+					<p>{{ "components.members.get_involved"|trans({}, 'w3c_website_templates_bundle') }}</p>
+					{% for cta in ctas %}
+					<a class="button button--alt" href="{{ cta.url }}">{{ cta.label }}</a>
+					{% endfor %}
+				</div>
 			</div>
-		</div>
+		{% endblock %}
 	</div>
 </div>

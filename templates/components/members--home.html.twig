@@ -1,0 +1,16 @@
+{% extends '@W3CWebsiteTemplates/components/members.html.twig' %}
+
+{% block membersgridintro %}
+    {% if title %}<h2>{{ title }}</h2>{% endif %}
+    {% if introduction %}{{ introduction|raw }}{% endif %}
+{% endblock %}
+
+{% block membersgrid %}
+    {{ include('@W3CWebsiteTemplates/components/members-grid.html.twig', {'members': members}) }}
+{% endblock %}
+
+{% block membersgridfollowup %}
+    {% if cta %}
+        <a class="button button--alt" href="{{ cta.url }}">{{ cta.buttonText }}</a>
+    {% endif %}
+{% endblock %}

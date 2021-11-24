@@ -3,7 +3,9 @@
         <div class="component component--columns component--columns--images">
             <div class="component--columns__intro">
                 <h2>{{ crosslinks['title'] }}</h2>
-                <p>{{ crosslinks['text'] }}</p>
+                {% block introduction %}
+                    <p>{{ crosslinks['text'] }}</p>
+                {% endblock %}
             </div>
             <ul class="clean-list" role="presentation">
                 {% for crosslink in crosslinks['links'] %}

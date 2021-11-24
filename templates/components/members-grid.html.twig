@@ -1,0 +1,15 @@
+<div class="component--members__grid">
+
+    {# Duplicate the members array (we as will be modifying it, and don't want those modifications to effect the default variable, as it could be used in other areas of the template) #}
+    {% set membersModified = members %}
+    {% set membersModified = membersModified|array_shuffle|slice(0,6) %}
+
+    {% for member in membersModified %}
+
+        {# Output the member name #}
+        <figure>
+            <figcaption>{{ member.name }}</figcaption>
+        </figure>
+    {% endfor %}
+
+</div>
