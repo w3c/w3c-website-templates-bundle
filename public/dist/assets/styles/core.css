@@ -3519,6 +3519,12 @@ a.tag {
   font-size: 1.5rem;
   line-height: calc(33.6 / 24); }
 
+.crosslinks .component--columns__intro a,
+.crosslinks .component--columns__intro a:visited,
+.crosslinks .component--columns__intro a:hover,
+.crosslinks .component--columns__intro a:active {
+  color: #fff; }
+
 @media screen and (min-width: 43.75em) {
   .crosslinks .component--columns--images > ul {
     display: -ms-flexbox;
