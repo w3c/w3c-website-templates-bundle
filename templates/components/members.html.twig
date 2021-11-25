@@ -23,7 +23,7 @@
 				] %}
 			{% endif %}
 
-			<a href="https://www.w3.org/membership/list">{{ "components.members.view_all"|trans({}, 'w3c_website_templates_bundle') }}</a>
+			<a href="https://www.w3.org/Consortium/Member/List?form%5Becosystem%5D={{ ecosystem.slug }}">{{ "components.members.view_all"|trans({'ecosystem_name': ecosystem.name}, 'w3c_website_templates_bundle') }}</a>
 			<div class="l-cluster component--members__cta">
 				<div>
 					<p>{{ "components.members.get_involved"|trans({}, 'w3c_website_templates_bundle') }}</p>
