@@ -81,12 +81,12 @@ listing:
             search_button: Show results
             all: All
             archives: Browse archives
-            archives_label: Post archives
+            archives_label: News archives
     press_releases:
         filters:
             all: All
             archives: Browse archives
-            archives_label: Post archives
+            archives_label: Press release archives
     events:
         filters:
             all: All
@@ -96,7 +96,8 @@ listing:
             clear: Clear all
     newsletters:
         filters:
-            all: All
+            archives: Browse archives
+            archives_label: Newsletter archives
 components:
     video:
         transcript: "Read transcript <span class=\"visuallyhidden\">for {title}</span>"
