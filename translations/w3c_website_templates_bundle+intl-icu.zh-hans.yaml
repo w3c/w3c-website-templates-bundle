@@ -85,7 +85,8 @@ listing:
             clear: __listing.events.filters.clear
     newsletters:
         filters:
-            all: __listing.newsletters.filters.all
+            archives: __listing.newsletters.filters.archives
+            archives_label: __listing.newsletters.filters.archives_label
 components:
     video:
         transcript: __components.video.transcript
