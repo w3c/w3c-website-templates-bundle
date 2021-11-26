@@ -121,11 +121,7 @@
                 } %}{% endembed %}
         {% endblock breadcrumbs %}
         <main id="main">
-            {% block notes %}
-                {% if app.environment == 'test' and app.request.hasPreviousSession %}
-                    {{ include('@W3CWebsiteTemplates/flashes.html.twig') }}
-                {% endif %}
-            {% endblock %}
+            {% block notes %}{% endblock %}
             {% block main %}{% endblock %}
         </main>
         {% block crosslinks %}
