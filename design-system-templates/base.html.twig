@@ -63,7 +63,9 @@
     <div class="grid-wrap">
         <div class="wrap">
 
-            {% include 'components/header.html.twig' %}
+            {% block header %}
+                {% include 'components/header-nav.html.twig' %}
+            {% endblock %}
 
             {% block breadcrumbs %}
             {% endblock %}
