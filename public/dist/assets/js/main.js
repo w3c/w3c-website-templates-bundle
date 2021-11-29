@@ -4,15 +4,211 @@
 /* 0 */,
 /* 1 */,
 /* 2 */,
-/* 3 */,
-/* 4 */
+/* 3 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "translate": () => (/* binding */ translate)
+/* harmony export */ });
+var translate = {
+  'translations': {
+    //microcopy translations
+    'ar': {
+      'admin': '__admin',
+      'backToMainMenu': '__backToMainMenu',
+      'cancelReply': '__cancelReply',
+      'memberSite': '__memberSite',
+      'logout': '__logout',
+      'menu': '__menu',
+      'myAccount': '__myAccount',
+      'myCalendar': '__myCalendar',
+      'myOrganization': '__myOrganization',
+      'teamSite': '__teamsite',
+      'sliderDescription': '__sliderDescription',
+      'controlsDescription': '__controlsDescription',
+      'previousSlide': '__previousSlide',
+      'nextSlide': '__nextSlide',
+      'slideText': '__Slide {x} of {y}'
+    },
+    'de': {
+      'admin': '__admin',
+      'backToMainMenu': '__backToMainMenu',
+      'cancelReply': '__cancelReply',
+      'memberSite': '__memberSite',
+      'logout': '__logout',
+      'menu': '__menu',
+      'myAccount': '__myAccount',
+      'myCalendar': '__myCalendar',
+      'myOrganization': '__myOrganization',
+      'teamSite': '__teamsite',
+      'sliderDescription': '__sliderDescription',
+      'controlsDescription': '__controlsDescription',
+      'previousSlide': '__previousSlide',
+      'nextSlide': '__nextSlide',
+      'slideText': '__Slide {x} of {y}'
+    },
+    'en': {
+      'admin': 'Admin',
+      'backToMainMenu': 'Back to main menu',
+      'cancelReply': 'Cancel reply',
+      'memberSite': 'Member Site',
+      'logout': 'Logout',
+      'menu': 'Menu',
+      'myAccount': 'My Account',
+      'myCalendar': 'My Calendar',
+      'myOrganization': 'My Organization',
+      'teamSite': 'Team Site',
+      'sliderDescription': 'carousel',
+      'controlsDescription': 'carousel controls',
+      'previousSlide': 'previous slide',
+      'nextSlide': 'next slide',
+      'slideText': 'Slide {x} of {y}'
+    },
+    'es': {
+      'admin': '__admin',
+      'backToMainMenu': '__backToMainMenu',
+      'cancelReply': '__cancelReply',
+      'memberSite': '__memberSite',
+      'logout': '__logout',
+      'menu': '__menu',
+      'myAccount': '__myAccount',
+      'myCalendar': '__myCalendar',
+      'myOrganization': '__myOrganization',
+      'teamSite': '__teamsite',
+      'sliderDescription': '__sliderDescription',
+      'controlsDescription': '__controlsDescription',
+      'previousSlide': '__previousSlide',
+      'nextSlide': '__nextSlide',
+      'slideText': '__Slide {x} of {y}'
+    },
+    'fr': {
+      'admin': '__admin',
+      'backToMainMenu': '__backToMainMenu',
+      'cancelReply': '__cancelReply',
+      'memberSite': '__memberSite',
+      'logout': '__logout',
+      'menu': '__menu',
+      'myAccount': '__myAccount',
+      'myCalendar': '__myCalendar',
+      'myOrganization': '__myOrganization',
+      'teamSite': '__teamsite',
+      'sliderDescription': '__sliderDescription',
+      'controlsDescription': '__controlsDescription',
+      'previousSlide': '__previousSlide',
+      'nextSlide': '__nextSlide',
+      'slideText': '__Slide {x} of {y}'
+    },
+    'hu': {
+      'admin': '__admin',
+      'backToMainMenu': '__backToMainMenu',
+      'cancelReply': '__cancelReply',
+      'memberSite': '__memberSite',
+      'logout': '__logout',
+      'menu': '__menu',
+      'myAccount': '__myAccount',
+      'myCalendar': '__myCalendar',
+      'myOrganization': '__myOrganization',
+      'teamSite': '__teamsite',
+      'sliderDescription': '__sliderDescription',
+      'controlsDescription': '__controlsDescription',
+      'previousSlide': '__previousSlide',
+      'nextSlide': '__nextSlide',
+      'slideText': '__Slide {x} of {y}'
+    },
+    'ja': {
+      'admin': '__admin',
+      'backToMainMenu': '__backToMainMenu',
+      'cancelReply': '__cancelReply',
+      'memberSite': '__memberSite',
+      'logout': '__logout',
+      'menu': '__menu',
+      'myAccount': '__myAccount',
+      'myCalendar': '__myCalendar',
+      'myOrganization': '__myOrganization',
+      'teamSite': '__teamsite',
+      'sliderDescription': '__sliderDescription',
+      'controlsDescription': '__controlsDescription',
+      'previousSlide': '__previousSlide',
+      'nextSlide': '__nextSlide',
+      'slideText': '__Slide {x} of {y}'
+    },
+    'pt-br': {
+      'admin': '__admin',
+      'backToMainMenu': '__backToMainMenu',
+      'cancelReply': '__cancelReply',
+      'memberSite': '__memberSite',
+      'logout': '__logout',
+      'menu': '__menu',
+      'myAccount': '__myAccount',
+      'myCalendar': '__myCalendar',
+      'myOrganization': '__myOrganization',
+      'teamSite': '__teamsite',
+      'sliderDescription': '__sliderDescription',
+      'controlsDescription': '__controlsDescription',
+      'previousSlide': '__previousSlide',
+      'nextSlide': '__nextSlide',
+      'slideText': '__Slide {x} of {y}'
+    },
+    'zh-hans': {
+      'admin': '__admin',
+      'backToMainMenu': '__backToMainMenu',
+      'cancelReply': 'cancelReply',
+      'memberSite': '__memberSite',
+      'logout': '__logout',
+      'menu': '__menu',
+      'myAccount': '__myAccount',
+      'myCalendar': '__myCalendar',
+      'myOrganization': '__myOrganization',
+      'teamSite': '__teamsite',
+      'sliderDescription': '__sliderDescription',
+      'controlsDescription': '__controlsDescription',
+      'previousSlide': '__previousSlide',
+      'nextSlide': '__nextSlide',
+      'slideText': '__Slide {x} of {y}'
+    }
+  },
+  //snippetReference = index of micro copy snippet in translations object above
+  //languageCode = code of the target language
+  //injection = object of values to inject into the string if interpolation is required, object keys should match references in the translations snippets,
+  // e.g. 'Slide {x} of {y} requires an object with keys x and y.
+  'translate': function translate(snippetReference, languageCode) {
+    var injections = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
+    //without a snippet reference, we don't know what to translate
+    if (snippetReference === undefined || snippetReference === null || snippetReference.length < 1) {
+      return;
+    } //language code defaults to English
+
+
+    if (languageCode === undefined || languageCode === null || this.translations[languageCode] === undefined) {
+      languageCode = 'en';
+    }
+
+    var translatedString = this['translations'][languageCode][snippetReference];
+    var injectionsKeys = Object.keys(injections);
+
+    if (injectionsKeys.length > 0) {
+      for (var keyIndex = 0; keyIndex < injectionsKeys.length; keyIndex++) {
+        translatedString = translatedString.replace(new RegExp('\\{' + injectionsKeys[keyIndex] + '\\}', 'gm'), injections[injectionsKeys[keyIndex]]);
+      }
+    }
+
+    return translatedString;
+  }
+};
+
+
+/***/ }),
+/* 4 */,
+/* 5 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "accountMenu": () => (/* binding */ accountMenu)
 /* harmony export */ });
-/* harmony import */ var _translations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
+/* harmony import */ var _translations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
 
 
 var accountMenu = function () {
@@ -165,100 +361,6 @@ var accountMenu = function () {
   }
 }();
 
-
-
-/***/ }),
-/* 5 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "translate": () => (/* binding */ translate)
-/* harmony export */ });
-var translate = {
-  'translations': {
-    //microcopy translations
-    'en': {
-      'admin': 'Admin',
-      'backToMainMenu': 'Back to main menu',
-      'cancelReply': 'Cancel reply',
-      'memberSite': 'Member Site',
-      'logout': 'Logout',
-      'menu': 'Menu',
-      'myAccount': 'My Account',
-      'myCalendar': 'My Calendar',
-      'myOrganization': 'My Organization',
-      'teamSite': 'Team Site',
-      'sliderDescription': 'carousel',
-      'controlsDescription': 'carousel controls',
-      'previousSlide': 'previous slide',
-      'nextSlide': 'next slide',
-      'slideText': 'Slide {x} of {y}'
-    },
-    'ja': {
-      'admin': '__admin',
-      'backToMainMenu': '__backToMainMenu',
-      'cancelReply': '__cancelReply',
-      'memberSite': '__memberSite',
-      'logout': '__logout',
-      'menu': '__menu',
-      'myAccount': '__myAccount',
-      'myCalendar': '__myCalendar',
-      'myOrganization': '__myOrganization',
-      'teamSite': '__teamsite',
-      'sliderDescription': '__sliderDescription',
-      'controlsDescription': '__controlsDescription',
-      'previousSlide': '__previousSlide',
-      'nextSlide': '__nextSlide',
-      'slideText': '__Slide {x} of {y}'
-    },
-    'zh-hans': {
-      'admin': '__admin',
-      'backToMainMenu': '__backToMainMenu',
-      'cancelReply': 'cancelReply',
-      'memberSite': '__memberSite',
-      'logout': '__logout',
-      'menu': '__menu',
-      'myAccount': '__myAccount',
-      'myCalendar': '__myCalendar',
-      'myOrganization': '__myOrganization',
-      'teamSite': '__teamsite',
-      'sliderDescription': '__sliderDescription',
-      'controlsDescription': '__controlsDescription',
-      'previousSlide': '__previousSlide',
-      'nextSlide': '__nextSlide',
-      'slideText': '__Slide {x} of {y}'
-    }
-  },
-  //snippetReference = index of micro copy snippet in translations object above
-  //languageCode = code of the target language
-  //injection = object of values to inject into the string if interpolation is required, object keys should match references in the translations snippets,
-  // e.g. 'Slide {x} of {y} requires an object with keys x and y.
-  'translate': function translate(snippetReference, languageCode) {
-    var injections = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-
-    //without a snippet reference, we don't know what to translate
-    if (snippetReference === undefined || snippetReference === null || snippetReference.length < 1) {
-      return;
-    } //language code defaults to English
-
-
-    if (languageCode === undefined || languageCode === null || this.translations[languageCode] === undefined) {
-      languageCode = 'en';
-    }
-
-    var translatedString = this['translations'][languageCode][snippetReference];
-    var injectionsKeys = Object.keys(injections);
-
-    if (injectionsKeys.length > 0) {
-      for (var keyIndex = 0; keyIndex < injectionsKeys.length; keyIndex++) {
-        translatedString = translatedString.replace(new RegExp('\\{' + injectionsKeys[keyIndex] + '\\}', 'gm'), injections[injectionsKeys[keyIndex]]);
-      }
-    }
-
-    return translatedString;
-  }
-};
 
 
 /***/ }),
@@ -451,7 +553,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "navigation": () => (/* binding */ navigation)
 /* harmony export */ });
-/* harmony import */ var _translations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
+/* harmony import */ var _translations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
 
 
 var navigation = function () {
@@ -752,7 +854,7 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _main_account_menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
+/* harmony import */ var _main_account_menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
 /* harmony import */ var _main_cards__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
 /* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
 /* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8);

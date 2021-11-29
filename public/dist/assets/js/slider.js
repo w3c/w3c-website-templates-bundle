@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 5:
+/***/ 3:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -12,6 +12,40 @@ __webpack_require__.r(__webpack_exports__);
 var translate = {
   'translations': {
     //microcopy translations
+    'ar': {
+      'admin': '__admin',
+      'backToMainMenu': '__backToMainMenu',
+      'cancelReply': '__cancelReply',
+      'memberSite': '__memberSite',
+      'logout': '__logout',
+      'menu': '__menu',
+      'myAccount': '__myAccount',
+      'myCalendar': '__myCalendar',
+      'myOrganization': '__myOrganization',
+      'teamSite': '__teamsite',
+      'sliderDescription': '__sliderDescription',
+      'controlsDescription': '__controlsDescription',
+      'previousSlide': '__previousSlide',
+      'nextSlide': '__nextSlide',
+      'slideText': '__Slide {x} of {y}'
+    },
+    'de': {
+      'admin': '__admin',
+      'backToMainMenu': '__backToMainMenu',
+      'cancelReply': '__cancelReply',
+      'memberSite': '__memberSite',
+      'logout': '__logout',
+      'menu': '__menu',
+      'myAccount': '__myAccount',
+      'myCalendar': '__myCalendar',
+      'myOrganization': '__myOrganization',
+      'teamSite': '__teamsite',
+      'sliderDescription': '__sliderDescription',
+      'controlsDescription': '__controlsDescription',
+      'previousSlide': '__previousSlide',
+      'nextSlide': '__nextSlide',
+      'slideText': '__Slide {x} of {y}'
+    },
     'en': {
       'admin': 'Admin',
       'backToMainMenu': 'Back to main menu',
@@ -29,7 +63,75 @@ var translate = {
       'nextSlide': 'next slide',
       'slideText': 'Slide {x} of {y}'
     },
+    'es': {
+      'admin': '__admin',
+      'backToMainMenu': '__backToMainMenu',
+      'cancelReply': '__cancelReply',
+      'memberSite': '__memberSite',
+      'logout': '__logout',
+      'menu': '__menu',
+      'myAccount': '__myAccount',
+      'myCalendar': '__myCalendar',
+      'myOrganization': '__myOrganization',
+      'teamSite': '__teamsite',
+      'sliderDescription': '__sliderDescription',
+      'controlsDescription': '__controlsDescription',
+      'previousSlide': '__previousSlide',
+      'nextSlide': '__nextSlide',
+      'slideText': '__Slide {x} of {y}'
+    },
+    'fr': {
+      'admin': '__admin',
+      'backToMainMenu': '__backToMainMenu',
+      'cancelReply': '__cancelReply',
+      'memberSite': '__memberSite',
+      'logout': '__logout',
+      'menu': '__menu',
+      'myAccount': '__myAccount',
+      'myCalendar': '__myCalendar',
+      'myOrganization': '__myOrganization',
+      'teamSite': '__teamsite',
+      'sliderDescription': '__sliderDescription',
+      'controlsDescription': '__controlsDescription',
+      'previousSlide': '__previousSlide',
+      'nextSlide': '__nextSlide',
+      'slideText': '__Slide {x} of {y}'
+    },
+    'hu': {
+      'admin': '__admin',
+      'backToMainMenu': '__backToMainMenu',
+      'cancelReply': '__cancelReply',
+      'memberSite': '__memberSite',
+      'logout': '__logout',
+      'menu': '__menu',
+      'myAccount': '__myAccount',
+      'myCalendar': '__myCalendar',
+      'myOrganization': '__myOrganization',
+      'teamSite': '__teamsite',
+      'sliderDescription': '__sliderDescription',
+      'controlsDescription': '__controlsDescription',
+      'previousSlide': '__previousSlide',
+      'nextSlide': '__nextSlide',
+      'slideText': '__Slide {x} of {y}'
+    },
     'ja': {
+      'admin': '__admin',
+      'backToMainMenu': '__backToMainMenu',
+      'cancelReply': '__cancelReply',
+      'memberSite': '__memberSite',
+      'logout': '__logout',
+      'menu': '__menu',
+      'myAccount': '__myAccount',
+      'myCalendar': '__myCalendar',
+      'myOrganization': '__myOrganization',
+      'teamSite': '__teamsite',
+      'sliderDescription': '__sliderDescription',
+      'controlsDescription': '__controlsDescription',
+      'previousSlide': '__previousSlide',
+      'nextSlide': '__nextSlide',
+      'slideText': '__Slide {x} of {y}'
+    },
+    'pt-br': {
       'admin': '__admin',
       'backToMainMenu': '__backToMainMenu',
       'cancelReply': '__cancelReply',
@@ -157,7 +259,7 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _main_translations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
+/* harmony import */ var _main_translations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
 
 /**
  * Content slider (carousel)
