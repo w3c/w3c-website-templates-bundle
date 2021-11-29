@@ -1,3 +1,5 @@
+import {translate} from "./main/translations";
+
 /**
  * Relocates comment reply form to parent comment and updates title
  */
@@ -11,21 +13,7 @@ window.addComment = (function(window) {
 	let commentForm = document.getElementById('comment-form');
 
 	// I18N
-	let cancelText;
-
-	if (document.documentElement.lang === 'ja') {
-
-		cancelText = '返信をキャンセルする';
-
-	} else if (document.documentElement.lang === 'zh-hans') {
-
-		cancelText = '取消回复';
-
-	} else {
-
-		cancelText = 'Cancel reply';
-
-	}
+	let cancelText = translate.translate('cancelReply', document.documentElement.lang);
 
 	function changeLinksToBtns() {
 
@@ -90,7 +78,7 @@ window.addComment = (function(window) {
 
 	}
 
-	function moveForm(addBelowId, commentId, postId) {
+	function moveForm(addBelowId, commentId) {
 
 		let addBelowElement = document.getElementById(addBelowId);
 		let respondElement = document.querySelector('[data-respondelement]');

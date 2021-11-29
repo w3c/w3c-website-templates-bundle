@@ -181,6 +181,7 @@ var translate = {
     'en': {
       'admin': 'Admin',
       'backToMainMenu': 'Back to main menu',
+      'cancelReply': 'Cancel reply',
       'memberSite': 'Member Site',
       'logout': 'Logout',
       'menu': 'Menu',
@@ -197,6 +198,7 @@ var translate = {
     'ja': {
       'admin': '__admin',
       'backToMainMenu': '__backToMainMenu',
+      'cancelReply': '__cancelReply',
       'memberSite': '__memberSite',
       'logout': '__logout',
       'menu': '__menu',
@@ -213,6 +215,7 @@ var translate = {
     'zh-hans': {
       'admin': '__admin',
       'backToMainMenu': '__backToMainMenu',
+      'cancelReply': 'cancelReply',
       'memberSite': '__memberSite',
       'logout': '__logout',
       'menu': '__menu',
