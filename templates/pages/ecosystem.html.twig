@@ -30,7 +30,7 @@
             {{ include('@W3CWebsiteTemplates/components/content-slider.html.twig', {'testimonials': page.testimonials }) }}
         {% endif %}
         {% if page.members is not empty %}
-            {{ include('@W3CWebsiteTemplates/components/members.html.twig', {'members': page.members, 'ctas' : {} }) }}
+            {{ include('@W3CWebsiteTemplates/components/members.html.twig', {'members': page.members, 'ctas' : {}, 'ecosystem': {'slug': page['taxonomy-slug'], 'name': page.title} }) }}
         {% endif %}
     {% endblock %}
     {% block bottom_components %}{% endblock %}

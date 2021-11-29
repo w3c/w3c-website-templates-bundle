@@ -2,7 +2,7 @@
 	<div class="l-center">
 		{% block membersgridintro %}
 			<h2 class="visuallyhidden">{{ "components.members.title"|trans({}, 'w3c_website_templates_bundle') }}</h2>
-			<p>{{ "components.members.members_include"|trans({ 'count' : members|length }, 'w3c_website_templates_bundle') }}</p>
+			<p>{{ "components.members.members_include"|trans({ 'count' : members|length, 'ecosystem_name': ecosystem.name|lower }, 'w3c_website_templates_bundle') }}</p>
 		{% endblock %}
 
 		{% block membersgrid %}
@@ -23,7 +23,7 @@
 				] %}
 			{% endif %}
 
-			<a href="https://www.w3.org/membership/list">{{ "components.members.view_all"|trans({}, 'w3c_website_templates_bundle') }}</a>
+			<a href="https://www.w3.org/Consortium/Member/List?form%5Becosystem%5D={{ ecosystem.slug }}">{{ "components.members.view_all"|trans({'ecosystem_name': ecosystem.name|lower}, 'w3c_website_templates_bundle') }}</a>
 			<div class="l-cluster component--members__cta">
 				<div>
 					<p>{{ "components.members.get_involved"|trans({}, 'w3c_website_templates_bundle') }}</p>

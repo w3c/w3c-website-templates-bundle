@@ -80,6 +80,9 @@
             });
 
             var jsAssetsPath = "{{ asset('/', 'main') }}";
+            var microCopy = null;
+            var microCopyExtraCallbacks = [];
+            var userInfo = null;
 
             (function () {
                 var linkEl = document.getElementById('advanced-stylesheet');

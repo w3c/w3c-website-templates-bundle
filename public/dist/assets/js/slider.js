@@ -1,41 +1,277 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ 3:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "translate": () => (/* binding */ translate)
+/* harmony export */ });
+var translate = {
+  'translations': {
+    //microcopy translations
+    'ar': {
+      'admin': '__admin',
+      'backToMainMenu': '__backToMainMenu',
+      'cancelReply': '__cancelReply',
+      'memberSite': '__memberSite',
+      'logout': '__logout',
+      'menu': '__menu',
+      'myAccount': '__myAccount',
+      'myCalendar': '__myCalendar',
+      'myOrganization': '__myOrganization',
+      'teamSite': '__teamsite',
+      'sliderDescription': '__sliderDescription',
+      'controlsDescription': '__controlsDescription',
+      'previousSlide': '__previousSlide',
+      'nextSlide': '__nextSlide',
+      'slideText': '__Slide {x} of {y}'
+    },
+    'de': {
+      'admin': '__admin',
+      'backToMainMenu': '__backToMainMenu',
+      'cancelReply': '__cancelReply',
+      'memberSite': '__memberSite',
+      'logout': '__logout',
+      'menu': '__menu',
+      'myAccount': '__myAccount',
+      'myCalendar': '__myCalendar',
+      'myOrganization': '__myOrganization',
+      'teamSite': '__teamsite',
+      'sliderDescription': '__sliderDescription',
+      'controlsDescription': '__controlsDescription',
+      'previousSlide': '__previousSlide',
+      'nextSlide': '__nextSlide',
+      'slideText': '__Slide {x} of {y}'
+    },
+    'en': {
+      'admin': 'Admin',
+      'backToMainMenu': 'Back to main menu',
+      'cancelReply': 'Cancel reply',
+      'memberSite': 'Member Site',
+      'logout': 'Logout',
+      'menu': 'Menu',
+      'myAccount': 'My Account',
+      'myCalendar': 'My Calendar',
+      'myOrganization': 'My Organization',
+      'teamSite': 'Team Site',
+      'sliderDescription': 'carousel',
+      'controlsDescription': 'carousel controls',
+      'previousSlide': 'previous slide',
+      'nextSlide': 'next slide',
+      'slideText': 'Slide {x} of {y}'
+    },
+    'es': {
+      'admin': '__admin',
+      'backToMainMenu': '__backToMainMenu',
+      'cancelReply': '__cancelReply',
+      'memberSite': '__memberSite',
+      'logout': '__logout',
+      'menu': '__menu',
+      'myAccount': '__myAccount',
+      'myCalendar': '__myCalendar',
+      'myOrganization': '__myOrganization',
+      'teamSite': '__teamsite',
+      'sliderDescription': '__sliderDescription',
+      'controlsDescription': '__controlsDescription',
+      'previousSlide': '__previousSlide',
+      'nextSlide': '__nextSlide',
+      'slideText': '__Slide {x} of {y}'
+    },
+    'fr': {
+      'admin': '__admin',
+      'backToMainMenu': '__backToMainMenu',
+      'cancelReply': '__cancelReply',
+      'memberSite': '__memberSite',
+      'logout': '__logout',
+      'menu': '__menu',
+      'myAccount': '__myAccount',
+      'myCalendar': '__myCalendar',
+      'myOrganization': '__myOrganization',
+      'teamSite': '__teamsite',
+      'sliderDescription': '__sliderDescription',
+      'controlsDescription': '__controlsDescription',
+      'previousSlide': '__previousSlide',
+      'nextSlide': '__nextSlide',
+      'slideText': '__Slide {x} of {y}'
+    },
+    'hu': {
+      'admin': '__admin',
+      'backToMainMenu': '__backToMainMenu',
+      'cancelReply': '__cancelReply',
+      'memberSite': '__memberSite',
+      'logout': '__logout',
+      'menu': '__menu',
+      'myAccount': '__myAccount',
+      'myCalendar': '__myCalendar',
+      'myOrganization': '__myOrganization',
+      'teamSite': '__teamsite',
+      'sliderDescription': '__sliderDescription',
+      'controlsDescription': '__controlsDescription',
+      'previousSlide': '__previousSlide',
+      'nextSlide': '__nextSlide',
+      'slideText': '__Slide {x} of {y}'
+    },
+    'ja': {
+      'admin': '__admin',
+      'backToMainMenu': '__backToMainMenu',
+      'cancelReply': '__cancelReply',
+      'memberSite': '__memberSite',
+      'logout': '__logout',
+      'menu': '__menu',
+      'myAccount': '__myAccount',
+      'myCalendar': '__myCalendar',
+      'myOrganization': '__myOrganization',
+      'teamSite': '__teamsite',
+      'sliderDescription': '__sliderDescription',
+      'controlsDescription': '__controlsDescription',
+      'previousSlide': '__previousSlide',
+      'nextSlide': '__nextSlide',
+      'slideText': '__Slide {x} of {y}'
+    },
+    'pt-br': {
+      'admin': '__admin',
+      'backToMainMenu': '__backToMainMenu',
+      'cancelReply': '__cancelReply',
+      'memberSite': '__memberSite',
+      'logout': '__logout',
+      'menu': '__menu',
+      'myAccount': '__myAccount',
+      'myCalendar': '__myCalendar',
+      'myOrganization': '__myOrganization',
+      'teamSite': '__teamsite',
+      'sliderDescription': '__sliderDescription',
+      'controlsDescription': '__controlsDescription',
+      'previousSlide': '__previousSlide',
+      'nextSlide': '__nextSlide',
+      'slideText': '__Slide {x} of {y}'
+    },
+    'zh-hans': {
+      'admin': '__admin',
+      'backToMainMenu': '__backToMainMenu',
+      'cancelReply': 'cancelReply',
+      'memberSite': '__memberSite',
+      'logout': '__logout',
+      'menu': '__menu',
+      'myAccount': '__myAccount',
+      'myCalendar': '__myCalendar',
+      'myOrganization': '__myOrganization',
+      'teamSite': '__teamsite',
+      'sliderDescription': '__sliderDescription',
+      'controlsDescription': '__controlsDescription',
+      'previousSlide': '__previousSlide',
+      'nextSlide': '__nextSlide',
+      'slideText': '__Slide {x} of {y}'
+    }
+  },
+  //snippetReference = index of micro copy snippet in translations object above
+  //languageCode = code of the target language
+  //injection = object of values to inject into the string if interpolation is required, object keys should match references in the translations snippets,
+  // e.g. 'Slide {x} of {y} requires an object with keys x and y.
+  'translate': function translate(snippetReference, languageCode) {
+    var injections = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
+    //without a snippet reference, we don't know what to translate
+    if (snippetReference === undefined || snippetReference === null || snippetReference.length < 1) {
+      return;
+    } //language code defaults to English
+
+
+    if (languageCode === undefined || languageCode === null || this.translations[languageCode] === undefined) {
+      languageCode = 'en';
+    }
+
+    var translatedString = this['translations'][languageCode][snippetReference];
+    var injectionsKeys = Object.keys(injections);
+
+    if (injectionsKeys.length > 0) {
+      for (var keyIndex = 0; keyIndex < injectionsKeys.length; keyIndex++) {
+        translatedString = translatedString.replace(new RegExp('\\{' + injectionsKeys[keyIndex] + '\\}', 'gm'), injections[injectionsKeys[keyIndex]]);
+      }
+    }
+
+    return translatedString;
+  }
+};
+
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
 var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _main_translations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+
 /**
  * Content slider (carousel)
  */
+
 var contentSlider = function () {
   if ('ResizeObserver' in window) {
     // I18N
-    var sliderDescription;
-    var controlsDescription;
-    var previousSlide;
-    var nextSlide;
-    var slideText;
-    var ofText;
-
-    if (document.documentElement.lang === 'ja') {
-      sliderDescription = 'カルーセル';
-      controlsDescription = 'カルーセルコントロール';
-      previousSlide = '前のスライド';
-      nextSlide = '次のスライド';
-      slideText = 'スライド';
-      ofText = '/';
-    } else if (document.documentElement.lang === 'zh-hans') {
-      sliderDescription = '轮播';
-      controlsDescription = '轮播控件';
-      previousSlide = '上一张幻灯片';
-      nextSlide = '下一张幻灯片';
-      slideText = '幻灯片';
-      ofText = '之';
-    } else {
-      sliderDescription = 'carousel';
-      controlsDescription = 'carousel controls';
-      previousSlide = 'previous slide';
-      nextSlide = 'next slide';
-      slideText = 'Slide ';
-      ofText = ' of ';
-    }
-
+    var sliderDescription = _main_translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('sliderDescription', document.documentElement.lang);
+    var controlsDescription = _main_translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('controlsDescription', document.documentElement.lang);
+    var previousSlide = _main_translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('previousSlide', document.documentElement.lang);
+    var nextSlide = _main_translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('nextSlide', document.documentElement.lang);
     var slider = document.querySelector('[data-component="slider"] section');
     var dir = document.documentElement.getAttribute('dir');
 
@@ -84,7 +320,10 @@ var contentSlider = function () {
           liveRegion.style.display = 'inline-block';
           liveRegion.style.paddingLeft = '0.625rem';
           liveRegion.style.paddingRight = '0.625rem';
-          liveRegion.textContent = slideText + 1 + ofText + slides.length;
+          liveRegion.textContent = _main_translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('slideText', document.documentElement.lang, {
+            'x': '1',
+            'y': slides.length
+          });
           return liveRegion;
         };
 
@@ -136,7 +375,10 @@ var contentSlider = function () {
           } // Announce selected slide to screen reader
 
 
-          liveRegion.textContent = slideText + (targetSlideIndex + 1) + ofText + slides.length;
+          liveRegion.textContent = _main_translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('slideText', document.documentElement.lang, {
+            'x': targetSlideIndex + 1,
+            'y': slides.length
+          });
         };
         /**
          * Get the current slide index
@@ -173,7 +415,10 @@ var contentSlider = function () {
           var group = slide.querySelector('.slide');
           group.setAttribute('role', 'group');
           group.setAttribute('aria-roledescription', 'slide');
-          group.setAttribute('aria-label', slideText + (index + 1) + ofText + slides.length);
+          group.setAttribute('aria-label', _main_translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('slideText', document.documentElement.lang, {
+            'x': index + 1,
+            'y': slides.length
+          }));
         }); // Add current class to first slide
 
         slides[0].classList.add('js-current');
@@ -243,5 +488,7 @@ var contentSlider = function () {
     }
   }
 }();
+})();
+
 /******/ })()
 ;

@@ -1,3 +1,5 @@
+import {translate} from "./translations";
+
 var navigation = (function () {
 
 	// https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#Polyfill
@@ -24,6 +26,7 @@ var navigation = (function () {
 		return (elem != null && (elem.length >= 0 || elem.innerHTML.length >= 0) )
 	}
 
+	let languageCode = document.documentElement.lang;
 	let nav = document.querySelector('.global-nav__inner ul');
 	let mobileNavToggler = document.querySelector('[data-trigger="mobile-nav"]');
 	if (exists(mobileNavToggler)) {
@@ -32,22 +35,6 @@ var navigation = (function () {
 	let menuIcon = '<svg class="icon icon--larger" xmlns:xlink="http://www.w3.org/1999/xlink" focusable="false" aria-hidden="true" viewBox="0 0 448 512" width="1em" height="1em"><use class="menu-icon" href="' + jsAssetsPath + 'svg/nav-icons.svg#menu-icon"></use><use class="close-icon" href="' + jsAssetsPath + 'svg/nav-icons.svg#close-icon"></use></svg>';
 	let parentLinks = [].slice.call(nav.querySelectorAll('.top-nav-item.has-children > a'));
 	let subNavArray = [].slice.call(nav.querySelectorAll('.nav__submenu'));
-
-	// I18N for 'Menu' button text
-	let menuText = 'Menu';
-	if (document.documentElement.lang === 'ja') {
-		menuText = 'メニュー';
-	} else if (document.documentElement.lang === 'zh-hans') {
-		menuText = '菜单';
-	}
-
-	// I18N for 'Main menu' back button text
-	let backText = 'Back to main menu';
-	if (document.documentElement.lang === 'ja') {
-		backText = 'メインメニューに戻る';
-	} else if (document.documentElement.lang === 'zh-hans') {
-		backText = '返回主菜单';
-	}
 
 	let closeSubNavs = function () {
 		let subNavTriggers = [].slice.call(nav.querySelectorAll('[data-trigger="subnav"]'));
@@ -62,7 +49,7 @@ var navigation = (function () {
 
 		if (mobileNavToggler && nav) {
 
-			mobileNavToggler.innerHTML = menuText + menuIcon;
+			mobileNavToggler.innerHTML = translate.translate('menu', languageCode) + menuIcon;
 			mobileNavToggler.setAttribute('aria-expanded', 'false');
 
 			document.addEventListener('click', function (event) {
@@ -122,7 +109,7 @@ var navigation = (function () {
 			backButton.setAttribute('type', 'button');
 			backButton.setAttribute('class', 'button button--ghost u-full-width with-icon--before with-icon--larger');
 			backButton.setAttribute('data-trigger', 'mobile-back');
-			backButton.innerHTML = '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-left" href="' + jsAssetsPath + 'svg/nav-icons.svg#angle-left"></use><use class="angle-right" href="' + jsAssetsPath + 'svg/nav-icons.svg#angle-right"></use></svg>' + backText;
+			backButton.innerHTML = '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-left" href="' + jsAssetsPath + 'svg/nav-icons.svg#angle-left"></use><use class="angle-right" href="' + jsAssetsPath + 'svg/nav-icons.svg#angle-right"></use></svg>' + translate.translate('backToMainMenu', languageCode);
 
 			fragment.appendChild(backButton);
 			fragment.appendChild(clonedLink);
