@@ -251,7 +251,7 @@ var accountMenu = function () {
     toggleButton.setAttribute('class', 'button button--ghost with-icon--larger');
     toggleButton.setAttribute('data-trigger', 'account-menu');
     toggleButton.setAttribute('aria-expanded', 'false');
-    toggleButton.innerHTML = '<span class="sr-only">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('myAccount', languageCode) + ' </span><div class="avatar avatar--small icon"><img alt="" src="' + userInfo.avatar.small + '"/></div>'; // Media query event handler
+    toggleButton.innerHTML = '<span class="sr-only">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('my-account', languageCode) + ' </span><div class="avatar avatar--small icon"><img alt="" src="' + userInfo.avatar.small + '"/></div>'; // Media query event handler
 
     var mq = window.matchMedia('(min-width: 71.25em)');
     mq.addListener(insertAccountBtn);
