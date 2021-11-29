@@ -232,9 +232,10 @@ var translate = {
   },
   //snippetReference = index of micro copy snippet in translations object above
   //languageCode = code of the target language
-  //injection = array of values to inject into the string if interpolation is required
+  //injection = object of values to inject into the string if interpolation is required, object keys should match references in the translations snippets,
+  // e.g. 'Slide {x} of {y} requires an object with keys x and y.
   'translate': function translate(snippetReference, languageCode) {
-    var injections = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
+    var injections = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
     //without a snippet reference, we don't know what to translate
     if (snippetReference === undefined || snippetReference === null || snippetReference.length < 1) {
@@ -247,11 +248,11 @@ var translate = {
     }
 
     var translatedString = this['translations'][languageCode][snippetReference];
-    var injectionsIndex = injections.length;
+    var injectionsKeys = Object.keys(injections);
 
-    if (injections.length > 0) {
-      while (injectionsIndex--) {
-        translatedString = translatedString.replace(new RegExp('\\{' + i + '\\}', 'gm'), injections[injectionsIndex]);
+    if (injectionsKeys.length > 0) {
+      for (var keyIndex = 0; keyIndex < injectionsKeys.length; keyIndex++) {
+        translatedString = translatedString.replace(new RegExp('\\{' + injectionsKeys[keyIndex] + '\\}', 'gm'), injections[injectionsKeys[keyIndex]]);
       }
     }
 

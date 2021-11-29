@@ -1,3 +1,5 @@
+import {translate} from "./main/translations";
+
 /**
  * Content slider (carousel)
  */
@@ -7,41 +9,10 @@ let contentSlider = (function () {
 	if ('ResizeObserver' in window) {
 
 		// I18N
-		let sliderDescription;
-		let controlsDescription;
-		let previousSlide;
-		let nextSlide;
-		let slideText;
-		let ofText;
-
-		if (document.documentElement.lang === 'ja') {
-
-			sliderDescription = 'カルーセル';
-			controlsDescription = 'カルーセルコントロール';
-			previousSlide = '前のスライド';
-			nextSlide = '次のスライド';
-			slideText = 'スライド';
-			ofText = '/';
-
-		} else if (document.documentElement.lang === 'zh-hans') {
-
-			sliderDescription = '轮播';
-			controlsDescription = '轮播控件';
-			previousSlide = '上一张幻灯片';
-			nextSlide = '下一张幻灯片';
-			slideText = '幻灯片';
-			ofText = '之';
-
-		} else {
-
-			sliderDescription = 'carousel'
-			controlsDescription = 'carousel controls';
-			previousSlide = 'previous slide';
-			nextSlide = 'next slide';
-			slideText = 'Slide ';
-			ofText = ' of ';
-
-		}
+		let sliderDescription = translate.translate('sliderDescription', document.documentElement.lang);
+		let controlsDescription = translate.translate('controlsDescription', document.documentElement.lang);
+		let previousSlide = translate.translate('previousSlide', document.documentElement.lang);
+		let nextSlide = translate.translate('nextSlide', document.documentElement.lang);
 
 		const slider = document.querySelector('[data-component="slider"] section');
 		let dir = document.documentElement.getAttribute('dir');
@@ -66,7 +37,7 @@ let contentSlider = (function () {
 					let group = slide.querySelector('.slide');
 					group.setAttribute('role', 'group');
 					group.setAttribute('aria-roledescription', 'slide');
-					group.setAttribute('aria-label', slideText + (index + 1) + ofText + slides.length);
+					group.setAttribute('aria-label', translate.translate('slideText', document.documentElement.lang, {'x': (index + 1), 'y': slides.length}));
 
 				});
 
@@ -118,7 +89,7 @@ let contentSlider = (function () {
 					liveRegion.style.display = 'inline-block';
 					liveRegion.style.paddingLeft = '0.625rem';
 					liveRegion.style.paddingRight = '0.625rem';
-					liveRegion.textContent = slideText + 1 + ofText + slides.length;
+					liveRegion.textContent = translate.translate('slideText', document.documentElement.lang, {'x': '1', 'y': slides.length});
 
 					return liveRegion;
 
@@ -202,7 +173,7 @@ let contentSlider = (function () {
 					}
 
 					// Announce selected slide to screen reader
-					liveRegion.textContent = slideText + (targetSlideIndex + 1) + ofText + slides.length;
+					liveRegion.textContent = translate.translate('slideText', document.documentElement.lang, {'x': (targetSlideIndex + 1), 'y': slides.length});
 
 				}
 
