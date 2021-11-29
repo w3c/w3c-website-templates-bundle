@@ -1,3 +1,5 @@
+import {translate} from "./translations";
+
 var accountMenu = (function () {
 
 	// Helper: Check whether element exists
@@ -7,14 +9,13 @@ var accountMenu = (function () {
 
 	let userInfo = null;
 
-	let microCopy = null;
-
-	let apiRequestsCompleted = 0; //when goes to two, it means we have all the data required to build the user menu
-
-	const buildAccountMenu = function(userInfo, microCopy) {
-		if (userInfo == null || userInfo.length < 1 || microCopy == null || microCopy.length < 1) {
+	const buildAccountMenu = function(userInfo) {
+		if (userInfo == null || userInfo.length < 1) {
 			return;
 		}
+
+		//getting the page language
+		var languageCode = document.documentElement.lang;
 
 		//generating the menu markup
 		let fragment = document.createDocumentFragment();
@@ -40,7 +41,7 @@ var accountMenu = (function () {
 		for (let menuItemIndex = 0; menuItemIndex < userMenuKeys.length; menuItemIndex++) {
 			let menuItemKey = userMenuKeys[menuItemIndex];
 			let menuLi = document.createElement('li');
-			menuLi.innerHTML = '<a href="' + userInfo.menus[menuItemKey]['url'] + '">' + microCopy[menuItemKey] + '</a>';
+			menuLi.innerHTML = '<a href="' + userInfo.menus[menuItemKey]['url'] + '">' + translate.translate(menuItemKey, languageCode) + '</a>';
 			list.appendChild(menuLi);
 		}
 
@@ -55,7 +56,7 @@ var accountMenu = (function () {
 		toggleButton.setAttribute('class', 'button button--ghost with-icon--larger');
 		toggleButton.setAttribute('data-trigger', 'account-menu');
 		toggleButton.setAttribute('aria-expanded', 'false');
-		toggleButton.innerHTML = '<span class="sr-only">' + microCopy['my-account'] + ' </span><div class="avatar avatar--small icon"><img alt="" src="' + userInfo.avatar.small + '"/></div>';
+		toggleButton.innerHTML = '<span class="sr-only">' + translate.translate('myAccount', languageCode) + ' </span><div class="avatar avatar--small icon"><img alt="" src="' + userInfo.avatar.small + '"/></div>';
 
 		// Media query event handler
 		let mq = window.matchMedia('(min-width: 71.25em)');
@@ -147,42 +148,16 @@ var accountMenu = (function () {
 		userInfoRequest.open('GET', 'https://www.w3.org/accounts/user-menu', true)
 		userInfoRequest.withCredentials = true;
 
-		var microCopyRequest = new XMLHttpRequest();
-		var translationEndpointURI = (document.documentElement.lang === 'en')?  '/translated-messages' : '/' + document.documentElement.lang + '/translated-messages' ;
-		microCopyRequest.open('GET',  translationEndpointURI , true)
-
 		userInfoRequest.onload = function () {
 			if (this.status === 200) {
 				if (this.response.length > 0) {
 					userInfo = JSON.parse(this.response);
-					apiRequestsCompleted += 1;
+					buildAccountMenu(userInfo);
 				}
-
-				if (apiRequestsCompleted === 2) {
-					buildAccountMenu(userInfo, microCopy);
-				}
-
 			}
 		}
-
-		microCopyRequest.onload = function() {
-			if (this.status === 200) {
-				if (this.response.length > 0) {
-					microCopy = JSON.parse(this.response);
-					apiRequestsCompleted += 1;
-				}
-
-				if (apiRequestsCompleted === 2) {
-					buildAccountMenu(userInfo, microCopy);
-				}
-
-			}
-		}
-
-
 
 		userInfoRequest.send();
-		microCopyRequest.send();
 
 		// // I18N
 		// if (document.documentElement.lang === 'ja') {

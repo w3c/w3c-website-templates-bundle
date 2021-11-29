@@ -12,6 +12,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "accountMenu": () => (/* binding */ accountMenu)
 /* harmony export */ });
+/* harmony import */ var _translations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
+
+
 var accountMenu = function () {
   // Helper: Check whether element exists
   function exists(elem) {
@@ -19,14 +22,14 @@ var accountMenu = function () {
   }
 
   var userInfo = null;
-  var microCopy = null;
-  var apiRequestsCompleted = 0; //when goes to two, it means we have all the data required to build the user menu
 
-  var buildAccountMenu = function buildAccountMenu(userInfo, microCopy) {
-    if (userInfo == null || userInfo.length < 1 || microCopy == null || microCopy.length < 1) {
+  var buildAccountMenu = function buildAccountMenu(userInfo) {
+    if (userInfo == null || userInfo.length < 1) {
       return;
-    } //generating the menu markup
+    } //getting the page language
 
+
+    var languageCode = document.documentElement.lang; //generating the menu markup
 
     var fragment = document.createDocumentFragment();
     var status = document.querySelector('.global-header [role="status"]');
@@ -48,7 +51,7 @@ var accountMenu = function () {
     for (var menuItemIndex = 0; menuItemIndex < userMenuKeys.length; menuItemIndex++) {
       var menuItemKey = userMenuKeys[menuItemIndex];
       var menuLi = document.createElement('li');
-      menuLi.innerHTML = '<a href="' + userInfo.menus[menuItemKey]['url'] + '">' + microCopy[menuItemKey] + '</a>';
+      menuLi.innerHTML = '<a href="' + userInfo.menus[menuItemKey]['url'] + '">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate(menuItemKey, languageCode) + '</a>';
       list.appendChild(menuLi);
     }
 
@@ -61,7 +64,7 @@ var accountMenu = function () {
     toggleButton.setAttribute('class', 'button button--ghost with-icon--larger');
     toggleButton.setAttribute('data-trigger', 'account-menu');
     toggleButton.setAttribute('aria-expanded', 'false');
-    toggleButton.innerHTML = '<span class="sr-only">' + microCopy['my-account'] + ' </span><div class="avatar avatar--small icon"><img alt="" src="' + userInfo.avatar.small + '"/></div>'; // Media query event handler
+    toggleButton.innerHTML = '<span class="sr-only">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('myAccount', languageCode) + ' </span><div class="avatar avatar--small icon"><img alt="" src="' + userInfo.avatar.small + '"/></div>'; // Media query event handler
 
     var mq = window.matchMedia('(min-width: 71.25em)');
     mq.addListener(insertAccountBtn);
@@ -126,38 +129,17 @@ var accountMenu = function () {
     var userInfoRequest = new XMLHttpRequest();
     userInfoRequest.open('GET', 'https://www.w3.org/accounts/user-menu', true);
     userInfoRequest.withCredentials = true;
-    var microCopyRequest = new XMLHttpRequest();
-    var translationEndpointURI = document.documentElement.lang === 'en' ? '/translated-messages' : '/' + document.documentElement.lang + '/translated-messages';
-    microCopyRequest.open('GET', translationEndpointURI, true);
 
     userInfoRequest.onload = function () {
       if (this.status === 200) {
         if (this.response.length > 0) {
           userInfo = JSON.parse(this.response);
-          apiRequestsCompleted += 1;
-        }
-
-        if (apiRequestsCompleted === 2) {
-          buildAccountMenu(userInfo, microCopy);
+          buildAccountMenu(userInfo);
         }
       }
     };
 
-    microCopyRequest.onload = function () {
-      if (this.status === 200) {
-        if (this.response.length > 0) {
-          microCopy = JSON.parse(this.response);
-          apiRequestsCompleted += 1;
-        }
-
-        if (apiRequestsCompleted === 2) {
-          buildAccountMenu(userInfo, microCopy);
-        }
-      }
-    };
-
-    userInfoRequest.send();
-    microCopyRequest.send(); // // I18N
+    userInfoRequest.send(); // // I18N
     // if (document.documentElement.lang === 'ja') {
     // 	accountLink.innerHTML = '<a href="page.html" hreflang="ja">マイアカウント</a>';
     // 	if (profile.messages === true) {
@@ -187,6 +169,96 @@ var accountMenu = function () {
 
 /***/ }),
 /* 5 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "translate": () => (/* binding */ translate)
+/* harmony export */ });
+var translate = {
+  'translations': {
+    //microcopy translations
+    'en': {
+      'admin': 'Admin',
+      'backToMainMenu': 'Back to main menu',
+      'memberSite': 'Member Site',
+      'logout': 'Logout',
+      'menu': 'Menu',
+      'myAccount': 'My Account',
+      'myCalendar': 'My Calendar',
+      'myOrganization': 'My Organization',
+      'teamSite': 'Team Site',
+      'sliderDescription': 'carousel',
+      'controlsDescription': 'carousel controls',
+      'previousSlide': 'previous slide',
+      'nextSlide': 'next slide',
+      'slideText': 'Slide {x} of {y}'
+    },
+    'ja': {
+      'admin': '__admin',
+      'backToMainMenu': '__backToMainMenu',
+      'memberSite': '__memberSite',
+      'logout': '__logout',
+      'menu': '__menu',
+      'myAccount': '__myAccount',
+      'myCalendar': '__myCalendar',
+      'myOrganization': '__myOrganization',
+      'teamSite': '__teamsite',
+      'sliderDescription': '__sliderDescription',
+      'controlsDescription': '__controlsDescription',
+      'previousSlide': '__previousSlide',
+      'nextSlide': '__nextSlide',
+      'slideText': '__Slide {x} of {y}'
+    },
+    'zh-hans': {
+      'admin': '__admin',
+      'backToMainMenu': '__backToMainMenu',
+      'memberSite': '__memberSite',
+      'logout': '__logout',
+      'menu': '__menu',
+      'myAccount': '__myAccount',
+      'myCalendar': '__myCalendar',
+      'myOrganization': '__myOrganization',
+      'teamSite': '__teamsite',
+      'sliderDescription': '__sliderDescription',
+      'controlsDescription': '__controlsDescription',
+      'previousSlide': '__previousSlide',
+      'nextSlide': '__nextSlide',
+      'slideText': '__Slide {x} of {y}'
+    }
+  },
+  //snippetReference = index of micro copy snippet in translations object above
+  //languageCode = code of the target language
+  //injection = array of values to inject into the string if interpolation is required
+  'translate': function translate(snippetReference, languageCode) {
+    var injections = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
+
+    //without a snippet reference, we don't know what to translate
+    if (snippetReference === undefined || snippetReference === null || snippetReference.length < 1) {
+      return;
+    } //language code defaults to English
+
+
+    if (languageCode === undefined || languageCode === null || this.translations[languageCode] === undefined) {
+      languageCode = 'en';
+    }
+
+    var translatedString = this['translations'][languageCode][snippetReference];
+    var injectionsIndex = injections.length;
+
+    if (injections.length > 0) {
+      while (injectionsIndex--) {
+        translatedString = translatedString.replace(new RegExp('\\{' + i + '\\}', 'gm'), injections[injectionsIndex]);
+      }
+    }
+
+    return translatedString;
+  }
+};
+
+
+/***/ }),
+/* 6 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -228,7 +300,7 @@ var cardEnhancement = function () {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -274,7 +346,7 @@ var collapsibles = function () {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -345,7 +417,7 @@ var disclosureWidget = function () {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -368,13 +440,16 @@ var formErrorSummary = function () {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "navigation": () => (/* binding */ navigation)
 /* harmony export */ });
+/* harmony import */ var _translations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
+
+
 var navigation = function () {
   // https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#Polyfill
   if (!Element.prototype.matches) {
@@ -399,6 +474,7 @@ var navigation = function () {
     return elem != null && (elem.length >= 0 || elem.innerHTML.length >= 0);
   }
 
+  var languageCode = document.documentElement.lang;
   var nav = document.querySelector('.global-nav__inner ul');
   var mobileNavToggler = document.querySelector('[data-trigger="mobile-nav"]');
 
@@ -408,24 +484,7 @@ var navigation = function () {
 
   var menuIcon = '<svg class="icon icon--larger" xmlns:xlink="http://www.w3.org/1999/xlink" focusable="false" aria-hidden="true" viewBox="0 0 448 512" width="1em" height="1em"><use class="menu-icon" href="' + jsAssetsPath + 'svg/nav-icons.svg#menu-icon"></use><use class="close-icon" href="' + jsAssetsPath + 'svg/nav-icons.svg#close-icon"></use></svg>';
   var parentLinks = [].slice.call(nav.querySelectorAll('.top-nav-item.has-children > a'));
-  var subNavArray = [].slice.call(nav.querySelectorAll('.nav__submenu')); // I18N for 'Menu' button text
-
-  var menuText = 'Menu';
-
-  if (document.documentElement.lang === 'ja') {
-    menuText = 'メニュー';
-  } else if (document.documentElement.lang === 'zh-hans') {
-    menuText = '菜单';
-  } // I18N for 'Main menu' back button text
-
-
-  var backText = 'Back to main menu';
-
-  if (document.documentElement.lang === 'ja') {
-    backText = 'メインメニューに戻る';
-  } else if (document.documentElement.lang === 'zh-hans') {
-    backText = '返回主菜单';
-  }
+  var subNavArray = [].slice.call(nav.querySelectorAll('.nav__submenu'));
 
   var closeSubNavs = function closeSubNavs() {
     var subNavTriggers = [].slice.call(nav.querySelectorAll('[data-trigger="subnav"]'));
@@ -438,7 +497,7 @@ var navigation = function () {
 
   var toggleMobileNav = function toggleMobileNav() {
     if (mobileNavToggler && nav) {
-      mobileNavToggler.innerHTML = menuText + menuIcon;
+      mobileNavToggler.innerHTML = _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('menu', languageCode) + menuIcon;
       mobileNavToggler.setAttribute('aria-expanded', 'false');
       document.addEventListener('click', function (event) {
         if (event.target.matches('[data-trigger="mobile-nav"]')) {
@@ -482,7 +541,7 @@ var navigation = function () {
       backButton.setAttribute('type', 'button');
       backButton.setAttribute('class', 'button button--ghost u-full-width with-icon--before with-icon--larger');
       backButton.setAttribute('data-trigger', 'mobile-back');
-      backButton.innerHTML = '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-left" href="' + jsAssetsPath + 'svg/nav-icons.svg#angle-left"></use><use class="angle-right" href="' + jsAssetsPath + 'svg/nav-icons.svg#angle-right"></use></svg>' + backText;
+      backButton.innerHTML = '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-left" href="' + jsAssetsPath + 'svg/nav-icons.svg#angle-left"></use><use class="angle-right" href="' + jsAssetsPath + 'svg/nav-icons.svg#angle-right"></use></svg>' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('backToMainMenu', languageCode);
       fragment.appendChild(backButton);
       fragment.appendChild(clonedLink);
       subNav.insertBefore(fragment, submenuFirstChild);
@@ -526,7 +585,7 @@ var navigation = function () {
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -571,7 +630,7 @@ var responsiveTables = function responsiveTables() {
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -690,13 +749,13 @@ var __webpack_exports__ = {};
 (() => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_account_menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
-/* harmony import */ var _main_cards__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
-/* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
-/* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
-/* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
-/* harmony import */ var _main_navigation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9);
-/* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(10);
-/* harmony import */ var _main_flashes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(11);
+/* harmony import */ var _main_cards__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
+/* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
+/* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8);
+/* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(9);
+/* harmony import */ var _main_navigation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(10);
+/* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(11);
+/* harmony import */ var _main_flashes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(12);
 
 
 

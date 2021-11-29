@@ -1,12 +1,11 @@
-import {getMicrocopyTranslations} from "./main/get-microcopy-translations";
+import {accountMenu} from "./main/account-menu";
 import {cardEnhancement} from "./main/cards";
 import {collapsibles} from "./main/collapsibles";
 import {disclosureWidget} from "./main/disclosure-widget";
 import {formErrorSummary} from "./main/form-error-summary";
+import {navigation} from "./main/navigation";
 import {responsiveTables} from "./main/responsive-tables";
 import {flashes} from "./main/flashes";
-
-getMicrocopyTranslations();
 
 responsiveTables();
 flashes();
