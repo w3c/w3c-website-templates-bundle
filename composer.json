@@ -8,6 +8,7 @@
         "php": ">=7.3",
         "ext-dom": "*",
         "ext-simplexml": "*",
+        "exercise/htmlpurifier-bundle": "^2.0",
         "symfony/http-kernel": "^4.4 || ^5.2",
         "symfony/asset": "^4.4 || ^5.2",
         "symfony/config": "^4.4 || ^5.2",

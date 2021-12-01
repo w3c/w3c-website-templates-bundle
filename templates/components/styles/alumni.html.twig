@@ -7,7 +7,7 @@
                         <h2 class="txt-mars">{{ alumnus.given }} {{ alumnus.last }}</h2>
                         <p>{{ 'alumni.date_range'|trans({'start': alumnus.start|date('F Y'), 'end': alumnus.end|date('F Y')}, 'w3c_website_templates_bundle') }}</p>
                         <p>
-                            {{ alumnus.biography|raw }}
+                            {{ alumnus.biography|purify }}
                         </p>
                     </div>
                 </div>
