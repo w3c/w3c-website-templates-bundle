@@ -13,7 +13,7 @@
         "symfony/config": "^4.4 || ^5.2",
         "symfony/dependency-injection": "^4.4 || ^5.2",
         "symfony/twig-bridge": "^4.4 || ^5.3",
-        "twig/twig": "^3.3",
+        "twig/twig": "^2.14 || ^3.3",
         "twig/intl-extra": "^3.3"
     },
     "autoload": {
