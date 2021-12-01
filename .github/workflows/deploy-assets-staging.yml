@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       environment: cdn-staging
+      source: public/dist/assets
+      destination: assets/website-2021/
     steps:
       - name: Checkout source Git branch
         uses: actions/checkout@v2
@@ -25,13 +27,14 @@ jobs:
 
       - name: Upload to ${{ env.environment }}
         uses: jakejarvis/s3-sync-action@master
+        if: success()
         env:
           AWS_S3_BUCKET: ${{ secrets.AWS_CDN_STAGING_W3_ORG }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-1'
-          SOURCE_DIR: 'public/dist/assets'
-          DEST_DIR: 'templates/website-2021'
+          SOURCE_DIR: ${{ env.source }}
+          DEST_DIR: ${{ env.destination }}
 
       - name: Purge cache for ${{ env.environment }}
         uses: nathanvaughn/actions-cloudflare-purge@master
@@ -39,4 +42,4 @@ jobs:
         with:
           cf_zone: ${{ secrets.CLOUDFLARE_ZONE }}
           cf_auth: ${{ secrets.CLOUDFLARE_CACHEPURGE_TOKEN }}
-          prefixes: ${{ env.environment }}.w3.org/assets/website-2021/
+          prefixes: ${{ env.environment }}.w3.org/${{ env.destination }}
