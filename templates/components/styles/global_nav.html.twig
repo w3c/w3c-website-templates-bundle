@@ -2,7 +2,7 @@
     <div class="global-nav__inner l-center">
         <a class="logo-link" href="/">
             <span class="logo">
-                <img src="{{ asset('svg/w3c-logo.svg', 'main') }}" alt="{{ 'header.logo_alt'|trans({}, 'w3c_website_templates_bundle') }}" role="img"/>
+                <img src="{{ asset('svg/w3c-logo.svg', 'website-2021') }}" alt="{{ 'header.logo_alt'|trans({}, 'w3c_website_templates_bundle') }}" role="img"/>
             </span>
             <span class="visuallyhidden">{{ 'header.logo_link'|trans({}, 'w3c_website_templates_bundle') }}</span>
         </a>
@@ -31,8 +31,8 @@
                                         <li>
                                             <a class="with-icon--before with-icon--larger" href="{{ child.url }}">
                                                 <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
-                                                    <use class="chevron-left" href="{{ asset('svg/nav-icons.svg#chevron-left', 'main') }}"></use>
-                                                    <use class="chevron-right" href="{{ asset('svg/nav-icons.svg#chevron-right', 'main') }}"></use>
+                                                    <use class="chevron-left" href="{{ asset('svg/nav-icons.svg#chevron-left', 'website-2021') }}"></use>
+                                                    <use class="chevron-right" href="{{ asset('svg/nav-icons.svg#chevron-right', 'website-2021') }}"></use>
                                                 </svg>
                                                 {{ child.title }}
                                             </a>
@@ -46,14 +46,14 @@
             {% endfor %}
             <li class="top-nav-item">
                 <a href="https://duckduckgo.com/?q=site%3Aw3.org&ia=web" class="nav-link icon-link">
-                    <span class="visuallyhidden">{{ 'header.search_link'|trans({}, 'w3c_website_templates_bundle') }}</span> <img class="icon" src="{{ asset('svg/search.svg', 'main') }}"
+                    <span class="visuallyhidden">{{ 'header.search_link'|trans({}, 'w3c_website_templates_bundle') }}</span> <img class="icon" src="{{ asset('svg/search.svg', 'website-2021') }}"
                          width="24" height="24" alt aria-hidden="true"/>
                 </a>
             </li>
             <li class="top-nav-item">
                 <a href="https://auth.w3.org/login" id="account-login-link" class="account-login icon-link with-icon--after">
                     {{ 'header.account_link'|trans({}, 'w3c_website_templates_bundle') }} <span class="avatar avatar--small icon">
-                        <img src="{{ asset('svg/avatar.svg', 'main') }}" width="24" height="24" alt aria-hidden="true"/>
+                        <img src="{{ asset('svg/avatar.svg', 'website-2021') }}" width="24" height="24" alt aria-hidden="true"/>
                     </span>
                 </a>
             </li>

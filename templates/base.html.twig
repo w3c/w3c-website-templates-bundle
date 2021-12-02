@@ -8,7 +8,7 @@
     <title>{% block documenttitle %}{{ seo.title|default(page.title|default('W3C')) }}{% endblock %}</title>
     <meta name="description" content="{% block description %}{{ seo.description|default(page.excerpt|default('page.default_description'|trans({}, 'w3c_website_templates_bundle'))) }}{% endblock %}"/>
 
-    {% set defaultImage = asset('images/w3c-opengraph-image.png', 'main') %}
+    {% set defaultImage = asset('images/w3c-opengraph-image.png', 'website-2021') %}
     {% if seo.social.facebook is defined %}
         {% set fb = seo.social.facebook -%}
         {# <meta property="fb:app_id" content="__hardcoded_fb_app_id__"> #}
@@ -52,7 +52,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('styles/core.css?ver=1.4', 'main') }}"
+        <link rel="stylesheet" href="{{ asset('styles/core.css?ver=1.4', 'website-2021') }}"
               media="screen"/>
 
         <!--
@@ -62,7 +62,7 @@
         FF 47+
         -->
         <link rel="stylesheet" id="advanced-stylesheet"
-              href="{{ asset('styles/advanced.css?ver=1.4', 'main') }}" media="
+              href="{{ asset('styles/advanced.css?ver=1.4', 'website-2021') }}" media="
             only print,
             only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
             only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
@@ -70,7 +70,7 @@
     {% endblock stylesheets %}
 
     {% block javascripts %}
-        <script src="{{ asset('js/libraries/fontfaceobserver.js', 'main') }}"></script>
+        <script src="{{ asset('js/libraries/fontfaceobserver.js', 'website-2021') }}"></script>
 
         <script>
             var myFont = new FontFaceObserver('Noto Sans');
@@ -79,7 +79,7 @@
                 document.documentElement.className += " fonts-loaded";
             });
 
-            var jsAssetsPath = "{{ asset('/', 'main') }}";
+            var jsAssetsPath = "{{ asset('/', 'website-2021') }}";
             var microCopy = null;
             var microCopyExtraCallbacks = [];
             var userInfo = null;
@@ -88,7 +88,7 @@
                 var linkEl = document.getElementById('advanced-stylesheet');
                 if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
                     var script = document.createElement('script');
-                    script.src = '{{ asset('js/main.js?ver=1.4', 'main') }}';
+                    script.src = '{{ asset('js/main.js?ver=1.4', 'website-2021') }}';
                     script.defer = true;
                     document.querySelector('head').appendChild(script);
                     (function (H) {

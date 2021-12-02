@@ -52,7 +52,7 @@
         {% if page.members is not empty %}
 
                     var membersScript = document.createElement('script');
-                    membersScript.src = "{{ asset('js/members.js', 'main') }}";
+                    membersScript.src = "{{ asset('js/members.js', 'website-2021') }}";
                     document.querySelector('body').appendChild(membersScript);
 
         {% endif %}
