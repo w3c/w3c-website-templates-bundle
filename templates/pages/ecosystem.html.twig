@@ -43,7 +43,7 @@
                 if (document.documentElement.classList.contains('js')) {
 
                         let sliderScript = document.createElement('script');
-                        sliderScript.src = "{{ asset('js/slider.js','main') }}";
+                        sliderScript.src = "{{ asset('js/slider.js', 'website-2021') }}";
                         document.querySelector('body').appendChild(sliderScript);
 
                 }
@@ -52,7 +52,7 @@
         {% if page.members is not empty %}
 
                     var membersScript = document.createElement('script');
-                    membersScript.src = "{{ asset('js/members.js', 'main') }}";
+                    membersScript.src = "{{ asset('js/members.js', 'website-2021') }}";
                     document.querySelector('body').appendChild(membersScript);
 
         {% endif %}
