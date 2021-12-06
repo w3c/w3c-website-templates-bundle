@@ -6,7 +6,11 @@
             <div class="not-sidebar">
                 <div class="comment__author">{{ comment.name }} - {{ comment.date|time_diff }}</div>
                 <div class="comment__body">
-                    <p>{{ comment.comment|nl2br }}</p>
+                    {% if post.typeHandle == 'importedEntries' %}
+                        <p>{{ comment.comment|raw }}</p>
+                    {% else %}
+                        <p>{{ comment.comment|nl2br }}</p>
+                    {% endif %}
                 </div>
                 {% if reply_to == comment.id %}
                     {{ _self.comment_form(rendered_form) }}
