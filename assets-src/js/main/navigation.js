@@ -26,8 +26,12 @@ var navigation = (function () {
 		return (elem != null && (elem.length >= 0 || elem.innerHTML.length >= 0) )
 	}
 
-	let languageCode = document.documentElement.lang;
 	let nav = document.querySelector('.global-nav__inner ul');
+	if (nav === null || nav === undefined) {
+		return null;
+	}
+
+	let languageCode = document.documentElement.lang;
 	let mobileNavToggler = document.querySelector('[data-trigger="mobile-nav"]');
 	if (exists(mobileNavToggler)) {
 		mobileNavToggler.style = "";

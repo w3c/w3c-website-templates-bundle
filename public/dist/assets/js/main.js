@@ -571,8 +571,13 @@ var navigation = function () {
     return elem != null && (elem.length >= 0 || elem.innerHTML.length >= 0);
   }
 
-  var languageCode = document.documentElement.lang;
   var nav = document.querySelector('.global-nav__inner ul');
+
+  if (nav === null || nav === undefined) {
+    return null;
+  }
+
+  var languageCode = document.documentElement.lang;
   var mobileNavToggler = document.querySelector('[data-trigger="mobile-nav"]');
 
   if (exists(mobileNavToggler)) {
