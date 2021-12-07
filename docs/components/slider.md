@@ -7,7 +7,7 @@ An unordered list of slides which, when enhanced with JavaScript, acts as a cont
 
 ## Markup for the content slider
 
-<example title="A complete carousel" src="components/content-slider.html.twig" />
+<example title="A complete carousel" src="components/content-slider-with-script.html.twig" />
 
 ## Considerations
 
@@ -28,4 +28,4 @@ it's best to add the following script before the closing body tag (`</body>`) in
 </script>
 ```
 
-An enhanced example is included in the [business ecosystem template](../templates/business-ecosystem.md).
+An example using this technique to include the script can be found in the [business ecosystem template](../templates/business-ecosystem.md).
