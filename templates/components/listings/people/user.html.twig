@@ -1,0 +1,71 @@
+<div class="l-sidebar">
+    <div>
+        <div class="not-sidebar">
+            <div>
+                <h2 class="txt-mars">{{ user.given }} {{ user.family }}</h2>
+                {% block roles %}
+                    {% if user.title %}
+                        <p>Role: <strong>{{ user.title }}</strong></p>
+                    {% endif %}
+                {% endblock %}
+                {% block biography %}
+                    <p>{{ user.biography|purify }}</p>
+                {% endblock %}
+                {% block additional_info %}
+                    <div class="l-cluster">
+                        <div>
+                            {% block emails %}
+                                <div>
+                                    <a href="mailto:{{ user.preferredEmail }}" class="with-icon--before">
+                                        <img class="icon" src="{{ asset('svg/envelope.svg', 'website-2021') }}"
+                                             width="20"
+                                             height="20"
+                                             alt aria-hidden="true"/>
+                                        {{ user.preferredEmail }}
+                                    </a>
+                                </div>
+                            {% endblock %}
+                            {% block phone %}
+                                {% if user.preferredPhone %}
+                                    <div>
+                                        <a href="tel:{{ user.preferredPhone }}" class="with-icon--before">
+                                            <img class="icon" src="{{ asset('svg/phone.svg', 'website-2021') }}"
+                                                 width="20" height="20" alt aria-hidden="true"/>
+                                            {{ user.preferredPhone }}
+                                        </a>
+                                    </div>
+                                {% endif %}
+                            {% endblock %}
+                            {% block connected_accounts %}
+                                {% if user.connectedAccounts|length > 0 %}
+                                    <div>
+                                        {% for account in user.connectedAccounts|filter(a => a.service == 'github') %}
+                                            <a href="{{ account.url }}" class="with-icon--before">
+                                                <img class="icon"
+                                                     src="{{ asset('svg/' ~ account.service ~ '.svg', 'website-2021') }}"
+                                                     width="20" height="20" alt aria-hidden="true"/>
+                                                {{ user.given }}'s {{ account.service|capitalize }} account
+                                            </a>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            {% endblock %}
+                        </div>
+                    </div>
+                {% endblock %}
+            </div>
+        </div>
+        {% block avatar %}
+            <div class="sidebar">
+                <div class="avatar">
+                    {% if user.photo.thumbnailuri is defined %}
+                        <img alt src="{{ asset(user.photo.thumbnailuri, 'avatars') }}"
+                             loading="lazy"/>
+                    {% else %}
+                        <img alt src="{{ asset('svg/avatar.svg', 'website-2021') }}" loading="lazy"/>
+                    {% endif %}
+                </div>
+            </div>
+        {% endblock %}
+    </div>
+</div>
