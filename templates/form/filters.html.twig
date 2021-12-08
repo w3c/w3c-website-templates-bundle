@@ -1,0 +1,32 @@
+{% use '@W3CWebsiteTemplates/form/theme.html.twig' %}
+
+{%- block form -%}
+    {{ form_start(form) }}
+        <div>
+            {{- form_widget(form) -}}
+        </div>
+    {{ form_end(form) }}
+{%- endblock form -%}
+
+{%- block form_start -%}
+    {% set attr = attr|merge({class: attr.class|default('') ~ 'l-switcher filters', novalidate: ''}) %}
+    {{ parent() }}
+        <div>
+{%- endblock form_start -%}
+
+{%- block form_end -%}
+        </div>
+    {{ parent() }}
+{%- endblock form_end -%}
+
+{%- block form_row -%}
+    <div>
+        {{ parent() }}
+    </div>
+{%- endblock form_row -%}
+
+{%- block form_label -%}
+    {% set label_class = 'faux-label' %}
+    {{ parent() }}
+{%- endblock form_label -%}
+
