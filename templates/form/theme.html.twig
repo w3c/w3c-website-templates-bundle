@@ -22,8 +22,11 @@
 
 {%- block form_label -%}
     {% if label is not same as(false) -%}
+        {% if label_class is not defined %}
+            {% set label_class = 'field_label' %}
+        {% endif %}
         {% if not compound -%}
-            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' field-label')|trim}) %}
+            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' ' ~ label_class)|trim}) %}
         {%- endif -%}
         {% if label is empty -%}
             {%- if label_format is not empty -%}
@@ -38,13 +41,13 @@
         <{{ element|default('label') }} for="{{ id }}">
             <span {% if label_attr %}{% with { attr: label_attr } %}{{ block('attributes') }}{% endwith %}{% endif %}>
                 {%- if translation_domain is same as(false) -%}
-                    {%- if label_html is same as(false) -%}
+                    {%- if label_html is not defined or label_html is same as(false) -%}
                         {{- label -}}
                     {%- else -%}
                         {{- label|raw -}}
                     {%- endif -%}
                 {%- else -%}
-                    {%- if label_html is same as(false) -%}
+                    {%- if label_html is not defined or label_html is same as(false) -%}
                         {{- label|trans(label_translation_parameters, translation_domain) -}}
                     {%- else -%}
                         {{- label|trans(label_translation_parameters, translation_domain)|raw -}}
