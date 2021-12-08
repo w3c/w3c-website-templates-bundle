@@ -2,8 +2,11 @@
     <div>
         <div class="not-sidebar">
             <div>
-                <h2 class="txt-mars">{{ user.given }} {{ user.family }}</h2>
-                {% block roles %}
+                <h2 class="txt-mars">
+                    {% block given %}{{ user.given }}{% endblock%}
+                    {% block family %}{{ user.family }}{% endblock %}
+                </h2>
+                {% block role %}
                     {% if user.title %}
                         <p>Role: <strong>{{ user.title }}</strong></p>
                     {% endif %}
@@ -14,7 +17,7 @@
                 {% block additional_info %}
                     <div class="l-cluster">
                         <div>
-                            {% block emails %}
+                            {% block email %}
                                 <div>
                                     <a href="mailto:{{ user.preferredEmail }}" class="with-icon--before">
                                         <img class="icon" src="{{ asset('svg/envelope.svg', 'website-2021') }}"
