@@ -111,7 +111,12 @@ components:
         tel: "Tel: <a href=\"tel:{number}}6\">{number}</a>"
         email: "Email: <a href=\"mailto:{email}\">{email}</a>"
     evangelists:
-        list_title: Our {ecosystem_name} Evangelists
+        list_title: >-
+            Our {ecosystem_name} { count, plural,
+                =0 { evangelists }
+                one { evangelist }
+                other { evangelists }
+            } 
     members:
         title: W3C Members
         members_include: "{count} member organizations are involved in the {ecosystem_name} ecosystem, including:"
