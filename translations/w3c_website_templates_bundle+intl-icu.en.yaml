@@ -114,7 +114,7 @@ components:
         list_title: Our {ecosystem_name} Evangelists
     members:
         title: W3C Members
-        members_include: "{count} member organisations are involved in the {ecosystem_name} ecosystem, including:"
+        members_include: "{count} member organizations are involved in the {ecosystem_name} ecosystem, including:"
         view_all: View all members of the {ecosystem_name} ecosystem
         get_involved: "Ways to get involved:"
         join: Join
@@ -122,7 +122,7 @@ components:
         donate: Donate
         donateurl: /donate
     content_slider:
-        title: What organisations think about us
+        title: What organizations think about us
     crosslinks:
         types:
             blogpost: Blog
