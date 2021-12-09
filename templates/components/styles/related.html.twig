@@ -2,8 +2,14 @@
     <div class="related__inner">
         <h2 class="txt-jupiter">{{ 'page.related_content'|trans({}, 'w3c_website_templates_bundle') }}</h2>
         <ul class="clean-list" role="list">
+            {% set currentPath = path(app.request.attributes.get('_route'),
+                app.request.attributes.get('_route_params')) %}
             {% for link in related_links %}
-                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {% if link.url == currentPath %}
+                    <li>{{ link.title }}</li>
+                {% else %}
+                    <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {% endif %}
             {% endfor %}
         </ul>
     </div>

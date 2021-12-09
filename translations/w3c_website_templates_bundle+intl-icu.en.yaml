@@ -10,7 +10,7 @@ page:
     translations: >
         Read this page in:
     toc: Page contents skip to links
-    related_content: Related content
+    related_content: In this section
 footer:
     copyright: >-
         Copyright © {date, date, ::y} W3C <sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr
