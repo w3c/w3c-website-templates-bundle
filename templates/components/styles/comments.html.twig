@@ -1,6 +1,4 @@
-{% form_theme form '@W3CWebsiteTemplates/form/theme.html.twig' %}
-
-{%- macro comment(comment, post, reply_to, rendered_form) -%}
+{%- macro comment(comment, post, reply_to, rendered_form, comments_open) -%}
     <article id="comment-{{ comment.id }}" class="l-sidebar comment">
         <div>
             <div class="not-sidebar">
@@ -12,18 +10,20 @@
                         <p>{{ comment.comment|nl2br }}</p>
                     {% endif %}
                 </div>
-                {% if reply_to == comment.id %}
-                    {{ _self.comment_form(rendered_form) }}
-                {% else %}
-                    <a rel="nofollow" href="?replytocom={{ comment.id }}#respond"
-                       data-replylink
-                       data-commentid="{{ comment.id }}"
-                       data-postid="{{ post.id }}"
-                       data-belowelement="comment-{{ comment.id }}"
-                       data-replyto="{{ 'post.comments.reply_attr'|trans({'name': comment.name}, 'w3c_website_templates_bundle') }}"
-                    >
-                        {{ 'post.comments.reply'|trans({'name': comment.name}, 'w3c_website_templates_bundle')|raw }}
-                    </a>
+                {% if comments_open %}
+                    {% if reply_to == comment.id %}
+                        {{ _self.comment_form(rendered_form, comments_open) }}
+                    {% else %}
+                        <a rel="nofollow" href="?replytocom={{ comment.id }}#respond"
+                           data-replylink
+                           data-commentid="{{ comment.id }}"
+                           data-postid="{{ post.id }}"
+                           data-belowelement="comment-{{ comment.id }}"
+                           data-replyto="{{ 'post.comments.reply_attr'|trans({'name': comment.name}, 'w3c_website_templates_bundle') }}"
+                        >
+                            {{ 'post.comments.reply'|trans({'name': comment.name}, 'w3c_website_templates_bundle')|raw }}
+                        </a>
+                    {% endif %}
                 {% endif %}
             </div>
             <div class="sidebar comment__img">
@@ -41,32 +41,34 @@
         <ul class="clean-list reply-list" role="list">
             {% for child in comment.children %}
                 <li>
-                    {{ _self.comment(child, post, reply_to, rendered_form) }}
+                    {{ _self.comment(child, post, reply_to, rendered_form, comments_open) }}
                 </li>
             {% endfor %}
         </ul>
     {% endif %}
 {%- endmacro -%}
 
-{%- macro comment_form(rendered_form) -%}
-    <div id="respond" class="l-box l-box--no-border l-box--no-padding" data-respondelement>
-        <div>
-            <h3 class="txt-saturn"
-                data-title="reply">{{ 'post.comments.form.title'|trans({}, 'w3c_website_templates_bundle') }}</h3>
-        </div>
-        <div class="l-sidebar comment-form-wrap">
+{%- macro comment_form(rendered_form, comments_open) -%}
+    {% if comments_open %}
+        <div id="respond" class="l-box l-box--no-border l-box--no-padding" data-respondelement>
             <div>
-                <div class="not-sidebar">
-                    {{ rendered_form }}
-                </div>
-                <div class="sidebar">
-                    <div class="avatar avatar--med">
-                        <img src="{{ asset('svg/avatar.svg', 'website-2021') }}" width="50" height="50" alt aria-hidden="true"/>
+                <h3 class="txt-saturn"
+                    data-title="reply">{{ 'post.comments.form.title'|trans({}, 'w3c_website_templates_bundle') }}</h3>
+            </div>
+            <div class="l-sidebar comment-form-wrap">
+                <div>
+                    <div class="not-sidebar">
+                        {{ rendered_form }}
+                    </div>
+                    <div class="sidebar">
+                        <div class="avatar avatar--med">
+                            <img src="{{ asset('svg/avatar.svg', 'website-2021') }}" width="50" height="50" alt aria-hidden="true"/>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    {% endif %}
 {%- endmacro -%}
 
 <section class="comments">
@@ -77,13 +79,17 @@
             <ol class="clean-list comment-list" role="list">
                 {% for comment in comments %}
                 <li>
-                    {{ _self.comment(comment, post, reply_to, rendered_form) }}
+                    {{ _self.comment(comment, post, reply_to, rendered_form, comments_open) }}
                 </li>
                 {% endfor %}
             </ol>
         {% endif %}
-        {% if not reply_to %}
-            {{ _self.comment_form(rendered_form) }}
+        {% if comments_open %}
+            {% if not reply_to %}
+                {{ _self.comment_form(rendered_form, comments_open) }}
+            {% endif %}
+        {% else %}
+            <p>{{ 'post.comments.closed'|trans({}, 'w3c_website_templates_bundle') }}</p>
         {% endif %}
     </div>
 </section>

@@ -164,6 +164,7 @@ post:
         reply_attr: Reply to {name}
         form:
             title: Post a new comment
+        closed: Comments for this post are closed.
 notes:
     info:
         default_title: Information

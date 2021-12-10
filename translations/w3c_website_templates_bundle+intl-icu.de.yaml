@@ -148,6 +148,7 @@ post:
         reply_attr: __post.comments.reply_attr {name}
         form:
             title: __post.comments.form.title
+        closed: __post.comments.closed
 notes:
     info:
         default_title: __notes.info.default_title
