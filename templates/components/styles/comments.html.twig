@@ -75,7 +75,9 @@
     <div class="l-center">
         <h2 id="comments">{{ 'post.comments.count'|trans({'count': commentsCount}, 'w3c_website_templates_bundle')|raw }}</h2>
         {% if comments|length > 0 %}
-            <a class="skip-to-comment-form" href="#respond">{{ 'post.comments.skip_to_form'|trans({}, 'w3c_website_templates_bundle') }}</a>
+            {% if comments_open %}
+                <a class="skip-to-comment-form" href="#respond">{{ 'post.comments.skip_to_form'|trans({}, 'w3c_website_templates_bundle') }}</a>
+            {% endif %}
             <ol class="clean-list comment-list" role="list">
                 {% for comment in comments %}
                 <li>
