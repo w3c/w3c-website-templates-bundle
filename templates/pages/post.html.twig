@@ -39,7 +39,14 @@
 						{% endif %}
 						{% if page.postDate is defined and page.postDate %}
 							<dt>{{ 'post.meta.published'|trans({}, 'w3c_website_templates_bundle') }}</dt>
-							<dd><time datetime="{{ page.postDate|date('Y-m-d') }}">{{ page.postDate|date('d F Y') }}</time></dd>
+							{% set locale = site.locale|default('en') %}
+							{% set locale = locale == 'en' ? 'en-GB' : 'en' %}
+							<dd>
+								<time datetime="{{ page.postDate|date('c') }}"
+									  title="{{ page.postDate|format_datetime('long', locale=locale) }}">
+									{{ page.postDate|format_date('long', locale=locale) }}
+								</time>
+							</dd>
 						{% endif %}
 					</dl>
 					{% if comments is defined and comments|length > 0 %}
