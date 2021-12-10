@@ -189,18 +189,5 @@ events:
     host: Host
     category: Category
     website: Website
-time_diff:
-    past: >-
-        {count, plural,
-            =0 {0 {unit}s ago}
-            one {1 {unit} ago}
-            other {# {unit}s ago}
-        }
-    future: >-
-        {count, plural,
-            =0 {in 0 {unit}s}
-            one {in 1 {unit}}
-            other {in # {unit}s}
-        }
 alumni:
     date_range: "{start} to {end}"

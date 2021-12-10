@@ -173,8 +173,5 @@ events:
     host: __events.host
     category: __events.category
     website: __events.website
-time_diff:
-    past: __post.comments.diff.past
-    future: __post.comments.diff.future
 alumni:
     date_range: __alumni.date_range {start} {end}

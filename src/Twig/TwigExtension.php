@@ -46,7 +46,6 @@ class TwigExtension extends AbstractExtension
         return [
             new TwigFilter('preg_replace', [$this, 'pregReplace']),
             new TwigFilter('markup_attrs', [$this, 'markupAttrs']),
-            new TwigFilter('time_diff', [$this, 'timeDiff'], ['needs_environment' => true]),
             new TwigFilter('avatar', [$this, 'avatar']),
             new TwigFilter('event_type', [$this, 'eventType']),
             new TwigFilter('crosslink_type', [$this, 'crosslinkType']),
@@ -80,55 +79,6 @@ class TwigExtension extends AbstractExtension
         // Convert back to string and return the code, removing XML version tag
         $dom = dom_import_simplexml($xml);
         return $dom->ownerDocument->saveXML($dom->ownerDocument->documentElement);
-    }
-
-    /**
-     * Filters for converting dates to a time ago string like Facebook and Twitter has.
-     * Source: https://github.com/twigphp/Twig-extensions/ (archived)
-     *
-     * @param string|DateTime $date a string or DateTime object to convert
-     * @param string|DateTime $now A string or DateTime object to compare with. If none given, the current time will be used.
-     *
-     * @return string the converted time
-     */
-    public function timeDiff(Environment $env, $date, $now = null)
-    {
-        // Convert both dates to DateTime instances.
-        $date = twig_date_converter($env, $date);
-        $now  = twig_date_converter($env, $now);
-
-        // Get the difference between the two DateTime objects.
-        $diff = $date->diff($now);
-
-        // Check for each interval if it appears in the $diff object.
-        foreach (self::$units as $attribute => $unit) {
-            $count = $diff->$attribute;
-
-            if (0 !== $count) {
-                return $this->getPluralizedInterval($count, $diff->invert, $unit);
-            }
-        }
-
-        return '';
-    }
-
-    private function getPluralizedInterval($count, $invert, $unit)
-    {
-        if ($this->translator) {
-            $id = sprintf('time_diff.%s', $invert ? 'future' : 'past');
-
-            return $this->translator->trans(
-                $id,
-                ['count' => $count, 'unit' => $unit],
-                'w3c_website_templates_bundle'
-            );
-        }
-
-        if (1 !== $count) {
-            $unit .= 's';
-        }
-
-        return $invert ? "in $count $unit" : "$count $unit ago";
     }
 
     /**
@@ -172,7 +122,8 @@ class TwigExtension extends AbstractExtension
      * Returns the translatable string reference that matches the Craft section handle.
      * Useful in crosslink cards which indicate the type of content at the bottom.
      *
-     * @param string $sectionHandle - Craft section handle
+     * @param string|null $category
+     *
      * @return string translatable string reference
      */
     public function crosslinkType(?string $category): string

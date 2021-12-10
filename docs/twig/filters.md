@@ -29,18 +29,6 @@ attributes to/from its root element.
 Arguments:
  - `attrs`: a hash where keys are the attribute names and values are the attribute values
 
-## `time_diff`
-
-The filter `time_diff` converts a date (`string` or `DateTimeInterface`) to a time ago string.
-
-Arguments:
- - `now`: a `string` or `DateTime` object to compare with. If none given, the current time is used
-
-```twig
-{{ '2021-01-01'|time_diff('2021-10-25') }}
-{# outputs 9 months ago #} 
-```
-
 ## `avatar`
 
 The `avatar` filter transforms an email address into a URL of the avatar of the W3C user corresponding to this email.

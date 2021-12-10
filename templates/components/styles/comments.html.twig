@@ -1,8 +1,16 @@
-{%- macro comment(comment, post, reply_to, rendered_form, comments_open) -%}
+{% set locale = site.locale|default('en') %}
+{% set locale = locale == 'en' ? 'en-GB' : 'en' %}
+
+{%- macro comment(comment, post, reply_to, rendered_form, comments_open, locale) -%}
     <article id="comment-{{ comment.id }}" class="l-sidebar comment">
         <div>
             <div class="not-sidebar">
-                <div class="comment__author">{{ comment.name }} - {{ comment.date|time_diff }}</div>
+                <div class="comment__author">
+                    {{ comment.name }} -
+                    <time datetime="{{ comment.date|date('c') }}">
+                        {{ comment.date|format_datetime('long', locale=locale) }}
+                    </time>
+                </div>
                 <div class="comment__body">
                     {% if post.typeHandle == 'importedEntries' %}
                         <p>{{ comment.comment|raw }}</p>
@@ -41,7 +49,7 @@
         <ul class="clean-list reply-list" role="list">
             {% for child in comment.children %}
                 <li>
-                    {{ _self.comment(child, post, reply_to, rendered_form, comments_open) }}
+                    {{ _self.comment(child, post, reply_to, rendered_form, comments_open, locale) }}
                 </li>
             {% endfor %}
         </ul>
@@ -81,7 +89,7 @@
             <ol class="clean-list comment-list" role="list">
                 {% for comment in comments %}
                 <li>
-                    {{ _self.comment(comment, post, reply_to, rendered_form, comments_open) }}
+                    {{ _self.comment(comment, post, reply_to, rendered_form, comments_open, locale) }}
                 </li>
                 {% endfor %}
             </ol>
