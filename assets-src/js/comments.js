@@ -40,6 +40,11 @@ window.addComment = (function(window) {
 	// Avoid scope lookups on commonly used variables.
 	let document = window.document;
 	let commentReplyTitle = document.querySelector('[data-title="reply"]');
+
+	if (!commentReplyTitle) {
+		return;
+	}
+
 	let origReplyTitle = commentReplyTitle.textContent;
 	let commentForm = document.getElementById('comment-form');
 
