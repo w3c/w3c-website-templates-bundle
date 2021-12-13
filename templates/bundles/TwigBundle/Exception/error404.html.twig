@@ -1,0 +1,18 @@
+{% extends '@W3CWebsiteTemplates/base.html.twig' %}
+
+{% block documenttitle %}{{ 'error404.title'|trans }} | W3C{% endblock %}
+
+{% block main %}
+
+    <h1>{% block title %}{{ 'error404.title'|trans }}{% endblock %}</h1>
+
+    <figure class="component component--fifty-fifty reversed">
+        <div class="illustration">
+            <img src="{{ asset('svg/404.svg', 'website-2021') }}" alt="" role="presentation"/>
+        </div>
+        <figcaption>
+            {{ 'error404.message'|trans |raw }}
+        </figcaption>
+    </figure>
+
+{% endblock %}
