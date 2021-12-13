@@ -1,5 +1,5 @@
 {% set locale = site.locale|default('en') %}
-{% set locale = locale == 'en' ? 'en-GB' : 'en' %}
+{% set locale = locale == 'en' ? 'en-GB' : locale %}
 
 {%- macro comment(comment, post, reply_to, rendered_form, comments_open, locale) -%}
     <article id="comment-{{ comment.id }}" class="l-sidebar comment">

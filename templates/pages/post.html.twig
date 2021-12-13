@@ -40,7 +40,7 @@
 						{% if page.postDate is defined and page.postDate %}
 							<dt>{{ 'post.meta.published'|trans({}, 'w3c_website_templates_bundle') }}</dt>
 							{% set locale = site.locale|default('en') %}
-							{% set locale = locale == 'en' ? 'en-GB' : 'en' %}
+							{% set locale = locale == 'en' ? 'en-GB' : locale %}
 							<dd>
 								<time datetime="{{ page.postDate|date('c') }}"
 									  title="{{ page.postDate|format_datetime('long', locale=locale) }}">
