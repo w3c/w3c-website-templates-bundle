@@ -1,6 +1,37 @@
 import {translate} from "./main/translations";
 
 /**
+ * Replaces comment dates with their equivalent time difference (xx hours/days ago)
+ */
+let commentsTimeDiff = (function() {
+	document.querySelectorAll(".comment__author time").forEach(function (time) {
+		time.setAttribute('title', time.innerHTML.trim());
+		const date = new Date(time.getAttribute("datetime"));
+		const deltaSeconds = Math.round((date.getTime() - Date.now()) / 1000);
+		const deltaMinutes = Math.round(deltaSeconds / 60);
+		const deltaHours = Math.round(deltaSeconds / (60 * 60));
+		const deltaDays = Math.round(deltaSeconds / (60 * 60 * 24));
+		const deltaMonths = Math.round(deltaSeconds / (60 * 60 * 24 * 30));
+		const deltaYears = Math.round(deltaSeconds / (60 * 60 * 24 * 365));
+
+		const formatter = new Intl.RelativeTimeFormat(document.documentElement.lang, {numeric: "auto"});
+		if (deltaYears != 0) {
+			time.innerHTML = formatter.format(deltaYears, 'years');
+		} else if (deltaMonths != 0) {
+			time.innerHTML = formatter.format(deltaMonths, 'months');
+		} else if (deltaDays != 0) {
+			time.innerHTML = formatter.format(deltaDays, 'days');
+		} else if (deltaHours != 0) {
+			time.innerHTML = formatter.format(deltaHours, 'hours');
+		} else if (deltaMinutes != 0) {
+			time.innerHTML = formatter.format(deltaMinutes, 'minutes');
+		} else {
+			time.innerHTML = formatter.format(deltaSeconds, 'seconds');
+		}
+	});
+})();
+
+/**
  * Relocates comment reply form to parent comment and updates title
  */
 
@@ -9,6 +40,11 @@ window.addComment = (function(window) {
 	// Avoid scope lookups on commonly used variables.
 	let document = window.document;
 	let commentReplyTitle = document.querySelector('[data-title="reply"]');
+
+	if (!commentReplyTitle) {
+		return;
+	}
+
 	let origReplyTitle = commentReplyTitle.textContent;
 	let commentForm = document.getElementById('comment-form');
 

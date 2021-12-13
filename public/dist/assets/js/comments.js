@@ -253,13 +253,52 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_translations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
 
 /**
+ * Replaces comment dates with their equivalent time difference (xx hours/days ago)
+ */
+
+var commentsTimeDiff = function () {
+  document.querySelectorAll(".comment__author time").forEach(function (time) {
+    time.setAttribute('title', time.innerHTML.trim());
+    var date = new Date(time.getAttribute("datetime"));
+    var deltaSeconds = Math.round((date.getTime() - Date.now()) / 1000);
+    var deltaMinutes = Math.round(deltaSeconds / 60);
+    var deltaHours = Math.round(deltaSeconds / (60 * 60));
+    var deltaDays = Math.round(deltaSeconds / (60 * 60 * 24));
+    var deltaMonths = Math.round(deltaSeconds / (60 * 60 * 24 * 30));
+    var deltaYears = Math.round(deltaSeconds / (60 * 60 * 24 * 365));
+    var formatter = new Intl.RelativeTimeFormat(document.documentElement.lang, {
+      numeric: "auto"
+    });
+
+    if (deltaYears != 0) {
+      time.innerHTML = formatter.format(deltaYears, 'years');
+    } else if (deltaMonths != 0) {
+      time.innerHTML = formatter.format(deltaMonths, 'months');
+    } else if (deltaDays != 0) {
+      time.innerHTML = formatter.format(deltaDays, 'days');
+    } else if (deltaHours != 0) {
+      time.innerHTML = formatter.format(deltaHours, 'hours');
+    } else if (deltaMinutes != 0) {
+      time.innerHTML = formatter.format(deltaMinutes, 'minutes');
+    } else {
+      time.innerHTML = formatter.format(deltaSeconds, 'seconds');
+    }
+  });
+}();
+/**
  * Relocates comment reply form to parent comment and updates title
  */
+
 
 window.addComment = function (window) {
   // Avoid scope lookups on commonly used variables.
   var document = window.document;
   var commentReplyTitle = document.querySelector('[data-title="reply"]');
+
+  if (!commentReplyTitle) {
+    return;
+  }
+
   var origReplyTitle = commentReplyTitle.textContent;
   var commentForm = document.getElementById('comment-form'); // I18N
 
