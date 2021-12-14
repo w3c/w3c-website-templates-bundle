@@ -214,7 +214,7 @@ error:
           <p>Sorry, the page you were trying to reach does not exist. Here are some steps you may try to find the page you were looking for:</p>
           <ul>
           <li>If you typed the URL by hand then please make sure that it is exactly as it should be.</li>
-          <li>If you are looking for information on a particular subject, please start on the <a href="/">W3C home page</a>.</li>
+          <li>If you are looking for information on a particular subject, please start on the <a href="https://www.w3.org/">W3C home page</a>.</li>
           <li>Try searching the site using the search icon at the top of this page.</li>
           </ul>
     500:

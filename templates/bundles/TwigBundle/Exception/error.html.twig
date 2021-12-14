@@ -21,7 +21,7 @@
         {% if exception %}
             {% set body = body ~ "%0AException at " ~ exception.file ~ ": " ~ exception.line %}
         {% endif %}
-        If you still have a question, please consult our <a href="/help/">Help page</a> or send
+        If you still have a question, please consult our <a href="https://www.w3.org/help/">Help page</a> or send
         us an email to <a href="mailto:sysreq@w3.org?{{ subject }}&{{ body }}">sysreq@w3.org</a>.
     </p>
 {% endblock main %}
