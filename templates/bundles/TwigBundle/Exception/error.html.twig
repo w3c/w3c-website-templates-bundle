@@ -17,7 +17,7 @@
     {% block content %}{% endblock content %}
     <p>
         {% set subject = "subject=Error: " ~ (exception ? exception.message : app.request.uri) %}
-        {% set body = "body=Issue description%0A%0A%0A%0A----%0AURL: " ~ app.request.uri ~ "%0ADate: " ~ "now"|date("F jS \\a\\t g:ia") %}
+        {% set body = "body=Issue description%0A%0A%0A%0A----%0AURL: " ~ app.request.uri ~ "%0ADate: " ~ "now"|date('c') %}
         {% if exception %}
             {% set body = body ~ "%0AException at " ~ exception.file ~ ": " ~ exception.line %}
         {% endif %}
