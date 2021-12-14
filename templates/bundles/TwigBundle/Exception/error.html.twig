@@ -1,0 +1,27 @@
+{% extends '@W3CWebsiteTemplates/base.html.twig' %}
+
+{% block main %}
+    <h1>{% block title %}{{ page.title|default('W3C - Error: {{ status_code }} - {{ status_text }}') }}{% endblock %}</h1>
+    <p>The server returned a "{{ status_code }} {{ status_text }}" error.</p>
+
+    {% block stacktrace %}
+        {% if is_granted('ROLE_ADMIN') and exception %}
+            <h2>Error details</h2>
+            <p>Message: <strong>{{ exception.message }}</strong></p>
+            <p>in <em>{{ exception.file }}: {{ exception.line }}</em></p>
+            <p>Trace:</p>
+            <pre>{{ exception.traceAsString }}</pre>
+        {% endif %}
+    {% endblock stacktrace %}
+
+    {% block content %}{% endblock content %}
+    <p>
+        {% set subject = "subject=Error: " ~ (exception ? exception.message : app.request.uri) %}
+        {% set body = "body=Issue description%0A%0A%0A%0A----%0AURL: " ~ app.request.uri ~ "%0ADate: " ~ "now"|date("F jS \\a\\t g:ia") %}
+        {% if exception %}
+            {% set body = body ~ "%0AException at " ~ exception.file ~ ": " ~ exception.line %}
+        {% endif %}
+        If you still have a question, please consult our <a href="/help/">Help page</a> or send
+        us an email to <a href="mailto:sysreq@w3.org?{{ subject }}&{{ body }}">sysreq@w3.org</a>.
+    </p>
+{% endblock main %}

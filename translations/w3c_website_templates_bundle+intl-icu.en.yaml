@@ -191,3 +191,28 @@ events:
     website: Website
 alumni:
     date_range: "{start} to {end}"
+error:
+    401:
+        title: Authentication Required
+        message: >-
+            <p>A W3C account is required to access the page that you requested.</p>
+            <ul>
+            <li>If you don't have one, <a href="{createUrl}">request a new account</a>.</li>
+            <li>If you have an account but forgot your password, <a href="{recoverUrl}">recover your password</a>.</li>
+            <li>In case of trouble with your W3C account, please send an email to
+            <a href="mailto:sysreq@w3.org">sysreq@w3.org</a>.
+            </li>
+            </ul>
+    403:
+        title: Access Denied
+        message: >-
+            <p>You do not have sufficient privileges to access the page that
+            you requested: <strong>{message}</strong></p>
+    404:
+        title: Page Not Found
+        message: Page not found
+    500:
+        title: Internal Server Error
+        message: >-
+            <p>The server encountered an internal error or misconfiguration and was unable
+            to complete your request.</p>

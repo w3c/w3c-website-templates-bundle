@@ -1,18 +1,16 @@
-{% extends '@W3CWebsiteTemplates/base.html.twig' %}
+{% extends '@W3CWebsiteTemplates/bundles/TwigBundle/Exception/error.html.twig' %}
 
-{% block documenttitle %}{{ 'error404.title'|trans }} | W3C{% endblock %}
+{% block documenttitle %}{{ 'error.404.title'|trans({}, 'w3c_website_templates_bundle') }} | W3C{% endblock %}
 
-{% block main %}
+{% block title %}{{ 'error.404.title'|trans({}, 'w3c_website_templates_bundle') }}{% endblock %}
 
-    <h1>{% block title %}{{ 'error404.title'|trans }}{% endblock %}</h1>
-
+{% block content %}
     <figure class="component component--fifty-fifty reversed">
         <div class="illustration">
             <img src="{{ asset('svg/404.svg', 'website-2021') }}" alt="" role="presentation"/>
         </div>
         <figcaption>
-            {{ 'error404.message'|trans |raw }}
+            {{ 'error.404.message'|trans({}, 'w3c_website_templates_bundle')|raw }}
         </figcaption>
     </figure>
-
 {% endblock %}

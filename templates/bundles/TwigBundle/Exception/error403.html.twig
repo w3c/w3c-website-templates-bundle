@@ -1,0 +1,9 @@
+{% extends '@W3CWebsiteTemplates/bundles/TwigBundle/Exception/error.html.twig' %}
+
+{% block documenttitle %}{{ 'error.403.title'|trans({}, 'w3c_website_templates_bundle') }} | W3C{% endblock %}
+
+{% block title %}{{ 'error.403.title'|trans({}, 'w3c_website_templates_bundle') }}{% endblock title %}
+
+{% block content %}
+    {{ 'error.403.message'|trans({'message':exception.message}, 'w3c_website_templates_bundle')|raw }}
+{% endblock content %}
