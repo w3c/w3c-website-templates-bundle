@@ -192,6 +192,8 @@ events:
 alumni:
     date_range: "{start} to {end}"
 error:
+    intro: The server returned a "{status_code} {status_text}" error.
+    contact: If you still have a question, please consult our <a href="https://www.w3.org/help/">Help page</a> or send us an email to
     401:
         title: Authentication Required
         message: >-

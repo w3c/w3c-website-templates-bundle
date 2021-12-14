@@ -1,8 +1,8 @@
 {% extends '@W3CWebsiteTemplates/base.html.twig' %}
 
 {% block main %}
-    <h1>{% block title %}{{ page.title|default('W3C - Error: {{ status_code }} - {{ status_text }}') }}{% endblock %}</h1>
-    <p>The server returned a "{{ status_code }} {{ status_text }}" error.</p>
+    <h1>{% block title %}{{ page.title|default('Error: {{ status_code }} - {{ status_text }}') }} | W3C{% endblock %}</h1>
+    <p>{{ 'error.intro'|trans({'status_code': status_code, 'status_text': status_text}, 'w3c_website_templates_bundle') }}</p>
 
     {% block stacktrace %}
         {% if is_granted('ROLE_ADMIN') and exception %}
@@ -21,7 +21,6 @@
         {% if exception %}
             {% set body = body ~ "%0AException at " ~ exception.file ~ ": " ~ exception.line %}
         {% endif %}
-        If you still have a question, please consult our <a href="https://www.w3.org/help/">Help page</a> or send
-        us an email to <a href="mailto:sysreq@w3.org?{{ subject }}&{{ body }}">sysreq@w3.org</a>.
+        {{ 'error.contact'|trans({}, 'w3c_website_templates_bundle') }} <a href="mailto:sysreq@w3.org?{{ subject }}&{{ body }}">sysreq@w3.org</a>.
     </p>
 {% endblock main %}
