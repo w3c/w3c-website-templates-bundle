@@ -10,7 +10,6 @@
 
     {% block contact %}
     <div class="component component--text">
-        <p>
         {% set subject -%}
             {%- apply url_encode -%}
                 Error: {{ (exception ? exception.message : app.request.uri) }}
@@ -31,7 +30,6 @@ Date: {{ "now"|date('c') }}
             {%- endapply -%}
         {%- endset %}
         {{ 'error.contact'|trans({'params': "?subject=" ~ subject ~ "&amp;body=" ~ body}, 'w3c_website_templates_bundle')|raw }}
-        </p>
     </div>
     {% endblock contact %}
 {% endblock main %}
