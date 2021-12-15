@@ -5,5 +5,7 @@
 {% block title %}{{ 'error.410.title'|trans({}, 'w3c_website_templates_bundle') }}{% endblock title %}
 
 {% block content %}
-    {{ 'error.410.message'|trans({}, 'w3c_website_templates_bundle')|raw }}
+    <div class="component component--text">
+        {{ 'error.410.message'|trans({}, 'w3c_website_templates_bundle')|raw }}
+    </div>
 {% endblock content %}
