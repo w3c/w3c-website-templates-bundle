@@ -2,14 +2,15 @@
 
 {% block main %}
     <h1>{% block title %}{{ page.title|default('error.title'|trans({'status_code': status_code, 'status_text': status_text}, 'w3c_website_templates_bundle')) }} | W3C{% endblock %}</h1>
-    <div class="component component--text">
-        {{ 'error.intro'|trans({'status_code': status_code, 'status_text': status_text}, 'w3c_website_templates_bundle')|raw }}
-    </div>
+    {% embed '@W3CWebsiteTemplates/components/text.html.twig' %}
+        {% block text %}
+            {{ 'error.intro'|trans({'status_code': status_code, 'status_text': status_text}, 'w3c_website_templates_bundle')|raw }}
+        {% endblock %}
+    {% endembed %}
 
     {% block content %}{% endblock content %}
 
     {% block contact %}
-    <div class="component component--text">
         {% set subject -%}
             {%- apply url_encode -%}
                 Error: {{ (exception ? exception.message : app.request.uri) }}
@@ -29,7 +30,11 @@ Date: {{ "now"|date('c') }}
 {%- endif %}
             {%- endapply -%}
         {%- endset %}
-        {{ 'error.contact'|trans({'params': "?subject=" ~ subject ~ "&amp;body=" ~ body}, 'w3c_website_templates_bundle')|raw }}
-    </div>
+
+        {% embed '@W3CWebsiteTemplates/components/text.html.twig' %}
+            {% block text %}
+                {{ 'error.contact'|trans({'params': "?subject=" ~ subject ~ "&amp;body=" ~ body}, 'w3c_website_templates_bundle')|raw }}
+            {% endblock %}
+        {% endembed %}
     {% endblock contact %}
 {% endblock main %}

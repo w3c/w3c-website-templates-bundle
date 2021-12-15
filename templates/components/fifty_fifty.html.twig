@@ -25,7 +25,9 @@
 		{% endif %}
 	</div>
 	<figcaption>
-		<h2 class="txt-earth">{{ title }}</h2>
+		{% if title is defined and title %}
+			<h2 class="txt-earth">{{ title }}</h2>
+		{% endif %}
 		{{ content|raw }}
 		{% if link_main_url is defined and link_main_url and link_main_text is defined and link_main_text %}
 		<div class="l-box l-box--no-border l-box--no-padding">

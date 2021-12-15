@@ -5,7 +5,9 @@
 {% block title %}{{ 'error.403.title'|trans({}, 'w3c_website_templates_bundle') }}{% endblock title %}
 
 {% block content %}
-    <div class="component component--text">
-        {{ 'error.403.message'|trans({'message': exception.message}, 'w3c_website_templates_bundle')|raw }}
-    </div>
+    {% embed '@W3CWebsiteTemplates/components/text.html.twig' %}
+        {% block text %}
+            {{ 'error.403.message'|trans({'message': exception.message}, 'w3c_website_templates_bundle')|raw }}
+        {% endblock %}
+    {% endembed %}
 {% endblock content %}

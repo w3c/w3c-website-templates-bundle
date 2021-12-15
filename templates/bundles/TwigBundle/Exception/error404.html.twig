@@ -5,18 +5,22 @@
 {% block title %}{{ 'error.404.title'|trans({}, 'w3c_website_templates_bundle') }}{% endblock %}
 
 {% block content %}
-    <figure class="component component--fifty-fifty reversed">
-        <div class="illustration">
-            <img src="{{ asset('svg/404.svg', 'website-2021') }}" alt="" role="presentation"/>
-        </div>
-        <figcaption>
-            {{ 'error.404.message'|trans({}, 'w3c_website_templates_bundle')|raw }}
-        </figcaption>
-    </figure>
+    {% embed '@W3CWebsiteTemplates/components/fifty_fifty.html.twig' with {
+        'order': 'reversed',
+        'content': 'error.404.message'|trans({}, 'w3c_website_templates_bundle'),
+        'image': {
+            extension: 'svg',
+            src: asset('svg/404.svg', 'website-2021'),
+        },
+        'informative_or_decorative': 'decorative'
+    } %}
+    {% endembed %}
 {% endblock %}
 
 {% block contact %}
-    <div class="component component--text">
-        {{ 'error.contact'|trans({'params': ""}, 'w3c_website_templates_bundle')|raw }}
-    </div>
+    {% embed '@W3CWebsiteTemplates/components/text.html.twig' %}
+        {% block text %}
+            {{ 'error.contact'|trans({'params': ""}, 'w3c_website_templates_bundle')|raw }}
+        {% endblock %}
+    {% endembed %}
 {% endblock %}

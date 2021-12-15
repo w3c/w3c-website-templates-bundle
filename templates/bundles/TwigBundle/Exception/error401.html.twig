@@ -1,11 +1,13 @@
 {% extends '@W3CWebsiteTemplates/bundles/TwigBundle/Exception/error.html.twig' %}
 
-{% block documenttitle %}{{ 'error.401.title'||trans({}, 'w3c_website_templates_bundle') }} | W3C{% endblock documenttitle %}
+{% block documenttitle %}{{ 'error.401.title'|trans({}, 'w3c_website_templates_bundle') }} | W3C{% endblock documenttitle %}
 
-{% block title %}{{ 'error.401.title'||trans({}, 'w3c_website_templates_bundle') }}{% endblock title %}
+{% block title %}{{ 'error.401.title'|trans({}, 'w3c_website_templates_bundle') }}{% endblock title %}
 
 {% block content %}
-    <div class="component component--text">
-        {{ 'error.401.message'|trans({}, 'w3c_website_templates_bundle')|raw }}
-    </div>
+    {% embed '@W3CWebsiteTemplates/components/text.html.twig' %}
+        {% block text %}
+            {{ 'error.401.message'|trans({}, 'w3c_website_templates_bundle')|raw }}
+        {% endblock %}
+    {% endembed %}
 {% endblock content %}
