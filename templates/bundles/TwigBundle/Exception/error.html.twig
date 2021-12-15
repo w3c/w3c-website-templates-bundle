@@ -3,7 +3,7 @@
 {% block main %}
     <h1>{% block title %}{{ page.title|default('error.title'|trans({'status_code': status_code, 'status_text': status_text}, 'w3c_website_templates_bundle')) }} | W3C{% endblock %}</h1>
     <div class="component component--text">
-        <p>{{ 'error.intro'|trans({'status_code': status_code, 'status_text': status_text}, 'w3c_website_templates_bundle') }}</p>
+        {{ 'error.intro'|trans({'status_code': status_code, 'status_text': status_text}, 'w3c_website_templates_bundle')|raw }}
     </div>
 
     {% block content %}{% endblock content %}
