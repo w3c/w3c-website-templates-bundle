@@ -34,9 +34,9 @@ Issue description
 ----
 URL: {{ app.request.uri }}
 Date: {{ "now"|date('c') }}
-{% if exception %}
+{% if exception -%}
     Exception at {{ exception.file }}: {{ exception.line }}
-{% endif %}
+{%- endif %}
             {%- endapply -%}
         {%- endset %}
         {{ 'error.contact'|trans({'params': "subject=" ~ subject ~ "&amp;body=" ~ body}, 'w3c_website_templates_bundle')|raw }}
