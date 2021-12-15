@@ -1,26 +1,44 @@
 {% extends '@W3CWebsiteTemplates/base.html.twig' %}
 
 {% block main %}
-    <h1>{% block title %}{{ page.title|default('Error: {{ status_code }} - {{ status_text }}') }} | W3C{% endblock %}</h1>
-    <p>{{ 'error.intro'|trans({'status_code': status_code, 'status_text': status_text}, 'w3c_website_templates_bundle') }}</p>
+    <h1>{% block title %}{{ page.title|default('error.title'|trans({'status_code': status_code, 'status_text': status_text}, 'w3c_website_templates_bundle')) }} | W3C{% endblock %}</h1>
+    <div class="component component--text">
+        <p>{{ 'error.intro'|trans({'status_code': status_code, 'status_text': status_text}, 'w3c_website_templates_bundle') }}</p>
+    </div>
 
     {% block stacktrace %}
         {% if is_granted('ROLE_ADMIN') and exception %}
-            <h2>Error details</h2>
-            <p>Message: <strong>{{ exception.message }}</strong></p>
-            <p>in <em>{{ exception.file }}: {{ exception.line }}</em></p>
-            <p>Trace:</p>
-            <pre>{{ exception.traceAsString }}</pre>
+            <div class="component component--text">
+                <h2>Error details</h2>
+                <p>Message: <strong>{{ exception.message }}</strong></p>
+                <p>in <em>{{ exception.file }}: {{ exception.line }}</em></p>
+                <p>Trace:</p>
+                <pre>{{ exception.traceAsString }}</pre>
+            </div
         {% endif %}
     {% endblock stacktrace %}
 
     {% block content %}{% endblock content %}
     <p>
-        {% set subject = "subject=Error: " ~ (exception ? exception.message : app.request.uri) %}
-        {% set body = "body=Issue description%0A%0A%0A%0A----%0AURL: " ~ app.request.uri ~ "%0ADate: " ~ "now"|date('c') %}
-        {% if exception %}
-            {% set body = body ~ "%0AException at " ~ exception.file ~ ": " ~ exception.line %}
-        {% endif %}
-        {{ 'error.contact'|trans({}, 'w3c_website_templates_bundle') }} <a href="mailto:sysreq@w3.org?{{ subject }}&{{ body }}">sysreq@w3.org</a>.
+        {% set subject -%}
+            {%- apply url_encode -%}
+                Error: {{ (exception ? exception.message : app.request.uri) }}
+            {%- endapply -%}
+        {%- endset %}
+        {% set body -%}
+            {%- apply url_encode -%}
+Issue description
+
+
+
+----
+URL: {{ app.request.uri }}
+Date: {{ "now"|date('c') }}
+{% if exception %}
+    Exception at {{ exception.file }}: {{ exception.line }}
+{% endif %}
+            {%- endapply -%}
+        {%- endset %}
+        {{ 'error.contact'|trans({'params': "subject=" ~ subject ~ "&amp;body=" ~ body}, 'w3c_website_templates_bundle')|raw }}
     </p>
 {% endblock main %}
