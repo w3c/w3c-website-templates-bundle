@@ -6,19 +6,9 @@
         <p>{{ 'error.intro'|trans({'status_code': status_code, 'status_text': status_text}, 'w3c_website_templates_bundle') }}</p>
     </div>
 
-    {% block stacktrace %}
-        {% if is_granted('ROLE_ADMIN') and exception %}
-            <div class="component component--text">
-                <h2>Error details</h2>
-                <p>Message: <strong>{{ exception.message }}</strong></p>
-                <p>in <em>{{ exception.file }}: {{ exception.line }}</em></p>
-                <p>Trace:</p>
-                <pre>{{ exception.traceAsString }}</pre>
-            </div>
-        {% endif %}
-    {% endblock stacktrace %}
-
     {% block content %}{% endblock content %}
+
+    {% block contact %}
     <p>
         {% set subject -%}
             {%- apply url_encode -%}
@@ -39,6 +29,7 @@ Date: {{ "now"|date('c') }}
 {%- endif %}
             {%- endapply -%}
         {%- endset %}
-        {{ 'error.contact'|trans({'params': "subject=" ~ subject ~ "&amp;body=" ~ body}, 'w3c_website_templates_bundle')|raw }}
+        {{ 'error.contact'|trans({'params': "?subject=" ~ subject ~ "&amp;body=" ~ body}, 'w3c_website_templates_bundle')|raw }}
     </p>
+    {% endblock contact %}
 {% endblock main %}

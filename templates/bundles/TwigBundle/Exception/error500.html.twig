@@ -8,4 +8,13 @@
     <div class="component component--text">
         {{ 'error.500.message'|trans({}, 'w3c_website_templates_bundle')|raw }}
     </div>
+    {% if is_granted('ROLE_ADMIN') and exception %}
+    <div class="component component--text">
+        <h2>Error details</h2>
+        <p>Message: <strong>{{ exception.message }}</strong></p>
+        <p>in <em>{{ exception.file }}: {{ exception.line }}</em></p>
+        <p>Trace:</p>
+        <pre>{{ exception.traceAsString }}</pre>
+    </div>
+    {% endif %}
 {% endblock content %}

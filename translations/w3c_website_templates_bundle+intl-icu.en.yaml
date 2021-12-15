@@ -195,7 +195,7 @@ error:
     title: Error {status_code} - {status_text}
     intro: The server returned a "{status_code} - {status_text}" error.
     contact: >-
-        If you still have a question, please consult our <a href="https://www.w3.org/help/">Help page</a> or send us an email to <a href="mailto:sysreq@w3.org?{params}">sysreq@w3.org</a>.
+        If you still have a question, please consult our <a href="https://www.w3.org/help/">Help page</a> or send us an email to <a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>.
     401:
         title: Authentication Required
         message: >-
