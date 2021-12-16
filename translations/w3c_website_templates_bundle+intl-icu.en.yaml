@@ -226,9 +226,8 @@ error:
     410:
         title: Gone
         message: >-
-            <p><strong>The requested resource is no longer available on this server and
-            there is no forwarding address. Please remove all references to this resource.
-            </strong></p>
+            <p>The requested resource is no longer available on this server and
+            there is no forwarding address. Please remove all references to this resource.</p>
             <p>You may be able to find the information you need by consulting the <a
             href="https://www.w3.org/">W3C home page</a> or searching the site using the
             search icon at the top of this page.</p>
