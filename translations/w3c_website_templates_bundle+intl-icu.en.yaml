@@ -196,6 +196,8 @@ error:
     intro: <p>The server returned a "{status_code} - {status_text}" error.</p>
     contact: >-
         <p>If you still have a question, please consult our <a href="https://www.w3.org/help/">Help page</a> or send us an email to <a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>.</p>
+    faq: >-
+        <p>If you still have a question, please consult our <a href="https://www.w3.org/help/">Help page</a>.</p>
     401:
         title: Authentication Required
         message: >-
