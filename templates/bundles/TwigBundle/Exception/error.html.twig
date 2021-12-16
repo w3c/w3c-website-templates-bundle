@@ -26,7 +26,7 @@ Issue description
 URL: {{ app.request.uri }}
 Date: {{ "now"|date('c') }}
 {% if exception -%}
-    Exception at {{ exception.file }}: {{ exception.line }}
+    Exception at {{ exception.file|file_relative }}: {{ exception.line }}
 {%- endif %}
             {%- endapply -%}
         {%- endset %}
