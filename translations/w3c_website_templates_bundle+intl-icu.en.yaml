@@ -193,7 +193,10 @@ alumni:
     date_range: "{start} to {end}"
 error:
     title: Error {status_code} - {status_text}
-    intro: <p>The server returned a "{status_code} - {status_text}" error.</p>
+    intro: >-
+        <p>The server returned a "{status_code} - {status_text}" error.</p>
+    request_id: >-
+        <p>Request ID: {request_id}</p>
     contact: >-
         <p>If you still have a question, please consult our <a href="https://www.w3.org/help/">Help page</a> or send us an email to <a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>.</p>
     faq: >-

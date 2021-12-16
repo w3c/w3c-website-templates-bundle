@@ -5,6 +5,7 @@
     {% embed '@W3CWebsiteTemplates/components/text.html.twig' %}
         {% block text %}
             {{ 'error.intro'|trans({'status_code': status_code, 'status_text': status_text}, 'w3c_website_templates_bundle')|raw }}
+            {{ 'error.request_id'|trans({'request_id': request_id()}, 'w3c_website_templates_bundle')|raw }}
         {% endblock %}
     {% endembed %}
 
@@ -23,6 +24,7 @@ Issue description
 
 
 ----
+Request ID: {{ request_id() }}
 URL: {{ app.request.uri }}
 Date: {{ "now"|date('c') }}
 {% if exception -%}
