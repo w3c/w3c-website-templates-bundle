@@ -16,7 +16,7 @@
             {% block text %}
                 <h2>Error details</h2>
                 <p>Message: <strong>{{ exception.message }}</strong></p>
-                <p>in <em>{{ exception.file }}: {{ exception.line }}</em></p>
+                <p>in <em>{{ exception.file|file_relative }}: {{ exception.line }}</em></p>
                 <p>Trace:</p>
                 <pre>{{ exception.traceAsString }}</pre>
             {% endblock %}
