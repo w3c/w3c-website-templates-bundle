@@ -2,12 +2,14 @@
 
 {% block main %}
     <h1>{% block title %}{{ page.title|default('error.title'|trans({'status_code': status_code, 'status_text': status_text}, 'w3c_website_templates_bundle')) }} | W3C{% endblock %}</h1>
-    {% embed '@W3CWebsiteTemplates/components/text.html.twig' %}
-        {% block text %}
-            {{ 'error.intro'|trans({'status_code': status_code, 'status_text': status_text}, 'w3c_website_templates_bundle')|raw }}
-            {{ 'error.request_id'|trans({'request_id': request_id()}, 'w3c_website_templates_bundle')|raw }}
-        {% endblock %}
-    {% endembed %}
+    {% block intro %}
+        {% embed '@W3CWebsiteTemplates/components/text.html.twig' %}
+            {% block text %}
+                {{ 'error.intro'|trans({'status_code': status_code, 'status_text': status_text}, 'w3c_website_templates_bundle')|raw }}
+                {{ 'error.request_id'|trans({'request_id': request_id()}, 'w3c_website_templates_bundle')|raw }}
+            {% endblock %}
+        {% endembed %}
+    {% endblock %}
 
     {% block content %}{% endblock content %}
 
