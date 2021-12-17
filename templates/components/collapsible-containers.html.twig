@@ -1,0 +1,12 @@
+{% if objects is not empty %}
+    <div class="component--collapsibles" data-component="collapsibles">
+        {% for object in objects %}
+            <div>
+                <h3 data-heading="collapsibles">{% block title %}{% endblock title %}<span>{% block subtitle %}{% endblock subtitle %}</span></h3>
+                <div>
+                    {% block content %}{% endblock content %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
