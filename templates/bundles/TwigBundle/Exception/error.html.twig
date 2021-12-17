@@ -16,13 +16,12 @@
     {% block contact %}
         {% set subject -%}
             {%- apply url_encode -%}
-                Error: {{ (exception ? exception.message : app.request.uri) }}
+                Error: {{ app.request.uri }}
             {%- endapply -%}
         {%- endset %}
         {% set body -%}
             {%- apply url_encode -%}
-Issue description
-
+Issue description: [ Please describe the issue you encountered ]
 
 
 ----
@@ -30,6 +29,7 @@ Request ID: {{ request_id() }}
 URL: {{ app.request.uri }}
 Date: {{ "now"|date('c') }}
 {% if exception -%}
+    Message: {{ exception.message }}
     Exception at {{ exception.file|file_relative }}: {{ exception.line }}
 {%- endif %}
             {%- endapply -%}
