@@ -1,11 +1,12 @@
 {% if sections is not empty %}
-<div class="component--collapsibles" data-component="collapsibles">
-    {% for section in sections %}
-        {% embed '@W3CWebsiteTemplates/components/collapsible-section.html.twig' %}
-            {% block title %}{{ section.title }}{% endblock title %}
-            {% block subtitle %}{% if section.subtitle is defined %} <span>{{ section.subtitle }}</span>{% endif %}{% endblock subtitle %}
-            {% block content %}{{ section.content|raw }}{% endblock content %}
-        {% endembed %}
-    {% endfor %}
-</div>
+    <div class="component--collapsibles" data-component="collapsibles">
+        {% for section in sections %}
+            <div>
+                <h3 data-heading="collapsibles">{% block title %}{{ section.title }}{% endblock title %}<span>{% block subtitle %}{% endblock subtitle %}</span></h3>
+                <div>
+                    {% block content %}{% endblock content %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endif %}

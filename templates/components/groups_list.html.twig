@@ -11,17 +11,14 @@
         </div>
         {% endif %}
         {% if groups is not empty %}
-        <div class="component--collapsibles" data-component="collapsibles">
-            {% for group in groups %}
-            <div>
-                <h3 data-heading="collapsibles">{{ group.name }} <span>{{ group.type|capitalize }}</span></h3>
-                <div>
-                    <p>{{ group.description }}</p>
-                    <a href="{{ group.url }}">{{ 'components.groups_list.link_text'|trans({'name':group.name}, 'w3c_website_templates_bundle')  }}</a>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
+            {% embed '@W3CWebsiteTemplates/components/collapsible-containers.html.twig' with {sections: groups }%}
+                {% block title %}{{ section.name }}{% endblock title %}
+                {% block subtitle %}{{ section.type|capitalize }}{% endblock subtitle %}
+                {% block content %}
+                    <p>{{ section.description }}</p>
+                    <a href="{{ section.url }}">{{ 'components.groups_list.link_text'|trans({'name': section.name}, 'w3c_website_templates_bundle')  }}</a>
+                {% endblock content %}
+            {% endembed %}
         {% endif %}
     </div>
 </div>
