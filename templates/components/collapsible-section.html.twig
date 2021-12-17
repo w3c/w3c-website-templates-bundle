@@ -1,6 +1,6 @@
 <div>
-    <h3 data-heading="collapsibles">{{ section.title }} <span>{{ section.subtitle }}</span></h3>
+    <h3 data-heading="collapsibles">{% block title %}{% endblock title %}{% block subtitle %}{% endblock subtitle %}</span></h3>
     <div>
-        {{ section.content|raw }}
+        {% block content %}{% endblock content %}
     </div>
 </div>
