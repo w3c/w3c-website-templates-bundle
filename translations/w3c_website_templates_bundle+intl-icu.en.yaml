@@ -197,10 +197,6 @@ error:
         <p>The server returned a "{status_code} - {status_text}" error.</p>
     request_id: >-
         <p>Request ID: {request_id}</p>
-    contact: >-
-        <p>If you still have a question, please consult our <a href="https://www.w3.org/help/">Help page</a> or send us an email to <a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>.</p>
-    faq: >-
-        <p>If you still have a question, please consult our <a href="https://www.w3.org/help/">Help page</a>.</p>
     401:
         title: Authentication Required
         message: >-
@@ -212,11 +208,18 @@ error:
             <a href="mailto:sysreq@w3.org">sysreq@w3.org</a>.
             </li>
             </ul>
+        contact: >-
+            <p>For information on known issues with our site please see our <a href="https://status.w3.org/">System status page</a>.</p>
+            <p>If you still have a question, please consult our <a href="https://www.w3.org/help/">Help page</a> or contact <a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>.</p>
     403:
         title: Access Denied
         message: >-
-            <p>You do not have sufficient privileges to access the page that
-            you requested: <strong>{message}</strong></p>
+            <p>You do not have sufficient privileges to access the page that you requested: <strong>{message}</strong></p>
+        contact: >-
+            <p>For information on known issues with our site please see our <a href="https://status.w3.org/">System 
+            status page</a>.</p>
+            <p>If you still have a question, please consult our <a href="https://www.w3.org/help/">Help page</a> or 
+            contact <a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>.</p>
     404:
         title: Page Not Found
         message: >-
@@ -226,6 +229,8 @@ error:
           <li>If you are looking for information on a particular subject, please start on the <a href="https://www.w3.org/">W3C home page</a>.</li>
           <li>Try searching the site using the search icon at the top of this page.</li>
           </ul>
+        contact: >-
+            <p>If you still have a question, please consult our <a href="https://www.w3.org/help/">Help page</a>.</p>
     410:
         title: Gone
         message: >-
@@ -234,8 +239,13 @@ error:
             <p>You may be able to find the information you need by consulting the <a
             href="https://www.w3.org/">W3C home page</a> or searching the site using the
             search icon at the top of this page.</p>
+        contact: >-
+            <p>If you still have a question, please consult our <a href="https://www.w3.org/help/">Help page</a>.</p>
     500:
         title: Internal Server Error
         message: >-
             <p>The server encountered an internal error or misconfiguration and was unable
             to complete your request.</p>
+        contact: >-
+            <p>For information on known issues with our site please see our <a href="https://status.w3.org/">System status page</a>.</p>
+            <p>To report an issue not listed on that page, please contact <a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>.</p>
