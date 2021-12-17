@@ -1,8 +1,8 @@
 {% extends '@W3CWebsiteTemplates/bundles/TwigBundle/Exception/error.html.twig' %}
 
-{% block documenttitle %}{{ 'error.404.title'|trans({}, 'w3c_website_templates_bundle') }} | W3C{% endblock documenttitle %}
+{% block documenttitle %}{{ 'error.410.title'|trans({}, 'w3c_website_templates_bundle') }} | W3C{% endblock documenttitle %}
 
-{% block title %}{{ 'error.404.title'|trans({}, 'w3c_website_templates_bundle') }}{% endblock %}
+{% block title %}{{ 'error.410.title'|trans({}, 'w3c_website_templates_bundle') }}{% endblock title %}
 
 {% block intro %}
     {% embed '@W3CWebsiteTemplates/components/text.html.twig' %}
@@ -13,17 +13,12 @@
 {% endblock %}
 
 {% block content %}
-    {% embed '@W3CWebsiteTemplates/components/fifty_fifty.html.twig' with {
-        'order': 'reversed',
-        'content': 'error.404.message'|trans({}, 'w3c_website_templates_bundle'),
-        'image': {
-            extension: 'svg',
-            src: asset('svg/404.svg', 'website-2021'),
-        },
-        'informative_or_decorative': 'decorative'
-    } %}
+    {% embed '@W3CWebsiteTemplates/components/text.html.twig' %}
+        {% block text %}
+            {{ 'error.410.message'|trans({}, 'w3c_website_templates_bundle')|raw }}
+        {% endblock %}
     {% endembed %}
-{% endblock %}
+{% endblock content %}
 
 {% block contact %}
     {% embed '@W3CWebsiteTemplates/components/text.html.twig' %}

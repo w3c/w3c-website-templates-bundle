@@ -175,3 +175,24 @@ events:
     website: __events.website
 alumni:
     date_range: __alumni.date_range {start} {end}
+error:
+    title: __error.title {status_code} {status_text}
+    intro: __error.intro {status_code} {status_text}
+    request_id: __error.request_id {request_id}
+    contact: __error.contact {params}
+    faq: __error.faq
+    401:
+        title: __error.401.title
+        message: __error.401.message
+    403:
+        title: __error.403.title
+        message: __error.403.message
+    404:
+        title: __error.404.title
+        message: __error.404.message
+    410:
+        title: __error.410.title
+        message: __error.410.message
+    500:
+        title: __error.500.title
+        message: __error.500.message

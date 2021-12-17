@@ -191,3 +191,51 @@ events:
     website: Website
 alumni:
     date_range: "{start} to {end}"
+error:
+    title: Error {status_code} - {status_text}
+    intro: >-
+        <p>The server returned a "{status_code} - {status_text}" error.</p>
+    request_id: >-
+        <p>Request ID: {request_id}</p>
+    contact: >-
+        <p>If you still have a question, please consult our <a href="https://www.w3.org/help/">Help page</a> or send us an email to <a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>.</p>
+    faq: >-
+        <p>If you still have a question, please consult our <a href="https://www.w3.org/help/">Help page</a>.</p>
+    401:
+        title: Authentication Required
+        message: >-
+            <p>A W3C account is required to access the page that you requested.</p>
+            <ul>
+            <li>If you don't have one, <a href="https://www.w3.org/accounts/request">request a new account</a>.</li>
+            <li>If you have an account but forgot your password, <a href="https://www.w3.org/accounts/recover">recover your password</a>.</li>
+            <li>In case of trouble with your W3C account, please send an email to
+            <a href="mailto:sysreq@w3.org">sysreq@w3.org</a>.
+            </li>
+            </ul>
+    403:
+        title: Access Denied
+        message: >-
+            <p>You do not have sufficient privileges to access the page that
+            you requested: <strong>{message}</strong></p>
+    404:
+        title: Page Not Found
+        message: >-
+          <p>Sorry, the page you were trying to reach does not exist. Here are some steps you may try to find the page you were looking for:</p>
+          <ul>
+          <li>If you typed the URL by hand then please make sure that it is exactly as it should be.</li>
+          <li>If you are looking for information on a particular subject, please start on the <a href="https://www.w3.org/">W3C home page</a>.</li>
+          <li>Try searching the site using the search icon at the top of this page.</li>
+          </ul>
+    410:
+        title: Gone
+        message: >-
+            <p>The requested resource is no longer available on this server and
+            there is no forwarding address. Please remove all references to this resource.</p>
+            <p>You may be able to find the information you need by consulting the <a
+            href="https://www.w3.org/">W3C home page</a> or searching the site using the
+            search icon at the top of this page.</p>
+    500:
+        title: Internal Server Error
+        message: >-
+            <p>The server encountered an internal error or misconfiguration and was unable
+            to complete your request.</p>

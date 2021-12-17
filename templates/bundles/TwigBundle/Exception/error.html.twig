@@ -1,0 +1,43 @@
+{% extends '@W3CWebsiteTemplates/base.html.twig' %}
+
+{% block main %}
+    <h1>{% block title %}{{ page.title|default('error.title'|trans({'status_code': status_code, 'status_text': status_text}, 'w3c_website_templates_bundle')) }} | W3C{% endblock %}</h1>
+    {% block intro %}
+        {% embed '@W3CWebsiteTemplates/components/text.html.twig' %}
+            {% block text %}
+                {{ 'error.intro'|trans({'status_code': status_code, 'status_text': status_text}, 'w3c_website_templates_bundle')|raw }}
+                {{ 'error.request_id'|trans({'request_id': request_id()}, 'w3c_website_templates_bundle')|raw }}
+            {% endblock %}
+        {% endembed %}
+    {% endblock %}
+
+    {% block content %}{% endblock content %}
+
+    {% block contact %}
+        {% set subject -%}
+            {%- apply url_encode -%}
+                Error: {{ app.request.uri }}
+            {%- endapply -%}
+        {%- endset %}
+        {% set body -%}
+            {%- apply url_encode -%}
+Issue description: [ Please describe the issue you encountered ]
+
+
+----
+Request ID: {{ request_id() }}
+URL: {{ app.request.uri }}
+Date: {{ "now"|date('c') }}
+{% if exception -%}
+    Message: {{ exception.message }}
+{%- endif %}
+            {%- endapply -%}
+        {%- endset %}
+
+        {% embed '@W3CWebsiteTemplates/components/text.html.twig' %}
+            {% block text %}
+                {{ 'error.contact'|trans({'params': "?subject=" ~ subject ~ "&amp;body=" ~ body}, 'w3c_website_templates_bundle')|raw }}
+            {% endblock %}
+        {% endembed %}
+    {% endblock contact %}
+{% endblock main %}
