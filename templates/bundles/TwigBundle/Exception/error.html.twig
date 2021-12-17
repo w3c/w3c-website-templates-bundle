@@ -30,7 +30,6 @@ URL: {{ app.request.uri }}
 Date: {{ "now"|date('c') }}
 {% if exception -%}
     Message: {{ exception.message }}
-    Exception at {{ exception.file|file_relative }}: {{ exception.line }}
 {%- endif %}
             {%- endapply -%}
         {%- endset %}
