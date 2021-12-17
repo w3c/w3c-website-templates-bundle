@@ -11,12 +11,12 @@
         </div>
         {% endif %}
         {% if groups is not empty %}
-            {% embed '@W3CWebsiteTemplates/components/collapsible-containers.html.twig' with {objects: groups }%}
+            {% embed '@W3CWebsiteTemplates/components/collapsible-containers.html.twig' with {objects: groups}%}
                 {% block title %}{{ object.name }}{% endblock title %}
                 {% block subtitle %}{{ object.type|capitalize }}{% endblock subtitle %}
                 {% block content %}
                     <p>{{ object.description }}</p>
-                    <a href="{{ object.url }}">{{ 'components.groups_list.link_text'|trans({'name': object.name}, 'w3c_website_templates_bundle')  }}</a>
+                    <a href="{{ object.url }}">{{ 'components.groups_list.link_text'|trans({'name': object.name}, 'w3c_website_templates_bundle') }}</a>
                 {% endblock content %}
             {% endembed %}
         {% endif %}
