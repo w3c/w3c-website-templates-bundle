@@ -1,8 +1,8 @@
-{% if sections is not empty %}
+{% if objects is not empty %}
     <div class="component--collapsibles" data-component="collapsibles">
-        {% for section in sections %}
+        {% for object in objects %}
             <div>
-                <h3 data-heading="collapsibles">{% block title %}{{ section.title }}{% endblock title %}<span>{% block subtitle %}{% endblock subtitle %}</span></h3>
+                <h3 data-heading="collapsibles">{% block title %}{% endblock title %}<span>{% block subtitle %}{% endblock subtitle %}</span></h3>
                 <div>
                     {% block content %}{% endblock content %}
                 </div>
