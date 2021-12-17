@@ -1,0 +1,7 @@
+{% if sections is not empty %}
+<div class="component--collapsibles" data-component="collapsibles">
+    {% for section in sections %}
+        {{ include('@W3CWebsiteTemplates/components/collapsible-section.html.twig', {'section': section}) }}
+    {% endfor %}
+</div>
+{% endif %}
