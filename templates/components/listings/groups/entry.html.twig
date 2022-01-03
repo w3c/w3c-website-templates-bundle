@@ -1,0 +1,39 @@
+<div class="card card--group" data-component="card" id="{% block group_page_id %}{{ group.shortname }}{% endblock %}">
+    <div class="card__text">
+        <h2 class="card__heading">
+            <a class="card__link" href="{% block group_url %}{{ group|profile_uri }}{% endblock %}">
+                {% block group_name %}{{ group.name }}{% endblock %}
+            </a>
+        </h2>
+        <p>
+            {% block group_description %}
+                {{ group.description|purify }}
+            {% endblock %}
+        </p>
+        {% block group_ecosystems %}
+            {% if group.ecosystems|length > 0 %}
+                <dl class="txt-pluto">
+                    {% for ecosystem in group.ecosystems %}
+                        <dt class="visuallyhidden">{{ ecosystem }}</dt>
+                        <dd>{{ ecosystem }}</dd>
+                    {% endfor %}
+                </dl>
+            {% endif %}
+        {% endblock %}
+        {% block group_tags %}{#
+            <div class="l-cluster">
+                <ul class="clean-list">
+                    <li>
+                        <span class="tag">Accessibility</span>
+                    </li>
+                    <li>
+                        <span class="tag">Privacy</span>
+                    </li>
+                    <li>
+                        <span class="tag">Security</span>
+                    </li>
+                </ul>
+            </div> #}
+        {% endblock %}
+    </div>
+</div>
