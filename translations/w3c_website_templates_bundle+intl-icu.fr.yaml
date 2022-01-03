@@ -54,6 +54,7 @@ pagination:
     page: "__pagination.page {page}"
     current_page: "{page}"
     summary: __pagination.summary {page} {from}-{to}
+ecosystems: __ecosystems {count}
 listing:
     blog:
         filters:

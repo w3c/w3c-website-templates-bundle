@@ -65,6 +65,7 @@ pagination:
             0 {There are no results}
             other {This is page {page}, displaying results {from}-{to}}
         }
+ecosystems: __ecosystems {count}
 listing:
     blog:
         filters:
