@@ -65,7 +65,12 @@ pagination:
             0 {There are no results}
             other {This is page {page}, displaying results {from}-{to}}
         }
-ecosystems: __ecosystems {count}
+ecosystems: >-
+    { count, plural,
+       =0 { Ecosystems }
+       one { Ecosystem }
+       other { Ecosystems }
+    }
 listing:
     blog:
         filters:
