@@ -4295,28 +4295,34 @@ input[type=search] {
 
 .event-list,
 .member-list,
-.group-list {
+.group-list,
+.tr-stats-list {
   margin-top: 2.5rem; }
   .event-list > * + *,
   .member-list > * + *,
-  .group-list > * + * {
+  .group-list > * + *,
+  .tr-stats-list > * + * {
     margin-top: 1rem; }
   .event-list .card,
   .member-list .card,
-  .group-list .card {
+  .group-list .card,
+  .tr-stats-list .card {
     padding: 1rem; }
   .event-list .card.l-sidebar .sidebar,
   .member-list .card.l-sidebar .sidebar,
-  .group-list .card.l-sidebar .sidebar {
+  .group-list .card.l-sidebar .sidebar,
+  .tr-stats-list .card.l-sidebar .sidebar {
     -ms-flex-preferred-size: auto;
         flex-basis: auto; }
   .event-list .card.l-sidebar .not-sidebar,
   .member-list .card.l-sidebar .not-sidebar,
-  .group-list .card.l-sidebar .not-sidebar {
+  .group-list .card.l-sidebar .not-sidebar,
+  .tr-stats-list .card.l-sidebar .not-sidebar {
     min-width: calc(70% - 1.5rem); }
   .event-list .card__text,
   .member-list .card__text,
-  .group-list .card__text {
+  .group-list .card__text,
+  .tr-stats-list .card__text {
     padding-top: 0; }
 
 .event-list .card .l-cluster > * {
@@ -4596,3 +4602,10 @@ To horizontally center a block-level item
 
 .u-no-margin-top.u-no-margin-top {
   margin-top: 0; }
+
+/*------------------------------------*\
+    #Color utilities
+\*------------------------------------*/
+.error-color.error-color {
+  color: #a82615;
+  border-color: #a82615; }
