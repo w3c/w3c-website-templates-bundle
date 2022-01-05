@@ -114,7 +114,7 @@ components:
     groups_list:
         link_text: Visit the {name} Group
     people:
-        tel: "Tel: <a href=\"tel:{number}}6\">{number}</a>"
+        tel: "Tel: <a href=\"tel:{number}\">{number}</a>"
         email: "Email: <a href=\"mailto:{email}\">{email}</a>"
     evangelists:
         list_title: >-
