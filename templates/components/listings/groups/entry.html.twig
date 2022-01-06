@@ -15,7 +15,7 @@
                 <dl class="txt-pluto">
                     <dt class="visuallyhidden">{{ 'ecosystems'|trans({'count': group.ecosystems|length}, 'w3c_website_templates_bundle') }}</dt>
                     {% for ecosystem in group.ecosystems %}
-                        <dd>{{ ecosystem|replace({' Ecosystem': ''}) }}</dd>
+                        <dd>{% block group_ecosystem %}{{ ecosystem|replace({' Ecosystem': ''}) }}{% endblock %}</dd>
                     {% endfor %}
                 </dl>
             {% endif %}
