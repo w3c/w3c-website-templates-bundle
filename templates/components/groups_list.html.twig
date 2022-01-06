@@ -16,7 +16,7 @@
                 {% block subtitle %}{{ object.type|capitalize }}{% endblock subtitle %}
                 {% block content %}
                     <p>{{ object.description }}</p>
-                    <a href="{{ object.url }}">{{ 'components.groups_list.link_text'|trans({'name': object.name}, 'w3c_website_templates_bundle') }}</a>
+                    <a href="{{ object.url }}">{{ 'components.groups_list.link_text'|trans({'name': object.name|strip_group_type}, 'w3c_website_templates_bundle') }}</a>
                 {% endblock content %}
             {% endembed %}
         {% endif %}
