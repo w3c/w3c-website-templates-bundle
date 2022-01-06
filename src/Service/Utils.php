@@ -8,7 +8,7 @@ class Utils
     {
         return preg_replace(
             '/\s+(((working|community|business|interest|incubator|coordination|other)\s+group)' .
-            '|(task\s+force)|(function)|(ecosystem))$/i',
+            '|(task\s+force)|(function)|(ecosystem))/i',
             '',
             $name
         );
