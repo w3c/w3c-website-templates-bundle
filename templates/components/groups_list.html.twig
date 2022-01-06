@@ -12,7 +12,7 @@
         {% endif %}
         {% if groups is not empty %}
             {% embed '@W3CWebsiteTemplates/components/collapsible-containers.html.twig' with {objects: groups}%}
-                {% block title %}{{ object.name }}{% endblock title %}
+                {% block title %}{{ object.name|strip_group_type }}{% endblock title %}
                 {% block subtitle %}{{ object.type|capitalize }}{% endblock subtitle %}
                 {% block content %}
                     <p>{{ object.description }}</p>

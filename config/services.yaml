@@ -1,9 +1,12 @@
 services:
+    w3c_website_templates_bundle.utils:
+        class: W3C\WebsiteTemplatesBundle\Service\Utils
     w3c_website_templates_bundle.twig_extension:
         class: W3C\WebsiteTemplatesBundle\Twig\TwigExtension
         arguments:
             $intl: '@twig.extension.intl'
             $translator: '@translator'
             $twig: '@twig'
+            $utils: '@w3c_website_templates_bundle.utils'
         tags:
             - { name: twig.extension }

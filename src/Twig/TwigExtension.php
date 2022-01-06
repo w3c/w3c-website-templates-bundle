@@ -13,6 +13,8 @@ use Twig\Environment;
 use Twig\Extension\AbstractExtension;
 use Twig\Extra\Intl\IntlExtension;
 use Twig\TwigFilter;
+use W3C\WebsiteTemplatesBundle\Service\Utils;
+
 
 class TwigExtension extends AbstractExtension
 {
@@ -28,17 +30,23 @@ class TwigExtension extends AbstractExtension
     private $translator;
     private IntlExtension $intl;
     private Environment $twig;
+    private Utils $utils;
 
-    public function __construct(IntlExtension $intl, TranslatorInterface $translator, Environment $twig)
-    {
+    public function __construct(
+        IntlExtension $intl,
+        TranslatorInterface $translator,
+        Environment $twig,
+        Utils $utils
+    ) {
         // Ignore the IdentityTranslator, otherwise the parameters won't be replaced properly
         if ($translator instanceof IdentityTranslator) {
             $translator = null;
         }
 
         $this->translator = $translator;
-        $this->intl = $intl;
-        $this->twig = $twig;
+        $this->intl       = $intl;
+        $this->twig       = $twig;
+        $this->utils      = $utils;
     }
 
     public function getFilters()
@@ -50,7 +58,8 @@ class TwigExtension extends AbstractExtension
             new TwigFilter('event_type', [$this, 'eventType']),
             new TwigFilter('crosslink_type', [$this, 'crosslinkType']),
             new TwigFilter('date_range', [$this, 'dateRange']),
-            new TwigFilter( 'array_shuffle', [$this, 'arrayShuffle'])
+            new TwigFilter('array_shuffle', [$this, 'arrayShuffle']),
+            new TwigFilter('strip_group_type', [$this, 'stripGroupType'])
         ];
     }
 
@@ -193,5 +202,10 @@ class TwigExtension extends AbstractExtension
     {
         shuffle($sourceArray);
         return $sourceArray;
+    }
+
+    public function stripGroupType(string $name): string
+    {
+        return $this->utils->stripGroupType($name);
     }
 }
