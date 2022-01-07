@@ -96,3 +96,25 @@
         </span>
     {%- endif -%}
 {%- endblock form_help %}
+
+{%- block checkbox_row -%}
+    {%- set widget_attr = {} -%}
+    {%- if help is not empty -%}
+        {%- set widget_attr = {attr: {'aria-describedby': "hint-" ~ id}} -%}
+    {%- endif -%}
+    {%- if form.vars.errors|length > 0 -%}
+        {% set widget_attr = {
+            attr: {
+                'aria-describedby': (widget_attr.attr['aria-describedby']|default('') ~ ' error-' ~ form.vars.id)|trim
+            }
+        } %}
+        {% set row_attr = row_attr|merge({class: (row_attr.class|default('') ~ ' field--error')|trim}) %}
+    {%- endif -%}
+
+    <div{% with {attr: row_attr|merge({class: (row_attr.class|default('') ~ ' field')|trim})} %}{{ block('attributes') }}{% endwith %}>
+        <div class="checkbox-item">
+            {{- form_widget(form, widget_attr) -}}
+            {{- form_label(form) -}}
+        </div>
+    </div>
+{%- endblock checkbox_row -%}
