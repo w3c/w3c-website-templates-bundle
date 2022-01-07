@@ -1,4 +1,4 @@
-<figure class="component component--fifty-fifty {% if order == 'reversed' %}reversed{% endif %}">
+<figure class="component component--fifty-fifty {% if order is defined and order == 'reversed' %}reversed{% endif %}">
 	<div class="{% if image.extension == 'svg' %}illustration{% else %}image{% endif %}">
 		{% if image.extension == 'svg' %}
 			<img src="{{ image.src }}"

@@ -6,7 +6,7 @@
                     <h1>{% block title %}{{ page.title|default('W3C') }}{% endblock %}</h1>
                     {% block heroLead %}<p class="lead">{{ page.pageLead }}</p>{% endblock %}
                 </div>
-                {% if page.heroIllustration %}
+                {% if page.heroIllustration is defined and page.heroIllustration %}
                     <div class="sidebar">
                         <img src="{{ page.heroIllustration.url }}" role="img" alt/>
                     </div>
