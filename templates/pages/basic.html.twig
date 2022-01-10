@@ -28,7 +28,24 @@
             {% if page.displayOnThisPageNavigation is defined and page.displayOnThisPageNavigation and toc is defined %}
                 {{ include('@W3CWebsiteTemplates/components/styles/toc.html.twig') }}
             {% endif %}
-            {% block components %}{% endblock components %}
+            {% block components %}
+                {% if page.defaultFlexibleComponents is defined and page.defaultFlexibleComponents %}
+                    {% for component in page.defaultFlexibleComponents %}
+                        {{ include('partials/defaultFlexibleComponents.html.twig') }}
+                    {% endfor %}
+                {% endif %}
+                {% if page.pageContent is defined and page.pageContent %}
+                    {{ page.pageContent|raw }}
+                {% endif %}
+            {% endblock components %}
+            {% block post_notes %}
+                {% if page.notes is defined and page.notes %}
+                    <section class="post__notes component--text">
+                        <h2 class="visuallyhidden">{{ 'post.notes_heading'|trans({}, 'w3c_website_templates_bundle') }}</h2>
+                        {{ page.notes|raw }}
+                    </section>
+                {% endif %}
+            {% endblock %}
         </article>
     </div>
 {% endblock %}
