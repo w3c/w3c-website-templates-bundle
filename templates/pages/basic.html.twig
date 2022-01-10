@@ -1,0 +1,45 @@
+{% extends '@W3CWebsiteTemplates/base.html.twig' %}
+
+{% block body_classes %}{% endblock %}
+
+{% block global_nav %}
+    <nav id="global-nav" aria-label="Main">
+        <div class="global-nav__inner l-center">
+            <a class="logo-link" href="/">
+                <span class="logo">
+                <img src="{{ asset('svg/w3c-logo.svg', 'website-2021') }}"
+                     alt="{{ 'header.logo_alt'|trans({}, 'w3c_website_templates_bundle') }}" role="img"/>
+                </span>
+                <span class="visuallyhidden">{{ 'header.logo_link'|trans({}, 'w3c_website_templates_bundle') }}</span>
+            </a>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block main %}
+    <div class="content">
+        <article>
+            <h1>{% block title %}{{ page.title|default('W3C') }}{% endblock %}</h1>
+            {% if page.localized is defined and page.localized|length > 0 %}
+                {{ include('@W3CWebsiteTemplates/components/styles/page_translations.html.twig') }}
+            {% endif %}
+            {% if page.displayOnThisPageNavigation is defined and page.displayOnThisPageNavigation and toc is defined %}
+                {{ include('@W3CWebsiteTemplates/components/styles/toc.html.twig') }}
+            {% endif %}
+            {% block components %}{% endblock components %}
+        </article>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    {% embed '@W3CWebsiteTemplates/components/styles/footer.html.twig' with {
+        'links': [
+            {
+                'copy': 'footer.links.home'|trans({}, 'w3c_website_templates_bundle'),
+                'url' : 'footer.links.homeurl'|trans({}, 'w3c_website_templates_bundle')
+            }
+        ]
+    } %}{% endembed %}
+{% endblock %}
