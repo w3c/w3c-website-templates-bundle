@@ -1,44 +1,54 @@
-{% macro base_entry(entry) %}
-    <div class="l-sidebar">
-        <div>
-            <div class="not-sidebar">
-                <h2 class="card__heading">
-                    <a class="card__link" href="{{ entry.url }}">{{ entry.title }}</a>
-                </h2>
-                <p>{{ entry.excerpt }}</p>
-            </div>
-            <div class="sidebar">
-                <div class="date-location">
-                    <div>
-                        <img src="{{ asset('svg/calendar.svg', 'website-2021') }}" width="18px" height="20px" alt role="img"
-                             aria-hidden="true"/>
+{% set hasThumbnail = entry.thumbnailImage is defined and entry.thumbnailImage %}
+<div class="{% if hasThumbnail %}l-sidebar {% endif %}card card--event {% block event_type_class %}{{ entry|event_type }}{% endblock %}" data-component="card">
+    {% if hasThumbnail %}<div>{% endif %}
+        <div class="{% if hasThumbnail %}not-sidebar {% endif %}card__text">
+            <div class="l-sidebar">
+                <div>
+                    <div class="not-sidebar">
+                        {% block event_main_content %}
+                            <h2 class="card__heading">
+                                <a class="card__link" href="{% block event_url %}{{ entry.url }}{% endblock %}">
+                                    {% block event_title %}{{ entry.title }}{% endblock %}
+                                </a>
+                            </h2>
+                            <div>
+                                {% block event_excerpt %}
+                                    {{ entry.excerpt }}
+                                {% endblock %}
+                            </div>
+                        {% endblock %}
                     </div>
-                    <div>
-                        <p>
-                            <time datetime="{{ entry.start|date('c') }}">
-                                {{ entry|date_range(site.locale) }}
-                            </time>
-                        </p>
-                        <p>{{ entry.location }}</p>
+                    <div class="sidebar">
+                        <div class="date-location">
+                            <div>
+                                <img src="{{ asset('svg/calendar.svg', 'website-2021') }}" width="18px" height="20px"
+                                     alt role="img"
+                                     aria-hidden="true"/>
+                            </div>
+                            <div>
+                                <p>
+                                    <time datetime="{% block event_start %}{{ entry.start|date('c') }}{% endblock %}">
+                                        {% block event_dates %}{{ date_range(entry.start, entry.end, entry.tz, site.locale)|raw }}{% endblock %}
+                                    </time>
+                                </p>
+                                {% block event_location %}<p>{{ entry.location }}</p>{% endblock %}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            {% block event_category %}
+                {% if entry.category %}
+                    <p class="txt-pluto">
+                        <a href="{{ entry.category.url }}">{{ entry.category.title }}</a>
+                    </p>
+                {% endif %}
+            {% endblock %}
+            {% block event_type %}
+                <p class="txt-pluto">{{ entry.type.title }}</p>
+            {% endblock %}
         </div>
-    </div>
-    {% if entry.category %}
-        <p class="txt-pluto">
-            <a href="{{ entry.category.url }}">{{ entry.category.title }}</a>
-        </p>
-    {% endif %}
-    <p class="txt-pluto">{{ entry.type.title }}</p>
-{% endmacro %}
-
-{% if entry.thumbnailImage %}
-    <div class="l-sidebar card card--event {{ entry|event_type }}" data-component="card">
-        <div>
-            <div class="not-sidebar card__text">
-                {{ _self.base_entry(entry) }}
-            </div>
+        {% if hasThumbnail %}
             <div class="sidebar">
                 <a href="{{ entry.url }}" class="l-frame card__image">
                     <img
@@ -53,12 +63,7 @@
                     />
                 </a>
             </div>
-        </div>
-    </div>
-{% else %}
-    <div class="card card--event {{ entry|event_type }}" data-component="card">
-        <div class="card__text">
-            {{ _self.base_entry(entry) }}
-        </div>
-    </div>
-{% endif %}
+        {% endif %}
+    {% if hasThumbnail %}</div>{% endif %}
+</div>
+

@@ -4,6 +4,7 @@ namespace W3C\WebsiteTemplatesBundle\Twig;
 
 use DateTime;
 use DateTimeImmutable;
+use DateTimeInterface;
 use DateTimeZone;
 use Exception;
 use SimpleXMLElement;
@@ -13,6 +14,7 @@ use Twig\Environment;
 use Twig\Extension\AbstractExtension;
 use Twig\Extra\Intl\IntlExtension;
 use Twig\TwigFilter;
+use Twig\TwigFunction;
 use W3C\WebsiteTemplatesBundle\Service\Utils;
 
 
@@ -60,6 +62,13 @@ class TwigExtension extends AbstractExtension
             new TwigFilter('date_range', [$this, 'dateRange']),
             new TwigFilter('array_shuffle', [$this, 'arrayShuffle']),
             new TwigFilter('strip_group_type', [$this, 'stripGroupType'])
+        ];
+    }
+
+    public function getFunctions()
+    {
+        return [
+            new TwigFunction('date_range', [$this, 'dateRange'])
         ];
     }
 
@@ -166,15 +175,26 @@ class TwigExtension extends AbstractExtension
         }
     }
 
-    public function dateRange(array $event, string $locale, bool $utc = false): string
-    {
+    public function dateRange(
+        DateTimeInterface $originalStart,
+        DateTimeInterface $originalEnd,
+        string $tz,
+        string $locale,
+        bool $utc = false
+    ): string {
         if ($locale == 'en') {
             $locale = 'en-GB';
         }
 
-        $tz        = ($utc === true)? 'UTC' : $event['tz'];
-        $start     = DateTimeImmutable::createFromMutable($event['start'])->setTimezone(new DateTimeZone($tz));
-        $end       = DateTimeImmutable::createFromMutable($event['end'])->setTimezone(new DateTimeZone($tz));
+        if ($originalStart instanceof DateTime) {
+            $originalStart = DateTimeImmutable::createFromMutable($originalStart);
+        }
+        if ($originalEnd instanceof DateTime) {
+            $originalEnd = DateTimeImmutable::createFromMutable($originalEnd);
+        }
+        $tz        = ($utc === true)? 'UTC' : $tz;
+        $start     = $originalStart->setTimezone(new DateTimeZone($tz));
+        $end       = $originalEnd->setTimezone(new DateTimeZone($tz));
         $startDate = $this->intl->formatDate($this->twig, $start, 'long', '', $tz, 'gregorian', $locale);
         $startTime = $this->intl->formatTime($this->twig, $start, 'short', '', $tz, 'gregorian', $locale);
         $endDate   = $this->intl->formatDate($this->twig, $end, 'long', '', $tz, 'gregorian', $locale);

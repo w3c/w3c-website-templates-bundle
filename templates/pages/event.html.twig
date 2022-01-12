@@ -30,12 +30,12 @@
                     <dt>{{ 'events.date'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
                     <dd>
                         <time datetime="{{ page.start|date('c') }}">
-                            {{ page|date_range(site.locale)| raw }}
+                            {{ date_range(page.start, page.end, page.tz, site.locale)| raw }}
                         </time>
                         {% if page.tz is not same as('UTC') %}
                             <br />
                             <time datetime="{{ page.start|date('c') }}">
-                                {{ page|date_range(site.locale, true)| raw }}
+                                {{ date_range(page.start, page.end, page.tz, site.locale, true)| raw }}
                             </time>
                         {% endif %}
                     </dd>
