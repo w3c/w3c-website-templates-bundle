@@ -29,14 +29,10 @@
                 <dl class="grid">
                     <dt>{{ 'events.date'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
                     <dd>
-                        <time datetime="{{ page.start|date('c') }}">
-                            {{ date_range(page.start, page.end, page.tz, site.locale)| raw }}
-                        </time>
+                        {{ date_range(page.start, page.end, page.tz, site.locale)| raw }}
                         {% if page.tz is not same as('UTC') %}
                             <br />
-                            <time datetime="{{ page.start|date('c') }}">
-                                {{ date_range(page.start, page.end, page.tz, site.locale, true)| raw }}
-                            </time>
+                            {{ date_range(page.start, page.end, page.tz, site.locale, true)| raw }}
                         {% endif %}
                     </dd>
                     <dt>{{ 'events.location'|trans({}, 'w3c_website_templates_bundle') }}:</dt>

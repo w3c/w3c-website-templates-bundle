@@ -5,9 +5,7 @@
         </h3>
         <p class="txt-pluto with-icon--before">
             <img class="icon" src="{{ asset('svg/calendar.svg', 'website-2021') }}" width="18px" height="20px" alt role="img" aria-hidden="true"/>
-            <time datetime="{{ entry.start|date('c') }}">
-                {{ date_range(entry.start, entry.end, entry.tz, site.locale)|raw }}
-            </time>
+            <span>{{ date_range(entry.start, entry.end, entry.tz, site.locale)|raw }}</span>
         </p>
         <p class="txt-pluto">{{ entry.type.title }}</p>
     </div>

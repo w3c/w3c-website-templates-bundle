@@ -195,6 +195,8 @@ class TwigExtension extends AbstractExtension
         $tz        = ($utc === true)? 'UTC' : $tz;
         $start     = $originalStart->setTimezone(new DateTimeZone($tz));
         $end       = $originalEnd->setTimezone(new DateTimeZone($tz));
+        $isoStart  = $originalStart->format('c');
+        $isoEnd    = $originalEnd->format('c');
         $startDate = $this->intl->formatDate($this->twig, $start, 'long', '', $tz, 'gregorian', $locale);
         $startTime = $this->intl->formatTime($this->twig, $start, 'short', '', $tz, 'gregorian', $locale);
         $endDate   = $this->intl->formatDate($this->twig, $end, 'long', '', $tz, 'gregorian', $locale);
@@ -207,6 +209,8 @@ class TwigExtension extends AbstractExtension
         return $this->translator->trans(
             'events.date_range',
             [
+                'iso_start'  => $isoStart,
+                'iso_end'    => $isoEnd,
                 'start_date' => $startDate,
                 'start_time' => $startTime,
                 'end_date'   => $endDate,

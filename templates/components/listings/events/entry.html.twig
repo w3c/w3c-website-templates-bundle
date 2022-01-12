@@ -26,10 +26,8 @@
                                      aria-hidden="true"/>
                             </div>
                             <div>
-                                <p>
-                                    <time datetime="{% block event_start %}{{ entry.start|date('c') }}{% endblock %}">
-                                        {% block event_dates %}{{ date_range(entry.start, entry.end, entry.tz, site.locale)|raw }}{% endblock %}
-                                    </time>
+                                <p class="date-orig">
+                                    {% block event_dates %}{{ date_range(entry.start, entry.end, entry.tz, site.locale)|raw }}{% endblock %}
                                 </p>
                                 {% block event_location %}<p>{{ entry.location }}</p>{% endblock %}
                             </div>
