@@ -7,7 +7,7 @@
             <div class="not-sidebar">
                 <div class="l-cluster">
                     <ul class="clean-list">
-                        {% for translation in page.localized %}
+                        {% for translation in page.localized|sort((a, b) => a.language_code|replace({'-': '_'})|language_name('en') <=> b.language_code|replace({'-': '_'})|language_name('en')) %}
                             <li>
                                 <a href="{{ translation.url }}"
                                    hreflang="{{ translation.language_code }}"
