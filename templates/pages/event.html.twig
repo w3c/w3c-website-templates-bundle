@@ -3,14 +3,16 @@
 {% block main %}
     <div class="content">
         <article>
-            <div class="intro {{ page|event_type }}">
+            <div class="intro {% block event_type_class %}{{ page|event_type }}{% endblock %}">
                 <h1>{% block title %}{{ page.title|default('W3C') }}{% endblock %}</h1>
-                <p>{{ page.type.title }}</p>
+                <p>{% block event_type %}{{ page.type.title }}{% endblock %}</p>
             </div>
 
-            {% if page.excerpt is not null %}
-                <p class="lead">{{ page.excerpt }}</p>
-            {% endif %}
+            {% block event_excerpt %}
+                {% if page.excerpt is not null %}
+                    <p class="lead">{{ page.excerpt }}</p>
+                {% endif %}
+            {% endblock %}
 
             {% if page.ical_url is defined and page.ical_url is not null %}
             <a href="{{ page.ical_url }}" class="with-icon--before calendar-link txt-pluto">
@@ -26,46 +28,48 @@
 
             <section class="meta">
                 <h2 class="visuallyhidden">{{ 'events.event_details'|trans({}, 'w3c_website_templates_bundle') }}</h2>
-                <dl class="grid">
-                    <dt>{{ 'events.date'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
-                    <dd>
-                        {{ date_range(page.start, page.end, page.tz, site.locale)| raw }}
-                        {% if page.tz is not same as('UTC') %}
-                            <br />
-                            {{ date_range(page.start, page.end, page.tz, site.locale, true)| raw }}
+                {% block event_meta %}
+                    <dl class="grid">
+                        <dt>{{ 'events.date'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
+                        <dd>
+                            {{ date_range(page.start, page.end, page.tz, site.locale)| raw }}
+                            {% if page.tz is not same as('UTC') %}
+                                <br />
+                                {{ date_range(page.start, page.end, page.tz, site.locale, true)| raw }}
+                            {% endif %}
+                        </dd>
+                        <dt>{{ 'events.location'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
+                        <dd>{{ page.location }}</dd>
+                        {% if page.speakers %}
+                            <dt>{{ 'events.speakers'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
+                            <dd>{{ page.speakers }}</dd>
                         {% endif %}
-                    </dd>
-                    <dt>{{ 'events.location'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
-                    <dd>{{ page.location }}</dd>
-                    {% if page.speakers %}
-                        <dt>{{ 'events.speakers'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
-                        <dd>{{ page.speakers }}</dd>
-                    {% endif %}
-                    {% if page.host %}
-                        <dt>{{ 'events.host'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
-                        <dd>{{ page.host }}</dd>
-                    {% endif %}
-                    {% if page.category %}
-                        <dt class="with-link">{{ 'events.category'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
-                        <dd class="with-link">
-                            <a href="{{ page.category.url }}">{{ page.category.title }}</a>
-                        </dd>
-                    {% endif %}
-                    {% if page.tags %}
-                        <dt class="with-link">{{ 'post.related.heading_tags'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
-                        <dd class="l-cluster with-link">
-                            <ul class="clean-list">
-                                {% for tag in page.tags %}
-                                <li><a href="{{ tag.url }}">{{ tag.title }}</a></li>
-                                {% endfor %}
-                            </ul>
-                        </dd>
-                    {% endif %}
-                    {% if page.website is not empty %}
-                        <dt class="with-link">{{ 'events.website'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
-                        <dd class="with-link"><a href="{{ page.website.url }}">{{ (page.website.name is not empty)? page.website.name : page.website.url }}</a></dd>
-                    {% endif %}
-                </dl>
+                        {% if page.host %}
+                            <dt>{{ 'events.host'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
+                            <dd>{{ page.host }}</dd>
+                        {% endif %}
+                        {% if page.category %}
+                            <dt class="with-link">{{ 'events.category'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
+                            <dd class="with-link">
+                                <a href="{{ page.category.url }}">{{ page.category.title }}</a>
+                            </dd>
+                        {% endif %}
+                        {% if page.tags %}
+                            <dt class="with-link">{{ 'post.related.heading_tags'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
+                            <dd class="l-cluster with-link">
+                                <ul class="clean-list">
+                                    {% for tag in page.tags %}
+                                    <li><a href="{{ tag.url }}">{{ tag.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </dd>
+                        {% endif %}
+                        {% if page.website is not empty %}
+                            <dt class="with-link">{{ 'events.website'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
+                            <dd class="with-link"><a href="{{ page.website.url }}">{{ (page.website.name is not empty)? page.website.name : page.website.url }}</a></dd>
+                        {% endif %}
+                    </dl>
+                {% endblock %}
             </section>
 
             {% block components %}{% endblock components %}
