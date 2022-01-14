@@ -1,6 +1,6 @@
 {% extends '@W3CWebsiteTemplates/base.html.twig' %}
 
-{% set body_classes = 'home' %}
+{% set body_classes = 'home' ~ body_classes|default('') %}
 
 {% block breadcrumbs %}{% endblock breadcrumbs %}
 

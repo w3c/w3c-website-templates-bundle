@@ -1,6 +1,6 @@
 {% extends '@W3CWebsiteTemplates/base.html.twig' %}
 
-{% set body_classes = 'listing' %}
+{% set body_classes = 'listing' ~ body_classes|default('') %}
 
 {% block main %}
     <div class="u-full-width hero hero--listing">

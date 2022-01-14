@@ -9,7 +9,7 @@
     {% endif %}
 {% endblock %}
 
-{% set body_classes = 'ecosystem' %}
+{% set body_classes = 'ecosystem' ~ body_classes|default('') %}
 
 {% block main %}
     {{ include('@W3CWebsiteTemplates/components/styles/hero.html.twig') }}

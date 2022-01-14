@@ -1,6 +1,6 @@
 {% extends '@W3CWebsiteTemplates/base.html.twig' %}
 
-{% set body_classes = 'landing' %}
+{% set body_classes = 'landing' ~ body_classes|default('') %}
 
 {% block main %}
     {% block hero %}
