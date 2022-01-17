@@ -14,7 +14,11 @@
                             <div>
                                 <p>
                                     <span class="visuallyhidden">{{ 'post.meta.published'|trans([], 'w3c_website_templates_bundle') }}</span>
-                                    <time datetime="{{ entry.date|date('Y-m-d') }}">{{ entry.date|date('d F Y') }}</time>
+                                    {% set locale = site.locale|default('en') %}
+                                    {% set locale = locale == 'en' ? 'en-GB' : locale %}
+                                    <time datetime="{{ entry.date|date('Y-m-d') }}">
+                                        {{ entry.date|format_date('long', locale=locale) }}
+                                    </time>
                                 </p>
                             </div>
                         {% endif %}
