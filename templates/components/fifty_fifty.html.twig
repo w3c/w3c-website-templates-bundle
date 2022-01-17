@@ -1,41 +1,46 @@
-<figure class="component component--fifty-fifty {% if order is defined and order == 'reversed' %}reversed{% endif %}">
-	<div class="{% if image.extension == 'svg' %}illustration{% else %}image{% endif %}">
-		{% if image.extension == 'svg' %}
-			<img src="{{ image.src }}"
-			     role="img"
-			     loading="lazy"
-				{% if informative_or_decorative == 'decorative' %}
-					alt=""
-				{% else %}
-					alt="{% if alt %}{{ alt }}{% endif %}"
-				{% endif %}
-			/>
-		{% else %}
-			<img
-				src="{{ image.src }}"
-				srcset="{{ image.srcset }}"
-				sizes="(min-width: 48em) 50vw, 100vw"
-				loading="lazy"
-				{% if informative_or_decorative == 'decorative' %}
-					alt=""
-				{% else %}
-					alt="{% if alt %}{{ alt }}{% endif %}"
-				{% endif %}
-			/>
-		{% endif %}
+<figure {% if id is defined %}id="{{ id }}"{% endif %}
+		class="component component--fifty-fifty {% if order is defined and order == 'reversed' %}reversed{% endif %}">
+	<div class="{% if image.extension is defined and image.extension == 'svg' %}illustration{% else %}image{% endif %}">
+		{% block image %}
+			{% if image.extension == 'svg' %}
+				<img src="{{ image.src }}"
+					 role="img"
+					 loading="lazy"
+					{% if informative_or_decorative == 'decorative' %}
+						alt=""
+					{% else %}
+						alt="{% if alt %}{{ alt }}{% endif %}"
+					{% endif %}
+				/>
+			{% else %}
+				<img
+					src="{{ image.src }}"
+					srcset="{{ image.srcset }}"
+					sizes="(min-width: 48em) 50vw, 100vw"
+					loading="lazy"
+					{% if informative_or_decorative == 'decorative' %}
+						alt=""
+					{% else %}
+						alt="{% if alt %}{{ alt }}{% endif %}"
+					{% endif %}
+				/>
+			{% endif %}
+		{% endblock %}
 	</div>
 	<figcaption>
-		{% if title is defined and title %}
-			<h2 class="txt-earth">{{ title }}</h2>
-		{% endif %}
-		{{ content|raw }}
-		{% if link_main_url is defined and link_main_url and link_main_text is defined and link_main_text %}
-		<div class="l-box l-box--no-border l-box--no-padding">
-			<a class="button button--alt" href="{{ link_main_url }}">{{ link_main_text }}</a>
-			{% if link_secondary_url is defined and link_secondary_url and link_secondary_text is defined and link_secondary_text %}
-				<a href="{{ link_secondary_url }}">{{ link_secondary_text }}</a>
+		{% block text %}
+			{% if title is defined and title %}
+				<h2 class="txt-earth">{{ title }}</h2>
 			{% endif %}
-		</div>
-		{% endif %}
+			{{ content|raw }}
+			{% if link_main_url is defined and link_main_url and link_main_text is defined and link_main_text %}
+			<div class="l-box l-box--no-border l-box--no-padding">
+				<a class="button button--alt" href="{{ link_main_url }}">{{ link_main_text }}</a>
+				{% if link_secondary_url is defined and link_secondary_url and link_secondary_text is defined and link_secondary_text %}
+					<a href="{{ link_secondary_url }}">{{ link_secondary_text }}</a>
+				{% endif %}
+			</div>
+			{% endif %}
+		{% endblock %}
 	</figcaption>
 </figure>
