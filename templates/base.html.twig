@@ -5,7 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% set seo = page.seo|default([]) %}
-    <title>{% block documenttitle %}{{ seo.title|default(page.title|default('W3C')) }}{% endblock %}</title>
+    <title>
+        {%- block documenttitle -%}
+            {%- if seo.title is defined and seo.title -%}
+                {{ seo.title|raw }}
+            {%- else -%}
+                {{ page.title|default('W3C') }}
+            {%- endif -%}
+        {%- endblock -%}
+    </title>
     <meta name="description" content="{% block description %}{{ seo.description|default(page.excerpt|default('page.default_description'|trans({}, 'w3c_website_templates_bundle'))) }}{% endblock %}"/>
 
     {% set defaultImage = asset('images/w3c-opengraph-image.png', 'website-2021') %}
