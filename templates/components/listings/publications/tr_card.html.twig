@@ -5,7 +5,7 @@
         </h3>
         {% block maturity %}{% endblock %}
     </div>
-    <p><time datetime="{{ spec.date|date('Y-m-d') }}">{{ spec.date|format_date('long', locale='en-GB') }}</time>{% block history %} - <a href="{{ path('history_view', { 'spec': spec.specification.shortname }) }}">history</a>{% endblock history%}</p>
+    <p>{{ w3c_date_format(spec.date)|raw }}{% block history %} - <a href="{{ path('history_view', { 'spec': spec.specification.shortname }) }}">history</a>{% endblock history%}</p>
     {% block tags %}
     {% if spec.specification.tags|length > 0 %}
         <p><span class="bold">Tags:</span> {{ spec.specification.tags|map(t => "#{t.title}")|join(', ') }}</p>
