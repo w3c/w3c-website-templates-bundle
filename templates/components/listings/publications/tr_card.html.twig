@@ -1,0 +1,28 @@
+<div class="tr-list__item">
+    <div class="tr-list__item__header">
+        <h3>
+            <a href="{{ spec.latestVersionUri }}">{{ spec.title }}</a>
+        </h3>
+        {% block maturity %}{% endblock %}
+    </div>
+    <p>{{ w3c_date_format(spec.date)|raw }}{% block history %} - <a href="{{ path('history_view', { 'spec': spec.specification.shortname }) }}">history</a>{% endblock history%}</p>
+    {% block tags %}
+    {% if spec.specification.tags|length > 0 %}
+        <p><span class="bold">Tags:</span> {{ spec.specification.tags|map(t => "#{t.title}")|join(', ') }}</p>
+    {% endif %}
+    {% endblock tags %}
+    {% block editors %}
+    {% if spec.editors|length > 0 %}
+        <p><span class="bold">Editors:</span> {{ spec.editors|map(e => "#{e.user.name}")|join(', ') }}</p>
+    {% endif %}
+    {% endblock editors %}
+    {% block translations %}
+    {% if spec.translations and spec.translations.translations|length > 0 %}
+        <p>{{ spec.translations.translations|length }} translation{% if spec.translations.translations|length > 1 %}s{% endif %}
+            ({{ spec.translations.translations|map(t => "<a hreflang=\"#{t.language}\" href=\"#{t.uri}\"><span lang=\"#{t.language}\">#{t.language|locale_name(t.language)}</span></a>")|join(', ')|raw }}) for {{ spec.title }}.</p>
+    {% endif %}
+    {% endblock translations %}
+    {% block description %}
+        {{ spec.specification.description|raw }}
+    {% endblock description %}
+</div>

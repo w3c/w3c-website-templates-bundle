@@ -68,7 +68,8 @@ class TwigExtension extends AbstractExtension
     public function getFunctions()
     {
         return [
-            new TwigFunction('date_range', [$this, 'dateRange'])
+            new TwigFunction('date_range', [$this, 'dateRange']),
+            new TwigFunction('w3c_date_format', [$this, 'w3cDateFormat'])
         ];
     }
 
@@ -220,6 +221,11 @@ class TwigExtension extends AbstractExtension
             ],
             'w3c_website_templates_bundle'
         );
+    }
+
+    public function w3cDateFormat(DateTimeInterface $date, string $locale = 'en_GB', string $format = 'Y-m-d'): string {
+        $formatedDate = $this->intl->formatDate($this->twig, $date, 'long', '', $date->getTimezone(), 'gregorian', $locale);
+        return '<time datetime="'.$date->format($format).'">'.$formatedDate.'</time>';
     }
 
     public function arrayShuffle(array $sourceArray): array
