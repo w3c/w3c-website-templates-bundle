@@ -223,16 +223,9 @@ class TwigExtension extends AbstractExtension
         );
     }
 
-    public function w3cDateFormat(DateTimeInterface $date): string {
-        $fmt = new \IntlDateFormatter(
-            'en_GB',
-            \IntlDateFormatter::LONG,
-            \IntlDateFormatter::NONE,
-            $date->getTimezone(),
-            \IntlDateFormatter::GREGORIAN
-        );
-
-        return '<time datetime="'.$date->format('Y-m-d').'">'.$fmt->format($date).'</time>';
+    public function w3cDateFormat(DateTimeInterface $date, string $locale = 'en_GB', string $format = 'Y-m-d'): string {
+        $formatedDate = $this->intl->formatDate($this->twig, $date, 'long', '', $date->getTimezone(), 'gregorian', $locale);
+        return '<time datetime="'.$date->format($format).'">'.$formatedDate.'</time>';
     }
 
     public function arrayShuffle(array $sourceArray): array
