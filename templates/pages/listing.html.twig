@@ -8,7 +8,7 @@
             <h1>{% block title %}{{ page.title|default('W3C') }}{% endblock %}</h1>
             {% block lead %}
                 {% if page.lead is defined and page.lead %}
-                    <p class="lead">{{ page.lead }}</p>
+                    <p class="lead">{{ page.lead|raw }}</p>
                 {% endif %}
             {% endblock %}
 
