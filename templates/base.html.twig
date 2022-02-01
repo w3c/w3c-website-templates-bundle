@@ -73,6 +73,7 @@
             only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
             only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
         ">
+        <link rel="stylesheet" href="{{ asset('styles/print.css', 'website-2021') }}" media="print"/>
     {% endblock stylesheets %}
 
     {% block javascripts %}
