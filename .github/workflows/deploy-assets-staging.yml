@@ -26,15 +26,13 @@ jobs:
         run: npm run build
 
       - name: Upload to ${{ env.environment }}
-        uses: jakejarvis/s3-sync-action@master
         if: success()
         env:
-          AWS_S3_BUCKET: ${{ secrets.AWS_CDN_STAGING_W3_ORG }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-1'
-          SOURCE_DIR: ${{ env.source }}
-          DEST_DIR: ${{ env.destination }}
+        run:
+          aws s3 sync --no-progress ${{ env.source }} s3://${{ secrets.AWS_CDN_STAGING_W3_ORG }}/${{ env.destination }}
 
       - name: Purge cache for ${{ env.environment }}
         uses: nathanvaughn/actions-cloudflare-purge@master
