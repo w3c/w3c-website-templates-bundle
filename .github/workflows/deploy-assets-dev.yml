@@ -32,7 +32,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-1'
         run:
-          aws s3 sync ${{ env.source }} s3://${{ secrets.AWS_CDN_DEV_W3_ORG }}/${{ env.destination }}
+          aws s3 sync --no-progress ${{ env.source }} s3://${{ secrets.AWS_CDN_DEV_W3_ORG }}/${{ env.destination }}
 
       - name: Purge cache for ${{ env.environment }}
         uses: nathanvaughn/actions-cloudflare-purge@master
