@@ -65,7 +65,9 @@
                     <span class="required">(Required)</span>
                 {%- endif -%}
             </span>
-        {{- form_errors(form) -}}
+        {% if no_errors is not defined or not no_errors %}
+            {{- form_errors(form) -}}
+        {% endif %}
         {% if form.vars.help %}
             {{- form_help(form) -}}
         {% endif %}
@@ -104,24 +106,63 @@
     {%- endif -%}
 {%- endblock form_help %}
 
-{%- block checkbox_row -%}
-    {%- set widget_attr = {} -%}
-    {%- if help is not empty -%}
-        {%- set widget_attr = {attr: {'aria-describedby': "hint-" ~ id}} -%}
-    {%- endif -%}
-    {%- if form.vars.errors|length > 0 -%}
-        {% set widget_attr = {
-            attr: {
-                'aria-describedby': (widget_attr.attr['aria-describedby']|default('') ~ ' error-' ~ form.vars.id)|trim
-            }
-        } %}
-        {% set row_attr = row_attr|merge({class: (row_attr.class|default('') ~ ' field--error')|trim}) %}
-    {%- endif -%}
+{% block checkbox_radio_label -%}
+    {#- Do not display the label if widget is not defined in order to prevent double label rendering -#}
+    {%- if widget is defined -%}
+        {%- if not compound -%}
+            {% set label_attr = label_attr|merge({'for': id}) %}
+        {%- endif -%}
+        {%- if label is not same as(false) and label is empty -%}
+            {%- if label_format is not empty -%}
+                {%- set label = label_format|replace({
+                    '%name%': name,
+                    '%id%': id,
+                }) -%}
+            {%- else -%}
+                {%- set label = name|humanize -%}
+            {%- endif -%}
+        {%- endif -%}
 
-    <div{% with {attr: row_attr|merge({class: (row_attr.class|default('') ~ ' field')|trim})} %}{{ block('attributes') }}{% endwith %}>
+        {{ widget|raw }}
+        {{ block('form_label') }}
+    {%- endif -%}
+{%- endblock checkbox_radio_label %}
+
+{% block checkbox_label -%}
+    {{- block('checkbox_radio_label') -}}
+{%- endblock checkbox_label %}
+
+{% block radio_label -%}
+    {{- block('checkbox_radio_label') -}}
+{%- endblock radio_label %}
+
+{% block checkbox_widget -%}
+    <fieldset {{ block('attributes') }}>
+        <legend>{{ form_errors(form) }}</legend>
         <div class="checkbox-item">
-            {{- form_widget(form, widget_attr) -}}
-            {{- form_label(form) -}}
+            {{- form_label(form, null, { no_errors: true, widget: parent() }) -}}
         </div>
+    </fieldset>
+{%- endblock checkbox_widget %}
+
+{% block radio_widget -%}
+    <fieldset {{ block('attributes') }}>
+        <legend>{{ form_errors(form) }}</legend>
+        <div class="radio-item">
+            {{- form_label(form, null, { no_errors: true, widget: parent() }) -}}
+        </div>
+    </fieldset>
+{%- endblock radio_widget %}
+
+{% block choice_widget_expanded -%}
+    <div {{ block('widget_container_attributes') }}>
+        {%- for child in form %}
+            {{- form_widget(child, {
+                label_class: 'faux-label',
+                parent_label_class: label_attr.class|default(''),
+                translation_domain: choice_translation_domain,
+                valid: valid,
+            }) -}}
+        {% endfor -%}
     </div>
-{%- endblock checkbox_row -%}
+{%- endblock choice_widget_expanded %}
