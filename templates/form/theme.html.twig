@@ -26,27 +26,28 @@
 {%- endblock form_row -%}
 
 {%- block form_label -%}
-    {% if label is not same as(false) -%}
-        {% if label_class is not defined %}
-            {% set label_class = 'field-label' %}
-        {% endif %}
-        {%- if compound is defined and compound -%}
-            {%- set element = 'legend' -%}
-        {%- endif -%}
-        {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' ' ~ label_class)|trim}) %}
+    {% set show_label = label is not same as(false) %}
+    {% if label_class is not defined %}
+        {% set label_class = 'field-label' %}
+    {% endif %}
+    {%- if compound is defined and compound -%}
+        {%- set element = 'legend' -%}
+    {%- endif -%}
+    {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' ' ~ label_class)|trim}) %}
 
-        {% if label is empty -%}
-            {%- if label_format is not empty -%}
-                {% set label = label_format|replace({
-                    '%name%': name,
-                    '%id%': id,
-                }) %}
-            {%- else -%}
-                {% set label = name|humanize %}
-            {%- endif -%}
+    {% if label is empty -%}
+        {%- if label_format is not empty -%}
+            {% set label = label_format|replace({
+                '%name%': name,
+                '%id%': id,
+            }) %}
+        {%- else -%}
+            {% set label = name|humanize %}
         {%- endif -%}
-        <{{ element|default('label') }} for="{{ id }}">
-            <span {% if label_attr %}{% with { attr: label_attr } %}{{ block('attributes') }}{% endwith %}{% endif %}>
+    {%- endif -%}
+    <{{ element|default('label') }} for="{{ id }}">
+    {% if show_label -%}
+        <span {% if label_attr %}{% with { attr: label_attr } %}{{ block('attributes') }}{% endwith %}{% endif %}>
                 {%- if translation_domain is same as(false) -%}
                     {%- if html_label is not defined or html_label is same as(false) -%}
                         {{- label -}}
@@ -61,18 +62,18 @@
                     {%- endif -%}
                 {%- endif -%}
 
-                {% if required %}
-                    <span class="required">(Required)</span>
-                {%- endif -%}
+            {% if required %}
+                <span class="required">(Required)</span>
+            {%- endif -%}
             </span>
-        {% if no_errors is not defined or not no_errors %}
-            {{- form_errors(form) -}}
-        {% endif %}
-        {% if form.vars.help %}
-            {{- form_help(form) -}}
-        {% endif %}
-        </{{ element|default('label') }}>
-    {%- endif -%}
+    {% endif %}
+    {% if no_errors is not defined or not no_errors %}
+        {{- form_errors(form) -}}
+    {% endif %}
+    {% if form.vars.help %}
+        {{- form_help(form) -}}
+    {% endif %}
+    </{{ element|default('label') }}>
 {%- endblock form_label -%}
 
 {%- block form_errors -%}
