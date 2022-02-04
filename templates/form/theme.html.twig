@@ -139,7 +139,9 @@
 
 {% block checkbox_widget -%}
     <fieldset {{ block('attributes') }}>
-        <legend>{{ form_errors(form) }}</legend>
+        {% if form.vars.errors|length > 0 %}
+            <legend>{{ form_errors(form) }}</legend>
+        {% endif %}
         <div class="checkbox-item">
             {{- form_label(form, null, { no_errors: true, widget: parent() }) -}}
         </div>
