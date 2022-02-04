@@ -143,7 +143,7 @@
             <legend>{{ form_errors(form) }}</legend>
         {% endif %}
         <div class="checkbox-item">
-            {{- form_label(form, null, { no_errors: true, widget: parent() }) -}}
+            {{- form_label(form, null, { no_errors: true, widget: parent(), label_class: 'faux-label' }) -}}
         </div>
     </fieldset>
 {%- endblock checkbox_widget %}
@@ -152,7 +152,7 @@
     <fieldset {{ block('attributes') }}>
         <legend>{{ form_errors(form) }}</legend>
         <div class="radio-item">
-            {{- form_label(form, null, { no_errors: true, widget: parent() }) -}}
+            {{- form_label(form, null, { no_errors: true, widget: parent(), label_class: 'faux-label' }) -}}
         </div>
     </fieldset>
 {%- endblock radio_widget %}
