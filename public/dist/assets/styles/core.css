@@ -1930,6 +1930,10 @@ by using 'align-items` and `justify-content`.
       flex-wrap: wrap;
   margin: -0.625rem; }
 
+.l-cluster--vertical-align > * {
+  -ms-flex-align: center;
+      align-items: center; }
+
 /**
 We apply an even, symmetrical margin to the elements that we wish to space
 out, but halve it to to account for 'doubling up' at the edges.
