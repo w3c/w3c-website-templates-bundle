@@ -2,21 +2,6 @@
     #Font sizes
 \*------------------------------------*/
 
-@mixin txt-mercury {
-
-	font-size: rem(34);
-	line-height: calc(43 / 34);
-
-	@include mq($bp-tab-small) {
-
-		font-size: rem(60);
-		line-height: calc(72 / 60);
-
-	}
-
-}
-
-
 @mixin txt-venus {
 
 	font-size: rem(33);

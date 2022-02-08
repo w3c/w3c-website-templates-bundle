@@ -1780,14 +1780,6 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   margin-bottom: 1em; }
 
-.txt-mercury {
-  font-size: 2.125rem;
-  line-height: calc(43 / 34); }
-  @media screen and (min-width: 48em) {
-    .txt-mercury {
-      font-size: 3.75rem;
-      line-height: calc(72 / 60); } }
-
 h1,
 .txt-venus {
   font-size: 2.0625rem;
@@ -4167,16 +4159,6 @@ input[type=search] {
 /*------------------------------------*\
     #Landing page
 \*------------------------------------*/
-.landing h1,
-.ecosystem h1 {
-  font-size: 2.125rem;
-  line-height: calc(43 / 34); }
-  @media screen and (min-width: 48em) {
-    .landing h1,
-    .ecosystem h1 {
-      font-size: 3.75rem;
-      line-height: calc(72 / 60); } }
-
 .landing #breadcrumb,
 .ecosystem #breadcrumb {
   background-color: #f8f8fb; }
@@ -4211,15 +4193,6 @@ input[type=search] {
 
 .listing #breadcrumb {
   background-color: #fff; }
-
-.listing h1 {
-  font-size: 2.125rem;
-  line-height: calc(43 / 34);
-  margin-bottom: 2rem; }
-  @media screen and (min-width: 48em) {
-    .listing h1 {
-      font-size: 3.75rem;
-      line-height: calc(72 / 60); } }
 
 .listing main,
 .listing #main {
