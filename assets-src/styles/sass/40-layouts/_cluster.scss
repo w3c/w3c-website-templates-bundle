@@ -30,6 +30,10 @@ by using 'align-items` and `justify-content`.
 	margin: rem(-10);
 }
 
+.l-cluster--vertical-align > * {
+	align-items: center;
+}
+
 
 /**
 We apply an even, symmetrical margin to the elements that we wish to space

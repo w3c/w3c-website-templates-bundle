@@ -27,12 +27,6 @@ h1 {
 
 }
 
-.txt-mercury {
-
-	@include txt-mercury;
-
-}
-
 h1,
 .txt-venus {
 
@@ -48,7 +42,6 @@ h2,
 }
 
 h3,
-.lead,
 .txt-mars {
 
 	@include txt-mars;
@@ -72,6 +65,13 @@ h5,
 h6 {
 
 	font-size: 1rem;
+
+}
+
+.lead {
+
+	font-size: rem(23);
+	line-height: calc(33.6 / 24);
 
 }
 

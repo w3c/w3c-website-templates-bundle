@@ -5,12 +5,13 @@
 img {
 
 	height: auto;
-	width: 100%;
+	max-width: 100%;
 
 }
 
 .avatar {
 
+	background-color: $white;
 	border: solid 1px $w3c-blue;
 	border-radius: 50%;
 	height: rem(100);

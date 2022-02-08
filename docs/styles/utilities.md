@@ -14,14 +14,21 @@ For floating items and overriding default text alignment:
 
 - `.u-float-left`
 - `.u-float-right`
+- `.u-block-left`
+- `.u-block-right`
 - `.u-text-center`
 - `.u-text-left`
 - `.u-text-right`
+- `.u-text-vertical-rl`
+- `.u-text-vertical-lr`
 - `.u-text-left-from-lap`
 - `.u-text-center-from-lap`
 - `.u-text-right-from-lap`
 
 The final three classes in the preceding list are linked to a specific breakpoint width, as defined in **00-settings**
+
+`.u-block-left` and `.u-block-right` are used to float block elements such as images or divs with vertically aligned text that require some spacing between
+them and the elements around them. 
 
 ## Clearfix
 

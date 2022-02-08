@@ -6,7 +6,7 @@
                 app.request.attributes.get('_route_params')) %}
             {% for link in related_links %}
                 {% if link.url == currentPath %}
-                    <li>{{ link.title }}</li>
+                    <li><a href="{{ link.url }}" aria-current="page">{{ link.title }}</a></li>
                 {% else %}
                     <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                 {% endif %}

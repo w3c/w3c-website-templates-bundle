@@ -1468,9 +1468,10 @@ Pay attention to whether the icon is before the text or after.
 \*------------------------------------*/
 img {
   height: auto;
-  width: 100%; }
+  max-width: 100%; }
 
 .avatar {
+  background-color: #fff;
   border: solid 1px #005a9c;
   border-radius: 50%;
   height: 6.25rem;
@@ -1779,14 +1780,6 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   margin-bottom: 1em; }
 
-.txt-mercury {
-  font-size: 2.125rem;
-  line-height: calc(43 / 34); }
-  @media screen and (min-width: 48em) {
-    .txt-mercury {
-      font-size: 3.75rem;
-      line-height: calc(72 / 60); } }
-
 h1,
 .txt-venus {
   font-size: 2.0625rem;
@@ -1808,7 +1801,6 @@ h2,
       line-height: calc(43 / 34); } }
 
 h3,
-.lead,
 .txt-mars {
   font-size: 1.5rem;
   line-height: calc(33.6 / 24); }
@@ -1826,6 +1818,10 @@ h5,
 
 h6 {
   font-size: 1rem; }
+
+.lead {
+  font-size: 1.4375rem;
+  line-height: calc(33.6 / 24); }
 
 .txt-pluto {
   font-size: 0.9375rem;
@@ -1925,6 +1921,10 @@ by using 'align-items` and `justify-content`.
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin: -0.625rem; }
+
+.l-cluster--vertical-align > * {
+  -ms-flex-align: center;
+      align-items: center; }
 
 /**
 We apply an even, symmetrical margin to the elements that we wish to space
@@ -2588,7 +2588,7 @@ main,
   background-color: #f8f8fb; }
   @media screen and (min-width: 70em) {
     .hero {
-      padding-top: 1.125rem; } }
+      padding-top: 2.875rem; } }
   .hero .l-sidebar > *,
   .hero .l-sidebar > * > * {
     margin: 0; }
@@ -2596,17 +2596,21 @@ main,
     -ms-flex-preferred-size: 31.25rem;
         flex-basis: 31.25rem; }
   .hero .l-sidebar .not-sidebar {
-    min-width: 50%; }
-  .hero .l-sidebar .not-sidebar > * {
-    max-width: 81.5%; }
+    min-width: 50%;
+    padding-bottom: 1.875rem; }
+  @media screen and (min-width: 70em) {
+    .hero .l-sidebar .not-sidebar > * {
+      max-width: 31.5rem; } }
   .hero .lead {
     margin-bottom: 1.125rem;
-    margin-top: 0;
-    max-width: 41.25rem; }
+    margin-top: 0; }
   .hero img {
     margin-left: auto;
     margin-right: auto;
     max-width: 31.25rem; }
+
+.hero h1 {
+  margin-bottom: 1rem; }
 
 .hero + * {
   margin-top: 3.125rem; }
@@ -2757,15 +2761,8 @@ main,
     1. The `stack` mixin applies flexbox in the column direction,
     so we need to prevent buttons from stretching horizontally
 \*------------------------------------*/
-.component--text {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  -ms-flex-pack: start;
-      justify-content: flex-start; }
-  .component--text > * + * {
-    margin-top: 1em; }
+.component--text > * + * {
+  margin-top: 1em; }
 
 .component--text > * {
   max-width: 41.25rem; }
@@ -3942,6 +3939,10 @@ input[type=search] {
   margin-top: 2.5rem;
   padding-top: 1.25rem; }
 
+.related [aria-current] {
+  color: #111;
+  text-decoration: none; }
+
 @supports (grid-column-gap: 8%) {
   @media screen and (min-width: 64em) {
     .default .related {
@@ -4100,7 +4101,8 @@ input[type=search] {
   padding-bottom: 0.5rem;
   padding-top: 0.3125rem; }
 
-.post .meta dl dt:first-of-type {
+.post .meta dl dt:first-of-type,
+.post .meta dl dd:first-of-type {
   padding-top: 0.5rem; }
 
 .post .meta dl dt {
@@ -4161,16 +4163,6 @@ input[type=search] {
 /*------------------------------------*\
     #Landing page
 \*------------------------------------*/
-.landing h1,
-.ecosystem h1 {
-  font-size: 2.125rem;
-  line-height: calc(43 / 34); }
-  @media screen and (min-width: 48em) {
-    .landing h1,
-    .ecosystem h1 {
-      font-size: 3.75rem;
-      line-height: calc(72 / 60); } }
-
 .landing #breadcrumb,
 .ecosystem #breadcrumb {
   background-color: #f8f8fb; }
@@ -4205,15 +4197,6 @@ input[type=search] {
 
 .listing #breadcrumb {
   background-color: #fff; }
-
-.listing h1 {
-  font-size: 2.125rem;
-  line-height: calc(43 / 34);
-  margin-bottom: 2rem; }
-  @media screen and (min-width: 48em) {
-    .listing h1 {
-      font-size: 3.75rem;
-      line-height: calc(72 / 60); } }
 
 .listing main,
 .listing #main {
@@ -4364,6 +4347,10 @@ input[type=search] {
   -webkit-margin-end: 0.75rem;
           margin-inline-end: 0.75rem;
   width: 1.125rem; }
+
+.event-list .date-location .date-orig {
+  display: inline-block;
+  padding-bottom: 0.625rem; }
 
 .event-list .date-location > div:last-child {
   -webkit-border-start: solid 1px #bdbdbd;
@@ -4537,6 +4524,24 @@ input[type=search] {
   text-align: right;
   text-align: end;
   /* 1 */ }
+
+.u-text-vertical-lr {
+  -ms-writing-mode: tb-lr;
+      writing-mode: vertical-lr; }
+
+.u-text-vertical-rl {
+  -ms-writing-mode: tb-rl;
+      writing-mode: vertical-rl; }
+
+.u-block-left {
+  float: left;
+  margin-bottom: 1em;
+  margin-right: 1em; }
+
+.u-block-right {
+  float: right;
+  margin-bottom: 1em;
+  margin-left: 1em; }
 
 /**
 Change text-alignment at the "laptop" breakpoint,

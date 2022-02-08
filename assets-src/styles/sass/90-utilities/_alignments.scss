@@ -28,7 +28,29 @@
 	text-align: end; /* 1 */
 }
 
+.u-text-vertical-lr {
+	writing-mode: vertical-lr;
+}
 
+.u-text-vertical-rl {
+	writing-mode: vertical-rl;
+}
+
+.u-block-left {
+
+	float: left;
+	margin-bottom: 1em;
+	margin-right: 1em;
+
+}
+
+.u-block-right {
+
+	float: right;
+	margin-bottom: 1em;
+	margin-left: 1em;
+
+}
 
 /**
 Change text-alignment at the "laptop" breakpoint,

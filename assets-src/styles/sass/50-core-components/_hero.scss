@@ -8,7 +8,7 @@
 
 	@include mq($max-width) {
 
-		padding-top: rem(18);
+		padding-top: rem(46);
 
 	}
 
@@ -28,12 +28,17 @@
 	.l-sidebar .not-sidebar {
 
 		min-width: 50%;
+		padding-bottom: rem(30);
 
 	}
 
 	.l-sidebar .not-sidebar > * {
 
-		max-width: 81.5%;
+		@include mq($max-width) {
+
+			max-width: rem(504);
+
+		}
 
 	}
 
@@ -41,7 +46,6 @@
 
 		margin-bottom: rem(18);
 		margin-top: 0;
-		max-width: rem($text-measure);
 
 	}
 
@@ -52,6 +56,12 @@
 		max-width: rem(500);
 
 	}
+
+}
+
+.hero h1 {
+
+	margin-bottom: 1rem;
 
 }
 

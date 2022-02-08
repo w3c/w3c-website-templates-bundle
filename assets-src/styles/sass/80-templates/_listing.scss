@@ -16,14 +16,6 @@
 
 	}
 
-	h1 {
-
-		@include txt-mercury;
-
-		margin-bottom: rem(32);
-
-	}
-
 	main,
 	#main {
 
@@ -268,6 +260,13 @@
 
 		margin-inline-end: rem(12);
 		width: rem(18);
+
+	}
+
+	.date-location .date-orig {
+
+		display: inline-block;
+		padding-bottom: rem(10);
 
 	}
 

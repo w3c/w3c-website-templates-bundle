@@ -9,3 +9,7 @@ The cluster items - `<li>` in this example - sit within this container. Each ite
 The flexbox container has a negative margin of the same size as the cluster items, creating even spacing between them. `overflow: hidden;` is used to tidy up the edges.
 
 <example title="Cluster layout" src="components/cluster.html.twig" />
+
+If elements in the cluster do not have the same height, you can align them vertically by using the class `.l-cluster--vertical-align`.
+
+<example title="Cluster layout vertical align" src="components/cluster-vertical.html.twig" />
