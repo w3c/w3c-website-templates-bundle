@@ -4105,7 +4105,8 @@ input[type=search] {
   padding-bottom: 0.5rem;
   padding-top: 0.3125rem; }
 
-.post .meta dl dt:first-of-type {
+.post .meta dl dt:first-of-type,
+.post .meta dl dd:first-of-type {
   padding-top: 0.5rem; }
 
 .post .meta dl dt {
