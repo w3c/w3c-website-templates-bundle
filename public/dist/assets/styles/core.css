@@ -1468,7 +1468,7 @@ Pay attention to whether the icon is before the text or after.
 \*------------------------------------*/
 img {
   height: auto;
-  width: 100%; }
+  max-width: 100%; }
 
 .avatar {
   background-color: #fff;
