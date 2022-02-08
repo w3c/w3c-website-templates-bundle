@@ -1471,6 +1471,7 @@ img {
   width: 100%; }
 
 .avatar {
+  background-color: #fff;
   border: solid 1px #005a9c;
   border-radius: 50%;
   height: 6.25rem;
@@ -1808,7 +1809,6 @@ h2,
       line-height: calc(43 / 34); } }
 
 h3,
-.lead,
 .txt-mars {
   font-size: 1.5rem;
   line-height: calc(33.6 / 24); }
@@ -1826,6 +1826,10 @@ h5,
 
 h6 {
   font-size: 1rem; }
+
+.lead {
+  font-size: 1.4375rem;
+  line-height: calc(33.6 / 24); }
 
 .txt-pluto {
   font-size: 0.9375rem;
@@ -2588,7 +2592,7 @@ main,
   background-color: #f8f8fb; }
   @media screen and (min-width: 70em) {
     .hero {
-      padding-top: 1.125rem; } }
+      padding-top: 2.875rem; } }
   .hero .l-sidebar > *,
   .hero .l-sidebar > * > * {
     margin: 0; }
@@ -2596,17 +2600,21 @@ main,
     -ms-flex-preferred-size: 31.25rem;
         flex-basis: 31.25rem; }
   .hero .l-sidebar .not-sidebar {
-    min-width: 50%; }
-  .hero .l-sidebar .not-sidebar > * {
-    max-width: 81.5%; }
+    min-width: 50%;
+    padding-bottom: 1.875rem; }
+  @media screen and (min-width: 70em) {
+    .hero .l-sidebar .not-sidebar > * {
+      max-width: 31.5rem; } }
   .hero .lead {
     margin-bottom: 1.125rem;
-    margin-top: 0;
-    max-width: 41.25rem; }
+    margin-top: 0; }
   .hero img {
     margin-left: auto;
     margin-right: auto;
     max-width: 31.25rem; }
+
+.hero h1 {
+  margin-bottom: 1rem; }
 
 .hero + * {
   margin-top: 3.125rem; }
