@@ -7,7 +7,11 @@
 
 .component--text {
 
-	@include stack(1em);
+	> * + * {
+
+		margin-top: 1em;
+
+	}
 
 }
 

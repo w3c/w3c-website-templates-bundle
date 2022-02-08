@@ -2769,15 +2769,8 @@ main,
     1. The `stack` mixin applies flexbox in the column direction,
     so we need to prevent buttons from stretching horizontally
 \*------------------------------------*/
-.component--text {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  -ms-flex-pack: start;
-      justify-content: flex-start; }
-  .component--text > * + * {
-    margin-top: 1em; }
+.component--text > * + * {
+  margin-top: 1em; }
 
 .component--text > * {
   max-width: 41.25rem; }
@@ -4553,6 +4546,24 @@ input[type=search] {
   text-align: right;
   text-align: end;
   /* 1 */ }
+
+.u-text-vertical-lr {
+  -ms-writing-mode: tb-lr;
+      writing-mode: vertical-lr; }
+
+.u-text-vertical-rl {
+  -ms-writing-mode: tb-rl;
+      writing-mode: vertical-rl; }
+
+.u-block-left {
+  float: left;
+  margin-bottom: 1em;
+  margin-right: 1em; }
+
+.u-block-right {
+  float: right;
+  margin-bottom: 1em;
+  margin-left: 1em; }
 
 /**
 Change text-alignment at the "laptop" breakpoint,
