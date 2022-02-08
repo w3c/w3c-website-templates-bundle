@@ -55,6 +55,13 @@
 
 }
 
+.related [aria-current] {
+
+	color: $off-black;
+	text-decoration: none;
+
+}
+
 @supports(grid-column-gap: 8%) {
 
 	.default .related {

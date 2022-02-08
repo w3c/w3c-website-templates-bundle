@@ -3939,6 +3939,10 @@ input[type=search] {
   margin-top: 2.5rem;
   padding-top: 1.25rem; }
 
+.related [aria-current] {
+  color: #111;
+  text-decoration: none; }
+
 @supports (grid-column-gap: 8%) {
   @media screen and (min-width: 64em) {
     .default .related {
