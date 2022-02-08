@@ -4373,6 +4373,10 @@ input[type=search] {
           margin-inline-end: 0.75rem;
   width: 1.125rem; }
 
+.event-list .date-location .date-orig {
+  display: inline-block;
+  padding-bottom: 0.625rem; }
+
 .event-list .date-location > div:last-child {
   -webkit-border-start: solid 1px #bdbdbd;
           border-inline-start: solid 1px #bdbdbd;

@@ -271,6 +271,13 @@
 
 	}
 
+	.date-location .date-orig {
+
+		display: inline-block;
+		padding-bottom: rem(10);
+
+	}
+
 	.date-location > div:last-child {
 
 		border-inline-start: solid 1px $border-color;
