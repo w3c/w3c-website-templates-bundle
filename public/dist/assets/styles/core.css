@@ -2606,8 +2606,10 @@ main,
     margin-top: 0; }
   .hero img {
     margin-left: auto;
-    margin-right: auto;
-    max-width: 31.25rem; }
+    margin-right: auto; }
+    @media screen and (min-width: 48em) {
+      .hero img {
+        max-width: 31.25rem; } }
 
 .hero h1 {
   margin-bottom: 1rem; }
