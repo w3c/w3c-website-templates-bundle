@@ -2804,6 +2804,8 @@ main,
     position: absolute;
     top: 0;
     width: 0.625rem; }
+  .component--quote > * {
+    max-width: 39.375rem; }
   .component--quote blockquote {
     color: #005a9c; }
 
