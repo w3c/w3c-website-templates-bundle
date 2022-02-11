@@ -29,21 +29,24 @@
 	> img {
 
 		bottom: 0;
+		height: auto;
 		left: 0;
-		margin: auto;
-		max-width: 100%;
+		margin: auto 0;
+		max-height: 100%;
+		max-width: calc(100% - 40px);
 		position: absolute;
 		right: 0;
 		top: 0;
+		width: auto;
 
-		@supports (object-fit: contain) {
-
-			height: 100%;
-			max-width: none;
-			object-fit: contain;
-			position: static;
-
-		}
+		//@supports (object-fit: contain) {
+		//
+		//	max-height: 100%;
+		//	max-width: 100%;
+		//	object-fit: contain;
+		//	position: static;
+		//
+		//}
 
 	}
 
