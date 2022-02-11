@@ -2602,8 +2602,10 @@ main,
     margin-top: 0; }
   .hero img {
     margin-left: auto;
-    margin-right: auto;
-    max-width: 31.25rem; }
+    margin-right: auto; }
+    @media screen and (min-width: 48em) {
+      .hero img {
+        max-width: 31.25rem; } }
 
 .hero h1 {
   margin-bottom: 1rem; }
@@ -2800,6 +2802,8 @@ main,
     position: absolute;
     top: 0;
     width: 0.625rem; }
+  .component--quote > * {
+    max-width: 39.375rem; }
   .component--quote blockquote {
     color: #005a9c; }
 
@@ -2903,7 +2907,6 @@ main,
       flex-direction: column;
   -ms-flex-pack: start;
       justify-content: flex-start;
-  max-width: 41.25rem;
   margin-bottom: 1.875rem; }
   .component--columns__intro > * + * {
     margin-top: 1em; }

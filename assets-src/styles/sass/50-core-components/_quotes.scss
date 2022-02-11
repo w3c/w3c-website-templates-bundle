@@ -23,6 +23,10 @@
 
 	}
 
+	> * {
+		max-width: rem(630);
+	}
+
 	blockquote {
 
 		color: $w3c-blue;
