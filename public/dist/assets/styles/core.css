@@ -2911,7 +2911,6 @@ main,
       flex-direction: column;
   -ms-flex-pack: start;
       justify-content: flex-start;
-  max-width: 41.25rem;
   margin-bottom: 1.875rem; }
   .component--columns__intro > * + * {
     margin-top: 1em; }
