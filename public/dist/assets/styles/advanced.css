@@ -160,7 +160,8 @@ article {
 .visuallyhidden:not(:focus):not(:active), [data-trigger="account-menu"] .sr-only {
   border: 0;
   clip: rect(0 0 0 0);
-  clip-path: inset(100%);
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
   height: 1px;
   overflow: hidden;
   padding: 0;
@@ -223,7 +224,8 @@ br {
     width: 15px; }
   @media screen and (min-width: 70em) {
     [data-trigger="account-menu"] {
-      margin-inline-start: auto;
+      -webkit-margin-start: auto;
+              margin-inline-start: auto;
       padding-bottom: 0.25rem; }
       [data-trigger="account-menu"]:hover::before {
         display: block; }
@@ -242,7 +244,8 @@ br {
       [data-trigger="account-menu"] .sr-only {
         border: initial;
         clip: auto;
-        clip-path: none;
+        -webkit-clip-path: none;
+                clip-path: none;
         height: auto;
         margin: initial;
         overflow: initial;
@@ -252,7 +255,8 @@ br {
         width: auto; } }
   @media screen and (min-width: 70em) {
     [data-trigger="account-menu"] .avatar {
-      margin-inline-start: 0.5rem; } }
+      -webkit-margin-start: 0.5rem;
+              margin-inline-start: 0.5rem; } }
 
 [dir="rtl"] [data-trigger="account-menu"] {
   margin-left: 0;
@@ -312,6 +316,7 @@ br {
   position: static; }
 
 [data-trigger="mobile-nav"] {
+  display: -ms-inline-flexbox;
   display: inline-flex;
   font-size: 0.875rem;
   padding: 0.4375rem 0; }
@@ -327,6 +332,7 @@ br {
   [data-trigger="mobile-nav"][aria-expanded="false"] + * {
     display: none; }
   [data-trigger="mobile-nav"][aria-expanded="true"] ~ .account-login {
+    display: -ms-flexbox;
     display: flex; }
   @media screen and (min-width: 70em) {
     [data-trigger="mobile-nav"] {
@@ -353,9 +359,12 @@ br {
 .global-nav__inner > ul {
   border-bottom: solid 1px #bdbdbd;
   box-shadow: 0 8px 16px -5px rgba(55, 70, 95, 0.07);
+  display: -ms-flexbox;
   display: flex;
-  flex-basis: 100%;
-  flex-wrap: wrap;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   left: 0;
   padding-bottom: 2.8125rem;
   padding-left: 5vw;
@@ -367,8 +376,10 @@ br {
     .global-nav__inner > ul {
       border: none;
       box-shadow: none;
-      flex-basis: auto;
-      flex-wrap: nowrap;
+      -ms-flex-preferred-size: auto;
+          flex-basis: auto;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
       padding-bottom: 0;
       padding-left: 0;
       padding-right: 0;
@@ -378,7 +389,8 @@ br {
   display: none; }
 
 .nav-small {
-  margin-inline-start: auto; }
+  -webkit-margin-start: auto;
+          margin-inline-start: auto; }
   @media screen and (min-width: 70em) {
     .nav-small {
       display: none; } }
@@ -398,11 +410,13 @@ br {
       display: inline; } }
 
 .global-nav__inner [data-trigger="subnav"] {
-  align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
   background-color: transparent;
   border-color: transparent;
   border-radius: 0;
   color: #111;
+  display: -ms-flexbox;
   display: flex;
   font-size: 1rem;
   line-height: inherit;
@@ -412,6 +426,7 @@ br {
   width: 100%; }
   @media screen and (min-width: 70em) {
     .global-nav__inner [data-trigger="subnav"] {
+      display: -ms-inline-flexbox;
       display: inline-flex; } }
   .global-nav__inner [data-trigger="subnav"]:focus {
     background-color: #f9dc4a;
@@ -450,8 +465,10 @@ br {
 
 @media screen and (min-width: 70em) {
   .global-nav__inner .nav__submenu .l-center {
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between; } }
+    -ms-flex-pack: justify;
+        justify-content: space-between; } }
 
 @media screen and (min-width: 70em) {
   .global-nav__inner .nav__submenu__intro {
@@ -575,14 +592,18 @@ br {
     #Collapsible sections advanced
 \*------------------------------------*/
 .js .component--collapsibles [data-heading="collapsibles"] button {
-  align-items: flex-start;
+  -ms-flex-align: start;
+      align-items: flex-start;
   border-radius: 0;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   font-size: 1.125rem;
   font-weight: bold;
   line-height: calc(27 / 18);
-  justify-content: space-between;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
   margin-top: 0;
   padding: 0;
   width: 100%; }
@@ -591,7 +612,8 @@ br {
     font-weight: normal;
     line-height: calc(22.5 / 15);
     margin-top: 1rem;
-    order: 2;
+    -ms-flex-order: 2;
+        order: 2;
     width: 100%; }
   .js .component--collapsibles [data-heading="collapsibles"] button:hover {
     text-decoration: underline;
@@ -607,12 +629,16 @@ br {
   .js .component--collapsibles [data-heading="collapsibles"] button[aria-expanded="true"] .angle-down {
     display: none; }
   .js .component--collapsibles [data-heading="collapsibles"] button svg {
-    flex-shrink: 0; }
+    -ms-flex-negative: 0;
+        flex-shrink: 0; }
 
 .js .component--collapsibles [data-heading="collapsibles"] + * {
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start; }
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start; }
   .js .component--collapsibles [data-heading="collapsibles"] + * > * + * {
     margin-top: 1em; }
   .js .component--collapsibles [data-heading="collapsibles"] + *[aria-hidden="true"] {
@@ -658,12 +684,14 @@ br {
     outline-offset: -0.125rem; }
 
 .js [data-component="slider"] .js-slider > ul {
+  display: -ms-flexbox;
   display: flex;
   padding-bottom: 0.625rem;
   padding-top: 0.625rem;
   position: relative; }
   .js [data-component="slider"] .js-slider > ul > li {
-    flex: 0 0 100%; }
+    -ms-flex: 0 0 100%;
+        flex: 0 0 100%; }
   .js [data-component="slider"] .js-slider > ul > li.js-current {
     visibility: visible; }
   .js [data-component="slider"] .js-slider > ul > li.js-hidden {
@@ -726,7 +754,8 @@ br {
 [data-toggle="true"] {
   font-size: 0.9375rem;
   line-height: calc(22.5 / 15);
-  align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
   font-weight: bold; }
   [data-toggle="true"] svg {
     pointer-events: none; }
@@ -771,7 +800,8 @@ br {
     text-decoration: none; }
 
 #js-cancel-reply {
-  margin-inline-start: 0.625rem; }
+  -webkit-margin-start: 0.625rem;
+          margin-inline-start: 0.625rem; }
 
 /*------------------------------------*\
 	#Multiselect
@@ -877,7 +907,9 @@ br {
 
 .autocomplete__hint,
 .autocomplete__input {
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   border: 2px solid;
   border-radius: 0;
   /* Safari 10 on iOS adds implicit border rounding. */
