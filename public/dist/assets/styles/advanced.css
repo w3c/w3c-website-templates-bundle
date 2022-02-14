@@ -804,6 +804,95 @@ br {
           margin-inline-start: 0.625rem; }
 
 /*------------------------------------*\
+	#Multiselect
+\*------------------------------------*/
+.multiselect .combo {
+  display: block;
+  position: relative; }
+
+.multiselect .combo-menu {
+  display: none;
+  max-height: 300px;
+  overflow-y: scroll;
+  left: 0;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  z-index: 100; }
+
+.multiselect .combo-menu:not(:empty) {
+  border: 1px solid rgba(0, 0, 0, 0.42);
+  border-radius: 0 0 4px 4px; }
+
+.multiselect .open .combo-menu {
+  display: block; }
+
+.multiselect .combo-option {
+  padding: 10px 12px 12px; }
+
+.multiselect .combo-option.option-current,
+.multiselect .combo-option:hover {
+  background-color: rgba(0, 0, 0, 0.1); }
+
+.multiselect .combo-option.option-selected {
+  padding-right: 30px;
+  position: relative; }
+
+.multiselect .combo-option.option-selected::after {
+  border-bottom: 2px solid #000;
+  border-right: 2px solid #000;
+  content: '';
+  height: 16px;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translate(0, -50%) rotate(45deg);
+  width: 8px; }
+
+.multiselect .selected-options {
+  list-style-type: none;
+  margin: 0;
+  max-width: 400px;
+  padding: 0; }
+
+.multiselect .selected-options li {
+  display: inline-block;
+  margin-bottom: 5px; }
+
+.multiselect .remove-option {
+  background-color: #024488;
+  border: 1px solid #024488;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 0.75em;
+  font-weight: bold;
+  margin-bottom: 6px;
+  margin-right: 6px;
+  padding: 0.25em 1.75em 0.25em 0.25em;
+  position: relative; }
+
+.multiselect .remove-option:focus {
+  border-color: #baa1dd;
+  box-shadow: 0 0 3px 1px #6200ee;
+  outline: 3px solid transparent; }
+
+.multiselect .remove-option::before,
+.multiselect .remove-option::after {
+  border-right: 2px solid #fff;
+  content: "";
+  height: 1em;
+  right: 0.75em;
+  position: absolute;
+  top: 50%;
+  width: 0; }
+
+.multiselect .remove-option::before {
+  transform: translate(0, -50%) rotate(45deg); }
+
+.multiselect .remove-option::after {
+  transform: translate(0, -50%) rotate(-45deg); }
+
+/*------------------------------------*\
     #Plugins
 
     Add third-party plugins here.

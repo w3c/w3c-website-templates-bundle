@@ -1,105 +1,142 @@
+/*------------------------------------*\
+	#Multiselect
+\*------------------------------------*/
+
 .multiselect {
-    .combo {
-        display: block;
-        position: relative;
-    }
 
-    .combo-menu {
-        display: none;
-        max-height: 300px;
-        overflow-y: scroll;
-        left: 0;
-        position: absolute;
-        top: 100%;
-        width: 100%;
-        z-index: 100;
-    }
+	.combo {
 
-    .combo-menu:not(:empty) {
-        border: 1px solid rgba(0, 0, 0, .42);
-        border-radius: 0 0 4px 4px;
-    }
+		display: block;
+		position: relative;
 
-    .open .combo-menu {
-        display: block;
-    }
+	}
 
-    .combo-option {
-        padding: 10px 12px 12px;
-    }
+	.combo-menu {
 
-    .combo-option.option-current,
-    .combo-option:hover {
-        background-color: rgba(0, 0, 0, 0.1);
-    }
+		display: none;
+		max-height: 300px;
+		overflow-y: scroll;
+		left: 0;
+		position: absolute;
+		top: 100%;
+		width: 100%;
+		z-index: 100;
 
-    .combo-option.option-selected {
-        padding-right: 30px;
-        position: relative;
-    }
+	}
 
-    .combo-option.option-selected::after {
-        border-bottom: 2px solid $black;
-        border-right: 2px solid $black;
-        content: '';
-        height: 16px;
-        position: absolute;
-        right: 15px;
-        top: 50%;
-        transform: translate(0, -50%) rotate(45deg);
-        width: 8px;
-    }
+	.combo-menu:not(:empty) {
 
-    /* multiselect list of selected options */
-    .selected-options {
-        list-style-type: none;
-        margin: 0;
-        max-width: 400px;
-        padding: 0;
-    }
+		border: 1px solid rgba(0, 0, 0, .42);
+		border-radius: 0 0 4px 4px;
 
-    .selected-options {
-        li {
-            display: inline-block;
-            margin-bottom: 5px;
-        }
-    }
+	}
 
-    .remove-option {
-        background-color: #024488;
-        border: 1px solid #024488;
-        border-radius: 3px;
-        color: #fff;
-        font-size: 0.75em;
-        font-weight: bold;
-        margin-bottom: 6px;
-        margin-right: 6px;
-        padding: 0.25em 1.75em 0.25em 0.25em;
-        position: relative;
-    }
+	.open .combo-menu {
 
-    .remove-option:focus {
-        border-color: #baa1dd;
-        box-shadow: 0 0 3px 1px #6200ee;
-        outline: 3px solid transparent;
-    }
+		display: block;
 
-    .remove-option::before,
-    .remove-option::after {
-        border-right: 2px solid #fff;
-        content: "";
-        height: 1em;
-        right: 0.75em;
-        position: absolute;
-        top: 50%;
-        width: 0;
-    }
+	}
 
-    .remove-option::before {
-        transform: translate(0, -50%) rotate(45deg);
-    }
+	.combo-option {
 
-    .remove-option::after {
-        transform: translate(0, -50%) rotate(-45deg);
-    }
+		padding: 10px 12px 12px;
+
+	}
+
+	.combo-option.option-current,
+	.combo-option:hover {
+
+		background-color: rgba(0, 0, 0, 0.1);
+
+	}
+
+	.combo-option.option-selected {
+
+		padding-right: 30px;
+		position: relative;
+
+	}
+
+	.combo-option.option-selected::after {
+
+		border-bottom: 2px solid $black;
+		border-right: 2px solid $black;
+		content: '';
+		height: 16px;
+		position: absolute;
+		right: 15px;
+		top: 50%;
+		transform: translate(0, -50%) rotate(45deg);
+		width: 8px;
+
+	}
+
+	.selected-options {
+
+		list-style-type: none;
+		margin: 0;
+		max-width: 400px;
+		padding: 0;
+
+	}
+
+	.selected-options {
+
+		li {
+
+			display: inline-block;
+			margin-bottom: 5px;
+
+		}
+
+	}
+
+	.remove-option {
+
+		background-color: #024488;
+		border: 1px solid #024488;
+		border-radius: 3px;
+		color: #fff;
+		font-size: 0.75em;
+		font-weight: bold;
+		margin-bottom: 6px;
+		margin-right: 6px;
+		padding: 0.25em 1.75em 0.25em 0.25em;
+		position: relative;
+
+	}
+
+	.remove-option:focus {
+
+		border-color: #baa1dd;
+		box-shadow: 0 0 3px 1px #6200ee;
+		outline: 3px solid transparent;
+
+	}
+
+	.remove-option::before,
+	.remove-option::after {
+
+		border-right: 2px solid #fff;
+		content: "";
+		height: 1em;
+		right: 0.75em;
+		position: absolute;
+		top: 50%;
+		width: 0;
+
+	}
+
+	.remove-option::before {
+
+		transform: translate(0, -50%) rotate(45deg);
+
+	}
+
+	.remove-option::after {
+
+		transform: translate(0, -50%) rotate(-45deg);
+
+	}
+
 }

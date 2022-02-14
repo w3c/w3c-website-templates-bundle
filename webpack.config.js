@@ -7,7 +7,8 @@ module.exports = {
 		'/public/dist/assets/js/country-autocomplete': './assets-src/js/country-autocomplete.js',
 		'/public/dist/assets/js/slider': './assets-src/js/slider.js',
 		'/public/dist/assets/js/members': './assets-src/js/members.js',
-		'/public/dist/assets/js/working-group-autocomplete': './assets-src/js/working-group-autocomplete.js'
+		'/public/dist/assets/js/working-group-autocomplete': './assets-src/js/working-group-autocomplete.js',
+		'/public/dist/assets/js/multiselect': './assets-src/js/multiselect.js',
 	},
 	module: {
 		rules: [
