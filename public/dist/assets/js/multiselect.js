@@ -10199,16 +10199,14 @@ var __webpack_exports__ = {};
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _multiselect_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(18);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 document.addEventListener("DOMContentLoaded", function () {
   var selects = document.querySelectorAll('select.multiselect');
   selects.forEach(function (select) {
-    var multiSelectParams = _defineProperty({
-      source: select.dataset.source
-    }, "source", select.dataset.minInput);
-
+    var multiSelectParams = {
+      source: select.dataset.source,
+      minInput: select.dataset.minInput
+    };
     var multiButtonComponent = new _multiselect_module__WEBPACK_IMPORTED_MODULE_0__["default"](select, multiSelectParams);
     multiButtonComponent.init();
   });
