@@ -312,7 +312,10 @@ var accountMenu = function () {
     }
   };
 
-  if (document.querySelector('#account-login-link')) {
+  var loginLink = document.querySelector('#account-login-link');
+
+  if (loginLink) {
+    loginLink.href = 'https://auth.w3.org/?url=' + encodeURI(window.location.href);
     var userInfoRequest = new XMLHttpRequest();
     userInfoRequest.open('GET', 'https://www.w3.org/accounts/user-menu', true);
     userInfoRequest.withCredentials = true;
