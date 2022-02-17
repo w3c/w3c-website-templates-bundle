@@ -8,6 +8,10 @@
     "from": "assets-src",
     "to": "public/dist/assets"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/w3c/w3c-website-templates-bundle"
+  },
   "scripts": {
     "css:core:compressed": "node-sass --output-style=compressed --source-map=true ${npm_package_config_from}/styles/core.scss ${npm_package_config_to}/styles/core.min.css",
     "css:core:uncompressed": "node-sass ${npm_package_config_from}/styles/core.scss ${npm_package_config_to}/styles/core.css",
@@ -62,5 +66,9 @@
     "watch": "^0.13.0",
     "webpack": "^5.43.0",
     "webpack-cli": "^4.8.0"
+  },
+  "engines": {
+    "node": ">=12",
+    "npm": ">=6"
   }
 }
