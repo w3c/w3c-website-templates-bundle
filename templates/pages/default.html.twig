@@ -7,9 +7,11 @@
             {% if page.localized is defined and page.localized|length > 0 %}
                 {{ include('@W3CWebsiteTemplates/components/styles/page_translations.html.twig') }}
             {% endif %}
-            {% if page.displayOnThisPageNavigation is defined and page.displayOnThisPageNavigation and toc is defined %}
-                {{ include('@W3CWebsiteTemplates/components/styles/toc.html.twig') }}
-            {% endif %}
+            {% block toc %}
+                {% if page.displayOnThisPageNavigation is defined and page.displayOnThisPageNavigation and toc is defined %}
+                    {{ include('@W3CWebsiteTemplates/components/styles/toc.html.twig') }}
+                {% endif %}
+            {% endblock %}
             {% block components %}{% endblock components %}
         </article>
         {% block related %}
