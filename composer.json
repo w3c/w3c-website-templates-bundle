@@ -16,7 +16,8 @@
         "symfony/twig-bridge": "^4.4 || ^5.3",
         "twig/twig": "^2.14 || ^3.3",
         "twig/intl-extra": "^3.3",
-        "chrisguitarguy/request-id-bundle": "^4.2"
+        "chrisguitarguy/request-id-bundle": "^4.2",
+        "symfony/form": "^5.4"
     },
     "autoload": {
         "psr-4": {
