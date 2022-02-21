@@ -151,15 +151,13 @@
         {% if form.vars.errors|length > 0 %}
             <legend>{{ form_errors(form) }}</legend>
         {% endif %}
-        <div class="checkbox-item">
-            {{- form_label(form, null, { no_errors: true, widget: parent(), label_class: 'faux-label' }) -}}
-        </div>
+        {{ block('checkbox_widget') }}
     </fieldset>
 {%- endblock checkbox_row %}
 
 {% block checkbox_widget -%}
     <div class="checkbox-item">
-        {{- form_label(form, null, { no_errors: true, widget: parent(), label_class: 'faux-label', required: false }) -}}
+        {{- form_label(form, null, { no_errors: true, widget: parent(), label_class: 'faux-label', required: required }) -}}
     </div>
 {%- endblock checkbox_widget %}
 
@@ -168,15 +166,13 @@
         {% if form.vars.errors|length > 0 %}
             <legend>{{ form_errors(form) }}</legend>
         {% endif %}
-        <div class="radio-item">
-            {{- form_label(form, null, { no_errors: true, widget: parent(), label_class: 'faux-label' }) -}}
-        </div>
+        {{ block('checkbox_widget') }}
     </fieldset>
 {%- endblock radio_row %}
 
 {% block radio_widget -%}
     <div class="radio-item">
-        {{- form_label(form, null, { no_errors: true, widget: parent(), label_class: 'faux-label', required: false }) -}}
+        {{- form_label(form, null, { no_errors: true, widget: parent(), label_class: 'faux-label', required: required }) -}}
     </div>
 {%- endblock radio_widget %}
 
@@ -204,6 +200,7 @@
                 parent_label_class: label_attr.class|default(''),
                 translation_domain: choice_translation_domain,
                 valid: valid,
+                required: false
             }) -}}
         {% endfor -%}
     {% endif %}
