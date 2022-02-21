@@ -23,7 +23,7 @@
             <ul class="clean-list" role="list">
                 {% for note in notes %}
                     <li>
-                        {{ note|trans() }}
+                        {{ note|trans()|raw }}
                     </li>
                 {% endfor %}
             </ul>
