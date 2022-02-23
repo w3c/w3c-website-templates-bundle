@@ -1,5 +1,4 @@
 <figure class="component component--image">
-    <div class="l-frame l-frame--16-9">
         <img {% for key, value in attr %}{{ key }}="{{ value }}" {% endfor %}
             sizes="100vw"
             loading="lazy"
@@ -9,7 +8,6 @@
                 alt="{% if alt %}{{ alt }}{% endif %}"
             {% endif %}
            />
-    </div>
     {% if caption is defined and caption %}
         <figcaption>
             <p>{{ caption|raw }}</p>

@@ -10,3 +10,6 @@ services:
             $utils: '@W3C\WebsiteTemplatesBundle\Service\Utils'
         tags:
             - { name: twig.extension }
+    W3C\WebsiteTemplatesBundle\Form\Extension\ChoiceTypeExtension:
+        tags:
+            - { name: form.type_extension }
