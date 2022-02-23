@@ -143,7 +143,8 @@ li,
 pre,
 table,
 .tr-list__item {
-  break-inside: avoid;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
   page-break-inside: avoid;
   -webkit-column-break-inside: avoid; }
 
@@ -299,7 +300,8 @@ textarea {
 
 a:link, a:visited, a {
   text-decoration: underline;
-  text-decoration-skip-ink: auto; }
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto; }
 
 .logo {
   display: block;

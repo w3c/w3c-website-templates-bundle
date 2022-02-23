@@ -8,6 +8,10 @@
     "from": "assets-src",
     "to": "public/dist/assets"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/w3c/w3c-website-templates-bundle"
+  },
   "scripts": {
     "css:core:compressed": "node-sass --output-style=compressed --source-map=true ${npm_package_config_from}/styles/core.scss ${npm_package_config_to}/styles/core.min.css",
     "css:core:uncompressed": "node-sass ${npm_package_config_from}/styles/core.scss ${npm_package_config_to}/styles/core.css",
@@ -16,10 +20,10 @@
     "css:print:compressed": "node-sass --output-style=compressed --source-map=true ${npm_package_config_from}/styles/print.scss ${npm_package_config_to}/styles/print.min.css",
     "css:print:uncompressed": "node-sass ${npm_package_config_from}/styles/print.scss ${npm_package_config_to}/styles/print.css",
     "css:sass": "npm-run-all --parallel css:core:* css:advanced:* css:print:*",
-    "css:autoprefixer": "autoprefixer-cli -d ${npm_package_config_to}/styles ${npm_package_config_to}/styles/*.css",
+    "css:autoprefixer": "postcss ${npm_package_config_to}/styles/*.css --no-map --use autoprefixer -d ${npm_package_config_to}/styles/",
     "css": "npm-run-all --sequential css:sass css:autoprefixer",
     "images:imagemin": "imagemin ${npm_package_config_from}/images/* --out-dir=${npm_package_config_to}/images",
-    "images:svg": "svgo --folder=${npm_package_config_from}/svg --output=${npm_package_config_to}/svg --disable='removeViewBox' --disable='cleanupIDs' | true",
+    "images:svg": "svgo --folder=${npm_package_config_from}/svg --output=${npm_package_config_to}/svg --config svgo.config.js",
     "images": "npm-run-all --parallel images:imagemin images:svg",
     "fonts": "shx cp -r ${npm_package_config_from}/fonts/* ${npm_package_config_to}/fonts",
     "js:copypackages": "copyfiles -f ./node_modules/fontfaceobserver/fontfaceobserver.js ${npm_package_config_from}/js/libraries",
@@ -42,7 +46,7 @@
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.6",
     "accessible-autocomplete": "^2.0.3",
-    "autoprefixer-cli": "^1.0.0",
+    "autoprefixer": "^10.4.2",
     "babel-loader": "^8.2.2",
     "babel-polyfill": "^6.26.0",
     "copyfiles": "^2.3.0",
@@ -54,11 +58,17 @@
     "node-sass": "^6.0.1",
     "normalize.css": "^8.0.1",
     "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.1",
+    "postcss-cli": "^9.1.0",
     "shx": "^0.2.2",
-    "svgo": "^1.3.2",
+    "svgo": "^2.8.0",
     "tunnel-agent": "^0.6.0",
     "watch": "^0.13.0",
     "webpack": "^5.43.0",
     "webpack-cli": "^4.8.0"
+  },
+  "engines": {
+    "node": ">=12",
+    "npm": ">=6"
   }
 }
