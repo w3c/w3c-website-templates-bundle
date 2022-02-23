@@ -5,6 +5,7 @@
 ## Considerations
 
 Note the use of the [frame layout](../layouts/frame.md), to create the desired aspect ratio, and the `loading="lazy"` attribute on `<img>` for native lazy-loading.
+If you cannot anticipate the aspect ratio of images (e.g. if they are uploaded via a CMS without constraints on the image size), please omit the frame layout div.
 
 ### Alternative text
 
