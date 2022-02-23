@@ -13,17 +13,12 @@ svg {
 
 /**
 SVG icons are sized relative to font size, thanks to the em unit.
-
-1. When the cap unit is supported this will make it easier to match icon
-size to text size.
  */
 .icon {
 
 	height: 1em;
-	height: 1cap; /* 1 */
 	vertical-align: baseline;
 	width: 1em;
-	width: 1cap; /* 1 */
 
 }
 
