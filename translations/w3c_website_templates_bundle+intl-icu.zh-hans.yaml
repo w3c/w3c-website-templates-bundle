@@ -15,21 +15,21 @@ footer:
         __footer.copyright {date, date, ::y}
     links:
         home: __footer.links.home
-        homeurl: /ja/
+        homeurl: /zh-hans/
         contact: __footer.links.contact
-        contacturl: /ja/contact
+        contacturl: /zh-hans/contact/
         help: __footer.links.help
-        helpurl: /ja/help
+        helpurl: /zh-hans/help/
         sponsor: __footer.links.sponsor
-        sponsorurl: /ja/sponsor
+        sponsorurl: /zh-hans/sponsor/
         donate: _footer.links.donate
-        donateurl: /ja/donate
+        donateurl: /zh-hans/donate/
         privacy_policy: __footer.links.privacy_policy
-        privacy_policyurl: /ja/policies/privacy
+        privacy_policyurl: /zh-hans/policies/privacy/
         legal: __footer.links.legal
-        legalurl: /ja/policies
+        legalurl: /zh-hans/policies/
         cookies: __footer.links.cookies
-        cookiesurl: /ja/cookies
+        cookiesurl: /zh-hans/cookies/
         system_status: __footer.links.system_status
         system_statusurl: https://status.w3.org/
         twitter: __footer.links.twitter
@@ -108,9 +108,9 @@ components:
         view_all: __components.members.view_all
         get_involved: __components.members.get_involved
         join: __components.members.join
-        joinurl: /membership/join
+        joinurl: /membership/join/
         donate: __components.members.donate
-        donateurl: /donate
+        donateurl: /donate/
     content_slider:
         title: __components.content_slider.title
     crosslinks:
