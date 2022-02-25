@@ -52,7 +52,8 @@ class FlashMessageSubscriber implements EventSubscriberInterface
         $titleKeys = [
             'success' => 'successes',
             'warning' => 'warnings',
-            'error'   => 'errors'
+            'error'   => 'errors',
+            'notice'  => 'notices'
         ];
 
         $existingTitles = array_keys(
@@ -67,7 +68,11 @@ class FlashMessageSubscriber implements EventSubscriberInterface
 
         foreach(array_keys($flashes) as $type) {
             // $type is not a title and its corresponding title doesn't already exist
-            if (strpos($type, 'title-') === false && !in_array('title-' . $type, $existingTitles)) {
+            if (
+                strpos($type, 'title-') === false &&
+                !in_array('title-' . $type, $existingTitles) &&
+                array_key_exists($type, $titleKeys)
+            ) {
                 $flashBag->add(
                     'title-' . $type,
                     $this->translator->trans('notes.' . $titleKeys[$type] . '.default_title', [], 'w3c_website_templates_bundle')
