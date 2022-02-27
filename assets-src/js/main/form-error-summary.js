@@ -1,4 +1,4 @@
-var formErrorSummary = (function () {
+var formErrorSummary = function () {
 
 	// Helper: Check whether element exists
 	function exists(elem) {
@@ -13,6 +13,6 @@ var formErrorSummary = (function () {
 
 	}
 
-})();
+};
 
 export {formErrorSummary};

@@ -7,8 +7,24 @@ import {navigation} from "./main/navigation";
 import {responsiveTables} from "./main/responsive-tables";
 import {flashes} from "./main/flashes";
 
-responsiveTables();
 flashes();
+
+function domLoadedActions() {
+	accountMenu();
+	navigation();
+	cardEnhancement();
+	collapsibles();
+	disclosureWidget();
+	formErrorSummary();
+	responsiveTables();
+};
+
+if (document.readyState === 'loading') {  // Loading hasn't finished yet
+	document.addEventListener('DOMContentLoaded', domLoadedActions);
+} else {  // `DOMContentLoaded` has already fired
+	domLoadedActions();
+}
+
 
 // Tie the responsiveTables function to a resize event, and debounce for performance
 var timeout;

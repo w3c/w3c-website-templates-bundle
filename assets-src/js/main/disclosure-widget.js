@@ -1,4 +1,4 @@
-var disclosureWidget = (function () {
+var disclosureWidget = function () {
 
 	let toggleButtonArray = Array.prototype.slice.call(document.querySelectorAll('[data-toggle="true"]'));
 
@@ -91,6 +91,6 @@ var disclosureWidget = (function () {
 
 	}
 
-})();
+};
 
 export {disclosureWidget};

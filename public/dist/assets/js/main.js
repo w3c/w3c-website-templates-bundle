@@ -202,7 +202,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _translations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
 
 
-var accountMenu = function () {
+var accountMenu = function accountMenu() {
   // Helper: Check whether element exists
   function exists(elem) {
     return elem != null && (elem.length >= 0 || elem.innerHTML.length >= 0);
@@ -353,7 +353,7 @@ var accountMenu = function () {
     // 	}
     // }
   }
-}();
+};
 
 
 
@@ -369,7 +369,7 @@ __webpack_require__.r(__webpack_exports__);
  * Card enhancement to trigger the main link whenever the card area is clicked
  * See https://css-tricks.com/block-links-the-search-for-a-perfect-solution/
  */
-var cardEnhancement = function () {
+var cardEnhancement = function cardEnhancement() {
   var cardsArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="card"]'));
 
   if (cardsArray) {
@@ -395,7 +395,7 @@ var cardEnhancement = function () {
       });
     });
   }
-}();
+};
 
 
 
@@ -411,7 +411,7 @@ __webpack_require__.r(__webpack_exports__);
  * Collapsible sections
  * See https://heydon.github.io/inclusive-components-demos/collapsible-sections/progressive.html
  */
-var collapsibles = function () {
+var collapsibles = function collapsibles() {
   // Get all the collapsible containers
   var collapseArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="collapsibles"]'));
 
@@ -441,7 +441,7 @@ var collapsibles = function () {
     }); // End loop
   } // End if statement
 
-}();
+};
 
 
 
@@ -453,7 +453,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "disclosureWidget": () => (/* binding */ disclosureWidget)
 /* harmony export */ });
-var disclosureWidget = function () {
+var disclosureWidget = function disclosureWidget() {
   var toggleButtonArray = Array.prototype.slice.call(document.querySelectorAll('[data-toggle="true"]'));
 
   var closeDisclosures = function closeDisclosures() {
@@ -512,7 +512,7 @@ var disclosureWidget = function () {
       }
     });
   }
-}();
+};
 
 
 
@@ -524,7 +524,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "formErrorSummary": () => (/* binding */ formErrorSummary)
 /* harmony export */ });
-var formErrorSummary = function () {
+var formErrorSummary = function formErrorSummary() {
   // Helper: Check whether element exists
   function exists(elem) {
     return elem != null && (elem.length >= 0 || elem.innerHTML.length >= 0);
@@ -535,7 +535,7 @@ var formErrorSummary = function () {
   if (exists(errorSummary)) {
     errorSummary.focus();
   }
-}();
+};
 
 
 
@@ -550,7 +550,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _translations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
 
 
-var navigation = function () {
+var navigation = function navigation() {
   // https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#Polyfill
   if (!Element.prototype.matches) {
     Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
@@ -685,7 +685,7 @@ var navigation = function () {
       }
     });
   }
-}();
+};
 
 
 
@@ -869,8 +869,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__.responsiveTables)();
-(0,_main_flashes__WEBPACK_IMPORTED_MODULE_7__.flashes)(); // Tie the responsiveTables function to a resize event, and debounce for performance
+(0,_main_flashes__WEBPACK_IMPORTED_MODULE_7__.flashes)();
+
+function domLoadedActions() {
+  (0,_main_account_menu__WEBPACK_IMPORTED_MODULE_0__.accountMenu)();
+  (0,_main_navigation__WEBPACK_IMPORTED_MODULE_5__.navigation)();
+  (0,_main_cards__WEBPACK_IMPORTED_MODULE_1__.cardEnhancement)();
+  (0,_main_collapsibles__WEBPACK_IMPORTED_MODULE_2__.collapsibles)();
+  (0,_main_disclosure_widget__WEBPACK_IMPORTED_MODULE_3__.disclosureWidget)();
+  (0,_main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__.formErrorSummary)();
+  (0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__.responsiveTables)();
+}
+
+;
+
+if (document.readyState === 'loading') {
+  // Loading hasn't finished yet
+  document.addEventListener('DOMContentLoaded', domLoadedActions);
+} else {
+  // `DOMContentLoaded` has already fired
+  domLoadedActions();
+} // Tie the responsiveTables function to a resize event, and debounce for performance
+
 
 var timeout;
 window.addEventListener('resize', function (event) {

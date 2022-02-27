@@ -1,6 +1,6 @@
 import {translate} from "./translations";
 
-var accountMenu = (function () {
+var accountMenu = function () {
 
 	// Helper: Check whether element exists
 	function exists(elem) {
@@ -188,6 +188,6 @@ var accountMenu = (function () {
 
 	}
 
-})();
+};
 
 export {accountMenu};

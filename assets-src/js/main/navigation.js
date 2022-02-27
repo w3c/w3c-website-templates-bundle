@@ -1,6 +1,6 @@
 import {translate} from "./translations";
 
-var navigation = (function () {
+var navigation = function () {
 
 	// https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#Polyfill
 	if (!Element.prototype.matches) {
@@ -176,6 +176,6 @@ var navigation = (function () {
 
 	}
 
-})();
+};
 
 export {navigation};

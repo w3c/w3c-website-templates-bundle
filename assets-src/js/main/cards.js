@@ -3,7 +3,7 @@
  * See https://css-tricks.com/block-links-the-search-for-a-perfect-solution/
  */
 
-var cardEnhancement = (function () {
+var cardEnhancement = function () {
 
 	var cardsArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="card"]'));
 
@@ -41,6 +41,6 @@ var cardEnhancement = (function () {
 
 	}
 
-})();
+};
 
 export {cardEnhancement};
