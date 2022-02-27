@@ -29,3 +29,15 @@
 	}
 
 }
+
+[dir="rtl"] {
+
+	.skip-link &:active,
+	.skip-link &:focus {
+
+		left: auto;
+		right: 0;
+
+	}
+
+}

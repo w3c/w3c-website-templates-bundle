@@ -945,7 +945,7 @@ Radio/checkbox inputs
   width: 0.75rem; }
 
 [dir="rtl"] .checkbox-item label::after {
-  auto: 0.375rem;
+  left: auto;
   right: 0.375rem; }
 
 .checkbox-group--cluster .checkbox-item {
@@ -1610,6 +1610,11 @@ dl dd + dd {
     z-index: 999; }
     .skip-link:active span, .skip-link:focus span {
       box-shadow: 0 -1px 0 0 inset; }
+
+.skip-link [dir="rtl"]:active,
+.skip-link [dir="rtl"]:focus {
+  left: auto;
+  right: 0; }
 
 /*------------------------------------*\
     #Details and summary elements
