@@ -226,7 +226,7 @@ br {
     [data-trigger="account-menu"] {
       -webkit-margin-start: auto;
               margin-inline-start: auto;
-      padding-bottom: 0.25rem; }
+      padding: 0.5rem 0.1875rem 0.3125rem 0.1875rem; }
       [data-trigger="account-menu"]:hover::before {
         display: block; }
       [data-trigger="account-menu"]:focus {

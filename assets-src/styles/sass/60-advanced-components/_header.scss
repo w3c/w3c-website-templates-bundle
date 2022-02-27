@@ -39,7 +39,7 @@
 	@include mq($max-width) {
 
 		margin-inline-start: auto;
-		padding-bottom: rem(4);
+		padding: rem(8) rem(3) rem(5) rem(3);
 
 		&:hover::before {
 
