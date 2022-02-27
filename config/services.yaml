@@ -13,3 +13,9 @@ services:
     W3C\WebsiteTemplatesBundle\Form\Extension\ChoiceTypeExtension:
         tags:
             - { name: form.type_extension }
+    W3C\WebsiteTemplatesBundle\EventSubscriber\FlashMessageSubscriber:
+        arguments:
+            $session: '@session'
+            $translator: '@translator'
+        tags:
+            - { name: kernel.event_subscriber }

@@ -3,7 +3,7 @@
         <h2 class="txt-jupiter">{{ 'page.related_content'|trans({}, 'w3c_website_templates_bundle') }}</h2>
         <ul class="clean-list" role="list">
             {% set currentPath = path(app.request.attributes.get('_route'),
-                app.request.attributes.get('_route_params')) %}
+                app.request.attributes.get('_route_params')|merge(app.request.query)) %}
             {% for link in related_links %}
                 {% if link.url == currentPath %}
                     <li><a href="{{ link.url }}" aria-current="page">{{ link.title }}</a></li>
