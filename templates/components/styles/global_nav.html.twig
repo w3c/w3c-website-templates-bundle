@@ -1,6 +1,6 @@
 <nav id="global-nav" aria-label="Main">
     <div class="global-nav__inner l-center">
-        <a class="logo-link" href="/">
+        <a class="logo-link" href="{% block homepage_link %}/{% endblock %}" hreflang="{% block homepage_hreflang %}en{% endblock %}">
             <span class="logo">
                 <img src="{{ asset('svg/w3c-logo.svg', 'website-2021') }}" alt="{{ 'header.logo_alt'|trans({}, 'w3c_website_templates_bundle') }}" role="img"/>
             </span>
@@ -45,13 +45,13 @@
                 </li>
             {% endfor %}
             <li class="top-nav-item">
-                <a href="https://duckduckgo.com/?q=site%3Aw3.org&ia=web" class="nav-link icon-link">
+                <a hreflang="en" href="https://duckduckgo.com/?q=site%3Aw3.org&ia=web" class="nav-link icon-link">
                     <span class="visuallyhidden">{{ 'header.search_link'|trans({}, 'w3c_website_templates_bundle') }}</span> <img class="icon" src="{{ asset('svg/search.svg', 'website-2021') }}"
                          width="24" height="24" alt aria-hidden="true"/>
                 </a>
             </li>
             <li class="top-nav-item">
-                <a href="https://auth.w3.org/login" id="account-login-link" class="account-login icon-link with-icon--after">
+                <a hreflang="en" href="https://auth.w3.org/login" id="account-login-link" class="account-login icon-link with-icon--after">
                     {{ 'header.account_link'|trans({}, 'w3c_website_templates_bundle') }} <span class="avatar avatar--small icon">
                         <img src="{{ asset('svg/avatar.svg', 'website-2021') }}" width="24" height="24" alt aria-hidden="true"/>
                     </span>
