@@ -35,7 +35,7 @@
         },
         {
             'copy': 'footer.links.system_status'|trans({}, 'w3c_website_templates_bundle'),
-            'url' : 'footer.links.system_statusurl'|trans({}, 'w3c_website_templates_bundle')
+            'url' : 'footer.links.system_statusurl'|trans({}, 'w3c_website_templates_bundle'),
         }
     ] %}
 {% endif %}
@@ -45,18 +45,21 @@
             <div class="l-cluster">
                 <ul class="clean-list" role="list">
                     {% for link in links %}
-                        <li><a href="{{ link.url }}">{{ link.copy }}</a>
+                        <li>
+                            <a href="{{ link.url }}" hreflang="{{ 'footer.links.hreflang'|trans({}, 'w3c_website_templates_bundle') }}">
+                                {{ link.copy }}
+                            </a>
                         </li>
                     {% endfor %}
                 </ul>
             </div>
             <ul class="clean-list" role="list">
-                <li><a class="with-icon--larger" href="https://twitter.com/W3C">
+                <li><a class="with-icon--larger" href="https://twitter.com/W3C" hreflang="en">
                         <img class="icon icon--larger" src="{{ asset('svg/twitter.svg', 'website-2021') }}" width="20"
                              height="20" alt aria-hidden="true" loading="lazy" />
                         <span class="visuallyhidden">{{ 'footer.links.twitter'|trans({}, 'w3c_website_templates_bundle') }}</span></a>
                 </li>
-                <li><a class="with-icon--larger" href="https://github.com/w3c/">
+                <li><a class="with-icon--larger" href="https://github.com/w3c/" hreflang="en">
                         <img class="icon icon--larger" src="{{ asset('svg/github.svg', 'website-2021') }}" width="20"
                              height="20" alt aria-hidden="true" loading="lazy"/>
                         <span class="visuallyhidden">{{ 'footer.links.github'|trans({}, 'w3c_website_templates_bundle') }}</span></a>

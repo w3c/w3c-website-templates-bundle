@@ -14,6 +14,7 @@ footer:
     copyright: >-
         __footer.copyright {date, date, ::y}
     links:
+        hreflang: zh-hans
         home: __footer.links.home
         homeurl: /zh-hans/
         contact: __footer.links.contact

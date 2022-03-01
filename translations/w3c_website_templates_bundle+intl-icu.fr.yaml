@@ -15,21 +15,21 @@ footer:
         __footer.copyright {date, date, ::y}
     links:
         home: __footer.links.home
-        homeurl: /fr/
+        homeurl: /
         contact: __footer.links.contact
-        contacturl: /fr/contact/
+        contacturl: /contact/
         help: __footer.links.help
-        helpurl: /fr/help/
+        helpurl: /help/
         sponsor: __footer.links.sponsor
-        sponsorurl: /fr/sponsor/
+        sponsorurl: /sponsor/
         donate: _footer.links.donate
-        donateurl: /fr/donate/
+        donateurl: /donate/
         privacy_policy: __footer.links.privacy_policy
-        privacy_policyurl: /fr/policies/privacy/
+        privacy_policyurl: /policies/privacy/
         legal: __footer.links.legal
-        legalurl: /fr/policies/
+        legalurl: /policies/
         cookies: __footer.links.cookies
-        cookiesurl: /fr/cookies/
+        cookiesurl: /cookies/
         system_status: __footer.links.system_status
         system_statusurl: https://status.w3.org/
         twitter: __footer.links.twitter
