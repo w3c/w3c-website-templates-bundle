@@ -8,7 +8,7 @@
                 <div class="comment__author">
                     {{ comment.name }} -
                     <time datetime="{{ comment.date|date('c') }}">
-                        {{ comment.date|format_datetime('long', locale=locale) }}
+                        {{ comment.date|format_datetime('long', locale=locale) }} UTC
                     </time>
                 </div>
                 <div class="comment__body">
