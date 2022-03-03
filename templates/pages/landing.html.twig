@@ -6,8 +6,5 @@
     {% block hero %}
         {{ include('@W3CWebsiteTemplates/components/styles/hero.html.twig') }}
     {% endblock %}
-    {% if page.localized is defined and page.localized|length > 0 %}
-        {{ include('@W3CWebsiteTemplates/components/styles/page_translations.html.twig') }}
-    {% endif %}
     {% block components %}{% endblock %}
 {% endblock %}

@@ -6,8 +6,9 @@ page:
     default_description: >-
         __page.default_description
     skip_to_content: __page.skip_to_content
-    translations: >
+    translations: >-
         __page.translations
+    translationsarialabel: __page.translations.arialabel
     toc: __page.toc
     related_content: __page.related
 footer:

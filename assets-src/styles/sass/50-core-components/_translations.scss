@@ -62,7 +62,8 @@
  */
 .translations h2,
 .translations h3,
-.translations h5 {
+.translations h5,
+.translations .sidebar span {
 
 	font-size: 1rem;
 	font-weight: normal;
@@ -76,5 +77,32 @@
 	display: block;
 	padding-bottom: rem(10);
 	padding-top: rem(10);
+
+}
+
+.landing .translations,
+.ecosystem .translations {
+
+	padding: 0;
+	margin-top: 0;
+
+	.sidebar span {
+
+		padding-inline-end: 1em;
+
+	}
+
+	.l-sidebar .not-sidebar {
+
+		min-width: 70%;
+		padding-bottom: 0;
+
+	}
+
+	+ * {
+
+		margin-top: 2em;
+
+	}
 
 }

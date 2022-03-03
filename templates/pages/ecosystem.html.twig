@@ -13,9 +13,6 @@
 
 {% block main %}
     {{ include('@W3CWebsiteTemplates/components/styles/hero.html.twig') }}
-    {% if page.localized is defined and page.localized|length > 0 %}
-        {{ include('@W3CWebsiteTemplates/components/styles/page_translations.html.twig') }}
-    {% endif %}
     {% block components %}{% endblock %}
     {% block activities_testimonials_members %}
         {% if page.recentActivities.recentEntries is not empty or page.recentActivities.recentEvents is not empty %}

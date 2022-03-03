@@ -4,23 +4,7 @@
             <div class="sidebar">
                 <h2>{{ 'page.translations'|trans({}, 'w3c_website_templates_bundle') }}</h2>
             </div>
-            <div class="not-sidebar">
-                <div class="l-cluster">
-                    <ul class="clean-list">
-                        {% for translation in page.localized|sort((a, b) => a.language_code|replace({'-': '_'})|language_name('en') <=> b.language_code|replace({'-': '_'})|language_name('en')) %}
-                            <li>
-                                <a href="{{ translation.url }}"
-                                   hreflang="{{ translation.language_code }}"
-                                   lang="{{ translation.language_code }}"
-                                   dir="auto"
-                                >
-                                    {{ translation.language_code|replace({'-': '_'})|language_name(translation.language_code) }}
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
+            {{ include('@W3CWebsiteTemplates/components/styles/translations-list.html.twig') }}
         </div>
     </div>
 </section>

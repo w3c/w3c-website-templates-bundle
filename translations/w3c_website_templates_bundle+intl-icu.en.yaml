@@ -7,8 +7,9 @@ page:
         The World Wide Web Consortium (W3C) is an international community where Member organizations, a full-time staff,
         and the public work together to develop Web standards.
     skip_to_content: Skip to content
-    translations: >
+    translations: >-
         Read this page in:
+    translationsarialabel: Translations
     toc: Page contents skip to links
     related_content: In this section
 footer:

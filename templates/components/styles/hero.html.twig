@@ -4,7 +4,12 @@
             <div>
                 <div class="not-sidebar">
                     <h1>{% block title %}{{ page.title|default('W3C') }}{% endblock %}</h1>
-                    {% block heroLead %}<p class="lead">{{ page.pageLead }}</p>{% endblock %}
+                    {% block heroLead %}
+                        {% if page.localized is defined and page.localized|length > 0 %}
+                            {{ include('@W3CWebsiteTemplates/components/styles/page_translations--hero.html.twig') }}
+                        {% endif %}
+                        <p class="lead">{{ page.pageLead }}</p>
+                    {% endblock %}
                 </div>
                 {% if page.heroIllustration is defined and page.heroIllustration %}
                     <div class="sidebar">
