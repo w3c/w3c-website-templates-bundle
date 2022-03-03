@@ -2625,7 +2625,8 @@ main,
  */
 .translations h2,
 .translations h3,
-.translations h5 {
+.translations h5,
+.translations .sidebar span {
   font-size: 1rem;
   font-weight: normal;
   padding-bottom: 0.625rem;
@@ -2635,6 +2636,22 @@ main,
   display: block;
   padding-bottom: 0.625rem;
   padding-top: 0.625rem; }
+
+.landing .translations,
+.ecosystem .translations {
+  padding: 0;
+  margin-top: 0; }
+  .landing .translations .sidebar span,
+  .ecosystem .translations .sidebar span {
+    -webkit-padding-end: 1em;
+            padding-inline-end: 1em; }
+  .landing .translations .l-sidebar .not-sidebar,
+  .ecosystem .translations .l-sidebar .not-sidebar {
+    min-width: 70%;
+    padding-bottom: 0; }
+  .landing .translations + *,
+  .ecosystem .translations + * {
+    margin-top: 2em; }
 
 /*------------------------------------*\
     #Table of contents (TOC)
