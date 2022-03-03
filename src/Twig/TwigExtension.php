@@ -10,6 +10,7 @@ use Exception;
 use SimpleXMLElement;
 use Symfony\Component\Translation\IdentityTranslator;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Throwable;
 use Twig\Environment;
 use Twig\Extension\AbstractExtension;
 use Twig\Extra\Intl\IntlExtension;
@@ -89,7 +90,11 @@ class TwigExtension extends AbstractExtension
      */
     public function markupAttrs(string $markup, array $attrs = null)
     {
-        $xml = new SimpleXMLElement($markup);
+        try {
+            $xml = new SimpleXMLElement($markup);
+        } catch (Throwable $e) {
+            return $markup;
+        }
 
         foreach ($attrs as $name => $value) {
             $xml[$name] = $value;
