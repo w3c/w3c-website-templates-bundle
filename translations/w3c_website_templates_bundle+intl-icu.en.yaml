@@ -210,8 +210,8 @@ error:
         message: >-
             <p>A W3C account is required to access the page that you requested.</p>
             <ul>
-            <li>If you don't have one, <a href="https://www.w3.org/accounts/request">request a new account</a>.</li>
-            <li>If you have an account but forgot your password, <a href="https://www.w3.org/accounts/recover">recover your password</a>.</li>
+            <li>If you don't have one, <a href="/account/request/">request a new account</a>.</li>
+            <li>If you have an account but forgot your password, <a href="/account/recover/">recover your password</a>.</li>
             <li>In case of trouble with your W3C account, please send an email to
             <a href="mailto:sysreq@w3.org">sysreq@w3.org</a>.
             </li>
