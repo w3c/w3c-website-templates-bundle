@@ -145,9 +145,9 @@ var accountMenu = function () {
 
 	const loginLink = document.querySelector('#account-login-link');
 	if (loginLink) {
-		loginLink.href = 'https://auth.w3.org/?url=' + encodeURI(window.location.href);
+		loginLink.href = '/account/login/?redirect_url=' + encodeURI(window.location.href);
 		var userInfoRequest = new XMLHttpRequest();
-		userInfoRequest.open('GET', 'https://www.w3.org/accounts/user-menu', true)
+		userInfoRequest.open('GET', '/account/user-menu/', true)
 		userInfoRequest.withCredentials = true;
 
 		userInfoRequest.onload = function () {
