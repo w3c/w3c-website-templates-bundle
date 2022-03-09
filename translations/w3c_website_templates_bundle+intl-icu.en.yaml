@@ -114,7 +114,7 @@ components:
     image_card:
         link_text: Learn more
     groups_list:
-        link_text: Visit the {name} Group
+        link_text: Visit the {name}
     people:
         tel: "Tel: <a href=\"tel:{number}\">{number}</a>"
         email: "Email: <a href=\"mailto:{email}\">{email}</a>"
