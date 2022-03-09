@@ -110,9 +110,9 @@ components:
         view_all: __components.members.view_all
         get_involved: __components.members.get_involved
         join: __components.members.join
-        joinurl: /membership/join
+        joinurl: /membership/join/
         donate: __components.members.donate
-        donateurl: /donate
+        donateurl: /donate/
     content_slider:
         title: __components.content_slider.title
     crosslinks:
