@@ -19,19 +19,19 @@ footer:
         home: __footer.links.home
         homeurl: /ja/
         contact: __footer.links.contact
-        contacturl: /ja/contact
+        contacturl: /ja/contact/
         help: __footer.links.help
-        helpurl: /ja/help
+        helpurl: /ja/help/
         sponsor: __footer.links.sponsor
-        sponsorurl: /ja/sponsor
+        sponsorurl: /ja/sponsor/
         donate: _footer.links.donate
-        donateurl: /ja/donate
+        donateurl: /ja/donate/
         privacy_policy: __footer.links.privacy_policy
         privacy_policyurl: /ja/policies/privacy
         legal: __footer.links.legal
-        legalurl: /ja/policies
+        legalurl: /ja/policies/
         cookies: __footer.links.cookies
-        cookiesurl: /ja/cookies
+        cookiesurl: /ja/cookies/
         system_status: __footer.links.system_status
         system_statusurl: https://status.w3.org/
         twitter: __footer.links.twitter

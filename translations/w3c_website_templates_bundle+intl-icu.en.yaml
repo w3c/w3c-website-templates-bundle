@@ -25,19 +25,19 @@ footer:
         home: Home
         homeurl: /
         contact: Contact
-        contacturl: /contact
+        contacturl: /contact/
         help: Help
         helpurl: /help
         sponsor: Sponsor
-        sponsorurl: /sponsor
+        sponsorurl: /sponsor/
         donate: Donate
-        donateurl: /donate
+        donateurl: /donate/
         privacy_policy: Privacy Policy
-        privacy_policyurl: /policies/privacy
+        privacy_policyurl: /policies/privacy/
         legal: Legal
-        legalurl: /policies
+        legalurl: /policies/
         cookies: Cookies
-        cookiesurl: /cookies
+        cookiesurl: /cookies/
         system_status: System Status
         system_statusurl: https://status.w3.org/
         twitter: W3C on Twitter
