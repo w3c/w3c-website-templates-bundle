@@ -142,7 +142,7 @@ components:
             ecosystem: Ecosystem
             ecosystems: Ecosystems
             event: Event
-            events: Event
+            events: Events
             news: News
             pressrelease: Press release
             pressreleases: Press releases
