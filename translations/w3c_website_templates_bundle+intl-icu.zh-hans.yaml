@@ -1,201 +1,254 @@
 page:
     lang:
         dir: ltr
-        options: __page.lang.options
-    default_title: __page.default_title
+        options: 语言
+    default_title: 万维网联盟 (W3C)
     default_description: >-
-        __page.default_description
-    skip_to_content: __page.skip_to_content
+        万维网联盟 (W3C) 是一个国际组织。众多会员组织、全职员工及广大群众通力合作，制定并完善网络标准。 （TODO）
+    skip_to_content: 转到内容
     translations: >-
-        __page.translations
-    translationsarialabel: __page.translations.arialabel
-    toc: __page.toc
-    related_content: __page.related
+        切换语言： (TODO)
+    translationsarialabel: 翻译
+    toc: 页面内容跳转至链接
+    related_content: 在这个部分 (TODO)
 footer:
     copyright: >-
-        __footer.copyright {date, date, ::y}
+        Copyright © {date, date, ::y} W3C <sup>®</sup> (<a href="https://www.csail.mit.edu/" hreflang="en"><abbr
+        title="麻省理工学院">MIT</abbr></a>, <a
+        href="https://www.ercim.eu/" hreflang="en"><abbr
+        title="欧洲信息学和数学研究联合会">ERCIM</abbr></a>,
+        <a href="https://www.keio.ac.jp/">庆应义塾大学 Keio</a>, <a href="https://ev.buaa.edu.cn/">北京航空航天大学 Beihang</a>) <a
+        href="/Consortium/Legal/ipr-notice">使用章程适用 (TODO)</a>.
     links:
         hreflang: zh-hans
-        home: __footer.links.home
+        home: 主页
         homeurl: /zh-hans/
-        contact: __footer.links.contact
+        contact: 联系人
         contacturl: /zh-hans/contact/
-        help: __footer.links.help
+        help: 帮助
         helpurl: /zh-hans/help/
-        sponsor: __footer.links.sponsor
+        sponsor: 赞助
         sponsorurl: /zh-hans/sponsor/
-        donate: _footer.links.donate
+        donate: 捐赠
         donateurl: /zh-hans/donate/
-        privacy_policy: __footer.links.privacy_policy
+        privacy_policy: 隐私条款
         privacy_policyurl: /zh-hans/policies/privacy/
-        legal: __footer.links.legal
+        legal: 法务 (TODO)
         legalurl: /zh-hans/policies/
-        cookies: __footer.links.cookies
+        cookies: Cookie
         cookiesurl: /zh-hans/cookies/
-        system_status: __footer.links.system_status
+        system_status: 系统状态
         system_statusurl: https://status.w3.org/
-        twitter: __footer.links.twitter
-        github: __footer.links.github
+        twitter: W3C 在推特 (TODO)
+        github: W3C 在 GitHub (TODO)
 banner:
     beta:
         text: >-
-            __banner.beta.text
-        icon: __banner.beta.icon
+            这是一个全新的网站，<a href="mailto:team-website-redesign@w3.org">请给予反馈</a>帮助我们建设完善网站。
+        icon: 测试版图标 (TODO)
 header:
-    logo_alt: __header.logo_alt
-    logo_link: __header.logo_link
-    search_link: __header.search_link
-    account_link: __header.account_link
+    logo_alt: W3C 标志
+    logo_link: 访问 W3C 主页
+    search_link: 搜索
+    account_link: 我的账号
 breadcrumbs:
-    home: __breadcrumbs.home
+    home: 主页
 pagination:
-    first: __pagination.first
-    previous: __pagination.previous
-    next: __pagination.next
-    last: __pagination.last
-    page: "__pagination.page {page}"
+    first: 首页
+    previous: 上一<span class="visuallyhidden">页</span>  (TODO visuallyhidden?)
+    next: 下一<span class="visuallyhidden">页</span>  (TODO visuallyhidden?)
+    last: 尾页
+    page: "第{page}<span class=\"visuallyhidden\">页</span>" (TODO visuallyhidden?)
     current_page: "{page}"
-    summary: __pagination.summary {page} {from}-{to}
-ecosystems: __ecosystems {count}
+    summary: >-
+        {to, select,
+            0 {无搜索结果}
+            other {这是第{page}页, 显示搜索结果 {from}-{to}}
+        }
+ecosystems: >-
+    { count, plural,
+       =0 { 生态系统 }
+       one { 生态系统 }
+       other { 生态系统 }
+    }
 listing:
     blog:
         filters:
-            search: __listing.blog.filters.search
-            search_button: __listing.blog.filters.search_button
-            all: __listing.blog.filters.all
-            categories: __listing.blog.filters.categories
-            categories_label: __listing.blog.filters.categories_label
-            archives: __listing.blog.filters.archives
-            archives_label: __listing.blog.filters.archives_label
+            search: 搜索文章 (TODO post翻译成文章、博文、帖子?)
+            search_button: 搜索
+            all: 全部
+            categories: 浏览类目
+            categories_label: 文章类目
+            archives: 查看归档
+            archives_label: 文章归档 (TODO archives是归档 还是分类?)
     news:
         filters:
-            search: __listing.news.filters.search
-            search_button: __listing.news.filters.search_button
-            all: __listing.news.filters.all
-            archives: __listing.news.filters.archives
-            archives_label: __listing.news.filters.archives_label
+            search: 搜索新闻
+            search_button: 搜索
+            all: 全部
+            archives: 查看归档
+            archives_label: 新归档
     press_releases:
         filters:
-            all: __listing.press_releases.filters.all
-            archives: __listing.press_releases.filters.archives
-            archives_label: __listing.press_releases.filters.archives_label
+            all: 全部
+            archives: 查看归档
+            archives_label: 新闻稿归档
     events:
         filters:
-            all: __listing.events.filters.all
-            types: __listing.events.filters.types
-            categories: __listing.events.filters.categories
-            search_button: __listing.events.filters.search_button
-            clear: __listing.events.filters.clear
+            all: 全部
+            types: 重大事件类型
+            categories: 类目
+            search_button: 搜索
+            clear: 清除所有
     newsletters:
         filters:
-            archives: __listing.newsletters.filters.archives
-            archives_label: __listing.newsletters.filters.archives_label
+            archives: 查看归档
+            archives_label: 新闻搞归档 (TODO：跟press_releases区别？)
 components:
     video:
-        transcript: __components.video.transcript
+        transcript: "浏览<span class=\"visuallyhidden\">{title}</span>字幕"
     icon_card:
-        link_text: __components.icon_card.link_text
+        link_text: 了解更多
     image_card:
-        link_text: __components.image_card.link_text
+        link_text: 了解更多
     groups_list:
-        link_text: __components.groups_list.link_text{{name}}
+        link_text: 访问{name}
     people:
-        tel: "__components.people.tel__Tel: <a href=\"tel:{number}\">{number}}</a>"
-        email: "__components.people.email__Email: <a href=\"mailto:{email}\">{email}</a>"
+        tel: "电话: <a href=\"tel:{number}\">{number}</a>"
+        email: "邮箱: <a href=\"mailto:{email}\">{email}</a>"
     evangelists:
-        list_title: __components.evangelists.list_title__Our {ecosystem_name} Evangelists
+        list_title: >-
+            Our {ecosystem_name} { count, plural,
+                =0 { 布道者 } (TODO: evangelists)
+                one { 布道者 }
+                other { 布道者 }
+            }
     members:
-        title: __components.members.title
-        members_include: "__components.members.members_include {count} member organizations are involved in the web payment ecosystem, including:"
-        view_all: __components.members.view_all
-        get_involved: __components.members.get_involved
-        join: __components.members.join
-        joinurl: /membership/join/
-        donate: __components.members.donate
+        title: W3C 会员
+        members_include: "{count}成员组织参与{ecosystem_name}生态系统, 包括:"
+        view_all: 查看所有在{ecosystem_name}中的成员 (TODO)
+        get_involved: "如何协作:"
+        join: 加入我们
+        joinurl: /membership/join
+        donate: 捐赠
         donateurl: /donate/
     content_slider:
-        title: __components.content_slider.title
+        title: 组织机构如何看待我们 (TODO)
     crosslinks:
         types:
-            blogpost: __components.crosslinks.types.blogpost
-            ecosystem: __components.crosslinks.types.ecosystem
-            ecosystems: __components.crosslinks.types.ecosystems
-            event: __components.crosslinks.types.event
-            events: __components.crosslinks.types.events
-            news: __components.crosslinks.types.news
-            pressrelease: __components.crosslinks.types.pressrelease
-            pressreleases: __components.crosslinks.types.pressreleases
-            page: __components.crosslinks.types.page
+            blogpost: 博客
+            ecosystem: 生态系统
+            ecosystems: 生态系统
+            event: 事件
+            events: 事件
+            news: 新闻
+            pressrelease: 新闻稿
+            pressreleases: 新闻稿
+            page: 页面
 post:
     meta:
         credit: >
-            __post.meta.credit
-        credit_title: __post.meta.credit_title
+            由:
+        credit_title: 作者及出版日期
         published: >
-            __post.meta.published
-        skiplink: __post.meta.skiplink
-    notes_heading: __post.notes_heading
+            出版:
+        skiplink: 跳至第{count}条评论
+    notes_heading: 注释说明 (TODO: Notes在这里啥意思？)
     related:
-        heading: __post.related.heading
-        heading_tags: __post.related.heading_tags
-        heading_ecosystems: __post.related.heading_ecosystems
-        heading_groups: __post.related.heading_groups
-        heading_specifications: __post.related.heading_specifications
+        heading: 相关内容
+        heading_tags: 标签
+        heading_ecosystems: 生态系统
+        heading_groups: 组
+        heading_specifications: 技术标准
     feed:
-        title: __post.feed.title
-        link: __post.feed.link {feed_type}
+        title: 相关的 RSS
+        link: 订阅我们的{feed_type}推荐页 (TODO: feed翻译成 推荐页/信息源/聚合页?)
     comments:
-        count: __post.comments.count <span>{count}</span>
-        skip_to_form: __post.comments.skip_to_form
-        reply: __post.comments.reply <span class="visuallyhidden">{name}</span>
-        reply_attr: __post.comments.reply_attr {name}
+        count: 第<span>({count})</span>条评论
+        skip_to_form: 跳跃至评论区
+        reply: 回复<span class="visuallyhidden">{name}</span>
+        reply_attr: 回复{name}
         form:
-            title: __post.comments.form.title
-        closed: __post.comments.closed
+            title: 发布新评论
+        closed: 该贴的评论区已关闭。
 notes:
     info:
-        default_title: __notes.info.default_title
+        default_title: 信息
     successes:
-        default_title: __notes.successes.default_title
+        default_title: 成功
     warnings:
-        default_title: __notes.warnings.default_title
+        default_title: 警示 (TODO: Warning)
     errors:
-        default_title: __notes.errors.default_title
+        default_title: 出现了一些问题  #TODO: There is a problem
 events:
     # same_day = 1 when start_date == end_date
     date_range: >-
         {same_day, select,
             1  {{start_date}, {start_time} - {end_time} <b>{timezone}</b>}
-            other {{start_date}, {start_time} - {end_date}, {end_time} <b>{timezone}</b>}
+            其它 {{start_date}, {start_time} - {end_date}, {end_time} <b>{timezone}</b>}
         }
-    add_to_calendar: __events.add_to_calendar
-    event_details: __events.event_details
-    date: __events.date
-    location: __events.location
-    speakers: __events.speakers
-    host: __events.host
-    category: __events.category
-    website: __events.website
+    add_to_calendar: 添加到日历
+    event_details: 事件详情
+    date: 日期
+    location: 地点
+    speakers: 发言人
+    host: 主办方 # TODO: host?
+    category: 分类
+    website: 网站
 alumni:
-    date_range: __alumni.date_range {start} {end}
+    date_range: "{start} 到 {end}"
 error:
-    title: __error.title {status_code} {status_text}
-    intro: __error.intro {status_code} {status_text}
-    request_id: __error.request_id {request_id}
-    contact: __error.contact {params}
-    faq: __error.faq
+    title: 错误{status_code} - {status_text}
+    intro: >-
+        <p>服务器返回"{status_code} - {status_text}"错误。</p>
+    request_id: >-
+        <p>请求ID: {request_id}</p>
+    contact: __error.contact {params}   #TODO: not in .en file
+    faq: __error.faq      #TODO: not in .en file
     401:
-        title: __error.401.title
-        message: __error.401.message
+        title: 需要身份验证
+        message: >-
+            <p>您需要提供一个 W3C 账号才能继续访问请求页面。</p>
+            <ul>
+            <li>如果您没有账号，请<a href="/account/request/">申请一个新账号</a>。</li>
+            <li>如果您已有账号但是忘记了密码，请<a href="/account/recover/">恢复密码</a>。</li>
+            <li>如果您的 W3C 账号出现了问题，请发送邮件至
+            <a href="mailto:sysreq@w3.org">sysreq@w3.org</a>。
+            </li>
+            </ul>
+        contact: >-
+            <p>如需获取更多网站已知问题，请参阅<a href="https://status.w3.org/">系统状态页</a>。</p>
+            <p>如果仍有问题，请在<a href="https://www.w3.org/help/">帮助页</a>咨询或者联系<a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>。</p>
     403:
-        title: __error.403.title
-        message: __error.403.message
+        title: 没有访问权限
+        message: >-
+            <p>您的没有页面的权限，无法访问页面：<strong>{message}</strong></p>
+        contact: >-
+            <p>如需获取更多网站已知问题，请参阅<a href="https://status.w3.org/">系统状态页</a>。</p>
+            <p>如果仍有问题，请在<a href="https://www.w3.org/help/">帮助页</a>咨询或者联系<a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>。</p>
     404:
-        title: __error.404.title
-        message: __error.404.message
+        title: 页面丢失
+        message: >-
+          <p>很抱歉，您试图访问的页面不存在。您可以参考下面的步骤来查找的页面：</p>
+          <ul>
+          <li>如果您是手动输入的 UBL 网址,请确认网址是否正确。</li>
+          <li>如果您在寻找某一特定主题的信息，请在<a href="https://www.w3.org/">W3C 主页</a>检索。</li>
+          <li>请尝试用本页面顶部的搜索图标来搜索网站。</li>
+          </ul>
+        contact: >-
+            <p>如果您仍然有问题，请在<a href="https://www.w3.org/help/">帮助页</a>咨询。</p>
     410:
-        title: __error.410.title
-        message: __error.410.message
+        title: 内容不存在
+        message: >-
+            <p>该页面已经无法查看，且未找到重定向网址。请移除所有引用该页面的内容。</p>
+            <p>您可能通过以下途径来获取您所需的信息：查看<a
+            href="https://www.w3.org/">W3C 主页</a>或尝试用本页面顶部的搜索图标来搜索网站。</p>
+        contact: >-
+            <p>如果您仍然有问题，请在<a href="https://www.w3.org/help/">帮助页</a>咨询。</p>
     500:
-        title: __error.500.title
-        message: __error.500.message
+        title: 内部服务器错误
+        message: >-
+            <p>该服务器出现一个内部错误或错误的信息配置，无法完成本次请求。</p>
+        contact: >-
+            <p>如需获取更多网站已知问题，请参阅<a href="https://status.w3.org/">系统状态页</a>。</p>
+            <p>如果仍有问题，请在<a href="https://www.w3.org/help/">帮助页</a>咨询或者联系<a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>。</p>
