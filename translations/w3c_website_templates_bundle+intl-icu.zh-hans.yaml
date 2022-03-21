@@ -203,8 +203,6 @@ error:
         <p>服务器返回"{status_code} - {status_text}"错误。</p>
     request_id: >-
         <p>请求ID: {request_id}</p>
-    contact: __error.contact {params}   #TODO: not in .en file
-    faq: __error.faq      #TODO: not in .en file
     401:
         title: 需要身份验证
         message: >-
