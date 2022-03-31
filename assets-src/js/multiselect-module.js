@@ -136,6 +136,10 @@ const MultiselectButtons = function (selectEl, params) {
         this.selectedEl = ul;
     }
 
+    // hide the original label and create a new one for the new combobox
+    const selectLabel = document.querySelector(`label[for=${selectEl.id}]`);
+    selectLabel.hidden = true;
+
     const div = document.createElement('div');
     div.classList.add('combo');
     div.id = `${selectEl.id}-js-multi-buttons`;
@@ -150,13 +154,19 @@ const MultiselectButtons = function (selectEl, params) {
     const input = document.createElement('input');
     input.setAttribute('aria-activedescendant', '');
     input.setAttribute('aria-autocomplete', 'list');
-    input.setAttribute('aria-labelledby', baseId + '-label ' + baseId + '-selected');
     input.setAttribute('aria-controls', baseId + '-listbox');
     input.id = baseId + "-input";
     input.classList.add('combo-input');
     input.setAttribute('autocomplete', 'off');
     input.setAttribute('type', 'text');
     divComboBox.appendChild(input);
+
+    const spanLabel = document.createElement('span');
+    spanLabel.classList.add('faux-label');
+    spanLabel.innerText = selectLabel.innerText;
+    const labelComboBox = document.createElement('label');
+    labelComboBox.setAttribute('for', input.id);
+    labelComboBox.appendChild(spanLabel);
 
     const ulCombo = document.createElement('ul');
     ulCombo.setAttribute('role', 'listbox');
@@ -167,6 +177,7 @@ const MultiselectButtons = function (selectEl, params) {
 
     div.appendChild(divComboBox);
     div.appendChild(ulCombo);
+    selectEl.parentNode.appendChild(labelComboBox);
     selectEl.parentNode.appendChild(div);
 
     // element refs
