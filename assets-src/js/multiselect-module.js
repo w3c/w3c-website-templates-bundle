@@ -203,13 +203,12 @@ const MultiselectButtons = function (selectEl, params) {
             buttonEl.className = 'remove-option';
             buttonEl.type = 'button';
             buttonEl.id = `${this.idBase}-remove-${index}`;
-            buttonEl.setAttribute('aria-describedby', `${this.idBase}-remove`);
             buttonEl.dataset.value = option.value;
             buttonEl.addEventListener('click', () => {
                 this.removeOption(option);
             });
 
-            buttonEl.innerHTML = option.text + ' ';
+            buttonEl.innerHTML = `<span class="sr-only">Remove </span>${option.text} `;
 
             listItem.appendChild(buttonEl);
             this.selectedEl.appendChild(listItem);
@@ -518,12 +517,11 @@ MultiselectButtons.prototype.selectOption = function (option) {
     buttonEl.className = 'remove-option';
     buttonEl.type = 'button';
     buttonEl.id = `${this.idBase}-remove-${index}`;
-    buttonEl.setAttribute('aria-describedby', `${this.idBase}-remove`);
     buttonEl.dataset.value = selected.value;
     buttonEl.addEventListener('click', () => {
         this.removeOption(option);
     });
-    buttonEl.innerHTML = selected.text + ' ';
+    buttonEl.innerHTML = `<span class="sr-only">Remove </span> ${selected.text} `;
 
     listItem.appendChild(buttonEl);
     if (this.select.multiple) {
