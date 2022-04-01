@@ -4,10 +4,10 @@ page:
         options: 语言
     default_title: 万维网联盟 (W3C)
     default_description: >-
-        万维网联盟 (W3C) 是一个国际组织。众多会员组织、全职员工及广大群众通力合作，制定并完善网络标准。 （TODO）
+        万维网联盟 (W3C) 是一个国际标准组织。众多会员组织、全职员工及广大社区通力合作，制定并完善网络标准。
     skip_to_content: 转到内容
     translations: >-
-        切换语言： (TODO)
+        切换语言：
     translationsarialabel: 翻译
     toc: 页面内容跳转至链接
     related_content: 在这个部分 (TODO)
@@ -74,13 +74,13 @@ ecosystems: >-
 listing:
     blog:
         filters:
-            search: 搜索文章 (TODO post翻译成文章、博文、帖子?)
+            search: 搜索文章
             search_button: 搜索
             all: 全部
             categories: 浏览类目
             categories_label: 文章类目
             archives: 查看归档
-            archives_label: 文章归档 (TODO archives是归档 还是分类?)
+            archives_label: 文章归档
     news:
         filters:
             search: 搜索新闻
@@ -92,7 +92,7 @@ listing:
         filters:
             all: 全部
             archives: 查看归档
-            archives_label: 新闻稿归档
+            archives_label: 媒体新闻稿归档
     events:
         filters:
             all: 全部
@@ -103,7 +103,7 @@ listing:
     newsletters:
         filters:
             archives: 查看归档
-            archives_label: 新闻搞归档 (TODO：跟press_releases区别？)
+            archives_label: 新闻稿归档
 components:
     video:
         transcript: "浏览<span class=\"visuallyhidden\">{title}</span>字幕"
@@ -142,8 +142,8 @@ components:
             event: 事件
             events: 事件
             news: 新闻
-            pressrelease: 新闻稿
-            pressreleases: 新闻稿
+            pressrelease: 媒体新闻稿
+            pressreleases: 媒体新闻稿
             page: 页面
 post:
     meta:
@@ -162,7 +162,7 @@ post:
         heading_specifications: 技术标准
     feed:
         title: 相关的 RSS
-        link: 订阅我们的{feed_type}推荐页 (TODO: feed翻译成 推荐页/信息源/聚合页?)
+        link: 订阅我们的{feed_type}信息源
     comments:
         count: 第<span>({count})</span>条评论
         skip_to_form: 跳跃至评论区
