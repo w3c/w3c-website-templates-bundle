@@ -220,7 +220,7 @@ const MultiselectButtons = function (selectEl, params) {
                 this.removeOption(option);
             });
 
-            buttonEl.innerHTML = `<span class="sr-only">Remove </span>${option.text} `;
+            buttonEl.innerHTML = `<span class="visuallyhidden">Remove </span>${option.text} `;
 
             listItem.appendChild(buttonEl);
             this.selectedEl.appendChild(listItem);
@@ -535,7 +535,7 @@ MultiselectButtons.prototype.selectOption = function (option) {
     buttonEl.addEventListener('click', () => {
         this.removeOption(option);
     });
-    buttonEl.innerHTML = `<span class="sr-only">Remove </span> ${selected.text} `;
+    buttonEl.innerHTML = `<span class="visuallyhidden">Remove </span> ${selected.text} `;
 
     listItem.appendChild(buttonEl);
     if (this.select.multiple) {
