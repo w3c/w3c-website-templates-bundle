@@ -423,7 +423,6 @@ MultiselectButtons.prototype.onInputKeyDown = function (event) {
                 return this.onOptionClick(this.activeIndex);
             }
             return;
-           return this.onOptionChange(nextRealIndex);
         case MenuActions.CloseSelect:
             event.preventDefault();
             return this.onOptionClick(this.activeIndex);
@@ -432,7 +431,6 @@ MultiselectButtons.prototype.onInputKeyDown = function (event) {
             return this.updateMenuState(false);
         case MenuActions.Open:
             return this.updateMenuState(true);
-
     }
 }
 
