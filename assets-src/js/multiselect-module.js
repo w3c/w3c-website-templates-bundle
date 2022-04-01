@@ -59,6 +59,8 @@ function getActionFromKey(key, menuOpen) {
         return MenuActions.Close;
     } else if (key === Keys.Enter) {
         return MenuActions.CloseSelect;
+    } else if (key === Keys.Space) {
+        return MenuActions.Space;
     } else if (key === Keys.Backspace || key === Keys.Clear || key.length === 1) {
         return MenuActions.Type;
     }
@@ -199,7 +201,6 @@ const MultiselectButtons = function (selectEl, params) {
     this.page = 1;
     this.morePages = false;
     this.ajaxResultCount;
-
 
     // state
     this.activeIndex = 0;
@@ -387,10 +388,10 @@ MultiselectButtons.prototype.onInput = async function () {
             this.filterOptions(curValue);
 
         // if active option is not in filtered options, set it to first filtered option
-        if (this.filteredOptions.indexOf(this.options[this.activeIndex]) < 0) {
-            const firstFilteredIndex = this.options.indexOf(this.filteredOptions[0]);
-            this.onOptionChange(firstFilteredIndex);
-        }
+        // if (this.filteredOptions.indexOf(this.options[this.activeIndex]) < 0) {
+        //     const firstFilteredIndex = this.options.indexOf(this.filteredOptions[0]);
+        //     this.onOptionChange(firstFilteredIndex);
+        // }
 
         const menuState = this.filteredOptions.length > 0 || showHint;
         if (this.open !== menuState) {
@@ -408,7 +409,6 @@ MultiselectButtons.prototype.onInputKeyDown = function (event) {
     const activeFilteredIndex = this.filteredOptions.indexOf(this.options[this.activeIndex]);
 
     const action = getActionFromKey(key, this.open);
-
     switch (action) {
         case MenuActions.Next:
         case MenuActions.Last:
@@ -417,7 +417,13 @@ MultiselectButtons.prototype.onInputKeyDown = function (event) {
             event.preventDefault();
             const nextFilteredIndex = getUpdatedIndex(activeFilteredIndex, max, action);
             const nextRealIndex = this.options.indexOf(this.filteredOptions[nextFilteredIndex]);
-            return this.onOptionChange(nextRealIndex);
+         case MenuActions.Space:
+            if (this.activeIndex) {
+                event.preventDefault();
+                return this.onOptionClick(this.activeIndex);
+            }
+            return;
+           return this.onOptionChange(nextRealIndex);
         case MenuActions.CloseSelect:
             event.preventDefault();
             return this.onOptionClick(this.activeIndex);
@@ -464,7 +470,6 @@ MultiselectButtons.prototype.onOptionChange = function (index) {
     [...options].forEach((optionEl) => {
         optionEl.classList.remove('option-current');
     });
-    
     if (currentOptions) {
         currentOptions.classList.add('option-current');
 
