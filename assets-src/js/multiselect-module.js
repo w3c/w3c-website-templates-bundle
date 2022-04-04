@@ -59,6 +59,8 @@ function getActionFromKey(key, menuOpen) {
         return MenuActions.Close;
     } else if (key === Keys.Enter) {
         return MenuActions.CloseSelect;
+    } else if (key === Keys.Space) {
+        return MenuActions.Space;
     } else if (key === Keys.Backspace || key === Keys.Clear || key.length === 1) {
         return MenuActions.Type;
     }
@@ -136,6 +138,10 @@ const MultiselectButtons = function (selectEl, params) {
         this.selectedEl = ul;
     }
 
+    // hide the original label and create a new one for the new combobox
+    const selectLabel = document.querySelector(`label[for=${selectEl.id}]`);
+    selectLabel.hidden = true;
+
     const div = document.createElement('div');
     div.classList.add('combo');
     div.id = `${selectEl.id}-js-multi-buttons`;
@@ -150,13 +156,19 @@ const MultiselectButtons = function (selectEl, params) {
     const input = document.createElement('input');
     input.setAttribute('aria-activedescendant', '');
     input.setAttribute('aria-autocomplete', 'list');
-    input.setAttribute('aria-labelledby', baseId + '-label ' + baseId + '-selected');
     input.setAttribute('aria-controls', baseId + '-listbox');
     input.id = baseId + "-input";
     input.classList.add('combo-input');
     input.setAttribute('autocomplete', 'off');
     input.setAttribute('type', 'text');
     divComboBox.appendChild(input);
+
+    const spanLabel = document.createElement('span');
+    spanLabel.classList.add('faux-label');
+    spanLabel.innerText = selectLabel.innerText;
+    const labelComboBox = document.createElement('label');
+    labelComboBox.setAttribute('for', input.id);
+    labelComboBox.appendChild(spanLabel);
 
     const ulCombo = document.createElement('ul');
     ulCombo.setAttribute('role', 'listbox');
@@ -167,6 +179,7 @@ const MultiselectButtons = function (selectEl, params) {
 
     div.appendChild(divComboBox);
     div.appendChild(ulCombo);
+    selectEl.parentNode.appendChild(labelComboBox);
     selectEl.parentNode.appendChild(div);
 
     // element refs
@@ -189,7 +202,6 @@ const MultiselectButtons = function (selectEl, params) {
     this.morePages = false;
     this.ajaxResultCount;
 
-
     // state
     this.activeIndex = 0;
     this.open = false;
@@ -203,13 +215,12 @@ const MultiselectButtons = function (selectEl, params) {
             buttonEl.className = 'remove-option';
             buttonEl.type = 'button';
             buttonEl.id = `${this.idBase}-remove-${index}`;
-            buttonEl.setAttribute('aria-describedby', `${this.idBase}-remove`);
             buttonEl.dataset.value = option.value;
             buttonEl.addEventListener('click', () => {
                 this.removeOption(option);
             });
 
-            buttonEl.innerHTML = option.text + ' ';
+            buttonEl.innerHTML = `<span class="visuallyhidden">Remove </span>${option.text} `;
 
             listItem.appendChild(buttonEl);
             this.selectedEl.appendChild(listItem);
@@ -377,10 +388,10 @@ MultiselectButtons.prototype.onInput = async function () {
             this.filterOptions(curValue);
 
         // if active option is not in filtered options, set it to first filtered option
-        if (this.filteredOptions.indexOf(this.options[this.activeIndex]) < 0) {
-            const firstFilteredIndex = this.options.indexOf(this.filteredOptions[0]);
-            this.onOptionChange(firstFilteredIndex);
-        }
+        // if (this.filteredOptions.indexOf(this.options[this.activeIndex]) < 0) {
+        //     const firstFilteredIndex = this.options.indexOf(this.filteredOptions[0]);
+        //     this.onOptionChange(firstFilteredIndex);
+        // }
 
         const menuState = this.filteredOptions.length > 0 || showHint;
         if (this.open !== menuState) {
@@ -398,7 +409,6 @@ MultiselectButtons.prototype.onInputKeyDown = function (event) {
     const activeFilteredIndex = this.filteredOptions.indexOf(this.options[this.activeIndex]);
 
     const action = getActionFromKey(key, this.open);
-
     switch (action) {
         case MenuActions.Next:
         case MenuActions.Last:
@@ -407,7 +417,12 @@ MultiselectButtons.prototype.onInputKeyDown = function (event) {
             event.preventDefault();
             const nextFilteredIndex = getUpdatedIndex(activeFilteredIndex, max, action);
             const nextRealIndex = this.options.indexOf(this.filteredOptions[nextFilteredIndex]);
-            return this.onOptionChange(nextRealIndex);
+         case MenuActions.Space:
+            if (this.activeIndex) {
+                event.preventDefault();
+                return this.onOptionClick(this.activeIndex);
+            }
+            return;
         case MenuActions.CloseSelect:
             event.preventDefault();
             return this.onOptionClick(this.activeIndex);
@@ -416,7 +431,6 @@ MultiselectButtons.prototype.onInputKeyDown = function (event) {
             return this.updateMenuState(false);
         case MenuActions.Open:
             return this.updateMenuState(true);
-
     }
 }
 
@@ -454,7 +468,6 @@ MultiselectButtons.prototype.onOptionChange = function (index) {
     [...options].forEach((optionEl) => {
         optionEl.classList.remove('option-current');
     });
-    
     if (currentOptions) {
         currentOptions.classList.add('option-current');
 
@@ -518,12 +531,11 @@ MultiselectButtons.prototype.selectOption = function (option) {
     buttonEl.className = 'remove-option';
     buttonEl.type = 'button';
     buttonEl.id = `${this.idBase}-remove-${index}`;
-    buttonEl.setAttribute('aria-describedby', `${this.idBase}-remove`);
     buttonEl.dataset.value = selected.value;
     buttonEl.addEventListener('click', () => {
         this.removeOption(option);
     });
-    buttonEl.innerHTML = selected.text + ' ';
+    buttonEl.innerHTML = `<span class="visuallyhidden">Remove </span> ${selected.text} `;
 
     listItem.appendChild(buttonEl);
     if (this.select.multiple) {
