@@ -417,7 +417,8 @@ MultiselectButtons.prototype.onInputKeyDown = function (event) {
             event.preventDefault();
             const nextFilteredIndex = getUpdatedIndex(activeFilteredIndex, max, action);
             const nextRealIndex = this.options.indexOf(this.filteredOptions[nextFilteredIndex]);
-         case MenuActions.Space:
+            return this.onOptionChange(nextRealIndex);
+        case MenuActions.Space:
             if (this.activeIndex) {
                 event.preventDefault();
                 return this.onOptionClick(this.activeIndex);
