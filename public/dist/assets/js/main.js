@@ -632,13 +632,13 @@ var navigation = function navigation() {
 
   if (exists(parentLinks)) {
     parentLinks.forEach(function (item) {
-      var clonedLink = item.cloneNode(true);
+      // let clonedLink = item.cloneNode(true);
       var linkText = item.textContent + '&nbsp;';
       var toggleButton = document.createElement('button');
       var backButton = document.createElement('button');
       var fragment = document.createDocumentFragment();
       var subNav = item.parentNode.querySelector('.nav__submenu__intro');
-      var submenuFirstChild = subNav.querySelector('.nav__submenu__intro__text');
+      var submenuFirstChild = subNav.querySelector('.nav__submenu__intro__heading');
       toggleButton.setAttribute('type', 'button');
       toggleButton.setAttribute('aria-expanded', 'false');
       toggleButton.setAttribute('data-trigger', 'subnav');
@@ -647,8 +647,8 @@ var navigation = function navigation() {
       backButton.setAttribute('class', 'button button--ghost u-full-width with-icon--before with-icon--larger');
       backButton.setAttribute('data-trigger', 'mobile-back');
       backButton.innerHTML = '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><path class="angle-left" d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"/><path class="angle-right" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg>' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('backToMainMenu', languageCode);
-      fragment.appendChild(backButton);
-      fragment.appendChild(clonedLink);
+      fragment.appendChild(backButton); // fragment.appendChild(clonedLink);
+
       subNav.insertBefore(fragment, submenuFirstChild);
       item.parentNode.replaceChild(toggleButton, item);
     });

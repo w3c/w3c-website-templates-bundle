@@ -86,6 +86,8 @@ function getActionFromKey(key, menuOpen) {
     return MenuActions.Close;
   } else if (key === Keys.Enter) {
     return MenuActions.CloseSelect;
+  } else if (key === Keys.Space) {
+    return MenuActions.Space;
   } else if (key === Keys.Backspace || key === Keys.Clear || key.length === 1) {
     return MenuActions.Type;
   }
@@ -167,8 +169,11 @@ var MultiselectButtons = function MultiselectButtons(selectEl, params) {
     ul.classList.add('selected-options');
     selectEl.parentNode.appendChild(ul);
     this.selectedEl = ul;
-  }
+  } // hide the original label and create a new one for the new combobox
 
+
+  var selectLabel = document.querySelector("label[for=".concat(selectEl.id, "]"));
+  selectLabel.hidden = true;
   var div = document.createElement('div');
   div.classList.add('combo');
   div.id = "".concat(selectEl.id, "-js-multi-buttons");
@@ -181,13 +186,18 @@ var MultiselectButtons = function MultiselectButtons(selectEl, params) {
   var input = document.createElement('input');
   input.setAttribute('aria-activedescendant', '');
   input.setAttribute('aria-autocomplete', 'list');
-  input.setAttribute('aria-labelledby', baseId + '-label ' + baseId + '-selected');
   input.setAttribute('aria-controls', baseId + '-listbox');
   input.id = baseId + "-input";
   input.classList.add('combo-input');
   input.setAttribute('autocomplete', 'off');
   input.setAttribute('type', 'text');
   divComboBox.appendChild(input);
+  var spanLabel = document.createElement('span');
+  spanLabel.classList.add('faux-label');
+  spanLabel.innerText = selectLabel.innerText;
+  var labelComboBox = document.createElement('label');
+  labelComboBox.setAttribute('for', input.id);
+  labelComboBox.appendChild(spanLabel);
   var ulCombo = document.createElement('ul');
   ulCombo.setAttribute('role', 'listbox');
   ulCombo.setAttribute('aria-multiselectable', 'true');
@@ -196,6 +206,7 @@ var MultiselectButtons = function MultiselectButtons(selectEl, params) {
   ulCombo.classList.add('combo-menu');
   div.appendChild(divComboBox);
   div.appendChild(ulCombo);
+  selectEl.parentNode.appendChild(labelComboBox);
   selectEl.parentNode.appendChild(div); // element refs
 
   this.select = selectEl;
@@ -229,12 +240,11 @@ var MultiselectButtons = function MultiselectButtons(selectEl, params) {
       buttonEl.className = 'remove-option';
       buttonEl.type = 'button';
       buttonEl.id = "".concat(_this.idBase, "-remove-").concat(index);
-      buttonEl.setAttribute('aria-describedby', "".concat(_this.idBase, "-remove"));
       buttonEl.dataset.value = option.value;
       buttonEl.addEventListener('click', function () {
         _this.removeOption(option);
       });
-      buttonEl.innerHTML = option.text + ' ';
+      buttonEl.innerHTML = "<span class=\"visuallyhidden\">Remove </span>".concat(option.text, " ");
       listItem.appendChild(buttonEl);
 
       _this.selectedEl.appendChild(listItem);
@@ -466,7 +476,7 @@ MultiselectButtons.prototype.updateResults = /*#__PURE__*/_asyncToGenerator( /*#
   }, _callee4, this);
 }));
 MultiselectButtons.prototype.onInput = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
-  var curValue, showHint, hint, _hint, firstFilteredIndex, menuState;
+  var curValue, showHint, hint, _hint, menuState;
 
   return regeneratorRuntime.wrap(function _callee5$(_context5) {
     while (1) {
@@ -478,7 +488,7 @@ MultiselectButtons.prototype.onInput = /*#__PURE__*/_asyncToGenerator( /*#__PURE
           this.page = 1; // reset pagination
 
           if (!curValue) {
-            _context5.next = 27;
+            _context5.next = 26;
             break;
           }
 
@@ -517,11 +527,10 @@ MultiselectButtons.prototype.onInput = /*#__PURE__*/_asyncToGenerator( /*#__PURE
 
         case 21:
           if (!this.source || this.source && curValue.length >= this.minInput) this.filterOptions(curValue); // if active option is not in filtered options, set it to first filtered option
-
-          if (this.filteredOptions.indexOf(this.options[this.activeIndex]) < 0) {
-            firstFilteredIndex = this.options.indexOf(this.filteredOptions[0]);
-            this.onOptionChange(firstFilteredIndex);
-          }
+          // if (this.filteredOptions.indexOf(this.options[this.activeIndex]) < 0) {
+          //     const firstFilteredIndex = this.options.indexOf(this.filteredOptions[0]);
+          //     this.onOptionChange(firstFilteredIndex);
+          // }
 
           menuState = this.filteredOptions.length > 0 || showHint;
 
@@ -529,13 +538,13 @@ MultiselectButtons.prototype.onInput = /*#__PURE__*/_asyncToGenerator( /*#__PURE
             this.updateMenuState(menuState);
           }
 
-          _context5.next = 28;
+          _context5.next = 27;
           break;
 
-        case 27:
+        case 26:
           this.clearOptions();
 
-        case 28:
+        case 27:
         case "end":
           return _context5.stop();
       }
@@ -558,6 +567,14 @@ MultiselectButtons.prototype.onInputKeyDown = function (event) {
       var nextFilteredIndex = getUpdatedIndex(activeFilteredIndex, max, action);
       var nextRealIndex = this.options.indexOf(this.filteredOptions[nextFilteredIndex]);
       return this.onOptionChange(nextRealIndex);
+
+    case MenuActions.Space:
+      if (this.activeIndex) {
+        event.preventDefault();
+        return this.onOptionClick(this.activeIndex);
+      }
+
+      return;
 
     case MenuActions.CloseSelect:
       event.preventDefault();
@@ -672,12 +689,11 @@ MultiselectButtons.prototype.selectOption = function (option) {
   buttonEl.className = 'remove-option';
   buttonEl.type = 'button';
   buttonEl.id = "".concat(this.idBase, "-remove-").concat(index);
-  buttonEl.setAttribute('aria-describedby', "".concat(this.idBase, "-remove"));
   buttonEl.dataset.value = selected.value;
   buttonEl.addEventListener('click', function () {
     _this5.removeOption(option);
   });
-  buttonEl.innerHTML = selected.text + ' ';
+  buttonEl.innerHTML = "<span class=\"visuallyhidden\">Remove </span> ".concat(selected.text, " ");
   listItem.appendChild(buttonEl);
 
   if (this.select.multiple) {
