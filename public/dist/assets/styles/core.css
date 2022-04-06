@@ -1301,12 +1301,6 @@ Progress bar
  * Make sure that the siblings of hidden components do not cause the hidden
  * component to take up any vertical space.
  */
-[hidden] + *,
-.hidden + *,
-.visuallyhidden + *,
-.skip-link + * {
-  margin-top: 0 !important; }
-
 br {
   margin-top: 0; }
 
