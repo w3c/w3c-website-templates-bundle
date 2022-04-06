@@ -267,7 +267,8 @@ br {
   position: absolute;
   right: 5vw;
   top: 100%;
-  width: 15.625rem;
+  max-width: calc(100% - 5vw);
+  min-width: 15.625rem;
   z-index: 10; }
 
 [dir="rtl"] .account-menu {
