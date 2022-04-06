@@ -15,13 +15,13 @@
                     <div class="nav__submenu" style="display: none;">
                         <div class="l-center">
                             <div class="nav__submenu__intro">
+                                <h2 class="nav__submenu__intro__heading">{{ navItem.title }}</h2>
                                 <div class="nav__submenu__intro__text">
                                     {% if navItem.introText is defined and navItem.introText %}
                                         <p>{{ navItem.introText }}</p>
                                     {% endif %}
                                     {% for introLink in navItem.introLinks %}
-                                        <a href="{{ introLink.url }}" aria-hidden="true"
-                                           tabindex="-1">{{ introLink.title }}</a>
+                                        <a href="{{ introLink.url }}">{{ introLink.title }}</a>
                                     {% endfor %}
                                 </div>
                             </div>

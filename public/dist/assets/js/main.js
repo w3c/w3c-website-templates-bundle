@@ -19,6 +19,7 @@ var translate = {
       'backToMainMenu': '__backToMainMenu',
       'cancelReply': '__cancelReply',
       'controlsDescription': '__controlsDescription',
+      'logged-in': '__logged-in',
       'logout': '__logout',
       'member-site': '__member-site',
       'menu': '__menu',
@@ -35,6 +36,7 @@ var translate = {
       'backToMainMenu': '__backToMainMenu',
       'cancelReply': '__cancelReply',
       'controlsDescription': '__controlsDescription',
+      'logged-in': '__logged-in',
       'logout': '__logout',
       'member-site': '__member-site',
       'menu': '__menu',
@@ -51,6 +53,7 @@ var translate = {
       'backToMainMenu': 'Back to main menu',
       'cancelReply': 'Cancel reply',
       'controlsDescription': 'carousel controls',
+      'logged-in': 'logged in',
       'logout': 'Logout',
       'member-site': 'Member site',
       'menu': 'Menu',
@@ -67,6 +70,7 @@ var translate = {
       'backToMainMenu': '__backToMainMenu',
       'cancelReply': '__cancelReply',
       'controlsDescription': '__controlsDescription',
+      'logged-in': '__logged-in',
       'logout': '__logout',
       'member-site': '__member-site',
       'menu': '__menu',
@@ -83,6 +87,7 @@ var translate = {
       'backToMainMenu': '__backToMainMenu',
       'cancelReply': '__cancelReply',
       'controlsDescription': '__controlsDescription',
+      'logged-in': '__logged-in',
       'logout': '__logout',
       'member-site': '__member-site',
       'menu': '__menu',
@@ -99,6 +104,7 @@ var translate = {
       'backToMainMenu': '__backToMainMenu',
       'cancelReply': '__cancelReply',
       'controlsDescription': '__controlsDescription',
+      'logged-in': '__logged-in',
       'logout': '__logout',
       'member-site': '__member-site',
       'menu': '__menu',
@@ -115,6 +121,7 @@ var translate = {
       'backToMainMenu': '__backToMainMenu',
       'cancelReply': '__cancelReply',
       'controlsDescription': '__controlsDescription',
+      'logged-in': '__logged-in',
       'logout': '__logout',
       'member-site': '__member-site',
       'menu': '__menu',
@@ -131,6 +138,7 @@ var translate = {
       'backToMainMenu': '__backToMainMenu',
       'cancelReply': '__cancelReply',
       'controlsDescription': '__controlsDescription',
+      'logged-in': '__logged-in',
       'logout': '__logout',
       'member-site': '__member-site',
       'menu': '__menu',
@@ -147,6 +155,7 @@ var translate = {
       'backToMainMenu': '__backToMainMenu',
       'cancelReply': '__cancelReply',
       'controlsDescription': '__controlsDescription',
+      'logged-in': '__logged-in',
       'logout': '__logout',
       'member-site': '__member-site',
       'menu': '__menu',
@@ -251,7 +260,7 @@ var accountMenu = function accountMenu() {
     toggleButton.setAttribute('class', 'button button--ghost with-icon--larger');
     toggleButton.setAttribute('data-trigger', 'account-menu');
     toggleButton.setAttribute('aria-expanded', 'false');
-    toggleButton.innerHTML = '<span class="sr-only">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('my-account', languageCode) + ' </span><div class="avatar avatar--small icon"><img alt="" src="' + userInfo.avatar.small + '"/></div>'; // Media query event handler
+    toggleButton.innerHTML = '<span class="sr-only">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('my-account', languageCode) + ' <span class="visuallyhidden">(' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('logged-in', languageCode) + ')</span></span><div class="avatar avatar--small icon"><img alt="" src="' + userInfo.avatar.small + '"/></div>'; // Media query event handler
 
     var mq = window.matchMedia('(min-width: 71.25em)');
     mq.addListener(insertAccountBtn);
@@ -329,29 +338,7 @@ var accountMenu = function accountMenu() {
       }
     };
 
-    userInfoRequest.send(); // // I18N
-    // if (document.documentElement.lang === 'ja') {
-    // 	accountLink.innerHTML = '<a href="page.html" hreflang="ja">マイアカウント</a>';
-    // 	if (profile.messages === true) {
-    // 		statusText = '未読メッセージがあります';
-    // 	} else {
-    // 		statusText = '未読メッセージはありません';
-    // 	}
-    // } else if (document.documentElement.lang === 'zh-hans') {
-    // 	accountLink.innerHTML = '<a href="page.html" hreflang="zh-hans">我的帐户</a>';
-    // 	if (profile.messages === true) {
-    // 		statusText = '您有未读消息';
-    // 	} else {
-    // 		statusText = '您没有未读邮件';
-    // 	}
-    // } else {
-    // 	accountLink.innerHTML = '<a href="page.html">My account</a>';
-    // 	if (profile.messages === true) {
-    // 		statusText = 'You have unread messages';
-    // 	} else {
-    // 		statusText = 'You have no unread messages';
-    // 	}
-    // }
+    userInfoRequest.send();
   }
 };
 
