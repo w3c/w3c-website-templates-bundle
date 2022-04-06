@@ -2381,6 +2381,7 @@ so that either of these properties is applied instead.
   .global-nav__inner .top-nav-item > *:first-child {
     font-size: 1rem;
     height: 100%;
+    line-height: 1.6875rem;
     padding: 0.625rem 0.3125rem 0.4375rem !important;
     position: relative;
     white-space: nowrap; }
