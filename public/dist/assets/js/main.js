@@ -19,6 +19,7 @@ var translate = {
       'backToMainMenu': '__backToMainMenu',
       'cancelReply': '__cancelReply',
       'controlsDescription': '__controlsDescription',
+      'logged-in': '__logged-in',
       'logout': '__logout',
       'member-site': '__member-site',
       'menu': '__menu',
@@ -35,6 +36,7 @@ var translate = {
       'backToMainMenu': '__backToMainMenu',
       'cancelReply': '__cancelReply',
       'controlsDescription': '__controlsDescription',
+      'logged-in': '__logged-in',
       'logout': '__logout',
       'member-site': '__member-site',
       'menu': '__menu',
@@ -51,6 +53,7 @@ var translate = {
       'backToMainMenu': 'Back to main menu',
       'cancelReply': 'Cancel reply',
       'controlsDescription': 'carousel controls',
+      'logged-in': 'logged in',
       'logout': 'Logout',
       'member-site': 'Member site',
       'menu': 'Menu',
@@ -67,6 +70,7 @@ var translate = {
       'backToMainMenu': '__backToMainMenu',
       'cancelReply': '__cancelReply',
       'controlsDescription': '__controlsDescription',
+      'logged-in': '__logged-in',
       'logout': '__logout',
       'member-site': '__member-site',
       'menu': '__menu',
@@ -83,6 +87,7 @@ var translate = {
       'backToMainMenu': '__backToMainMenu',
       'cancelReply': '__cancelReply',
       'controlsDescription': '__controlsDescription',
+      'logged-in': '__logged-in',
       'logout': '__logout',
       'member-site': '__member-site',
       'menu': '__menu',
@@ -99,6 +104,7 @@ var translate = {
       'backToMainMenu': '__backToMainMenu',
       'cancelReply': '__cancelReply',
       'controlsDescription': '__controlsDescription',
+      'logged-in': '__logged-in',
       'logout': '__logout',
       'member-site': '__member-site',
       'menu': '__menu',
@@ -115,6 +121,7 @@ var translate = {
       'backToMainMenu': '__backToMainMenu',
       'cancelReply': '__cancelReply',
       'controlsDescription': '__controlsDescription',
+      'logged-in': '__logged-in',
       'logout': '__logout',
       'member-site': '__member-site',
       'menu': '__menu',
@@ -131,6 +138,7 @@ var translate = {
       'backToMainMenu': '__backToMainMenu',
       'cancelReply': '__cancelReply',
       'controlsDescription': '__controlsDescription',
+      'logged-in': '__logged-in',
       'logout': '__logout',
       'member-site': '__member-site',
       'menu': '__menu',
@@ -147,6 +155,7 @@ var translate = {
       'backToMainMenu': '__backToMainMenu',
       'cancelReply': '__cancelReply',
       'controlsDescription': '__controlsDescription',
+      'logged-in': '__logged-in',
       'logout': '__logout',
       'member-site': '__member-site',
       'menu': '__menu',
@@ -251,7 +260,7 @@ var accountMenu = function accountMenu() {
     toggleButton.setAttribute('class', 'button button--ghost with-icon--larger');
     toggleButton.setAttribute('data-trigger', 'account-menu');
     toggleButton.setAttribute('aria-expanded', 'false');
-    toggleButton.innerHTML = '<span class="sr-only">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('my-account', languageCode) + ' </span><div class="avatar avatar--small icon"><img alt="" src="' + userInfo.avatar.small + '"/></div>'; // Media query event handler
+    toggleButton.innerHTML = '<span class="sr-only">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('my-account', languageCode) + ' <span class="visuallyhidden">(' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('logged-in', languageCode) + ')</span></span><div class="avatar avatar--small icon"><img alt="" src="' + userInfo.avatar.small + '"/></div>'; // Media query event handler
 
     var mq = window.matchMedia('(min-width: 71.25em)');
     mq.addListener(insertAccountBtn);
@@ -329,29 +338,7 @@ var accountMenu = function accountMenu() {
       }
     };
 
-    userInfoRequest.send(); // // I18N
-    // if (document.documentElement.lang === 'ja') {
-    // 	accountLink.innerHTML = '<a href="page.html" hreflang="ja">マイアカウント</a>';
-    // 	if (profile.messages === true) {
-    // 		statusText = '未読メッセージがあります';
-    // 	} else {
-    // 		statusText = '未読メッセージはありません';
-    // 	}
-    // } else if (document.documentElement.lang === 'zh-hans') {
-    // 	accountLink.innerHTML = '<a href="page.html" hreflang="zh-hans">我的帐户</a>';
-    // 	if (profile.messages === true) {
-    // 		statusText = '您有未读消息';
-    // 	} else {
-    // 		statusText = '您没有未读邮件';
-    // 	}
-    // } else {
-    // 	accountLink.innerHTML = '<a href="page.html">My account</a>';
-    // 	if (profile.messages === true) {
-    // 		statusText = 'You have unread messages';
-    // 	} else {
-    // 		statusText = 'You have no unread messages';
-    // 	}
-    // }
+    userInfoRequest.send();
   }
 };
 
@@ -632,13 +619,13 @@ var navigation = function navigation() {
 
   if (exists(parentLinks)) {
     parentLinks.forEach(function (item) {
-      var clonedLink = item.cloneNode(true);
+      // let clonedLink = item.cloneNode(true);
       var linkText = item.textContent + '&nbsp;';
       var toggleButton = document.createElement('button');
       var backButton = document.createElement('button');
       var fragment = document.createDocumentFragment();
       var subNav = item.parentNode.querySelector('.nav__submenu__intro');
-      var submenuFirstChild = subNav.querySelector('.nav__submenu__intro__text');
+      var submenuFirstChild = subNav.querySelector('.nav__submenu__intro__heading');
       toggleButton.setAttribute('type', 'button');
       toggleButton.setAttribute('aria-expanded', 'false');
       toggleButton.setAttribute('data-trigger', 'subnav');
@@ -647,8 +634,8 @@ var navigation = function navigation() {
       backButton.setAttribute('class', 'button button--ghost u-full-width with-icon--before with-icon--larger');
       backButton.setAttribute('data-trigger', 'mobile-back');
       backButton.innerHTML = '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><path class="angle-left" d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"/><path class="angle-right" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg>' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('backToMainMenu', languageCode);
-      fragment.appendChild(backButton);
-      fragment.appendChild(clonedLink);
+      fragment.appendChild(backButton); // fragment.appendChild(clonedLink);
+
       subNav.insertBefore(fragment, submenuFirstChild);
       item.parentNode.replaceChild(toggleButton, item);
     });
