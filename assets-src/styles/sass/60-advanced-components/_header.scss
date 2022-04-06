@@ -135,7 +135,8 @@
 	position: absolute;
 	right: 5vw;
 	top: 100%;
-	width: rem(250);
+	max-width: calc(100% - 10vw);
+	min-width: rem(250);
 	z-index: 10;
 
 }
