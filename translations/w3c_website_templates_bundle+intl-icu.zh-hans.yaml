@@ -183,7 +183,7 @@ notes:
     warnings:
         default_title: 警示 (TODO: Warning)
     errors:
-        default_title: 出现了一些问题  #TODO: There is a problem
+        default_title: 出现了一些问题
 events:
     # same_day = 1 when start_date == end_date
     date_range: >-
