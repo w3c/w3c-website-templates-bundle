@@ -181,7 +181,7 @@ notes:
     successes:
         default_title: 成功
     warnings:
-        default_title: 警示 (TODO: Warning)
+        default_title: 警示
     errors:
         default_title: 出现了一些问题
 events:
