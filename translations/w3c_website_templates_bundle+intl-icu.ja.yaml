@@ -2,6 +2,10 @@ page:
     lang:
         dir: ltr
         options: __page.lang.options
+        targetname:
+            en: __page.lang.targetname.en
+            ja: __page.lang.targetname.ja
+            zh-hans: __page.lang.targetname.zh-hans
     default_title: __page.default_title
     default_description: >-
         __page.default_description

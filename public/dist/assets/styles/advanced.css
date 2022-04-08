@@ -177,11 +177,6 @@ article {
  * Make sure that the siblings of hidden components do not cause the hidden
  * component to take up any vertical space.
  */
-[hidden] + *,
-.hidden + *,
-.visuallyhidden + * {
-  margin-top: 0 !important; }
-
 br {
   margin-top: 0; }
 
@@ -272,7 +267,8 @@ br {
   position: absolute;
   right: 5vw;
   top: 100%;
-  width: 15.625rem;
+  max-width: calc(100% - 5vw);
+  min-width: 15.625rem;
   z-index: 10; }
 
 [dir="rtl"] .account-menu {
@@ -462,27 +458,16 @@ br {
   .global-nav__inner .nav__submenu__intro {
     width: 30%; } }
 
-.global-nav__inner .nav__submenu__intro > a {
+.global-nav__inner .nav__submenu__intro > h2 {
   font-size: 1.25rem;
   line-height: calc(32 / 20);
   color: #111;
   font-weight: 600;
   margin-top: 1.5625rem;
   padding-bottom: 0.375rem;
-  padding-top: 0.375rem;
-  text-decoration: underline;
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em; }
-  .global-nav__inner .nav__submenu__intro > a:hover {
-    color: #024488; }
-  .global-nav__inner .nav__submenu__intro > a:focus {
-    background-color: #f9dc4a;
-    background-image: linear-gradient(to top, #000 3px, #f9dc4a 3px, #f9dc4a);
-    color: #000;
-    text-decoration: none; }
+  padding-top: 0.375rem; }
   @media screen and (min-width: 70em) {
-    .global-nav__inner .nav__submenu__intro > a {
+    .global-nav__inner .nav__submenu__intro > h2 {
       font-size: 2.125rem;
       line-height: calc(43 / 34);
       margin-bottom: 1.5625rem;
@@ -490,17 +475,24 @@ br {
 
 .global-nav__inner .nav__submenu__intro__text {
   font-size: 1.125rem;
-  line-height: calc(27 / 18);
-  display: none; }
-  @media screen and (min-width: 70em) {
-    .global-nav__inner .nav__submenu__intro__text {
-      display: block; } }
+  line-height: calc(27 / 18); }
+  .global-nav__inner .nav__submenu__intro__text *:not(a) {
+    display: none; }
+    @media screen and (min-width: 70em) {
+      .global-nav__inner .nav__submenu__intro__text *:not(a) {
+        display: block; } }
   .global-nav__inner .nav__submenu__intro__text > a {
     color: #005797;
     display: inline-block;
-    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 0;
     padding-bottom: 0.5625rem;
-    padding-top: 0.5625rem; }
+    padding-top: 0; }
+    @media screen and (min-width: 70em) {
+      .global-nav__inner .nav__submenu__intro__text > a {
+        margin-bottom: 0;
+        margin-top: 1rem;
+        padding-top: 0.5625rem; } }
     .global-nav__inner .nav__submenu__intro__text > a:hover {
       color: #024488; }
     .global-nav__inner .nav__submenu__intro__text > a:focus {

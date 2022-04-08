@@ -15,20 +15,20 @@
                     <div class="nav__submenu" style="display: none;">
                         <div class="l-center">
                             <div class="nav__submenu__intro">
+                                <h2 class="nav__submenu__intro__heading">{{ navItem.title }}</h2>
                                 <div class="nav__submenu__intro__text">
                                     {% if navItem.introText is defined and navItem.introText %}
                                         <p>{{ navItem.introText }}</p>
                                     {% endif %}
                                     {% for introLink in navItem.introLinks %}
-                                        <a href="{{ introLink.url }}" aria-hidden="true"
-                                           tabindex="-1">{{ introLink.title }}</a>
+                                        <a href="{{ introLink.url }}">{{ introLink.title }}</a>
                                     {% endfor %}
                                 </div>
                             </div>
                             {% if navItem.children is defined and navItem.children|length > 0 %}
                                 <ul class="clean-list" role="list">
                                     {% for child in navItem.children %}
-                                        <li>
+                                        <li {{ child.startNewColumn is defined and child.startNewColumn ? 'class="break-after"' : '' }}>
                                             <a class="with-icon--before with-icon--larger" href="{{ child.url }}">
                                                 <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
                                                     <path class="chevron-left" d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"/>

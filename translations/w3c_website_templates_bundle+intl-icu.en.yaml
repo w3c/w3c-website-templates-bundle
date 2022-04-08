@@ -2,6 +2,10 @@ page:
     lang:
         dir: ltr
         options: Language options
+        targetname:
+            en: English website
+            ja: Japanese website
+            zh-hans: Chinese website
     default_title: World Wide Web Consortium (W3C)
     default_description: >-
         The World Wide Web Consortium (W3C) is an international community where Member organizations, a full-time staff,
@@ -142,7 +146,7 @@ components:
             ecosystem: Ecosystem
             ecosystems: Ecosystems
             event: Event
-            events: Event
+            events: Events
             news: News
             pressrelease: Press release
             pressreleases: Press releases
