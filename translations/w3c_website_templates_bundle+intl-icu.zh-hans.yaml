@@ -196,7 +196,7 @@ events:
     date: 日期
     location: 地点
     speakers: 发言人
-    host: 主办方 # TODO: host?
+    host: 主办方
     category: 分类
     website: 网站
 alumni:
