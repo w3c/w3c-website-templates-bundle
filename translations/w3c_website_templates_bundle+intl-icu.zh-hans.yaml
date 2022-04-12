@@ -189,7 +189,7 @@ events:
     date_range: >-
         {same_day, select,
             1  {{start_date}, {start_time} - {end_time} <b>{timezone}</b>}
-            其它 {{start_date}, {start_time} - {end_date}, {end_time} <b>{timezone}</b>}
+            other {{start_date}, {start_time} - {end_date}, {end_time} <b>{timezone}</b>}
         }
     add_to_calendar: 添加到日历
     event_details: 事件详情
