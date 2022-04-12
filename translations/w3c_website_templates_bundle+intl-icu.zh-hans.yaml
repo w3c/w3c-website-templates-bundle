@@ -59,7 +59,7 @@ breadcrumbs:
     home: 主页
 pagination:
     first: 首页
-    previous: 上一<span class="visuallyhidden">页</span>  (TODO visuallyhidden?)
+    previous: 上一页
     next: 下一<span class="visuallyhidden">页</span>  (TODO visuallyhidden?)
     last: 尾页
     page: "第{page}<span class=\"visuallyhidden\">页</span>" (TODO visuallyhidden?)
