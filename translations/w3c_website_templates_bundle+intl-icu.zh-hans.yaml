@@ -157,7 +157,7 @@ post:
         published: >
             出版:
         skiplink: 跳至第{count}条评论
-    notes_heading: 注释说明 (TODO: Notes在这里啥意思？)
+    notes_heading: 注释说明
     related:
         heading: 相关内容
         heading_tags: 标签
