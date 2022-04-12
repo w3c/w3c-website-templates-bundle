@@ -14,7 +14,7 @@ page:
         切换语言：
     translationsarialabel: 翻译
     toc: 页面内容跳转至链接
-    related_content: 在这个部分 (TODO)
+    related_content: 相关内容
 footer:
     copyright: >-
         Copyright © {date, date, ::y} W3C <sup>®</sup> (<a href="https://www.csail.mit.edu/" hreflang="en"><abbr
