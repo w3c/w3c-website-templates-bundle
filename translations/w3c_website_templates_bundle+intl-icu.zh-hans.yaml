@@ -22,12 +22,12 @@ footer:
         href="https://www.ercim.eu/" hreflang="en"><abbr
         title="欧洲信息学和数学研究联合会">ERCIM</abbr></a>,
         <a href="https://www.keio.ac.jp/">庆应义塾大学 Keio</a>, <a href="https://ev.buaa.edu.cn/">北京航空航天大学 Beihang</a>) <a
-        href="/Consortium/Legal/ipr-notice">使用章程适用</a>.
+        href="/Consortium/Legal/ipr-notice">使用章程适用</a>。
     links:
         hreflang: zh-hans
         home: 主页
         homeurl: /zh-hans/
-        contact: 联系人
+        contact: 联系方式
         contacturl: /zh-hans/contact/
         help: 帮助
         helpurl: /zh-hans/help/
@@ -153,9 +153,9 @@ post:
     meta:
         credit: >
             由:
-        credit_title: 作者及出版日期
+        credit_title: 作者及发布日期
         published: >
-            出版:
+            发布:
         skiplink: 跳至第{count}条评论
     notes_heading: 注释说明
     related:
@@ -231,9 +231,9 @@ error:
     404:
         title: 页面丢失
         message: >-
-          <p>很抱歉，您试图访问的页面不存在。您可以参考下面的步骤来查找的页面：</p>
+          <p>很抱歉，您试图访问的页面不存在。您可以参考下面的步骤来查找页面：</p>
           <ul>
-          <li>如果您是手动输入的 UBL 网址,请确认网址是否正确。</li>
+          <li>如果您是手动输入的 URL 网址，请确认网址是否正确。</li>
           <li>如果您在寻找某一特定主题的信息，请在<a href="https://www.w3.org/">W3C 主页</a>检索。</li>
           <li>请尝试用本页面顶部的搜索图标来搜索网站。</li>
           </ul>
