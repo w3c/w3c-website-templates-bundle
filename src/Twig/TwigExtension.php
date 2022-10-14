@@ -113,7 +113,7 @@ class TwigExtension extends AbstractExtension
      *
      * @return string
      */
-    public function avatar(string $email, string $size = null): string
+    public function avatar(string $email, string $size = 'sm'): string
     {
 
         $url = 'https://www.w3.org/avatars/' . md5($email);
