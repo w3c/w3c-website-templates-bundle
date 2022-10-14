@@ -30,12 +30,12 @@
                             </div>
                         {% endblock %}
                         {% block phone %}
-                            {% if user.preferredPhone %}
+                            {% if user.phone %}
                                 <div>
-                                    <a href="tel:{{ user.preferredPhone }}" class="with-icon--before">
+                                    <a href="tel:{{ user.phone }}" class="with-icon--before">
                                         <img class="icon" src="{{ asset('svg/phone.svg', 'website-2021') }}"
                                              width="20" height="20" alt aria-hidden="true"/>
-                                        {{ user.preferredPhone }}
+                                        {{ user.phone }}
                                     </a>
                                 </div>
                             {% endif %}
