@@ -16,13 +16,12 @@ img {
 	border-radius: 50%;
 	height: rem(100);
 	overflow: hidden;
-	position: relative;
 	width: rem(100);
 
 	img {
 
-		height: auto;
-		margin-top: rem(-10);
+		height: 100%;
+		object-fit: cover;
 		width: 100%;
 
 	}
