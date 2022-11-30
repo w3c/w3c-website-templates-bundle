@@ -128,3 +128,46 @@
 	}
 
 }
+
+.card--user {
+
+	padding-bottom: rem(30);
+	padding-top: rem(40);
+
+	.sidebar {
+
+		flex-basis: auto;
+		order: -1;
+
+		img {
+
+			width: rem(100);
+
+		}
+
+	}
+
+	.not-sidebar {
+
+		min-width: calc(70% - 1.5rem);
+
+	}
+
+	.not-sidebar > div {
+
+		max-width: rem($text-measure);
+
+		> * + * {
+
+			margin-top: rem(20);
+
+		}
+
+	}
+
+	dl.grid {
+
+		grid-template-columns: max-content;
+
+	}
+}
