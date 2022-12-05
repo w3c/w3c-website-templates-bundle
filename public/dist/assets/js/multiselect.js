@@ -10,22 +10,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var babel_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(19);
 /* harmony import */ var babel_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(babel_polyfill__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator.return && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, catch: function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
 
 var Keys = {
   Backspace: 'Backspace',
@@ -54,9 +48,10 @@ var MenuActions = {
   Select: 7,
   Space: 8,
   Type: 9
-}; // filter an array of options against an input string
-// returns an array of options that begin with the filter string, case-independent
+};
 
+// filter an array of options against an input string
+// returns an array of options that begin with the filter string, case-independent
 function filterOptions() {
   var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var filter = arguments.length > 1 ? arguments[1] : undefined;
@@ -64,16 +59,16 @@ function filterOptions() {
     var text = option.text.toLowerCase();
     return text.startsWith(filter.toLowerCase());
   });
-} // return combobox action from key press
+}
 
-
+// return combobox action from key press
 function getActionFromKey(key, menuOpen) {
   // handle opening when closed
   if (!menuOpen && key === Keys.Down) {
     return MenuActions.Open;
-  } // handle keys when open
+  }
 
-
+  // handle keys when open
   if (key === Keys.Down) {
     return MenuActions.Next;
   } else if (key === Keys.Up) {
@@ -91,56 +86,49 @@ function getActionFromKey(key, menuOpen) {
   } else if (key === Keys.Backspace || key === Keys.Clear || key.length === 1) {
     return MenuActions.Type;
   }
-} // get updated option index
+}
 
-
+// get updated option index
 function getUpdatedIndex(current, max, action) {
   switch (action) {
     case MenuActions.First:
       return 0;
-
     case MenuActions.Last:
       return max;
-
     case MenuActions.Previous:
       return Math.max(0, current - 1);
-
     case MenuActions.Next:
       return Math.min(max, current + 1);
-
     default:
       return current;
   }
-} // check if an element is currently scrollable
+}
 
-
+// check if an element is currently scrollable
 function isScrollable(element) {
   return element && element.clientHeight < element.scrollHeight;
-} // ensure given child element is within the parent's visible scroll area
+}
 
-
+// ensure given child element is within the parent's visible scroll area
 function maintainScrollVisibility(activeElement, scrollParent) {
   var offsetHeight = activeElement.offsetHeight,
-      offsetTop = activeElement.offsetTop;
+    offsetTop = activeElement.offsetTop;
   var parentOffsetHeight = scrollParent.offsetHeight,
-      scrollTop = scrollParent.scrollTop;
+    scrollTop = scrollParent.scrollTop;
   var isAbove = offsetTop < scrollTop;
   var isBelow = offsetTop + offsetHeight > scrollTop + parentOffsetHeight;
-
   if (isAbove) {
     scrollParent.scrollTo(0, offsetTop);
   } else if (isBelow) {
     scrollParent.scrollTo(0, offsetTop - parentOffsetHeight + offsetHeight);
   }
 }
+
 /*
  * Multiselect Combobox w/ Buttons code
  */
-
-
 var MultiselectButtons = function MultiselectButtons(selectEl, params) {
   var _this = this;
-
   var baseId = selectEl.id;
   selectEl.hidden = true;
   var options = [];
@@ -151,27 +139,26 @@ var MultiselectButtons = function MultiselectButtons(selectEl, params) {
       text: option.textContent
     };
     if (!option.disabled) options.push(o);
-
     if (option.defaultSelected) {
       selectedOptions.push(option.value);
     }
-  }); // required elements for MultiselectButtons
+  });
 
+  // required elements for MultiselectButtons
   var span = document.createElement('span');
   span.id = baseId + '-remove';
   span.innerText = 'remove';
   span.style.display = 'none';
   selectEl.parentNode.appendChild(span);
-
   if (selectEl.multiple) {
     var ul = document.createElement('ul');
     ul.id = baseId + '-selected';
     ul.classList.add('selected-options');
     selectEl.parentNode.appendChild(ul);
     this.selectedEl = ul;
-  } // hide the original label and create a new one for the new combobox
+  }
 
-
+  // hide the original label and create a new one for the new combobox
   var selectLabel = document.querySelector("label[for=".concat(selectEl.id, "]"));
   selectLabel.hidden = true;
   var div = document.createElement('div');
@@ -207,34 +194,36 @@ var MultiselectButtons = function MultiselectButtons(selectEl, params) {
   div.appendChild(divComboBox);
   div.appendChild(ulCombo);
   selectEl.parentNode.appendChild(labelComboBox);
-  selectEl.parentNode.appendChild(div); // element refs
+  selectEl.parentNode.appendChild(div);
 
+  // element refs
   this.select = selectEl;
   this.el = div;
   this.comboEl = div.querySelector('[role=combobox]');
   this.inputEl = div.querySelector('input');
   this.listboxEl = div.querySelector('[role=listbox]');
-  this.idBase = this.inputEl.id; // data
+  this.idBase = this.inputEl.id;
 
+  // data
   this.options = options;
-  this.filteredOptions = options; // params for ajax calls
+  this.filteredOptions = options;
 
+  // params for ajax calls
   this.source = params.source;
   this.minInput = params.minInput || 2;
   this.page = 1;
   this.morePages = false;
-  this.ajaxResultCount; // state
+  this.ajaxResultCount;
 
+  // state
   this.activeIndex = 0;
   this.open = false;
   selectedOptions.forEach(function (value) {
     var option = _this.options.find(function (e) {
       return e.value === value;
     });
-
     if (selectEl.multiple) {
       var index = _this.options.indexOf(option);
-
       var buttonEl = document.createElement('button');
       var listItem = document.createElement('li');
       buttonEl.className = 'remove-option';
@@ -246,21 +235,18 @@ var MultiselectButtons = function MultiselectButtons(selectEl, params) {
       });
       buttonEl.innerHTML = "<span class=\"visuallyhidden\">Remove </span>".concat(option.text, " ");
       listItem.appendChild(buttonEl);
-
       _this.selectedEl.appendChild(listItem);
     } else {
       _this.inputEl.value = option.text;
     }
   });
 };
-
 MultiselectButtons.prototype.init = function () {
   var _this2 = this;
-
   var self = this;
   var timeout = null;
-  this.inputEl.addEventListener('input', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    return regeneratorRuntime.wrap(function _callee$(_context) {
+  this.inputEl.addEventListener('input', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+    return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
@@ -268,16 +254,13 @@ MultiselectButtons.prototype.init = function () {
               _context.next = 4;
               break;
             }
-
             clearTimeout(timeout);
             _context.next = 4;
             return new Promise(function (resolve) {
               return timeout = setTimeout(resolve, 500);
             });
-
           case 4:
             self.onInput();
-
           case 5:
           case "end":
             return _context.stop();
@@ -289,26 +272,20 @@ MultiselectButtons.prototype.init = function () {
   this.inputEl.addEventListener('focus', function () {
     if (_this2.source) {
       var hint = _this2.listboxEl.querySelector('li[role=alert]');
-
       var alreadyExists = !!hint;
-
       if (!hint) {
         hint = document.createElement('li');
         hint.setAttribute('role', 'alert');
       }
-
       hint.innerText = "Please enter ".concat(_this2.minInput, " or more characters");
-
       if (!alreadyExists) {
         _this2.listboxEl.prepend(hint);
       }
     }
-
     _this2.updateMenuState(true);
   });
   this.inputEl.addEventListener('keydown', this.onInputKeyDown.bind(this));
 };
-
 var loadMoreResults = function loadMoreResults(root, element, callback) {
   var options = {
     root: root,
@@ -321,13 +298,11 @@ var loadMoreResults = function loadMoreResults(root, element, callback) {
   }, options);
   observer.observe(element);
 };
-
 MultiselectButtons.prototype.filterOptions = /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(value) {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(value) {
     var _this3 = this;
-
     var selectedOptions, selectedValues, count, c;
-    return regeneratorRuntime.wrap(function _callee3$(_context3) {
+    return _regeneratorRuntime().wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
@@ -337,7 +312,6 @@ MultiselectButtons.prototype.filterOptions = /*#__PURE__*/function () {
               selectedValues = _toConsumableArray(selectedOptions).map(function (option) {
                 return option.innerText;
               }); // ajax call is already filtering the options
-
               this.filteredOptions = this.source ? this.options : filterOptions(this.options, value);
               count = this.source ? this.ajaxResultCount : this.filteredOptions.length;
               c = document.createDocumentFragment();
@@ -345,28 +319,23 @@ MultiselectButtons.prototype.filterOptions = /*#__PURE__*/function () {
                 var alreadySelected = selectedValues.includes(o.text);
                 var optionEl = document.createElement('li');
                 optionEl.setAttribute('role', 'option');
-
                 if (count) {
                   optionEl.setAttribute('aria-setsize', count);
                   optionEl.setAttribute('aria-posinset', k + 1);
                 }
-
                 optionEl.id = "".concat(_this3.idBase, "-").concat(_this3.options.indexOf(o));
                 optionEl.className = 'combo-option';
                 optionEl.setAttribute('aria-selected', alreadySelected);
                 optionEl.dataset.value = o.value;
                 optionEl.innerText = o.text;
-
                 if (alreadySelected) {
                   optionEl.classList.add('option-selected');
                 }
-
                 optionEl.addEventListener('click', function () {
                   _this3.onOptionClick(_this3.options.indexOf(o));
                 });
                 optionEl.addEventListener('mousedown', _this3.onOptionMouseDown.bind(_this3));
                 c.appendChild(optionEl);
-
                 if (_this3.source && _this3.morePages) {
                   if (o === _this3.filteredOptions[_this3.filteredOptions.length - 1]) {
                     var hint = document.createElement('li');
@@ -374,8 +343,8 @@ MultiselectButtons.prototype.filterOptions = /*#__PURE__*/function () {
                     hint.innerText = "Loading more results";
                     c.appendChild(hint);
                     loadMoreResults(_this3.listboxEl, optionEl, /*#__PURE__*/function () {
-                      var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(visible) {
-                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                      var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(visible) {
+                        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
                           while (1) {
                             switch (_context2.prev = _context2.next) {
                               case 0:
@@ -383,16 +352,12 @@ MultiselectButtons.prototype.filterOptions = /*#__PURE__*/function () {
                                   _context2.next = 6;
                                   break;
                                 }
-
                                 _this3.page++;
                                 _context2.next = 4;
                                 return _this3.updateResults();
-
                               case 4:
                                 _this3.filterOptions(value);
-
                                 hint.remove();
-
                               case 6:
                               case "end":
                                 return _context2.stop();
@@ -400,7 +365,6 @@ MultiselectButtons.prototype.filterOptions = /*#__PURE__*/function () {
                           }
                         }, _callee2);
                       }));
-
                       return function (_x2) {
                         return _ref3.apply(this, arguments);
                       };
@@ -410,7 +374,6 @@ MultiselectButtons.prototype.filterOptions = /*#__PURE__*/function () {
               });
               this.listboxEl.appendChild(c);
             }
-
           case 1:
           case "end":
             return _context3.stop();
@@ -418,17 +381,14 @@ MultiselectButtons.prototype.filterOptions = /*#__PURE__*/function () {
       }
     }, _callee3, this);
   }));
-
   return function (_x) {
     return _ref2.apply(this, arguments);
   };
 }();
-
-MultiselectButtons.prototype.updateResults = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+MultiselectButtons.prototype.updateResults = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
   var _this4 = this;
-
   var url, response, data;
-  return regeneratorRuntime.wrap(function _callee4$(_context4) {
+  return _regeneratorRuntime().wrap(function _callee4$(_context4) {
     while (1) {
       switch (_context4.prev = _context4.next) {
         case 0:
@@ -436,30 +396,23 @@ MultiselectButtons.prototype.updateResults = /*#__PURE__*/_asyncToGenerator( /*#
           url.search = "".concat(url.search ? url.search + '&' : '?', "q=").concat(this.inputEl.value, "&page=").concat(this.page);
           _context4.next = 4;
           return fetch(url);
-
         case 4:
           response = _context4.sent;
           _context4.next = 7;
           return response.json();
-
         case 7:
           data = _context4.sent;
-
           if (this.page === 1) {
             this.options = [];
           }
-
           data.results.forEach(function (c) {
             _this4.ajaxResultCount = data.total;
-
             if (!_this4.select.querySelector("option[value=\"".concat(c.id, "\"]"))) {
               var o = document.createElement('option');
               o.value = c.id;
               o.innerText = c.text;
-
               _this4.select.appendChild(o);
             }
-
             var option = {
               value: c.id,
               text: c.text
@@ -467,7 +420,6 @@ MultiselectButtons.prototype.updateResults = /*#__PURE__*/_asyncToGenerator( /*#
             if (_this4.options.indexOf(option) === -1) _this4.options.push(option);
           });
           this.morePages = data.more || false;
-
         case 11:
         case "end":
           return _context4.stop();
@@ -475,10 +427,9 @@ MultiselectButtons.prototype.updateResults = /*#__PURE__*/_asyncToGenerator( /*#
     }
   }, _callee4, this);
 }));
-MultiselectButtons.prototype.onInput = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
+MultiselectButtons.prototype.onInput = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
   var curValue, showHint, hint, _hint, menuState;
-
-  return regeneratorRuntime.wrap(function _callee5$(_context5) {
+  return _regeneratorRuntime().wrap(function _callee5$(_context5) {
     while (1) {
       switch (_context5.prev = _context5.next) {
         case 0:
@@ -486,37 +437,30 @@ MultiselectButtons.prototype.onInput = /*#__PURE__*/_asyncToGenerator( /*#__PURE
           showHint = false;
           hint = this.listboxEl.querySelector('li[role=alert]');
           this.page = 1; // reset pagination
-
           if (!curValue) {
             _context5.next = 26;
             break;
           }
-
           if (!this.source) {
             _context5.next = 21;
             break;
           }
-
           if (!(curValue.length >= this.minInput)) {
             _context5.next = 15;
             break;
           }
-
           if (!hint) {
             hint = document.createElement('li');
             hint.setAttribute('role', 'alert');
           }
-
           hint.innerText = "Loading results";
           this.listboxEl.prepend(hint);
           _context5.next = 12;
           return this.updateResults();
-
         case 12:
           hint.remove();
           _context5.next = 21;
           break;
-
         case 15:
           this.clearOptions();
           (_hint = hint) !== null && _hint !== void 0 ? _hint : hint = document.createElement('li');
@@ -524,26 +468,22 @@ MultiselectButtons.prototype.onInput = /*#__PURE__*/_asyncToGenerator( /*#__PURE
           hint.innerText = "Please enter ".concat(this.minInput, " or more characters");
           this.listboxEl.prepend(hint);
           showHint = true;
-
         case 21:
-          if (!this.source || this.source && curValue.length >= this.minInput) this.filterOptions(curValue); // if active option is not in filtered options, set it to first filtered option
+          if (!this.source || this.source && curValue.length >= this.minInput) this.filterOptions(curValue);
+
+          // if active option is not in filtered options, set it to first filtered option
           // if (this.filteredOptions.indexOf(this.options[this.activeIndex]) < 0) {
           //     const firstFilteredIndex = this.options.indexOf(this.filteredOptions[0]);
           //     this.onOptionChange(firstFilteredIndex);
           // }
-
           menuState = this.filteredOptions.length > 0 || showHint;
-
           if (this.open !== menuState) {
             this.updateMenuState(menuState);
           }
-
           _context5.next = 27;
           break;
-
         case 26:
           this.clearOptions();
-
         case 27:
         case "end":
           return _context5.stop();
@@ -551,13 +491,11 @@ MultiselectButtons.prototype.onInput = /*#__PURE__*/_asyncToGenerator( /*#__PURE
     }
   }, _callee5, this);
 }));
-
 MultiselectButtons.prototype.onInputKeyDown = function (event) {
   var key = event.key;
   var max = this.filteredOptions.length - 1;
   var activeFilteredIndex = this.filteredOptions.indexOf(this.options[this.activeIndex]);
   var action = getActionFromKey(key, this.open);
-
   switch (action) {
     case MenuActions.Next:
     case MenuActions.Last:
@@ -567,81 +505,64 @@ MultiselectButtons.prototype.onInputKeyDown = function (event) {
       var nextFilteredIndex = getUpdatedIndex(activeFilteredIndex, max, action);
       var nextRealIndex = this.options.indexOf(this.filteredOptions[nextFilteredIndex]);
       return this.onOptionChange(nextRealIndex);
-
     case MenuActions.Space:
       if (this.activeIndex) {
         event.preventDefault();
         return this.onOptionClick(this.activeIndex);
       }
-
       return;
-
     case MenuActions.CloseSelect:
       event.preventDefault();
       return this.onOptionClick(this.activeIndex);
-
     case MenuActions.Close:
       event.preventDefault();
       return this.updateMenuState(false);
-
     case MenuActions.Open:
       return this.updateMenuState(true);
   }
 };
-
 MultiselectButtons.prototype.onInputBlur = function () {
   if (this.ignoreBlur) {
     this.ignoreBlur = false;
     return;
   }
-
   this.inputEl.value = '';
-
   if (!this.select.multiple) {
     var selectedOption = this.select.querySelector('option:checked');
-
     if (selectedOption) {
       this.inputEl.value = selectedOption.innerText;
     }
   }
-
   if (this.inputEl.value === '') {
     this.clearOptions();
   }
-
   if (this.open) {
     this.updateMenuState(false);
   }
 };
-
 MultiselectButtons.prototype.onOptionChange = function (index) {
   this.activeIndex = index;
-  this.inputEl.setAttribute('aria-activedescendant', "".concat(this.idBase, "-").concat(index)); // update active style
+  this.inputEl.setAttribute('aria-activedescendant', "".concat(this.idBase, "-").concat(index));
 
+  // update active style
   var options = this.el.querySelectorAll('[role=option]');
   var currentOptions = this.el.querySelector("[id=".concat(this.idBase, "-").concat(index, "]"));
-
   _toConsumableArray(options).forEach(function (optionEl) {
     optionEl.classList.remove('option-current');
   });
-
   if (currentOptions) {
     currentOptions.classList.add('option-current');
-
     if (this.open && isScrollable(this.listboxEl)) {
       maintainScrollVisibility(currentOptions, this.listboxEl);
     }
   }
 };
-
 MultiselectButtons.prototype.clearOptions = function () {
   var options = this.el.querySelectorAll('[role=option]');
-
   _toConsumableArray(options).forEach(function (optionEl) {
     optionEl.remove();
   });
 };
-
 MultiselectButtons.prototype.onOptionClick = function (index) {
   // this.onOptionChange(index);
   this.updateOption(index);
@@ -649,41 +570,38 @@ MultiselectButtons.prototype.onOptionClick = function (index) {
   this.updateMenuState(false);
   this.inputEl.focus();
 };
-
 MultiselectButtons.prototype.onOptionMouseDown = function () {
   this.ignoreBlur = true;
 };
-
 MultiselectButtons.prototype.removeOption = function (option) {
   // const index = this.options.indexOf(option);
+
   // update aria-selected
   var o = this.el.querySelector("[data-value=\"".concat(option.value, "\"]"));
-
   if (o) {
     o.setAttribute('aria-selected', 'false');
     o.classList.remove('option-selected');
-  } // remove button
+  }
 
-
+  // remove button
   if (this.selectedEl) {
     var buttonEl = this.selectedEl.querySelector("[data-value=\"".concat(option.value, "\"]"));
     this.selectedEl.removeChild(buttonEl.parentElement);
   }
-
   this.select.querySelector('option[value="' + option.value + '"]').removeAttribute('selected');
 };
-
 MultiselectButtons.prototype.selectOption = function (option) {
   var _this5 = this;
-
   var index = this.options.indexOf(option);
   var selected = this.options[index];
-  this.activeIndex = index; // update aria-selected
+  this.activeIndex = index;
 
+  // update aria-selected
   var o = this.el.querySelector("[id=".concat(this.idBase, "-").concat(index, "]"));
   o.setAttribute('aria-selected', 'true');
-  o.classList.add('option-selected'); // add remove option button
+  o.classList.add('option-selected');
 
+  // add remove option button
   var buttonEl = document.createElement('button');
   var listItem = document.createElement('li');
   buttonEl.className = 'remove-option';
@@ -695,41 +613,33 @@ MultiselectButtons.prototype.selectOption = function (option) {
   });
   buttonEl.innerHTML = "<span class=\"visuallyhidden\">Remove </span> ".concat(selected.text, " ");
   listItem.appendChild(buttonEl);
-
   if (this.select.multiple) {
     this.selectedEl.appendChild(listItem);
   } else {
     var selectedOption = this.select.querySelector("option[selected]");
     if (selectedOption) selectedOption.removeAttribute('selected');
   }
-
   this.select.querySelector('option[value="' + option.value + '"]').setAttribute('selected', 'selected');
 };
-
 MultiselectButtons.prototype.updateOption = function (index) {
   var optionEl = this.el.querySelector("[id=".concat(this.idBase, "-").concat(index, "]"));
   var isSelected = optionEl.getAttribute('aria-selected') === 'true';
   this.inputEl.value = '';
-
   if (isSelected) {
     this.removeOption(this.options[index]);
   } else {
     this.selectOption(this.options[index]);
-
     if (!this.select.multiple) {
       this.inputEl.value = this.options[index].text;
     }
   }
-
   this.filterOptions('');
 };
-
 MultiselectButtons.prototype.updateMenuState = function (open) {
   this.open = open;
   this.comboEl.setAttribute('aria-expanded', "".concat(open));
   open ? this.el.classList.add('open') : this.el.classList.remove('open');
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MultiselectButtons);
 
 /***/ }),
@@ -982,7 +892,7 @@ var has = __webpack_require__(23);
 var DESCRIPTORS = __webpack_require__(24);
 var $export = __webpack_require__(26);
 var redefine = __webpack_require__(36);
-var META = __webpack_require__(43).KEY;
+var META = (__webpack_require__(43).KEY);
 var $fails = __webpack_require__(25);
 var shared = __webpack_require__(39);
 var setToStringTag = __webpack_require__(44);
@@ -1126,8 +1036,8 @@ if (!USE_NATIVE) {
 
   $GOPD.f = $getOwnPropertyDescriptor;
   $DP.f = $defineProperty;
-  __webpack_require__(69).f = gOPNExt.f = $getOwnPropertyNames;
-  __webpack_require__(62).f = $propertyIsEnumerable;
+  (__webpack_require__(69).f) = gOPNExt.f = $getOwnPropertyNames;
+  (__webpack_require__(62).f) = $propertyIsEnumerable;
   $GOPS.f = $getOwnPropertySymbols;
 
   if (DESCRIPTORS && !__webpack_require__(40)) {
@@ -1395,7 +1305,7 @@ module.exports = !__webpack_require__(24) && !__webpack_require__(25)(function (
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var isObject = __webpack_require__(31);
-var document = __webpack_require__(22).document;
+var document = (__webpack_require__(22).document);
 // typeof document.createElement is 'object' in old IE
 var is = isObject(document) && isObject(document.createElement);
 module.exports = function (it) {
@@ -1447,7 +1357,7 @@ var $toString = __webpack_require__(38);
 var TO_STRING = 'toString';
 var TPL = ('' + $toString).split(TO_STRING);
 
-__webpack_require__(27).inspectSource = function (it) {
+(__webpack_require__(27).inspectSource) = function (it) {
   return $toString.call(it);
 };
 
@@ -1558,7 +1468,7 @@ module.exports = function (it) {
 var META = __webpack_require__(37)('meta');
 var isObject = __webpack_require__(31);
 var has = __webpack_require__(23);
-var setDesc = __webpack_require__(29).f;
+var setDesc = (__webpack_require__(29).f);
 var id = 0;
 var isExtensible = Object.isExtensible || function () {
   return true;
@@ -1614,7 +1524,7 @@ var meta = module.exports = {
 /* 44 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var def = __webpack_require__(29).f;
+var def = (__webpack_require__(29).f);
 var has = __webpack_require__(23);
 var TAG = __webpack_require__(45)('toStringTag');
 
@@ -1629,7 +1539,7 @@ module.exports = function (it, tag, stat) {
 
 var store = __webpack_require__(39)('wks');
 var uid = __webpack_require__(37);
-var Symbol = __webpack_require__(22).Symbol;
+var Symbol = (__webpack_require__(22).Symbol);
 var USE_SYMBOL = typeof Symbol == 'function';
 
 var $exports = module.exports = function (name) {
@@ -1655,7 +1565,7 @@ var global = __webpack_require__(22);
 var core = __webpack_require__(27);
 var LIBRARY = __webpack_require__(40);
 var wksExt = __webpack_require__(46);
-var defineProperty = __webpack_require__(29).f;
+var defineProperty = (__webpack_require__(29).f);
 module.exports = function (name) {
   var $Symbol = core.Symbol || (core.Symbol = LIBRARY ? {} : global.Symbol || {});
   if (name.charAt(0) != '_' && !(name in $Symbol)) defineProperty($Symbol, name, { value: wksExt.f(name) });
@@ -1909,7 +1819,7 @@ var createDict = function () {
   var gt = '>';
   var iframeDocument;
   iframe.style.display = 'none';
-  __webpack_require__(67).appendChild(iframe);
+  (__webpack_require__(67).appendChild)(iframe);
   iframe.src = 'javascript:'; // eslint-disable-line no-script-url
   // createDict = iframe.contentWindow.Object;
   // html.removeChild(iframe);
@@ -1958,7 +1868,7 @@ module.exports = __webpack_require__(24) ? Object.defineProperties : function de
 /* 67 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var document = __webpack_require__(22).document;
+var document = (__webpack_require__(22).document);
 module.exports = document && document.documentElement;
 
 
@@ -1968,7 +1878,7 @@ module.exports = document && document.documentElement;
 
 // fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
 var toIObject = __webpack_require__(51);
-var gOPN = __webpack_require__(69).f;
+var gOPN = (__webpack_require__(69).f);
 var toString = {}.toString;
 
 var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNames
@@ -1993,7 +1903,7 @@ module.exports.f = function getOwnPropertyNames(it) {
 
 // 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
 var $keys = __webpack_require__(50);
-var hiddenKeys = __webpack_require__(60).concat('length', 'prototype');
+var hiddenKeys = (__webpack_require__(60).concat)('length', 'prototype');
 
 exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
   return $keys(O, hiddenKeys);
@@ -2037,7 +1947,7 @@ $export($export.S, 'Object', { create: __webpack_require__(65) });
 
 var $export = __webpack_require__(26);
 // 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
-$export($export.S + $export.F * !__webpack_require__(24), 'Object', { defineProperty: __webpack_require__(29).f });
+$export($export.S + $export.F * !__webpack_require__(24), 'Object', { defineProperty: (__webpack_require__(29).f) });
 
 
 /***/ }),
@@ -2055,7 +1965,7 @@ $export($export.S + $export.F * !__webpack_require__(24), 'Object', { defineProp
 
 // 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
 var toIObject = __webpack_require__(51);
-var $getOwnPropertyDescriptor = __webpack_require__(70).f;
+var $getOwnPropertyDescriptor = (__webpack_require__(70).f);
 
 __webpack_require__(75)('getOwnPropertyDescriptor', function () {
   return function getOwnPropertyDescriptor(it, key) {
@@ -2135,7 +2045,7 @@ __webpack_require__(75)('keys', function () {
 
 // 19.1.2.7 Object.getOwnPropertyNames(O)
 __webpack_require__(75)('getOwnPropertyNames', function () {
-  return __webpack_require__(68).f;
+  return (__webpack_require__(68).f);
 });
 
 
@@ -2145,7 +2055,7 @@ __webpack_require__(75)('getOwnPropertyNames', function () {
 
 // 19.1.2.5 Object.freeze(O)
 var isObject = __webpack_require__(31);
-var meta = __webpack_require__(43).onFreeze;
+var meta = (__webpack_require__(43).onFreeze);
 
 __webpack_require__(75)('freeze', function ($freeze) {
   return function freeze(it) {
@@ -2160,7 +2070,7 @@ __webpack_require__(75)('freeze', function ($freeze) {
 
 // 19.1.2.17 Object.seal(O)
 var isObject = __webpack_require__(31);
-var meta = __webpack_require__(43).onFreeze;
+var meta = (__webpack_require__(43).onFreeze);
 
 __webpack_require__(75)('seal', function ($seal) {
   return function seal(it) {
@@ -2175,7 +2085,7 @@ __webpack_require__(75)('seal', function ($seal) {
 
 // 19.1.2.15 Object.preventExtensions(O)
 var isObject = __webpack_require__(31);
-var meta = __webpack_require__(43).onFreeze;
+var meta = (__webpack_require__(43).onFreeze);
 
 __webpack_require__(75)('preventExtensions', function ($preventExtensions) {
   return function preventExtensions(it) {
@@ -2307,7 +2217,7 @@ module.exports = Object.is || function is(x, y) {
 
 // 19.1.3.19 Object.setPrototypeOf(O, proto)
 var $export = __webpack_require__(26);
-$export($export.S, 'Object', { setPrototypeOf: __webpack_require__(91).set });
+$export($export.S, 'Object', { setPrototypeOf: (__webpack_require__(91).set) });
 
 
 /***/ }),
@@ -2326,7 +2236,7 @@ module.exports = {
   set: Object.setPrototypeOf || ('__proto__' in {} ? // eslint-disable-line
     function (test, buggy, set) {
       try {
-        set = __webpack_require__(41)(Function.call, __webpack_require__(70).f(Object.prototype, '__proto__').set, 2);
+        set = __webpack_require__(41)(Function.call, (__webpack_require__(70).f)(Object.prototype, '__proto__').set, 2);
         set(test, []);
         buggy = !(test instanceof Array);
       } catch (e) { buggy = true; }
@@ -2455,7 +2365,7 @@ module.exports = function (fn, args, that) {
 /* 97 */
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-var dP = __webpack_require__(29).f;
+var dP = (__webpack_require__(29).f);
 var FProto = Function.prototype;
 var nameRE = /^\s*function ([^ (]*)/;
 var NAME = 'name';
@@ -2484,7 +2394,7 @@ var getPrototypeOf = __webpack_require__(77);
 var HAS_INSTANCE = __webpack_require__(45)('hasInstance');
 var FunctionProto = Function.prototype;
 // 19.2.3.6 Function.prototype[@@hasInstance](V)
-if (!(HAS_INSTANCE in FunctionProto)) __webpack_require__(29).f(FunctionProto, HAS_INSTANCE, { value: function (O) {
+if (!(HAS_INSTANCE in FunctionProto)) (__webpack_require__(29).f)(FunctionProto, HAS_INSTANCE, { value: function (O) {
   if (typeof this != 'function' || !isObject(O)) return false;
   if (!isObject(this.prototype)) return O instanceof this;
   // for environment w/o native `@@hasInstance` logic enough `instanceof`, but add this:
@@ -2507,8 +2417,8 @@ $export($export.G + $export.F * (parseInt != $parseInt), { parseInt: $parseInt }
 /* 100 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var $parseInt = __webpack_require__(22).parseInt;
-var $trim = __webpack_require__(101).trim;
+var $parseInt = (__webpack_require__(22).parseInt);
+var $trim = (__webpack_require__(101).trim);
 var ws = __webpack_require__(102);
 var hex = /^[-+]?0[xX]/;
 
@@ -2576,8 +2486,8 @@ $export($export.G + $export.F * (parseFloat != $parseFloat), { parseFloat: $pars
 /* 104 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var $parseFloat = __webpack_require__(22).parseFloat;
-var $trim = __webpack_require__(101).trim;
+var $parseFloat = (__webpack_require__(22).parseFloat);
+var $trim = (__webpack_require__(101).trim);
 
 module.exports = 1 / $parseFloat(__webpack_require__(102) + '-0') !== -Infinity ? function parseFloat(str) {
   var string = $trim(String(str), 3);
@@ -2598,10 +2508,10 @@ var cof = __webpack_require__(53);
 var inheritIfRequired = __webpack_require__(106);
 var toPrimitive = __webpack_require__(34);
 var fails = __webpack_require__(25);
-var gOPN = __webpack_require__(69).f;
-var gOPD = __webpack_require__(70).f;
-var dP = __webpack_require__(29).f;
-var $trim = __webpack_require__(101).trim;
+var gOPN = (__webpack_require__(69).f);
+var gOPD = (__webpack_require__(70).f);
+var dP = (__webpack_require__(29).f);
+var $trim = (__webpack_require__(101).trim);
 var NUMBER = 'Number';
 var $Number = global[NUMBER];
 var Base = $Number;
@@ -2667,7 +2577,7 @@ if (!$Number(' 0o1') || !$Number('0b1') || $Number('+0x1')) {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var isObject = __webpack_require__(31);
-var setPrototypeOf = __webpack_require__(91).set;
+var setPrototypeOf = (__webpack_require__(91).set);
 module.exports = function (that, target, C) {
   var S = target.constructor;
   var P;
@@ -2869,7 +2779,7 @@ $export($export.S, 'Number', { EPSILON: Math.pow(2, -52) });
 
 // 20.1.2.2 Number.isFinite(number)
 var $export = __webpack_require__(26);
-var _isFinite = __webpack_require__(22).isFinite;
+var _isFinite = (__webpack_require__(22).isFinite);
 
 $export($export.S, 'Number', {
   isFinite: function isFinite(it) {
@@ -4114,7 +4024,7 @@ module.exports = function (object, index, value) {
 var classof = __webpack_require__(93);
 var ITERATOR = __webpack_require__(45)('iterator');
 var Iterators = __webpack_require__(148);
-module.exports = __webpack_require__(27).getIteratorMethod = function (it) {
+module.exports = (__webpack_require__(27).getIteratorMethod) = function (it) {
   if (it != undefined) return it[ITERATOR]
     || it['@@iterator']
     || Iterators[classof(it)];
@@ -4781,8 +4691,8 @@ module.exports = function (done, value) {
 
 var global = __webpack_require__(22);
 var inheritIfRequired = __webpack_require__(106);
-var dP = __webpack_require__(29).f;
-var gOPN = __webpack_require__(69).f;
+var dP = (__webpack_require__(29).f);
+var gOPN = (__webpack_require__(69).f);
 var isRegExp = __webpack_require__(153);
 var $flags = __webpack_require__(216);
 var $RegExp = global.RegExp;
@@ -4962,7 +4872,7 @@ if (__webpack_require__(25)(function () { return $toString.call({ source: 'a', f
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 // 21.2.5.3 get RegExp.prototype.flags()
-if (__webpack_require__(24) && /./g.flags != 'g') __webpack_require__(29).f(RegExp.prototype, 'flags', {
+if (__webpack_require__(24) && /./g.flags != 'g') (__webpack_require__(29).f)(RegExp.prototype, 'flags', {
   configurable: true,
   get: __webpack_require__(216)
 });
@@ -5496,7 +5406,7 @@ var aFunction = __webpack_require__(42);
 var anInstance = __webpack_require__(230);
 var forOf = __webpack_require__(231);
 var speciesConstructor = __webpack_require__(228);
-var task = __webpack_require__(232).set;
+var task = (__webpack_require__(232).set);
 var microtask = __webpack_require__(233)();
 var newPromiseCapabilityModule = __webpack_require__(234);
 var perform = __webpack_require__(235);
@@ -5910,7 +5820,7 @@ module.exports = {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var global = __webpack_require__(22);
-var macrotask = __webpack_require__(232).set;
+var macrotask = (__webpack_require__(232).set);
 var Observer = global.MutationObserver || global.WebKitMutationObserver;
 var process = global.process;
 var Promise = global.Promise;
@@ -6089,7 +5999,7 @@ module.exports = __webpack_require__(242)(MAP, function (get) {
 
 "use strict";
 
-var dP = __webpack_require__(29).f;
+var dP = (__webpack_require__(29).f);
 var create = __webpack_require__(65);
 var redefineAll = __webpack_require__(238);
 var ctx = __webpack_require__(41);
@@ -6099,7 +6009,7 @@ var $iterDefine = __webpack_require__(147);
 var step = __webpack_require__(214);
 var setSpecies = __webpack_require__(212);
 var DESCRIPTORS = __webpack_require__(24);
-var fastKey = __webpack_require__(43).fastKey;
+var fastKey = (__webpack_require__(43).fastKey);
 var validate = __webpack_require__(241);
 var SIZE = DESCRIPTORS ? '_s' : 'size';
 
@@ -6432,7 +6342,7 @@ if (NATIVE_WEAK_MAP && IS_IE11) {
 "use strict";
 
 var redefineAll = __webpack_require__(238);
-var getWeak = __webpack_require__(43).getWeak;
+var getWeak = (__webpack_require__(43).getWeak);
 var anObject = __webpack_require__(30);
 var isObject = __webpack_require__(31);
 var anInstance = __webpack_require__(230);
@@ -6551,7 +6461,7 @@ var anObject = __webpack_require__(30);
 var toAbsoluteIndex = __webpack_require__(58);
 var toLength = __webpack_require__(56);
 var isObject = __webpack_require__(31);
-var ArrayBuffer = __webpack_require__(22).ArrayBuffer;
+var ArrayBuffer = (__webpack_require__(22).ArrayBuffer);
 var speciesConstructor = __webpack_require__(228);
 var $ArrayBuffer = buffer.ArrayBuffer;
 var $DataView = buffer.DataView;
@@ -6642,8 +6552,8 @@ var anInstance = __webpack_require__(230);
 var toInteger = __webpack_require__(57);
 var toLength = __webpack_require__(56);
 var toIndex = __webpack_require__(250);
-var gOPN = __webpack_require__(69).f;
-var dP = __webpack_require__(29).f;
+var gOPN = (__webpack_require__(69).f);
+var dP = (__webpack_require__(29).f);
 var arrayFill = __webpack_require__(208);
 var setToStringTag = __webpack_require__(44);
 var ARRAY_BUFFER = 'ArrayBuffer';
@@ -6929,8 +6839,8 @@ module.exports = function (it) {
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 var $export = __webpack_require__(26);
-$export($export.G + $export.W + $export.F * !__webpack_require__(248).ABV, {
-  DataView: __webpack_require__(249).DataView
+$export($export.G + $export.W + $export.F * !(__webpack_require__(248).ABV), {
+  DataView: (__webpack_require__(249).DataView)
 });
 
 
@@ -6975,7 +6885,7 @@ if (__webpack_require__(24)) {
   var isArrayIter = __webpack_require__(182);
   var create = __webpack_require__(65);
   var getPrototypeOf = __webpack_require__(77);
-  var gOPN = __webpack_require__(69).f;
+  var gOPN = (__webpack_require__(69).f);
   var getIterFn = __webpack_require__(184);
   var uid = __webpack_require__(37);
   var wks = __webpack_require__(45);
@@ -7528,7 +7438,7 @@ __webpack_require__(253)('Float64', 8, function (init) {
 var $export = __webpack_require__(26);
 var aFunction = __webpack_require__(42);
 var anObject = __webpack_require__(30);
-var rApply = (__webpack_require__(22).Reflect || {}).apply;
+var rApply = ((__webpack_require__(22).Reflect) || {}).apply;
 var fApply = Function.apply;
 // MS Edge argumentsList argument is optional
 $export($export.S + $export.F * !__webpack_require__(25)(function () {
@@ -7554,7 +7464,7 @@ var anObject = __webpack_require__(30);
 var isObject = __webpack_require__(31);
 var fails = __webpack_require__(25);
 var bind = __webpack_require__(95);
-var rConstruct = (__webpack_require__(22).Reflect || {}).construct;
+var rConstruct = ((__webpack_require__(22).Reflect) || {}).construct;
 
 // MS Edge supports only 2 arguments and argumentsList argument is optional
 // FF Nightly sets third argument as `new.target`, but does not create `this` from it
@@ -7630,7 +7540,7 @@ $export($export.S + $export.F * __webpack_require__(25)(function () {
 
 // 26.1.4 Reflect.deleteProperty(target, propertyKey)
 var $export = __webpack_require__(26);
-var gOPD = __webpack_require__(70).f;
+var gOPD = (__webpack_require__(70).f);
 var anObject = __webpack_require__(30);
 
 $export($export.S, 'Reflect', {
@@ -7782,7 +7692,7 @@ $export($export.S, 'Reflect', { ownKeys: __webpack_require__(273) });
 var gOPN = __webpack_require__(69);
 var gOPS = __webpack_require__(61);
 var anObject = __webpack_require__(30);
-var Reflect = __webpack_require__(22).Reflect;
+var Reflect = (__webpack_require__(22).Reflect);
 module.exports = Reflect && Reflect.ownKeys || function ownKeys(it) {
   var keys = gOPN.f(anObject(it));
   var getSymbols = gOPS.f;
@@ -8209,7 +8119,7 @@ $export($export.S, 'Object', {
 var DESCRIPTORS = __webpack_require__(24);
 var getKeys = __webpack_require__(49);
 var toIObject = __webpack_require__(51);
-var isEnum = __webpack_require__(62).f;
+var isEnum = (__webpack_require__(62).f);
 module.exports = function (isEntries) {
   return function (it) {
     var O = toIObject(it);
@@ -8308,7 +8218,7 @@ var $export = __webpack_require__(26);
 var toObject = __webpack_require__(64);
 var toPrimitive = __webpack_require__(34);
 var getPrototypeOf = __webpack_require__(77);
-var getOwnPropertyDescriptor = __webpack_require__(70).f;
+var getOwnPropertyDescriptor = (__webpack_require__(70).f);
 
 // B.2.2.4 Object.prototype.__lookupGetter__(P)
 __webpack_require__(24) && $export($export.P + __webpack_require__(295), 'Object', {
@@ -8333,7 +8243,7 @@ var $export = __webpack_require__(26);
 var toObject = __webpack_require__(64);
 var toPrimitive = __webpack_require__(34);
 var getPrototypeOf = __webpack_require__(77);
-var getOwnPropertyDescriptor = __webpack_require__(70).f;
+var getOwnPropertyDescriptor = (__webpack_require__(70).f);
 
 // B.2.2.5 Object.prototype.__lookupSetter__(P)
 __webpack_require__(24) && $export($export.P + __webpack_require__(295), 'Object', {
@@ -9034,7 +8944,7 @@ $metadata.exp({ metadata: function metadata(metadataKey, metadataValue) {
 // https://github.com/rwaldron/tc39-notes/blob/master/es6/2014-09/sept-25.md#510-globalasap-for-enqueuing-a-microtask
 var $export = __webpack_require__(26);
 var microtask = __webpack_require__(233)();
-var process = __webpack_require__(22).process;
+var process = (__webpack_require__(22).process);
 var isNode = __webpack_require__(53)(process) == 'process';
 
 $export($export.G, {
