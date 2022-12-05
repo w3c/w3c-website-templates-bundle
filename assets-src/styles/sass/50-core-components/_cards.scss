@@ -129,7 +129,7 @@
 
 }
 
-.card--user {
+.card--user.l-sidebar {
 
 	padding-bottom: rem(30);
 	padding-top: rem(40);
@@ -162,6 +162,27 @@
 			margin-top: rem(20);
 
 		}
+
+	}
+
+	.l-cluster > * {
+
+		align-items: center;
+
+	}
+
+	.l-cluster > *,
+	.l-cluster.l-cluster > * > * {
+
+		margin-bottom: 0;
+		margin-top: 0;
+
+	}
+
+	.l-cluster a {
+
+		display: inline-block;
+		padding: rem(12) 0;
 
 	}
 }
