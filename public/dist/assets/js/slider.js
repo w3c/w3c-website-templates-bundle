@@ -172,26 +172,22 @@ var translate = {
   // e.g. 'Slide {x} of {y} requires an object with keys x and y.
   'translate': function translate(snippetReference, languageCode) {
     var injections = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-
     //without a snippet reference, we don't know what to translate
     if (snippetReference === undefined || snippetReference === null || snippetReference.length < 1) {
       return;
-    } //language code defaults to English
+    }
 
-
+    //language code defaults to English
     if (languageCode === undefined || languageCode === null || this.translations[languageCode] === undefined) {
       languageCode = 'en';
     }
-
     var translatedString = this['translations'][languageCode][snippetReference];
     var injectionsKeys = Object.keys(injections);
-
     if (injectionsKeys.length > 0) {
       for (var keyIndex = 0; keyIndex < injectionsKeys.length; keyIndex++) {
         translatedString = translatedString.replace(new RegExp('\\{' + injectionsKeys[keyIndex] + '\\}', 'gm'), injections[injectionsKeys[keyIndex]]);
       }
     }
-
     return translatedString;
   }
 };
@@ -261,6 +257,7 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_translations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
 
+
 /**
  * Content slider (carousel)
  */
@@ -274,12 +271,10 @@ var contentSlider = function () {
     var nextSlide = _main_translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('nextSlide', document.documentElement.lang);
     var slider = document.querySelector('[data-component="slider"] section');
     var dir = document.documentElement.getAttribute('dir');
-
     if (slider) {
       slider.setAttribute('aria-roledescription', sliderDescription);
       var list = slider.querySelector('ul');
       var slides = Array.prototype.slice.call(list.querySelectorAll('li'));
-
       if (slides.length > 1) {
         /**
          * Create container to hold slider controls and aria-live region
@@ -296,8 +291,6 @@ var contentSlider = function () {
          * Create previous and next button controls for slider
          * @return {HTMLUListElement}
          */
-
-
         var createControls = function createControls() {
           var controls = document.createElement('ul');
           controls.setAttribute('class', 'slider-controls');
@@ -310,8 +303,6 @@ var contentSlider = function () {
          * Create ARIA live region for slider
          * @return {HTMLDivElement}
          */
-
-
         var createLiveRegion = function createLiveRegion() {
           var liveRegion = document.createElement('div');
           liveRegion.setAttribute('role', 'status');
@@ -326,18 +317,15 @@ var contentSlider = function () {
           });
           return liveRegion;
         };
-
         /**
          * Set slide positions, which are used in the switchSlide function
          */
         var setSlidePositions = function setSlidePositions() {
           var slideWidth = slides[0].getBoundingClientRect().width;
-
           for (var _slide = 0; _slide < slides.length; _slide++) {
             slides[_slide].style.left = slideWidth * _slide + 'px';
           }
         };
-
         /**
          * Switch between slides
          * @param {number} currentSlideIndex
@@ -345,24 +333,24 @@ var contentSlider = function () {
          */
         var switchSlide = function switchSlide(currentSlideIndex, targetSlideIndex) {
           var currentSlide = slides[currentSlideIndex];
-          var targetSlide = slides[targetSlideIndex]; // Switches to the correct slide
+          var targetSlide = slides[targetSlideIndex];
 
+          // Switches to the correct slide
           var destination = getComputedStyle(targetSlide).left;
-
           if (dir === 'rtl') {
             list.style.transform = 'translateX(' + destination + ')';
           } else {
             list.style.transform = 'translateX(-' + destination + ')';
           }
-
           currentSlide.classList.toggle('js-current');
           currentSlide.classList.toggle('js-hidden');
           currentSlide.removeAttribute('tabindex');
           targetSlide.classList.toggle('js-current');
           targetSlide.classList.toggle('js-hidden');
           targetSlide.setAttribute('tabindex', '-1');
-          targetSlide.focus(); // Disable previous/next buttons
+          targetSlide.focus();
 
+          // Disable previous/next buttons
           if (targetSlideIndex === 0) {
             prev.setAttribute('disabled', true);
             next.removeAttribute('disabled');
@@ -372,9 +360,9 @@ var contentSlider = function () {
           } else {
             prev.removeAttribute('disabled');
             next.removeAttribute('disabled');
-          } // Announce selected slide to screen reader
+          }
 
-
+          // Announce selected slide to screen reader
           liveRegion.textContent = _main_translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('slideText', document.documentElement.lang, {
             'x': targetSlideIndex + 1,
             'y': slides.length
@@ -384,33 +372,26 @@ var contentSlider = function () {
          * Get the current slide index
          * @return {number}
          */
-
-
         var getCurrentSlideIndex = function getCurrentSlideIndex() {
           var currentSlide = list.querySelector('.js-current');
           return slides.findIndex(function (slide) {
             return slide === currentSlide;
           });
         };
-
         var callback = function callback() {
           setSlidePositions();
           var targetSlide = slider.querySelector('.js-current');
           var destination = getComputedStyle(targetSlide).left;
-
           if (dir === 'rtl') {
             list.style.transform = 'translateX(' + destination + ')';
           } else {
             list.style.transform = 'translateX(-' + destination + ')';
           }
         };
-
         list.setAttribute('tabindex', '0');
-
         for (var slide = 1; slide < slides.length; slide++) {
           slides[slide].classList.add('js-hidden');
         }
-
         slides.forEach(function (slide, index) {
           var group = slide.querySelector('.slide');
           group.setAttribute('role', 'group');
@@ -419,8 +400,9 @@ var contentSlider = function () {
             'x': index + 1,
             'y': slides.length
           }));
-        }); // Add current class to first slide
+        });
 
+        // Add current class to first slide
         slides[0].classList.add('js-current');
         var wrap = createControlsWrap();
         var controls = createControls();
@@ -439,10 +421,8 @@ var contentSlider = function () {
             var nextSlideIndex = currentSlideIndex + 1;
             switchSlide(currentSlideIndex, nextSlideIndex);
           }
-
           if (event.target.matches('.js-previous')) {
             var _currentSlideIndex = getCurrentSlideIndex();
-
             var previousSlideIndex = _currentSlideIndex - 1;
             switchSlide(_currentSlideIndex, previousSlideIndex);
           }
@@ -452,12 +432,10 @@ var contentSlider = function () {
           if (key !== 'ArrowLeft' && key !== 'ArrowRight') return;
           var currentSlideIndex = getCurrentSlideIndex();
           var targetSlideIndex;
-
           if (dir === 'rtl') {
             if (key === 'ArrowRight') {
               targetSlideIndex = currentSlideIndex - 1;
             }
-
             if (key === 'ArrowLeft') {
               targetSlideIndex = currentSlideIndex + 1;
             }
@@ -465,23 +443,20 @@ var contentSlider = function () {
             if (key === 'ArrowLeft') {
               targetSlideIndex = currentSlideIndex - 1;
             }
-
             if (key === 'ArrowRight') {
               targetSlideIndex = currentSlideIndex + 1;
             }
           }
-
           if (targetSlideIndex < 0) {
             targetSlideIndex = 0;
           }
-
           if (targetSlideIndex > slides.length - 1) {
             targetSlideIndex = slides.length - 1;
           }
-
           switchSlide(currentSlideIndex, targetSlideIndex); // Focus on the correct slide
-        }); // Use resize Observer API to reset slide positions and move current slide fully into view
+        });
 
+        // Use resize Observer API to reset slide positions and move current slide fully into view
         var slideObserver = new ResizeObserver(callback);
         slideObserver.observe(slider);
       }

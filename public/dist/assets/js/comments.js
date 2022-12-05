@@ -172,26 +172,22 @@ var translate = {
   // e.g. 'Slide {x} of {y} requires an object with keys x and y.
   'translate': function translate(snippetReference, languageCode) {
     var injections = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-
     //without a snippet reference, we don't know what to translate
     if (snippetReference === undefined || snippetReference === null || snippetReference.length < 1) {
       return;
-    } //language code defaults to English
+    }
 
-
+    //language code defaults to English
     if (languageCode === undefined || languageCode === null || this.translations[languageCode] === undefined) {
       languageCode = 'en';
     }
-
     var translatedString = this['translations'][languageCode][snippetReference];
     var injectionsKeys = Object.keys(injections);
-
     if (injectionsKeys.length > 0) {
       for (var keyIndex = 0; keyIndex < injectionsKeys.length; keyIndex++) {
         translatedString = translatedString.replace(new RegExp('\\{' + injectionsKeys[keyIndex] + '\\}', 'gm'), injections[injectionsKeys[keyIndex]]);
       }
     }
-
     return translatedString;
   }
 };
@@ -261,10 +257,10 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_translations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
 
+
 /**
  * Replaces comment dates with their equivalent time difference (xx hours/days ago)
  */
-
 var commentsTimeDiff = function () {
   document.querySelectorAll(".comment__author time").forEach(function (time) {
     time.setAttribute('title', time.innerHTML.trim());
@@ -278,7 +274,6 @@ var commentsTimeDiff = function () {
     var formatter = new Intl.RelativeTimeFormat(document.documentElement.lang, {
       numeric: "auto"
     });
-
     if (deltaYears != 0) {
       time.innerHTML = formatter.format(deltaYears, 'years');
     } else if (deltaMonths != 0) {
@@ -294,25 +289,23 @@ var commentsTimeDiff = function () {
     }
   });
 }();
+
 /**
  * Relocates comment reply form to parent comment and updates title
  */
-
 
 window.addComment = function (window) {
   // Avoid scope lookups on commonly used variables.
   var document = window.document;
   var commentReplyTitle = document.querySelector('[data-title="reply"]');
-
   if (!commentReplyTitle) {
     return;
   }
-
   var origReplyTitle = commentReplyTitle.textContent;
-  var commentForm = document.getElementById('comment-form'); // I18N
+  var commentForm = document.getElementById('comment-form');
 
+  // I18N
   var cancelText = _main_translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('cancelReply', document.documentElement.lang);
-
   function changeLinksToBtns() {
     var linksArray = Array.prototype.slice.call(document.querySelectorAll('[data-replylink]'));
     linksArray.forEach(function (link) {
@@ -320,39 +313,31 @@ window.addComment = function (window) {
       var btn = document.createElement('button');
       btn.setAttribute('class', 'button button--ghost');
       btn.innerHTML = link.innerHTML;
-
       for (var key in attributes) {
         btn.setAttribute('data-' + key, attributes[key]);
       }
-
       link.parentNode.replaceChild(btn, link);
     });
   }
-
   function addPlaceHolder(respondElement) {
     var temporaryFormId = 'js-temp-form-div';
     var temporaryElement = document.getElementById(temporaryFormId);
-
     if (temporaryElement) {
       // The element already exists, no need to recreate.
       return;
     }
-
     temporaryElement = document.createElement('div');
     temporaryElement.setAttribute('id', temporaryFormId);
     temporaryElement.style.display = 'none';
     respondElement.parentNode.insertBefore(temporaryElement, respondElement);
   }
-
   function addCancelBtn(respondElement) {
     var cancelBtnId = 'js-cancel-reply';
     var cancelBtn = document.getElementById(cancelBtnId);
-
     if (cancelBtn) {
       cancelBtn.style.display = '';
       return;
     }
-
     var targetDiv = respondElement.querySelector('div');
     cancelBtn = document.createElement('button');
     cancelBtn.setAttribute('id', cancelBtnId);
@@ -360,22 +345,23 @@ window.addComment = function (window) {
     cancelBtn.textContent = cancelText;
     targetDiv.appendChild(cancelBtn);
   }
-
   function moveForm(addBelowId, commentId) {
     var addBelowElement = document.getElementById(addBelowId);
-    var respondElement = document.querySelector('[data-respondelement]'); // Get the hidden fields
+    var respondElement = document.querySelector('[data-respondelement]');
 
+    // Get the hidden fields
     var parentIdField = commentForm.querySelector('input[name="parent"]');
     parentIdField.value = commentId;
     addPlaceHolder(respondElement);
     addCancelBtn(respondElement);
     addBelowElement.parentNode.insertBefore(respondElement, addBelowElement.nextSibling);
-  } // Check the DOM is ready
+  }
 
-
+  // Check the DOM is ready
   if (document.readyState === 'interactive') {
-    changeLinksToBtns(); // Hide cancel link used for non-JS fallback
+    changeLinksToBtns();
 
+    // Hide cancel link used for non-JS fallback
     commentForm.querySelector('[type="submit"]').nextElementSibling.style.display = 'none';
     document.addEventListener('click', function (event) {
       if (event.target.matches('[data-replylink]')) {
@@ -389,7 +375,6 @@ window.addComment = function (window) {
         commentReplyTitle.textContent = newReplyTitle;
         moveForm(commentId, parentId, postId);
       }
-
       if (event.target.matches('#js-cancel-reply')) {
         var temporaryElement = document.getElementById('js-temp-form-div');
         var respondElement = document.querySelector('[data-respondelement]');

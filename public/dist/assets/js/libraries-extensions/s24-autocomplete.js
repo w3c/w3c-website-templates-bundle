@@ -94,7 +94,6 @@ __webpack_require__.r(__webpack_exports__);
 
 function simpleAccessibleAutocomplete(id) {
   var element = document.getElementById(id);
-
   if (element) {
     // If a reset button is used to clear the input, reflect this in the underlying <select>
     // and collapse the dropdown menu
@@ -102,13 +101,13 @@ function simpleAccessibleAutocomplete(id) {
       // Clear autocomplete and hidden select
       var enhancedElement = element.parentElement.querySelector('input');
       enhancedElement.value = '';
-      element.value = ''; // Collapse the dropdown menu
+      element.value = '';
 
+      // Collapse the dropdown menu
       enhancedElement.click();
       enhancedElement.focus();
       enhancedElement.blur();
     };
-
     accessible_autocomplete__WEBPACK_IMPORTED_MODULE_0___default().enhanceSelectElement({
       confirmOnBlur: false,
       defaultValue: '',
@@ -127,7 +126,6 @@ function simpleAccessibleAutocomplete(id) {
     }, false);
   }
 }
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (simpleAccessibleAutocomplete);
 })();
 
