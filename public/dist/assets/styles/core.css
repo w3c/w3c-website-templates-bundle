@@ -3408,9 +3408,6 @@ main,
 .card--user .not-sidebar > div > * + * {
   margin-top: 1.25rem;
 }
-.card--user dl.grid {
-  grid-template-columns: max-content;
-}
 
 /*------------------------------------*\
     #Tag list
