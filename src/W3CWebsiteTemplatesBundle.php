@@ -13,7 +13,7 @@ class W3CWebsiteTemplatesBundle extends Bundle
         return dirname(__DIR__);
     }
 
-    public function getContainerExtension()
+    public function getContainerExtension(): ?Symfony\Component\DependencyInjection\Extension\ExtensionInterface
     {
         return new W3CWebsiteTemplatesExtension();
     }
