@@ -4111,7 +4111,7 @@ input[type=search] {
 
 @media screen and (min-width: 64em) {
   .pagination__list {
-    justify-content: flex-end;
+    justify-content: center;
   }
 }
 .pagination__list a {
