@@ -2,6 +2,7 @@
 
 namespace W3C\WebsiteTemplatesBundle;
 
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use W3C\WebsiteTemplatesBundle\DependencyInjection\W3CWebsiteTemplatesExtension;
 use function dirname;
@@ -13,7 +14,7 @@ class W3CWebsiteTemplatesBundle extends Bundle
         return dirname(__DIR__);
     }
 
-    public function getContainerExtension(): ?Symfony\Component\DependencyInjection\Extension\ExtensionInterface
+    public function getContainerExtension(): ?ExtensionInterface
     {
         return new W3CWebsiteTemplatesExtension();
     }
