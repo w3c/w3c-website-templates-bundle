@@ -1,62 +1,60 @@
-{% if pagination is defined %}
-    {% set query_string = app.request.attributes.get('_route_params')|merge(app.request.query) %}
+{% if pagination is defined and pagination.totalPages > 1 %}
+    {% set route = app.request.attributes.get('_route') %}
+    {% set query = app.request.attributes.get('_route_params')|merge(app.request.query) %}
+
     <nav aria-label="pagination" class="l-cluster pagination">
         <ul class="pagination__list">
-            {% if pagination.page > 1 %}
+            {% if not pagination.firstPage %}
                 <li>
-                    <a class="pagination__list__first" href="{{ path(app.request.attributes.get('_route'), query_string|merge({page: 1})) }}">
-                        <span aria-hidden="true">&lt;&lt;</span><span class="visuallyhidden">
-                            {{ 'pagination.first'|trans({}, 'w3c_website_templates_bundle') }}
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ path(app.request.attributes.get('_route'), query_string|merge({ page: pagination.page - 1})) }}">
-                        {{ 'pagination.previous'|trans({}, 'w3c_website_templates_bundle')|raw }}
+                    <a rel="prev" href="{{ path(route, query|merge({page: pagination.previous})) }}">
+                        Previous <span class="visuallyhidden">page</span>
                     </a>
                 </li>
             {% endif %}
-            {% for pagination_page in 1..min(5, pagination.totalPages) %}
+
+            {% if pagination.first not in pagination.pageLinks %}
                 <li>
-                {% if pagination_page == pagination.page %}
-                    <a href="#" aria-label="page {{ pagination_page }}" aria-current="page">
-                        {{ 'pagination.current_page'|trans({'page': pagination_page}, 'w3c_website_templates_bundle')|raw }}
+                    <a class="pagination__list__first"
+                       href="{{ path(route, query|merge({page: pagination.first})) }}">
+                        <span class="visuallyhidden">page</span> {{ pagination.first }}
+                        <span class="visuallyhidden"> (first page)</span>
                     </a>
-                {% else %}
-                    <a href="{{ path(app.request.attributes.get('_route'), query_string|merge({ page: pagination_page})) }}">
-                        {{ 'pagination.page'|trans({'page': pagination_page}, 'w3c_website_templates_bundle')|raw }}
-                    </a>
-                {% endif %}
                 </li>
-                <li></li>
-            {% endfor %}
-            {% if pagination.totalPages > 6 %}
+
                 <li><a class="ellipsis">&#8230;</a></li>
             {% endif %}
-            {% if pagination.totalPages > 5 %}
-                <li>
-                    {% if pagination.totalPages == pagination.page %}
-                        <a href="#" aria-label="page {{ pagination.totalPages }}" aria-current="page">
-                            {{ 'pagination.current_page'|trans({'page': pagination.totalPages}, 'w3c_website_templates_bundle')|raw }}
+
+            {% for page in pagination.pageLinks %}
+                {% if page != pagination.page %}
+                    <li>
+                        <a href="{{ path(route, query|merge({page: page})) }}">
+                            <span class="visuallyhidden">page</span> {{ page }}
                         </a>
-                    {% else %}
-                        <a href="{{ path(app.request.attributes.get('_route'), query_string|merge({ page: pagination.totalPages})) }}">
-                            {{ 'pagination.page'|trans({'page': pagination.totalPages}, 'w3c_website_templates_bundle')|raw }}
-                        </a>
-                    {% endif %}
-                </li>
-            {% endif %}
-            {% if pagination.page < pagination.totalPages %}
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{{ path(route, query|merge({page: page})) }}" aria-label="page {{ page }}"
+                           aria-current="page">{{ page }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+
+            {% if pagination.last not in pagination.pageLinks %}
+                <li><a class="ellipsis">&#8230;</a></li>
                 <li>
-                    <a href="{{ path(app.request.attributes.get('_route'), query_string|merge({ page: pagination.page + 1})) }}">
-                        {{ 'pagination.next'|trans({}, 'w3c_website_templates_bundle')|raw }}
+                    <a class="pagination__list__last"
+                       href="{{ path(route, query|merge({page: pagination.last})) }}">
+                        <span class="visuallyhidden">page</span> {{ pagination.last }}
+                        <span class="visuallyhidden"> (last page)</span>
                     </a>
                 </li>
+            {% endif %}
+
+            {% if not pagination.lastPage %}
                 <li>
-                    <a class="pagination__list__last" href="{{ path(app.request.attributes.get('_route'), query_string|merge({ page: pagination.totalPages})) }}">
-                        <span aria-hidden="true">&gt;&gt;</span><span class="visuallyhidden">
-                            {{ 'pagination.last'|trans({}, 'w3c_website_templates_bundle') }}
-                        </span>
+                    <a rel="next" href="{{ path(route, query|merge({page: pagination.next})) }}">
+                        Next <span class="visuallyhidden">page</span>
                     </a>
                 </li>
             {% endif %}
