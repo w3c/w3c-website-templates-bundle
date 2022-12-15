@@ -27,6 +27,7 @@ Note the `.listing` class applied to `<body>`.
 Note the `.post-list` class applied to the listings container.
 
 Note that the individual listings are not given the `.card` class. This is a deliberate omission, as the `.card` class includes various styles that are not needed for post listings and so would need to be overridden.
+They do however have the `.card--user` class.
 
 Where there are two links to the same post destination, one in the heading and one wrapped around an image, note how image link is given `tabindex="-1"` and `aria-hidden="true"`. This is to [optimise keyboard navigation](https://www.sarasoueidan.com/blog/keyboard-friendlier-article-listings/).
 
