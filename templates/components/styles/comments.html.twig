@@ -37,7 +37,7 @@
             <div class="sidebar comment__img">
                 <div class="avatar avatar--med">
                     {% if comment.email %}
-                        <img alt="" src="{{ comment.email|avatar }}" loading="lazy">
+                        <img alt="" src="{{ comment.email|avatar('48') }}" loading="lazy">
                     {% else %}
                         <img src="{{ asset('svg/avatar.svg', 'website-2021') }}" width="50" height="50" alt aria-hidden="true"/>
                     {% endif %}
