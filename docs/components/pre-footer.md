@@ -4,6 +4,11 @@ Used on the post and events [listing pages](../templates/listings.md).
 
 ## Post listing (generic) pre-footer
 
+Used on:
+ * Press release listings: 'generic' pre-footer
+ * Blog listings: RSS feed
+ * News listings: RSS feed
+
 <example title="Generic pre-footer" src="components/pre-footer-generic.html.twig" />
 
 ## Event listing pre-footer
