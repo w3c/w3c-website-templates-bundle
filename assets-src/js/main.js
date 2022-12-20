@@ -7,8 +7,6 @@ import {navigation} from "./main/navigation";
 import {responsiveTables} from "./main/responsive-tables";
 import {flashes} from "./main/flashes";
 
-flashes();
-
 function domLoadedActions() {
 	accountMenu();
 	navigation();
@@ -17,6 +15,7 @@ function domLoadedActions() {
 	disclosureWidget();
 	formErrorSummary();
 	responsiveTables();
+	flashes();
 };
 
 if (document.readyState === 'loading') {  // Loading hasn't finished yet
