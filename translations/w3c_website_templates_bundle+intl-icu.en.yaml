@@ -102,6 +102,7 @@ listing:
     events:
         filters:
             all: All
+            upcoming: Upcoming
             types: Event type
             categories: Category
             search_button: Show results

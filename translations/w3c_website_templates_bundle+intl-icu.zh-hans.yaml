@@ -99,7 +99,8 @@ listing:
             archives_label: 媒体新闻稿归档
     events:
         filters:
-            all: 全部
+            all: __listing.events.filters.all
+            upcoming: __listing.events.filters.upcoming
             types: 重大事件类型
             categories: 类目
             search_button: 搜索

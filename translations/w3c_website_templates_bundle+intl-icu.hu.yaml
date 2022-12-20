@@ -85,6 +85,7 @@ listing:
     events:
         filters:
             all: __listing.events.filters.all
+            upcoming: __listing.events.filters.upcoming
             types: __listing.events.filters.types
             categories: __listing.events.filters.categories
             search_button: __listing.events.filters.search_button
