@@ -6,6 +6,9 @@
     <div class="u-full-width hero hero--listing">
         <div class="l-center">
             <h1>{% block title %}{{ page.title|default('W3C') }}{% endblock %}</h1>
+            {% if page.localized is defined and page.localized|length > 0 %}
+                {{ include('@W3CWebsiteTemplates/components/styles/page_translations.html.twig') }}
+            {% endif %}
             {% block lead %}
                 {% if page.lead is defined and page.lead %}
                     <p class="lead">{{ page.lead|raw }}</p>
