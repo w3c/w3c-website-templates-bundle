@@ -100,6 +100,14 @@
             })();
         </script>
     {% endblock javascripts %}
+
+    {% if page.feeds is defined %}
+        {% for feed in page.feeds %}
+            <link href="{{ feed.href }}" title="{{ feed.title }}" rel="alternate" type="application/rss+xml" />
+        {% endfor %}
+    {% endif %}
+
+    {% block head_other %}{% endblock %}
 </head>
 
 <body {% block body_classes %}class="{{ body_classes|default('default') }}"{% endblock %}>
