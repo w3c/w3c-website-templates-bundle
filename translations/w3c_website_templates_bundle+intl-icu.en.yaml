@@ -49,7 +49,7 @@ footer:
 banner:
     beta:
         text: >-
-            This is a new website. <a href="mailto:team-website-redesign@w3.org">Give feedback</a> to help us
+            This is a new website. <a href="https://github.com/w3c/w3c-website>Give feedback</a> to help us
             improve it.
         icon: Beta icon
 header:
