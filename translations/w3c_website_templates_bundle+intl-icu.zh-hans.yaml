@@ -48,7 +48,7 @@ footer:
 banner:
     beta:
         text: >-
-            这是一个全新的网站，<a href="mailto:team-website-redesign@w3.org">请给予反馈</a>帮助我们建设完善网站。
+            这是一个全新的网站，<a href="https://github.com/w3c/w3c-website">请给予反馈</a>帮助我们建设完善网站。
         icon: 测试版图标
 header:
     logo_alt: W3C 标志
