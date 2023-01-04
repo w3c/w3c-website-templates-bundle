@@ -53,7 +53,7 @@ class FlashMessageSubscriber implements EventSubscriberInterface
             'success' => 'successes',
             'warning' => 'warnings',
             'error'   => 'errors',
-            'notice'  => 'notices'
+            'info'    => 'info'
         ];
 
         $existingTitles = array_keys(
