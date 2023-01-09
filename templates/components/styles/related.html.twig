@@ -1,3 +1,4 @@
+{% if related_links|length > 0 %}
 <section class="related">
     <div class="related__inner">
         <h2 class="txt-jupiter">{{ 'page.related_content'|trans({}, 'w3c_website_templates_bundle') }}</h2>
@@ -14,3 +15,4 @@
         </ul>
     </div>
 </section>
+{% endif %}
