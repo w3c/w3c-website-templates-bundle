@@ -5,11 +5,9 @@
                 {% block group_name %}{{ group.name }}{% endblock %}
             </a>
         </h2>
-        <p>
-            {% block group_description %}
-                {{ group.description|purify }}
-            {% endblock %}
-        </p>
+        {% block group_description %}
+            {{ group.description|purify }}
+        {% endblock %}
         {% block group_ecosystems %}
             {% if group.ecosystems is defined and group.ecosystems|length > 0 %}
                 <dl class="txt-pluto">
