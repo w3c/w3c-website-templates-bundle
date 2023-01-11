@@ -17,8 +17,7 @@ page:
     related_content: 相关内容
 footer:
     copyright: >-
-        Copyright © {date, date, ::y} World Wide Web Consortium。<a
-        href="/Consortium/Legal/ipr-notice">使用章程适用</a>。
+        __footer.copyright {date, date, ::y}
     links:
         hreflang: zh-hans
         home: 主页
