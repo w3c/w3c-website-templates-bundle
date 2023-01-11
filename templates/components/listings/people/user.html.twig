@@ -14,7 +14,7 @@
                     {% endif %}
                 {% endblock %}
                 {% block biography %}
-                    <p>{{ user.biography|purify }}</p>
+                    {{ user.biography|purify }}
                 {% endblock %}
                 <div class="l-cluster">
                     <div>
