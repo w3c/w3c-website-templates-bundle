@@ -130,17 +130,13 @@ const MultiselectButtons = function (selectEl, params) {
     span.style.display = 'none';
     selectEl.parentNode.appendChild(span);
 
-    if (selectEl.multiple) {
-        const ul = document.createElement('ul');
-        ul.id = baseId + '-selected';
-        ul.classList.add('selected-options');
-        selectEl.parentNode.appendChild(ul);
-        this.selectedEl = ul;
-    }
-
-    // hide the original label and create a new one for the new combobox
+    // hide the original label/hint and create new ones for the new combobox
     const selectLabel = document.querySelector(`label[for=${selectEl.id}]`);
     selectLabel.hidden = true;
+    const selectHint = document.querySelector(`#hint-${selectEl.id}`);
+    if (selectHint) {
+        selectHint.hidden = true;
+    }
 
     const div = document.createElement('div');
     div.classList.add('combo');
@@ -158,17 +154,22 @@ const MultiselectButtons = function (selectEl, params) {
     input.setAttribute('aria-autocomplete', 'list');
     input.setAttribute('aria-controls', baseId + '-listbox');
     input.id = baseId + "-input";
+    if (selectHint) {
+        input.setAttribute('aria-describedby', `hint-${input.id}`);
+    }
     input.classList.add('combo-input');
     input.setAttribute('autocomplete', 'off');
     input.setAttribute('type', 'text');
     divComboBox.appendChild(input);
 
-    const spanLabel = document.createElement('span');
-    spanLabel.classList.add('faux-label');
-    spanLabel.innerText = selectLabel.innerText;
     const labelComboBox = document.createElement('label');
     labelComboBox.setAttribute('for', input.id);
-    labelComboBox.appendChild(spanLabel);
+    labelComboBox.innerHTML = selectLabel.innerHTML;
+    const hintComboBox = selectHint ? selectHint.cloneNode(true) : null;
+    if (selectHint) {
+        hintComboBox.hidden = false;
+        hintComboBox.id = `hint-${input.id}`;
+    }
 
     const ulCombo = document.createElement('ul');
     ulCombo.setAttribute('role', 'listbox');
@@ -180,6 +181,16 @@ const MultiselectButtons = function (selectEl, params) {
     div.appendChild(divComboBox);
     div.appendChild(ulCombo);
     selectEl.parentNode.appendChild(labelComboBox);
+    if (hintComboBox) {
+        selectEl.parentNode.appendChild(hintComboBox);
+    }
+    if (selectEl.multiple) {
+        const ul = document.createElement('ul');
+        ul.id = baseId + '-selected';
+        ul.classList.add('selected-options');
+        selectEl.parentNode.appendChild(ul);
+        this.selectedEl = ul;
+    }
     selectEl.parentNode.appendChild(div);
 
     // element refs
