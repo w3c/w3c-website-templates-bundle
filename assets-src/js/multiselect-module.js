@@ -153,10 +153,10 @@ const MultiselectButtons = function (selectEl, params) {
     input.setAttribute('aria-activedescendant', '');
     input.setAttribute('aria-autocomplete', 'list');
     input.setAttribute('aria-controls', baseId + '-listbox');
+    input.id = baseId + "-input";
     if (selectHint) {
         input.setAttribute('aria-describedby', `hint-${input.id}`);
     }
-    input.id = baseId + "-input";
     input.classList.add('combo-input');
     input.setAttribute('autocomplete', 'off');
     input.setAttribute('type', 'text');
