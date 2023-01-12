@@ -79,10 +79,10 @@
     {% if no_errors is not defined or not no_errors %}
         {{- form_errors(form) -}}
     {% endif %}
+    </{{ element|default('label') }}>
     {% if form.vars.help %}
         {{- form_help(form) -}}
     {% endif %}
-    </{{ element|default('label') }}>
 {%- endblock form_label -%}
 
 {%- block form_errors -%}
