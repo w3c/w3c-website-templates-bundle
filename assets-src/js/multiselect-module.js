@@ -164,7 +164,7 @@ const MultiselectButtons = function (selectEl, params) {
     divComboBox.appendChild(input);
 
     const spanLabel = document.createElement('span');
-    spanLabel.classList.add('faux-label');
+    spanLabel.classList.add('field-label');
     spanLabel.innerText = selectLabel.innerText;
     const labelComboBox = document.createElement('label');
     labelComboBox.setAttribute('for', input.id);
