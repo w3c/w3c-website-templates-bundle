@@ -8,6 +8,7 @@ use DateTimeInterface;
 use DateTimeZone;
 use Exception;
 use SimpleXMLElement;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Translation\IdentityTranslator;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Throwable;
@@ -34,22 +35,28 @@ class TwigExtension extends AbstractExtension
     private IntlExtension $intl;
     private Environment $twig;
     private Utils $utils;
+    private RequestStack $requestStack;
+    private array $loginUrlInfo;
 
     public function __construct(
         IntlExtension $intl,
         TranslatorInterface $translator,
         Environment $twig,
-        Utils $utils
+        Utils $utils,
+        RequestStack $requestStack,
+        array $loginUrlInfo
     ) {
         // Ignore the IdentityTranslator, otherwise the parameters won't be replaced properly
         if ($translator instanceof IdentityTranslator) {
             $translator = null;
         }
 
-        $this->translator = $translator;
-        $this->intl       = $intl;
-        $this->twig       = $twig;
-        $this->utils      = $utils;
+        $this->translator   = $translator;
+        $this->intl         = $intl;
+        $this->twig         = $twig;
+        $this->utils        = $utils;
+        $this->requestStack = $requestStack;
+        $this->loginUrlInfo = $loginUrlInfo;
     }
 
     public function getFilters()
@@ -70,7 +77,8 @@ class TwigExtension extends AbstractExtension
     {
         return [
             new TwigFunction('date_range', [$this, 'dateRange']),
-            new TwigFunction('w3c_date_format', [$this, 'w3cDateFormat'])
+            new TwigFunction('w3c_date_format', [$this, 'w3cDateFormat']),
+            new TwigFunction('login_url', [$this, 'getLoginUrl']),
         ];
     }
 
@@ -229,8 +237,8 @@ class TwigExtension extends AbstractExtension
     }
 
     public function w3cDateFormat(DateTimeInterface $date, string $locale = 'en_GB', string $format = 'Y-m-d'): string {
-        $formatedDate = $this->intl->formatDate($this->twig, $date, 'long', '', $date->getTimezone(), 'gregorian', $locale);
-        return '<time datetime="'.$date->format($format).'">'.$formatedDate.'</time>';
+        $formattedDate = $this->intl->formatDate($this->twig, $date, 'long', '', $date->getTimezone(), 'gregorian', $locale);
+        return '<time datetime="'.$date->format($format).'">'.$formattedDate.'</time>';
     }
 
     public function arrayShuffle(array $sourceArray): array
@@ -242,5 +250,19 @@ class TwigExtension extends AbstractExtension
     public function stripGroupType(string $name): string
     {
         return $this->utils->stripGroupType($name);
+    }
+
+    public function getLoginUrl(?string $redirectUrl = null): string
+    {
+        // @todo Simplify after we stop supporting Symfony 4
+        if ($redirectUrl) {
+            $redirectUrl = urlencode($redirectUrl);
+        } elseif (method_exists($this->requestStack, 'getMainRequest')) {
+            $redirectUrl = urlencode($this->requestStack->getMainRequest()->getUri());
+        } else {
+            $redirectUrl = urlencode($this->requestStack->getMasterRequest()->getUri());
+        }
+
+        return $this->loginUrlInfo['login_url'] . '?' . $this->loginUrlInfo['login_redirect_param'] . '=' . $redirectUrl;
     }
 }

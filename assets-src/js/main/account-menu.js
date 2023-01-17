@@ -146,6 +146,7 @@ var accountMenu = function () {
 	const loginLink = document.querySelector('#account-login-link');
 	if (loginLink) {
 		loginLink.href = 'https://auth.w3.org/?url=' + encodeURI(window.location.href);
+		loginLink.firstChild.textContent = translate.translate('sign-in', document.documentElement.lang);
 		var userInfoRequest = new XMLHttpRequest();
 		userInfoRequest.open('GET', '/account/user-menu/', true)
 		userInfoRequest.withCredentials = true;

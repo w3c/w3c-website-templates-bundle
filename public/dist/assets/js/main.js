@@ -25,8 +25,10 @@ var translate = {
       'menu': '__menu',
       'my-account': '__my-account',
       'my-calendar': '__my-calendar',
+      'my-organization': '__my_organization',
       'nextSlide': '__nextSlide',
       'previousSlide': '__previousSlide',
+      'sign-in': '__sign-in',
       'sliderDescription': '__sliderDescription',
       'slideText': '__Slide {x} of {y}',
       'team-site': '__team-site'
@@ -42,8 +44,10 @@ var translate = {
       'menu': '__menu',
       'my-account': '__my-account',
       'my-calendar': '__my-calendar',
+      'my-organization': '__my_organization',
       'nextSlide': '__nextSlide',
       'previousSlide': '__previousSlide',
+      'sign-in': '__sign-in',
       'sliderDescription': '__sliderDescription',
       'slideText': '__Slide {x} of {y}',
       'team-site': '__team-site'
@@ -59,8 +63,10 @@ var translate = {
       'menu': 'Menu',
       'my-account': 'My account',
       'my-calendar': 'My calendar',
+      'my-organization': 'My organization',
       'nextSlide': 'next slide',
       'previousSlide': 'previous slide',
+      'sign-in': 'Sign in',
       'sliderDescription': 'carousel',
       'slideText': 'Slide {x} of {y}',
       'team-site': 'Team site'
@@ -76,8 +82,10 @@ var translate = {
       'menu': '__menu',
       'my-account': '__my-account',
       'my-calendar': '__my-calendar',
+      'my-organization': '__my_organization',
       'nextSlide': '__nextSlide',
       'previousSlide': '__previousSlide',
+      'sign-in': '__sign-in',
       'sliderDescription': '__sliderDescription',
       'slideText': '__Slide {x} of {y}',
       'team-site': '__team-site'
@@ -92,9 +100,11 @@ var translate = {
       'member-site': '__member-site',
       'menu': '__menu',
       'my-account': '__my-account',
+      'my-organization': '__my_organization',
       'my-calendar': '__my-calendar',
       'nextSlide': '__nextSlide',
       'previousSlide': '__previousSlide',
+      'sign-in': '__sign-in',
       'sliderDescription': '__sliderDescription',
       'slideText': '__Slide {x} of {y}',
       'team-site': '__team-site'
@@ -110,8 +120,10 @@ var translate = {
       'menu': '__menu',
       'my-account': '__my-account',
       'my-calendar': '__my-calendar',
+      'my-organization': '__my_organization',
       'nextSlide': '__nextSlide',
       'previousSlide': '__previousSlide',
+      'sign-in': '__sign-in',
       'sliderDescription': '__sliderDescription',
       'slideText': '__Slide {x} of {y}',
       'team-site': '__team-site'
@@ -127,8 +139,10 @@ var translate = {
       'menu': '__menu',
       'my-account': '__my-account',
       'my-calendar': '__my-calendar',
+      'my-organization': '__my_organization',
       'nextSlide': '__nextSlide',
       'previousSlide': '__previousSlide',
+      'sign-in': '__sign-in',
       'sliderDescription': '__sliderDescription',
       'slideText': '__Slide {x} of {y}',
       'team-site': '__team-site'
@@ -144,8 +158,10 @@ var translate = {
       'menu': '__menu',
       'my-account': '__my-account',
       'my-calendar': '__my-calendar',
+      'my-organization': '__my_organization',
       'nextSlide': '__nextSlide',
       'previousSlide': '__previousSlide',
+      'sign-in': '__sign-in',
       'sliderDescription': '__sliderDescription',
       'slideText': '__Slide {x} of {y}',
       'team-site': '__team-site'
@@ -161,8 +177,10 @@ var translate = {
       'menu': '__menu',
       'my-account': '__my-account',
       'my-calendar': '__my-calendar',
+      'my-organization': '__my_organization',
       'nextSlide': '__nextSlide',
       'previousSlide': '__previousSlide',
+      'sign-in': '__sign-in',
       'sliderDescription': '__sliderDescription',
       'slideText': '__Slide {x} of {y}',
       'team-site': '__team-site'
@@ -312,7 +330,8 @@ var accountMenu = function accountMenu() {
   };
   var loginLink = document.querySelector('#account-login-link');
   if (loginLink) {
-    loginLink.href = '/account/login/?redirect_url=' + encodeURI(window.location.href);
+    loginLink.href = 'https://auth.w3.org/?url=' + encodeURI(window.location.href);
+    loginLink.firstChild.textContent = _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('sign-in', document.documentElement.lang);
     var userInfoRequest = new XMLHttpRequest();
     userInfoRequest.open('GET', '/account/user-menu/', true);
     userInfoRequest.withCredentials = true;
@@ -809,7 +828,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,_main_flashes__WEBPACK_IMPORTED_MODULE_7__.flashes)();
 function domLoadedActions() {
   (0,_main_account_menu__WEBPACK_IMPORTED_MODULE_0__.accountMenu)();
   (0,_main_navigation__WEBPACK_IMPORTED_MODULE_5__.navigation)();
@@ -818,6 +836,7 @@ function domLoadedActions() {
   (0,_main_disclosure_widget__WEBPACK_IMPORTED_MODULE_3__.disclosureWidget)();
   (0,_main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__.formErrorSummary)();
   (0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__.responsiveTables)();
+  (0,_main_flashes__WEBPACK_IMPORTED_MODULE_7__.flashes)();
 }
 ;
 if (document.readyState === 'loading') {

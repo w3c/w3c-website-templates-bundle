@@ -1,3 +1,7 @@
+parameters:
+    login_url: https://auth.w3.org/
+    login_redirect_param: url
+    logout_url: https://auth.w3.org/loggedin
 services:
     W3C\WebsiteTemplatesBundle\Service\Utils:
         public: false
@@ -8,6 +12,11 @@ services:
             $translator: '@translator'
             $twig: '@twig'
             $utils: '@W3C\WebsiteTemplatesBundle\Service\Utils'
+            $requestStack: '@request_stack'
+            $loginUrlInfo:
+                login_url: '%login_url%'
+                login_redirect_param: '%login_redirect_param%'
+                logout_url: '%logout_url%'
         tags:
             - { name: twig.extension }
     W3C\WebsiteTemplatesBundle\Form\Extension\ChoiceTypeExtension:

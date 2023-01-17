@@ -14,6 +14,7 @@ const translate = {
             'my-organization': '__my_organization',
             'nextSlide': '__nextSlide',
             'previousSlide': '__previousSlide',
+            'sign-in': '__sign-in',
             'sliderDescription': '__sliderDescription',
             'slideText': '__Slide {x} of {y}',
             'team-site': '__team-site'
@@ -32,6 +33,7 @@ const translate = {
             'my-organization': '__my_organization',
             'nextSlide': '__nextSlide',
             'previousSlide': '__previousSlide',
+            'sign-in': '__sign-in',
             'sliderDescription': '__sliderDescription',
             'slideText': '__Slide {x} of {y}',
             'team-site': '__team-site'
@@ -50,6 +52,7 @@ const translate = {
             'my-organization': 'My organization',
             'nextSlide': 'next slide',
             'previousSlide': 'previous slide',
+            'sign-in': 'Sign in',
             'sliderDescription': 'carousel',
             'slideText': 'Slide {x} of {y}',
             'team-site': 'Team site',
@@ -68,6 +71,7 @@ const translate = {
             'my-organization': '__my_organization',
             'nextSlide': '__nextSlide',
             'previousSlide': '__previousSlide',
+            'sign-in': '__sign-in',
             'sliderDescription': '__sliderDescription',
             'slideText': '__Slide {x} of {y}',
             'team-site': '__team-site'
@@ -86,6 +90,7 @@ const translate = {
             'my-calendar': '__my-calendar',
             'nextSlide': '__nextSlide',
             'previousSlide': '__previousSlide',
+            'sign-in': '__sign-in',
             'sliderDescription': '__sliderDescription',
             'slideText': '__Slide {x} of {y}',
             'team-site': '__team-site'
@@ -104,6 +109,7 @@ const translate = {
             'my-organization': '__my_organization',
             'nextSlide': '__nextSlide',
             'previousSlide': '__previousSlide',
+            'sign-in': '__sign-in',
             'sliderDescription': '__sliderDescription',
             'slideText': '__Slide {x} of {y}',
             'team-site': '__team-site'
@@ -122,6 +128,7 @@ const translate = {
             'my-organization': '__my_organization',
             'nextSlide': '__nextSlide',
             'previousSlide': '__previousSlide',
+            'sign-in': '__sign-in',
             'sliderDescription': '__sliderDescription',
             'slideText': '__Slide {x} of {y}',
             'team-site': '__team-site'
@@ -140,6 +147,7 @@ const translate = {
             'my-organization': '__my_organization',
             'nextSlide': '__nextSlide',
             'previousSlide': '__previousSlide',
+            'sign-in': '__sign-in',
             'sliderDescription': '__sliderDescription',
             'slideText': '__Slide {x} of {y}',
             'team-site': '__team-site'
@@ -158,6 +166,7 @@ const translate = {
             'my-organization': '__my_organization',
             'nextSlide': '__nextSlide',
             'previousSlide': '__previousSlide',
+            'sign-in': '__sign-in',
             'sliderDescription': '__sliderDescription',
             'slideText': '__Slide {x} of {y}',
             'team-site': '__team-site'
