@@ -29,7 +29,11 @@
                                 <p class="date-orig">
                                     {% block event_dates %}{{ date_range(entry.start, entry.end, entry.tz, site.locale)|raw }}{% endblock %}
                                 </p>
-                                {% block event_location %}<p>{{ entry.location }}</p>{% endblock %}
+                                {% block event_location %}
+                                    {% if entry.location %}
+                                        <p>{{ entry.location|markdown_to_html({'is_safe': false})|replace({'<p>': '', '</p>': ''})|raw }}</p>
+                                    {% endif %}
+                                {% endblock %}
                             </div>
                         </div>
                     </div>
