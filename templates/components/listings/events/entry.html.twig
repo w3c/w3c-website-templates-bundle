@@ -31,7 +31,7 @@
                                 </p>
                                 {% block event_location %}
                                     {% if entry.location %}
-                                        <p>{{ entry.location|markdown_to_html({'is_safe': false})|replace({'<p>': '', '</p>': ''})|raw }}</p>
+                                        <p>{{ entry.location }}</p>
                                     {% endif %}
                                 {% endblock %}
                             </div>
