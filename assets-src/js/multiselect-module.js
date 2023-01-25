@@ -160,6 +160,9 @@ const MultiselectButtons = function (selectEl, params) {
     input.classList.add('combo-input');
     input.setAttribute('autocomplete', 'off');
     input.setAttribute('type', 'text');
+    if (selectEl.dataset.placeholder) {
+        input.setAttribute('placeholder', selectEl.dataset.placeholder);
+    }
     divComboBox.appendChild(input);
 
     const labelComboBox = document.createElement('label');
@@ -212,6 +215,12 @@ const MultiselectButtons = function (selectEl, params) {
     this.page = 1;
     this.morePages = false;
     this.ajaxResultCount;
+    if (this.source) {
+        input.style.backgroundImage = 'url("https://cdn.w3.org/assets/website-2021/svg/search.svg")';
+        input.style.backgroundRepeat = 'no-repeat';
+        input.style.backgroundPosition = 'center right 0.625rem';
+        input.style.backgroundSize = '0.9375rem';
+    }
 
     // state
     this.activeIndex = 0;
