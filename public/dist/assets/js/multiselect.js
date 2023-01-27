@@ -150,17 +150,14 @@ var MultiselectButtons = function MultiselectButtons(selectEl, params) {
   span.innerText = 'remove';
   span.style.display = 'none';
   selectEl.parentNode.appendChild(span);
-  if (selectEl.multiple) {
-    var ul = document.createElement('ul');
-    ul.id = baseId + '-selected';
-    ul.classList.add('selected-options');
-    selectEl.parentNode.appendChild(ul);
-    this.selectedEl = ul;
-  }
 
-  // hide the original label and create a new one for the new combobox
+  // hide the original label/hint and create new ones for the new combobox
   var selectLabel = document.querySelector("label[for=".concat(selectEl.id, "]"));
   selectLabel.hidden = true;
+  var selectHint = document.querySelector("#hint-".concat(selectEl.id));
+  if (selectHint) {
+    selectHint.hidden = true;
+  }
   var div = document.createElement('div');
   div.classList.add('combo');
   div.id = "".concat(selectEl.id, "-js-multi-buttons");
@@ -175,16 +172,28 @@ var MultiselectButtons = function MultiselectButtons(selectEl, params) {
   input.setAttribute('aria-autocomplete', 'list');
   input.setAttribute('aria-controls', baseId + '-listbox');
   input.id = baseId + "-input";
+  if (selectHint) {
+    input.setAttribute('aria-describedby', "hint-".concat(input.id));
+  }
   input.classList.add('combo-input');
   input.setAttribute('autocomplete', 'off');
   input.setAttribute('type', 'text');
+  if (selectEl.dataset.placeholder) {
+    input.setAttribute('placeholder', selectEl.dataset.placeholder);
+  }
+  input.style.backgroundImage = 'url("https://cdn.w3.org/assets/website-2021/svg/search.svg")';
+  input.style.backgroundRepeat = 'no-repeat';
+  input.style.backgroundPosition = 'center right 0.625rem';
+  input.style.backgroundSize = '0.9375rem';
   divComboBox.appendChild(input);
-  var spanLabel = document.createElement('span');
-  spanLabel.classList.add('faux-label');
-  spanLabel.innerText = selectLabel.innerText;
   var labelComboBox = document.createElement('label');
   labelComboBox.setAttribute('for', input.id);
-  labelComboBox.appendChild(spanLabel);
+  labelComboBox.innerHTML = selectLabel.innerHTML;
+  var hintComboBox = selectHint ? selectHint.cloneNode(true) : null;
+  if (selectHint) {
+    hintComboBox.hidden = false;
+    hintComboBox.id = "hint-".concat(input.id);
+  }
   var ulCombo = document.createElement('ul');
   ulCombo.setAttribute('role', 'listbox');
   ulCombo.setAttribute('aria-multiselectable', 'true');
@@ -194,6 +203,16 @@ var MultiselectButtons = function MultiselectButtons(selectEl, params) {
   div.appendChild(divComboBox);
   div.appendChild(ulCombo);
   selectEl.parentNode.appendChild(labelComboBox);
+  if (hintComboBox) {
+    selectEl.parentNode.appendChild(hintComboBox);
+  }
+  if (selectEl.multiple) {
+    var ul = document.createElement('ul');
+    ul.id = baseId + '-selected';
+    ul.classList.add('selected-options');
+    selectEl.parentNode.appendChild(ul);
+    this.selectedEl = ul;
+  }
   selectEl.parentNode.appendChild(div);
 
   // element refs
