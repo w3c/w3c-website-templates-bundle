@@ -6,6 +6,7 @@
 
     {% set seo = page.seo|default([]) %}
     <title>
+        {% if page.access_control.text is defined %}{{ page.access_control.text }} - {% endif %}
         {%- block documenttitle -%}
             {%- if seo.title is defined and seo.title -%}
                 {{ seo.title|raw }}
