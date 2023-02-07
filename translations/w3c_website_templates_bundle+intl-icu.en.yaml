@@ -16,6 +16,10 @@ page:
     translationsarialabel: Translations
     toc: Page contents skip to links
     related_content: In this section
+    acl:
+        member: This page is restricted to members
+        team: This page is restricted to W3C staff
+        private: This page is restricted
 footer:
     copyright: >-
         Copyright &copy; {date, date, ::y} <a href="https://www.w3.org/">World Wide Web Consortium</a>.<br>

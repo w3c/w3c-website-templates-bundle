@@ -2,17 +2,17 @@
     #Access control banner
 \*------------------------------------*/
 
-.banner.banner--access-control {
-  background-color: $blue;
+.banner.banner--access-control.acl-private {
+  background-color: $teal-green;
   color: $white;
 }
 
 .banner--access-control.acl-member {
-  background-color: $purple;
-  color: $white;
+  background-color: $pink;
+  color: $black;
 }
 
 .banner--access-control.acl-team {
-  background-color: $light-coral;
+  background-color: $light-red;
   color: $black;
 }

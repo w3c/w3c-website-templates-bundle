@@ -15,6 +15,10 @@ page:
     translationsarialabel: 翻译
     toc: 页面内容跳转至链接
     related_content: 相关内容
+    acl:
+        member: __page.acl.member
+        team: __page.acl.team
+        private: __page.acl.private
 footer:
     copyright: >-
         __footer.copyright {date, date, ::y}

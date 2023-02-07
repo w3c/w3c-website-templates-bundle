@@ -13,7 +13,18 @@
                 {{ page.title|default('W3C') }}
             {%- endif -%}
         {%- endblock -%}
-        {% if page.access_control.text is defined %} ({{ page.access_control.text }}){% endif %}
+        {% if page.access_control is defined %}
+            {% if page.access_control.text is defined %}
+                ({{ page.access_control.text }})
+            {% else %}
+                {% if page.access_control.acl is defined %}
+                    {% set acl = page.access_control.acl %}
+                {% else %}
+                    {% set acl = 'private' %}
+                {% endif %}
+                ({{ ('page.acl.' ~ acl)|trans({}, 'w3c_website_templates_bundle') }})
+            {% endif %}
+        {% endif %}
     </title>
     <meta name="description" content="{% block description %}{{ seo.description|default(page.excerpt|default('page.default_description'|trans({}, 'w3c_website_templates_bundle'))) }}{% endblock %}"/>
 

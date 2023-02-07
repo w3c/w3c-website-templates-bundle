@@ -2822,18 +2822,18 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 /*------------------------------------*\
     #Access control banner
 \*------------------------------------*/
-.banner.banner--access-control {
-  background-color: #005797;
+.banner.banner--access-control.acl-private {
+  background-color: #237978;
   color: #fff;
 }
 
 .banner--access-control.acl-member {
-  background-color: #920ba6;
-  color: #fff;
+  background-color: #ddb0c8;
+  color: #000;
 }
 
 .banner--access-control.acl-team {
-  background-color: #fea78d;
+  background-color: #ec7070;
   color: #000;
 }
 

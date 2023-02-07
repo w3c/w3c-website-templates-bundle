@@ -1,8 +1,17 @@
-{% if page.access_control is defined and page.access_control.text is defined %}
-    <div class="banner banner--access-control{{ page.access_control.acl is defined ? ' acl-' ~ page.access_control.acl : ''}}">
+{% if page.access_control is defined %}
+    {% if page.access_control.acl is defined %}
+        {% set acl = page.access_control.acl %}
+    {% else %}
+        {% set acl = 'private' %}
+    {% endif %}
+    <div class="banner banner--access-control acl-{{ acl }}">
         <div class="banner__inner l-center">
             {% block access_control_content %}
-                {{ page.access_control.text }}
+                {% if page.access_control.text is defined %}
+                    {{ page.access_control.text }}
+                {% else %}
+                    {{ ('page.acl.' ~ acl)|trans({}, 'w3c_website_templates_bundle') }}
+                {% endif %}
             {% endblock %}
         </div>
     </div>
