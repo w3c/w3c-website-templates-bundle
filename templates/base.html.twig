@@ -13,6 +13,7 @@
                 {{ page.title|default('W3C') }}
             {%- endif -%}
         {%- endblock -%}
+        {% if page.access_control.text is defined %} ({{ page.access_control.text }}){% endif %}
     </title>
     <meta name="description" content="{% block description %}{{ seo.description|default(page.excerpt|default('page.default_description'|trans({}, 'w3c_website_templates_bundle'))) }}{% endblock %}"/>
 
@@ -119,6 +120,9 @@
             {% block banner %}
                 {{ include('@W3CWebsiteTemplates/components/styles/banner.html.twig') }}
             {% endblock banner %}
+            {% block access_control %}
+                {{ include('@W3CWebsiteTemplates/components/styles/access_control.html.twig') }}
+            {% endblock %}
             {% block lang_nav %}
                 {{ include('@W3CWebsiteTemplates/components/styles/lang_nav.html.twig') }}
             {% endblock lang_nav %}

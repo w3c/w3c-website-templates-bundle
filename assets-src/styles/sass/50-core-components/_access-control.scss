@@ -1,0 +1,18 @@
+/*------------------------------------*\
+    #Access control banner
+\*------------------------------------*/
+
+.banner.banner--access-control {
+  background-color: $blue;
+  color: $white;
+}
+
+.banner--access-control.acl-member {
+  background-color: $purple;
+  color: $white;
+}
+
+.banner--access-control.acl-team {
+  background-color: $light-coral;
+  color: $black;
+}

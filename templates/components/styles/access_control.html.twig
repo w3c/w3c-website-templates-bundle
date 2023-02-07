@@ -1,0 +1,9 @@
+{% if page.access_control is defined and page.access_control.text is defined %}
+    <div class="banner banner--access-control{{ page.access_control.acl is defined ? ' acl-' ~ page.access_control.acl : ''}}">
+        <div class="banner__inner l-center">
+            {% block access_control_content %}
+                {{ page.access_control.text }}
+            {% endblock %}
+        </div>
+    </div>
+{% endif %}
