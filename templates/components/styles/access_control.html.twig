@@ -6,13 +6,16 @@
     {% endif %}
     <div class="banner banner--access-control acl-{{ acl }}">
         <div class="banner__inner l-center">
-            {% block access_control_content %}
-                {% if page.access_control.text is defined %}
-                    {{ page.access_control.text }}
-                {% else %}
-                    {{ ('page.acl.' ~ acl)|trans({}, 'w3c_website_templates_bundle') }}
-                {% endif %}
-            {% endblock %}
+            <span aria-hidden="true" class="fas fa-lock"></span>
+            <p>
+                {% block access_control_content %}
+                    {% if page.access_control.text is defined %}
+                        {{ page.access_control.text }}
+                    {% else %}
+                        {{ ('page.acl.' ~ acl)|trans({}, 'w3c_website_templates_bundle') }}
+                    {% endif %}
+                {% endblock %}
+            </p>
         </div>
     </div>
 {% endif %}
