@@ -20,7 +20,7 @@ page:
         member: This page is restricted to members
         team: This page is restricted to W3C staff
         private: This page is restricted
-        self: This page is restricted to you
+        user: This page is restricted to you
 
 footer:
     copyright: >-
