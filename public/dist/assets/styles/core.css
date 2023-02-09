@@ -2822,7 +2822,7 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 /*------------------------------------*\
     #Access control banner
 \*------------------------------------*/
-.banner.banner--access-control.acl-private {
+.banner.banner--access-control.acl-private, .banner.banner--access-control.acl-self {
   background-color: #237978;
   color: #fff;
 }
