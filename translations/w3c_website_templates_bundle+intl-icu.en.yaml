@@ -17,8 +17,8 @@ page:
     toc: Page contents skip to links
     related_content: In this section
     acl:
-        member: This page is restricted to members
-        team: This page is restricted to W3C staff
+        member: This page is restricted to W3C Members
+        team: This page is restricted to W3C Staff
         private: This page is restricted
         user: This page is restricted to you
 
