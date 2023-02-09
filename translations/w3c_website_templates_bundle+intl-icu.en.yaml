@@ -20,6 +20,8 @@ page:
         member: This page is restricted to members
         team: This page is restricted to W3C staff
         private: This page is restricted
+        self: This page is restricted to you
+
 footer:
     copyright: >-
         Copyright &copy; {date, date, ::y} <a href="https://www.w3.org/">World Wide Web Consortium</a>.<br>

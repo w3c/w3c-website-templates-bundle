@@ -19,6 +19,7 @@ page:
         member: __page.acl.member
         team: __page.acl.team
         private: __page.acl.private
+        self: __page.acl.self
 footer:
     copyright: >-
         __footer.copyright {date, date, ::y}

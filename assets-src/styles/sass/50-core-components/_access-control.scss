@@ -2,7 +2,7 @@
     #Access control banner
 \*------------------------------------*/
 
-.banner.banner--access-control.acl-private {
+.banner.banner--access-control.acl-private, .banner.banner--access-control.acl-self {
   background-color: $teal-green;
   color: $white;
 }
