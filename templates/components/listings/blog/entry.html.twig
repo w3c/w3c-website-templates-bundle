@@ -22,16 +22,14 @@
                                 </p>
                             </div>
                         {% endif %}
+
+                        {% if entry.authors is defined and entry.authors|length > 0 %}
                             <div>
                                 <p>
-                                    By:
-                                    {% if entry.authors is defined and entry.authors|length > 0 %}
-                                        {{ entry.authors|map(a => a.name)|join(', ', ' and ') }}
-                                    {% else %}
-                                        {{ entry.author.name }}
-                                    {% endif %}
+                                    By: {{ entry.authors|map(a => a.name)|join(', ', ' and ') }}
                                 </p>
                             </div>
+                        {% endif %}
                     </div>
                 </div>
                 <p>{{ entry.excerpt }}</p>
