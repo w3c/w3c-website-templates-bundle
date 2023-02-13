@@ -16,13 +16,18 @@ page:
     toc: 页面内容跳转至链接
     related_content: 相关内容
     acl:
-        member: __page.acl.member
-        team: __page.acl.team
-        private: __page.acl.private
-        user: __page.acl.user
+        member: 当前页面仅 W3C 会员可见
+        team: 当前页面仅 W3C 员工可见
+        private: 当前页面可见范围有限
+        user: 当前页面仅本人可见
 footer:
     copyright: >-
-        __footer.copyright {date, date, ::y}
+        版权所有 &copy; {date, date, ::y} <a href="https://www.w3.org/">World Wide Web Consortium</a>.<br>
+          <abbr title="World Wide Web Consortium">W3C</abbr><sup>&reg;</sup>
+          <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+          <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and
+          <a rel="license" href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document" 
+          title="W3C Software and Document Notice and License">permissive document license</a> rules apply.
     links:
         hreflang: zh-hans
         home: 主页
@@ -99,12 +104,12 @@ listing:
             archives_label: 媒体新闻稿归档
     events:
         filters:
-            all: __listing.events.filters.all
-            upcoming: __listing.events.filters.upcoming
+            all: 全部
+            upcoming: 未来事件
             types: 重大事件类型
             categories: 类目
             search_button: 搜索
-            clear: 清除所有
+            clear: 清除筛选
     newsletters:
         filters:
             archives: 查看归档
