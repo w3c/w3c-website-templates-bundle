@@ -38,8 +38,6 @@ footer:
         privacy_policyurl: /policies/privacy/
         legal: __footer.links.legal
         legalurl: /policies
-        cookies: __footer.links.cookies
-        cookiesurl: /cookies/
         system_status: __footer.links.system_status
         system_statusurl: https://status.w3.org/
         twitter: __footer.links.twitter
