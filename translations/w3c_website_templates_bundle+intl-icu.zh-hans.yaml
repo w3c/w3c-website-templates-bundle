@@ -22,12 +22,12 @@ page:
         user: 当前页面仅本人可见
 footer:
     copyright: >-
-        版权所有 &copy; {date, date, ::y} <a href="https://www.w3.org/">World Wide Web Consortium</a>.<br>
+        版权所有 &copy; {date, date, ::y} <a href="https://www.w3.org/">万维网联盟</a>。<br>
           <abbr title="World Wide Web Consortium">W3C</abbr><sup>&reg;</sup>
-          <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
-          <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and
+          <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">责任声明</a>,
+          <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">标志使用</a> and
           <a rel="license" href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document" 
-          title="W3C Software and Document Notice and License">permissive document license</a> rules apply.
+          title="W3C Software and Document Notice and License">文档许可</a> 政策适用。
     links:
         hreflang: zh-hans
         home: 主页
