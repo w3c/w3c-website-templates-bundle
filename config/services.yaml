@@ -24,7 +24,7 @@ services:
             - { name: form.type_extension }
     W3C\WebsiteTemplatesBundle\EventSubscriber\FlashMessageSubscriber:
         arguments:
-            $session: '@session'
+            $requestStack: '@request_stack'
             $translator: '@translator'
         tags:
             - { name: kernel.event_subscriber }

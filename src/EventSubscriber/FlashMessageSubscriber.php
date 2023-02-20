@@ -3,21 +3,21 @@
 namespace W3C\WebsiteTemplatesBundle\EventSubscriber;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
-use Symfony\Component\HttpKernel\HttpKernel;
+use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class FlashMessageSubscriber implements EventSubscriberInterface
 {
-    private Session $session;
+    private RequestStack $requestStack;
     private TranslatorInterface $translator;
 
-    public function __construct(Session $session, TranslatorInterface $translator)
+    public function __construct(RequestStack $requestStack, TranslatorInterface $translator)
     {
-        $this->session    = $session;
-        $this->translator = $translator;
+        $this->requestStack = $requestStack;
+        $this->translator   = $translator;
     }
 
     public static function getSubscribedEvents()
@@ -30,18 +30,29 @@ class FlashMessageSubscriber implements EventSubscriberInterface
 
     public function onKernelResponse(ResponseEvent $event)
     {
-        if (HttpKernel::MASTER_REQUEST !== $event->getRequestType()) {
+        if (HttpKernelInterface::MASTER_REQUEST !== $event->getRequestType()) {
             return;
+        }
+
+        // @todo getSession() was introduced in SF5, remove this when we drop support for SF4
+        if (method_exists($this->requestStack, 'getSession')) {
+            $session = $this->requestStack->getSession();
+        } else {
+            if ((null !== $request = $this->requestStack->getCurrentRequest()) && $request->hasSession()) {
+                $session = $request->getSession();
+            } else {
+                return;
+            }
         }
 
         // Flash messages are stored in the session. If there is none, there
         // can't be any flash messages in it. $session->getFlashBag() would
         // create a session, we need to avoid that.
-        if (!$this->session->isStarted()) {
+        if (!$session->isStarted()) {
             return;
         }
 
-        $flashBag = $this->session->getFlashBag();
+        $flashBag = $session->getFlashBag();
         // Use peekAll because we want to keep existing messages in the bag
         $flashes  = $flashBag->peekAll();
 
