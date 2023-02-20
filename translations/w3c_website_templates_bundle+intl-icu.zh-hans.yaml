@@ -22,7 +22,7 @@ page:
         user: 当前页面仅本人可见
 footer:
     copyright: >-
-        版权所有 &copy; {date, date, ::y} <a href="https://www.w3.org/">World Wide Web Consortium</a>.<br>
+        版权所有 &copy; {date, date, ::y} <a href="https://www.w3.org/">万维网联盟</a>。<br>
           遵循 <abbr title="万维网联盟">W3C</abbr><sup>&reg;</sup> 
           <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
           <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and
