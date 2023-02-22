@@ -25,11 +25,11 @@ page:
 footer:
     copyright: >-
         Copyright &copy; {date, date, ::y} <a href="https://www.w3.org/">World Wide Web Consortium</a>.<br>
-          <abbr title="World Wide Web Consortium">W3C</abbr><sup>&reg;</sup>
-          <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
-          <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and
-          <a rel="license" href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document" 
-          title="W3C Software and Document Notice and License">permissive document license</a> rules apply.
+        <abbr title="World Wide Web Consortium">W3C</abbr><sup>&reg;</sup>
+        <a href="https://www.w3.org/policies/#disclaimers">liability</a>,
+        <a href="https://www.w3.org/policies/#trademarks">trademark</a> and
+        <a rel="license" href="https://www.w3.org/copyright/software-license/" title="W3C Software License">permissive license</a>
+        rules apply.
     links:
         hreflang: en
         home: Home
