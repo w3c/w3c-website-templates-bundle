@@ -167,7 +167,7 @@ const translate = {
             'nextSlide': '下一页',
             'previousSlide': '上一页',
             'sign-in': '登陆',
-            'sliderDescription': '滑块描述',
+            'sliderDescription': '轮播图',
             'slideText': '第{x}/{y}页',
             'team-site': '员工页面'
         }
