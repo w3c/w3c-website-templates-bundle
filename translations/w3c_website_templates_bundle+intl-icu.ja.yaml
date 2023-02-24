@@ -41,6 +41,7 @@ footer:
         legalurl: /ja/policies/
         system_status: __footer.links.system_status
         system_statusurl: https://status.w3.org/
+        mastodon: __footer.links.mastodon
         twitter: __footer.links.twitter
         github: __footer.links.github
 banner:

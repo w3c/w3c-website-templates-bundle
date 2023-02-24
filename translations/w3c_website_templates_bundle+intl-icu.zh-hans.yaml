@@ -45,6 +45,7 @@ footer:
         legalurl: /zh-hans/policies/
         system_status: 系统状态
         system_statusurl: https://status.w3.org/
+        mastodon: __footer.links.mastodon
         twitter: W3C 在推特
         github: W3C 在 GitHub
 banner:

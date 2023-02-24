@@ -48,6 +48,7 @@ footer:
         legalurl: /policies/
         system_status: System Status
         system_statusurl: https://status.w3.org/
+        mastodon: W3C on Mastodon
         twitter: W3C on Twitter
         github: W3C on GitHub
 banner:
