@@ -2,6 +2,7 @@ parameters:
     login_url: https://auth.w3.org/
     login_redirect_param: url
     logout_url: https://auth.w3.org/loggedin
+    frontend_base_url: https://www.w3.org/
 services:
     W3C\WebsiteTemplatesBundle\Service\Utils:
         public: false
@@ -28,3 +29,10 @@ services:
             $translator: '@translator'
         tags:
             - { name: kernel.event_subscriber }
+    W3C\WebsiteTemplatesBundle\Extensions\Twig\GetFromFrontendExtension:
+        arguments:
+            $baseUrl: '%env(default:frontend_base_url:FRONTEND_BASE_URL)%'
+            $client: '@http_client'
+            $cachePath: '%kernel.project_dir%/var/storage/menus/'
+        tags:
+            - { name: twig.extension }
