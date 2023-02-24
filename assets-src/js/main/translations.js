@@ -156,7 +156,7 @@ const translate = {
             'admin': '管理',
             'backToMainMenu': '返回主目录',
             'cancelReply': '取消回复',
-            'controlsDescription': '控件描述',
+            'controlsDescription': '轮播图控件',
             'logged-in': '已登陆',
             'logout': '退出登陆',
             'member-site': '会员页面',
