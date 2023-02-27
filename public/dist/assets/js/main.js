@@ -167,23 +167,23 @@ var translate = {
       'team-site': '__team-site'
     },
     'zh-hans': {
-      'admin': '__admin',
-      'backToMainMenu': '__backToMainMenu',
-      'cancelReply': '__cancelReply',
-      'controlsDescription': '__controlsDescription',
-      'logged-in': '__logged-in',
-      'logout': '__logout',
-      'member-site': '__member-site',
-      'menu': '__menu',
-      'my-account': '__my-account',
-      'my-calendar': '__my-calendar',
-      'my-organization': '__my_organization',
-      'nextSlide': '__nextSlide',
-      'previousSlide': '__previousSlide',
-      'sign-in': '__sign-in',
-      'sliderDescription': '__sliderDescription',
-      'slideText': '__Slide {x} of {y}',
-      'team-site': '__team-site'
+      'admin': '管理',
+      'backToMainMenu': '返回主目录',
+      'cancelReply': '取消回复',
+      'controlsDescription': '轮播图控件',
+      'logged-in': '已登陆',
+      'logout': '退出登陆',
+      'member-site': '会员页面',
+      'menu': '目录',
+      'my-account': '我的账号',
+      'my-calendar': '我的日历',
+      'my-organization': '我所在的组织',
+      'nextSlide': '下一页',
+      'previousSlide': '上一页',
+      'sign-in': '登陆',
+      'sliderDescription': '轮播图',
+      'slideText': '第{x}/{y}页',
+      'team-site': '员工页面'
     }
   },
   //snippetReference = index of micro copy snippet in translations object above
@@ -271,7 +271,7 @@ var accountMenu = function accountMenu() {
     toggleButton.setAttribute('class', 'button button--ghost with-icon--larger');
     toggleButton.setAttribute('data-trigger', 'account-menu');
     toggleButton.setAttribute('aria-expanded', 'false');
-    toggleButton.innerHTML = '<span class="sr-only">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('my-account', languageCode) + ' <span class="visuallyhidden">(' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('logged-in', languageCode) + ')</span></span><div class="avatar avatar--small icon"><img alt="" src="' + userInfo.avatar.small + '"/></div>';
+    toggleButton.innerHTML = '<span class="sr-only">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('my-account', languageCode) + ' <span class="visuallyhidden">(' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('logged-in', languageCode) + ')</span></span><div class="avatar avatar--small icon"><img alt="" src="' + userInfo.avatar.thumbnail + '"/></div>';
 
     // Media query event handler
     var mq = window.matchMedia('(min-width: 71.25em)');
