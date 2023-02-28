@@ -33,19 +33,19 @@ footer:
     links:
         hreflang: en
         home: Home
-        homeurl: /
+        homeurl: https://beta.w3.org/
         contact: Contact
-        contacturl: /contact/
+        contacturl: https://beta.w3.org/contact/
         help: Help
-        helpurl: /help/
+        helpurl: https://beta.w3.org/help/
         sponsor: Sponsor
-        sponsorurl: /sponsor/
+        sponsorurl: https://beta.w3.org/sponsor/
         donate: Donate
-        donateurl: /donate/
+        donateurl: https://beta.w3.org/donate/
         privacy_policy: Privacy Policy
-        privacy_policyurl: /policies/privacy/
+        privacy_policyurl: https://beta.w3.org/policies/privacy/
         legal: Legal
-        legalurl: /policies/
+        legalurl: https://beta.w3.org/policies/
         system_status: System Status
         system_statusurl: https://status.w3.org/
         mastodon: W3C on Mastodon
