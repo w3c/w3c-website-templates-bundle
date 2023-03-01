@@ -56,9 +56,9 @@ banner:
         text: >-
             This is a new website. <a href="https://github.com/w3c/w3c-website">Give feedback</a> to help us
             improve it.
-        icon: Beta icon
+        icon: Beta
 header:
-    logo_alt: W3C logo
+    logo_alt: W3C
     logo_link: Visit the W3C homepage
     search_link: Search
     account_link: My account
