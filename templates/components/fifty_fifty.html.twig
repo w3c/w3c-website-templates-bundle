@@ -4,12 +4,11 @@
 		{% block image %}
 			{% if image.extension == 'svg' %}
 				<img src="{{ image.src }}"
-					 role="img"
 					 loading="lazy"
 					{% if informative_or_decorative == 'decorative' %}
 						alt=""
 					{% else %}
-						alt="{% if alt %}{{ alt }}{% endif %}"
+						alt="{% if alt %}{{ alt }}{% endif %}" {% if alt %}role="img"{% endif %}
 					{% endif %}
 				/>
 			{% else %}
