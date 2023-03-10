@@ -2,12 +2,12 @@
     <div>
         <div class="not-sidebar">
             <div>
-                <h2 class="txt-mars">
+                <{{ heading|default('h3') }}{% if heading_class is defined %} class="{{ heading_class }}"{% endif %}>
                     {% block name %}
                         {% block given %}{{ user.given }}{% endblock%}
                         {% block family %}{{ user.family }}{% endblock %}
                     {% endblock %}
-                </h2>
+                </{{ heading|default('h3') }}>
                 {% block role %}
                     {% if user.title %}
                         <p>Role: <strong>{{ user.title }}</strong></p>
