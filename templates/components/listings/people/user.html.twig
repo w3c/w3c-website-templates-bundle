@@ -2,12 +2,12 @@
     <div>
         <div class="not-sidebar">
             <div>
-                <h2 class="txt-mars">
+                <{{ headTag }} class="txt-mars">
                     {% block name %}
                         {% block given %}{{ user.given }}{% endblock%}
                         {% block family %}{{ user.family }}{% endblock %}
                     {% endblock %}
-                </h2>
+                </{{ headTag }}>
                 {% block role %}
                     {% if user.title %}
                         <p>Role: <strong>{{ user.title }}</strong></p>
