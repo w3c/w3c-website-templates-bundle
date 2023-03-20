@@ -2,7 +2,7 @@
     <div>
         <div class="not-sidebar">
             <div>
-                <{{ heading|default('h3') }}{% if heading_class is defined and heading_class %} class="{{ heading_class }}"{% endif %}>
+                <{{ heading|default('h3') }} class="{{ heading_class|default('txt-mars') }}">
                     {% block name %}
                         {% block given %}{{ user.given }}{% endblock%}
                         {% block family %}{{ user.family }}{% endblock %}
