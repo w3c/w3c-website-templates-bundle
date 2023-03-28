@@ -6,7 +6,8 @@
     {% endif %}
     <div class="banner banner--access-control acl-{{ acl }}">
         <div class="banner__inner l-center">
-            <span aria-hidden="true" class="fas fa-lock"></span>
+            <img class="icon" src="{{ asset('svg/lock.svg', 'website-2021') }}" width="20" height="20" alt
+                 aria-hidden="true"/>
             <p>
                 {% block access_control_content %}
                     {% if page.access_control.text is defined %}

@@ -3,6 +3,9 @@
 \*------------------------------------*/
 
 .banner.banner--access-control.acl-private, .banner.banner--access-control.acl-user {
+  .icon {
+    filter: invert(1);
+  }
   background-color: $teal-green;
   color: $white;
 }
