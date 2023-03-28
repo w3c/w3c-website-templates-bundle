@@ -2830,6 +2830,9 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   background-color: #237978;
   color: #fff;
 }
+.banner.banner--access-control.acl-private .icon, .banner.banner--access-control.acl-user .icon {
+  filter: invert(1);
+}
 
 .banner--access-control.acl-member {
   background-color: #ddb0c8;
