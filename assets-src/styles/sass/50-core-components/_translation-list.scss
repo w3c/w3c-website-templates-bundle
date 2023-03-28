@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    #Translation list
+\*------------------------------------*/
+
+.translation-container {
+	display: flex;
+        flex-flow: row wrap;
+
+	ul {
+		display: contents;
+
+		li:not(:first-child)::before {
+			content: ", ";
+		}
+	}
+}
