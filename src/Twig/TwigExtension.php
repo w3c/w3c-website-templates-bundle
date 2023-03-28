@@ -69,7 +69,8 @@ class TwigExtension extends AbstractExtension
             new TwigFilter('crosslink_type', [$this, 'crosslinkType']),
             new TwigFilter('date_range', [$this, 'dateRange']),
             new TwigFilter('array_shuffle', [$this, 'arrayShuffle']),
-            new TwigFilter('strip_group_type', [$this, 'stripGroupType'])
+            new TwigFilter('strip_group_type', [$this, 'stripGroupType']),
+            new TwigFilter('locale_to_bcp47', [$this, 'localeToBcp47']),
         ];
     }
 
@@ -264,5 +265,10 @@ class TwigExtension extends AbstractExtension
         }
 
         return $this->loginUrlInfo['login_url'] . '?' . $this->loginUrlInfo['login_redirect_param'] . '=' . $redirectUrl;
+    }
+
+    public function localeToBcp47(string $locale): string
+    {
+        return str_replace('_', '-', $locale);
     }
 }

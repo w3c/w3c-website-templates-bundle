@@ -21,7 +21,7 @@
         <p>{{ spec.translations.translations|length }} translation{% if spec.translations.translations|length > 1 %}s{% endif %}
             ({{ spec.translations.translations
             |sort((a,b) => a.language <=> b.language)
-            |map(t => "<a hreflang=\"#{t.language}\" href=\"#{t.uri}\"><span lang=\"#{t.language}\">#{t.language|locale_name(t.language)}</span></a>")
+            |map(t => "<a hreflang=\"#{t.language|locale_to_bcp47}\" href=\"#{t.uri}\"><span lang=\"#{t.language|locale_to_bcp47}\">#{t.language|locale_name(t.language)}</span></a>")
             |join(', ')|raw }}) for {{ spec.title }}.</p>
     {% endif %}
     {% endblock translations %}
