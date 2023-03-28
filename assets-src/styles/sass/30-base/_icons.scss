@@ -52,6 +52,9 @@ Pay attention to whether the icon is before the text or after.
 	align-items: baseline;
 	display: inline-flex;
 
+	.icon {
+		flex: 0 0 auto;
+	}
 }
 
 .with-icon--larger {

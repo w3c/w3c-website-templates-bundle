@@ -1546,6 +1546,11 @@ Pay attention to whether the icon is before the text or after.
   align-items: baseline;
   display: inline-flex;
 }
+.with-icon--before .icon,
+.with-icon--after .icon,
+.with-icon--larger .icon {
+  flex: 0 0 auto;
+}
 
 .with-icon--larger {
   align-items: center;
