@@ -333,7 +333,7 @@ var accountMenu = function accountMenu() {
     loginLink.href = 'https://auth.w3.org/?url=' + encodeURI(window.location.href);
     loginLink.firstChild.textContent = _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('sign-in', document.documentElement.lang);
     var userInfoRequest = new XMLHttpRequest();
-    userInfoRequest.open('GET', '/account/user-menu/', true);
+    userInfoRequest.open('GET', 'https://beta.w3.org/account/user-menu/', true);
     userInfoRequest.withCredentials = true;
     userInfoRequest.onload = function () {
       if (this.status === 200) {

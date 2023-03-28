@@ -1207,8 +1207,7 @@ Error styles
   padding-left: 0.9375rem;
 }
 .field--error input:not([type=file]),
-.field--error textarea:not(:focus),
-.field--error .segmented-group label {
+.field--error textarea:not(:focus) {
   border-color: #a82615;
 }
 .field--error input:focus,
