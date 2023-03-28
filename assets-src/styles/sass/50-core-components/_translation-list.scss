@@ -9,7 +9,7 @@
 	ul {
 		display: contents;
 
-		li:not(:first-child)::before {
+		li:not(:last-child)::after {
 			content: ", ";
 		}
 	}
