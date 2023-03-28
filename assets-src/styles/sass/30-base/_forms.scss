@@ -786,8 +786,7 @@ Error styles
 	padding-left: rem(15);
 
 	input:not([type="file"]),
-	textarea:not(:focus),
-	.segmented-group label {
+	textarea:not(:focus) {
 
 		border-color: $error-color;
 
