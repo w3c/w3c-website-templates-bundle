@@ -4421,6 +4421,20 @@ input[type=search] {
 }
 
 /*------------------------------------*\
+    #Inline list
+\*------------------------------------*/
+.inline-list-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+.inline-list-container ul {
+  display: contents;
+}
+.inline-list-container ul li:not(:last-child)::after {
+  content: ", ";
+}
+
+/*------------------------------------*\
     #Templates
 \*------------------------------------*/
 /*------------------------------------*\
