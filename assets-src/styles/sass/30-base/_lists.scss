@@ -65,6 +65,46 @@ ol:not([class]) {
 
 }
 
+// Inline list
+.inline-list-container {
+
+	display: flex;
+	flex-flow: row wrap;
+
+	ul {
+
+		list-style: none;
+		display: contents;
+
+		li {
+
+			margin-top: 0
+
+		}
+
+	}
+
+	ul:not([class]) {
+
+		li:not(:last-child) {
+
+			margin-right: 0.5rem;
+
+		}
+
+	}
+
+	ul.list-separator-comma {
+
+		li:not(:last-child)::after {
+
+			content: ", ";
+
+		}
+
+	}
+
+}
 
 /**
 Description lists / Definition lists

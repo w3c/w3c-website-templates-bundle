@@ -1741,6 +1741,24 @@ ol:not([class]) > li::before {
   display: block;
 }
 
+.inline-list-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+.inline-list-container ul {
+  list-style: none;
+  display: contents;
+}
+.inline-list-container ul li {
+  margin-top: 0;
+}
+.inline-list-container ul:not([class]) li:not(:last-child) {
+  margin-right: 0.5rem;
+}
+.inline-list-container ul.list-separator-comma li:not(:last-child)::after {
+  content: ", ";
+}
+
 /**
 Description lists / Definition lists
  */
@@ -4418,20 +4436,6 @@ input[type=search] {
 .global-footer__links .with-icon--larger:focus {
   background-color: #f9dc4a;
   background-image: linear-gradient(to top, #000 3px, #f9dc4a 3px, #f9dc4a);
-}
-
-/*------------------------------------*\
-    #Inline list
-\*------------------------------------*/
-.inline-list-container {
-  display: flex;
-  flex-flow: row wrap;
-}
-.inline-list-container ul {
-  display: contents;
-}
-.inline-list-container ul li:not(:last-child)::after {
-  content: ", ";
 }
 
 /*------------------------------------*\
