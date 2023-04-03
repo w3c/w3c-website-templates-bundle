@@ -151,6 +151,7 @@
         <main id="main">
             {% block notes %}{% endblock %}
             {% block main %}{% endblock %}
+            {% block pre_footer %}{% endblock %}
         </main>
         {% block crosslinks %}
             {% if crosslinks is defined and crosslinks|length > 0 %}
