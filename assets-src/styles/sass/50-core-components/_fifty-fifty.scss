@@ -27,7 +27,7 @@
 
 }
 
-.component--fifty-fifty figcaption {
+.component--fifty-fifty__text {
 
 	@include stack(rem(30));
 
@@ -45,7 +45,7 @@
 
 }
 
-.component--fifty-fifty figcaption .l-box {
+.component--fifty-fifty__text .l-box {
 
 	@include stack(1rem);
 
@@ -98,7 +98,7 @@
 
 .component--fifty-fifty.reversed {
 
-	figcaption {
+	.component--fifty-fifty__text {
 
 		@include mq($bp-tab-small) {
 

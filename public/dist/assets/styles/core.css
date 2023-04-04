@@ -3502,34 +3502,34 @@ a.tag {
   }
 }
 
-.component--fifty-fifty figcaption {
+.component--fifty-fifty__text {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
-.component--fifty-fifty figcaption > * + * {
+.component--fifty-fifty__text > * + * {
   margin-top: 1.875rem;
 }
 @media screen and (min-width: 48em) {
-  .component--fifty-fifty figcaption {
+  .component--fifty-fifty__text {
     flex-basis: 52%;
   }
 }
 @media screen and (min-width: 64em) {
-  .component--fifty-fifty figcaption {
+  .component--fifty-fifty__text {
     flex-basis: 45%;
   }
 }
 
-.component--fifty-fifty figcaption .l-box {
+.component--fifty-fifty__text .l-box {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
-.component--fifty-fifty figcaption .l-box > * + * {
+.component--fifty-fifty__text .l-box > * + * {
   margin-top: 1rem;
 }
-.component--fifty-fifty figcaption .l-box a {
+.component--fifty-fifty__text .l-box a {
   align-self: flex-start;
 }
 
@@ -3558,7 +3558,7 @@ a.tag {
 }
 
 @media screen and (min-width: 48em) {
-  .component--fifty-fifty.reversed figcaption {
+  .component--fifty-fifty.reversed .component--fifty-fifty__text {
     order: -1;
   }
 }
