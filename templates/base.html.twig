@@ -6,6 +6,7 @@
 
     {% set seo = page.seo|default([]) %}
     <title>
+        {%- if _context|filter(f => class_name(f) == 'Symfony\\Component\\Form\\FormView' and not f.vars.valid)|length > 0 -%}Error: {% endif -%}
         {%- block documenttitle -%}
             {%- if seo.title is defined and seo.title -%}
                 {{ seo.title|raw }}
