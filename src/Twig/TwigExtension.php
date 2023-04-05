@@ -80,6 +80,7 @@ class TwigExtension extends AbstractExtension
             new TwigFunction('date_range', [$this, 'dateRange']),
             new TwigFunction('w3c_date_format', [$this, 'w3cDateFormat']),
             new TwigFunction('login_url', [$this, 'getLoginUrl']),
+            new TwigFunction('class_name', [$this, 'className']),
         ];
     }
 
@@ -270,5 +271,10 @@ class TwigExtension extends AbstractExtension
     public function localeToBcp47(string $locale): string
     {
         return str_replace('_', '-', $locale);
+    }
+
+    public function className($var): string
+    {
+        return gettype($var) === 'object' ? get_class($var) : gettype($var);
     }
 }
