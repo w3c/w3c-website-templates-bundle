@@ -1,4 +1,4 @@
-<figure {% if id is defined %}id="{{ id }}"{% endif %}
+<section {% if id is defined %}id="{{ id }}"{% endif %}
 		class="component component--fifty-fifty {% if order is defined and order == 'reversed' %}reversed{% endif %}">
 	<div class="{% if image.extension is defined and image.extension == 'svg' %}illustration{% else %}image{% endif %}">
 		{% block image %}
@@ -26,7 +26,7 @@
 			{% endif %}
 		{% endblock %}
 	</div>
-	<figcaption>
+	<div class="component--fifty-fifty__text">
 		{% block text %}
 			{% if title is defined and title %}
 				<h2 class="txt-earth">{{ title }}</h2>
@@ -41,5 +41,5 @@
 			</div>
 			{% endif %}
 		{% endblock %}
-	</figcaption>
-</figure>
+	</div>
+</section>
