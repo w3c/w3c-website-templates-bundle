@@ -97,22 +97,23 @@ dl {
 
 dl.inline {
 
-	dt {
+	div {
 
-		display:inline;
+		display: flex;
+		align-items: baseline;
+		flex-wrap: wrap;
 
-	}
+		dt::after {
 
-	dt + dd, dd + dd {
+			content: "\00a0 ";
 
-		display:inline;
+		}
 
-	}
+		dd:not(:last-child):after {
 
-	dd + dd::before {
+			content: ', ';
 
-		content: ', ';
-
+		}
 	}
 
 }
