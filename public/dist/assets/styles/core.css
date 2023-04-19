@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*------------------------------------*\
     #Apollo: core styles for all browsers
 \*------------------------------------*/
@@ -1753,6 +1754,18 @@ dl dd + dt {
 dl dt + dd,
 dl dd + dd {
   margin-top: 0.25em;
+}
+
+dl.inline div {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+dl.inline div dt::after {
+  content: ": ";
+}
+dl.inline div dd:not(:last-child):after {
+  content: ", ";
 }
 
 @supports (grid-row-start: auto) {
