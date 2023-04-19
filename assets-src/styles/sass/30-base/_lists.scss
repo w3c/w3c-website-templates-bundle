@@ -111,7 +111,7 @@ dl.inline {
 
 		dd:not(:last-child):after {
 
-			content: ', ';
+			content: ',\00a0 ';
 
 		}
 	}
