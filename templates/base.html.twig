@@ -149,6 +149,15 @@
                 } %}{% endembed %}
         {% endblock breadcrumbs %}
         <main id="main">
+            {% import '@W3CWebsiteTemplates/components/styles/notes.html.twig' as notes %}
+            {% set info_notes = page.messages|filter(m => m.type == 'info') %}
+            {% set success_notes = page.messages|filter(m => m.type == 'success') %}
+            {% set warning_notes = page.messages|filter(m => m.type == 'warning') %}
+            {% set error_notes = page.messages|filter(m => m.type == 'error') %}
+            {{ notes.info(info_notes|map(m => m.message), info_notes|map(m => m.options)) }}
+            {{ notes.successes(success_notes|map(m => m.message), success_notes|map(m => m.options)) }}
+            {{ notes.warnings(warning_notes|map(m => m.message), warning_notes|map(m => m.options)) }}
+            {{ notes.errors(error_notes|map(m => m.message), error_notes|map(m => m.options)) }}
             {% block notes %}{% endblock %}
             {% block main %}{% endblock %}
             {% block pre_footer %}{% endblock %}

@@ -15,15 +15,19 @@
     {% endif %}
 {% endmacro %}
 
-{%- macro notes(type, title, notes) -%}
-    {% if (notes|length > 0) %}
+{%- macro notes(type, title, notes, options) -%}
+  {% if (notes|length > 0) %}
         <div class="l-box note note--{{ type }}" role="{{ type == 'error' ? 'alert' : 'status' }}" aria-labelledby="{{ type }}-summary-title" tabindex="-1"
              data-component="{{ type }}-summary">
             <h2 id="{{ type }}-summary-title" class="txt-saturn">{{ title }}</h2>
             <ul class="clean-list" role="list">
-                {% for note in notes %}
+                {% for key, note in notes %}
                     <li>
-                        {{ note|trans()|raw }}
+                        {% if options[key].href is defined %}
+                            <a href="{{ options[key].href }}">{{ note|trans()|raw }}</a>
+                        {% else %}
+                            {{ note|trans()|raw }}
+                        {% endif %}
                     </li>
                 {% endfor %}
             </ul>
@@ -31,30 +35,30 @@
     {% endif %}
 {% endmacro %}
 
-{% macro info(messages, title = null) %}
+{% macro info(messages, options, title = null) %}
     {% if title == null %}
         {% set title = 'notes.info.default_title'|trans({}, 'w3c_website_templates_bundle') %}
     {% endif %}
-    {{ _self.notes('info', title, messages) }}
+    {{ _self.notes('info', title, messages, options) }}
 {% endmacro %}
 
-{% macro successes(messages, title = null) %}
+{% macro successes(messages, options, title = null) %}
     {% if title == null %}
         {% set title = 'notes.successes.default_title'|trans({}, 'w3c_website_templates_bundle') %}
     {% endif %}
-    {{ _self.notes('success', title, messages) }}
+    {{ _self.notes('success', title, messages, options) }}
 {% endmacro %}
 
-{% macro warnings(messages, title = null) %}
+{% macro warnings(messages, options, title = null) %}
     {% if title == null %}
         {% set title = 'notes.warnings.default_title'|trans({}, 'w3c_website_templates_bundle') %}
     {% endif %}
-    {{ _self.notes('warning', title, messages) }}
+    {{ _self.notes('warning', title, messages, options) }}
 {% endmacro %}
 
-{% macro errors(messages, title = null) %}
+{% macro errors(messages, options, title = null) %}
     {% if title == null %}
         {% set title = 'notes.errors.default_title'|trans({}, 'w3c_website_templates_bundle') %}
     {% endif %}
-    {{ _self.notes('error', title, messages) }}
+    {{ _self.notes('error', title, messages, options) }}
 {% endmacro %}
