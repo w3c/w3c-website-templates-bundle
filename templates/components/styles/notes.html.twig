@@ -18,30 +18,30 @@
     {% endif %}
 {% endmacro %}
 
-{% macro info(messages, options, title = null) %}
+{% macro info(messages, title = null) %}
     {% if title == null %}
         {% set title = 'notes.info.default_title'|trans({}, 'w3c_website_templates_bundle') %}
     {% endif %}
-    {{ _self.notes('info', title, messages, options) }}
+    {{ _self.notes('info', title, messages) }}
 {% endmacro %}
 
-{% macro successes(messages, options, title = null) %}
+{% macro successes(messages, title = null) %}
     {% if title == null %}
         {% set title = 'notes.successes.default_title'|trans({}, 'w3c_website_templates_bundle') %}
     {% endif %}
-    {{ _self.notes('success', title, messages, options) }}
+    {{ _self.notes('success', title, messages) }}
 {% endmacro %}
 
-{% macro warnings(messages, options, title = null) %}
+{% macro warnings(messages, title = null) %}
     {% if title == null %}
         {% set title = 'notes.warnings.default_title'|trans({}, 'w3c_website_templates_bundle') %}
     {% endif %}
-    {{ _self.notes('warning', title, messages, options) }}
+    {{ _self.notes('warning', title, messages) }}
 {% endmacro %}
 
-{% macro errors(messages, options, title = null) %}
+{% macro errors(messages, title = null) %}
     {% if title == null %}
         {% set title = 'notes.errors.default_title'|trans({}, 'w3c_website_templates_bundle') %}
     {% endif %}
-    {{ _self.notes('error', title, messages, options) }}
+    {{ _self.notes('error', title, messages) }}
 {% endmacro %}
