@@ -1,20 +1,3 @@
-{% macro form_errors(form) %}
-    {% set errors = form.vars.errors.form.getErrors(true) %}
-    {% if errors|length > 0 %}
-        <div class="l-box note note--error" role="alert" aria-labelledby="form-error-summary-title" tabindex="-1"
-             data-component="error-summary">
-            <h2 id="form-error-summary-title" class="txt-saturn">{{ 'notes.errors.default_title'|trans({}, 'w3c_website_templates_bundle') }}</h2>
-            <ul class="clean-list" role="list">
-                {% for error in errors %}
-                    <li>
-                        <a href="#{{ error.origin.name }}">{{ error.message }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        </div>
-    {% endif %}
-{% endmacro %}
-
 {%- macro notes(type, title, notes) -%}
     {% if (notes|length > 0) %}
         <div class="l-box note note--{{ type }}" role="{{ type == 'error' ? 'alert' : 'status' }}" aria-labelledby="{{ type }}-summary-title" tabindex="-1"
@@ -23,7 +6,11 @@
             <ul class="clean-list" role="list">
                 {% for note in notes %}
                     <li>
-                        {{ note|trans()|raw }}
+                        {% if note.options.href is defined %}
+                            <a href="{{ note.options.href }}">{{ note.message|trans()|raw }}</a>
+                        {% else %}
+                            {{ note.message|trans()|raw }}
+                        {% endif %}
                     </li>
                 {% endfor %}
             </ul>

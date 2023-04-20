@@ -5,8 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% set seo = page.seo|default([]) %}
+    {%- set info_notes = page.messages.info ?? [] -%}
+    {%- set success_notes = page.messages.success ?? [] -%}
+    {%- set warning_notes = page.messages.warning ?? [] -%}
+    {%- set error_notes = page.messages.error ?? [] -%}
     <title>
         {%- block documenttitle -%}
+            {% if error_notes|length > 0 %}
+                Error: 
+            {% endif %}
             {%- if seo.title is defined and seo.title -%}
                 {{ seo.title|raw }}
             {%- else -%}
@@ -149,6 +156,11 @@
                 } %}{% endembed %}
         {% endblock breadcrumbs %}
         <main id="main">
+            {% import '@W3CWebsiteTemplates/components/styles/notes.html.twig' as notes %}
+            {{ notes.errors(error_notes) }}
+            {{ notes.successes(success_notes) }}
+            {{ notes.warnings(warning_notes) }}
+            {{ notes.info(info_notes) }}
             {% block notes %}{% endblock %}
             {% block main %}{% endblock %}
             {% block pre_footer %}{% endblock %}
