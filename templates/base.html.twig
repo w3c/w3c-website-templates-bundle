@@ -157,10 +157,10 @@
         {% endblock breadcrumbs %}
         <main id="main">
             {% import '@W3CWebsiteTemplates/components/styles/notes.html.twig' as notes %}
-            {{ notes.info(info_notes) }}
+            {{ notes.errors(error_notes) }}
             {{ notes.successes(success_notes) }}
             {{ notes.warnings(warning_notes) }}
-            {{ notes.errors(error_notes) }}
+            {{ notes.info(info_notes) }}
             {% block notes %}{% endblock %}
             {% block main %}{% endblock %}
             {% block pre_footer %}{% endblock %}
