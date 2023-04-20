@@ -15,18 +15,18 @@
     {% endif %}
 {% endmacro %}
 
-{%- macro notes(type, title, notes, options) -%}
-  {% if (notes|length > 0) %}
+{%- macro notes(type, title, notes) -%}
+    {% if (notes|length > 0) %}
         <div class="l-box note note--{{ type }}" role="{{ type == 'error' ? 'alert' : 'status' }}" aria-labelledby="{{ type }}-summary-title" tabindex="-1"
              data-component="{{ type }}-summary">
             <h2 id="{{ type }}-summary-title" class="txt-saturn">{{ title }}</h2>
             <ul class="clean-list" role="list">
-                {% for key, note in notes %}
+                {% for note in notes %}
                     <li>
-                        {% if options[key].href is defined %}
-                            <a href="{{ options[key].href }}">{{ note|trans()|raw }}</a>
+                        {% if note.options.href is defined %}
+                            <a href="{{ note.options.href }}">{{ note.message|trans()|raw }}</a>
                         {% else %}
-                            {{ note|trans()|raw }}
+                            {{ note.message|trans()|raw }}
                         {% endif %}
                     </li>
                 {% endfor %}
