@@ -5,8 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% set seo = page.seo|default([]) %}
+    {%- set info_notes = page.messages|filter(m => m.type == 'info') -%}
+    {%- set success_notes = page.messages|filter(m => m.type == 'success') -%}
+    {%- set warning_notes = page.messages|filter(m => m.type == 'warning') -%}
+    {%- set error_notes = page.messages|filter(m => m.type == 'error') -%}
     <title>
         {%- block documenttitle -%}
+            {% if error_notes|length > 0 %}
+                Error: 
+            {% endif %}
             {%- if seo.title is defined and seo.title -%}
                 {{ seo.title|raw }}
             {%- else -%}
@@ -150,10 +157,6 @@
         {% endblock breadcrumbs %}
         <main id="main">
             {% import '@W3CWebsiteTemplates/components/styles/notes.html.twig' as notes %}
-            {% set info_notes = page.messages|filter(m => m.type == 'info') %}
-            {% set success_notes = page.messages|filter(m => m.type == 'success') %}
-            {% set warning_notes = page.messages|filter(m => m.type == 'warning') %}
-            {% set error_notes = page.messages|filter(m => m.type == 'error') %}
             {{ notes.info(info_notes|map(m => m.message), info_notes|map(m => m.options)) }}
             {{ notes.successes(success_notes|map(m => m.message), success_notes|map(m => m.options)) }}
             {{ notes.warnings(warning_notes|map(m => m.message), warning_notes|map(m => m.options)) }}
