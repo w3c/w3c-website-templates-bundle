@@ -31,6 +31,9 @@ var collapsibles = function () {
 				// Add click event listener
 				btn.addEventListener('click', function(event){
 
+					// Prevent default to avoid form submission
+					event.preventDefault();
+
 					// Cast the state as a boolean
 					var expanded = btn.getAttribute('aria-expanded') === 'true';
 
