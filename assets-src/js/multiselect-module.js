@@ -163,7 +163,7 @@ const MultiselectButtons = function (selectEl, params) {
     if (selectEl.dataset.placeholder) {
         input.setAttribute('placeholder', selectEl.dataset.placeholder);
     }
-    input.style.backgroundImage = 'url("https://cdn.w3.org/assets/website-2021/svg/search.svg")';
+    input.style.backgroundImage = 'url("https://www.w3.org/assets/website-2021/svg/search.svg")';
     input.style.backgroundRepeat = 'no-repeat';
     input.style.backgroundPosition = 'center right 0.625rem';
     input.style.backgroundSize = '0.9375rem';
