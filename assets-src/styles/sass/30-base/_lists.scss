@@ -93,6 +93,37 @@ dl {
 
 }
 
+// display items on the same line (comma-separated)
+
+dl.inline {
+
+	div {
+
+		align-items: baseline;
+		display: flex;
+		flex-wrap: wrap;
+
+ 		dt, dd {
+
+			margin-inline-start: 0;
+
+		}
+
+		dt::after {
+
+			content: ":\00a0 ";
+
+		}
+
+		dd:not(:last-child):after {
+
+			content: ',\00a0 ';
+
+		}
+	}
+
+}
+
 // With a grid layout for a more tabulated feel
 
 dl.grid {
