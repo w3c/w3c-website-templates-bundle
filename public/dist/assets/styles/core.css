@@ -1757,9 +1757,13 @@ dl dd + dd {
 }
 
 dl.inline div {
-  display: flex;
   align-items: baseline;
+  display: flex;
   flex-wrap: wrap;
+}
+dl.inline div dt, dl.inline div dd {
+  -webkit-margin-start: 0;
+          margin-inline-start: 0;
 }
 dl.inline div dt::after {
   content: ": ";
