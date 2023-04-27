@@ -99,9 +99,15 @@ dl.inline {
 
 	div {
 
-		display: flex;
 		align-items: baseline;
+		display: flex;
 		flex-wrap: wrap;
+
+ 		dt, dd {
+
+			margin-inline-start: 0;
+
+		}
 
 		dt::after {
 
