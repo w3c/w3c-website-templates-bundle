@@ -6,25 +6,38 @@
         {% block maturity %}{% endblock %}
     </div>
     <p>{{ w3c_date_format(spec.date)|raw }}{% block history %} - <a href="{{ path('history_view', { 'spec': spec.specification.shortname }) }}">history</a>{% endblock history%}</p>
+    <dl class="inline">
     {% block tags %}
     {% if spec.specification.tags|length > 0 %}
-        <p><span class="bold">Tags:</span> {{ spec.specification.tags|map(t => "#{t.title}")|join(', ') }}</p>
+        <div>
+            <dt>Tags</dt>
+            {% for tag in spec.specification.tags|map(t => "#{t.title}") -%}
+            <dd>{{ tag }}</dd>
+            {% endfor -%}
+        </div>
     {% endif %}
     {% endblock tags %}
     {% block editors %}
     {% if spec.editors|length > 0 %}
-        <p><span class="bold">Editors:</span> {{ spec.editors|map(e => "#{e.user.name}")|join(', ') }}</p>
+        <div>
+            <dt>Editors</dt>
+            {% for editor in spec.editors|map(e => "#{e.user.name}") -%}
+            <dd>{{ editor }}</dd>
+            {% endfor -%}
+        </div>
     {% endif %}
     {% endblock editors %}
     {% block translations %}
     {% if spec.translations and spec.translations.translations|length > 0 %}
-        <p>{{ spec.translations.translations|length }} translation{% if spec.translations.translations|length > 1 %}s{% endif %}
-            ({{ spec.translations.translations
-            |sort((a,b) => a.language <=> b.language)
-            |map(t => "<a hreflang=\"#{t.language|locale_to_bcp47}\" href=\"#{t.uri}\"><span lang=\"#{t.language|locale_to_bcp47}\">#{t.language|locale_name(t.language)}</span></a>")
-            |join(', ')|raw }}) for {{ spec.title }}.</p>
+        <div>
+            <dt>{{ spec.translations.translations|length }} translation{% if spec.translations.translations|length > 1 %}s{% endif %} for {{ spec.title }}</dt>
+            {% for t in spec.translations.translations|sort((a,b) => a.language <=> b.language) -%}
+            <dd><a hreflang="{{ t.language|locale_to_bcp47 }}" href="{{ t.uri }}"><span lang="{{ t.language|locale_to_bcp47 }}">{{ t.language|locale_name(t.language) }}</span></a></dd>
+            {% endfor -%}
+        </div>
     {% endif %}
     {% endblock translations %}
+    </dl>
     {% block description %}
         {{ spec.specification.description|raw }}
     {% endblock description %}
