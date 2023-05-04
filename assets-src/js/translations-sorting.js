@@ -1,3 +1,6 @@
+/*
+ * translations-sorting: sort a list of translations based on user's preferences
+ */
 const userLangs = navigator.languages || [navigator.language || navigator.userLanguage];
 
 // duplicate to remove variations e.g. fr-fr, fr-ca -> fr
