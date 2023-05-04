@@ -71,6 +71,7 @@ class TwigExtension extends AbstractExtension
             new TwigFilter('array_shuffle', [$this, 'arrayShuffle']),
             new TwigFilter('strip_group_type', [$this, 'stripGroupType']),
             new TwigFilter('locale_to_bcp47', [$this, 'localeToBcp47']),
+            new TwigFilter('bcp47_to_locale', [$this, 'bcp47ToLocale']),
         ];
     }
 
@@ -270,5 +271,10 @@ class TwigExtension extends AbstractExtension
     public function localeToBcp47(string $locale): string
     {
         return str_replace('_', '-', $locale);
+    }
+
+    public function bcp47ToLocale(string $locale): string
+    {
+        return str_replace('-', '_', $locale);
     }
 }
