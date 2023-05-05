@@ -9,6 +9,7 @@ module.exports = {
 		'/public/dist/assets/js/members': './assets-src/js/members.js',
 		'/public/dist/assets/js/working-group-autocomplete': './assets-src/js/working-group-autocomplete.js',
 		'/public/dist/assets/js/multiselect': './assets-src/js/multiselect.js',
+		'/public/dist/assets/js/translations-sorting': './assets-src/js/translations-sorting.js',
 	},
 	module: {
 		rules: [
