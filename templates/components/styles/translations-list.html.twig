@@ -1,14 +1,14 @@
 <div class="not-sidebar">
     <div class="l-cluster">
-        <ul class="clean-list">
-            {% for translation in page.localized|sort((a, b) => a.language_code|replace({'-': '_'})|language_name('en') <=> b.language_code|replace({'-': '_'})|language_name('en')) %}
+        <ul class="clean-list translation-list">
+            {% for translation in page.localized|sort((a, b) => a.language_code|bcp47_to_locale|locale_name('en') <=> b.language_code|bcp47_to_locale|locale_name('en')) %}
                 <li>
                     <a href="{{ translation.url }}"
                        hreflang="{{ translation.language_code }}"
                        lang="{{ translation.language_code }}"
                        dir="auto"
                     >
-                        {{ translation.language_code|replace({'-': '_'})|language_name(translation.language_code) }}
+                        {{ translation.language_code|bcp47_to_locale|locale_name(translation.language_code) }}
                     </a>
                 </li>
             {% endfor %}
