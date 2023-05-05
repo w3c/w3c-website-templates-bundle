@@ -14,7 +14,7 @@ if (langs.some(i => ["zh-hk", "zh-tw"].includes(i))) {
     langs.splice(Math.max(langs.indexOf("zh-tw"), langs.indexOf("zh-hk")), 0, "zh-hant");
 }
 
-// only look for specs with at least 2 translations
+// only look for lists with at least 2 translations
 const secondTranslations = document.querySelectorAll("div.translation-list > dd:nth-child(3) > a[hreflang], ul.translation-list > li:nth-child(2) > a[hreflang]");
 secondTranslations.forEach((link) => {
     const container = link.parentNode.parentNode;
