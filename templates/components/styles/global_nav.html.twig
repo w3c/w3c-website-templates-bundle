@@ -46,14 +46,14 @@
             {% endfor %}
             <li class="top-nav-item">
                 <a hreflang="en" href="https://duckduckgo.com/?q=site%3Aw3.org&ia=web" class="nav-link icon-link">
-                    <span class="visuallyhidden">{{ 'header.search_link'|trans({}, 'w3c_website_templates_bundle') }}</span> <img class="icon" src="{{ asset('svg/search.svg', 'website-2021') }}"
+                    <span class="visuallyhidden">{{ 'header.search_link'|trans({}, 'w3c_website_templates_bundle') }}</span> <img class="icon" src="{{ absolute_url(asset('svg/search.svg', 'website-2021')) }}"
                          width="24" height="24" alt aria-hidden="true"/>
                 </a>
             </li>
             <li class="top-nav-item">
                 <a hreflang="en" href="/users/myprofile/" id="account-login-link" class="account-login icon-link with-icon--after">
                     {{ 'header.account_link'|trans({}, 'w3c_website_templates_bundle') }} <span class="avatar avatar--small icon">
-                        <img src="{{ asset('svg/avatar.svg', 'website-2021') }}" width="24" height="24" alt aria-hidden="true"/>
+                        <img src="{{ absolute_url(asset('svg/avatar.svg', 'website-2021')) }}" width="24" height="24" alt aria-hidden="true"/>
                     </span>
                 </a>
             </li>
