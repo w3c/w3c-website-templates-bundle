@@ -1,4 +1,4 @@
-<section class="toc">
-    <h2>{% block toc_title %}{{ 'page.toc'|trans({}, 'w3c_website_templates_bundle') }}{% endblock %}</h2>
-    {% block toc_content %}{{ toc.headings.ul({'class': 'clean-list', 'role': 'list'})|raw }}{% endblock %}
-</section>
+<nav class="toc" aria-labelledby="nav-label">
+    <h2 id="nav-label" class="visuallyhidden">{% block toc_title %}{{ 'page.toc'|trans({}, 'w3c_website_templates_bundle') }}{% endblock %}</h2>
+    {% block toc_content %}{{ toc.headings.ul({'class': 'clean-list'})|raw }}{% endblock %}
+</nav>

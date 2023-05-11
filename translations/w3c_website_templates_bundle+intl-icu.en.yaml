@@ -14,7 +14,7 @@ page:
     translations: >-
         Read this page in:
     translationsarialabel: Translations
-    toc: Page contents skip to links
+    toc: Page contents
     related_content: In this section
     acl:
         member: This page is restricted to W3C Members

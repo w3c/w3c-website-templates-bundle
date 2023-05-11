@@ -13,7 +13,7 @@ page:
     translations: >-
         切换语言：
     translationsarialabel: 翻译
-    toc: 页面内容跳转至链接
+    toc: 页面内容
     related_content: 相关内容
     acl:
         member: 当前页面仅 W3C 会员可见
