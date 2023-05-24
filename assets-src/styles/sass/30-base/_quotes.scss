@@ -8,9 +8,24 @@ blockquote {
 
 	@include stack(1rem);
 
+	padding: 0 rem(40);
+	quotes: auto;
+
 	> * {
 
 		font-weight: bold;
+
+	}
+
+	p:first-child:before {
+
+		content: open-quote;
+
+	}
+
+	p:last-of-type:after {
+
+		content: close-quote;
 
 	}
 

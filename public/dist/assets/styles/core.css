@@ -489,12 +489,20 @@ blockquote {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  padding: 0 2.5rem;
+  quotes: auto;
 }
 blockquote > * + * {
   margin-top: 1rem;
 }
 blockquote > * {
   font-weight: bold;
+}
+blockquote p:first-child:before {
+  content: open-quote;
+}
+blockquote p:last-of-type:after {
+  content: close-quote;
 }
 blockquote cite {
   font-size: 1rem;
@@ -3169,6 +3177,8 @@ main,
 }
 .component--quote blockquote {
   color: #005a9c;
+  padding: 0;
+  quotes: none;
 }
 
 [dir=rtl] .component--quote::before {
