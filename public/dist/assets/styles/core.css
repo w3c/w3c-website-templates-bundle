@@ -1710,7 +1710,8 @@ ul[class] {
 }
 
 ul:not([class]),
-ol:not([class]) {
+ol:not([class]),
+ol.counter {
   -webkit-padding-start: 2.4em;
           padding-inline-start: 2.4em;
 }
@@ -1719,11 +1720,14 @@ ul:not([class]) li ul,
 ul:not([class]) li ol,
 ol:not([class]) > * + *,
 ol:not([class]) li ul,
-ol:not([class]) li ol {
+ol:not([class]) li ol,
+ol.counter > * + *,
+ol.counter li ul,
+ol.counter li ol {
   margin-top: 0.75em;
 }
 
-ol:not([class]) ::marker {
+ol.counter ::marker {
   content: counters(list-item, ".") ". ";
 }
 
