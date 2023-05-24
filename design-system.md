@@ -34,9 +34,14 @@ in the `package.json` file. The compiled assets can be found in the `public/dist
 
 #### Installing the build tools and running them
 
-Requirements:
-- Node.js 12+
-- npm 6+
+Make sure you are using the right version of npm to both install packages and run scripts. We strongly recommend using [nvm](https://github.com/nvm-sh/nvm)
+to do so.
+
+The npm version to use is defined in  the `.nvmrc` file. To switch to that version, use the command:
+
+```bash
+nvm use
+```
 
 To install the build tools, use the following commands:
 
