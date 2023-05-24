@@ -16,6 +16,8 @@ ul[class] {
 ul:not([class]),
 ol:not([class]) {
 
+	padding-inline-start: 2.4em;
+
 	> * + *,
 	li ul,
 	li ol {
@@ -26,30 +28,9 @@ ol:not([class]) {
 
 }
 
-ul:not([class]) {
+ol:not([class]) ::marker {
 
-	padding-inline-start: 2.4em;
-
-}
-
-ol:not([class]) {
-
-	counter-reset: count;
-	list-style-type: none;
-	padding-inline-start: 1.25em;
-
-	> li {
-
-		counter-increment: count;
-
-		&::before {
-
-			content: counters(count, ".") " ";
-			padding-inline-end: 0.5em;
-
-		}
-
-	}
+	content: counters(list-item, ".") ". ";
 
 }
 

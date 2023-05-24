@@ -1709,6 +1709,11 @@ ul[class] {
   padding: 0;
 }
 
+ul:not([class]),
+ol:not([class]) {
+  -webkit-padding-start: 2.4em;
+          padding-inline-start: 2.4em;
+}
 ul:not([class]) > * + *,
 ul:not([class]) li ul,
 ul:not([class]) li ol,
@@ -1718,24 +1723,8 @@ ol:not([class]) li ol {
   margin-top: 0.75em;
 }
 
-ul:not([class]) {
-  -webkit-padding-start: 2.4em;
-          padding-inline-start: 2.4em;
-}
-
-ol:not([class]) {
-  counter-reset: count;
-  list-style-type: none;
-  -webkit-padding-start: 1.25em;
-          padding-inline-start: 1.25em;
-}
-ol:not([class]) > li {
-  counter-increment: count;
-}
-ol:not([class]) > li::before {
-  content: counters(count, ".") " ";
-  -webkit-padding-end: 0.5em;
-          padding-inline-end: 0.5em;
+ol:not([class]) ::marker {
+  content: counters(list-item, ".") ". ";
 }
 
 .clean-list li {
