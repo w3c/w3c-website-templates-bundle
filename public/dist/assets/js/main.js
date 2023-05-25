@@ -1,5 +1,4 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ([
 /* 0 */,
 /* 1 */,
@@ -7,6 +6,7 @@
 /* 3 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "translate": () => (/* binding */ translate)
@@ -218,6 +218,27 @@ var translate = {
 /* 5 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "exists": () => (/* binding */ exists)
+/* harmony export */ });
+/**
+ * Check whether an element exists in the DOM
+ * @param elem
+ * @return {boolean}
+ */
+
+var exists = function exists(elem) {
+  return elem !== 'undefined' && elem !== null && (elem.length >= 0 || elem.innerHTML.length >= 0);
+};
+
+
+/***/ }),
+/* 6 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "accountMenu": () => (/* binding */ accountMenu)
@@ -349,9 +370,10 @@ var accountMenu = function accountMenu() {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "cardEnhancement": () => (/* binding */ cardEnhancement)
@@ -389,9 +411,10 @@ var cardEnhancement = function cardEnhancement() {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "collapsibles": () => (/* binding */ collapsibles)
@@ -440,9 +463,10 @@ var collapsibles = function collapsibles() {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "disclosureWidget": () => (/* binding */ disclosureWidget)
@@ -502,9 +526,10 @@ var disclosureWidget = function disclosureWidget() {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "formErrorSummary": () => (/* binding */ formErrorSummary)
@@ -522,145 +547,289 @@ var formErrorSummary = function formErrorSummary() {
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "navigation": () => (/* binding */ navigation)
 /* harmony export */ });
-/* harmony import */ var _translations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+/* harmony import */ var _object_assign_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(12);
+/* harmony import */ var _object_assign_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_object_assign_polyfill__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
+/* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _translations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
 
-var navigation = function navigation() {
-  // https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#Polyfill
-  if (!Element.prototype.matches) {
-    Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
-  }
-  if (!Element.prototype.closest) {
-    Element.prototype.closest = function (s) {
-      var el = this;
-      do {
-        if (Element.prototype.matches.call(el, s)) return el;
-        el = el.parentElement || el.parentNode;
-      } while (el !== null && el.nodeType === 1);
-      return null;
-    };
-  }
 
-  // Helper: Check whether element exists
-  function exists(elem) {
-    return elem != null && (elem.length >= 0 || elem.innerHTML.length >= 0);
-  }
-  var nav = document.querySelector('.global-nav__inner ul');
-  if (nav === null || nav === undefined) {
-    return null;
-  }
+
+
+/**
+ * Object for creating double-level navigation menus
+ * Inspired by https://github.com/mrwweb/clicky-menus/blob/main/clicky-menus.js
+ * Uses event delegation to handle events for improved performance, and data attributes for targeting elements
+ * Also manages button for toggling navigation on mobile
+ *
+ * @param {Element} menu - the top level navigation <ul>
+ * @param {Object} options - configuration options for the navigation
+ * @param {number} [options.breakpoint=1024] - pixel value at which the button for toggling the mobile navigation is hidden. Is converted to em (assumes 16px browser default).
+ * @param {boolean} [options.cloneTopLevelLink=true] - whether to copy the link to be replaced with a button and add it to the sub menu.
+ * @param {string} [options.mobileIcon] - SVG icon used for the button to show/hide the navigation on mobile.
+ * @param {string} [options.submenuIcon] - SVG icon used for sub menus and back button.
+ * @param {boolean} [options.submenuIntro=false] - whether the sub menu includes introductory text.
+ */
+
+var navigation = function navigation(menu, options) {
+  var container = menu.parentElement;
+  var mobileToggle = document.querySelector('[data-trigger="mobile-nav"]');
   var languageCode = document.documentElement.lang;
-  var mobileNavToggler = document.querySelector('[data-trigger="mobile-nav"]');
-  if (exists(mobileNavToggler)) {
-    mobileNavToggler.style = "";
-  }
-  var menuIcon = '<svg class="icon icon--larger" xmlns:xlink="http://www.w3.org/1999/xlink" focusable="false" aria-hidden="true" viewBox="0 0 448 512" width="1em" height="1em"><path class="menu-icon" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/><path class="close-icon" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"/></svg>';
-  var parentLinks = [].slice.call(nav.querySelectorAll('.top-nav-item.has-children > a'));
-  var subNavArray = [].slice.call(nav.querySelectorAll('.nav__submenu'));
-  var closeSubNavs = function closeSubNavs() {
-    var subNavTriggers = [].slice.call(nav.querySelectorAll('[data-trigger="subnav"]'));
+
+  // Default settings
+  var defaults = {
+    breakpoint: 1024,
+    cloneTopLevelLink: true,
+    mobileIcon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="30" width="30" class="icon icon--larger" focusable="false" aria-hidden="true" fill="currentColor">' + '<path class="menu-icon" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/>' + '<path class="close-icon" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"/>' + '</svg>',
+    submenuIcon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" height="16" width="16" class="icon icon--submenu" focusable="false" aria-hidden="true" fill="currentColor">' + '<path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/>' + '</svg>',
+    submenuIntro: false
+  };
+
+  // Merge user options into defaults
+  var settings = Object.assign({}, defaults, options);
+  this.init = function () {
+    mobileToggleSetup();
+    menuSetup();
+    document.addEventListener('click', clickHandler);
+    document.addEventListener('keyup', closeOnEscKey);
+  };
+  function closeSubmenus() {
+    var subNavTriggers = Array.prototype.slice.call(menu.querySelectorAll('[data-trigger="sub-nav"]'));
     subNavTriggers.forEach(function (trigger) {
       trigger.setAttribute('aria-expanded', 'false');
-      trigger.removeAttribute('class');
     });
-  };
-
-  // Toggle mobile navigation
-  var toggleMobileNav = function toggleMobileNav() {
-    if (mobileNavToggler && nav) {
-      mobileNavToggler.innerHTML = _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('menu', languageCode) + menuIcon;
-      mobileNavToggler.setAttribute('aria-expanded', 'false');
-      document.addEventListener('click', function (event) {
-        if (event.target.matches('[data-trigger="mobile-nav"]')) {
-          if (event.target.getAttribute('aria-expanded') === 'false') {
-            event.target.setAttribute('aria-expanded', 'true');
-          } else {
-            event.target.setAttribute('aria-expanded', 'false');
-            closeSubNavs();
-          }
+  }
+  function clickHandler(event) {
+    if (event.target.matches('[data-trigger="mobile-nav"]')) {
+      if (event.target.matches('[aria-expanded="true"]')) {
+        closeSubmenus();
+        event.target.setAttribute('aria-expanded', 'false');
+      } else {
+        event.target.setAttribute('aria-expanded', 'true');
+      }
+    } else if (event.target.matches('[data-trigger="sub-nav"]')) {
+      var button = event.target;
+      var submenu = button.nextElementSibling;
+      if (event.target.matches('[aria-expanded="true"]')) {
+        event.target.setAttribute('aria-expanded', 'false');
+      } else {
+        closeSubmenus();
+        event.target.setAttribute('aria-expanded', 'true');
+        if (settings.submenuIntro === false) {
+          preventOffScreenSubmenu(submenu);
         }
-      }, false);
-    }
-  };
-
-  // Media query event handler
-  var mq = window.matchMedia('(min-width: 70em)');
-  mq.addListener(WidthChange);
-  WidthChange(mq);
-
-  // Media query change
-  function WidthChange(mq) {
-    if (!mq.matches) {
-      toggleMobileNav();
+      }
+    } else if (event.target.matches('[data-button="mobile-back"]')) {
+      event.target.closest('li').querySelector('[data-trigger="sub-nav"]').setAttribute('aria-expanded', 'false');
     } else {
-      mobileNavToggler.setAttribute('aria-expanded', 'true');
+      closeSubmenus();
     }
   }
-  if (exists(parentLinks)) {
-    parentLinks.forEach(function (item) {
-      // let clonedLink = item.cloneNode(true);
-      var linkText = item.textContent + '&nbsp;';
-      var toggleButton = document.createElement('button');
-      var backButton = document.createElement('button');
-      var fragment = document.createDocumentFragment();
-      var subNav = item.parentNode.querySelector('.nav__submenu__intro');
-      var submenuFirstChild = subNav.querySelector('.nav__submenu__intro__heading');
-      toggleButton.setAttribute('type', 'button');
-      toggleButton.setAttribute('aria-expanded', 'false');
-      toggleButton.setAttribute('data-trigger', 'subnav');
-      toggleButton.innerHTML = linkText + '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 512" class="icon nav-small" focusable="false" aria-hidden="true" width="1em" height="1em"><path class="angle-left" d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"/><path class="angle-right" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon nav-wide" focusable="false" aria-hidden="true" width="1em" height="1em"><path class="angle-down" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/><path class="angle-up" d="M177 159.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 255.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 329.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1z"/></svg>';
-      backButton.setAttribute('type', 'button');
-      backButton.setAttribute('class', 'button button--ghost u-full-width with-icon--before with-icon--larger');
-      backButton.setAttribute('data-trigger', 'mobile-back');
-      backButton.innerHTML = '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><path class="angle-left" d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"/><path class="angle-right" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg>' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('backToMainMenu', languageCode);
-      fragment.appendChild(backButton);
-      // fragment.appendChild(clonedLink);
-
-      subNav.insertBefore(fragment, submenuFirstChild);
-      item.parentNode.replaceChild(toggleButton, item);
-    });
-    for (var i = 0; i < subNavArray.length; i++) {
-      subNavArray[i].style = "";
+  function closeOnEscKey(event) {
+    if (event.defaultPrevented) {
+      return;
     }
-    document.addEventListener('click', function (event) {
-      if (event.target.matches('[data-trigger="subnav"]')) {
-        if (event.target.matches('[aria-expanded="false"]')) {
-          closeSubNavs();
-          event.target.setAttribute('aria-expanded', 'true');
-          event.target.setAttribute('class', 'js-active');
-        } else {
-          event.target.setAttribute('aria-expanded', 'false');
-          event.target.removeAttribute('class');
+    var key = event.key || event.keyCode;
+    if (key === 'Escape' || key === 'Esc' || key === 27) {
+      var subNavTriggers = Array.prototype.slice.call(menu.querySelectorAll('[data-trigger="sub-nav"]'));
+      var result = true;
+      for (var i = 0; i < subNavTriggers.length; i++) {
+        if (subNavTriggers[i].getAttribute('aria-expanded') === 'true') {
+          result = false;
+          break;
         }
-      } else if (event.target.matches('[data-trigger="mobile-back"]')) {
-        event.target.closest('li').querySelector('[data-trigger="subnav"]').setAttribute('aria-expanded', 'false');
+      }
+      if (result && mobileToggle.style.display === 'inline-flex') {
+        mobileToggle.setAttribute('aria-expanded', 'false');
       } else {
-        closeSubNavs();
+        closeSubmenus();
+      }
+    }
+  }
+  function preventOffScreenSubmenu(submenu) {
+    var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    var parent = submenu.parentElement;
+    var menuLeftEdge = parent.getBoundingClientRect().left;
+    var menuRightEdge = menuLeftEdge + submenu.offsetWidth;
+    if (menuRightEdge + 32 > screenWidth) {
+      // adding 32 so it's not too close
+      submenu.classList.add('js-sub-menu-right');
+    }
+  }
+  function mobileToggleSetup() {
+    mobileToggle.innerHTML = _translations__WEBPACK_IMPORTED_MODULE_2__.translate.translate('menu', languageCode);
+    mobileToggle.innerHTML += settings.mobileIcon;
+    mobileToggle.setAttribute('aria-expanded', 'false');
+    mobileToggle.style.display = 'inline-flex';
+    var mqValue = settings.breakpoint / 16;
+    var mq = window.matchMedia('(min-width: ' + mqValue + 'em)');
+    mq.addListener(WidthChange);
+    WidthChange(mq);
+
+    // Media query change
+    function WidthChange(mq) {
+      if (!mq.matches) {
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        mobileToggle.style.display = 'inline-flex';
+      } else {
+        mobileToggle.setAttribute('aria-expanded', 'true');
+        mobileToggle.style.display = 'none';
+      }
+    }
+  }
+  function menuSetup() {
+    if (settings.submenuIntro === true) {
+      container.classList.add('js-nav-with-intro');
+    }
+    var subMenuWrappers = Array.prototype.slice.call(menu.querySelectorAll('[data-nav="submenu"]'));
+    subMenuWrappers.forEach(function (wrapper) {
+      wrapper.style = "";
+      var menuItem = wrapper.parentElement;
+      if ('undefined' !== typeof wrapper) {
+        var button = convertLinkToButton(menuItem);
+        setUpAria(wrapper, button);
       }
     });
-    document.addEventListener('keyup', function (event) {
-      if (event.defaultPrevented) {
-        return;
+  }
+
+  /**
+   * Why do this? See https://justmarkup.com/articles/2019-01-21-the-link-to-button-enhancement/
+   */
+  function convertLinkToButton(menuItem) {
+    var link = menuItem.getElementsByTagName('a')[0];
+    var linkHTML = link.innerHTML;
+    var linkAtts = link.attributes;
+    var icon = settings.submenuIcon;
+    var button = document.createElement('button');
+    button.setAttribute('data-trigger', 'sub-nav');
+    var li = document.createElement('li');
+    var subMenu = link.nextElementSibling.querySelector('ul');
+    if (null !== link) {
+      // copy button attributes and content from link
+      button.innerHTML = linkHTML.trim();
+      button.innerHTML = button.innerHTML + icon;
+      for (var i = 0, length = linkAtts.length; i < length; i++) {
+        var attr = linkAtts[i];
+        if ('href' !== attr.name) {
+          button.setAttribute(attr.name, attr.value);
+        }
       }
-      var key = event.key || event.keyCode;
-      if (key === 'Escape' || key === 'Esc' || key === 27) {
-        closeSubNavs();
+      if (settings.cloneTopLevelLink === true) {
+        // insert cloned link as first item of submenu list
+        var linkClone = link.cloneNode(true);
+        li.appendChild(linkClone);
+        subMenu.insertBefore(li, subMenu.children[0]);
       }
-    });
+      menuItem.replaceChild(button, link);
+    }
+
+    // Insert a "back" button
+    var backButton = document.createElement('button');
+    backButton.setAttribute('data-button', 'mobile-back');
+    backButton.setAttribute('class', 'button button--ghost u-full-width with-icon--before with-icon--larger');
+    backButton.innerHTML = icon + _translations__WEBPACK_IMPORTED_MODULE_2__.translate.translate('backToMainMenu', languageCode);
+    if (settings.submenuIntro === true) {
+      subMenu.parentNode.insertBefore(backButton, subMenu.parentNode.children[0]);
+    } else subMenu.parentNode.insertBefore(backButton, subMenu);
+    return button;
+  }
+  function setUpAria(submenu, button) {
+    var submenuId = submenu.getAttribute('id');
+    var id;
+    if (null === submenuId) {
+      id = 'js-' + button.textContent.trim().replace(/\s+/g, '-').toLowerCase() + '-submenu';
+    } else {
+      id = submenuId + '-submenu';
+    }
+
+    // set button ARIA
+    button.setAttribute('aria-controls', id);
+    button.setAttribute('aria-expanded', 'false');
+
+    // set submenu ARIA
+    submenu.setAttribute('id', id);
   }
 };
 
 
 /***/ }),
-/* 11 */
+/* 12 */
+/***/ (() => {
+
+/**
+ * Object.assign() polyfill for IE
+ * Needed for navigation
+ * @see https://vanillajstoolkit.com/polyfills/objectassign/
+ */
+if (typeof Object.assign != 'function') {
+  // Must be writable: true, enumerable: false, configurable: true
+  Object.defineProperty(Object, "assign", {
+    value: function assign(target, varArgs) {
+      // .length of function is 2
+      'use strict';
+
+      if (target == null) {
+        // TypeError if undefined or null
+        throw new TypeError('Cannot convert undefined or null to object');
+      }
+      var to = Object(target);
+      for (var index = 1; index < arguments.length; index++) {
+        var nextSource = arguments[index];
+        if (nextSource != null) {
+          // Skip over if undefined or null
+          for (var nextKey in nextSource) {
+            // Avoid bugs when hasOwnProperty is shadowed
+            if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+              to[nextKey] = nextSource[nextKey];
+            }
+          }
+        }
+      }
+      return to;
+    },
+    writable: true,
+    configurable: true
+  });
+}
+
+/***/ }),
+/* 13 */
+/***/ (() => {
+
+/**
+ * Element.closest polyfill for IE
+ * Needed for disclosure widget
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
+ */
+
+if (!Element.prototype.matches) {
+  Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+}
+if (!Element.prototype.closest) {
+  Element.prototype.closest = function (s) {
+    var el = this;
+    if (!document.documentElement.contains(el)) return null;
+    do {
+      if (el.matches(s)) return el;
+      el = el.parentElement || el.parentNode;
+    } while (el !== null && el.nodeType === 1);
+    return null;
+  };
+}
+
+/***/ }),
+/* 14 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "responsiveTables": () => (/* binding */ responsiveTables)
@@ -705,9 +874,10 @@ var responsiveTables = function responsiveTables() {
 
 
 /***/ }),
-/* 12 */
+/* 15 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "flashes": () => (/* binding */ flashes)
@@ -779,6 +949,18 @@ var flashes = function flashes() {
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -809,17 +991,20 @@ var flashes = function flashes() {
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
+"use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _main_account_menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
-/* harmony import */ var _main_cards__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
-/* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
-/* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8);
-/* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(9);
-/* harmony import */ var _main_navigation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(10);
-/* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(11);
-/* harmony import */ var _main_flashes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(12);
+/* harmony import */ var _main_exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
+/* harmony import */ var _main_account_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
+/* harmony import */ var _main_cards__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
+/* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8);
+/* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(9);
+/* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(10);
+/* harmony import */ var _main_navigation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(11);
+/* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(14);
+/* harmony import */ var _main_flashes__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(15);
+
 
 
 
@@ -829,16 +1014,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function domLoadedActions() {
-  (0,_main_account_menu__WEBPACK_IMPORTED_MODULE_0__.accountMenu)();
-  (0,_main_navigation__WEBPACK_IMPORTED_MODULE_5__.navigation)();
-  (0,_main_cards__WEBPACK_IMPORTED_MODULE_1__.cardEnhancement)();
-  (0,_main_collapsibles__WEBPACK_IMPORTED_MODULE_2__.collapsibles)();
-  (0,_main_disclosure_widget__WEBPACK_IMPORTED_MODULE_3__.disclosureWidget)();
-  (0,_main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__.formErrorSummary)();
-  (0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__.responsiveTables)();
-  (0,_main_flashes__WEBPACK_IMPORTED_MODULE_7__.flashes)();
+  (0,_main_account_menu__WEBPACK_IMPORTED_MODULE_1__.accountMenu)();
+  (0,_main_cards__WEBPACK_IMPORTED_MODULE_2__.cardEnhancement)();
+  (0,_main_collapsibles__WEBPACK_IMPORTED_MODULE_3__.collapsibles)();
+  (0,_main_disclosure_widget__WEBPACK_IMPORTED_MODULE_4__.disclosureWidget)();
+  (0,_main_form_error_summary__WEBPACK_IMPORTED_MODULE_5__.formErrorSummary)();
+  (0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_7__.responsiveTables)();
+  (0,_main_flashes__WEBPACK_IMPORTED_MODULE_8__.flashes)();
+
+  /* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
+  var navDoubleIntro = document.querySelector('ul[data-component="nav-double-intro"]');
+  if ((0,_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(navDoubleIntro)) {
+    var siteNav = new _main_navigation__WEBPACK_IMPORTED_MODULE_6__.navigation(navDoubleIntro, {
+      breakpoint: 1120,
+      cloneTopLevelLink: false,
+      submenuIntro: true
+    });
+    siteNav.init();
+  }
 }
-;
 if (document.readyState === 'loading') {
   // Loading hasn't finished yet
   document.addEventListener('DOMContentLoaded', domLoadedActions);
@@ -858,7 +1052,7 @@ window.addEventListener('resize', function (event) {
       timeout = null;
 
       // Run our resize functions
-      (0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__.responsiveTables)();
+      (0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_7__.responsiveTables)();
     }, 66);
   }
 }, false);
