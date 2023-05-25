@@ -244,12 +244,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "accountMenu": () => (/* binding */ accountMenu)
 /* harmony export */ });
 /* harmony import */ var _translations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+/* harmony import */ var _exists_helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
+
 
 var accountMenu = function accountMenu() {
-  // Helper: Check whether element exists
-  function exists(elem) {
-    return elem != null && (elem.length >= 0 || elem.innerHTML.length >= 0);
-  }
   var userInfo = null;
   var buildAccountMenu = function buildAccountMenu(userInfo) {
     if (userInfo == null || userInfo.length < 1) {
@@ -313,7 +311,7 @@ var accountMenu = function accountMenu() {
 
     //add toggling action to button
     var accountToggler = document.querySelector('[data-trigger="account-menu"]');
-    if (exists(accountToggler)) {
+    if ((0,_exists_helper__WEBPACK_IMPORTED_MODULE_1__.exists)(accountToggler)) {
       // @todo Not sure if this is sufficient or whether there needs to be a re-usable function to check this. This is for the visual styling on button
       // if (profile.messages === true) {
       // 	accountToggler.classList.add('js-has-msg');
@@ -534,13 +532,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "formErrorSummary": () => (/* binding */ formErrorSummary)
 /* harmony export */ });
+/* harmony import */ var _exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
+
 var formErrorSummary = function formErrorSummary() {
-  // Helper: Check whether element exists
-  function exists(elem) {
-    return elem != null && (elem.length >= 0 || elem.innerHTML.length >= 0);
-  }
   var errorSummary = document.querySelector('[data-component="error-summary"]');
-  if (exists(errorSummary)) {
+  if ((0,_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(errorSummary)) {
     errorSummary.focus();
   }
 };
