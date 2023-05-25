@@ -612,6 +612,7 @@ br {
     padding-top: 0;
   }
 }
+
 .global-nav__inner .nav__submenu li a {
   color: #111;
   font-size: 1.1875rem;
@@ -619,6 +620,12 @@ br {
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
   text-decoration: none;
+  width: 100%;
+}
+@media screen and (min-width: 70em) {
+  .global-nav__inner .nav__submenu li a {
+    width: auto;
+  }
 }
 .global-nav__inner .nav__submenu li a .icon--larger {
   display: none;

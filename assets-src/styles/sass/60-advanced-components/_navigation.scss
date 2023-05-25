@@ -408,53 +408,60 @@
 
 	}
 
-	a {
+}
 
-		color: $off-black;
-		font-size: rem(19);
-		line-height: calc(27 / 18);
-		padding-bottom: rem(8);
-		padding-top: rem(8);
-		text-decoration: none;
+.global-nav__inner .nav__submenu li a {
 
-		.icon--larger {
+	color: $off-black;
+	font-size: rem(19);
+	line-height: calc(27 / 18);
+	padding-bottom: rem(8);
+	padding-top: rem(8);
+	text-decoration: none;
+	width: 100%;
 
-			display: none;
-			fill: $link-color;
+	@include mq($max-width) {
 
-			@include mq($max-width) {
+		width: auto;
 
-				display: block;
-				height: rem(25);
-				width: rem(25);
+	}
 
-			}
+	.icon--larger {
 
-		}
+		display: none;
+		fill: $link-color;
 
-		&:hover {
+		@include mq($max-width) {
 
-			color: $link-color--hover;
-
-			svg {
-
-				fill: currentColor;
-
-			}
+			display: block;
+			height: rem(25);
+			width: rem(25);
 
 		}
 
-		&:focus {
+	}
 
-			background-color: $focus-color;
-			background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
-			color: $black;
+	&:hover {
 
-			svg {
+		color: $link-color--hover;
 
-				fill: currentColor;
+		svg {
 
-			}
+			fill: currentColor;
+
+		}
+
+	}
+
+	&:focus {
+
+		background-color: $focus-color;
+		background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
+		color: $black;
+
+		svg {
+
+			fill: currentColor;
 
 		}
 
