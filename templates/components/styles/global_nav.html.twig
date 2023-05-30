@@ -8,11 +8,11 @@
         </a>
         <button type="button" class="button button--ghost with-icon--after with-icon--larger" data-trigger="mobile-nav"
                 style="display: none;"></button>
-        <ul class="clean-list">
+        <ul class="clean-list" data-component="nav-double-intro">
             {% for navItem in navigation %}
                 <li class="top-nav-item has-children">
                     <a href="{{ navItem.titleLink }}" class="nav-link">{{ navItem.title }}</a>
-                    <div class="nav__submenu" style="display: none;">
+                    <div class="nav__submenu" data-nav="submenu" style="display: none;">
                         <div class="l-center">
                             <div class="nav__submenu__intro">
                                 <h2 class="nav__submenu__intro__heading">{{ navItem.title }}</h2>
