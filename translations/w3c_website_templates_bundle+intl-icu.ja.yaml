@@ -22,7 +22,12 @@ page:
         user: __page.acl.user
 footer:
     copyright: >-
-        __footer.copyright {date, date, ::y}
+        <span lang="en">Copyright &copy; {date, date, ::y} <a href="https://www.w3.org/ja/" hreflang="ja">World Wide Web Consortium</a>.<br>
+        <abbr title="World Wide Web Consortium">W3C</abbr><sup>&reg;</sup>
+        <a href="https://www.w3.org/policies/#disclaimers">liability</a>,
+        <a href="https://www.w3.org/policies/#trademarks">trademark</a> and
+        <a rel="license" href="https://www.w3.org/copyright/document-license/" title="W3C Document License">permissive license</a>
+        rules apply.</span>
     links:
         hreflang: ja
         home: __footer.links.home

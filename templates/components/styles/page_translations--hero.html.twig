@@ -2,7 +2,7 @@
     <div class="l-sidebar">
         <div>
             <div class="sidebar">
-                <span>{{ 'page.translations'|trans({}, 'w3c_website_templates_bundle') }}</span>
+                <span>{{ 'page.translations'|trans({}, 'w3c_website_templates_bundle')|raw }}</span>
             </div>
             {{ include('@W3CWebsiteTemplates/components/styles/translations-list.html.twig') }}
         </div>
