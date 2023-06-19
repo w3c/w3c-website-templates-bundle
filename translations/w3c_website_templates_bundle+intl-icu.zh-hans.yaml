@@ -22,11 +22,11 @@ page:
         user: 当前页面仅本人可见
 footer:
     copyright: >-
-        版权所有 &copy; {date, date, ::y} <a href="https://www.w3.org/">万维网联盟</a>。<br>
+        版权所有 &copy; {date, date, ::y} <a hreflang="zh-hans" href="https://www.w3.org/zh-hans/">万维网联盟</a>。<br>
         遵循 <abbr title="万维网联盟">W3C</abbr><sup>&reg;</sup>
-        <a href="https://www.w3.org/policies/#disclaimers">责任声明</a>、
-        <a href="https://www.w3.org/policies/#trademarks">标志使用</a>以及
-        <a rel="license" href="https://www.w3.org/copyright/document-license/" title="W3C 软件许可">宽松许可</a>。
+        <a href="https://www.w3.org/policies/#disclaimers" hreflang="en">责任声明</a>、
+        <a href="https://www.w3.org/policies/#trademarks" hreflang="en">标志使用</a>以及
+        <a rel="license" href="https://www.w3.org/copyright/document-license/"  hreflang="en" title="W3C 软件许可">宽松许可</a>。
     links:
         hreflang: zh-hans
         home: 主页
