@@ -13,7 +13,6 @@ import {translate} from './translations';
  * @param {number} [options.breakpoint=1024] - pixel value at which the button for toggling the mobile navigation is hidden. Is converted to em (assumes 16px browser default).
  * @param {boolean} [options.cloneTopLevelLink=true] - whether to copy the link to be replaced with a button and add it to the sub menu.
  * @param {string} [options.mobileIcon] - SVG icon used for the button to show/hide the navigation on mobile.
- * @param {string} [options.submenuIcon] - SVG icon used for sub menus and back button.
  * @param {boolean} [options.submenuIntro=false] - whether the sub menu includes introductory text.
  */
 
@@ -29,9 +28,6 @@ const navigation = function(menu, options) {
 		mobileIcon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="30" width="30" class="icon icon--larger" focusable="false" aria-hidden="true" fill="currentColor">' +
 			'<path class="menu-icon" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/>' +
 			'<path class="close-icon" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"/>' +
-			'</svg>',
-		submenuIcon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" height="16" width="16" class="icon icon--submenu" focusable="false" aria-hidden="true" fill="currentColor">' +
-			'<path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/>' +
 			'</svg>',
 		submenuIntro: false,
 	};
@@ -166,9 +162,12 @@ const navigation = function(menu, options) {
 	 */
 	function convertLinkToButton(menuItem) {
 		const link = menuItem.getElementsByTagName('a')[0];
+		const svg = link.querySelector('svg[style]');
+		if (null !== svg) {
+			svg.removeAttribute('style');
+		}
 		const linkHTML = link.innerHTML;
 		const linkAtts = link.attributes;
-		const icon = settings.submenuIcon;
 		const button = document.createElement('button');
 		button.setAttribute('data-trigger', 'sub-nav');
 		const li = document.createElement('li');
@@ -177,7 +176,6 @@ const navigation = function(menu, options) {
 		if (null !== link) {
 			// copy button attributes and content from link
 			button.innerHTML = linkHTML.trim();
-			button.innerHTML = button.innerHTML + icon;
 
 			for (let i = 0, length = linkAtts.length; i < length; i++) {
 				let attr = linkAtts[i];
@@ -200,7 +198,9 @@ const navigation = function(menu, options) {
 		const backButton = document.createElement('button');
 		backButton.setAttribute('data-button', 'mobile-back');
 		backButton.setAttribute('class', 'button button--ghost u-full-width with-icon--before with-icon--larger');
-		backButton.innerHTML = icon + translate.translate('backToMainMenu', languageCode);
+		backButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" height="16" width="16" class="icon icon--submenu" focusable="false" aria-hidden="true" fill="currentColor">' +
+			'<path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/>' +
+			'</svg>' + translate.translate('backToMainMenu', languageCode);
 		if (settings.submenuIntro === true) {
 			subMenu.parentNode.insertBefore(backButton, subMenu.parentNode.children[0]);
 		} else subMenu.parentNode.insertBefore(backButton, subMenu);
