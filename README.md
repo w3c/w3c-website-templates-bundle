@@ -1,12 +1,15 @@
 # W3C website template bundle & Design System
 
+The Symfony website templates for [w3.org](https://github.com/w3c/w3c-website-frontend), this also generates the
+static HTML [design system website](https://design-system.w3.org/).
+
 ## Design System
 
 This repo contains the design system documentation, frontend assets and example Twig templates. 
 
 Documentation for implementing the W3C website design can be found on the [Design System website](https://design-system.w3.org/).
 
-To make updates to these see [design system](design-system.md).
+To make updates or to deploy the design system itself see [design system](design-system.md).
 
 Please report any issues to the [w3c-website](https://github.com/w3c/w3c-website/issues) repo.
 
