@@ -585,7 +585,7 @@ show all available options outright, rather than hide them behind a <select>
 
 			background: transparent;
 			height: rem(24);
-			right: rem(10);
+			left: rem(10);
 			top: rem(10);
 			width: rem(24);
 
@@ -598,7 +598,7 @@ show all available options outright, rather than hide them behind a <select>
 			border-top-color: transparent;
 			border-width: 0 0 3px 3px;
 			height: rem(6.5);
-			right: rem(16);
+			left: rem(16);
 			opacity: 0;
 			top: rem(17);
 			transform: rotate(-45deg);
@@ -628,7 +628,7 @@ show all available options outright, rather than hide them behind a <select>
 
 		display: block;
 		padding: rem(10);
-		padding-right: rem(44);
+		padding-left: rem(44);
 
 		span {
 
@@ -679,14 +679,14 @@ show all available options outright, rather than hide them behind a <select>
 
 		label::before {
 
-			left: rem(10);
-			right: auto;
+			right: rem(10);
+			left: auto;
 
 		}
 		label::after {
 
-			left: rem(16);
-			right: auto;
+			right: rem(16);
+			left: auto;
 
 		}
 
@@ -700,7 +700,7 @@ show all available options outright, rather than hide them behind a <select>
 		.segmented-label {
 
 			padding: rem(10);
-			padding-left: rem(44);
+			padding-right: rem(44);
 
 		}
 
