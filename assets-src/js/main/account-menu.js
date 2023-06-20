@@ -148,7 +148,7 @@ var accountMenu = function () {
 		loginLink.href = 'https://auth.w3.org/?url=' + encodeURI(window.location.href);
 		loginLink.firstChild.textContent = translate.translate('sign-in', document.documentElement.lang);
 		var userInfoRequest = new XMLHttpRequest();
-		userInfoRequest.open('GET', 'https://beta.w3.org/account/user-menu/', true)
+		userInfoRequest.open('GET', 'https://www.w3.org/account/user-menu/', true)
 		userInfoRequest.withCredentials = true;
 
 		userInfoRequest.onload = function () {
