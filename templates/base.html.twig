@@ -34,7 +34,7 @@
 {# <meta property="fb:app_id" content="__hardcoded_fb_app_id__"> #}
     <meta property="og:url" content="{{ app.request.uri }}"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="{{ page.title }}"/>
+    <meta property="og:title" content="{{ page.title|default('W3C') }}"/>
     <meta property="og:image" content="{{ thumbnail }}"/>
     <meta property="og:image:width" content="1200"/>
     <meta property="og:image:height" content="630"/>
@@ -49,7 +49,7 @@
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="w3c"/>
     <meta name="twitter:url" content="{{ app.request.uri }}"/>
-    <meta name="twitter:title" content="{{ page.title }}"/>
+    <meta name="twitter:title" content="{{ page.title|default('W3C') }}"/>
     <meta name="twitter:description" content="{{ block('description') }}"/>
     <meta name="twitter:image" content="{{ thumbnail }}"/>
 
