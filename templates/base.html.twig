@@ -1,24 +1,17 @@
 <!doctype html>
 <html dir="{{ site.textDirection|default('ltr') }}" lang="{{ site.locale|default('en') }}" class="no-js">
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    {% set seo = page.seo|default([]) %}
-    {%- set info_notes = page.messages.info ?? [] -%}
+    {% set info_notes = page.messages.info ?? [] -%}
     {%- set success_notes = page.messages.success ?? [] -%}
     {%- set warning_notes = page.messages.warning ?? [] -%}
     {%- set error_notes = page.messages.error ?? [] -%}
+    {%- set thumbnail = page.thumbnailImage.0.src|default(absolute_url(asset('images/w3c-opengraph-image.png', 'website-2021'))) -%}
     <title>
         {%- block documenttitle -%}
             {% if error_notes|length > 0 %}
-                Error: 
+                Error:
             {% endif %}
-            {%- if seo.title is defined and seo.title -%}
-                {{ seo.title|raw }}
-            {%- else -%}
-                {{ page.title|default('W3C') }}
-            {%- endif -%}
+            {{ page.title|default('W3C') }}
         {%- endblock -%}
         {% if page.access_control is defined %}
             {% if page.access_control.text is defined %}
@@ -31,54 +24,39 @@
                 {% endif %}
                 ({{ ('page.acl.' ~ acl)|trans({}, 'w3c_website_templates_bundle') }})
             {% endif %}
-        {% endif %}
+        {%- endif -%}
     </title>
-    <meta name="description" content="{% block description %}{{ seo.description|default(page.excerpt|default('page.default_description'|trans({}, 'w3c_website_templates_bundle'))) }}{% endblock %}"/>
 
-    {% set defaultImage = asset('images/w3c-opengraph-image.png', 'website-2021') %}
-    {% if seo.social.facebook is defined %}
-        {% set fb = seo.social.facebook -%}
-        {# <meta property="fb:app_id" content="__hardcoded_fb_app_id__"> #}
-        <meta property="og:url" content="{{ app.request.uri }}"/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="{{ fb.title }}"/>
-        <meta property="og:image" content="{{ fb.image.url|default(defaultImage) }}"/>
-        <meta property="og:image:width" content="1200"/>
-        <meta property="og:image:height" content="630"/>
-        <meta property="og:description"
-              content="{{ fb.description|default(block('description')) }}"/>
-        <meta property="og:site_name" content="W3C"/>
-        {# <meta property="og:locale" content="{{ locale|replace('-', '_') }}"/> #}
-        {#
-        {% for locale in locales -%}
-            <meta property="og:locale:alternate" content="{{ locale|replace('-', '_') }}"/>
-        {% endfor %}
-        #}
-    {% endif %}
-    {% if seo.social.twitter is defined %}
-        {% set tw = seo.social.twitter -%}
-        <meta name="twitter:card" content="summary_large_image"/>
-        <meta name="twitter:site" content="w3c"/>
-        <meta name="twitter:url" content="{{ app.request.uri }}"/>
-        <meta name="twitter:title" content="{{ tw.title }}"/>
-        <meta name="twitter:description" content="{{ tw.description|default(block('description')) }}"/>
-        <meta name="twitter:image" content="{{ tw.image.url|default(defaultImage) }}"/>
-    {% endif %}
-    {% if seo.advanced.robots is defined and seo.advanced.robots -%}
-        <meta name="robots" content="{{ seo.advanced.robots|join(', ') }}"/>
-    {% endif %}
-    {%- if seo.expiry is defined and seo.expiry -%}
-        <meta name="robots" content="unavailable_after: {{ seo.expiry }}"/>
-    {% endif %}
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{% block description %}{{ page.excerpt|default('page.default_description'|trans({}, 'w3c_website_templates_bundle')) }}{% endblock %}"/>
+    <meta name="thumbnail" content="{{ thumbnail }}"/>
+{# <meta property="fb:app_id" content="__hardcoded_fb_app_id__"> #}
+    <meta property="og:url" content="{{ app.request.uri }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="{{ page.title }}"/>
+    <meta property="og:image" content="{{ thumbnail }}"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:description" content="{{ block('description') }}"/>
+    <meta property="og:site_name" content="W3C"/>
+{# <meta property="og:locale" content="{{ locale|replace('-', '_') }}"/> #}
+{#
+{% for locale in locales -%}
+    <meta property="og:locale:alternate" content="{{ locale|replace('-', '_') }}"/>
+{% endfor %}
+#}
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="w3c"/>
+    <meta name="twitter:url" content="{{ app.request.uri }}"/>
+    <meta name="twitter:title" content="{{ page.title }}"/>
+    <meta name="twitter:description" content="{{ block('description') }}"/>
+    <meta name="twitter:image" content="{{ thumbnail }}"/>
 
     <link rel="home" href="https://www.w3.org/"/>
-    {% if seo.advanced.canonical is defined and seo.advanced.canonical %}
-        <link rel="canonical" href="{{ seo.advanced.canonical }}">
-    {% endif %}
 
     {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('styles/core.css?ver=1.4', 'website-2021') }}"
-              media="screen"/>
+        <link rel="stylesheet" href="{{ asset('styles/core.css?ver=1.4', 'website-2021') }}" media="screen"/>
 
         <!--
         CSS Mustard Cut

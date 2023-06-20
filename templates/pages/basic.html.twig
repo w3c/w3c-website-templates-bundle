@@ -52,11 +52,6 @@
 
 {% block footer %}
     {% embed '@W3CWebsiteTemplates/components/styles/footer.html.twig' with {
-        'links': [
-            {
-                'copy': 'footer.links.home'|trans({}, 'w3c_website_templates_bundle'),
-                'url' : 'footer.links.homeurl'|trans({}, 'w3c_website_templates_bundle')
-            }
-        ]
+        'links': []
     } %}{% endembed %}
 {% endblock %}
