@@ -24,7 +24,7 @@ page:
 
 footer:
     copyright: >-
-        <span lang="en">Copyright &copy; {date, date, ::y} <a href="https://www.w3.org/">World Wide Web Consortium</a>.<br>
+        <span lang="en" dir="ltr">Copyright &copy; {date, date, ::y} <a href="https://www.w3.org/">World Wide Web Consortium</a>.<br>
         <abbr title="World Wide Web Consortium">W3C</abbr><sup>&reg;</sup>
         <a href="https://www.w3.org/policies/#disclaimers">liability</a>,
         <a href="https://www.w3.org/policies/#trademarks">trademark</a> and
@@ -32,30 +32,30 @@ footer:
         rules apply.</span>
     links:
         hreflang: en
-        home: <span lang="en">Home</span>
+        home: <span lang="en" dir="ltr">Home</span>
         homeurl: https://beta.w3.org/
-        contact: <span lang="en">Contact</span>
+        contact: <span lang="en" dir="ltr">Contact</span>
         contacturl: https://beta.w3.org/contact/
-        help: <span lang="en">Help</span>
+        help: <span lang="en" dir="ltr">Help</span>
         helpurl: https://beta.w3.org/help/
-        sponsor: <span lang="en">Sponsor</span>
+        sponsor: <span lang="en" dir="ltr">Sponsor</span>
         sponsorurl: https://beta.w3.org/sponsor/
-        donate: <span lang="en">Donate</span>
+        donate: <span lang="en" dir="ltr">Donate</span>
         donateurl: https://beta.w3.org/donate/
-        privacy_policy: <span lang="en">Privacy Policy</span>
+        privacy_policy: <span lang="en" dir="ltr">Privacy Policy</span>
         privacy_policyurl: https://beta.w3.org/policies/privacy/
-        legal: <span lang="en">Legal</span>
+        legal: <span lang="en" dir="ltr">Legal</span>
         legalurl: https://beta.w3.org/policies/
-        system_status: <span lang="en">System Status</span>
+        system_status: <span lang="en" dir="ltr">System Status</span>
         system_statusurl: https://status.w3.org/
-        mastodon: <span lang="en">W3C on Mastodon</span>
-        twitter: <span lang="en">W3C on Twitter</span>
-        github: <span lang="en">W3C on GitHub</span>
+        mastodon: <span lang="en" dir="ltr">W3C on Mastodon</span>
+        twitter: <span lang="en" dir="ltr">W3C on Twitter</span>
+        github: <span lang="en" dir="ltr">W3C on GitHub</span>
 banner:
     beta:
         text: >-
-            This is a new website. <a href="https://github.com/w3c/w3c-website">Give feedback</a> to help us
-            improve it.
+            <span lang="en" dir="ltr">This is a new website. <a href="https://github.com/w3c/w3c-website">Give feedback</a> to help us
+            improve it.</span>
         icon: Beta
 header:
     logo_alt: W3C
