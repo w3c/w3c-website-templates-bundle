@@ -30,19 +30,19 @@ footer:
     links:
         hreflang: zh-hans
         home: 主页
-        homeurl: https://beta.w3.org/zh-hans/
+        homeurl: https://www.w3.org/zh-hans/
         contact: 联系方式
-        contacturl: https://beta.w3.org/zh-hans/contact/
+        contacturl: https://www.w3.org/zh-hans/contact/
         help: 帮助
-        helpurl: https://beta.w3.org/zh-hans/help/
+        helpurl: https://www.w3.org/zh-hans/help/
         sponsor: 赞助
-        sponsorurl: https://beta.w3.org/zh-hans/sponsor/
+        sponsorurl: https://www.w3.org/zh-hans/sponsor/
         donate: 捐赠
-        donateurl: https://beta.w3.org/zh-hans/donate/
+        donateurl: https://www.w3.org/zh-hans/donate/
         privacy_policy: 隐私条款
-        privacy_policyurl: https://beta.w3.org/zh-hans/policies/privacy/
+        privacy_policyurl: https://www.w3.org/zh-hans/policies/privacy/
         legal:  政策法规
-        legalurl: https://beta.w3.org/zh-hans/policies/
+        legalurl: https://www.w3.org/zh-hans/policies/
         system_status: 系统状态
         system_statusurl: https://status.w3.org/
         mastodon: W3C 在 Mastodon

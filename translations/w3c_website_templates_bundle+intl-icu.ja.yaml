@@ -31,19 +31,19 @@ footer:
     links:
         hreflang: ja
         home: ホーム
-        homeurl: https://beta.w3.org/ja/
+        homeurl: https://www.w3.org/ja/
         contact: 連絡
-        contacturl: https://beta.w3.org/ja/contact/
+        contacturl: https://www.w3.org/ja/contact/
         help: ヘルプ
-        helpurl: https://beta.w3.org/ja/help/
+        helpurl: https://www.w3.org/ja/help/
         sponsor: スポンサー
-        sponsorurl: https://beta.w3.org/ja/sponsor/
+        sponsorurl: https://www.w3.org/ja/sponsor/
         donate: 寄付
-        donateurl: https://beta.w3.org/ja/donate/
+        donateurl: https://www.w3.org/ja/donate/
         privacy_policy: プライバシーポリシー
-        privacy_policyurl: https://beta.w3.org/ja/policies/privacy
+        privacy_policyurl: https://www.w3.org/ja/policies/privacy
         legal: 法的
-        legalurl: https://beta.w3.org/ja/policies/
+        legalurl: https://www.w3.org/ja/policies/
         system_status: システムステータス
         system_statusurl: https://status.w3.org/
         mastodon: __footer.links.mastodon
