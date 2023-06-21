@@ -6,34 +6,48 @@ blockquote {
 
 	@include txt-saturn;
 
-	@include stack(1rem);
+	color: $w3c-blue;
+	font-weight: bold;
+	margin-inline-start: rem(50);
+	position: relative;
+	padding: rem(20);
 
-	padding: 0 rem(40);
-	quotes: auto;
+	&::before {
 
-	> * {
-
-		font-weight: bold;
+		background-color: $w3c-blue;
+		border-radius: rem(5);
+		content: '';
+		height: 100%;
+		left: rem(-10);
+		position: absolute;
+		top: 0;
+		width: rem(10);
 
 	}
 
-	p:first-child:before {
+	> * + * {
 
-		content: open-quote;
-
-	}
-
-	p:last-of-type:after {
-
-		content: close-quote;
+		margin-top: 1rem;
 
 	}
 
 	cite {
 
+		color: $off-black;
 		font-size: 1rem;
 		font-style: normal;
 		font-weight: normal;
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	blockquote::before {
+
+		left: auto;
+		right: rem(-10);
 
 	}
 

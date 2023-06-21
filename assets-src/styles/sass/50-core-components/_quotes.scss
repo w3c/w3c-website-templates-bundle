@@ -31,9 +31,14 @@
 
 	blockquote {
 
-		color: $w3c-blue;
+		margin-inline-start: 0;
 		padding: 0;
-		quotes: none;
+
+		&::before {
+
+			display: none;
+
+		}
 
 	}
 

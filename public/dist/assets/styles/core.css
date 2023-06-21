@@ -486,28 +486,36 @@ template {
 blockquote {
   font-size: 1.125rem;
   line-height: 1.5;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 0 2.5rem;
-  quotes: auto;
+  color: #005a9c;
+  font-weight: bold;
+  -webkit-margin-start: 3.125rem;
+          margin-inline-start: 3.125rem;
+  position: relative;
+  padding: 1.25rem;
+}
+blockquote::before {
+  background-color: #005a9c;
+  border-radius: 0.3125rem;
+  content: "";
+  height: 100%;
+  left: -0.625rem;
+  position: absolute;
+  top: 0;
+  width: 0.625rem;
 }
 blockquote > * + * {
   margin-top: 1rem;
 }
-blockquote > * {
-  font-weight: bold;
-}
-blockquote p:first-child:before {
-  content: open-quote;
-}
-blockquote p:last-of-type:after {
-  content: close-quote;
-}
 blockquote cite {
+  color: #111;
   font-size: 1rem;
   font-style: normal;
   font-weight: normal;
+}
+
+[dir=rtl] blockquote::before {
+  left: auto;
+  right: -0.625rem;
 }
 
 /*------------------------------------*\
@@ -3176,9 +3184,12 @@ main,
   max-width: 39.375rem;
 }
 .component--quote blockquote {
-  color: #005a9c;
+  -webkit-margin-start: 0;
+          margin-inline-start: 0;
   padding: 0;
-  quotes: none;
+}
+.component--quote blockquote::before {
+  display: none;
 }
 
 [dir=rtl] .component--quote::before {
