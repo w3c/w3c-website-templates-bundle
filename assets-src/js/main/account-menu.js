@@ -1,7 +1,6 @@
 import {translate} from "./translations";
-import {exists} from './_exists.helper';
 
-var accountMenu = function () {
+let accountMenu = function () {
 
 	let userInfo = null;
 
@@ -11,7 +10,7 @@ var accountMenu = function () {
 		}
 
 		//getting the page language
-		var languageCode = document.documentElement.lang;
+		let languageCode = document.documentElement.lang;
 
 		//generating the menu markup
 		let fragment = document.createDocumentFragment();
@@ -82,7 +81,7 @@ var accountMenu = function () {
 		//add toggling action to button
 		let accountToggler = document.querySelector('[data-trigger="account-menu"]');
 
-		if (exists(accountToggler)) {
+		if (accountToggler) {
 
 			// @todo Not sure if this is sufficient or whether there needs to be a re-usable function to check this. This is for the visual styling on button
 			// if (profile.messages === true) {
@@ -143,7 +142,7 @@ var accountMenu = function () {
 	if (loginLink) {
 		loginLink.href = 'https://auth.w3.org/?url=' + encodeURI(window.location.href);
 		loginLink.firstChild.textContent = translate.translate('sign-in', document.documentElement.lang);
-		var userInfoRequest = new XMLHttpRequest();
+		let userInfoRequest = new XMLHttpRequest();
 		userInfoRequest.open('GET', 'https://beta.w3.org/account/user-menu/', true)
 		userInfoRequest.withCredentials = true;
 

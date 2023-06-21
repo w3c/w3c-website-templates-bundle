@@ -1,5 +1,3 @@
-import {exists} from "./main/_exists.helper";
-
 import {accountMenu} from "./main/account-menu";
 import {cardEnhancement} from "./main/cards";
 import {collapsibles} from "./main/collapsibles";
@@ -21,7 +19,7 @@ function domLoadedActions() {
 	/* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
 	const navDoubleIntro = document.querySelector('ul[data-component="nav-double-intro"]');
 
-	if (exists(navDoubleIntro)) {
+	if (navDoubleIntro) {
 		let siteNav = new navigation(navDoubleIntro, {
 			breakpoint: 1120,
 			cloneTopLevelLink: false,
