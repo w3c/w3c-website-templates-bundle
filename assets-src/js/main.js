@@ -9,14 +9,25 @@ import {flashes} from "./main/flashes";
 
 function domLoadedActions() {
 	accountMenu();
-	navigation();
 	cardEnhancement();
 	collapsibles();
 	disclosureWidget();
 	formErrorSummary();
 	responsiveTables();
 	flashes();
-};
+
+	/* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
+	const navDoubleIntro = document.querySelector('ul[data-component="nav-double-intro"]');
+
+	if (navDoubleIntro) {
+		let siteNav = new navigation(navDoubleIntro, {
+			breakpoint: 1120,
+			cloneTopLevelLink: false,
+			submenuIntro: true
+		});
+		siteNav.init();
+	}
+}
 
 if (document.readyState === 'loading') {  // Loading hasn't finished yet
 	document.addEventListener('DOMContentLoaded', domLoadedActions);

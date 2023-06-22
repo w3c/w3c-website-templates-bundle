@@ -3,18 +3,18 @@
  * See https://heydon.github.io/inclusive-components-demos/collapsible-sections/progressive.html
  */
 
-var collapsibles = function () {
+let collapsibles = function () {
 
 	// Get all the collapsible containers
-	var collapseArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="collapsibles"]'));
+	let collapseArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="collapsibles"]'));
 
-	if (collapseArray) {
+	if (collapseArray.length > 0) {
 
 		// Loop through containers
 		collapseArray.forEach(function (item) {
 
 			// Get headings inside a collapsible container
-			var headingsArray = Array.prototype.slice.call(item.querySelectorAll('[data-heading="collapsibles"]'));
+			let headingsArray = Array.prototype.slice.call(item.querySelectorAll('[data-heading="collapsibles"]'));
 
 			// Loop through headings
 			headingsArray.forEach(function (heading, index) {
@@ -26,13 +26,13 @@ var collapsibles = function () {
 				heading.nextElementSibling.setAttribute('aria-hidden', 'true');
 
 				// Assign the button
-				var btn = heading.querySelector('button');
+				let btn = heading.querySelector('button');
 
 				// Add click event listener
 				btn.addEventListener('click', function(event){
 
 					// Cast the state as a boolean
-					var expanded = btn.getAttribute('aria-expanded') === 'true';
+					let expanded = btn.getAttribute('aria-expanded') === 'true';
 
 					// Switch the state
 					btn.setAttribute('aria-expanded', !expanded);

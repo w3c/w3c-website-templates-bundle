@@ -9,7 +9,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "translate": () => (/* binding */ translate)
 /* harmony export */ });
-var translate = {
+const translate = {
   'translations': {
     //microcopy translations
     'ar': {
@@ -188,8 +188,8 @@ var translate = {
   //languageCode = code of the target language
   //injection = object of values to inject into the string if interpolation is required, object keys should match references in the translations snippets,
   // e.g. 'Slide {x} of {y} requires an object with keys x and y.
-  'translate': function translate(snippetReference, languageCode) {
-    var injections = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+  'translate': function (snippetReference, languageCode) {
+    let injections = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
     //without a snippet reference, we don't know what to translate
     if (snippetReference === undefined || snippetReference === null || snippetReference.length < 1) {
       return;
@@ -279,17 +279,17 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Replaces comment dates with their equivalent time difference (xx hours/days ago)
  */
-var commentsTimeDiff = function () {
+let commentsTimeDiff = function () {
   document.querySelectorAll(".comment__author time").forEach(function (time) {
     time.setAttribute('title', time.innerHTML.trim());
-    var date = new Date(time.getAttribute("datetime"));
-    var deltaSeconds = Math.round((date.getTime() - Date.now()) / 1000);
-    var deltaMinutes = Math.round(deltaSeconds / 60);
-    var deltaHours = Math.round(deltaSeconds / (60 * 60));
-    var deltaDays = Math.round(deltaSeconds / (60 * 60 * 24));
-    var deltaMonths = Math.round(deltaSeconds / (60 * 60 * 24 * 30));
-    var deltaYears = Math.round(deltaSeconds / (60 * 60 * 24 * 365));
-    var formatter = new Intl.RelativeTimeFormat(document.documentElement.lang, {
+    const date = new Date(time.getAttribute("datetime"));
+    const deltaSeconds = Math.round((date.getTime() - Date.now()) / 1000);
+    const deltaMinutes = Math.round(deltaSeconds / 60);
+    const deltaHours = Math.round(deltaSeconds / (60 * 60));
+    const deltaDays = Math.round(deltaSeconds / (60 * 60 * 24));
+    const deltaMonths = Math.round(deltaSeconds / (60 * 60 * 24 * 30));
+    const deltaYears = Math.round(deltaSeconds / (60 * 60 * 24 * 365));
+    const formatter = new Intl.RelativeTimeFormat(document.documentElement.lang, {
       numeric: "auto"
     });
     if (deltaYears != 0) {
@@ -314,32 +314,32 @@ var commentsTimeDiff = function () {
 
 window.addComment = function (window) {
   // Avoid scope lookups on commonly used variables.
-  var document = window.document;
-  var commentReplyTitle = document.querySelector('[data-title="reply"]');
+  let document = window.document;
+  let commentReplyTitle = document.querySelector('[data-title="reply"]');
   if (!commentReplyTitle) {
     return;
   }
-  var origReplyTitle = commentReplyTitle.textContent;
-  var commentForm = document.getElementById('comment-form');
+  let origReplyTitle = commentReplyTitle.textContent;
+  let commentForm = document.getElementById('comment-form');
 
   // I18N
-  var cancelText = _main_translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('cancelReply', document.documentElement.lang);
+  let cancelText = _main_translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('cancelReply', document.documentElement.lang);
   function changeLinksToBtns() {
-    var linksArray = Array.prototype.slice.call(document.querySelectorAll('[data-replylink]'));
+    let linksArray = Array.prototype.slice.call(document.querySelectorAll('[data-replylink]'));
     linksArray.forEach(function (link) {
-      var attributes = link.dataset;
-      var btn = document.createElement('button');
+      let attributes = link.dataset;
+      let btn = document.createElement('button');
       btn.setAttribute('class', 'button button--ghost');
       btn.innerHTML = link.innerHTML;
-      for (var key in attributes) {
+      for (let key in attributes) {
         btn.setAttribute('data-' + key, attributes[key]);
       }
       link.parentNode.replaceChild(btn, link);
     });
   }
   function addPlaceHolder(respondElement) {
-    var temporaryFormId = 'js-temp-form-div';
-    var temporaryElement = document.getElementById(temporaryFormId);
+    let temporaryFormId = 'js-temp-form-div';
+    let temporaryElement = document.getElementById(temporaryFormId);
     if (temporaryElement) {
       // The element already exists, no need to recreate.
       return;
@@ -350,13 +350,13 @@ window.addComment = function (window) {
     respondElement.parentNode.insertBefore(temporaryElement, respondElement);
   }
   function addCancelBtn(respondElement) {
-    var cancelBtnId = 'js-cancel-reply';
-    var cancelBtn = document.getElementById(cancelBtnId);
+    let cancelBtnId = 'js-cancel-reply';
+    let cancelBtn = document.getElementById(cancelBtnId);
     if (cancelBtn) {
       cancelBtn.style.display = '';
       return;
     }
-    var targetDiv = respondElement.querySelector('div');
+    let targetDiv = respondElement.querySelector('div');
     cancelBtn = document.createElement('button');
     cancelBtn.setAttribute('id', cancelBtnId);
     cancelBtn.setAttribute('class', 'button button--ghost');
@@ -364,11 +364,11 @@ window.addComment = function (window) {
     targetDiv.appendChild(cancelBtn);
   }
   function moveForm(addBelowId, commentId) {
-    var addBelowElement = document.getElementById(addBelowId);
-    var respondElement = document.querySelector('[data-respondelement]');
+    let addBelowElement = document.getElementById(addBelowId);
+    let respondElement = document.querySelector('[data-respondelement]');
 
     // Get the hidden fields
-    var parentIdField = commentForm.querySelector('input[name="parent"]');
+    let parentIdField = commentForm.querySelector('input[name="parent"]');
     parentIdField.value = commentId;
     addPlaceHolder(respondElement);
     addCancelBtn(respondElement);
@@ -383,19 +383,19 @@ window.addComment = function (window) {
     commentForm.querySelector('[type="submit"]').nextElementSibling.style.display = 'none';
     document.addEventListener('click', function (event) {
       if (event.target.matches('[data-replylink]')) {
-        var replyLink = event.target;
-        var newReplyTitle = replyLink.getAttribute('data-replyto');
-        var commentId = replyLink.getAttribute('data-belowelement');
-        var parentId = replyLink.getAttribute('data-commentid');
-        var postId = replyLink.getAttribute('data-postid');
+        let replyLink = event.target;
+        let newReplyTitle = replyLink.getAttribute('data-replyto');
+        let commentId = replyLink.getAttribute('data-belowelement');
+        let parentId = replyLink.getAttribute('data-commentid');
+        let postId = replyLink.getAttribute('data-postid');
         if (!commentId || !parentId || !postId) return;
         event.preventDefault();
         commentReplyTitle.textContent = newReplyTitle;
         moveForm(commentId, parentId, postId);
       }
       if (event.target.matches('#js-cancel-reply')) {
-        var temporaryElement = document.getElementById('js-temp-form-div');
-        var respondElement = document.querySelector('[data-respondelement]');
+        let temporaryElement = document.getElementById('js-temp-form-div');
+        let respondElement = document.querySelector('[data-respondelement]');
         commentReplyTitle.textContent = origReplyTitle;
         temporaryElement.parentNode.replaceChild(respondElement, temporaryElement);
         respondElement.querySelector('input[name="parent"]').value = '';

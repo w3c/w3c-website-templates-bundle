@@ -1,4 +1,4 @@
-var disclosureWidget = function () {
+let disclosureWidget = function () {
 
 	let toggleButtonArray = Array.prototype.slice.call(document.querySelectorAll('[data-toggle="true"]'));
 
@@ -35,7 +35,7 @@ var disclosureWidget = function () {
 			// Media query change
 			function WidthChange(mq) {
 
-				var toggleButton = document.querySelector('[data-toggle="true"]');
+				let toggleButton = document.querySelector('[data-toggle="true"]');
 
 				if (!(mq.matches)) {
 

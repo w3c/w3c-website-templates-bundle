@@ -8,7 +8,7 @@ var responsiveTables = function () {
 	// Get all the table wraps
 	let tablesArray = Array.prototype.slice.call(document.querySelectorAll('.table-wrap'));
 
-	if (tablesArray) {
+	if (tablesArray.length > 0) {
 
 		// Loop through them
 		tablesArray.forEach(function (item) {

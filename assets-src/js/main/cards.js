@@ -3,17 +3,17 @@
  * See https://css-tricks.com/block-links-the-search-for-a-perfect-solution/
  */
 
-var cardEnhancement = function () {
+let cardEnhancement = function () {
 
-	var cardsArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="card"]'));
+	let cardsArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="card"]'));
 
-	if (cardsArray) {
+	if (cardsArray.length > 0) {
 
 		// Loop through cards adding a click event and identifying the main link
 		cardsArray.forEach(function (card, index) {
 
-			var mainLink = card.querySelector('.card__link');
-			var clickableElems = Array.prototype.slice.call(card.querySelectorAll('[data-click]'));
+			let mainLink = card.querySelector('.card__link');
+			let clickableElems = Array.prototype.slice.call(card.querySelectorAll('[data-click]'));
 
 			// Allow other links/buttons in the card to still be "clickable"
 			if (clickableElems) {
@@ -28,7 +28,7 @@ var cardEnhancement = function () {
 
 			card.addEventListener('click', function() {
 
-				var noTextSelected = !window.getSelection().toString();
+				let noTextSelected = !window.getSelection().toString();
 				if (noTextSelected) {
 
 					mainLink.click();

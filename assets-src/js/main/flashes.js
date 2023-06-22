@@ -30,7 +30,7 @@ const flashes = (function () {
             + '" aria-labelledby="' + type + '-summary-title" tabindex="-1" data-component = "' + type + '-summary" >';
         html += '<h2 id="' + type + '-summary-title" class="txt-saturn">' + flashes['title-' + type] + '</h2>';
         html += '<ul class="clean-list" role="list">';
-        for (var i in flashes[type]) {
+        for (let i in flashes[type]) {
             html += '<li>' + flashes[type][i] + '</li>';
         }
         html += '</ul>';
