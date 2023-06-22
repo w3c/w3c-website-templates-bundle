@@ -12,7 +12,7 @@ page:
         and the public work together to develop Web standards.
     skip_to_content: Skip to content
     translations: >-
-        Read this page in:
+        <span lange="en">Read this page in:</span>
     translationsarialabel: Translations
     toc: Page contents
     related_content: In this section
@@ -24,38 +24,38 @@ page:
 
 footer:
     copyright: >-
-        Copyright &copy; {date, date, ::y} <a href="https://www.w3.org/">World Wide Web Consortium</a>.<br>
+        <span lang="en" dir="ltr">Copyright &copy; {date, date, ::y} <a href="https://www.w3.org/">World Wide Web Consortium</a>.<br>
         <abbr title="World Wide Web Consortium">W3C</abbr><sup>&reg;</sup>
         <a href="https://www.w3.org/policies/#disclaimers">liability</a>,
         <a href="https://www.w3.org/policies/#trademarks">trademark</a> and
         <a rel="license" href="https://www.w3.org/copyright/document-license/" title="W3C Document License">permissive license</a>
-        rules apply.
+        rules apply.</span>
     links:
         hreflang: en
-        home: Home
-        homeurl: https://beta.w3.org/
-        contact: Contact
-        contacturl: https://beta.w3.org/contact/
-        help: Help
-        helpurl: https://beta.w3.org/help/
-        sponsor: Sponsor
-        sponsorurl: https://beta.w3.org/sponsor/
-        donate: Donate
-        donateurl: https://beta.w3.org/donate/
-        privacy_policy: Privacy Policy
-        privacy_policyurl: https://beta.w3.org/policies/privacy/
-        legal: Legal
-        legalurl: https://beta.w3.org/policies/
-        system_status: System Status
+        home: <span lang="en" dir="ltr">Home</span>
+        homeurl: https://www.w3.org/
+        contact: <span lang="en" dir="ltr">Contact</span>
+        contacturl: https://www.w3.org/contact/
+        help: <span lang="en" dir="ltr">Help</span>
+        helpurl: https://www.w3.org/help/
+        sponsor: <span lang="en" dir="ltr">Sponsor</span>
+        sponsorurl: https://www.w3.org/sponsor/
+        donate: <span lang="en" dir="ltr">Donate</span>
+        donateurl: https://www.w3.org/donate/
+        privacy_policy: <span lang="en" dir="ltr">Privacy Policy</span>
+        privacy_policyurl: https://www.w3.org/policies/privacy/
+        legal: <span lang="en" dir="ltr">Legal</span>
+        legalurl: https://www.w3.org/policies/
+        system_status: <span lang="en" dir="ltr">System Status</span>
         system_statusurl: https://status.w3.org/
-        mastodon: W3C on Mastodon
-        twitter: W3C on Twitter
-        github: W3C on GitHub
+        mastodon: <span lang="en" dir="ltr">W3C on Mastodon</span>
+        twitter: <span lang="en" dir="ltr">W3C on Twitter</span>
+        github: <span lang="en" dir="ltr">W3C on GitHub</span>
 banner:
     beta:
         text: >-
-            This is a new website. <a href="https://github.com/w3c/w3c-website">Give feedback</a> to help us
-            improve it.
+            <span lang="en" dir="ltr">This is a new website. <a href="https://github.com/w3c/w3c-website">Give feedback</a> to help us
+            improve it.</span>
         icon: Beta
 header:
     logo_alt: W3C

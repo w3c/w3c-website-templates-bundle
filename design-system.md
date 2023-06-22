@@ -34,9 +34,14 @@ in the `package.json` file. The compiled assets can be found in the `public/dist
 
 #### Installing the build tools and running them
 
-Requirements:
-- Node.js 12+
-- npm 6+
+Make sure you are using the right version of npm to both install packages and run scripts. We strongly recommend using [nvm](https://github.com/nvm-sh/nvm)
+to do so.
+
+The npm version to use is defined in  the `.nvmrc` file. To switch to that version, use the command:
+
+```bash
+nvm use
+```
 
 To install the build tools, use the following commands:
 
@@ -178,3 +183,26 @@ To deploy a specific branch use:
 ````
 vendor/bin/dep deploy <environment> --branch=<branch_name>
 ````
+
+### Testing a development branch on your front-end website
+
+It can be useful to test changes to the design system on the [W3C front-end website](https://github.com/w3c/w3c-website-frontend).
+A guide on this is below:
+
+1) Create a branch on [w3c-website-frontend](https://github.com/w3c/w3c-website-frontend) to test your changes
+2) Update Composer to use the branch in [w3c-website-templates-bundle](https://github.com/w3c/w3c-website-templates-bundle). You can do this by running the following Composer command, replacing 
+`dev-branch-name` with the version that corresponds to the branch you want to test (check this on [Packagist](https://packagist.org/packages/w3c/website-templates-bundle)):
+
+```bash
+composer require w3c/website-templates-bundle:dev-branch-name
+```
+
+3) Deploy your [w3c-website-frontend](https://github.com/w3c/w3c-website-frontend) branch to the development environment and test.
+
+Once you have merged your template changes into the main branch on [w3c-website-templates-bundle](https://github.com/w3c/w3c-website-templates-bundle):
+
+* On [w3c-website-frontend](https://github.com/w3c/w3c-website-frontend) switch back to using the main branch:
+
+```bash
+composer require w3c/website-templates-bundle:dev-main
+```

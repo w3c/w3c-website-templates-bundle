@@ -22,27 +22,27 @@ page:
         user: 当前页面仅本人可见
 footer:
     copyright: >-
-        版权所有 &copy; {date, date, ::y} <a href="https://www.w3.org/">万维网联盟</a>。<br>
+        版权所有 &copy; {date, date, ::y} <a hreflang="zh-hans" href="https://www.w3.org/zh-hans/">万维网联盟</a>。<br>
         遵循 <abbr title="万维网联盟">W3C</abbr><sup>&reg;</sup>
-        <a href="https://www.w3.org/policies/#disclaimers">责任声明</a>、
-        <a href="https://www.w3.org/policies/#trademarks">标志使用</a>以及
-        <a rel="license" href="https://www.w3.org/copyright/document-license/" title="W3C 软件许可">宽松许可</a>。
+        <a href="https://www.w3.org/policies/#disclaimers" hreflang="en">责任声明</a>、
+        <a href="https://www.w3.org/policies/#trademarks" hreflang="en">标志使用</a>以及
+        <a rel="license" href="https://www.w3.org/copyright/document-license/"  hreflang="en" title="W3C 软件许可">宽松许可</a>。
     links:
         hreflang: zh-hans
         home: 主页
-        homeurl: https://beta.w3.org/zh-hans/
+        homeurl: https://www.w3.org/zh-hans/
         contact: 联系方式
-        contacturl: https://beta.w3.org/zh-hans/contact/
+        contacturl: https://www.w3.org/zh-hans/contact/
         help: 帮助
-        helpurl: https://beta.w3.org/zh-hans/help/
+        helpurl: https://www.w3.org/zh-hans/help/
         sponsor: 赞助
-        sponsorurl: https://beta.w3.org/zh-hans/sponsor/
+        sponsorurl: https://www.w3.org/zh-hans/sponsor/
         donate: 捐赠
-        donateurl: https://beta.w3.org/zh-hans/donate/
+        donateurl: https://www.w3.org/zh-hans/donate/
         privacy_policy: 隐私条款
-        privacy_policyurl: https://beta.w3.org/zh-hans/policies/privacy/
+        privacy_policyurl: https://www.w3.org/zh-hans/policies/privacy/
         legal:  政策法规
-        legalurl: https://beta.w3.org/zh-hans/policies/
+        legalurl: https://www.w3.org/zh-hans/policies/
         system_status: 系统状态
         system_statusurl: https://status.w3.org/
         mastodon: W3C 在 Mastodon
@@ -216,45 +216,48 @@ error:
         message: >-
             <p>您需要提供一个 W3C 账号才能继续访问请求页面。</p>
             <ul>
-            <li>如果您没有账号，请<a href="/account/request/">申请一个新账号</a>。</li>
-            <li>如果您已有账号但是忘记了密码，请<a href="/account/recover/">恢复密码</a>。</li>
+            <li>如果您没有账号，请<a href="/account/request/" hreflang="en">申请一个新账号</a>。</li>
+            <li>如果您已有账号但是忘记了密码，请<a href="/account/recover/" hreflang="en">恢复密码</a>。</li>
             <li>如果您的 W3C 账号出现了问题，请发送邮件至
             <a href="mailto:sysreq@w3.org">sysreq@w3.org</a>。
             </li>
             </ul>
         contact: >-
-            <p>如需获取更多网站已知问题，请参阅<a href="https://status.w3.org/">系统状态页</a>。</p>
-            <p>如果仍有问题，请在<a href="https://www.w3.org/help/">帮助页</a>咨询或者联系<a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>。</p>
+            <p>如需获取更多网站已知问题，请参阅<a href="https://status.w3.org/" hreflang="en">系统状态页</a>。</p>
+            <p>如果仍有问题，请在<a href="https://www.w3.org/zh-hans/help/">帮助页</a>咨询或者联系<a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>。</p>
     403:
         title: 没有访问权限
         message: >-
             <p>您的没有页面的权限，无法访问页面：<strong>{message}</strong></p>
         contact: >-
-            <p>如需获取更多网站已知问题，请参阅<a href="https://status.w3.org/">系统状态页</a>。</p>
-            <p>如果仍有问题，请在<a href="https://www.w3.org/help/">帮助页</a>咨询或者联系<a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>。</p>
+            <p>如需获取更多网站已知问题，请参阅<a href="https://status.w3.org/" hreflang="en">系统状态页</a>。</p>
+            <p>如果仍有问题，请在<a href="https://www.w3.org/zh-hans/help/">帮助页</a>咨询或者联系<a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>。</p>
     404:
         title: 页面丢失
+#        message: >-
+#          <p>很抱歉，您试图访问的页面不存在。您可以参考下面的步骤来查找页面：</p>
+#          <ul>
+#          <li>如果您是手动输入的 URL 网址，请确认网址是否正确。</li>
+#          <li>如果您在寻找某一特定主题的信息，请在<a href="https://www.w3.org/zh-hans/">W3C 主页</a>检索。</li>
+#          <li>请尝试用本页面顶部的搜索图标来搜索网站。</li>
+#          </ul>
         message: >-
-          <p>很抱歉，您试图访问的页面不存在。您可以参考下面的步骤来查找页面：</p>
-          <ul>
-          <li>如果您是手动输入的 URL 网址，请确认网址是否正确。</li>
-          <li>如果您在寻找某一特定主题的信息，请在<a href="https://www.w3.org/">W3C 主页</a>检索。</li>
-          <li>请尝试用本页面顶部的搜索图标来搜索网站。</li>
-          </ul>
+            <p>中文网站目前正在开发中。</p>
+            <p lang="en">The Chinese site is under development.</p>
         contact: >-
-            <p>如果您仍然有问题，请在<a href="https://www.w3.org/help/">帮助页</a>咨询。</p>
+            <p>如果您仍然有问题，请在<a href="https://www.w3.org/zh-hans/help/">帮助页</a>咨询。</p>
     410:
         title: 内容不存在
         message: >-
             <p>该页面已经无法查看，且未找到重定向网址。请移除所有引用该页面的内容。</p>
             <p>您可能通过以下途径来获取您所需的信息：查看<a
-            href="https://www.w3.org/">W3C 主页</a>或尝试用本页面顶部的搜索图标来搜索网站。</p>
+            href="https://www.w3.org/zh-hans/">W3C 主页</a>或尝试用本页面顶部的搜索图标来搜索网站。</p>
         contact: >-
-            <p>如果您仍然有问题，请在<a href="https://www.w3.org/help/">帮助页</a>咨询。</p>
+            <p>如果您仍然有问题，请在<a href="https://www.w3.org/zh-hans/help/">帮助页</a>咨询。</p>
     500:
         title: 内部服务器错误
         message: >-
             <p>该服务器出现一个内部错误或错误的信息配置，无法完成本次请求。</p>
         contact: >-
-            <p>如需获取更多网站已知问题，请参阅<a href="https://status.w3.org/">系统状态页</a>。</p>
-            <p>如果仍有问题，请在<a href="https://www.w3.org/help/">帮助页</a>咨询或者联系<a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>。</p>
+            <p>如需获取更多网站已知问题，请参阅<a href="https://status.w3.org/" hreflang="en">系统状态页</a>。</p>
+            <p>如果仍有问题，请在<a href="https://www.w3.org/zh-hans/help/">帮助页</a>咨询或者联系<a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>。</p>

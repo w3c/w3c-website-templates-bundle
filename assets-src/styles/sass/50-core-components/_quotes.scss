@@ -24,12 +24,21 @@
 	}
 
 	> * {
+
 		max-width: rem(630);
+
 	}
 
 	blockquote {
 
-		color: $w3c-blue;
+		margin-inline-start: 0;
+		padding: 0;
+
+		&::before {
+
+			display: none;
+
+		}
 
 	}
 

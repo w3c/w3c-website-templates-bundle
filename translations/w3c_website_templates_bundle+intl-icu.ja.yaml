@@ -9,9 +9,9 @@ page:
     default_title: __page.default_title
     default_description: >-
         __page.default_description
-    skip_to_content: __page.skip_to_content
+    skip_to_content: コンテンツにスキップ
     translations: >-
-        __page.translations
+        他の言語:
     translationsarialabel: __page.translations.arialabel
     toc: __page.toc
     related_content: __page.related
@@ -22,24 +22,29 @@ page:
         user: __page.acl.user
 footer:
     copyright: >-
-        __footer.copyright {date, date, ::y}
+        <span lang="en">Copyright &copy; {date, date, ::y} <a href="https://www.w3.org/ja/" hreflang="ja">World Wide Web Consortium</a>.<br>
+        <abbr title="World Wide Web Consortium">W3C</abbr><sup>&reg;</sup>
+        <a href="https://www.w3.org/policies/#disclaimers">liability</a>,
+        <a href="https://www.w3.org/policies/#trademarks">trademark</a> and
+        <a rel="license" href="https://www.w3.org/copyright/document-license/" title="W3C Document License">permissive license</a>
+        rules apply.</span>
     links:
         hreflang: ja
-        home: __footer.links.home
-        homeurl: https://beta.w3.org/ja/
-        contact: __footer.links.contact
-        contacturl: https://beta.w3.org/ja/contact/
-        help: __footer.links.help
-        helpurl: https://beta.w3.org/ja/help/
-        sponsor: __footer.links.sponsor
-        sponsorurl: https://beta.w3.org/ja/sponsor/
-        donate: _footer.links.donate
-        donateurl: https://beta.w3.org/ja/donate/
-        privacy_policy: __footer.links.privacy_policy
-        privacy_policyurl: https://beta.w3.org/ja/policies/privacy
-        legal: __footer.links.legal
-        legalurl: https://beta.w3.org/ja/policies/
-        system_status: __footer.links.system_status
+        home: ホーム
+        homeurl: https://www.w3.org/ja/
+        contact: 連絡
+        contacturl: https://www.w3.org/ja/contact/
+        help: ヘルプ
+        helpurl: https://www.w3.org/ja/help/
+        sponsor: スポンサー
+        sponsorurl: https://www.w3.org/ja/sponsor/
+        donate: 寄付
+        donateurl: https://www.w3.org/ja/donate/
+        privacy_policy: プライバシーポリシー
+        privacy_policyurl: https://www.w3.org/ja/policies/privacy
+        legal: 法的
+        legalurl: https://www.w3.org/ja/policies/
+        system_status: システムステータス
         system_statusurl: https://status.w3.org/
         mastodon: __footer.links.mastodon
         twitter: __footer.links.twitter
@@ -47,7 +52,7 @@ footer:
 banner:
     beta:
         text: >-
-            __banner.beta.text
+            これは新しい Web サイトです。改善に役立つ<a href="https://github.com/w3c/w3c-website">フィードバックをお寄せください</a>。
         icon: __banner.beta.icon
 header:
     logo_alt: __header.logo_alt
@@ -141,18 +146,18 @@ post:
             __post.meta.credit
         credit_title: __post.meta.credit_title
         published: >
-            __post.meta.published
+            出版日:
         skiplink: __post.meta.skiplink
     notes_heading: __post.notes_heading
     related:
-        heading: __post.related.heading
+        heading: 関連
         heading_tags: __post.related.heading_tags
-        heading_ecosystems: __post.related.heading_ecosystems
-        heading_groups: __post.related.heading_groups
+        heading_ecosystems: エコシステムズ
+        heading_groups: グループ
         heading_specifications: __post.related.heading_specifications
     feed:
-        title: __post.feed.title
-        link: __post.feed.link {feed_type}
+        title: 関連RSSフィード
+        link: "{feed_type}フィードを購読する"
     comments:
         count: __post.comments.count <span>{count}</span>
         skip_to_form: __post.comments.skip_to_form
@@ -189,7 +194,7 @@ alumni:
     date_range: __alumni.date_range {start} {end}
 error:
     title: __error.title {status_code} {status_text}
-    intro: __error.intro {status_code} {status_text}
+#    intro: __error.intro {status_code} {status_text}
     request_id: __error.request_id {request_id}
     contact: __error.contact {params}
     faq: __error.faq
@@ -200,8 +205,10 @@ error:
         title: __error.403.title
         message: __error.403.message
     404:
-        title: __error.404.title
-        message: __error.404.message
+#        title: __error.404.title
+        message: >-
+            <p>日本語サイトは現在作成中です。</p>
+            <p lang="en">The Japanese site is under development.</p>
     410:
         title: __error.410.title
         message: __error.410.message

@@ -14,41 +14,21 @@ ul[class] {
 }
 
 ul:not([class]),
-ol:not([class]) {
+ol:not([class]),
+ol.counter {
+	padding-inline-start: 2.4em;
 
 	> * + *,
 	li ul,
 	li ol {
-
 		margin-top: 0.75em;
-
 	}
-
 }
 
-ul:not([class]) {
+ol.counter {
 
-	padding-inline-start: 2.4em;
-
-}
-
-ol:not([class]) {
-
-	counter-reset: count;
-	list-style-type: none;
-	padding-inline-start: 1.25em;
-
-	> li {
-
-		counter-increment: count;
-
-		&::before {
-
-			content: counters(count, ".") " ";
-			padding-inline-end: 0.5em;
-
-		}
-
+	::marker {
+		content: counters(list-item, ".") ". ";
 	}
 
 }

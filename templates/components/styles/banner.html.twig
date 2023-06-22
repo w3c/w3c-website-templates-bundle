@@ -1,9 +1,7 @@
 <div class="banner">
     <div class="banner__inner l-center">
         {% block banner_content %}
-            <img src="{{ asset('svg/beta.svg', 'website-2021') }}" class="icon icon--beta" alt="{{ 'banner.beta.icon'|trans({}, 'w3c_website_templates_bundle') }}" role="img"/>
             <p>{{ 'banner.beta.text'|trans({}, 'w3c_website_templates_bundle')|raw }}</p>
         {% endblock %}
     </div>
 </div>
-<script src='https://www.w3.org/Help/beta-banner.js'></script>

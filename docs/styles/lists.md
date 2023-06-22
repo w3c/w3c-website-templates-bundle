@@ -2,13 +2,23 @@
 
 Use lists to make blocks of text easier to read, and to break information into manageable chunks.
 
-## Bulleted lists
+## Unordered lists
 
-<example title="Unordered list with bullets" src="components/list-ul.html.twig" />
+<example title="Unordered list with markers" src="components/list-ul.html.twig" />
 
-## Numbered lists
+## Ordered lists
 
-<example title="Ordered list with bullets" src="components/list-ol.html.twig" />
+<example title="Ordered list with markers" src="components/list-ol.html.twig" />
+
+### Using a counter for decimal numbering
+
+Adding the `.counter` class to an ordered list will ensure that any nested ordered lists are displayed as decimals, with the first digit corresponding to the number of the parent list item:
+
+<example title="Ordered list with a counter" src="components/list-ol-counter.html.twig" />
+
+#### Considerations
+
+The counter supports the `"start"` and `"reversed"` attributes on the ordered list, but does not support the `"type"` attribute, e.g. for roman numerals. Ordered lists with the `.counter` class will always use decimal numbers for the markers.
 
 ## Clean list
 

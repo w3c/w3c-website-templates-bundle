@@ -486,20 +486,36 @@ template {
 blockquote {
   font-size: 1.125rem;
   line-height: 1.5;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  color: #005a9c;
+  font-weight: bold;
+  -webkit-margin-start: 3.125rem;
+          margin-inline-start: 3.125rem;
+  position: relative;
+  padding: 1.25rem;
+}
+blockquote::before {
+  background-color: #005a9c;
+  border-radius: 0.3125rem;
+  content: "";
+  height: 100%;
+  left: -0.625rem;
+  position: absolute;
+  top: 0;
+  width: 0.625rem;
 }
 blockquote > * + * {
   margin-top: 1rem;
 }
-blockquote > * {
-  font-weight: bold;
-}
 blockquote cite {
+  color: #111;
   font-size: 1rem;
   font-style: normal;
   font-weight: normal;
+}
+
+[dir=rtl] blockquote::before {
+  left: auto;
+  right: -0.625rem;
 }
 
 /*------------------------------------*\
@@ -1082,7 +1098,7 @@ show all available options outright, rather than hide them behind a <select>
 .segmented-group.l-switcher label::before {
   background: transparent;
   height: 1.5rem;
-  right: 0.625rem;
+  left: 0.625rem;
   top: 0.625rem;
   width: 1.5rem;
 }
@@ -1092,7 +1108,7 @@ show all available options outright, rather than hide them behind a <select>
   border-top-color: transparent;
   border-width: 0 0 3px 3px;
   height: 0.40625rem;
-  right: 1rem;
+  left: 1rem;
   opacity: 0;
   top: 1.0625rem;
   transform: rotate(-45deg);
@@ -1115,7 +1131,7 @@ show all available options outright, rather than hide them behind a <select>
   justify-content: flex-start;
   display: block;
   padding: 0.625rem;
-  padding-right: 2.75rem;
+  padding-left: 2.75rem;
 }
 .segmented-group.l-switcher .segmented-label > * + * {
   margin-top: 0.5em;
@@ -1139,12 +1155,12 @@ show all available options outright, rather than hide them behind a <select>
 }
 
 [dir=rtl] .segmented-group label::before {
-  left: 0.625rem;
-  right: auto;
+  right: 0.625rem;
+  left: auto;
 }
 [dir=rtl] .segmented-group label::after {
-  left: 1rem;
-  right: auto;
+  right: 1rem;
+  left: auto;
 }
 [dir=rtl] .segmented-group input {
   left: 0;
@@ -1152,7 +1168,7 @@ show all available options outright, rather than hide them behind a <select>
 }
 [dir=rtl] .segmented-group .segmented-label {
   padding: 0.625rem;
-  padding-left: 2.75rem;
+  padding-right: 2.75rem;
 }
 
 /**
@@ -1709,33 +1725,26 @@ ul[class] {
   padding: 0;
 }
 
+ul:not([class]),
+ol:not([class]),
+ol.counter {
+  -webkit-padding-start: 2.4em;
+          padding-inline-start: 2.4em;
+}
 ul:not([class]) > * + *,
 ul:not([class]) li ul,
 ul:not([class]) li ol,
 ol:not([class]) > * + *,
 ol:not([class]) li ul,
-ol:not([class]) li ol {
+ol:not([class]) li ol,
+ol.counter > * + *,
+ol.counter li ul,
+ol.counter li ol {
   margin-top: 0.75em;
 }
 
-ul:not([class]) {
-  -webkit-padding-start: 2.4em;
-          padding-inline-start: 2.4em;
-}
-
-ol:not([class]) {
-  counter-reset: count;
-  list-style-type: none;
-  -webkit-padding-start: 1.25em;
-          padding-inline-start: 1.25em;
-}
-ol:not([class]) > li {
-  counter-increment: count;
-}
-ol:not([class]) > li::before {
-  content: counters(count, ".") " ";
-  -webkit-padding-end: 0.5em;
-          padding-inline-end: 0.5em;
+ol.counter ::marker {
+  content: counters(list-item, ".") ". ";
 }
 
 .clean-list li {
@@ -2385,10 +2394,6 @@ so that either of these properties is applied instead.
 }
 .global-header .banner__inner a:focus {
   color: #000;
-}
-
-.banner__inner p {
-  margin-left: 0.625rem;
 }
 
 [dir=rtl] .banner__inner p {
@@ -3179,7 +3184,12 @@ main,
   max-width: 39.375rem;
 }
 .component--quote blockquote {
-  color: #005a9c;
+  -webkit-margin-start: 0;
+          margin-inline-start: 0;
+  padding: 0;
+}
+.component--quote blockquote::before {
+  display: none;
 }
 
 [dir=rtl] .component--quote::before {
