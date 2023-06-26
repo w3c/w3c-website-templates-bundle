@@ -242,8 +242,8 @@ error:
 #          <li>请尝试用本页面顶部的搜索图标来搜索网站。</li>
 #          </ul>
         message: >-
-            <p>中文网站目前正在开发中。</p>
-            <p lang="en">The Chinese site is under development.</p>
+            <p>新版中文网站目前正在开发中。欢迎继续访问现有中文网站。</p>
+            <p lang="en">The new Chinese site is under development. Please continue to visit our <a href="https://www.chinaw3c.org">current Chinese site</a>.</p>
         contact: >-
             <p>如果您仍然有问题，请在<a href="https://www.w3.org/zh-hans/help/">帮助页</a>咨询。</p>
     410:
