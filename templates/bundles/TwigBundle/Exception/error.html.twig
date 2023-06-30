@@ -27,9 +27,6 @@ Issue description: [ Please describe the issue you encountered ]
 Request ID: {{ request_id() }}
 URL: {{ app.request.uri }}
 Date: {{ "now"|date('c') }}
-{% if exception -%}
-    Message: {{ exception.message }}
-{%- endif %}
             {%- endapply -%}
         {%- endset %}
 
