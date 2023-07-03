@@ -46,7 +46,7 @@
                 {% endif %}
             </div>
         </div>
-        {% if entry.thumbnailImage %}
+        {% if entry.thumbnailImage is defined and entry.thumbnailImage %}
             <div class="sidebar">
                 <a href="{{ entry.url }}" class="l-frame" aria-hidden="true" tabindex="-1">
                     <img
