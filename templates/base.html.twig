@@ -52,7 +52,9 @@
     <meta name="twitter:title" content="{{ page.title|default('W3C') }}"/>
     <meta name="twitter:description" content="{{ block('description') }}"/>
     <meta name="twitter:image" content="{{ thumbnail }}"/>
-
+    {%- if page.expiryDate is defined and page.expiryDate -%}
+        <meta name="robots" content="unavailable_after: {{ page.expiryDate }}"/>
+    {% endif %}
     <link rel="home" href="https://www.w3.org/"/>
 
     {% block stylesheets %}
