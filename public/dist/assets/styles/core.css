@@ -484,24 +484,27 @@ template {
     #Quotes
 \*------------------------------------*/
 blockquote {
-  font-size: 1.125rem;
-  line-height: 1.5;
-  color: #005a9c;
-  font-weight: bold;
-  -webkit-margin-start: 3.125rem;
-          margin-inline-start: 3.125rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  -webkit-margin-end: 1.5625rem;
+          margin-inline-end: 1.5625rem;
+  -webkit-margin-start: 1.5625rem;
+          margin-inline-start: 1.5625rem;
+  padding: 0.625rem;
   position: relative;
-  padding: 1.25rem;
+}
+blockquote > * + * {
+  margin-top: 1rem;
 }
 blockquote::before {
-  background-color: #005a9c;
-  border-radius: 0.3125rem;
+  background-color: #bdbdbd;
   content: "";
   height: 100%;
-  left: -0.625rem;
+  left: -0.1875rem;
   position: absolute;
   top: 0;
-  width: 0.625rem;
+  width: 0.1875rem;
 }
 blockquote > * + * {
   margin-top: 1rem;
@@ -510,7 +513,7 @@ blockquote cite {
   color: #111;
   font-size: 1rem;
   font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
 }
 
 [dir=rtl] blockquote::before {
@@ -3159,9 +3162,15 @@ main,
     #Quotes
 \*------------------------------------*/
 .component--quote {
+  font-size: 1.125rem;
+  line-height: 1.5;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  color: #005a9c;
+  font-weight: bold;
+  -webkit-margin-end: 0;
+          margin-inline-end: 0;
   -webkit-margin-start: 0.625rem;
           margin-inline-start: 0.625rem;
   padding: 1.25rem;
