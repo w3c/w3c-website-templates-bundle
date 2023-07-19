@@ -1543,11 +1543,6 @@ SVG icons are sized relative to font size, thanks to the em unit.
   width: 1.875rem;
 }
 
-.icon--beta {
-  height: 2.4375rem;
-  width: 3.8125rem;
-}
-
 /**
 Use the `with-icon` class on the SVG's parent, if there
 is a need to specify the spacing between text and icon.
@@ -2375,14 +2370,6 @@ so that either of these properties is applied instead.
   padding-top: 0.625rem;
 }
 
-.global-header .banner__inner {
-  align-items: center;
-  display: flex;
-}
-.global-header .banner__inner .icon--beta {
-  flex: none;
-  width: 3.8125rem;
-}
 .global-header .banner__inner p {
   font-size: 0.875rem;
   line-height: 1.4285714286;

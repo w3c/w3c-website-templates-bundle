@@ -20,14 +20,6 @@
 }
 
 .global-header .banner__inner {
-	align-items: center;
-	display: flex;
-
-	.icon--beta {
-		flex: none;
-		width: rem(61);
-	}
-
 	p {
 		@include txt-eris;
 	}
