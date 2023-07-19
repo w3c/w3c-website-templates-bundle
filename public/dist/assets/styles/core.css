@@ -518,7 +518,7 @@ blockquote cite {
 
 [dir=rtl] blockquote::before {
   left: auto;
-  right: -0.625rem;
+  right: -0.1875rem;
 }
 
 /*------------------------------------*\

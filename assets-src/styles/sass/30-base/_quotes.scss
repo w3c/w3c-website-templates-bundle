@@ -3,17 +3,13 @@
 \*------------------------------------*/
 
 blockquote {
-
 	@include stack(1rem);
-
 	margin-inline-end: rem(25);
 	margin-inline-start: rem(25);
 	padding: rem(10);
 	position: relative;
 
-
 	&::before {
-
 		background-color: $twiki-gray;
 		content: '';
 		height: 100%;
@@ -21,33 +17,24 @@ blockquote {
 		position: absolute;
 		top: 0;
 		width: rem(3);
-
 	}
 
 	> * + * {
-
 		margin-top: 1rem;
-
 	}
 
 	cite {
-
 		color: $off-black;
 		font-size: 1rem;
 		font-style: normal;
 		font-weight: bold;
-
 	}
 
 }
 
 [dir="rtl"] {
-
 	blockquote::before {
-
 		left: auto;
-		right: rem(-10);
-
+		right: rem(-3);
 	}
-
 }
