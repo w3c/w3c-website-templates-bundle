@@ -22,7 +22,7 @@ The counter supports the `"start"` and `"reversed"` attributes on the ordered li
 
 ## Clean list
 
-Adding the `.clean-list` class to an unordered or ordered list will remove the list markers:
+Adding the `.clean-list` class to an unordered or ordered list will remove the list markers and all padding:
 
 <example title="Unordered list without bullets" src="components/list-clean.html.twig" />
 
