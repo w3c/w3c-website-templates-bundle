@@ -6,17 +6,12 @@
 \*------------------------------------*/
 
 .component--text {
-
 	> * + * {
-
 		margin-top: 1em;
-
 	}
-
 }
 
 .component--text > * {
-
 	max-width: rem($text-measure);
 
 	+ h2,
@@ -24,17 +19,11 @@
 	+ h4,
 	+ h5,
 	+ h6 {
-
 		margin-top: 2em;
-
 	}
-
-
 }
 
 .component--text button,
 .component--text .button {
-
 	align-self: flex-start; /* 1 */
-
 }

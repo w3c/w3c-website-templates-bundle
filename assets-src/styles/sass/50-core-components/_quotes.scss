@@ -3,15 +3,12 @@
 \*------------------------------------*/
 
 .component--quote {
-
 	@include stack(1rem);
-
 	margin-inline-start: rem(10);
 	padding: rem(20);
 	position: relative;
 
 	&::before {
-
 		background-color: $w3c-blue;
 		border-radius: rem(5);
 		content: '';
@@ -20,37 +17,25 @@
 		position: absolute;
 		top: 0;
 		width: rem(10);
-
 	}
 
 	> * {
-
 		max-width: rem(630);
-
 	}
 
 	blockquote {
-
 		margin-inline-start: 0;
 		padding: 0;
 
 		&::before {
-
 			display: none;
-
 		}
-
 	}
-
 }
 
 [dir="rtl"] {
-
 	.component--quote::before {
-
 		left: auto;
 		right: rem(-10);
-
 	}
-
 }

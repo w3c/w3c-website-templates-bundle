@@ -67,13 +67,10 @@ will sit side-by-side rather than vertically. This negates the use of
 a viewport media query.
  */
 .l-sidebar .not-sidebar {
-
 	@include stack;
-
 	flex-basis: 0;
 	flex-grow: 999;
 	min-width: calc(55% - 1.5rem);
-
 }
 
 
@@ -83,7 +80,5 @@ a viewport media query.
 }
 
 .l-sidebar .sidebar.sidebar--compact {
-
 	flex-basis: rem(180);
-
 }

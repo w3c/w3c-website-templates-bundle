@@ -3,7 +3,6 @@
 \*------------------------------------*/
 
 summary {
-
 	color: $link-color;
 	cursor: pointer;
 	display: inline-block;
@@ -11,7 +10,6 @@ summary {
 	position: relative;
 
 	&::before {
-
 		border-color: transparent;
 		border-left-color: inherit;
 		border-style: solid;
@@ -26,75 +24,54 @@ summary {
 		position: absolute;
 		top: rem(-1);
 		width: 0;
-
 	}
 
 	&::-webkit-details-marker {
-
 		display: none;
-
 	}
 
 	&:hover {
-
 		color: $link-color--hover;
-
 	}
 
 	span {
-
 		display: inline-block;
 		padding-bottom: rem(10);
 		padding-top: rem(10);
 		text-decoration: underline; /* 1 */
 		text-decoration-skip-ink: auto; // Not supported by Safari
 		text-underline-offset: 0.25em; // Supported by Safari
-
 	}
 
 	&:focus {
-
 		background-color: $focus-color;
 		background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
 		color: $black;
-
 	}
 
 	&:focus span {
-
 		text-decoration: none;
-
 	}
 
 }
 
 details[open] > summary {
-
 	margin-bottom: rem(16);
-
 }
 
 details[open] > summary::before {
-
 	transform: rotate(90deg);
-
 }
 
 [dir="rtl"] {
-
 	summary {
-
 		padding-left: 0;
 		padding-right: rem(25);
 
 		&::before {
-
 			left: auto;
 			right: 0;
 			transform: rotate(180deg);
-
 		}
-
 	}
-
 }

@@ -64,9 +64,6 @@ See: https://brandcolors.net/
   src: url("../fonts/notosans/notosans-bolditalic.woff2") format("woff2"), url("../fonts/notosans/notosans-bolditalic.woff") format("woff");
 }
 /*------------------------------------*\
-    #Paths
-\*------------------------------------*/
-/*------------------------------------*\
     #Typesetting
 \*------------------------------------*/
 /**
@@ -81,7 +78,8 @@ fonts with white space in their name.
 
 When Font Face Observer has detected that the @font-face files are loaded, then we
 can safely use the web fonts instead of the system fonts.
- */ /*------------------------------------*\
+ */
+/*------------------------------------*\
     #Functions
 \*------------------------------------*/
 /*------------------------------------*\
@@ -4155,7 +4153,6 @@ input[type=search] {
 }
 
 .l-cluster.pagination > * > * {
-  display: inline-block;
   margin-bottom: 0;
   margin-top: 0;
 }

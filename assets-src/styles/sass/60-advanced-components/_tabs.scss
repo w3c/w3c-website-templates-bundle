@@ -3,7 +3,6 @@
 \*------------------------------------*/
 
 .no-js .component--tabs {
-
 	@include stack;
 
 	section {
@@ -13,9 +12,7 @@
 }
 
 .js .component--tabs {
-
 	[role="tablist"] {
-
 		border-bottom: solid 1px $grey;
 		display: flex;
 		flex-flow: row nowrap;
@@ -34,11 +31,9 @@
 		li + li {
 			margin-left: rem(24);
 		}
-
 	}
 
 	a[role="tab"] {
-
 		background-color: $mercury-grey;
 		border: 0;
 		border-bottom: solid rem(3) transparent;
@@ -52,15 +47,10 @@
 			outline: none;
 			text-decoration: none;
 		}
-
 	}
 
 	[role="tabpanel"] {
-
 		@include stack(1rem);
-
 		padding: rem(24);
-
 	}
-
 }

@@ -23,10 +23,8 @@ https://css-tricks.com/can-you-view-print-stylesheets-applied-directly-in-the-br
 	Use PA4 (L4) transitional paper size, with a 2cm margin:
 	https://en.wikipedia.org/wiki/Paper_size#Transitional_paper_sizes
 	*/
-
 	margin: 2cm;
 	size: 21cm 28cm;
-
 }
 
 *,
@@ -35,42 +33,32 @@ https://css-tricks.com/can-you-view-print-stylesheets-applied-directly-in-the-br
 blockquote:first-line,
 li:first-line,
 p:first-line {
-
 	background: transparent !important;
 	box-shadow: none !important;
 	color: #000 !important;
 	overflow: visible !important;
 	position: static;
 	text-shadow: none !important;
-
 }
 
 body {
-
 	font: 12pt $font-loaded-family;
 	line-height: 1.3;
-
 }
 
 body,
 img {
-
 	display: block !important;
-
 }
 
 img {
-
 	height: auto !important;
 	width: 100% !important;
-
 }
 
 code,
 pre {
-
 	font-family: $mono-family;
-
 }
 
 a,
@@ -82,116 +70,84 @@ li,
 pre,
 table,
 .tr-list__item {
-
 	break-inside: avoid;
 	page-break-inside: avoid;
 	-webkit-column-break-inside: avoid;
-
 }
 
 h1, h2, h3, h4, h5, h6 {
-
 	font-weight: $emphasis;
 	margin: 0;
-
 }
 
 h1 {
-
 	font-size: 24pt;
 	margin-top: 36pt;
-
 }
 
 h2 {
-
 	font-size: 20pt;
 	margin-top: 30pt;
-
 }
 
 h3 {
-
 	font-size: 18pt;
 	margin-top: 27pt;
-
 }
 
 h4 {
-
 	font-size: 16pt;
 	margin-top: 24pt;
-
 }
 
 h5 {
-
 	font-size: 15pt;
 	margin-top: 22pt;
-
 }
 
 h6 {
-
 	font-size: 14pt;
 	margin-top: 21pt;
-
 }
 
 h1, h2, h3, h4, h5, h6,
 img {
-
 	page-break-after: avoid;
-
 }
 
 dl,
 ol,
 ul {
-
 	page-break-before: avoid;
-
 }
 
 ul:not([class]),
 ol:not([class]),
 .clean-list {
-
 	> * + *,
 	li ul,
 	li ol {
-
 		margin-top: 8pt;
-
 	}
-
 }
 
 .clean-list {
-
 	padding: 0;
-
 }
 
 ol:not([class]) {
-
 	counter-reset: count;
 	list-style-type: none;
 	padding-inline-start: 15pt;
 
 	> li {
-
 		counter-increment: count;
 
 		&::before {
-
 			content: counters(count, ".") " ";
 			padding-inline-end: 6pt;
-
 		}
-
 	}
-
 }
 
 form > * + *,
@@ -199,37 +155,27 @@ form > * + *,
 .radio-item + .radio-item,
 .checkbox-item + .checkbox-item,
 .segmented-group > * > * + * {
-
 	margin-top: 8pt;
-
 }
 
 fieldset {
-
 	border: 0;
 	margin: 0;
 	min-width: 0;
 	padding: 0.12pt 0 0 0;
-
 }
 
 .field {
-
 	max-width: 15cm;
-
 }
 
 .field > * {
-
 	display: block;
-
 }
 
 .field-label,
 .group-legend {
-
 	font-weight: bold;
-
 }
 
 select,
@@ -244,7 +190,6 @@ textarea,
 [type=text],
 [type=time],
 [type=url] {
-
 	appearance: none;
 	-webkit-appearance: none;
 	border: 2px solid;
@@ -252,13 +197,10 @@ textarea,
 	line-height: 1.25;
 	padding: 3.75pt;
 	width: 100%;
-
 }
 
 [type=file] {
-
 	border: 0;
-
 }
 
 button,
@@ -266,509 +208,354 @@ input,
 optgroup,
 select,
 textarea {
-
 	font-size: 12pt;
-
 }
 
 .memorable-date,
 .input-group > * {
-
 	display: inline-block;
 	margin-top: 0;
-
 }
 
 .memorable-date .faux-label,
 .input-group .faux-label {
-
 	display: block;
-
 }
 
 .segmented-label span:first-of-type::after {
-
 	content: ':';
-
 }
 
 .input-width-30 {
-
 	max-width: 59ex;
-
 }
 
 .input-width-20 {
-
 	max-width: 41ex;
-
 }
 
 .input-width-10 {
-
 	max-width: 23ex;
-
 }
 
 .input-width-5 {
-
 	max-width: 10.8ex;
-
 }
 
 .input-width-4 {
-
 	max-width: 9ex;
-
 }
 
 .input-width-3 {
-
 	max-width: 7.2ex;
-
 }
 
 .input-width-2 {
-
 	max-width: 5.4ex;
-
 }
 
 a:link, a:visited, a {
-
 	text-decoration: underline;
 	text-decoration-skip-ink: auto;
-
 }
 
 .logo {
-
 	display: block;
 	width: 2cm;
-
 }
 
 main a[href]::after,
 footer a[href]::after {
-
 	content: ' <' attr(href) '> ';
-
 }
 
 abbr[title]::after {
-
 	content: ' (' attr(title) ')';
-
 }
 
 table {
-
 	border-collapse: collapse;
 	width: 100%;
-
 }
 
 table,
 th,
 td {
-
 	border: 1px solid;
-
 }
 
 th,
 td,
 table caption {
-
 	padding: 9pt;
 	text-align: start;
-
 }
 
 table caption {
-
 	font-size: 14pt;
 	font-weight: $emphasis;
 	padding-left: 0;
 	padding-right: 0;
-
 }
 
 blockquote,
 figure {
-
 	margin-left: 0;
 	margin-right: 0;
-
 }
 
 .l-frame {
-
 	padding: 0 !important;
-
 }
 
 .l-sidebar > div {
-
 	display: block !important;
-
 }
 
 .l-cluster > * > * {
-
 	display: inline-block;
 	padding: 3pt;
-
 }
 
 .home .hero,
 .landing .hero {
-
 	margin-top: 36pt;
 	min-height: 6cm;
 	padding-right: 6cm;
 	position: relative;
 
 	h1 {
-
 		margin-top: 0;
-
 	}
 
 	.sidebar {
-
 		position: absolute;
 		right: 0;
 		top: 0;
 		width: 6cm;
-
 	}
-
 }
 
 [dir="rtl"] {
-
 	.hero {
-
 		padding-left: 6cm;
 		padding-right: 0;
 
 		.sidebar {
-
 			left: 0;
 			right: auto;
-
 		}
-
 	}
-
 }
 
 .card--event .icon {
-
 	display: none !important;
-
 }
 
 .component + .component {
-
 	margin-top: 42pt;
-
 }
 
 .component--fifty-fifty {
-
 	min-height: 6cm;
 	padding-right: 6cm;
 	position: relative;
 
 	.l-frame {
-
 		position: absolute;
 		right: 0;
 		top: 0;
 		width: 6cm;
-
 	}
 
 	a {
-
 		display: block;
-
 	}
-
 }
 
 [dir="rtl"] {
-
 	.component--fifty-fifty {
-
 		padding-left: 6cm;
 		padding-right: 0;
 
 		.l-frame {
-
 			left: 0;
 			right: auto;
-
 		}
-
 	}
-
 }
 
 .component--image,
 .component--quote {
-
 	margin-left: auto;
 	margin-right: auto;
 	position: relative !important;
 	width: 70%;
-
 }
 
 .component--quote {
-
 	border-inline-start: solid 4pt;
 	padding-inline-start: 8pt;
 
 	blockquote {
-
 		font-size: 14pt;
 		font-weight: $emphasis;
-
 	}
-
 }
 
 .component--collapsibles {
-
 	button {
-
 		border: 0;
 		display: block !important;
 		text-align: left;
-
 	}
 
 	button > span {
-
 		display: block;
-
 	}
 
 	[aria-hidden] {
-
 		display: block !important;
-
 	}
 
 	.icon {
-
 		display: none !important;
-
 	}
 
 	a {
-
 		display: block;
 		margin: -18pt 0 18pt;
 		visibility: hidden;
-
 	}
 
 	a[href]::after {
-
 		content: ' <' attr(href) '> ';
 		display: block;
 		font-size: 12pt;
 		visibility: visible;
-
 	}
-
 }
 
 [dir="rtl"] {
-
 	.component--collapsibles {
-
 		button {
-
 			text-align: right;
-
 		}
-
 	}
-
 }
 
 .component--columns {
-
 	ul {
-
 		padding: 0;
-
 	}
 
 	li {
-
 		display: block;
-
 	}
-
 }
 
 .component--columns--icons {
-
 	.card {
-
 		// Padding to allow room for icon
 		padding-top: 1.5cm;
 		position: relative;
-
 	}
 
 	.card__heading {
-
 		margin-top: 0;
-
 	}
 
 	.icon {
-
 		height: 1cm;
 		position: absolute;
 		top: 0;
 		width: 1cm;
-
 	}
-
 }
 
 .component--columns--images {
-
 	.card {
-
 		min-height: 5cm;
 		padding-right: 6cm;
 		position: relative;
-
 	}
 
 	.card__image {
-
 		position: absolute;
 		right: 0;
 		top: 0;
 		width: 6cm;
-
 	}
-
 }
 
 [dir="rtl"] {
-
 	.component--columns--images {
-
 		.card {
-
 			padding-left: 6cm;
 			padding-right: 0;
-
 		}
 
 		.card__image {
-
 			left: 0;
 			right: auto;
-
 		}
-
 	}
-
 }
 
 .component--columns--icons,
 .component--columns--images {
-
 	a:not(.card__link) {
-
 		display: block;
 		margin: -18pt 0 18pt;
 		visibility: hidden;
-
 	}
 
 	a[href]::after {
-
 		content: ' <' attr(href) '> ';
 		display: block;
 		font-size: 12pt;
 		visibility: visible;
-
 	}
-
 }
 
 .component--slider {
-
 	.clean-list {
-
 		display: block !important;
 
 		li {
-
 			visibility: visible !important;
-
 		}
 
 		li[style] {
-
 			left: 0 !important;
-
 		}
 
 		li + li {
-
 			margin-top: 8pt;
-
 		}
-
 	}
 
 	.slide__logo {
-
 		width: 3cm;
-
 	}
 
 	.slider-controls {
-
 		display: none !important;
-
 	}
-
 }
 
 .component--members__grid {
-
 	> div {
-
 		display: inline-block;
 		width: 3cm;
-
 	}
-
 }
 
 .component--members__cta a {
-
 	display: block;
-
 }
 
 .avatar {
-
 	border-radius: 50%;
 	height: 75pt;
 	overflow: hidden !important;
@@ -776,227 +563,156 @@ figure {
 	width: 75pt;
 
 	img {
-
 		margin-top: -8pt;
 		width: 100%;
-
 	}
-
 }
 
 .meta {
-
 	dt {
-
 		font-weight: bold;
-
 	}
 
 	dd {
-
 		margin-left: 0;
 		margin-right: 0;
-
 	}
 
 	dd + dt {
-
 		margin-top: 8pt;
-
 	}
-
 }
 
 .post .meta .with-icon--before {
-
 	line-height: 1.25cm;
 	padding-left: 1.5cm;
 	position: relative;
 
 	.icon,
 	.avatar {
-
 		height: 1.25cm !important;
 		left: 0;
 		position: absolute;
 		top: 0;
 		width: 1.25cm !important;
-
 	}
-
 }
 
 [dir="rtl"] {
-
 	.post .meta .with-icon--before {
-
 		padding-left: 0;
 		padding-right: 1.5cm;
 
 		.icon,
 		.avatar {
-
 			left: auto;
 			right: 0;
-
 		}
-
 	}
-
 }
 
 .component--evangelists__list {
-
 	li {
-
 		display: block;
-
 	}
 
 	.sidebar {
-
 		width: 3cm;
-
 	}
-
 }
 
 .component--evangelists__list,
 .people-list {
-
 	a[href^=mailto]::after,
 	a[href^=tel]::after {
-
 		display: none;
-
 	}
-
 }
 
 .people-list > li + li {
-
 	margin-top: 30pt;
-
 }
 
 .people-list .l-cluster > * > * {
-
 	display: block;
-
 }
 
 .people-list > li > div:not(.alumni) {
-
 	padding-top: 75pt;
 	position: relative;
 
 	h2, h3 {
-
 		margin-top: 12pt;
-
 	}
 
 	> .sidebar {
-
 		position: absolute;
 		top: 0;
-
 	}
-
 }
 
 .people-list .sidebar {
-
 	width: 75pt;
-
 }
 
 .event-list .card__image {
-
 	width: 120pt;
-
 }
 
 .group-list a[href]::after {
-
 	display: block;
-
 }
 
 .member-list .logo--member {
-
 	display: none;
-
 }
 
 .post-list > li > div {
-
 	min-height: 5cm;
 	padding-right: 6cm;
 	position: relative;
 
 	.l-frame {
-
 		position: absolute;
 		right: 0;
 		top: 0;
 		width: 6cm;
 
 		&::after {
-
 			display: none !important;
-
 		}
-
 	}
-
 }
 
 [dir="rtl"] {
-
 	.post-list > li > div {
-
 		padding-right: 0;
 		padding-left: 6cm;
 
 		.l-frame {
-
 			left: 0;
 			right: auto;
-
 		}
-
 	}
-
 }
 
 .tr-list__item * {
-
 	font-size: 11pt;
-
 }
 
 .tr-list__item__header {
-
 	h3 {
-
 		margin-bottom: 6pt;
 		margin-top: 18pt;
-
 	}
 
 	a {
-
 		font-size: 12pt;
-
 	}
-
 }
 
 footer {
-
 	margin-top: 36pt;
-
 }
 
 .skip-link,
@@ -1033,7 +749,5 @@ footer {
 .pagination,
 .crosslinks,
 .global-footer__links {
-
 	display: none !important;
-
 }

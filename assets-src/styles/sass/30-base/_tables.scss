@@ -5,59 +5,43 @@
 \*------------------------------------*/
 
 table {
-
     border: 1px solid $border-color;
     border-collapse: collapse;
     width: 100%;
-
 }
 
 tr:nth-child(even) {
-
     background-color: rgba(#cecdcd, 0.5);
-
 }
 
 th,
 td,
 table caption {
-
     padding: 0.75rem;
     text-align: left; // Fallback for next rule for ltr languages
     text-align: start; /* 1 */
-
 }
 
 [dir="rtl"] {
-
     th,
     td,
     table caption {
-
         text-align: right; // Fallback for next rule
         text-align: start; /* 1 */
-
     }
-
 }
 
 th {
-
     vertical-align: bottom;
 
     &[scope="col"] {
-
         background-color: $deep-blue;
         color: $white;
-
     }
-
 }
 
 td {
-
     vertical-align: text-top;
-
 }
 
 
@@ -66,32 +50,22 @@ Responsive tables:
 https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
  */
 @media screen {
-
     .table-wrap {
-
         border: 1px solid $border-color;
         max-width: 100% !important;
 
         &[role][aria-labelledby][tabindex] {
-
             overflow: auto;
-
         }
 
         table {
-
             border: 0;
-
         }
 
         &:focus {
-
             border-color: $black;
             box-shadow: inset 0 0 0 4px;
             outline: 3px solid $focus-color;
-
         }
-
     }
-
 }
