@@ -4,8 +4,12 @@
 
 .component--quote {
 
+	@include txt-saturn;
 	@include stack(1rem);
 
+	color: $w3c-blue;
+	font-weight: bold;
+	margin-inline-end: 0;
 	margin-inline-start: rem(10);
 	padding: rem(20);
 	position: relative;

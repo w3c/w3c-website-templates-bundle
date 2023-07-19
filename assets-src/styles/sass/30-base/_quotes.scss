@@ -4,24 +4,23 @@
 
 blockquote {
 
-	@include txt-saturn;
+	@include stack(1rem);
 
-	color: $w3c-blue;
-	font-weight: bold;
-	margin-inline-start: rem(50);
+	margin-inline-end: rem(25);
+	margin-inline-start: rem(25);
+	padding: rem(10);
 	position: relative;
-	padding: rem(20);
+
 
 	&::before {
 
-		background-color: $w3c-blue;
-		border-radius: rem(5);
+		background-color: $twiki-gray;
 		content: '';
 		height: 100%;
-		left: rem(-10);
+		left: rem(-3);
 		position: absolute;
 		top: 0;
-		width: rem(10);
+		width: rem(3);
 
 	}
 
@@ -36,7 +35,7 @@ blockquote {
 		color: $off-black;
 		font-size: 1rem;
 		font-style: normal;
-		font-weight: normal;
+		font-weight: bold;
 
 	}
 
