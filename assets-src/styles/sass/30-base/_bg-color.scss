@@ -2,19 +2,17 @@
     #Background colours
 \*------------------------------------*/
 
-.bg {
-	&--alert {
-		background-color: $alert-color;
-		color: $black;
-	}
+.bg--info {
+	background-color: $info-color;
+	color: $white;
+}
 
-	&--success {
-		background-color: $success-color;
-		color: $black;
-	}
+.bg--success {
+	background-color: $success-color;
+	color: $white;
+}
 
-	&--warning {
-		background-color: $warning-color;
-		color: $black;
-	}
+.bg--warning {
+	background-color: #c78a05;
+	color: $black;
 }
