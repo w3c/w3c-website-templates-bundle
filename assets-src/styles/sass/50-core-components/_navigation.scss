@@ -192,6 +192,22 @@ li.top-nav-item + li.top-nav-item {
 
 	}
 
+	.hide-at-max-width {
+		margin-inline-start: rem(10);
+
+		@include mq($max-width) {
+			border: 0;
+			clip: rect(0 0 0 0);
+			clip-path: inset(100%);
+			height: 1px;
+			margin-inline-start: 0;
+			overflow: hidden;
+			padding: 0;
+			position: absolute;
+			white-space: nowrap;
+			width: 1px;
+		}
+	}
 }
 
 .account-login {
