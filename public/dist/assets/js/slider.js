@@ -127,23 +127,23 @@ const translate = {
       'team-site': '__team-site'
     },
     'ja': {
-      'admin': '__admin',
+      'admin': 'アドミン',
       'backToMainMenu': '__backToMainMenu',
       'cancelReply': '__cancelReply',
       'controlsDescription': '__controlsDescription',
       'logged-in': '__logged-in',
-      'logout': '__logout',
-      'member-site': '__member-site',
+      'logout': 'ログアウト',
+      'member-site': 'メンバーサイト',
       'menu': '__menu',
-      'my-account': '__my-account',
-      'my-calendar': '__my-calendar',
-      'my-organization': '__my_organization',
+      'my-account': 'アカウント',
+      'my-calendar': 'カレンダー',
+      'my-organization': '組織',
       'nextSlide': '__nextSlide',
       'previousSlide': '__previousSlide',
-      'sign-in': '__sign-in',
+      'sign-in': 'ログイン',
       'sliderDescription': '__sliderDescription',
       'slideText': '__Slide {x} of {y}',
-      'team-site': '__team-site'
+      'team-site': 'チームサイト'
     },
     'pt-br': {
       'admin': '__admin',

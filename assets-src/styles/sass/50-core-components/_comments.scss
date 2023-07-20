@@ -100,7 +100,6 @@
 }
 
 .comment__body {
-	@include stack;
 	max-width: rem($text-measure);
 }
 

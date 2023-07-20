@@ -2,10 +2,6 @@
     #Table of contents (TOC)
 \*------------------------------------*/
 
-.toc {
-	@include stack;
-}
-
 .toc + * {
 	margin-top: rem(30);
 

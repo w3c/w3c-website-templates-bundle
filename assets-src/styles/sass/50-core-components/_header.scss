@@ -20,8 +20,13 @@
 }
 
 .global-header .banner__inner {
+	align-items: center;
+	display: flex;
+
 	p {
 		@include txt-eris;
+		margin-bottom: 0;
+		margin-top: 0;
 	}
 
 	a {
@@ -30,13 +35,6 @@
 		&:focus {
 			color: $black;
 		}
-	}
-}
-
-[dir="rtl"] {
-	.banner__inner p {
-		margin-left: 0;
-		margin-right: rem(10);
 	}
 }
 

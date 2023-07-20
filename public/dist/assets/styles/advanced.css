@@ -710,14 +710,6 @@ br {
 .js .component--collapsibles [data-heading=collapsibles] button svg {
   flex-shrink: 0;
 }
-.js .component--collapsibles [data-heading=collapsibles] + * {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-.js .component--collapsibles [data-heading=collapsibles] + * > * + * {
-  margin-top: 1em;
-}
 .js .component--collapsibles [data-heading=collapsibles] + *[aria-hidden=true] {
   display: none;
 }

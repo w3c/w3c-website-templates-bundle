@@ -5,7 +5,6 @@
 .component--image {
 	figcaption {
 		@include txt-pluto;
-		@include stack;
 		margin-block-start: 1em;
 
 		> * {

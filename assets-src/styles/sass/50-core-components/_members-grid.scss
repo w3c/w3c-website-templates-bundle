@@ -9,8 +9,6 @@
 }
 
 .component--members .l-center {
-	@include stack;
-
 	> h2,
 	> p {
 		max-width: rem($text-measure);
@@ -20,6 +18,7 @@
 .component--members__grid {
 	display: flex;
 	flex-wrap: wrap;
+	margin-bottom: 1rem;
 
 	@supports (display: grid) {
 		display: grid;

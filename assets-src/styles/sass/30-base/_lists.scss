@@ -14,6 +14,8 @@ ul[class] {
 ul:not([class]),
 ol:not([class]),
 ol.counter {
+	margin-block-end: 1em;
+	margin-block-start: 1em;
 	padding-inline-start: 2.4em;
 
 	> * + *,
@@ -42,6 +44,9 @@ ol.counter {
 Description lists / Definition lists
  */
 dl {
+	margin-block-end: 1em;
+	margin-block-start: 1em;
+
 	dt {
 		font-weight: bold;
 	}
@@ -57,7 +62,6 @@ dl {
 }
 
 // display items on the same line (comma-separated)
-
 dl.inline {
 	div {
 		align-items: baseline;

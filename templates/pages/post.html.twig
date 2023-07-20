@@ -22,7 +22,7 @@
 								<ul class="clean-list" role="presentation">
 									{% for author in page.authors %}
 									<li>
-										<p class="with-icon--before with-icon--larger">
+										<span class="with-icon--before with-icon--larger">
 											<span class="avatar avatar--small icon">
 												{% if author.email %}
 													<img alt="" src="{{ author.email|avatar('48') }}" loading="lazy">
@@ -31,7 +31,7 @@
 												{% endif %}
 											</span>
 											{{ author.name }}
-										</p>
+										</span>
 									</li>
 									{% endfor %}
 								</ul>
