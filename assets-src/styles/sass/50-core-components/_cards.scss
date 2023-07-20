@@ -48,7 +48,6 @@
 }
 
 .card__text {
-	@include stack(1rem);
 	flex-grow: 1;
 	order: 1;
 	padding-top: 1rem;

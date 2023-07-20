@@ -17,12 +17,9 @@
 		}
 
 	}
-
 }
 
 .component--evangelists__text {
-	@include stack;
-
 	@include mq($bp-tab-large) {
 		flex-basis: 45%;
 	}
@@ -30,7 +27,6 @@
 	h2 ~ * {
 		max-width: rem($text-measure);
 	}
-
 }
 
 .component--evangelists__list {
@@ -51,6 +47,11 @@
 
 	li + li {
 		border-top: solid 1px #649bc5;
+	}
+
+	p {
+		margin-bottom: 0;
+		margin-top: 0;
 	}
 
 	.sidebar {

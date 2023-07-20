@@ -20,9 +20,6 @@
 }
 
 .component--fifty-fifty__text {
-
-	@include stack(rem(30));
-
 	@include mq($bp-tab-small) {
 		flex-basis: 52%;
 	}
@@ -34,6 +31,7 @@
 
 .component--fifty-fifty__text .l-box {
 	@include stack(1rem);
+	margin-top: rem(30);
 
 	a {
 		align-self: flex-start;
@@ -66,7 +64,6 @@
 }
 
 .component--fifty-fifty.reversed {
-
 	.component--fifty-fifty__text {
 		@include mq($bp-tab-small) {
 			order: -1;
