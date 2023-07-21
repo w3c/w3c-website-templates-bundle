@@ -28,8 +28,7 @@
             {# recursively produces title from breadcrumbs, including acl info if present #}
             {%- macro title(breadcrumb, title_acl=null) -%}
                 {%- if breadcrumb.parent is defined and breadcrumb.parent -%}
-                    {{- breadcrumb.title }} {{ title_acl ? title_acl : '' -}}
-                    | {{ _self.title(breadcrumb.parent) }}
+                    {{- breadcrumb.title }}{{ title_acl ? ' ' ~ title_acl : '' }} | {{ _self.title(breadcrumb.parent) }}
                 {%- else -%}
                     W3C
                 {%- endif -%}
