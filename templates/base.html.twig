@@ -8,43 +8,40 @@
     {%- set thumbnail = page.thumbnailImage.0.src|default(absolute_url(asset('images/w3c-opengraph-image.png', 'website-2021'))) -%}
     <title>
         {%- block documenttitle -%}
-
-            {% set title_acl %}
-                {% if page.access_control is defined %}
-                    {% if page.access_control.text is defined %}
+            {%- set title_acl -%}
+                {%- if page.access_control is defined -%}
+                    {%- if page.access_control.text is defined -%}
                         ({{ page.access_control.text }})
-                    {% else %}
-                        {% if page.access_control.acl is defined %}
-                            {% set acl = page.access_control.acl %}
-                        {% else %}
-                            {% set acl = 'private' %}
-                        {% endif %}
+                    {%- else -%}
+                        {%- if page.access_control.acl is defined -%}
+                            {%- set acl = page.access_control.acl -%}
+                        {%- else -%}
+                            {%- set acl = 'private' -%}
+                        {%- endif -%}
                         ({{ ('page.acl.' ~ acl)|trans({}, 'w3c_website_templates_bundle') }})
-                    {% endif %}
+                    {%- endif -%}
                 {%- endif -%}
-            {% endset %}
+            {%- endset -%}
 
-            {% if error_notes|length > 0 %}
-                Error:
-            {% endif %}
+            {%- if error_notes|length > 0 -%}Error: {% endif -%}
 
             {# recursively produces title from breadcrumbs, including acl info if present #}
-            {% macro title(breadcrumb, title_acl=null) %}
-                {% if breadcrumb.parent is defined and breadcrumb.parent %}
-                    {{ breadcrumb.title }} {{ title_acl ? title_acl : '' }}
+            {%- macro title(breadcrumb, title_acl=null) -%}
+                {%- if breadcrumb.parent is defined and breadcrumb.parent -%}
+                    {{- breadcrumb.title }} {{ title_acl ? title_acl : '' -}}
                     | {{ _self.title(breadcrumb.parent) }}
-                {% else %}
+                {%- else -%}
                     W3C
-                {% endif %}
-            {% endmacro %}
+                {%- endif -%}
+            {%- endmacro -%}
 
             {% if page.breadcrumbs is defined and page.breadcrumbs %}
-                {{ _self.title(page.breadcrumbs, title_acl) }}
+                {{- _self.title(page.breadcrumbs, title_acl) -}}
             {% elseif page.title is defined and page.title != 'W3C' %}
-                {{ page.title }} | W3C
-            {% else %}
+                {{- page.title }} | W3C
+            {%- else -%}
                 W3C
-            {% endif %}
+            {%- endif -%}
         {%- endblock -%}
     </title>
 
