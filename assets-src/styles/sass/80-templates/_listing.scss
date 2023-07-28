@@ -122,6 +122,10 @@
 }
 
 .event-list {
+	.card .l-cluster {
+		margin-top: 1rem;
+	}
+
 	.card .l-cluster > * {
 		@include txt-pluto;
 		align-items: center;

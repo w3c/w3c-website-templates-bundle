@@ -4778,6 +4778,9 @@ input[type=search] {
   padding-top: 0;
 }
 
+.event-list .card .l-cluster {
+  margin-top: 1rem;
+}
 .event-list .card .l-cluster > * {
   font-size: 0.9375rem;
   line-height: 1.5;

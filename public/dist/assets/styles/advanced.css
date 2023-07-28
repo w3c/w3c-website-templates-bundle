@@ -737,6 +737,7 @@ br {
   margin-bottom: 1rem;
 }
 .js [data-component=card] .card__text > :last-child {
+  margin-bottom: 0;
   margin-top: auto;
 }
 
