@@ -1,12 +1,12 @@
 {% set hasThumbnail = entry.thumbnailImage is defined and entry.thumbnailImage %}
-<div class="{% if hasThumbnail %}l-sidebar {% endif %}card card--event {% block event_type_class %}{{ entry|event_type }}{% endblock %}" data-component="card">
+<article class="{% if hasThumbnail %}l-sidebar {% endif %}card card--event {% block event_type_class %}{{ entry|event_type }}{% endblock %}" data-component="card" aria-labelledby="event-{{ index }}-title event-{{ index }}-date">
     {% if hasThumbnail %}<div>{% endif %}
         <div class="{% if hasThumbnail %}not-sidebar {% endif %}card__text">
             <div class="l-sidebar">
                 <div>
                     <div class="not-sidebar">
                         {% block event_main_content %}
-                            <h2 class="card__heading">
+                            <h2 class="card__heading" id="event-{{ index }}-title">
                                 <a class="card__link" href="{% block event_url %}{{ entry.url }}{% endblock %}">
                                     {% block event_title %}{{ entry.title }}{% endblock %}
                                 </a>
@@ -21,11 +21,11 @@
                     <div class="sidebar">
                         <div class="date-location">
                             <div>
-                                <img src="{{ asset('svg/calendar.svg', 'website-2021') }}" width="18px" height="20px"
-                                     alt aria-hidden="true"/>
+                                <img src="{{ asset('svg/calendar.svg', 'website-2021') }}" width="18" height="20"
+                                     alt aria-hidden="true">
                             </div>
                             <div>
-                                <p class="date-orig">
+                                <p class="date-orig" id="event-{{ index }}-date">
                                     {% block event_dates %}{{ date_range(entry.start, entry.end, entry.tz, site.locale)|raw }}{% endblock %}
                                 </p>
                                 {% block event_location %}
@@ -66,5 +66,5 @@
             </div>
         {% endif %}
     {% if hasThumbnail %}</div>{% endif %}
-</div>
+</article>
 
