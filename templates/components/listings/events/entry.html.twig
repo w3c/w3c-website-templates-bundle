@@ -1,5 +1,5 @@
 {% set hasThumbnail = entry.thumbnailImage is defined and entry.thumbnailImage %}
-<article class="{% if hasThumbnail %}l-sidebar {% endif %}card card--event {% block event_type_class %}{{ entry|event_type }}{% endblock %}" data-component="card" aria-labelledby="{% block event_labelled_by %}event-{{ index }}-title event-{{ index }}-date{% endblock %}">
+<article class="{% if hasThumbnail %}l-sidebar {% endif %}card card--event {% block event_type_class %}{{ entry|event_type }}{% endblock %}" data-component="card" aria-labelledby="{% block event_labelled_by %}event-{{ index }}-date event-{{ index }}-title{% endblock %}">
     {% if hasThumbnail %}<div>{% endif %}
         <div class="{% if hasThumbnail %}not-sidebar {% endif %}card__text">
             <div class="l-sidebar">
