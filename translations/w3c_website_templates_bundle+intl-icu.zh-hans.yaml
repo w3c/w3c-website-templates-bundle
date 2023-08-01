@@ -191,9 +191,15 @@ notes:
 events:
     # same_day = 1 when start_date == end_date
     date_range: >-
-        {same_day, select,
-            1  {{start_date}, {start_time} - {end_time} <b>{timezone}</b>}
-            other {{start_date}, {start_time} - {end_date}, {end_time} <b>{timezone}</b>}
+        {with_id, select,
+            1   {{same_day, select,
+                1  {<time datetime="{iso_start}"><span id="{id}">{start_date}</span>, {start_time}</time>–<time datetime="{iso_end}">{end_time}</time> {timezone}}
+                other {<time datetime="{iso_start}"><span id={id}>{start_date}</span>, {start_time}</time> – <time datetime="{iso_end}">{end_date}, {end_time}</time> {timezone}}
+            }}
+            other   {{same_day, select,
+                1  {<time datetime="{iso_start}">{start_date}, {start_time}</time>–<time datetime="{iso_end}">{end_time}</time> {timezone}}
+                other {<time datetime="{iso_start}">{start_date}, {start_time}</time> – <time datetime="{iso_end}">{end_date}, {end_time}</time> {timezone}}
+            }}
         }
     add_to_calendar: 添加到日历
     event_details: 事件详情
