@@ -2,12 +2,13 @@
     <div class="l-frame l-frame--16-9">
         {% block video_iframe %}
             {% if iframe is defined and iframe %}
+                {% set iframe = iframe|preg_replace('/title="[^"]*"/', 'title="' ~ title|e('html_attr') ~ '"') %}
                 {{ iframe|raw }}
             {% else %}
                 <iframe title="{{ component.videoTitle|e('html_attr') }}"
                     src="{{ url }}"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen="" width="200" height="113" frameborder="0"></iframe>
+                    allowfullscreen="" width="200" height="113"></iframe>
             {% endif %}
         {% endblock %}
     </div>
