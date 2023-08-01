@@ -26,7 +26,7 @@
                             </div>
                             <div>
                                 <p class="date-orig">
-                                    {% block event_dates %}{{ date_range(entry.start, entry.end, entry.tz, site.locale)|raw }}{% endblock %}
+                                    {% block event_dates %}{{ date_range(entry.start, entry.end, entry.tz, site.locale, false, 'event-' ~ index ~ '-date')|raw }}{% endblock %}
                                 </p>
                                 {% block event_location %}
                                     {% if entry.location %}

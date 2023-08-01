@@ -196,7 +196,8 @@ class TwigExtension extends AbstractExtension
         DateTimeInterface $originalEnd,
         string $tz,
         string $locale,
-        bool $utc = false
+        bool $utc = false,
+        string $id = null
     ): string {
         if ($locale == 'en') {
             $locale = 'en-GB';
@@ -232,7 +233,9 @@ class TwigExtension extends AbstractExtension
                 'end_date'   => $endDate,
                 'end_time'   => $endTime,
                 'timezone'   => $timezone,
-                'same_day'   => $sameDay
+                'same_day'   => $sameDay,
+                'with_id'    => $id != null,
+                'id'         => $id
             ],
             'w3c_website_templates_bundle'
         );
