@@ -31,7 +31,7 @@ class TwigExtension extends AbstractExtension
         's' => 'second',
     ];
 
-    private $translator;
+    private TranslatorInterface $translator;
     private IntlExtension $intl;
     private Environment $twig;
     private Utils $utils;
@@ -84,7 +84,14 @@ class TwigExtension extends AbstractExtension
         ];
     }
 
-    public function pregReplace(string $subject, string $pattern, string $replacement, int $limit = -1): string
+    /**
+     * @param string $subject
+     * @param string|string[] $pattern
+     * @param string|string[] $replacement
+     * @param int $limit
+     * @return string
+     */
+    public function pregReplace(string $subject, $pattern, $replacement, int $limit = -1): string
     {
         return preg_replace($pattern, $replacement, $subject, $limit);
     }
