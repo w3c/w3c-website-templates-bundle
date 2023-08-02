@@ -6,7 +6,9 @@ document.addEventListener("DOMContentLoaded", function() {
     selects.forEach(select => {
         const multiSelectParams = {
             source: select.dataset.source,
-            minInput: select.dataset.minInput
+            minInput: select.dataset.minInput,
+            searchStart: select.dataset.multiselectSearchStart,
+            searchTextOnly: select.dataset.multiselectSearchTextOnly
         };
         const multiButtonComponent = new MultiselectButtons(select, multiSelectParams);
         multiButtonComponent.init();
