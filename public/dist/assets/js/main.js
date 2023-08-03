@@ -11,7 +11,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "translate": () => (/* binding */ translate)
 /* harmony export */ });
-const translate = {
+var translate = {
   'translations': {
     //microcopy translations
     'ar': {
@@ -129,23 +129,23 @@ const translate = {
       'team-site': '__team-site'
     },
     'ja': {
-      'admin': '__admin',
+      'admin': 'アドミン',
       'backToMainMenu': '__backToMainMenu',
       'cancelReply': '__cancelReply',
       'controlsDescription': '__controlsDescription',
       'logged-in': '__logged-in',
-      'logout': '__logout',
-      'member-site': '__member-site',
+      'logout': 'ログアウト',
+      'member-site': 'メンバーサイト',
       'menu': '__menu',
-      'my-account': '__my-account',
-      'my-calendar': '__my-calendar',
-      'my-organization': '__my_organization',
+      'my-account': 'アカウント',
+      'my-calendar': 'カレンダー',
+      'my-organization': '組織',
       'nextSlide': '__nextSlide',
       'previousSlide': '__previousSlide',
-      'sign-in': '__sign-in',
+      'sign-in': 'ログイン',
       'sliderDescription': '__sliderDescription',
       'slideText': '__Slide {x} of {y}',
-      'team-site': '__team-site'
+      'team-site': 'チームサイト'
     },
     'pt-br': {
       'admin': '__admin',
@@ -190,8 +190,8 @@ const translate = {
   //languageCode = code of the target language
   //injection = object of values to inject into the string if interpolation is required, object keys should match references in the translations snippets,
   // e.g. 'Slide {x} of {y} requires an object with keys x and y.
-  'translate': function (snippetReference, languageCode) {
-    let injections = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+  'translate': function translate(snippetReference, languageCode) {
+    var injections = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
     //without a snippet reference, we don't know what to translate
     if (snippetReference === undefined || snippetReference === null || snippetReference.length < 1) {
       return;
@@ -225,36 +225,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _translations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
 
-let accountMenu = function () {
-  let userInfo = null;
-  const buildAccountMenu = function (userInfo) {
+var accountMenu = function accountMenu() {
+  var userInfo = null;
+  var buildAccountMenu = function buildAccountMenu(userInfo) {
     if (userInfo == null || userInfo.length < 1) {
       return;
     }
 
     //getting the page language
-    let languageCode = document.documentElement.lang;
+    var languageCode = document.documentElement.lang;
 
     //generating the menu markup
-    let fragment = document.createDocumentFragment();
-    let status = document.querySelector('.global-header [role="status"]');
-    let statusText;
-    let toggleButton = document.createElement('button');
-    let accMenu = document.createElement('div');
+    var fragment = document.createDocumentFragment();
+    var status = document.querySelector('.global-header [role="status"]');
+    var statusText;
+    var toggleButton = document.createElement('button');
+    var accMenu = document.createElement('div');
     accMenu.setAttribute('class', 'account-menu');
-    let list = document.createElement('ul');
+    var list = document.createElement('ul');
     list.setAttribute('class', 'clean-list');
     list.setAttribute('role', 'list');
-    let nameLi = document.createElement('li');
+    var nameLi = document.createElement('li');
     nameLi.textContent = userInfo.given + ' ' + userInfo.family;
     list.appendChild(nameLi);
-    let emailLi = document.createElement('li');
+    var emailLi = document.createElement('li');
     emailLi.textContent = userInfo.email;
     list.appendChild(emailLi);
-    let userMenuKeys = Object.keys(userInfo.menus);
-    for (let menuItemIndex = 0; menuItemIndex < userMenuKeys.length; menuItemIndex++) {
-      let menuItemKey = userMenuKeys[menuItemIndex];
-      let menuLi = document.createElement('li');
+    var userMenuKeys = Object.keys(userInfo.menus);
+    for (var menuItemIndex = 0; menuItemIndex < userMenuKeys.length; menuItemIndex++) {
+      var menuItemKey = userMenuKeys[menuItemIndex];
+      var menuLi = document.createElement('li');
       menuLi.innerHTML = '<a href="' + userInfo.menus[menuItemKey]['url'] + '">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate(menuItemKey, languageCode) + '</a>';
       list.appendChild(menuLi);
     }
@@ -262,8 +262,8 @@ let accountMenu = function () {
     accMenu.appendChild(fragment);
 
     //adding the menu to the header
-    let domTargetSmall = document.querySelector('.logo-link');
-    let domTargetWide = document.querySelector('.global-nav__inner ul');
+    var domTargetSmall = document.querySelector('.logo-link');
+    var domTargetWide = document.querySelector('.global-nav__inner ul');
     toggleButton.setAttribute('type', 'button');
     toggleButton.setAttribute('class', 'button button--ghost with-icon--larger');
     toggleButton.setAttribute('data-trigger', 'account-menu');
@@ -271,7 +271,7 @@ let accountMenu = function () {
     toggleButton.innerHTML = '<span class="sr-only">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('my-account', languageCode) + ' <span class="visuallyhidden">(' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('logged-in', languageCode) + ')</span></span><div class="avatar avatar--small icon"><img alt="" src="' + userInfo.avatar.thumbnail + '"/></div>';
 
     // Media query event handler
-    let mq = window.matchMedia('(min-width: 71.25em)');
+    var mq = window.matchMedia('(min-width: 71.25em)');
     mq.addListener(insertAccountBtn);
     insertAccountBtn(mq);
     function insertAccountBtn(mq) {
@@ -288,7 +288,7 @@ let accountMenu = function () {
     }
 
     //add toggling action to button
-    let accountToggler = document.querySelector('[data-trigger="account-menu"]');
+    var accountToggler = document.querySelector('[data-trigger="account-menu"]');
     if (accountToggler) {
       // @todo Not sure if this is sufficient or whether there needs to be a re-usable function to check this. This is for the visual styling on button
       // if (profile.messages === true) {
@@ -315,7 +315,7 @@ let accountMenu = function () {
         if (event.defaultPrevented) {
           return;
         }
-        let key = event.key || event.keyCode;
+        var key = event.key || event.keyCode;
         if (key === 'Escape' || key === 'Esc' || key === 27) {
           if (accountToggler.getAttribute('aria-expanded') === 'true') {
             accountToggler.setAttribute('aria-expanded', false);
@@ -325,12 +325,12 @@ let accountMenu = function () {
       });
     }
   };
-  const loginLink = document.querySelector('#account-login-link');
+  var loginLink = document.querySelector('#account-login-link');
   if (loginLink) {
     loginLink.href = 'https://auth.w3.org/?url=' + encodeURI(window.location.href);
     loginLink.firstChild.textContent = _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('sign-in', document.documentElement.lang);
-    let userInfoRequest = new XMLHttpRequest();
-    userInfoRequest.open('GET', 'https://beta.w3.org/account/user-menu/', true);
+    var userInfoRequest = new XMLHttpRequest();
+    userInfoRequest.open('GET', 'https://www.w3.org/account/user-menu/', true);
     userInfoRequest.withCredentials = true;
     userInfoRequest.onload = function () {
       if (this.status === 200) {
@@ -359,13 +359,13 @@ __webpack_require__.r(__webpack_exports__);
  * See https://css-tricks.com/block-links-the-search-for-a-perfect-solution/
  */
 
-let cardEnhancement = function () {
-  let cardsArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="card"]'));
+var cardEnhancement = function cardEnhancement() {
+  var cardsArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="card"]'));
   if (cardsArray.length > 0) {
     // Loop through cards adding a click event and identifying the main link
     cardsArray.forEach(function (card, index) {
-      let mainLink = card.querySelector('.card__link');
-      let clickableElems = Array.prototype.slice.call(card.querySelectorAll('[data-click]'));
+      var mainLink = card.querySelector('.card__link');
+      var clickableElems = Array.prototype.slice.call(card.querySelectorAll('[data-click]'));
 
       // Allow other links/buttons in the card to still be "clickable"
       if (clickableElems) {
@@ -376,7 +376,7 @@ let cardEnhancement = function () {
         });
       }
       card.addEventListener('click', function () {
-        let noTextSelected = !window.getSelection().toString();
+        var noTextSelected = !window.getSelection().toString();
         if (noTextSelected) {
           mainLink.click();
         }
@@ -400,14 +400,14 @@ __webpack_require__.r(__webpack_exports__);
  * See https://heydon.github.io/inclusive-components-demos/collapsible-sections/progressive.html
  */
 
-let collapsibles = function () {
+var collapsibles = function collapsibles() {
   // Get all the collapsible containers
-  let collapseArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="collapsibles"]'));
+  var collapseArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="collapsibles"]'));
   if (collapseArray.length > 0) {
     // Loop through containers
     collapseArray.forEach(function (item) {
       // Get headings inside a collapsible container
-      let headingsArray = Array.prototype.slice.call(item.querySelectorAll('[data-heading="collapsibles"]'));
+      var headingsArray = Array.prototype.slice.call(item.querySelectorAll('[data-heading="collapsibles"]'));
 
       // Loop through headings
       headingsArray.forEach(function (heading, index) {
@@ -418,12 +418,12 @@ let collapsibles = function () {
         heading.nextElementSibling.setAttribute('aria-hidden', 'true');
 
         // Assign the button
-        let btn = heading.querySelector('button');
+        var btn = heading.querySelector('button');
 
         // Add click event listener
         btn.addEventListener('click', function (event) {
           // Cast the state as a boolean
-          let expanded = btn.getAttribute('aria-expanded') === 'true';
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
 
           // Switch the state
           btn.setAttribute('aria-expanded', !expanded);
@@ -447,9 +447,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "disclosureWidget": () => (/* binding */ disclosureWidget)
 /* harmony export */ });
-let disclosureWidget = function () {
-  let toggleButtonArray = Array.prototype.slice.call(document.querySelectorAll('[data-toggle="true"]'));
-  let closeDisclosures = function () {
+var disclosureWidget = function disclosureWidget() {
+  var toggleButtonArray = Array.prototype.slice.call(document.querySelectorAll('[data-toggle="true"]'));
+  var closeDisclosures = function closeDisclosures() {
     toggleButtonArray.forEach(function (btn) {
       if (btn.getAttribute('aria-expanded') === 'true') {
         btn.setAttribute('aria-expanded', 'false');
@@ -462,20 +462,19 @@ let disclosureWidget = function () {
       btn.setAttribute('aria-expanded', 'false');
     });
     if (document.body.classList.contains('group')) {
-      // Media query event handler
-      let mq = window.matchMedia('(min-width: 64em)');
-      mq.addListener(WidthChange);
-      WidthChange(mq);
-
       // Media query change
-      function WidthChange(mq) {
-        let toggleButton = document.querySelector('[data-toggle="true"]');
+      var WidthChange = function WidthChange(mq) {
+        var toggleButton = document.querySelector('[data-toggle="true"]');
         if (!mq.matches) {
           toggleButton.setAttribute('aria-expanded', 'false');
         } else {
           toggleButton.removeAttribute('aria-expanded');
         }
-      }
+      };
+      // Media query event handler
+      var mq = window.matchMedia('(min-width: 64em)');
+      mq.addListener(WidthChange);
+      WidthChange(mq);
     }
     document.addEventListener('click', function (event) {
       if (event.target.matches('[data-toggle="true"]')) {
@@ -493,7 +492,7 @@ let disclosureWidget = function () {
       if (event.defaultPrevented) {
         return;
       }
-      let key = event.key || event.keyCode;
+      var key = event.key || event.keyCode;
       if (key === 'Escape' || key === 'Esc' || key === 27) {
         closeDisclosures();
       }
@@ -511,8 +510,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "formErrorSummary": () => (/* binding */ formErrorSummary)
 /* harmony export */ });
-var formErrorSummary = function () {
-  let errorSummary = document.querySelector('[data-component="error-summary"]');
+var formErrorSummary = function formErrorSummary() {
+  var errorSummary = document.querySelector('[data-component="error-summary"]');
   if (errorSummary) {
     errorSummary.focus();
   }
@@ -551,13 +550,13 @@ __webpack_require__.r(__webpack_exports__);
  * @param {boolean} [options.submenuIntro=false] - whether the sub menu includes introductory text.
  */
 
-const navigation = function (menu, options) {
-  let container = menu.parentElement;
-  let mobileToggle = document.querySelector('[data-trigger="mobile-nav"]');
-  let languageCode = document.documentElement.lang;
+var navigation = function navigation(menu, options) {
+  var container = menu.parentElement;
+  var mobileToggle = document.querySelector('[data-trigger="mobile-nav"]');
+  var languageCode = document.documentElement.lang;
 
   // Default settings
-  let defaults = {
+  var defaults = {
     breakpoint: 1024,
     cloneTopLevelLink: true,
     mobileIcon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="30" width="30" class="icon icon--larger" focusable="false" aria-hidden="true" fill="currentColor">' + '<path class="menu-icon" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/>' + '<path class="close-icon" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"/>' + '</svg>',
@@ -565,7 +564,7 @@ const navigation = function (menu, options) {
   };
 
   // Merge user options into defaults
-  let settings = Object.assign({}, defaults, options);
+  var settings = Object.assign({}, defaults, options);
   this.init = function () {
     mobileToggleSetup();
     menuSetup();
@@ -573,7 +572,7 @@ const navigation = function (menu, options) {
     document.addEventListener('keyup', closeOnEscKey);
   };
   function closeSubmenus() {
-    let subNavTriggers = Array.prototype.slice.call(menu.querySelectorAll('[data-trigger="sub-nav"]'));
+    var subNavTriggers = Array.prototype.slice.call(menu.querySelectorAll('[data-trigger="sub-nav"]'));
     subNavTriggers.forEach(function (trigger) {
       trigger.setAttribute('aria-expanded', 'false');
     });
@@ -587,8 +586,8 @@ const navigation = function (menu, options) {
         event.target.setAttribute('aria-expanded', 'true');
       }
     } else if (event.target.matches('[data-trigger="sub-nav"]')) {
-      const button = event.target;
-      const submenu = button.nextElementSibling;
+      var button = event.target;
+      var submenu = button.nextElementSibling;
       if (event.target.matches('[aria-expanded="true"]')) {
         event.target.setAttribute('aria-expanded', 'false');
       } else {
@@ -608,11 +607,11 @@ const navigation = function (menu, options) {
     if (event.defaultPrevented) {
       return;
     }
-    let key = event.key || event.keyCode;
+    var key = event.key || event.keyCode;
     if (key === 'Escape' || key === 'Esc' || key === 27) {
-      let subNavTriggers = Array.prototype.slice.call(menu.querySelectorAll('[data-trigger="sub-nav"]'));
-      let result = true;
-      for (let i = 0; i < subNavTriggers.length; i++) {
+      var subNavTriggers = Array.prototype.slice.call(menu.querySelectorAll('[data-trigger="sub-nav"]'));
+      var result = true;
+      for (var i = 0; i < subNavTriggers.length; i++) {
         if (subNavTriggers[i].getAttribute('aria-expanded') === 'true') {
           result = false;
           break;
@@ -626,10 +625,10 @@ const navigation = function (menu, options) {
     }
   }
   function preventOffScreenSubmenu(submenu) {
-    const screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    const parent = submenu.parentElement;
-    const menuLeftEdge = parent.getBoundingClientRect().left;
-    const menuRightEdge = menuLeftEdge + submenu.offsetWidth;
+    var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    var parent = submenu.parentElement;
+    var menuLeftEdge = parent.getBoundingClientRect().left;
+    var menuRightEdge = menuLeftEdge + submenu.offsetWidth;
     if (menuRightEdge + 32 > screenWidth) {
       // adding 32 so it's not too close
       submenu.classList.add('js-sub-menu-right');
@@ -640,8 +639,8 @@ const navigation = function (menu, options) {
     mobileToggle.innerHTML += settings.mobileIcon;
     mobileToggle.setAttribute('aria-expanded', 'false');
     mobileToggle.style.display = 'inline-flex';
-    let mqValue = settings.breakpoint / 16;
-    let mq = window.matchMedia('(min-width: ' + mqValue + 'em)');
+    var mqValue = settings.breakpoint / 16;
+    var mq = window.matchMedia('(min-width: ' + mqValue + 'em)');
     mq.addListener(WidthChange);
     WidthChange(mq);
 
@@ -660,12 +659,12 @@ const navigation = function (menu, options) {
     if (settings.submenuIntro === true) {
       container.classList.add('js-nav-with-intro');
     }
-    const subMenuWrappers = Array.prototype.slice.call(menu.querySelectorAll('[data-nav="submenu"]'));
+    var subMenuWrappers = Array.prototype.slice.call(menu.querySelectorAll('[data-nav="submenu"]'));
     subMenuWrappers.forEach(function (wrapper) {
       wrapper.style = "";
-      const menuItem = wrapper.parentElement;
+      var menuItem = wrapper.parentElement;
       if ('undefined' !== typeof wrapper) {
-        let button = convertLinkToButton(menuItem);
+        var button = convertLinkToButton(menuItem);
         setUpAria(wrapper, button);
       }
     });
@@ -675,29 +674,29 @@ const navigation = function (menu, options) {
    * Why do this? See https://justmarkup.com/articles/2019-01-21-the-link-to-button-enhancement/
    */
   function convertLinkToButton(menuItem) {
-    const link = menuItem.getElementsByTagName('a')[0];
-    const svg = link.querySelector('svg[style]');
+    var link = menuItem.getElementsByTagName('a')[0];
+    var svg = link.querySelector('svg[style]');
     if (null !== svg) {
       svg.removeAttribute('style');
     }
-    const linkHTML = link.innerHTML;
-    const linkAtts = link.attributes;
-    const button = document.createElement('button');
+    var linkHTML = link.innerHTML;
+    var linkAtts = link.attributes;
+    var button = document.createElement('button');
     button.setAttribute('data-trigger', 'sub-nav');
-    const li = document.createElement('li');
-    let subMenu = link.nextElementSibling.querySelector('ul');
+    var li = document.createElement('li');
+    var subMenu = link.nextElementSibling.querySelector('ul');
     if (null !== link) {
       // copy button attributes and content from link
       button.innerHTML = linkHTML.trim();
-      for (let i = 0, length = linkAtts.length; i < length; i++) {
-        let attr = linkAtts[i];
+      for (var i = 0, length = linkAtts.length; i < length; i++) {
+        var attr = linkAtts[i];
         if ('href' !== attr.name) {
           button.setAttribute(attr.name, attr.value);
         }
       }
       if (settings.cloneTopLevelLink === true) {
         // insert cloned link as first item of submenu list
-        const linkClone = link.cloneNode(true);
+        var linkClone = link.cloneNode(true);
         li.appendChild(linkClone);
         subMenu.insertBefore(li, subMenu.children[0]);
       }
@@ -705,7 +704,7 @@ const navigation = function (menu, options) {
     }
 
     // Insert a "back" button
-    const backButton = document.createElement('button');
+    var backButton = document.createElement('button');
     backButton.setAttribute('data-button', 'mobile-back');
     backButton.setAttribute('class', 'button button--ghost u-full-width with-icon--before with-icon--larger');
     backButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" height="16" width="16" class="icon icon--submenu" focusable="false" aria-hidden="true" fill="currentColor">' + '<path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/>' + '</svg>' + _translations__WEBPACK_IMPORTED_MODULE_2__.translate.translate('backToMainMenu', languageCode);
@@ -715,8 +714,8 @@ const navigation = function (menu, options) {
     return button;
   }
   function setUpAria(submenu, button) {
-    const submenuId = submenu.getAttribute('id');
-    let id;
+    var submenuId = submenu.getAttribute('id');
+    var id;
     if (null === submenuId) {
       id = 'js-' + button.textContent.trim().replace(/\s+/g, '-').toLowerCase() + '-submenu';
     } else {
@@ -812,9 +811,9 @@ __webpack_require__.r(__webpack_exports__);
  * Tab index changed from 0 to -1 if there is no horizontal overflow
  */
 
-var responsiveTables = function () {
+var responsiveTables = function responsiveTables() {
   // Get all the table wraps
-  let tablesArray = Array.prototype.slice.call(document.querySelectorAll('.table-wrap'));
+  var tablesArray = Array.prototype.slice.call(document.querySelectorAll('.table-wrap'));
   if (tablesArray.length > 0) {
     // Loop through them
     tablesArray.forEach(function (item) {
@@ -855,32 +854,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "flashes": () => (/* binding */ flashes)
 /* harmony export */ });
-const flashes = function () {
-  const getCookie = function (cname) {
-    const name = cname + "=";
-    const ca = document.cookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-      const c = ca[i].trim();
+var flashes = function flashes() {
+  var getCookie = function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i].trim();
       if (c.indexOf(name) === 0) {
         return c.substring(name.length, c.length);
       }
     }
     return false;
   };
-  const cookie = getCookie("flashes");
+  var cookie = getCookie("flashes");
   if (!cookie) {
     return;
   }
-  const flashes = JSON.parse(decodeURIComponent(cookie));
-  let html = '';
-  for (let type in flashes) {
+  var flashes = JSON.parse(decodeURIComponent(cookie));
+  var html = '';
+  for (var type in flashes) {
     if (type.startsWith('title-') || type === 'length' || !flashes.hasOwnProperty(type)) {
       continue;
     }
     html += '<div class="l-box note note--' + type + '" role="' + (type === 'error' ? 'alert' : 'status') + '" aria-labelledby="' + type + '-summary-title" tabindex="-1" data-component = "' + type + '-summary" >';
     html += '<h2 id="' + type + '-summary-title" class="txt-saturn">' + flashes['title-' + type] + '</h2>';
     html += '<ul class="clean-list" role="list">';
-    for (let i in flashes[type]) {
+    for (var i in flashes[type]) {
       html += '<li>' + flashes[type][i] + '</li>';
     }
     html += '</ul>';
@@ -994,9 +993,9 @@ function domLoadedActions() {
   (0,_main_flashes__WEBPACK_IMPORTED_MODULE_7__.flashes)();
 
   /* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
-  const navDoubleIntro = document.querySelector('ul[data-component="nav-double-intro"]');
+  var navDoubleIntro = document.querySelector('ul[data-component="nav-double-intro"]');
   if (navDoubleIntro) {
-    let siteNav = new _main_navigation__WEBPACK_IMPORTED_MODULE_5__.navigation(navDoubleIntro, {
+    var siteNav = new _main_navigation__WEBPACK_IMPORTED_MODULE_5__.navigation(navDoubleIntro, {
       breakpoint: 1120,
       cloneTopLevelLink: false,
       submenuIntro: true
