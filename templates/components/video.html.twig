@@ -2,7 +2,8 @@
     <div class="l-frame l-frame--16-9">
         {% block video_iframe %}
             {% if iframe is defined and iframe %}
-                {% set iframe = iframe|preg_replace('/title="[^"]*"/', 'title="' ~ title|e('html_attr') ~ '"') %}
+                {% set iframe = iframe|preg_replace(['/title="[^"]*"/', '/frameborder="[^"]*"/'], ['title="' ~ title|e('html_attr') ~ '"', ''])
+                %}
                 {{ iframe|raw }}
             {% else %}
                 <iframe title="{{ component.videoTitle|e('html_attr') }}"
