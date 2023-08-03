@@ -197,18 +197,19 @@ const MultiselectButtons = function (selectEl, params) {
 
     div.appendChild(divComboBox);
     div.appendChild(ulCombo);
-    selectEl.parentNode.appendChild(labelComboBox);
-    if (hintComboBox) {
-        selectEl.parentNode.appendChild(hintComboBox);
-    }
+
     if (selectEl.multiple) {
         const ul = document.createElement('ul');
         ul.id = baseId + '-selected';
         ul.classList.add('selected-options');
-        selectEl.parentNode.appendChild(ul);
+        selectEl.parentNode.insertBefore(ul, selectEl.parentNode.firstChild);
         this.selectedEl = ul;
     }
-    selectEl.parentNode.appendChild(div);
+    selectEl.parentNode.insertBefore(div, selectEl.parentNode.firstChild);
+    if (hintComboBox) {
+        selectEl.parentNode.insertBefore(hintComboBox, selectEl.parentNode.firstChild);
+    }
+    selectEl.parentNode.insertBefore(labelComboBox, selectEl.parentNode.firstChild);
 
     // element refs
     this.select = selectEl;
@@ -560,7 +561,13 @@ MultiselectButtons.prototype.selectOption = function (option) {
     buttonEl.id = `${this.idBase}-remove-${index}`;
     buttonEl.dataset.value = selected.value;
     buttonEl.addEventListener('click', () => {
+        const sibling = listItem.nextSibling;
         this.removeOption(option);
+        if (sibling) {
+            siblling.firstChild.focus();
+        } else {
+            this.inputEl.focus();
+        }
     });
     buttonEl.innerHTML = `<span class="visuallyhidden">Remove </span> ${selected.text} `;
 
