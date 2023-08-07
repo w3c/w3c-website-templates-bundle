@@ -32,10 +32,22 @@ const MenuActions = {
 
 // filter an array of options against an input string
 // returns an array of options that begin with the filter string, case-independent
-function filterOptions(options = [], filter) {
+function filterOptions(options = [], filter, startSearch = true, textOnly= true) {
     return options.filter(option => {
         const text = option.text.toLowerCase();
-        return text.startsWith(filter.toLowerCase());
+        const value = option.value.toLowerCase();
+
+      if (textOnly) {
+            return startSearch ?
+                text.startsWith(filter.toLowerCase()) :
+                text.includes(filter.toLowerCase());
+        } else {
+            return startSearch ?
+                text.startsWith(filter.toLowerCase()) || value.startsWith(filter.toLowerCase()) :
+                text.includes(filter.toLowerCase()) || value.includes(filter.toLowerCase());
+        }
+
+
     });
 }
 
@@ -59,8 +71,6 @@ function getActionFromKey(key, menuOpen) {
         return MenuActions.Close;
     } else if (key === Keys.Enter) {
         return MenuActions.CloseSelect;
-    } else if (key === Keys.Space) {
-        return MenuActions.Space;
     } else if (key === Keys.Backspace || key === Keys.Clear || key.length === 1) {
         return MenuActions.Type;
     }
@@ -187,18 +197,19 @@ const MultiselectButtons = function (selectEl, params) {
 
     div.appendChild(divComboBox);
     div.appendChild(ulCombo);
-    selectEl.parentNode.appendChild(labelComboBox);
-    if (hintComboBox) {
-        selectEl.parentNode.appendChild(hintComboBox);
-    }
+
     if (selectEl.multiple) {
         const ul = document.createElement('ul');
         ul.id = baseId + '-selected';
         ul.classList.add('selected-options');
-        selectEl.parentNode.appendChild(ul);
+        selectEl.parentNode.insertBefore(ul, selectEl.parentNode.firstChild);
         this.selectedEl = ul;
     }
-    selectEl.parentNode.appendChild(div);
+    selectEl.parentNode.insertBefore(div, selectEl.parentNode.firstChild);
+    if (hintComboBox) {
+        selectEl.parentNode.insertBefore(hintComboBox, selectEl.parentNode.firstChild);
+    }
+    selectEl.parentNode.insertBefore(labelComboBox, selectEl.parentNode.firstChild);
 
     // element refs
     this.select = selectEl;
@@ -219,6 +230,10 @@ const MultiselectButtons = function (selectEl, params) {
     this.page = 1;
     this.morePages = false;
     this.ajaxResultCount;
+
+    // other params
+    this.searchStart = params.searchStart !== "off";
+    this.searchTextOnly = params.searchTextOnly !== "off";
 
     // state
     this.activeIndex = 0;
@@ -301,7 +316,7 @@ MultiselectButtons.prototype.filterOptions = async function (value) {
         const selectedValues = [...selectedOptions].map(option => option.innerText);
 
         // ajax call is already filtering the options
-        this.filteredOptions = this.source ? this.options : filterOptions(this.options, value);
+        this.filteredOptions = this.source ? this.options : filterOptions(this.options, value, this.searchStart, this.searchTextOnly);
 
         const count = this.source ? this.ajaxResultCount : this.filteredOptions.length;
 
@@ -436,12 +451,6 @@ MultiselectButtons.prototype.onInputKeyDown = function (event) {
             const nextFilteredIndex = getUpdatedIndex(activeFilteredIndex, max, action);
             const nextRealIndex = this.options.indexOf(this.filteredOptions[nextFilteredIndex]);
             return this.onOptionChange(nextRealIndex);
-        case MenuActions.Space:
-            if (this.activeIndex) {
-                event.preventDefault();
-                return this.onOptionClick(this.activeIndex);
-            }
-            return;
         case MenuActions.CloseSelect:
             event.preventDefault();
             return this.onOptionClick(this.activeIndex);
@@ -552,7 +561,13 @@ MultiselectButtons.prototype.selectOption = function (option) {
     buttonEl.id = `${this.idBase}-remove-${index}`;
     buttonEl.dataset.value = selected.value;
     buttonEl.addEventListener('click', () => {
+        const sibling = listItem.nextSibling;
         this.removeOption(option);
+        if (sibling) {
+            siblling.firstChild.focus();
+        } else {
+            this.inputEl.focus();
+        }
     });
     buttonEl.innerHTML = `<span class="visuallyhidden">Remove </span> ${selected.text} `;
 
