@@ -10,18 +10,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var babel_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(21);
 /* harmony import */ var babel_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(babel_polyfill__WEBPACK_IMPORTED_MODULE_0__);
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator.return && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, catch: function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var Keys = {
+const Keys = {
   Backspace: 'Backspace',
   Clear: 'Clear',
   Down: 'ArrowDown',
@@ -37,7 +27,7 @@ var Keys = {
   Tab: 'Tab',
   Up: 'ArrowUp'
 };
-var MenuActions = {
+const MenuActions = {
   Close: 0,
   CloseSelect: 1,
   First: 2,
@@ -53,13 +43,13 @@ var MenuActions = {
 // filter an array of options against an input string
 // returns an array of options that begin with the filter string, case-independent
 function filterOptions() {
-  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  var filter = arguments.length > 1 ? arguments[1] : undefined;
-  var startSearch = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-  var textOnly = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
-  return options.filter(function (option) {
-    var text = option.text.toLowerCase();
-    var value = option.value.toLowerCase();
+  let options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  let filter = arguments.length > 1 ? arguments[1] : undefined;
+  let startSearch = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+  let textOnly = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
+  return options.filter(option => {
+    const text = option.text.toLowerCase();
+    const value = option.value.toLowerCase();
     if (textOnly) {
       return startSearch ? text.startsWith(filter.toLowerCase()) : text.includes(filter.toLowerCase());
     } else {
@@ -116,12 +106,16 @@ function isScrollable(element) {
 
 // ensure given child element is within the parent's visible scroll area
 function maintainScrollVisibility(activeElement, scrollParent) {
-  var offsetHeight = activeElement.offsetHeight,
-    offsetTop = activeElement.offsetTop;
-  var parentOffsetHeight = scrollParent.offsetHeight,
-    scrollTop = scrollParent.scrollTop;
-  var isAbove = offsetTop < scrollTop;
-  var isBelow = offsetTop + offsetHeight > scrollTop + parentOffsetHeight;
+  const {
+    offsetHeight,
+    offsetTop
+  } = activeElement;
+  const {
+    offsetHeight: parentOffsetHeight,
+    scrollTop
+  } = scrollParent;
+  const isAbove = offsetTop < scrollTop;
+  const isBelow = offsetTop + offsetHeight > scrollTop + parentOffsetHeight;
   if (isAbove) {
     scrollParent.scrollTo(0, offsetTop);
   } else if (isBelow) {
@@ -132,16 +126,16 @@ function maintainScrollVisibility(activeElement, scrollParent) {
 /*
  * Multiselect Combobox w/ Buttons code
  */
-var MultiselectButtons = function MultiselectButtons(selectEl, params) {
-  var _this = this;
-  var baseId = selectEl.id;
+const MultiselectButtons = function (selectEl, params) {
+  const baseId = selectEl.id;
   selectEl.hidden = true;
-  var options = [];
-  var selectedOptions = [];
-  selectEl.querySelectorAll('option').forEach(function (option) {
-    var o = {
+  let options = [];
+  let selectedOptions = [];
+  selectEl.querySelectorAll('option').forEach(option => {
+    const o = {
       value: option.value,
-      text: option.textContent
+      text: option.textContent,
+      ariaLabel: option.getAttribute('aria-label')
     };
     if (!option.disabled) options.push(o);
     if (option.defaultSelected) {
@@ -150,29 +144,29 @@ var MultiselectButtons = function MultiselectButtons(selectEl, params) {
   });
 
   // required elements for MultiselectButtons
-  var span = document.createElement('span');
+  const span = document.createElement('span');
   span.id = baseId + '-remove';
   span.innerText = 'remove';
   span.style.display = 'none';
   selectEl.parentNode.appendChild(span);
 
   // hide the original label/hint and create new ones for the new combobox
-  var selectLabel = document.querySelector("label[for=".concat(selectEl.id, "]"));
+  const selectLabel = document.querySelector("label[for=".concat(selectEl.id, "]"));
   selectLabel.hidden = true;
-  var selectHint = document.querySelector("#hint-".concat(selectEl.id));
+  const selectHint = document.querySelector("#hint-".concat(selectEl.id));
   if (selectHint) {
     selectHint.hidden = true;
   }
-  var div = document.createElement('div');
+  const div = document.createElement('div');
   div.classList.add('combo');
   div.id = "".concat(selectEl.id, "-js-multi-buttons");
-  var divComboBox = document.createElement('div');
+  const divComboBox = document.createElement('div');
   divComboBox.setAttribute('role', 'combobox');
   divComboBox.setAttribute('aria-haspopup', 'listbox');
   divComboBox.setAttribute('aria-expanded', 'false');
   divComboBox.setAttribute('aria-owns', baseId + '-listbox');
   divComboBox.classList.add('input-wrapper');
-  var input = document.createElement('input');
+  const input = document.createElement('input');
   input.setAttribute('aria-activedescendant', '');
   input.setAttribute('aria-autocomplete', 'list');
   input.setAttribute('aria-controls', baseId + '-listbox');
@@ -191,15 +185,15 @@ var MultiselectButtons = function MultiselectButtons(selectEl, params) {
   input.style.backgroundPosition = 'center right 0.625rem';
   input.style.backgroundSize = '0.9375rem';
   divComboBox.appendChild(input);
-  var labelComboBox = document.createElement('label');
+  const labelComboBox = document.createElement('label');
   labelComboBox.setAttribute('for', input.id);
   labelComboBox.innerHTML = selectLabel.innerHTML;
-  var hintComboBox = selectHint ? selectHint.cloneNode(true) : null;
+  const hintComboBox = selectHint ? selectHint.cloneNode(true) : null;
   if (selectHint) {
     hintComboBox.hidden = false;
     hintComboBox.id = "hint-".concat(input.id);
   }
-  var ulCombo = document.createElement('ul');
+  const ulCombo = document.createElement('ul');
   ulCombo.setAttribute('role', 'listbox');
   ulCombo.setAttribute('aria-multiselectable', 'true');
   ulCombo.id = baseId + '-listbox';
@@ -208,7 +202,7 @@ var MultiselectButtons = function MultiselectButtons(selectEl, params) {
   div.appendChild(divComboBox);
   div.appendChild(ulCombo);
   if (selectEl.multiple) {
-    var ul = document.createElement('ul');
+    const ul = document.createElement('ul');
     ul.id = baseId + '-selected';
     ul.classList.add('selected-options');
     selectEl.parentNode.insertBefore(ul, selectEl.parentNode.firstChild);
@@ -246,292 +240,201 @@ var MultiselectButtons = function MultiselectButtons(selectEl, params) {
   // state
   this.activeIndex = 0;
   this.open = false;
-  selectedOptions.forEach(function (value) {
-    var option = _this.options.find(function (e) {
-      return e.value === value;
-    });
+  selectedOptions.forEach(value => {
+    const option = this.options.find(e => e.value === value);
     if (selectEl.multiple) {
-      var index = _this.options.indexOf(option);
-      var buttonEl = document.createElement('button');
-      var listItem = document.createElement('li');
+      const index = this.options.indexOf(option);
+      const buttonEl = document.createElement('button');
+      const listItem = document.createElement('li');
       buttonEl.className = 'remove-option';
       buttonEl.type = 'button';
-      buttonEl.id = "".concat(_this.idBase, "-remove-").concat(index);
+      buttonEl.id = "".concat(this.idBase, "-remove-").concat(index);
       buttonEl.dataset.value = option.value;
-      buttonEl.addEventListener('click', function () {
-        _this.removeOption(option);
+      buttonEl.addEventListener('click', () => {
+        this.removeOption(option);
       });
       buttonEl.innerHTML = "<span class=\"visuallyhidden\">Remove </span>".concat(option.text, " ");
       listItem.appendChild(buttonEl);
-      _this.selectedEl.appendChild(listItem);
+      this.selectedEl.appendChild(listItem);
     } else {
-      _this.inputEl.value = option.text;
+      this.inputEl.value = option.text;
     }
   });
 };
 MultiselectButtons.prototype.init = function () {
-  var _this2 = this;
-  var self = this;
-  var timeout = null;
-  this.inputEl.addEventListener('input', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-    return _regeneratorRuntime().wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            if (!_this2.source) {
-              _context.next = 4;
-              break;
-            }
-            clearTimeout(timeout);
-            _context.next = 4;
-            return new Promise(function (resolve) {
-              return timeout = setTimeout(resolve, 500);
-            });
-          case 4:
-            self.onInput();
-          case 5:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  })));
+  const self = this;
+  let timeout = null;
+  this.inputEl.addEventListener('input', async () => {
+    // add 500ms delay to leave time for the user to type (ajax only)
+    if (this.source) {
+      clearTimeout(timeout);
+      await new Promise(resolve => timeout = setTimeout(resolve, 500));
+    }
+    self.onInput();
+  });
   this.inputEl.addEventListener('blur', this.onInputBlur.bind(this));
-  this.inputEl.addEventListener('focus', function () {
-    if (_this2.source) {
-      var hint = _this2.listboxEl.querySelector('li[role=alert]');
-      var alreadyExists = !!hint;
+  this.inputEl.addEventListener('focus', () => {
+    if (this.source) {
+      let hint = this.listboxEl.querySelector('li[role=alert]');
+      const alreadyExists = !!hint;
       if (!hint) {
         hint = document.createElement('li');
         hint.setAttribute('role', 'alert');
       }
-      hint.innerText = "Please enter ".concat(_this2.minInput, " or more characters");
+      hint.innerText = "Please enter ".concat(this.minInput, " or more characters");
       if (!alreadyExists) {
-        _this2.listboxEl.prepend(hint);
+        this.listboxEl.prepend(hint);
       }
     }
-    _this2.updateMenuState(true);
+    this.updateMenuState(true);
   });
   this.inputEl.addEventListener('keydown', this.onInputKeyDown.bind(this));
 };
-var loadMoreResults = function loadMoreResults(root, element, callback) {
-  var options = {
-    root: root,
+const loadMoreResults = function (root, element, callback) {
+  const options = {
+    root,
     threshold: 0.5
   };
-  var observer = new IntersectionObserver(function (entries, observer) {
-    entries.forEach(function (entry) {
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
       callback(entry.isIntersecting);
     });
   }, options);
   observer.observe(element);
 };
-MultiselectButtons.prototype.filterOptions = /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(value) {
-    var _this3 = this;
-    var selectedOptions, selectedValues, count, c;
-    return _regeneratorRuntime().wrap(function _callee3$(_context3) {
-      while (1) {
-        switch (_context3.prev = _context3.next) {
-          case 0:
-            if (value) {
-              this.clearOptions();
-              selectedOptions = this.select.querySelectorAll('option:checked');
-              selectedValues = _toConsumableArray(selectedOptions).map(function (option) {
-                return option.innerText;
-              }); // ajax call is already filtering the options
-              this.filteredOptions = this.source ? this.options : filterOptions(this.options, value, this.searchStart, this.searchTextOnly);
-              count = this.source ? this.ajaxResultCount : this.filteredOptions.length;
-              c = document.createDocumentFragment();
-              this.filteredOptions.forEach(function (o, k) {
-                var alreadySelected = selectedValues.includes(o.text);
-                var optionEl = document.createElement('li');
-                optionEl.setAttribute('role', 'option');
-                if (count) {
-                  optionEl.setAttribute('aria-setsize', count);
-                  optionEl.setAttribute('aria-posinset', k + 1);
-                }
-                optionEl.id = "".concat(_this3.idBase, "-").concat(_this3.options.indexOf(o));
-                optionEl.className = 'combo-option';
-                optionEl.setAttribute('aria-selected', alreadySelected);
-                optionEl.dataset.value = o.value;
-                optionEl.innerText = o.text;
-                if (alreadySelected) {
-                  optionEl.classList.add('option-selected');
-                }
-                optionEl.addEventListener('click', function () {
-                  _this3.onOptionClick(_this3.options.indexOf(o));
-                });
-                optionEl.addEventListener('mousedown', _this3.onOptionMouseDown.bind(_this3));
-                c.appendChild(optionEl);
-                if (_this3.source && _this3.morePages) {
-                  if (o === _this3.filteredOptions[_this3.filteredOptions.length - 1]) {
-                    var hint = document.createElement('li');
-                    hint.setAttribute('role', 'alert');
-                    hint.innerText = "Loading more results";
-                    c.appendChild(hint);
-                    loadMoreResults(_this3.listboxEl, optionEl, /*#__PURE__*/function () {
-                      var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(visible) {
-                        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-                          while (1) {
-                            switch (_context2.prev = _context2.next) {
-                              case 0:
-                                if (!visible) {
-                                  _context2.next = 6;
-                                  break;
-                                }
-                                _this3.page++;
-                                _context2.next = 4;
-                                return _this3.updateResults();
-                              case 4:
-                                _this3.filterOptions(value);
-                                hint.remove();
-                              case 6:
-                              case "end":
-                                return _context2.stop();
-                            }
-                          }
-                        }, _callee2);
-                      }));
-                      return function (_x2) {
-                        return _ref3.apply(this, arguments);
-                      };
-                    }());
-                  }
-                }
-              });
-              this.listboxEl.appendChild(c);
+MultiselectButtons.prototype.filterOptions = async function (value) {
+  if (value) {
+    this.clearOptions();
+    const selectedOptions = this.select.querySelectorAll('option:checked');
+    const selectedValues = [...selectedOptions].map(option => option.innerText);
+
+    // ajax call is already filtering the options
+    this.filteredOptions = this.source ? this.options : filterOptions(this.options, value, this.searchStart, this.searchTextOnly);
+    const count = this.source ? this.ajaxResultCount : this.filteredOptions.length;
+    const c = document.createDocumentFragment();
+    this.filteredOptions.forEach((o, k) => {
+      const alreadySelected = selectedValues.includes(o.text);
+      const optionEl = document.createElement('li');
+      optionEl.setAttribute('role', 'option');
+      if (count) {
+        optionEl.setAttribute('aria-setsize', count);
+        optionEl.setAttribute('aria-posinset', k + 1);
+      }
+      optionEl.id = "".concat(this.idBase, "-").concat(this.options.indexOf(o));
+      optionEl.className = 'combo-option';
+      optionEl.setAttribute('aria-selected', alreadySelected);
+      optionEl.dataset.value = o.value;
+      optionEl.innerText = o.text;
+      o.ariaLabel && optionEl.setAttribute('aria-label', o.ariaLabel);
+      if (alreadySelected) {
+        optionEl.classList.add('option-selected');
+      }
+      optionEl.addEventListener('click', () => {
+        this.onOptionClick(this.options.indexOf(o));
+      });
+      optionEl.addEventListener('mousedown', this.onOptionMouseDown.bind(this));
+      c.appendChild(optionEl);
+      if (this.source && this.morePages) {
+        if (o === this.filteredOptions[this.filteredOptions.length - 1]) {
+          const hint = document.createElement('li');
+          hint.setAttribute('role', 'alert');
+          hint.innerText = "Loading more results";
+          c.appendChild(hint);
+          loadMoreResults(this.listboxEl, optionEl, async visible => {
+            if (visible) {
+              this.page++;
+              await this.updateResults();
+              this.filterOptions(value);
+              hint.remove();
             }
-          case 1:
-          case "end":
-            return _context3.stop();
+          });
         }
       }
-    }, _callee3, this);
-  }));
-  return function (_x) {
-    return _ref2.apply(this, arguments);
-  };
-}();
-MultiselectButtons.prototype.updateResults = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
-  var _this4 = this;
-  var url, response, data;
-  return _regeneratorRuntime().wrap(function _callee4$(_context4) {
-    while (1) {
-      switch (_context4.prev = _context4.next) {
-        case 0:
-          url = new URL(this.source, window.location.protocol + '//' + window.location.host);
-          url.search = "".concat(url.search ? url.search + '&' : '?', "q=").concat(this.inputEl.value, "&page=").concat(this.page);
-          _context4.next = 4;
-          return fetch(url);
-        case 4:
-          response = _context4.sent;
-          _context4.next = 7;
-          return response.json();
-        case 7:
-          data = _context4.sent;
-          if (this.page === 1) {
-            this.options = [];
-          }
-          data.results.forEach(function (c) {
-            _this4.ajaxResultCount = data.total;
-            if (!_this4.select.querySelector("option[value=\"".concat(c.id, "\"]"))) {
-              var o = document.createElement('option');
-              o.value = c.id;
-              o.innerText = c.text;
-              _this4.select.appendChild(o);
-            }
-            var option = {
-              value: c.id,
-              text: c.text
-            };
-            if (_this4.options.indexOf(option) === -1) _this4.options.push(option);
-          });
-          this.morePages = data.more || false;
-        case 11:
-        case "end":
-          return _context4.stop();
-      }
+    });
+    this.listboxEl.appendChild(c);
+  }
+};
+MultiselectButtons.prototype.updateResults = async function () {
+  const url = new URL(this.source, window.location.protocol + '//' + window.location.host);
+  url.search = "".concat(url.search ? url.search + '&' : '?', "q=").concat(this.inputEl.value, "&page=").concat(this.page);
+  const response = await fetch(url);
+  const data = await response.json();
+  if (this.page === 1) {
+    this.options = [];
+  }
+  data.results.forEach(c => {
+    this.ajaxResultCount = data.total;
+    if (!this.select.querySelector("option[value=\"".concat(c.id, "\"]"))) {
+      const o = document.createElement('option');
+      o.value = c.id;
+      o.innerText = c.text;
+      this.select.appendChild(o);
     }
-  }, _callee4, this);
-}));
-MultiselectButtons.prototype.onInput = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
-  var curValue, showHint, hint, _hint, menuState;
-  return _regeneratorRuntime().wrap(function _callee5$(_context5) {
-    while (1) {
-      switch (_context5.prev = _context5.next) {
-        case 0:
-          curValue = this.inputEl.value;
-          showHint = false;
-          hint = this.listboxEl.querySelector('li[role=alert]');
-          this.page = 1; // reset pagination
-          if (!curValue) {
-            _context5.next = 26;
-            break;
-          }
-          if (!this.source) {
-            _context5.next = 21;
-            break;
-          }
-          if (!(curValue.length >= this.minInput)) {
-            _context5.next = 15;
-            break;
-          }
-          if (!hint) {
-            hint = document.createElement('li');
-            hint.setAttribute('role', 'alert');
-          }
-          hint.innerText = "Loading results";
-          this.listboxEl.prepend(hint);
-          _context5.next = 12;
-          return this.updateResults();
-        case 12:
-          hint.remove();
-          _context5.next = 21;
-          break;
-        case 15:
-          this.clearOptions();
-          (_hint = hint) !== null && _hint !== void 0 ? _hint : hint = document.createElement('li');
+    const option = {
+      value: c.id,
+      text: c.text
+    };
+    if (this.options.indexOf(option) === -1) this.options.push(option);
+  });
+  this.morePages = data.more || false;
+};
+MultiselectButtons.prototype.onInput = async function () {
+  const curValue = this.inputEl.value;
+  let showHint = false;
+  let hint = this.listboxEl.querySelector('li[role=alert]');
+  this.page = 1; // reset pagination
+  if (curValue) {
+    if (this.source) {
+      if (curValue.length >= this.minInput) {
+        if (!hint) {
+          hint = document.createElement('li');
           hint.setAttribute('role', 'alert');
-          hint.innerText = "Please enter ".concat(this.minInput, " or more characters");
-          this.listboxEl.prepend(hint);
-          showHint = true;
-        case 21:
-          if (!this.source || this.source && curValue.length >= this.minInput) this.filterOptions(curValue);
-
-          // if active option is not in filtered options, set it to first filtered option
-          // if (this.filteredOptions.indexOf(this.options[this.activeIndex]) < 0) {
-          //     const firstFilteredIndex = this.options.indexOf(this.filteredOptions[0]);
-          //     this.onOptionChange(firstFilteredIndex);
-          // }
-          menuState = this.filteredOptions.length > 0 || showHint;
-          if (this.open !== menuState) {
-            this.updateMenuState(menuState);
-          }
-          _context5.next = 27;
-          break;
-        case 26:
-          this.clearOptions();
-        case 27:
-        case "end":
-          return _context5.stop();
+        }
+        hint.innerText = "Loading results";
+        this.listboxEl.prepend(hint);
+        await this.updateResults();
+        hint.remove();
+      } else {
+        var _hint;
+        this.clearOptions();
+        (_hint = hint) !== null && _hint !== void 0 ? _hint : hint = document.createElement('li');
+        hint.setAttribute('role', 'alert');
+        hint.innerText = "Please enter ".concat(this.minInput, " or more characters");
+        this.listboxEl.prepend(hint);
+        showHint = true;
       }
     }
-  }, _callee5, this);
-}));
+    if (!this.source || this.source && curValue.length >= this.minInput) this.filterOptions(curValue);
+
+    // if active option is not in filtered options, set it to first filtered option
+    // if (this.filteredOptions.indexOf(this.options[this.activeIndex]) < 0) {
+    //     const firstFilteredIndex = this.options.indexOf(this.filteredOptions[0]);
+    //     this.onOptionChange(firstFilteredIndex);
+    // }
+
+    const menuState = this.filteredOptions.length > 0 || showHint;
+    if (this.open !== menuState) {
+      this.updateMenuState(menuState);
+    }
+  } else {
+    this.clearOptions();
+  }
+};
 MultiselectButtons.prototype.onInputKeyDown = function (event) {
-  var key = event.key;
-  var max = this.filteredOptions.length - 1;
-  var activeFilteredIndex = this.filteredOptions.indexOf(this.options[this.activeIndex]);
-  var action = getActionFromKey(key, this.open);
+  const {
+    key
+  } = event;
+  const max = this.filteredOptions.length - 1;
+  const activeFilteredIndex = this.filteredOptions.indexOf(this.options[this.activeIndex]);
+  const action = getActionFromKey(key, this.open);
   switch (action) {
     case MenuActions.Next:
     case MenuActions.Last:
     case MenuActions.First:
     case MenuActions.Previous:
       event.preventDefault();
-      var nextFilteredIndex = getUpdatedIndex(activeFilteredIndex, max, action);
-      var nextRealIndex = this.options.indexOf(this.filteredOptions[nextFilteredIndex]);
+      const nextFilteredIndex = getUpdatedIndex(activeFilteredIndex, max, action);
+      const nextRealIndex = this.options.indexOf(this.filteredOptions[nextFilteredIndex]);
       return this.onOptionChange(nextRealIndex);
     case MenuActions.CloseSelect:
       event.preventDefault();
@@ -550,7 +453,7 @@ MultiselectButtons.prototype.onInputBlur = function () {
   }
   this.inputEl.value = '';
   if (!this.select.multiple) {
-    var selectedOption = this.select.querySelector('option:checked');
+    const selectedOption = this.select.querySelector('option:checked');
     if (selectedOption) {
       this.inputEl.value = selectedOption.innerText;
     }
@@ -567,9 +470,9 @@ MultiselectButtons.prototype.onOptionChange = function (index) {
   this.inputEl.setAttribute('aria-activedescendant', "".concat(this.idBase, "-").concat(index));
 
   // update active style
-  var options = this.el.querySelectorAll('[role=option]');
-  var currentOptions = this.el.querySelector("[id=".concat(this.idBase, "-").concat(index, "]"));
-  _toConsumableArray(options).forEach(function (optionEl) {
+  const options = this.el.querySelectorAll('[role=option]');
+  const currentOptions = this.el.querySelector("[id=".concat(this.idBase, "-").concat(index, "]"));
+  [...options].forEach(optionEl => {
     optionEl.classList.remove('option-current');
   });
   if (currentOptions) {
@@ -580,8 +483,8 @@ MultiselectButtons.prototype.onOptionChange = function (index) {
   }
 };
 MultiselectButtons.prototype.clearOptions = function () {
-  var options = this.el.querySelectorAll('[role=option]');
-  _toConsumableArray(options).forEach(function (optionEl) {
+  const options = this.el.querySelectorAll('[role=option]');
+  [...options].forEach(optionEl => {
     optionEl.remove();
   });
 };
@@ -599,7 +502,7 @@ MultiselectButtons.prototype.removeOption = function (option) {
   // const index = this.options.indexOf(option);
 
   // update aria-selected
-  var o = this.el.querySelector("[data-value=\"".concat(option.value, "\"]"));
+  const o = this.el.querySelector("[data-value=\"".concat(option.value, "\"]"));
   if (o) {
     o.setAttribute('aria-selected', 'false');
     o.classList.remove('option-selected');
@@ -607,36 +510,35 @@ MultiselectButtons.prototype.removeOption = function (option) {
 
   // remove button
   if (this.selectedEl) {
-    var buttonEl = this.selectedEl.querySelector("[data-value=\"".concat(option.value, "\"]"));
+    const buttonEl = this.selectedEl.querySelector("[data-value=\"".concat(option.value, "\"]"));
     this.selectedEl.removeChild(buttonEl.parentElement);
   }
   this.select.querySelector('option[value="' + option.value + '"]').removeAttribute('selected');
 };
 MultiselectButtons.prototype.selectOption = function (option) {
-  var _this5 = this;
-  var index = this.options.indexOf(option);
-  var selected = this.options[index];
+  const index = this.options.indexOf(option);
+  const selected = this.options[index];
   this.activeIndex = index;
 
   // update aria-selected
-  var o = this.el.querySelector("[id=".concat(this.idBase, "-").concat(index, "]"));
+  const o = this.el.querySelector("[id=".concat(this.idBase, "-").concat(index, "]"));
   o.setAttribute('aria-selected', 'true');
   o.classList.add('option-selected');
 
   // add remove option button
-  var buttonEl = document.createElement('button');
-  var listItem = document.createElement('li');
+  const buttonEl = document.createElement('button');
+  const listItem = document.createElement('li');
   buttonEl.className = 'remove-option';
   buttonEl.type = 'button';
   buttonEl.id = "".concat(this.idBase, "-remove-").concat(index);
   buttonEl.dataset.value = selected.value;
-  buttonEl.addEventListener('click', function () {
-    var sibling = listItem.nextSibling;
-    _this5.removeOption(option);
+  buttonEl.addEventListener('click', () => {
+    const sibling = listItem.nextSibling;
+    this.removeOption(option);
     if (sibling) {
       siblling.firstChild.focus();
     } else {
-      _this5.inputEl.focus();
+      this.inputEl.focus();
     }
   });
   buttonEl.innerHTML = "<span class=\"visuallyhidden\">Remove </span> ".concat(selected.text, " ");
@@ -644,14 +546,14 @@ MultiselectButtons.prototype.selectOption = function (option) {
   if (this.select.multiple) {
     this.selectedEl.appendChild(listItem);
   } else {
-    var selectedOption = this.select.querySelector("option[selected]");
+    const selectedOption = this.select.querySelector("option[selected]");
     if (selectedOption) selectedOption.removeAttribute('selected');
   }
   this.select.querySelector('option[value="' + option.value + '"]').setAttribute('selected', 'selected');
 };
 MultiselectButtons.prototype.updateOption = function (index) {
-  var optionEl = this.el.querySelector("[id=".concat(this.idBase, "-").concat(index, "]"));
-  var isSelected = optionEl.getAttribute('aria-selected') === 'true';
+  const optionEl = this.el.querySelector("[id=".concat(this.idBase, "-").concat(index, "]"));
+  const isSelected = optionEl.getAttribute('aria-selected') === 'true';
   this.inputEl.value = '';
   if (isSelected) {
     this.removeOption(this.options[index]);
@@ -10155,15 +10057,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _multiselect_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(20);
 
 document.addEventListener("DOMContentLoaded", function () {
-  var selects = document.querySelectorAll('select.multiselect');
-  selects.forEach(function (select) {
-    var multiSelectParams = {
+  const selects = document.querySelectorAll('select.multiselect');
+  selects.forEach(select => {
+    const multiSelectParams = {
       source: select.dataset.source,
       minInput: select.dataset.minInput,
       searchStart: select.dataset.multiselectSearchStart,
       searchTextOnly: select.dataset.multiselectSearchTextOnly
     };
-    var multiButtonComponent = new _multiselect_module__WEBPACK_IMPORTED_MODULE_0__["default"](select, multiSelectParams);
+    const multiButtonComponent = new _multiselect_module__WEBPACK_IMPORTED_MODULE_0__["default"](select, multiSelectParams);
     multiButtonComponent.init();
   });
 });

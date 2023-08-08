@@ -124,7 +124,7 @@ const MultiselectButtons = function (selectEl, params) {
     let selectedOptions = [];
 
     selectEl.querySelectorAll('option').forEach(option => {
-            const o = {value: option.value, text: option.textContent};
+            const o = {value: option.value, text: option.textContent, ariaLabel: option.getAttribute('aria-label')};
             if (!option.disabled)
                 options.push(o);
             if (option.defaultSelected) {
@@ -334,6 +334,7 @@ MultiselectButtons.prototype.filterOptions = async function (value) {
             optionEl.setAttribute('aria-selected', alreadySelected);
             optionEl.dataset.value = o.value;
             optionEl.innerText = o.text;
+            o.ariaLabel && optionEl.setAttribute('aria-label', o.ariaLabel);
             if (alreadySelected) {
                 optionEl.classList.add('option-selected');
             }
