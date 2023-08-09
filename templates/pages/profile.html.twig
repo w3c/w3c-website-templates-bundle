@@ -1,0 +1,35 @@
+{% extends '@W3CWebsiteTemplates/base.html.twig' %}
+
+{% set body_classes = 'profile' %}
+
+{% block main %}
+    <div class="content">
+        <h1>{% block title %}{{ page.title|default('W3C') }}{% endblock %}</h1>
+
+        {% block disclosure_button %}{% endblock %}
+
+        {% block profile_nav %}
+            {% if page.related_pages|length > 0 %}
+                <nav id="profile-nav" aria-label="{{ profile_nav_title|default('profile_page.nav.title'|trans({}, 'w3c_website_templates_bundle')) }}">
+                    <div class="profile-nav__inner">
+                        <ul class="clean-list" role="list">
+                            {% block profile_nav_entries %}
+                                {% for link in page.related_pages %}
+                                    {% if link.current is defined and link.current %}
+                                        <li><a href="{{ link.url }}" aria-current="page">{{ link.title }}</a></li>
+                                    {% else %}
+                                        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endblock %}
+                        </ul>
+                    </div>
+                </nav>
+            {% endif %}
+        {% endblock %}
+
+        <div class="details">
+            {% block profile_details %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}

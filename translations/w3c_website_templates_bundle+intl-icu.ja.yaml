@@ -198,6 +198,9 @@ events:
     website: __events.website
 alumni:
     date_range: __alumni.date_range {start} {end}
+profile_page:
+    nav:
+        title: __profile_page.nav.title
 error:
     title: __error.title {status_code} {status_text}
 #    intro: __error.intro {status_code} {status_text}
