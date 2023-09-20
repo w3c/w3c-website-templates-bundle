@@ -2993,7 +2993,10 @@ main,
 }
 
 .hero--listing .filters > div {
-  align-items: flex-end;
+  align-items: flex-start;
+}
+.hero--listing .filters > div > .input-group-wrap {
+  align-self: end;
 }
 .hero--listing .filters .field {
   margin-top: 0;
