@@ -5255,46 +5255,43 @@ To horizontally center a block-level item
 
 /*------------------------------------*\
     #Color utilities
-\*------------------------------------*/
-.error-color.error-color {
-  color: #a82615;
-  border-color: #a82615;
-}
 
+    Double specificity in classname avoids use of !important
+\*------------------------------------*/
 /**
  Utilities for "solid" background/border color with WCAG conforming content color
  */
-.u-bg-active {
+.u-bg-active.u-bg-active {
   background-color: #fc7750;
   border-color: #fc7750;
   color: #111;
 }
 
-.u-bg-category {
+.u-bg-category.u-bg-category {
   background-color: #920ba6;
   border-color: #920ba6;
   color: #fff;
 }
 
-.u-bg-error {
+.u-bg-error.u-bg-error {
   background-color: #a82615;
   border-color: #a82615;
   color: #fff;
 }
 
-.u-bg-info {
+.u-bg-info.u-bg-info {
   background-color: #005a9c;
   border-color: #005a9c;
   color: #fff;
 }
 
-.u-bg-success {
+.u-bg-success.u-bg-success {
   background-color: #046704;
   border-color: #046704;
   color: #fff;
 }
 
-.u-bg-warning {
+.u-bg-warning.u-bg-warning {
   background-color: #C28605;
   border-color: #C28605;
   color: #111;
@@ -5303,31 +5300,31 @@ To horizontally center a block-level item
 /**
  Utilities for border/content color with white background color
  */
-.u-color-draft {
+.u-color-draft.u-color-draft {
   background-color: #fff;
   border-color: #111;
   color: #111;
 }
 
-.u-color-error {
+.u-color-error.u-color-error {
   background-color: #fff;
   border-color: #a82615;
   color: #a82615;
 }
 
-.u-color-info {
+.u-color-info.u-color-info {
   background-color: #fff;
   border-color: #005a9c;
   color: #005a9c;
 }
 
-.u-color-success {
+.u-color-success.u-color-success {
   background-color: #fff;
   border-color: #046704;
   color: #046704;
 }
 
-.u-color-warning {
+.u-color-warning.u-color-warning {
   background-color: #fff;
   border-color: #C28605;
   color: #111;

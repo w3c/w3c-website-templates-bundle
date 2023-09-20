@@ -1,11 +1,13 @@
 /*------------------------------------*\
     #Color utilities
+
+    Double specificity in classname avoids use of !important
 \*------------------------------------*/
 
 /**
  Utilities for "solid" background/border color with WCAG conforming content color
  */
-.u-bg-active {
+.u-bg-active.u-bg-active {
 
 	background-color: $coral;
 	border-color: $coral;
@@ -13,7 +15,7 @@
 
 }
 
-.u-bg-category {
+.u-bg-category.u-bg-category {
 
 	background-color: $purple;
 	border-color: $purple;
@@ -21,7 +23,7 @@
 
 }
 
-.u-bg-error {
+.u-bg-error.u-bg-error {
 
 	background-color: $error-color;
 	border-color: $error-color;
@@ -29,7 +31,7 @@
 
 }
 
-.u-bg-info {
+.u-bg-info.u-bg-info {
 
 	background-color: $info-color;
 	border-color: $info-color;
@@ -37,7 +39,7 @@
 
 }
 
-.u-bg-success {
+.u-bg-success.u-bg-success {
 
 	background-color: $success-color;
 	border-color: $success-color;
@@ -45,7 +47,7 @@
 
 }
 
-.u-bg-warning {
+.u-bg-warning.u-bg-warning {
 	background-color: $warning-color;
 	border-color: $warning-color;
 	color: $off-black;
@@ -56,7 +58,7 @@
 /**
  Utilities for border/content color with white background color
  */
-.u-color-draft {
+.u-color-draft.u-color-draft {
 
 	background-color: $white;
 	border-color: $off-black;
@@ -64,7 +66,7 @@
 
 }
 
-.u-color-error {
+.u-color-error.u-color-error {
 
 	background-color: $white;
 	border-color: $error-color;
@@ -72,7 +74,7 @@
 
 }
 
-.u-color-info {
+.u-color-info.u-color-info {
 
 	background-color: $white;
 	border-color: $info-color;
@@ -80,7 +82,7 @@
 
 }
 
-.u-color-success {
+.u-color-success.u-color-success {
 
 	background-color: $white;
 	border-color: $success-color;
@@ -88,7 +90,7 @@
 
 }
 
-.u-color-warning {
+.u-color-warning.u-color-warning {
 
 	background-color: $white;
 	border-color: $warning-color;
