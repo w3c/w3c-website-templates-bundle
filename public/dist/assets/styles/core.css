@@ -3523,6 +3523,8 @@ main,
   font-size: 0.875rem;
   line-height: 1.4285714286;
   background-color: rgba(206, 205, 205, 0.5);
+  background-clip: padding-box;
+  border: solid 2px rgba(206, 205, 205, 0.5);
   border-radius: 0.25rem;
   display: inline-block;
   padding: 0.15625rem 0.3125rem 0.15625rem 0.3125rem;
@@ -5257,4 +5259,76 @@ To horizontally center a block-level item
 .error-color.error-color {
   color: #a82615;
   border-color: #a82615;
+}
+
+/**
+ Utilities for "solid" background/border color with WCAG conforming content color
+ */
+.u-bg-active {
+  background-color: #fc7750;
+  border-color: #fc7750;
+  color: #111;
+}
+
+.u-bg-category {
+  background-color: #920ba6;
+  border-color: #920ba6;
+  color: #fff;
+}
+
+.u-bg-error {
+  background-color: #a82615;
+  border-color: #a82615;
+  color: #fff;
+}
+
+.u-bg-info {
+  background-color: #005a9c;
+  border-color: #005a9c;
+  color: #fff;
+}
+
+.u-bg-success {
+  background-color: #046704;
+  border-color: #046704;
+  color: #fff;
+}
+
+.u-bg-warning {
+  background-color: #C28605;
+  border-color: #C28605;
+  color: #111;
+}
+
+/**
+ Utilities for border/content color with white background color
+ */
+.u-color-draft {
+  background-color: #fff;
+  border-color: #111;
+  color: #111;
+}
+
+.u-color-error {
+  background-color: #fff;
+  border-color: #a82615;
+  color: #a82615;
+}
+
+.u-color-info {
+  background-color: #fff;
+  border-color: #005a9c;
+  color: #005a9c;
+}
+
+.u-color-success {
+  background-color: #fff;
+  border-color: #046704;
+  color: #046704;
+}
+
+.u-color-warning {
+  background-color: #fff;
+  border-color: #C28605;
+  color: #111;
 }
