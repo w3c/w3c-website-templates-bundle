@@ -1,15 +1,11 @@
 <div class="component component--activity u-full-width">
     <div class="l-center">
         <div class="component component--columns component--columns--images">
-            {% if title is not empty or introduction is not empty %}
-            <div>
-                {% if title is not empty %}
+            {% if title is not empty %}
                 <h2 class="txt-earth">{{ title }}</h2>
-                {% endif %}
-                {% if introduction is not empty %}
+            {% endif %}
+            {% if introduction is not empty %}
                 <p>{{ introduction }}</p>
-                {% endif %}
-            </div>
             {% endif %}
             <ul class="clean-list" role="presentation">
                 {% if entries is not empty %}
