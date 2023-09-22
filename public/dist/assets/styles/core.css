@@ -3205,23 +3205,11 @@ main,
 .component--quote::before {
   background-color: #005a9c;
   border-radius: 0.3125rem;
-  content: "";
-  height: 100%;
   left: -0.625rem;
-  position: absolute;
-  top: 0;
   width: 0.625rem;
 }
 .component--quote > * {
   max-width: 39.375rem;
-}
-.component--quote blockquote {
-  -webkit-margin-start: 0;
-          margin-inline-start: 0;
-  padding: 0;
-}
-.component--quote blockquote::before {
-  display: none;
 }
 
 [dir=rtl] .component--quote::before {

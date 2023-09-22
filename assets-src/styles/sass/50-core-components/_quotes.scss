@@ -15,25 +15,12 @@
 	&::before {
 		background-color: $w3c-blue;
 		border-radius: rem(5);
-		content: '';
-		height: 100%;
 		left: rem(-10);
-		position: absolute;
-		top: 0;
 		width: rem(10);
 	}
 
 	> * {
 		max-width: rem(630);
-	}
-
-	blockquote {
-		margin-inline-start: 0;
-		padding: 0;
-
-		&::before {
-			display: none;
-		}
 	}
 }
 
