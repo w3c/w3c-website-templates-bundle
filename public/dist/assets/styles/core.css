@@ -650,11 +650,6 @@ input[type=submit].button {
   background-color: transparent;
   border-color: transparent;
 }
-.button--ghost:focus {
-  background-color: transparent;
-  border-color: transparent;
-  color: #000;
-}
 
 .button[disabled],
 .button.js-disabled {
