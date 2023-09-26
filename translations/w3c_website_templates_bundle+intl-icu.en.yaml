@@ -49,7 +49,7 @@ footer:
         system_status: <span lang="en" dir="ltr">System Status</span>
         system_statusurl: https://status.w3.org/
         mastodon: <span lang="en" dir="ltr">W3C on Mastodon</span>
-        twitter: <span lang="en" dir="ltr">W3C on Twitter</span>
+        x: <span lang="en" dir="ltr">W3C on X</span>
         github: <span lang="en" dir="ltr">W3C on GitHub</span>
 banner:
     beta:
@@ -195,9 +195,15 @@ notes:
 events:
     # same_day = 1 when start_date == end_date
     date_range: >-
-        {same_day, select,
-            1  {<time datetime="{iso_start}">{start_date}, {start_time}</time>–<time datetime="{iso_end}">{end_time}</time> {timezone}}
-            other {<time datetime="{iso_start}">{start_date}, {start_time}</time> – <time datetime="{iso_end}">{end_date}, {end_time}</time> {timezone}}
+        {with_id, select,
+            1   {{same_day, select,
+                1  {<time datetime="{iso_start}"><span id="{id}">{start_date}</span>, {start_time}</time>–<time datetime="{iso_end}">{end_time}</time> {timezone}}
+                other {<time datetime="{iso_start}"><span id={id}>{start_date}</span>, {start_time}</time> – <time datetime="{iso_end}">{end_date}, {end_time}</time> {timezone}}
+            }}
+            other   {{same_day, select,
+                1  {<time datetime="{iso_start}">{start_date}, {start_time}</time>–<time datetime="{iso_end}">{end_time}</time> {timezone}}
+                other {<time datetime="{iso_start}">{start_date}, {start_time}</time> – <time datetime="{iso_end}">{end_date}, {end_time}</time> {timezone}}
+            }}
         }
     add_to_calendar: Add to calendar
     event_details: Event details

@@ -81,7 +81,11 @@
 
 .hero--listing .filters {
 	> div {
-		align-items: flex-end;
+		align-items: flex-start;
+
+		> .input-group-wrap {
+			align-self: end;
+		}
 	}
 
 	.field {

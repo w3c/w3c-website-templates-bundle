@@ -45,6 +45,8 @@ Note the `.event-list` class applied to the listings container.
 
 Note how the individual listings take the basics of the [card component](../components/cards.md), and incorporate the [sidebar layout](../layouts/sidebar.md) to adjust their appearance.
 
+Note the use of `aria-labelledby` to provide more context for each event listing
+
 ### Members
 
 #### Filtering options for the hero

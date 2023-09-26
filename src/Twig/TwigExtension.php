@@ -31,7 +31,7 @@ class TwigExtension extends AbstractExtension
         's' => 'second',
     ];
 
-    private $translator;
+    private TranslatorInterface $translator;
     private IntlExtension $intl;
     private Environment $twig;
     private Utils $utils;
@@ -84,7 +84,14 @@ class TwigExtension extends AbstractExtension
         ];
     }
 
-    public function pregReplace(string $subject, string $pattern, string $replacement, int $limit = -1): string
+    /**
+     * @param string $subject
+     * @param string|string[] $pattern
+     * @param string|string[] $replacement
+     * @param int $limit
+     * @return string
+     */
+    public function pregReplace(string $subject, $pattern, $replacement, int $limit = -1): string
     {
         return preg_replace($pattern, $replacement, $subject, $limit);
     }
@@ -196,7 +203,8 @@ class TwigExtension extends AbstractExtension
         DateTimeInterface $originalEnd,
         string $tz,
         string $locale,
-        bool $utc = false
+        bool $utc = false,
+        string $id = null
     ): string {
         if ($locale == 'en') {
             $locale = 'en-GB';
@@ -232,7 +240,9 @@ class TwigExtension extends AbstractExtension
                 'end_date'   => $endDate,
                 'end_time'   => $endTime,
                 'timezone'   => $timezone,
-                'same_day'   => $sameDay
+                'same_day'   => $sameDay,
+                'with_id'    => $id != null,
+                'id'         => $id
             ],
             'w3c_website_templates_bundle'
         );

@@ -9,7 +9,7 @@
             </div>
 
             {% block event_excerpt %}
-                {% if page.excerpt is not null %}
+                {% if page.excerpt is defined and page.excerpt is not null %}
                     <p class="lead">{{ page.excerpt }}</p>
                 {% endif %}
             {% endblock %}

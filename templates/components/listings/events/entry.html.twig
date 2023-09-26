@@ -1,12 +1,12 @@
 {% set hasThumbnail = entry.thumbnailImage is defined and entry.thumbnailImage %}
-<div class="{% if hasThumbnail %}l-sidebar {% endif %}card card--event {% block event_type_class %}{{ entry|event_type }}{% endblock %}" data-component="card">
+<article class="{% if hasThumbnail %}l-sidebar {% endif %}card card--event {% block event_type_class %}{{ entry|event_type }}{% endblock %}" data-component="card" aria-labelledby="{% block event_labelled_by %}event-{{ index }}-date event-{{ index }}-title{% endblock %}">
     {% if hasThumbnail %}<div>{% endif %}
         <div class="{% if hasThumbnail %}not-sidebar {% endif %}card__text">
             <div class="l-sidebar">
                 <div>
                     <div class="not-sidebar">
                         {% block event_main_content %}
-                            <h2 class="card__heading">
+                            <h2 class="card__heading" id="event-{{ index }}-title">
                                 <a class="card__link" href="{% block event_url %}{{ entry.url }}{% endblock %}">
                                     {% block event_title %}{{ entry.title }}{% endblock %}
                                 </a>
@@ -26,7 +26,7 @@
                             </div>
                             <div>
                                 <p class="date-orig">
-                                    {% block event_dates %}{{ date_range(entry.start, entry.end, entry.tz, site.locale)|raw }}{% endblock %}
+                                    {% block event_dates %}{{ date_range(entry.start, entry.end, entry.tz, site.locale, false, 'event-' ~ index ~ '-date')|raw }}{% endblock %}
                                 </p>
                                 {% block event_location %}
                                     {% if entry.location %}
@@ -66,5 +66,5 @@
             </div>
         {% endif %}
     {% if hasThumbnail %}</div>{% endif %}
-</div>
+</article>
 

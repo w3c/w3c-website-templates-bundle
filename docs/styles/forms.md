@@ -110,11 +110,56 @@ The `<select>` element should be a last resort as they’re really hard to use. 
 
 ## Auto-complete
 
-A `<select>` can be enhanced into an accessible auto-complete via JavaScript. The design system uses [Accessible autocomplete](https://github.com/alphagov/accessible-autocomplete) to achieve this, and there are a number of [example customisations](https://alphagov.github.io/accessible-autocomplete/examples/) which can be followed.
+The design system provides a custom script to enhance a `<select>` into and accessible auto-complete via JavaScript.
 
-Follow the default markup for a `<select>`, making sure to give it a unique ID which can be referenced in the JavaScript.
+### Simple autocomplete
 
-<example title="Auto-complete enhancement of a select list of countries" src="components/auto-complete.html.twig" />
+<example title="Simple autocomplete" src="components/simple-autocomplete.html.twig" />
+
+### Multiple selection with autocomplete
+
+<example title="Multiple autocomplete" src="components/multiple-autocomplete.html.twig" />
+
+### Autocomplete options
+
+The autocomplete script can be configured using <code>data-*</code> attributes on the <code>select</code>.
+
+<table>
+	<thead>
+	<tr>
+		<th scope="col">Attribute</th>
+		<th scope="col">Description</th>
+		<th scope="col">Default value</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<th scope="row">data-search-start</th>
+		<td>By default, the script will only return options with text <em>starting</em> with the given input. To search for options that contain the input, set that attribute to <code>off</code></td>
+		<td>on</td>
+	</tr>
+    <tr>
+		<th scope="row">data-text-only</th>
+		<td>By default, the script will only check the text node of each option. If you want to include the option values in the search, set that attribute to <code>off</code></td>
+		<td>on</td>
+	</tr>
+	<tr>
+		<th scope="row">data-source</th>
+		<td>It is possible to specify an endpoint to retrieve the results instead. In this case, the endpoint provided must return a JSON with the following format:
+<pre>
+{"results":[
+    {"id":1,"text":"foo"},
+    {"id":2,"text":"bar"}
+]}</pre></td>
+		<td>-</td>
+	</tr>
+    <tr>
+		<th scope="row">data-minInput</th>
+		<td>Minimum input length to start the search from <code>data-source</code></td>
+		<td>2</td>
+	</tr>
+	</tbody>
+</table>
 
 ### Considerations
 
@@ -123,15 +168,7 @@ Note the link to a specific JavaScript file for the auto-complete functionality 
 In practice, add the following script before the closing body tag </body> for the auto-complete to work correctly:
 
 ```
-<script>
-	if (document.documentElement.classList.contains('js')) {
-
-		let jsAutocompleteCountry = document.createElement('script');
-		jsAutocompleteCountry.src = 'dist/assets/js/country-autocomplete.js';
-		document.querySelector('body').appendChild(jsAutocompleteCountry);
-
-	}
-</script>
+<script src="dist/assets/js/multiselect.js"></script>
 ```
 
 ## An example of a simple search form

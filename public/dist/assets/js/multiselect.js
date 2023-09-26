@@ -45,9 +45,16 @@ const MenuActions = {
 function filterOptions() {
   let options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   let filter = arguments.length > 1 ? arguments[1] : undefined;
+  let startSearch = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+  let textOnly = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
   return options.filter(option => {
     const text = option.text.toLowerCase();
-    return text.startsWith(filter.toLowerCase());
+    const value = option.value.toLowerCase();
+    if (textOnly) {
+      return startSearch ? text.startsWith(filter.toLowerCase()) : text.includes(filter.toLowerCase());
+    } else {
+      return startSearch ? text.startsWith(filter.toLowerCase()) || value.startsWith(filter.toLowerCase()) : text.includes(filter.toLowerCase()) || value.includes(filter.toLowerCase());
+    }
   });
 }
 
@@ -71,8 +78,6 @@ function getActionFromKey(key, menuOpen) {
     return MenuActions.Close;
   } else if (key === Keys.Enter) {
     return MenuActions.CloseSelect;
-  } else if (key === Keys.Space) {
-    return MenuActions.Space;
   } else if (key === Keys.Backspace || key === Keys.Clear || key.length === 1) {
     return MenuActions.Type;
   }
@@ -129,7 +134,8 @@ const MultiselectButtons = function (selectEl, params) {
   selectEl.querySelectorAll('option').forEach(option => {
     const o = {
       value: option.value,
-      text: option.textContent
+      text: option.textContent,
+      ariaLabel: option.getAttribute('aria-label')
     };
     if (!option.disabled) options.push(o);
     if (option.defaultSelected) {
@@ -195,18 +201,18 @@ const MultiselectButtons = function (selectEl, params) {
   ulCombo.classList.add('combo-menu');
   div.appendChild(divComboBox);
   div.appendChild(ulCombo);
-  selectEl.parentNode.appendChild(labelComboBox);
-  if (hintComboBox) {
-    selectEl.parentNode.appendChild(hintComboBox);
-  }
   if (selectEl.multiple) {
     const ul = document.createElement('ul');
     ul.id = baseId + '-selected';
     ul.classList.add('selected-options');
-    selectEl.parentNode.appendChild(ul);
+    selectEl.parentNode.insertBefore(ul, selectEl.parentNode.firstChild);
     this.selectedEl = ul;
   }
-  selectEl.parentNode.appendChild(div);
+  selectEl.parentNode.insertBefore(div, selectEl.parentNode.firstChild);
+  if (hintComboBox) {
+    selectEl.parentNode.insertBefore(hintComboBox, selectEl.parentNode.firstChild);
+  }
+  selectEl.parentNode.insertBefore(labelComboBox, selectEl.parentNode.firstChild);
 
   // element refs
   this.select = selectEl;
@@ -226,6 +232,10 @@ const MultiselectButtons = function (selectEl, params) {
   this.page = 1;
   this.morePages = false;
   this.ajaxResultCount;
+
+  // other params
+  this.searchStart = params.searchStart !== "off";
+  this.searchTextOnly = params.searchTextOnly !== "off";
 
   // state
   this.activeIndex = 0;
@@ -299,7 +309,7 @@ MultiselectButtons.prototype.filterOptions = async function (value) {
     const selectedValues = [...selectedOptions].map(option => option.innerText);
 
     // ajax call is already filtering the options
-    this.filteredOptions = this.source ? this.options : filterOptions(this.options, value);
+    this.filteredOptions = this.source ? this.options : filterOptions(this.options, value, this.searchStart, this.searchTextOnly);
     const count = this.source ? this.ajaxResultCount : this.filteredOptions.length;
     const c = document.createDocumentFragment();
     this.filteredOptions.forEach((o, k) => {
@@ -315,6 +325,7 @@ MultiselectButtons.prototype.filterOptions = async function (value) {
       optionEl.setAttribute('aria-selected', alreadySelected);
       optionEl.dataset.value = o.value;
       optionEl.innerText = o.text;
+      o.ariaLabel && optionEl.setAttribute('aria-label', o.ariaLabel);
       if (alreadySelected) {
         optionEl.classList.add('option-selected');
       }
@@ -425,12 +436,6 @@ MultiselectButtons.prototype.onInputKeyDown = function (event) {
       const nextFilteredIndex = getUpdatedIndex(activeFilteredIndex, max, action);
       const nextRealIndex = this.options.indexOf(this.filteredOptions[nextFilteredIndex]);
       return this.onOptionChange(nextRealIndex);
-    case MenuActions.Space:
-      if (this.activeIndex) {
-        event.preventDefault();
-        return this.onOptionClick(this.activeIndex);
-      }
-      return;
     case MenuActions.CloseSelect:
       event.preventDefault();
       return this.onOptionClick(this.activeIndex);
@@ -528,7 +533,13 @@ MultiselectButtons.prototype.selectOption = function (option) {
   buttonEl.id = "".concat(this.idBase, "-remove-").concat(index);
   buttonEl.dataset.value = selected.value;
   buttonEl.addEventListener('click', () => {
+    const sibling = listItem.nextSibling;
     this.removeOption(option);
+    if (sibling) {
+      siblling.firstChild.focus();
+    } else {
+      this.inputEl.focus();
+    }
   });
   buttonEl.innerHTML = "<span class=\"visuallyhidden\">Remove </span> ".concat(selected.text, " ");
   listItem.appendChild(buttonEl);
@@ -10050,7 +10061,9 @@ document.addEventListener("DOMContentLoaded", function () {
   selects.forEach(select => {
     const multiSelectParams = {
       source: select.dataset.source,
-      minInput: select.dataset.minInput
+      minInput: select.dataset.minInput,
+      searchStart: select.dataset.multiselectSearchStart,
+      searchTextOnly: select.dataset.multiselectSearchTextOnly
     };
     const multiButtonComponent = new _multiselect_module__WEBPACK_IMPORTED_MODULE_0__["default"](select, multiSelectParams);
     multiButtonComponent.init();

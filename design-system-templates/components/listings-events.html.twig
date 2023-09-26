@@ -1,12 +1,12 @@
 <div class="event-list">
 
-	<div class="card card--event meeting" data-component="card">
+	<article class="card card--event meeting" data-component="card" aria-labelledby="event-1-date event-1-title">
 		<div class="card__text">
 			<div class="l-sidebar">
 				<div>
 					<div class="not-sidebar">
-						<h2 class="card__heading"><a class="card__link" href="path/to/event">Advisory Committee Meeting</a></h2>
-						<div>This is an example of a meeting type event card. This is the excerpt text.</div>
+						<h2 class="card__heading" id="event-1-title"><a class="card__link" href="path/to/event">Advisory Committee Meeting</a></h2>
+						<p>This is an example of a meeting type event card. This is the excerpt text.</p>
 					</div>
 					<div class="sidebar">
 						<div class="date-location">
@@ -14,8 +14,8 @@
 								<img src="/dist/assets/svg/calendar.svg" width="18" height="20" alt aria-hidden="true">
 							</div>
 							<div>
-								<span class="date-orig"><time datetime="2021-01-28T18:00Z">28 January 2021, 18:00 - 19:30 UTC</time></span>
-								<span>Online</span>
+								<p class="date-orig"><time datetime="2021-01-28T18:00Z"><span id="event-1-date">28 January 2021</span>, 18:00 - 19:30 UTC</time></p>
+								<p>Online</p>
 							</div>
 						</div>
 					</div>
@@ -24,15 +24,15 @@
 			<p class="txt-pluto"><a href="path/to/category-page">Category link</a></p>
 			<p class="txt-pluto">Meeting</p>
 		</div>
-	</div>
+	</article>
 
-	<div class="card card--event workshop" data-component="card">
+	<article class="card card--event workshop" data-component="card" aria-labelledby="event-2-date event-2-title">
 		<div class="card__text">
 			<div class="l-sidebar">
 				<div>
 					<div class="not-sidebar">
-						<h2 class="card__heading"><a class="card__link" href="path/to/event">W3C Workshop on Web & Machine Learning: Live Session #2</a></h2>
-						<div>This is an example of a workshop type event card. This is the excerpt text.</div>
+						<h2 class="card__heading" id="event-2-title"><a class="card__link" href="path/to/event">W3C Workshop on Web & Machine Learning: Live Session #2</a></h2>
+						<p>This is an example of a workshop type event card. This is the excerpt text.</p>
 					</div>
 					<div class="sidebar">
 						<div class="date-location">
@@ -40,8 +40,8 @@
 								<img src="/dist/assets/svg/calendar.svg" width="18" height="20" alt aria-hidden="true">
 							</div>
 							<div>
-								<span class="date-orig"><time datetime="2021-01-28T18:00Z">28 January 2021, 18:00 - 19:30 UTC</time></span>
-								<span>Online</span>
+                                <p class="date-orig"><time datetime="2021-01-28T18:00Z"><span id="event-2-date">28 January 2021</span>, 18:00 - 19:30 UTC</time></p>
+								<p>Online</p>
 							</div>
 						</div>
 					</div>
@@ -55,15 +55,15 @@
 			</div>
 			<p class="txt-pluto">Workshop</p>
 		</div>
-	</div>
+	</article>
 
-	<div class="card card--event talk" data-component="card">
+	<article class="card card--event talk" data-component="card" aria-labelledby="event-3-date event-3-title">
 		<div class="card__text">
 			<div class="l-sidebar">
 				<div>
 					<div class="not-sidebar">
-						<h2 class="card__heading"><a class="card__link" href="path/to/event">Questions (and Answers) on Semantic Web</a></h2>
-						<div>This is an example of a talk type event card. This is the excerpt text.</div>
+						<h2 class="card__heading" id="event-3-title"><a class="card__link" href="path/to/event">Questions (and Answers) on Semantic Web</a></h2>
+						<p>This is an example of a talk type event card. This is the excerpt text.</p>
 					</div>
 					<div class="sidebar">
 						<div class="date-location">
@@ -71,8 +71,8 @@
 								<img src="/dist/assets/svg/calendar.svg" width="18" height="20" alt aria-hidden="true">
 							</div>
 							<div>
-								<span class="date-orig"><time datetime="2021-01-28T18:00Z">28 January 2021, 18:00 - 19:30 UTC</time></span>
-								<span>Online</span>
+                                <p class="date-orig"><time datetime="2021-01-28T18:00Z"><span id="event-3-date">28 January 2021</span>, 18:00 - 19:30 UTC</time></p>
+								<p>Online</p>
 							</div>
 						</div>
 					</div>
@@ -86,16 +86,16 @@
 			</div>
 			<p class="txt-pluto">Talk</p>
 		</div>
-	</div>
+	</article>
 
-	<div class="l-sidebar card card--event conference" data-component="card">
+	<article class="l-sidebar card card--event conference" data-component="card" aria-labelledby="event-4-date event-4-title">
 		<div>
 			<div class="not-sidebar card__text">
 				<div class="l-sidebar">
 					<div>
 						<div class="not-sidebar">
-							<h2 class="card__heading"><a class="card__link" href="path/to/event">Expo 2020</a></h2>
-							<div>This is an example of a conference type event card. This is the excerpt text.</div>
+							<h2 class="card__heading" id="event-4-title"><a class="card__link" href="path/to/event">Expo 2020</a></h2>
+							<p>This is an example of a conference type event card. This is the excerpt text.</p>
 						</div>
 						<div class="sidebar">
 							<div class="date-location">
@@ -103,8 +103,8 @@
 									<img src="/dist/assets/svg/calendar.svg" width="18px" height="20px" alt aria-hidden="true">
 								</div>
 								<div>
-									<span class="date-orig"><time datetime="2021-01-28T18:00Z">28 January 2021, 18:00 - 19:30 UTC</time></span>
-									<span>NEC Birmingham, U.K.</span>
+                                    <p class="date-orig"><time datetime="2021-01-28T18:00Z"><span id="event-4-date">28 January 2021</span>, 18:00 - 19:30 UTC</time></p>
+									<p>NEC Birmingham, U.K.</p>
 								</div>
 							</div>
 						</div>
@@ -122,6 +122,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</article>
 
 </div>

@@ -46,8 +46,7 @@
             {% endfor %}
             <li class="top-nav-item">
                 <a hreflang="en" href="/help/search/" class="nav-link icon-link">
-                    <span class="visuallyhidden">{{ 'header.search_link'|trans({}, 'w3c_website_templates_bundle') }}</span> <img class="icon" src="{{ absolute_url(asset('svg/search.svg', 'website-2021')) }}"
-                         width="24" height="24" alt aria-hidden="true"/>
+                    <img class="icon" src="{{ absolute_url(asset('svg/search.svg', 'website-2021')) }}" width="24" height="24" alt aria-hidden="true"><span class="hide-at-max-width">{{ 'header.search_link'|trans({}, 'w3c_website_templates_bundle') }}</span>
                 </a>
             </li>
             <li class="top-nav-item">
