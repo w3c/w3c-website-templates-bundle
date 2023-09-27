@@ -18,7 +18,7 @@
     {% endif %}
     {% endblock tags %}
     {% block deliverers %}
-    {% if spec.deliverers|filter(d => d.group.shortname != 'unknownwg')|length > 0 %}
+    {% if spec.deliverers|filter(d => d.group.shortname not in ['unknownwg', 'hypertextcgmember'] and d.group.groupType != 'coord')|length > 0 %}
         <div>
             <dt>Deliverers</dt>
             {% for deliverer in spec.deliverers -%}
