@@ -80,7 +80,6 @@ input[type="submit"].button {
 		color: $black;
 		padding: rem(10) rem(23);
 	}
-
 }
 
 
@@ -97,12 +96,6 @@ input[type="submit"].button {
 	&:hover {
 		background-color: transparent;
 		border-color: transparent;
-	}
-
-	&:focus {
-		background-color: transparent;
-		border-color: transparent;
-		color: $black;
 	}
 }
 
