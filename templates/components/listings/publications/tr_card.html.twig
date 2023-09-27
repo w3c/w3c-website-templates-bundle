@@ -5,7 +5,7 @@
         </h3>
         {% block maturity %}{% endblock %}
     </div>
-    <p>{{ w3c_date_format(spec.date)|raw }}{% block history %} - <a href="{{ path('history_view', { 'spec': spec.specification.shortname }) }}">history</a>{% endblock history%}</p>
+    <div>{{ w3c_date_format(spec.date)|raw }}{% block history %} - <a href="{{ path('history_view', { 'spec': spec.specification.shortname }) }}">history</a>{% endblock history%}</div>
     <dl class="inline">
     {% block tags %}
     {% if spec.specification.tags|length > 0 %}
@@ -17,16 +17,16 @@
         </div>
     {% endif %}
     {% endblock tags %}
-    {% block editors %}
-    {% if spec.editors|length > 0 %}
+    {% block deliverers %}
+    {% if spec.deliverers|filter(d => d.group.shortname != 'unknownwg' and d.group.groupType != 'coord')|length > 0 %}
         <div>
-            <dt>Editors</dt>
-            {% for editor in spec.editors|map(e => "#{e.user.name}") -%}
-            <dd>{{ editor }}</dd>
+            <dt>Deliverers</dt>
+            {% for deliverer in spec.deliverers -%}
+            <dd><a href="{{ path('groups_show_about', {'type': deliverer.group.groupType, 'shortname': deliverer.group.shortname })}}">{{ deliverer.group.name }}</a></dd>
             {% endfor -%}
         </div>
     {% endif %}
-    {% endblock editors %}
+    {% endblock deliverers %}
     {% block translations %}
     {% if spec.translations and spec.translations.translations|length > 0 %}
         <div class="translation-list">

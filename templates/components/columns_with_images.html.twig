@@ -1,14 +1,10 @@
 <div class="component component--columns component--columns--images">
-	{% if title is defined and title or summary is defined and summary %}
-		<div class="component--columns__intro">
-			{% if title is defined and title %}
-				<h2>{{ title }}</h2>
-			{% endif %}
-			{% if summary is defined and summary %}
-				<p>{{ summary }}</p>
-			{% endif %}
-		</div>
-	{% endif %}
+    {% if title is defined and title %}
+        <h2>{{ title }}</h2>
+    {% endif %}
+    {% if summary is defined and summary %}
+        <p>{{ summary }}</p>
+    {% endif %}
 	{% if cards is defined and cards|length > 0 %}
 		<ul class="clean-list" role="presentation">
 			{% for card in cards %}

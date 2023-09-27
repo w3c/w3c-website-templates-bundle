@@ -31,6 +31,10 @@
 		margin-inline-start: 0;
 		padding: 0;
 
+		p:first-of-type {
+			margin-top: 0;
+		}
+
 		&::before {
 			display: none;
 		}
