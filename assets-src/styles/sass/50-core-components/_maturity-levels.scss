@@ -3,24 +3,18 @@
 \*------------------------------------*/
 
 .maturity-level {
-
     background-color: rgba(#cecdcd, 0.5);
     border-radius: rem(4);
     display: inline-block;
     margin-bottom: rem(5);
     padding: rem(2.5) rem(5);
-
 }
 
 .maturity-level--note {
-
     background-color: transparent;
-
 }
 
 .maturity-level--highlighted {
-
     background-color: $w3c-blue;
     color: $white;
-
 }

@@ -15,7 +15,6 @@ https://www.w3.org/TR/2016/NOTE-WCAG20-TECHS-20161007/F73
 a:not([class]),
 a.with-icon--before,
 a.with-icon--after {
-
 	border: 0;
 	color: $link-color;
 	cursor: pointer;
@@ -26,38 +25,27 @@ a.with-icon--after {
 	text-underline-offset: 0.25em; // Supported by Safari
 
 	svg {
-
 		fill: currentColor;
-
 	}
 
 	&:visited {
-
 		color: $link-color--visited;
-
 	}
 
 	&:hover {
-
 		color: $link-color--hover;
 		outline-width: 0; /* 2 */
-
 	}
 
 	&:focus {
-
 		background-color: $focus-color;
 		background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
 		color: $black;
 		text-decoration: none;
-
 	}
 
 	&:active {
-
 		color: $black;
 		outline-width: 0; /* 2 */
-
 	}
-
 }

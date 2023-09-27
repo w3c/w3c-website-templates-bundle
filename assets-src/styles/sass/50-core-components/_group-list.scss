@@ -3,18 +3,11 @@
 \*------------------------------------*/
 
 .component--group-list {
-
 	background-color: $mist-gray;
 	padding-bottom: rem(50);
 	padding-top: rem(50);
-
 }
 
 .component--group-list__intro {
-
-	@include stack(1em);
-
 	max-width: rem($text-measure);
-	margin-bottom: rem(30);
-
 }

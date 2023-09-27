@@ -5,7 +5,7 @@
         </h3>
         {% block maturity %}{% endblock %}
     </div>
-    <p>{{ w3c_date_format(spec.date)|raw }}{% block history %} - <a href="{{ path('history_view', { 'spec': spec.specification.shortname }) }}">history</a>{% endblock history%}</p>
+    <div>{{ w3c_date_format(spec.date)|raw }}{% block history %} - <a href="{{ path('history_view', { 'spec': spec.specification.shortname }) }}">history</a>{% endblock history%}</div>
     <dl class="inline">
     {% block tags %}
     {% if spec.specification.tags|length > 0 %}

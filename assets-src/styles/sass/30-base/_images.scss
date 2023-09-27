@@ -3,14 +3,11 @@
 \*------------------------------------*/
 
 img {
-
 	height: auto;
 	max-width: 100%;
-
 }
 
 .avatar {
-
 	background-color: $white;
 	border: solid 1px $w3c-blue;
 	border-radius: 50%;
@@ -19,37 +16,26 @@ img {
 	width: rem(100);
 
 	img {
-
 		height: 100%;
 		object-fit: cover;
 		width: 100%;
-
 	}
-
 }
 
 .avatar--med {
-
 	height: rem(50);
 	width: rem(50);
 
 	img {
-
 		margin-top: 0;
-
 	}
-
 }
 
 .avatar--small {
-
 	height: rem(32);
 	width: rem(32);
 
 	img {
-
 		margin-top: 0;
-
 	}
-
 }

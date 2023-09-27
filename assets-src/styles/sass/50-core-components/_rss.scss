@@ -3,16 +3,10 @@
 \*------------------------------------*/
 
 .rss {
-
-	@include stack();
-
 	margin-top: rem(40);
 
 	a {
-
 		padding-bottom: rem(10);
 		padding-top: rem(10);
-
 	}
-
 }

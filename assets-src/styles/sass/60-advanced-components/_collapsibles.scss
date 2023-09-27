@@ -6,7 +6,6 @@
 
 	// Added via JavaScript
 	[data-heading="collapsibles"] button {
-
 		align-items: flex-start;
 		border-radius: 0;
 		display: flex;
@@ -20,62 +19,42 @@
 		width: 100%;
 
 		> span {
-
 			font-size: rem(15);
 			font-weight: normal;
 			line-height: calc(22.5 / 15);
 			margin-top: 1rem;
 			order: 2;
 			width: 100%;
-
 		}
 
 		&:hover {
-
 			text-decoration: underline; /* 1 */
 			text-decoration-skip-ink: auto; // Not supported by Safari
 			text-underline-offset: 0.25em; // Supported by Safari
-
 		}
 
 		&:focus {
-
 			border-color: inherit;
 			background-color: $focus-color;
 			text-decoration: none;
-
 		}
 
 		&[aria-expanded="false"] .angle-up {
-
 			display: none;
-
 		}
 
 		&[aria-expanded="true"] .angle-down {
-
 			display: none;
-
 		}
 
 		svg {
-
 			flex-shrink: 0;
-
 		}
-
 	}
 
 	[data-heading="collapsibles"] + * {
-
-		@include stack;
-
 		&[aria-hidden="true"] {
-
 			display: none;
-
 		}
-
 	}
-
 }

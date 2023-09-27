@@ -3,183 +3,130 @@
 \*------------------------------------*/
 
 .hero {
-
 	background-color: $mist-gray;
 
 	@include mq($max-width) {
-
 		padding-top: rem(46);
-
 	}
 
 	.l-sidebar > *,
 	.l-sidebar > * > * {
-
 		margin: 0;
-
 	}
 
 	.l-sidebar .sidebar {
-
 		flex-basis: rem(500);
-
 	}
 
 	.l-sidebar .not-sidebar {
-
 		min-width: 50%;
 		padding-bottom: rem(30);
-
 	}
 
 	.l-sidebar .not-sidebar > * {
-
 		@include mq($max-width) {
-
 			max-width: rem(504);
-
 		}
-
 	}
 
 	.lead {
-
 		margin-bottom: rem(18);
 		margin-top: 0;
-
 	}
 
 	img {
-
 		margin-left: auto;
 		margin-right: auto;
 		//max-width: rem(500);
+
 		@include mq($bp-tab-small) {
 			max-width: rem(500);
 		}
-
 	}
 
 }
 
 .hero h1 {
-
 	margin-bottom: 1rem;
-
 }
 
 .hero + * {
-
 	margin-top: rem(50);
-
 }
 
 .hero .button {
-
 	align-self: flex-start;
-
 }
 
 .hero--listing {
-
 	background-color: $white;
 	margin-bottom: rem(20);
 	padding-bottom: rem(40);
 
 	+ * {
-
 		margin-top: 0;
-
 	}
-
 }
 
 .hero--listing .filters.l-switcher {
-
 	margin: rem(-10);
 	overflow: visible;
 
 	> * > * {
-
 		min-width: 33.333%;
 		padding: rem(10);
 		width: calc(920px * 920 - 100% * 920);
-
 	}
-
 }
 
 .hero--listing .filters {
-
 	> div {
-
 		align-items: flex-start;
 
 		> .input-group-wrap {
-
 			align-self: end;
-
 		}
-
 	}
 
 	.field {
-
 		margin-top: 0;
-
 	}
 
 	.button--ghost {
-
 		padding-left: rem(3);
 		padding-right: rem(3);
 		text-decoration: underline; /* 1 */
 		text-decoration-skip-ink: auto; // Not supported by Safari
 		text-underline-offset: 0.25em; // Supported by Safari
 
-
 		&:hover {
-
 			box-shadow: 0 0 4px 2px rgba(84,84,84,0.25);
-
 		}
 
 		&:focus {
-
 			border-color: inherit;
 			box-shadow: inset 0 0 0 2px;
 			outline: solid 3px $focus-color;
 			outline-offset: 0;
-
 		}
-
 	}
-
 }
 
 .hero--listing .browse {
-
 	margin: rem(-10);
 	overflow: visible;
 
 	> * {
-
 		display: flex;
 		flex-wrap: wrap;
-
 	}
 
 	> * > * {
-
 		padding: rem(10);
-
 	}
 
 	h2 {
-
 		font-size: 1rem;
 		font-weight: normal;
-
 	}
-
 }
