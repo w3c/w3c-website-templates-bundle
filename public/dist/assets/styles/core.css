@@ -2988,6 +2988,7 @@ main,
 .hero--listing .filters > div {
   align-items: flex-start;
 }
+.hero--listing .filters > div > fieldset,
 .hero--listing .filters > div > .input-group-wrap {
   align-self: end;
 }
@@ -3037,6 +3038,7 @@ main,
 }
 
 .translations .l-sidebar > * {
+  align-items: center;
   margin-bottom: 0;
   margin-top: 0;
 }
@@ -3773,6 +3775,7 @@ a.tag {
 
 .component--members__cta > * {
   align-items: center;
+  margin-top: 1em;
 }
 
 .component--members__cta > * > *:not(a) {
