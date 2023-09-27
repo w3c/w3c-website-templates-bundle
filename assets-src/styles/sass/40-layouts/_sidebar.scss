@@ -30,6 +30,7 @@ We target the intermediary wrapper and give it a negative margin
 to create a gutter between the `.sidebar` and `.not-sidebar`.
  */
 .l-sidebar > * {
+	align-items: center;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
