@@ -9,7 +9,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "translate": () => (/* binding */ translate)
 /* harmony export */ });
-var translate = {
+const translate = {
   'translations': {
     //microcopy translations
     'ar': {
@@ -188,8 +188,8 @@ var translate = {
   //languageCode = code of the target language
   //injection = object of values to inject into the string if interpolation is required, object keys should match references in the translations snippets,
   // e.g. 'Slide {x} of {y} requires an object with keys x and y.
-  'translate': function translate(snippetReference, languageCode) {
-    var injections = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+  'translate': function (snippetReference, languageCode) {
+    let injections = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
     //without a snippet reference, we don't know what to translate
     if (snippetReference === undefined || snippetReference === null || snippetReference.length < 1) {
       return;
@@ -280,49 +280,68 @@ __webpack_require__.r(__webpack_exports__);
  * Content slider (carousel)
  */
 
-var contentSlider = function () {
+let contentSlider = function () {
   if ('ResizeObserver' in window) {
     // I18N
-    var sliderDescription = _main_translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('sliderDescription', document.documentElement.lang);
-    var controlsDescription = _main_translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('controlsDescription', document.documentElement.lang);
-    var previousSlide = _main_translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('previousSlide', document.documentElement.lang);
-    var nextSlide = _main_translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('nextSlide', document.documentElement.lang);
-    var slider = document.querySelector('[data-component="slider"] section');
-    var dir = document.documentElement.getAttribute('dir');
+    let sliderDescription = _main_translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('sliderDescription', document.documentElement.lang);
+    let controlsDescription = _main_translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('controlsDescription', document.documentElement.lang);
+    let previousSlide = _main_translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('previousSlide', document.documentElement.lang);
+    let nextSlide = _main_translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('nextSlide', document.documentElement.lang);
+    const slider = document.querySelector('[data-component="slider"] section');
+    let dir = document.documentElement.getAttribute('dir');
     if (slider) {
       slider.setAttribute('aria-roledescription', sliderDescription);
-      var list = slider.querySelector('ul');
-      var slides = Array.prototype.slice.call(list.querySelectorAll('li'));
+      let list = slider.querySelector('ul');
+      let slides = Array.prototype.slice.call(list.querySelectorAll('li'));
       if (slides.length > 1) {
+        list.setAttribute('tabindex', '0');
+        for (let slide = 1; slide < slides.length; slide++) {
+          slides[slide].classList.add('js-hidden');
+        }
+        slides.forEach(function (slide, index) {
+          let group = slide.querySelector('.slide');
+          group.setAttribute('role', 'group');
+          group.setAttribute('aria-roledescription', 'slide');
+          group.setAttribute('aria-label', _main_translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('slideText', document.documentElement.lang, {
+            'x': index + 1,
+            'y': slides.length
+          }));
+        });
+
+        // Add current class to first slide
+        slides[0].classList.add('js-current');
+
         /**
          * Create container to hold slider controls and aria-live region
          * @return {HTMLDivElement}
          */
-        var createControlsWrap = function createControlsWrap() {
-          var wrap = document.createElement('div');
+        function createControlsWrap() {
+          let wrap = document.createElement('div');
           wrap.style.display = 'flex';
           wrap.style.alignItems = 'center';
           wrap.style.marginTop = '0.625rem';
           return wrap;
-        };
+        }
+
         /**
          * Create previous and next button controls for slider
          * @return {HTMLUListElement}
          */
-        var createControls = function createControls() {
-          var controls = document.createElement('ul');
+        function createControls() {
+          let controls = document.createElement('ul');
           controls.setAttribute('class', 'slider-controls');
           controls.setAttribute('aria-label', controlsDescription);
           controls.innerHTML = '<li><button class="button button--ghost js-previous with-icon--larger" aria-label="' + previousSlide + '" style="padding:0.4375rem;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><path class="chevron-left" d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"/><path class="chevron-right" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button></li>' + '<li style="margin-top:0;margin-inline-start:0.25rem;"><button class="button button--ghost js-next with-icon--larger" aria-label="' + nextSlide + '" style="padding:0.4375rem;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><path class="chevron-left" d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"/><path class="chevron-right" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button></li>';
           controls.style.display = 'inline-flex';
           return controls;
-        };
+        }
+
         /**
          * Create ARIA live region for slider
          * @return {HTMLDivElement}
          */
-        var createLiveRegion = function createLiveRegion() {
-          var liveRegion = document.createElement('div');
+        function createLiveRegion() {
+          let liveRegion = document.createElement('div');
           liveRegion.setAttribute('role', 'status');
           liveRegion.setAttribute('aria-live', 'polite');
           liveRegion.setAttribute('class', 'txt-pluto');
@@ -334,27 +353,40 @@ var contentSlider = function () {
             'y': slides.length
           });
           return liveRegion;
-        };
+        }
+        let wrap = createControlsWrap();
+        let controls = createControls();
+        let prev = controls.querySelector('.js-previous');
+        let next = controls.querySelector('.js-next');
+        prev.disabled = true;
+        let liveRegion = createLiveRegion();
+        slider.setAttribute('class', 'js-slider');
+        slider.parentNode.insertBefore(wrap, slider.nextElementSibling);
+        wrap.appendChild(controls);
+        wrap.appendChild(liveRegion);
+
         /**
          * Set slide positions, which are used in the switchSlide function
          */
-        var setSlidePositions = function setSlidePositions() {
-          var slideWidth = slides[0].getBoundingClientRect().width;
-          for (var _slide = 0; _slide < slides.length; _slide++) {
-            slides[_slide].style.left = slideWidth * _slide + 'px';
+        function setSlidePositions() {
+          let slideWidth = slides[0].getBoundingClientRect().width;
+          for (let slide = 0; slide < slides.length; slide++) {
+            slides[slide].style.left = slideWidth * slide + 'px';
           }
-        };
+        }
+        setSlidePositions();
+
         /**
          * Switch between slides
          * @param {number} currentSlideIndex
          * @param {number} targetSlideIndex
          */
-        var switchSlide = function switchSlide(currentSlideIndex, targetSlideIndex) {
-          var currentSlide = slides[currentSlideIndex];
-          var targetSlide = slides[targetSlideIndex];
+        function switchSlide(currentSlideIndex, targetSlideIndex) {
+          let currentSlide = slides[currentSlideIndex];
+          let targetSlide = slides[targetSlideIndex];
 
           // Switches to the correct slide
-          var destination = getComputedStyle(targetSlide).left;
+          let destination = getComputedStyle(targetSlide).left;
           if (dir === 'rtl') {
             list.style.transform = 'translateX(' + destination + ')';
           } else {
@@ -385,71 +417,35 @@ var contentSlider = function () {
             'x': targetSlideIndex + 1,
             'y': slides.length
           });
-        };
+        }
+
         /**
          * Get the current slide index
          * @return {number}
          */
-        var getCurrentSlideIndex = function getCurrentSlideIndex() {
-          var currentSlide = list.querySelector('.js-current');
+        function getCurrentSlideIndex() {
+          let currentSlide = list.querySelector('.js-current');
           return slides.findIndex(function (slide) {
             return slide === currentSlide;
           });
-        };
-        var callback = function callback() {
-          setSlidePositions();
-          var targetSlide = slider.querySelector('.js-current');
-          var destination = getComputedStyle(targetSlide).left;
-          if (dir === 'rtl') {
-            list.style.transform = 'translateX(' + destination + ')';
-          } else {
-            list.style.transform = 'translateX(-' + destination + ')';
-          }
-        };
-        list.setAttribute('tabindex', '0');
-        for (var slide = 1; slide < slides.length; slide++) {
-          slides[slide].classList.add('js-hidden');
         }
-        slides.forEach(function (slide, index) {
-          var group = slide.querySelector('.slide');
-          group.setAttribute('role', 'group');
-          group.setAttribute('aria-roledescription', 'slide');
-          group.setAttribute('aria-label', _main_translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('slideText', document.documentElement.lang, {
-            'x': index + 1,
-            'y': slides.length
-          }));
-        });
-
-        // Add current class to first slide
-        slides[0].classList.add('js-current');
-        var wrap = createControlsWrap();
-        var controls = createControls();
-        var prev = controls.querySelector('.js-previous');
-        var next = controls.querySelector('.js-next');
-        prev.disabled = true;
-        var liveRegion = createLiveRegion();
-        slider.setAttribute('class', 'js-slider');
-        slider.parentNode.insertBefore(wrap, slider.nextElementSibling);
-        wrap.appendChild(controls);
-        wrap.appendChild(liveRegion);
-        setSlidePositions();
         document.addEventListener('click', function (event) {
           if (event.target.matches('.js-next')) {
-            var currentSlideIndex = getCurrentSlideIndex();
-            var nextSlideIndex = currentSlideIndex + 1;
+            let currentSlideIndex = getCurrentSlideIndex();
+            let nextSlideIndex = currentSlideIndex + 1;
             switchSlide(currentSlideIndex, nextSlideIndex);
           }
           if (event.target.matches('.js-previous')) {
-            var _currentSlideIndex = getCurrentSlideIndex();
-            var previousSlideIndex = _currentSlideIndex - 1;
-            switchSlide(_currentSlideIndex, previousSlideIndex);
+            let currentSlideIndex = getCurrentSlideIndex();
+            let previousSlideIndex = currentSlideIndex - 1;
+            switchSlide(currentSlideIndex, previousSlideIndex);
           }
         }, false);
         list.addEventListener('keydown', function (event) {
-          var key = event.key;
+          let key = event.key;
           if (key !== 'ArrowLeft' && key !== 'ArrowRight') return;
-          var currentSlideIndex = getCurrentSlideIndex();
-          var targetSlideIndex;
+          let currentSlideIndex = getCurrentSlideIndex();
+          let targetSlideIndex;
           if (dir === 'rtl') {
             if (key === 'ArrowRight') {
               targetSlideIndex = currentSlideIndex - 1;
@@ -475,7 +471,17 @@ var contentSlider = function () {
         });
 
         // Use resize Observer API to reset slide positions and move current slide fully into view
-        var slideObserver = new ResizeObserver(callback);
+        const slideObserver = new ResizeObserver(callback);
+        function callback() {
+          setSlidePositions();
+          let targetSlide = slider.querySelector('.js-current');
+          let destination = getComputedStyle(targetSlide).left;
+          if (dir === 'rtl') {
+            list.style.transform = 'translateX(' + destination + ')';
+          } else {
+            list.style.transform = 'translateX(-' + destination + ')';
+          }
+        }
         slideObserver.observe(slider);
       }
     }
