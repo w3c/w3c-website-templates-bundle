@@ -4,7 +4,6 @@
 
 .component--quote {
 	@include txt-saturn;
-	@include stack(1rem);
 	color: $w3c-blue;
 	font-weight: bold;
 	margin-inline-end: 0;
