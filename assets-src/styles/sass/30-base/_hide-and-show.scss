@@ -12,9 +12,7 @@
  * available or not (the style below provides support for legacy browsers).
  */
 [hidden] {
-
 	display: none !important;
-
 }
 
 /*
@@ -26,9 +24,7 @@
  * content should become available were CSS to fail.
  */
 %hidden {
-
 	display: none !important;
-
 }
 
 /*
@@ -41,9 +37,7 @@
  * properties that negate its position in the DOM e.g. `position: absolute;`
  */
 %invisible {
-
 	visibility: hidden;
-
 }
 
 /*
@@ -52,7 +46,6 @@
  * Sass to avoid it appearing repeatedly in your markup).
  */
 %visuallyhidden {
-
 	border: 0;
 	clip: rect(0 0 0 0);
 	clip-path: inset(100%);
@@ -62,7 +55,6 @@
 	position: absolute;
 	white-space: nowrap;
 	width: 1px;
-
 }
 
 /*
@@ -70,9 +62,7 @@
  * focusable element to become visible when focused/active by a user.
  */
 .visuallyhidden:not(:focus):not(:active) {
-
 	@extend %visuallyhidden;
-
 }
 
 /*
@@ -82,15 +72,11 @@
 //[hidden] + *,
 //.hidden + *,
 .visuallyhidden + * {
-
 	margin-top: 0 !important;
-
 }
 
 br {
-
 	margin-top: 0; // Firefox adds margins to <br> elements
-
 }
 
 /*
@@ -99,7 +85,6 @@ br {
  * repeatedly in your markup).
  */
 %visible {
-
 	border: initial;
 	clip: auto;
 	clip-path: none;
@@ -110,5 +95,4 @@ br {
 	position: static;
 	white-space: initial;
 	width: auto;
-
 }

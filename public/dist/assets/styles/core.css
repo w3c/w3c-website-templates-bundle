@@ -64,9 +64,6 @@ See: https://brandcolors.net/
   src: url("../fonts/notosans/notosans-bolditalic.woff2") format("woff2"), url("../fonts/notosans/notosans-bolditalic.woff") format("woff");
 }
 /*------------------------------------*\
-    #Paths
-\*------------------------------------*/
-/*------------------------------------*\
     #Typesetting
 \*------------------------------------*/
 /**
@@ -81,7 +78,8 @@ fonts with white space in their name.
 
 When Font Face Observer has detected that the @font-face files are loaded, then we
 can safely use the web fonts instead of the system fonts.
- */ /*------------------------------------*\
+ */
+/*------------------------------------*\
     #Functions
 \*------------------------------------*/
 /*------------------------------------*\
@@ -484,18 +482,12 @@ template {
     #Quotes
 \*------------------------------------*/
 blockquote {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   -webkit-margin-end: 1.5625rem;
           margin-inline-end: 1.5625rem;
   -webkit-margin-start: 1.5625rem;
           margin-inline-start: 1.5625rem;
   padding: 0.625rem;
   position: relative;
-}
-blockquote > * + * {
-  margin-top: 1rem;
 }
 blockquote::before {
   background-color: #bdbdbd;
@@ -649,11 +641,6 @@ input[type=submit].button {
 .button--ghost:hover {
   background-color: transparent;
   border-color: transparent;
-}
-.button--ghost:focus {
-  background-color: transparent;
-  border-color: transparent;
-  color: #000;
 }
 
 .button[disabled],
@@ -1548,11 +1535,6 @@ SVG icons are sized relative to font size, thanks to the em unit.
   width: 1.875rem;
 }
 
-.icon--beta {
-  height: 2.4375rem;
-  width: 3.8125rem;
-}
-
 /**
 Use the `with-icon` class on the SVG's parent, if there
 is a need to specify the spacing between text and icon.
@@ -1731,6 +1713,10 @@ ul[class] {
 ul:not([class]),
 ol:not([class]),
 ol.counter {
+  -webkit-margin-after: 1em;
+          margin-block-end: 1em;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
   -webkit-padding-start: 2.4em;
           padding-inline-start: 2.4em;
 }
@@ -1757,6 +1743,12 @@ ol.counter ::marker {
 /**
 Description lists / Definition lists
  */
+dl {
+  -webkit-margin-after: 1em;
+          margin-block-end: 1em;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
+}
 dl dt {
   font-weight: bold;
 }
@@ -1884,6 +1876,11 @@ summary:focus span {
   text-decoration: none;
 }
 
+details {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
 details[open] > summary {
   margin-bottom: 1rem;
 }
@@ -1926,6 +1923,8 @@ details[open] > summary::before {
 table {
   border: 1px solid #bdbdbd;
   border-collapse: collapse;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
   width: 100%;
 }
 
@@ -1967,6 +1966,8 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
 @media screen {
   .table-wrap {
     border: 1px solid #bdbdbd;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
     max-width: 100% !important;
   }
   .table-wrap[role][aria-labelledby][tabindex] {
@@ -1974,6 +1975,8 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
   }
   .table-wrap table {
     border: 0;
+    margin-bottom: 0;
+    margin-top: 0;
   }
   .table-wrap:focus {
     border-color: #000;
@@ -1992,9 +1995,13 @@ body {
   line-height: 1.5;
 }
 
+p {
+  margin: 1rem 0;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
-  margin: 0;
+  margin: 0 0 1rem;
 }
 
 h1 {
@@ -2281,14 +2288,8 @@ omitted to let the contents of `.sidebar` determine the width of
 `.sidebar` (e.g. an image with a specified max-width).
  */
 .l-sidebar .sidebar {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   flex-basis: 18.75rem;
   flex-grow: 1;
-}
-.l-sidebar .sidebar > * + * {
-  margin-top: 1em;
 }
 
 /**
@@ -2297,22 +2298,16 @@ will sit side-by-side rather than vertically. This negates the use of
 a viewport media query.
  */
 .l-sidebar .not-sidebar {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   flex-basis: 0;
   flex-grow: 999;
   min-width: calc(55% - 1.5rem);
-}
-.l-sidebar .not-sidebar > * + * {
-  margin-top: 1em;
 }
 
 .l-sidebar--expanded {
   width: 100%;
 }
 
-.l-sidebar .sidebar.sidebar--compact {
+.l-sidebar .sidebar--compact {
   flex-basis: 11.25rem;
 }
 
@@ -2384,24 +2379,17 @@ so that either of these properties is applied instead.
   align-items: center;
   display: flex;
 }
-.global-header .banner__inner .icon--beta {
-  flex: none;
-  width: 3.8125rem;
-}
 .global-header .banner__inner p {
   font-size: 0.875rem;
   line-height: 1.4285714286;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 .global-header .banner__inner a {
   color: #024488;
 }
 .global-header .banner__inner a:focus {
   color: #000;
-}
-
-[dir=rtl] .banner__inner p {
-  margin-left: 0;
-  margin-right: 0.625rem;
 }
 
 #lang-nav {
@@ -2995,6 +2983,7 @@ main,
 .hero--listing .filters > div {
   align-items: flex-start;
 }
+.hero--listing .filters > div > fieldset,
 .hero--listing .filters > div > .input-group-wrap {
   align-self: end;
 }
@@ -3044,6 +3033,7 @@ main,
 }
 
 .translations .l-sidebar > * {
+  align-items: center;
   margin-bottom: 0;
   margin-top: 0;
 }
@@ -3114,15 +3104,6 @@ main,
 /*------------------------------------*\
     #Table of contents (TOC)
 \*------------------------------------*/
-.toc {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-.toc > * + * {
-  margin-top: 1em;
-}
-
 .toc + * {
   margin-top: 1.875rem;
 }
@@ -3157,14 +3138,7 @@ main,
 
 /*------------------------------------*\
     #Text component
-
-    1. The `stack` mixin applies flexbox in the column direction,
-    so we need to prevent buttons from stretching horizontally
 \*------------------------------------*/
-.component--text > * + * {
-  margin-top: 1em;
-}
-
 .component--text > * {
   max-width: 41.25rem;
 }
@@ -3174,11 +3148,6 @@ main,
 .component--text > * + h5,
 .component--text > * + h6 {
   margin-top: 2em;
-}
-
-.component--text button,
-.component--text .button {
-  align-self: flex-start; /* 1 */
 }
 
 /*------------------------------------*\
@@ -3205,11 +3174,26 @@ main,
 .component--quote::before {
   background-color: #005a9c;
   border-radius: 0.3125rem;
+  content: "";
+  height: 100%;
   left: -0.625rem;
+  position: absolute;
+  top: 0;
   width: 0.625rem;
 }
 .component--quote > * {
   max-width: 39.375rem;
+}
+.component--quote blockquote {
+  -webkit-margin-start: 0;
+          margin-inline-start: 0;
+  padding: 0;
+}
+.component--quote blockquote p:first-of-type {
+  margin-top: 0;
+}
+.component--quote blockquote::before {
+  display: none;
 }
 
 [dir=rtl] .component--quote::before {
@@ -3223,14 +3207,8 @@ main,
 .component--image figcaption {
   font-size: 0.9375rem;
   line-height: 1.5;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   -webkit-margin-before: 1em;
           margin-block-start: 1em;
-}
-.component--image figcaption > * + * {
-  margin-top: 1em;
 }
 .component--image figcaption > * {
   max-width: 33.75rem;
@@ -3252,20 +3230,11 @@ main,
 .component--video figcaption {
   font-size: 0.9375rem;
   line-height: 1.5;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  -webkit-margin-before: 1em;
-          margin-block-start: 1em;
-}
-.component--video figcaption > * + * {
-  margin-top: 1em;
 }
 .component--video figcaption > * {
   max-width: 33.75rem;
 }
 .component--video figcaption > a {
-  align-self: flex-start;
   display: inline-block;
   margin: 0;
   padding-bottom: 0.625rem;
@@ -3276,15 +3245,9 @@ main,
     #Notes
 \*------------------------------------*/
 .note {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   border-width: 5px;
   margin-bottom: 1.875rem;
   max-width: 47rem;
-}
-.note > * + * {
-  margin-top: 1em;
 }
 
 .note--error {
@@ -3300,7 +3263,7 @@ main,
 }
 
 .note--warning {
-  border-color: #C28605;
+  border-color: #c28605;
 }
 
 /*------------------------------------*\
@@ -3308,16 +3271,6 @@ main,
 \*------------------------------------*/
 .component--columns {
   overflow: hidden;
-}
-
-.component--columns__intro {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin-bottom: 1.875rem;
-}
-.component--columns__intro > * + * {
-  margin-top: 1em;
 }
 
 @media screen and (min-width: 48em) {
@@ -3415,15 +3368,9 @@ main,
 }
 
 .card__text {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   flex-grow: 1;
   order: 1;
   padding-top: 1rem;
-}
-.card__text > * + * {
-  margin-top: 1rem;
 }
 
 .card--group .card__text {
@@ -3549,14 +3496,6 @@ a.tag {
   }
 }
 
-.component--fifty-fifty__text {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-.component--fifty-fifty__text > * + * {
-  margin-top: 1.875rem;
-}
 @media screen and (min-width: 48em) {
   .component--fifty-fifty__text {
     flex-basis: 52%;
@@ -3572,6 +3511,7 @@ a.tag {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  margin-top: 1.875rem;
 }
 .component--fifty-fifty__text .l-box > * + * {
   margin-top: 1rem;
@@ -3629,14 +3569,6 @@ a.tag {
   }
 }
 
-.component--evangelists__text {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-.component--evangelists__text > * + * {
-  margin-top: 1em;
-}
 @media screen and (min-width: 64em) {
   .component--evangelists__text {
     flex-basis: 45%;
@@ -3664,6 +3596,10 @@ a.tag {
 }
 .component--evangelists__list li + li {
   border-top: solid 1px #649bc5;
+}
+.component--evangelists__list p {
+  margin-bottom: 0;
+  margin-top: 0;
 }
 .component--evangelists__list .sidebar {
   flex-basis: auto;
@@ -3723,16 +3659,10 @@ a.tag {
     #Collapsible sections
 \*------------------------------------*/
 .component--collapsibles > div {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   background-color: #fff;
   border-radius: 0.375rem;
   box-shadow: -0.0625rem 0.0625rem 0.25rem rgba(55, 70, 95, 0.12);
   padding: 1.5625rem;
-}
-.component--collapsibles > div > * + * {
-  margin-top: 1rem;
 }
 .component--collapsibles > div + div {
   margin-top: 1rem;
@@ -3760,14 +3690,6 @@ a.tag {
   margin-top: 1rem;
 }
 
-[data-heading=collapsibles] + * {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-[data-heading=collapsibles] + * > * + * {
-  margin-top: 1rem;
-}
 [data-heading=collapsibles] + * > * {
   max-width: 41.25rem;
 }
@@ -3782,14 +3704,7 @@ a.tag {
 }
 
 .component--group-list__intro {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   max-width: 41.25rem;
-  margin-bottom: 1.875rem;
-}
-.component--group-list__intro > * + * {
-  margin-top: 1em;
 }
 
 /*------------------------------------*\
@@ -3801,14 +3716,6 @@ a.tag {
   padding-top: 1.5625rem;
 }
 
-.component--members .l-center {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-.component--members .l-center > * + * {
-  margin-top: 1em;
-}
 .component--members .l-center > h2,
 .component--members .l-center > p {
   max-width: 41.25rem;
@@ -3817,6 +3724,7 @@ a.tag {
 .component--members__grid {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 1rem;
 }
 @supports (display: grid) {
   .component--members__grid {
@@ -3862,6 +3770,7 @@ a.tag {
 
 .component--members__cta > * {
   align-items: center;
+  margin-top: 1em;
 }
 
 .component--members__cta > * > *:not(a) {
@@ -4125,6 +4034,9 @@ input[type=search] {
   margin-bottom: 3.125rem;
   padding: 1.5rem 0;
 }
+.meta dl {
+  margin-bottom: 0;
+}
 
 .meta .with-link {
   padding-bottom: 0.625rem;
@@ -4175,7 +4087,6 @@ input[type=search] {
 }
 
 .l-cluster.pagination > * > * {
-  display: inline-block;
   margin-bottom: 0;
   margin-top: 0;
 }
@@ -4230,13 +4141,7 @@ input[type=search] {
     #RSS feed
 \*------------------------------------*/
 .rss {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   margin-top: 2.5rem;
-}
-.rss > * + * {
-  margin-top: 1em;
 }
 .rss a {
   padding-bottom: 0.625rem;
@@ -4334,13 +4239,7 @@ input[type=search] {
 }
 
 .comment__body {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   max-width: 41.25rem;
-}
-.comment__body > * + * {
-  margin-top: 1em;
 }
 
 [data-replylink] {
@@ -4422,6 +4321,9 @@ input[type=search] {
 .global-footer .copyright {
   font-size: 0.875rem;
   line-height: 1.4285714286;
+}
+.global-footer .copyright {
+  margin-bottom: 0;
 }
 .global-footer a {
   color: #111;
@@ -4909,6 +4811,9 @@ input[type=search] {
   padding-top: 0;
 }
 
+.event-list .card .l-cluster {
+  margin-top: 1rem;
+}
 .event-list .card .l-cluster > * {
   font-size: 0.9375rem;
   line-height: 1.5;
@@ -5107,6 +5012,7 @@ input[type=search] {
   margin-top: 1em;
 }
 .tr-list .tr-list__item__header h3 {
+  margin-bottom: 0;
   margin-top: 0.3125rem;
 }
 .tr-list .tr-list__item__header h3 + * {

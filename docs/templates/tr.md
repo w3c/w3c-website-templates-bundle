@@ -34,7 +34,7 @@ Maturity statuses are contained in `span` elements with the following class, `.m
 
 #### Standard
 
-When Standards have translations, we add a single link like in the example below:
+When Standards have translations, we link to them in the following way:
 
 <example title="A Standard report" src="components/tr-search-results-item-standard.html.twig" />
 
