@@ -501,6 +501,9 @@ blockquote::before {
 blockquote > * + * {
   margin-top: 1rem;
 }
+blockquote > *:first-child {
+  margin-top: 0;
+}
 blockquote cite {
   color: #111;
   font-size: 1rem;
@@ -3156,9 +3159,6 @@ main,
 .component--quote {
   font-size: 1.125rem;
   line-height: 1.5;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   color: #005a9c;
   font-weight: bold;
   -webkit-margin-end: 0;
@@ -3168,32 +3168,14 @@ main,
   padding: 1.25rem;
   position: relative;
 }
-.component--quote > * + * {
-  margin-top: 1rem;
-}
 .component--quote::before {
   background-color: #005a9c;
   border-radius: 0.3125rem;
-  content: "";
-  height: 100%;
   left: -0.625rem;
-  position: absolute;
-  top: 0;
   width: 0.625rem;
 }
 .component--quote > * {
   max-width: 39.375rem;
-}
-.component--quote blockquote {
-  -webkit-margin-start: 0;
-          margin-inline-start: 0;
-  padding: 0;
-}
-.component--quote blockquote p:first-of-type {
-  margin-top: 0;
-}
-.component--quote blockquote::before {
-  display: none;
 }
 
 [dir=rtl] .component--quote::before {
