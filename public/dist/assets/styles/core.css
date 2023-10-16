@@ -1521,6 +1521,8 @@ pre {
 svg {
   fill: currentColor;
   height: auto;
+}
+svg:not(.svg-inline--fa) {
   width: 100%;
 }
 
