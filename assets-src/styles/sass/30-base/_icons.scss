@@ -5,9 +5,11 @@
 svg {
 	fill: currentColor;
 	height: auto;
-	width: 100%;
+ 
+	 &:not(.svg-inline--fa) {
+		width: 100%;
+ 	}
 }
-
 
 /**
 SVG icons are sized relative to font size, thanks to the em unit.
