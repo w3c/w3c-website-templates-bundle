@@ -1,25 +1,25 @@
 page:
     lang:
         dir: ltr
-        options: __page.lang.options
+        options: 言語
         targetname:
-            en: __page.lang.targetname.en
-            ja: __page.lang.targetname.ja
-            zh-hans: __page.lang.targetname.zh-hans
-    default_title: __page.default_title
+            en: 英語のページ
+            ja: 日本語のページ
+            zh-hans: 中国語のページ
+    default_title: World Wide Web Consortium (W3C)
     default_description: >-
-        __page.default_description
+        ワールド・ワイド・ウェブ・コンソーシアム(W3C)は、メンバー組織、専任スタッフ、そして利用者が協力してウェブ標準を開発する国際的なコミュニティです。
     skip_to_content: コンテンツにスキップ
     translations: >-
-        他の言語:
-    translationsarialabel: __page.translations.arialabel
-    toc: __page.toc
-    related_content: __page.related
+       <span lange="jp">このページを読んでください:</span>
+    translationsarialabel: 他の言語
+    toc: ページの内容
+    related_content: このセクションでは
     acl:
-        member: __page.acl.member
-        team: __page.acl.team
-        private: __page.acl.private
-        user: __page.acl.user
+        member: このページはW3Cメンバー限定です
+        team: このページはW3Cのスタッフ限定です
+        private: このページはプライベートです
+        user: このページはあなた限定です
 footer:
     copyright: >-
         <span lang="en">Copyright &copy; {date, date, ::y} <a href="https://www.w3.org/ja/" hreflang="ja">World Wide Web Consortium</a>.<br>
@@ -44,7 +44,7 @@ footer:
         privacy_policyurl: https://www.w3.org/ja/policies/privacy
         legal: 法的
         legalurl: https://www.w3.org/ja/policies/
-        system_status: システムステータス
+        system_status: システム状態
         system_statusurl: https://status.w3.org/
         mastodon: __footer.links.mastodon
         x: __footer.links.x
@@ -52,94 +52,98 @@ footer:
 banner:
     beta:
         text: >-
-            これは新しい Web サイトです。改善に役立つ<a href="https://github.com/w3c/w3c-website">フィードバックをお寄せください</a>。
-        icon: __banner.beta.icon
+            これは新しい Web サイトです。改善に役立つ<a href="https://github.com/w3c/w3c-website">フィードバック</a>をお寄せください。
+        icon: ベータ
 header:
-    logo_alt: __header.logo_alt
-    logo_link: __header.logo_link
-    search_link: __header.search_link
-    account_link: __header.account_link
+    logo_alt: W3C
+    logo_link: W3Cのホームページにようこそ
+    search_link: 検索
+    account_link: マイアカウント
 breadcrumbs:
-    home: __breadcrumbs.home
+    home: ホーム
 pagination:
-    first: __pagination.first
-    previous: __pagination.previous
-    next: __pagination.next
-    last: __pagination.last
-    page: "__pagination.page {page}"
+    first: １ページ目
+    previous: 前のページ
+    next: 次のページ
+    last: 前回のページ
+    page: "ページ {page}"
     current_page: "{page}"
-    summary: __pagination.summary {page} {from}-{to}
-ecosystems: __ecosystems {count}
+    summary:  >-
+        {to, select,
+            0 {There are no results}
+            other {このページは {page}, 提示されているページは {from}-{to}}
+    　　}
+ecosystems: エコシステム {count}
 listing:
     blog:
         filters:
-            search: __listing.blog.filters.search
-            search_button: __listing.blog.filters.search_button
-            all: __listing.blog.filters.all
-            categories: __listing.blog.filters.categories
-            categories_label: __listing.blog.filters.categories_label
-            archives: __listing.blog.filters.archives
-            archives_label: __listing.blog.filters.archives_label
+            search: _投稿の検索
+            search_button: 結果の表示
+            all: すべて表示
+            categories: カテゴリー一覧
+            categories_label: カテゴリーを検索
+            archives: アーカイブ一覧
+            archives_label: 投稿のアーカイブ
     news:
         filters:
-            search: __listing.news.filters.search
-            search_button: __listing.news.filters.search_button
-            all: __listing.news.filters.all
-            archives: __listing.news.filters.archives
-            archives_label: __listing.news.filters.archives_label
+            search: ニュースを検索
+            search_button: 結果を表示
+            all: すべて表示
+            archives: アーカイブ一覧
+            archives_label: ニュースのアーカイブ
     press_releases:
         filters:
-            all: __listing.press_releases.filters.all
-            archives: __listing.press_releases.filters.archives
-            archives_label: __listing.press_releases.filters.archives_label
+            all: すべて表示
+            archives: アーカイブを表示
+            archives_label: プレスリリースのアーカイブ
     events:
         filters:
-            all: __listing.events.filters.all
-            upcoming: __listing.events.filters.upcoming
-            types: __listing.events.filters.types
-            categories: __listing.events.filters.categories
-            search_button: __listing.events.filters.search_button
-            clear: __listing.events.filters.clear
+            all: すべて
+            upcoming: これからのイベント
+            types: イベントのタイプ
+            categories: カテゴリー
+            search_button: 結果の表示
+            clear: クリア
     newsletters:
         filters:
-            archives: __listing.newsletters.filters.archives
-            archives_label: __listing.newsletters.filters.archives_label
+            archives: アーカイブの表示
+            archives_label: ニュースレターの表示
 components:
     video:
-        transcript: __components.video.transcript
+        transcript: "これがタイトルです <span class=\"visuallyhidden\"> {title}</span>"
     icon_card:
-        link_text: __components.icon_card.link_text
+        link_text: チェック
     image_card:
-        link_text: __components.image_card.link_text
+        link_text: チェック
     groups_list:
-        link_text: __components.groups_list.link_text{{name}}
+        link_text: {name}へ
     people:
-        tel: "__components.people.tel__Tel: <a href=\"tel:{number}\">{number}}</a>"
-        email: "__components.people.email__Email: <a href=\"mailto:{email}\">{email}</a>"
+        tel: "Tel: <a href=\"tel:{number}\">{number}}</a>"
+        email: "email: <a href=\"mailto:{email}\">{email}</a>"
     evangelists:
-        list_title: __components.evangelists.list_title__Our {ecosystem_name} Evangelists
+        list_title: エバンジェリスト {ecosystem_name} Evangelists
     members:
-        title: __components.members.title
-        members_include: "__components.members.members_include {count} member organizations are involved in the web payment ecosystem, including:"
-        view_all: __components.members.view_all
-        get_involved: __components.members.get_involved
-        join: __components.members.join
+        title: W3Cメンバー
+        members_include: " {count} メンバー組織が{ecosystem_name}エコシステムに関わっています:"
+        view_all: {ecosystem_name}エコシステムのすべてのメンバーを表示
+        get_involved: 参加方法
+        join: 参加する
         joinurl: /membership/join/
-        donate: __components.members.donate
+        donate: 寄付
         donateurl: /donate/
     content_slider:
-        title: __components.content_slider.title
+        title: 我々の組織
     crosslinks:
         types:
-            blogpost: __components.crosslinks.types.blogpost
-            ecosystem: __components.crosslinks.types.ecosystem
-            ecosystems: __components.crosslinks.types.ecosystems
-            event: __components.crosslinks.types.event
-            events: __components.crosslinks.types.events
-            news: __components.crosslinks.types.news
-            pressrelease: __components.crosslinks.types.pressrelease
-            pressreleases: __components.crosslinks.types.pressreleases
-            page: __components.crosslinks.types.page
+            blogpost: ブログ
+            ecosystem: エコシステム
+            ecosystems: エコシステム
+            event: イベント
+            events: イベント
+            news: ニュース
+            pressrelease: プレスリリース
+            pressreleases: プレスリリース
+            page: ページ
 post:
     meta:
         credit: >
@@ -159,22 +163,22 @@ post:
         title: 関連RSSフィード
         link: "{feed_type}フィードを購読する"
     comments:
-        count: __post.comments.count <span>{count}</span>
-        skip_to_form: __post.comments.skip_to_form
-        reply: __post.comments.reply <span class="visuallyhidden">{name}</span>
-        reply_attr: __post.comments.reply_attr {name}
+        count: コメント <span>{count}</span>
+        skip_to_form: コメントフォームへ
+        reply: <span class="visuallyhidden">{name}</span>へ返事する
+        reply_attr:  {name}へ返事
         form:
-            title: __post.comments.form.title
-        closed: __post.comments.closed
+            title: 新しいコメント
+        closed: この投書へのコメントをクローズする
 notes:
     info:
-        default_title: __notes.info.default_title
+        default_title: _インフォメーション
     successes:
-        default_title: __notes.successes.default_title
+        default_title: 成功
     warnings:
-        default_title: __notes.warnings.default_title
+        default_title: 警告
     errors:
-        default_title: __notes.errors.default_title
+        default_title: エラー
 events:
     # same_day = 1 when start_date == end_date
     date_range: >-
@@ -188,36 +192,37 @@ events:
                 other {<time datetime="{iso_start}">{start_date}, {start_time}</time> – <time datetime="{iso_end}">{end_date}, {end_time}</time> {timezone}}
             }}
         }
-    add_to_calendar: __events.add_to_calendar
-    event_details: __events.event_details
-    date: __events.date
-    location: __events.location
-    speakers: __events.speakers
-    host: __events.host
-    category: __events.category
-    website: __events.website
+    add_to_calendar: カレンダーに加える
+    event_details: イベント詳細
+    date: 日
+    location: 場所
+    speakers: 話者
+    host: 主催者
+    category: カテゴリー
+    website: ウェブサイト
 alumni:
-    date_range: __alumni.date_range {start} {end}
+    date_range: 日程 {start} {end}
 error:
-    title: __error.title {status_code} {status_text}
-#    intro: __error.intro {status_code} {status_text}
-    request_id: __error.request_id {request_id}
-    contact: __error.contact {params}
-    faq: __error.faq
+    title: エラー {status_code} {status_text}
+#    intro: サーバーエラーコード {status_code} {status_text}
+    request_id: リクエストID {request_id}
+    contact: コンタクト {params}
+    faq: よくあるFAQ
     401:
-        title: __error.401.title
-        message: __error.401.message
+        title: 認証が必要
+        message: あなたが要求したページはW3Cのアカウントが必要です
     403:
-        title: __error.403.title
-        message: __error.403.message
+        title: アクセスできません
+        message: アクセス権がありません
     404:
-#        title: __error.404.title
+#        title: このページが見当たりません
         message: >-
             <p>日本語サイトは現在作成中です。</p>
             <p lang="en">The Japanese site is under development.</p>
     410:
-        title: __error.410.title
-        message: __error.410.message
+        title: すでに存在していません
+        message: すでに存在していないページです
     500:
-        title: __error.500.title
-        message: __error.500.message
+        title: サーバーエラー
+        message: システム内部のエラーです
+        
