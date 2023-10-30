@@ -6,7 +6,7 @@ svg {
 	fill: currentColor;
 	height: auto;
  
-	 &:not(.svg-inline--fa) {
+	 &:not(.svg-inline--fa, .icon--submenu) {
 		width: 100%;
  	}
 }
