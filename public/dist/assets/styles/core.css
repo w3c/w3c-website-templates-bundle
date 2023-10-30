@@ -1522,7 +1522,7 @@ svg {
   fill: currentColor;
   height: auto;
 }
-svg:not(.svg-inline--fa, .icon--submenu) {
+svg:not(.svg-inline--fa, .icon--no-width) {
   width: 100%;
 }
 
