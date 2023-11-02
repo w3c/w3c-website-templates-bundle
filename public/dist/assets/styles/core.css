@@ -1522,7 +1522,8 @@ svg {
   fill: currentColor;
   height: auto;
 }
-svg:not(.svg-inline--fa, .icon--no-width) {
+
+svg:not([class]) {
   width: 100%;
 }
 

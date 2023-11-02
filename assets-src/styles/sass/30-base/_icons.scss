@@ -5,10 +5,10 @@
 svg {
 	fill: currentColor;
 	height: auto;
- 
-	 &:not(.svg-inline--fa, .icon--no-width) {
-		width: 100%;
- 	}
+}
+
+svg:not([class]) {
+	width: 100%;
 }
 
 /**
