@@ -49,3 +49,28 @@ a.with-icon--after {
 		outline-width: 0; /* 2 */
 	}
 }
+
+.heading-anchor {
+    background-color: $link-color;
+    border: solid 0.02em $link-color;
+    border-radius: 50%;
+    color: $white;
+    display: inline-block;
+    font-weight: normal;
+    height: 1em;
+    font-size: 80%;
+    inset-block-start: 50%;
+    inset-inline-start: 0;
+    line-height: 1;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    transform: translateY(-50%);
+    width: 1em;
+
+    &:hover,
+    &:focus {
+        background-color: $white;
+        color: $link-color;
+    }
+}

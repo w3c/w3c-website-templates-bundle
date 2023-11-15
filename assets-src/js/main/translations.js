@@ -40,6 +40,7 @@ const translate = {
         },
         'en': {
             'admin': 'Admin',
+			'anchor': 'anchor',
             'backToMainMenu': 'Back to main menu',
             'cancelReply': 'Cancel reply',
             'controlsDescription': 'carousel controls',
@@ -116,6 +117,7 @@ const translate = {
         },
         'ja': {
             'admin': 'アドミン',
+			'anchor': '__anchor',
             'backToMainMenu': '__backToMainMenu',
             'cancelReply': '__cancelReply',
             'controlsDescription': '__controlsDescription',
@@ -154,6 +156,7 @@ const translate = {
         },
         'zh-hans': {
             'admin': '管理',
+			'anchor': '__anchor',
             'backToMainMenu': '返回主目录',
             'cancelReply': '取消回复',
             'controlsDescription': '轮播图控件',

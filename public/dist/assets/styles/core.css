@@ -1704,6 +1704,29 @@ a.with-icon--after:active {
   outline-width: 0; /* 2 */
 }
 
+.heading-anchor {
+  background-color: #005797;
+  border: solid 0.02em #005797;
+  border-radius: 50%;
+  color: #fff;
+  display: inline-block;
+  font-weight: normal;
+  height: 1em;
+  font-size: 80%;
+  inset-block-start: 50%;
+  inset-inline-start: 0;
+  line-height: 1;
+  position: absolute;
+  text-align: center;
+  text-decoration: none;
+  transform: translateY(-50%);
+  width: 1em;
+}
+.heading-anchor:hover, .heading-anchor:focus {
+  background-color: #fff;
+  color: #005797;
+}
+
 /*------------------------------------*\
     #Lists
 \*------------------------------------*/
@@ -2008,6 +2031,12 @@ p {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   margin: 0 0 1rem;
+}
+
+h2[id], h3[id], h4[id], h5[id], h6[id] {
+  -webkit-padding-start: 1.1em;
+          padding-inline-start: 1.1em;
+  position: relative;
 }
 
 h1 {

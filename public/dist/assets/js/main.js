@@ -54,6 +54,7 @@ const translate = {
     },
     'en': {
       'admin': 'Admin',
+      'anchor': 'anchor',
       'backToMainMenu': 'Back to main menu',
       'cancelReply': 'Cancel reply',
       'controlsDescription': 'carousel controls',
@@ -130,6 +131,7 @@ const translate = {
     },
     'ja': {
       'admin': 'アドミン',
+      'anchor': '__anchor',
       'backToMainMenu': '__backToMainMenu',
       'cancelReply': '__cancelReply',
       'controlsDescription': '__controlsDescription',
@@ -168,6 +170,7 @@ const translate = {
     },
     'zh-hans': {
       'admin': '管理',
+      'anchor': '__anchor',
       'backToMainMenu': '返回主目录',
       'cancelReply': '取消回复',
       'controlsDescription': '轮播图控件',
@@ -899,6 +902,43 @@ const flashes = function () {
 };
 
 
+/***/ }),
+/* 15 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "headingAnchors": () => (/* binding */ headingAnchors)
+/* harmony export */ });
+/* harmony import */ var _translations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+/**
+ * Add anchor links to any H2 - H6 within the <main> element that have been given an ID
+ */
+
+
+let headingAnchors = function () {
+  let languageCode = document.documentElement.lang;
+
+  // Only add heading anchor links on "full" sites
+  if (languageCode === 'en' || languageCode === 'ja' || languageCode === 'zh-hans') {
+    let mainContent = document.querySelector('main');
+    let idHeadingsArray = Array.prototype.slice.call(mainContent.querySelectorAll('h2[id], h3[id], h4[id], h5[id], h6[id]'));
+    if (idHeadingsArray.length > 0) {
+      idHeadingsArray.forEach(function (heading) {
+        let idVal = heading.getAttribute('id');
+        let anchor = document.createElement('a');
+        anchor.setAttribute('href', '#' + idVal);
+        anchor.setAttribute('class', 'heading-anchor');
+        anchor.innerHTML = '<span aria-hidden="true">#</span>';
+        anchor.innerHTML += '<span class="visuallyhidden">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('anchor', languageCode) + '</span>';
+        heading.appendChild(anchor);
+      });
+    }
+  }
+};
+
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -981,6 +1021,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_navigation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(10);
 /* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(13);
 /* harmony import */ var _main_flashes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(14);
+/* harmony import */ var _main_heading_anchors__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(15);
+
 
 
 
@@ -997,6 +1039,7 @@ function domLoadedActions() {
   (0,_main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__.formErrorSummary)();
   (0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__.responsiveTables)();
   (0,_main_flashes__WEBPACK_IMPORTED_MODULE_7__.flashes)();
+  (0,_main_heading_anchors__WEBPACK_IMPORTED_MODULE_8__.headingAnchors)();
 
   /* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
   const navDoubleIntro = document.querySelector('ul[data-component="nav-double-intro"]');
