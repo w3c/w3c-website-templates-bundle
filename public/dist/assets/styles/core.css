@@ -5171,8 +5171,8 @@ To horizontally center a block-level item
 }
 
 .u-bg-warning.u-bg-warning {
-  background-color: #C28605;
-  border-color: #C28605;
+  background-color: #c28605;
+  border-color: #c28605;
   color: #111;
 }
 
@@ -5205,6 +5205,6 @@ To horizontally center a block-level item
 
 .u-color-warning.u-color-warning {
   background-color: #fff;
-  border-color: #C28605;
+  border-color: #c28605;
   color: #111;
 }
