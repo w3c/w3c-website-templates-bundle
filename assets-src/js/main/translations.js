@@ -156,7 +156,7 @@ const translate = {
         },
         'zh-hans': {
             'admin': '管理',
-			'anchor': '__anchor',
+            'anchor': '__anchor',
             'backToMainMenu': '返回主目录',
             'cancelReply': '取消回复',
             'controlsDescription': '轮播图控件',
