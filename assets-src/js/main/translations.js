@@ -40,7 +40,7 @@ const translate = {
         },
         'en': {
             'admin': 'Admin',
-			'anchor': 'anchor',
+            'anchor': 'anchor',
             'backToMainMenu': 'Back to main menu',
             'cancelReply': 'Cancel reply',
             'controlsDescription': 'carousel controls',
