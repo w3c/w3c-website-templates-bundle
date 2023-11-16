@@ -51,26 +51,38 @@ a.with-icon--after {
 }
 
 .heading-anchor {
-    background-color: $link-color;
-    border: solid 0.02em $link-color;
+    align-items: center;
+    background-color: $white;
+    border: solid 2px $link-color;
     border-radius: 50%;
-    color: $white;
-    display: inline-block;
+    color: $link-color;
+    display: inline-flex;
+    font-size: 0.8em;
     font-weight: normal;
     height: 1em;
-    font-size: 80%;
     inset-block-start: 50%;
     inset-inline-start: 0;
+    justify-content: center;
     line-height: 1;
     position: absolute;
-    text-align: center;
     text-decoration: none;
     transform: translateY(-50%);
     width: 1em;
 
-    &:hover,
-    &:focus {
-        background-color: $white;
-        color: $link-color;
+    [aria-hidden] {
+        font-size: .9em;
+    }
+
+    &:hover {
+        background-color: $light-blue;
+        color: $link-color--hover;
+    }
+
+    &:focus,
+    &:active {
+        background-color: $focus-color;
+        border-color: $black;
+        border-width: 3px;
+        color: $black;
     }
 }

@@ -1705,26 +1705,36 @@ a.with-icon--after:active {
 }
 
 .heading-anchor {
-  background-color: #005797;
-  border: solid 0.02em #005797;
+  align-items: center;
+  background-color: #fff;
+  border: solid 2px #005797;
   border-radius: 50%;
-  color: #fff;
-  display: inline-block;
+  color: #005797;
+  display: inline-flex;
+  font-size: 0.8em;
   font-weight: normal;
   height: 1em;
-  font-size: 80%;
   inset-block-start: 50%;
   inset-inline-start: 0;
+  justify-content: center;
   line-height: 1;
   position: absolute;
-  text-align: center;
   text-decoration: none;
   transform: translateY(-50%);
   width: 1em;
 }
-.heading-anchor:hover, .heading-anchor:focus {
-  background-color: #fff;
-  color: #005797;
+.heading-anchor [aria-hidden] {
+  font-size: 0.9em;
+}
+.heading-anchor:hover {
+  background-color: #cbe0fb;
+  color: #024488;
+}
+.heading-anchor:focus, .heading-anchor:active {
+  background-color: #f9dc4a;
+  border-color: #000;
+  border-width: 3px;
+  color: #000;
 }
 
 /*------------------------------------*\
