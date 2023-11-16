@@ -1707,7 +1707,7 @@ a.with-icon--after:active {
 .heading-anchor {
   align-items: center;
   background-color: #fff;
-  border: solid 2px #005797;
+  border: solid 2px #fff;
   border-radius: 50%;
   color: #005797;
   display: inline-flex;
@@ -1728,6 +1728,7 @@ a.with-icon--after:active {
 }
 .heading-anchor:hover {
   background-color: #cbe0fb;
+  border-color: #005797;
   color: #024488;
 }
 .heading-anchor:focus, .heading-anchor:active {

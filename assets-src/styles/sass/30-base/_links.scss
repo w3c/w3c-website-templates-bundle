@@ -53,7 +53,7 @@ a.with-icon--after {
 .heading-anchor {
     align-items: center;
     background-color: $white;
-    border: solid 2px $link-color;
+    border: solid 2px $white;
     border-radius: 50%;
     color: $link-color;
     display: inline-flex;
@@ -75,6 +75,7 @@ a.with-icon--after {
 
     &:hover {
         background-color: $light-blue;
+        border-color: $link-color;
         color: $link-color--hover;
     }
 
