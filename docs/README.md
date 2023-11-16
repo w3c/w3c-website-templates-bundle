@@ -8,7 +8,7 @@ How the front end assets (CSS and JavaScript) are organised and compiled is disc
 
 ## CSS
 
-CSS is based on [Sass](http://sass-lang.com/) (using the [SCSS syntax](https://sass-lang.com/documentation/syntax)) and is heavily influenced by [Andy Bell's](https://github.com/andy-piccalilli/) [CUBE CSS](https://cube.fyi/). This has some similarities with the [BEM Methodology](http://getbem.com/) but with a more judicious use of class names.
+The design system uses [Sass](http://sass-lang.com/) - specifically the [SCSS syntax](https://sass-lang.com/documentation/syntax)) - which is compiled into CSS files. The CSS approach is heavily influenced by [Andy Bell's](https://github.com/andy-piccalilli/) [CUBE CSS](https://cube.fyi/). This has some similarities with the [BEM Methodology](http://getbem.com/) but with a more judicious use of class names.
 
 ### CSS architecture
 

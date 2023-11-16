@@ -10,7 +10,6 @@
 	 */
 	outline: 2px solid transparent;
 	outline-offset: -2px;
-
 }
 
 /**
@@ -20,7 +19,5 @@ acceptable not to show a focus outline.
 main:focus,
 #main:focus,
 [tabindex="-1"]:focus {
-
 	outline: none;
-
 }

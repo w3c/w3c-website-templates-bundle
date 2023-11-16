@@ -58,13 +58,13 @@
     {% if show_label -%}
         <span {% if label_attr %}{% with { attr: label_attr } %}{{ block('attributes') }}{% endwith %}{% endif %}>
                 {%- if translation_domain is same as(false) -%}
-                    {%- if html_label is not defined or html_label is same as(false) -%}
+                    {%- if label_html is not defined or label_html is same as(false) -%}
                         {{- label -}}
                     {%- else -%}
                         {{- label|raw -}}
                     {%- endif -%}
                 {%- else -%}
-                    {%- if html_label is not defined or html_label is same as(false) -%}
+                    {%- if label_html is not defined or label_html is same as(false) -%}
                         {{- label|trans(label_translation_parameters, translation_domain) -}}
                     {%- else -%}
                         {{- label|trans(label_translation_parameters, translation_domain)|raw -}}

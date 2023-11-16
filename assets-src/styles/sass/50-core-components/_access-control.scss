@@ -3,19 +3,20 @@
 \*------------------------------------*/
 
 .banner.banner--access-control.acl-private, .banner.banner--access-control.acl-user {
-  .icon {
-    filter: invert(1);
-  }
   background-color: $teal-green;
   color: $white;
+
+	.icon {
+		filter: invert(1);
+	}
 }
 
 .banner--access-control.acl-member {
-  background-color: $pink;
-  color: $black;
+	background-color: $pink;
+	color: $black;
 }
 
 .banner--access-control.acl-team {
-  background-color: $light-red;
-  color: $black;
+	background-color: $light-red;
+	color: $black;
 }

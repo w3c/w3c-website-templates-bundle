@@ -22,15 +22,11 @@ article {
  */
 
 @mixin stack($measure: 1em) {
-
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 
 	& > * + * {
-
 		margin-top: $measure;
-
 	}
-
 }
