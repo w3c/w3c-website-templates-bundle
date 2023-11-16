@@ -117,7 +117,7 @@ const translate = {
         },
         'ja': {
             'admin': 'アドミン',
-			'anchor': '__anchor',
+            'anchor': '__anchor',
             'backToMainMenu': '__backToMainMenu',
             'cancelReply': '__cancelReply',
             'controlsDescription': '__controlsDescription',
