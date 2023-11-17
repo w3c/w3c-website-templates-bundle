@@ -212,7 +212,7 @@ pre {
 /**
  * Remove the gray background on active links in IE 10.
  */
-a {
+a, .heading-anchor {
   background-color: transparent;
 }
 
@@ -1198,17 +1198,17 @@ Fixed input widths
 /**
 Error styles
  */
-[data-component=error-summary] li a {
+[data-component=error-summary] li a, [data-component=error-summary] li .heading-anchor {
   color: #a82615;
   display: inline-block;
   font-weight: bold;
   padding-bottom: 0.625rem;
   padding-top: 0.625rem;
 }
-[data-component=error-summary] li a:hover, [data-component=error-summary] li a:visited {
+[data-component=error-summary] li a:hover, [data-component=error-summary] li .heading-anchor:hover, [data-component=error-summary] li a:visited, [data-component=error-summary] li .heading-anchor:visited {
   color: #a82615;
 }
-[data-component=error-summary] li a:focus {
+[data-component=error-summary] li a:focus, [data-component=error-summary] li .heading-anchor:focus {
   color: #000;
 }
 
@@ -1368,26 +1368,26 @@ Progress bar
   width: 1.125rem;
 }
 
-.progress-list a {
+.progress-list a, .progress-list .heading-anchor {
   color: #545454;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
   text-underline-offset: 0.25em;
 }
-.progress-list a:visited {
+.progress-list a:visited, .progress-list .heading-anchor:visited {
   color: #920ba6;
 }
-.progress-list a:hover {
+.progress-list a:hover, .progress-list .heading-anchor:hover {
   color: #024488;
 }
-.progress-list a:focus {
+.progress-list a:focus, .progress-list .heading-anchor:focus {
   box-shadow: 0 0 0 2px;
   color: #000;
   outline: solid 3px #f9dc4a;
   outline-offset: 2px;
   text-decoration: none;
 }
-.progress-list a:active {
+.progress-list a:active, .progress-list .heading-anchor:active {
   color: #000;
 }
 
@@ -1523,7 +1523,7 @@ svg {
   height: auto;
 }
 
-svg:not([class]) {
+svg:not([class]), svg.heading-anchor {
   width: 100%;
 }
 
@@ -1660,7 +1660,7 @@ https://www.w3.org/TR/2016/NOTE-WCAG20-TECHS-20161007/F73
 
 2. Remove the outline on focused links when they are also active/hovered.
  */
-a:not([class]),
+a:not([class]), .heading-anchor,
 a.with-icon--before,
 a.with-icon--after {
   border: 0;
@@ -1673,23 +1673,23 @@ a.with-icon--after {
           text-decoration-skip-ink: auto;
   text-underline-offset: 0.25em;
 }
-a:not([class]) svg,
+a:not([class]) svg, .heading-anchor svg,
 a.with-icon--before svg,
 a.with-icon--after svg {
   fill: currentColor;
 }
-a:not([class]):visited,
+a:not([class]):visited, .heading-anchor:visited,
 a.with-icon--before:visited,
 a.with-icon--after:visited {
   color: #920ba6;
 }
-a:not([class]):hover,
+a:not([class]):hover, .heading-anchor:hover,
 a.with-icon--before:hover,
 a.with-icon--after:hover {
   color: #024488;
   outline-width: 0; /* 2 */
 }
-a:not([class]):focus,
+a:not([class]):focus, .heading-anchor:focus,
 a.with-icon--before:focus,
 a.with-icon--after:focus {
   background-color: #f9dc4a;
@@ -1697,7 +1697,7 @@ a.with-icon--after:focus {
   color: #000;
   text-decoration: none;
 }
-a:not([class]):active,
+a:not([class]):active, .heading-anchor:active,
 a.with-icon--before:active,
 a.with-icon--after:active {
   color: #000;
@@ -1705,37 +1705,10 @@ a.with-icon--after:active {
 }
 
 .heading-anchor {
-  align-items: center;
-  background-color: #fff;
-  border: solid 2px #fff;
-  border-radius: 50%;
-  color: #005797;
-  display: inline-flex;
-  font-size: 0.8em;
   font-weight: normal;
-  height: 1em;
-  inset-block-start: 50%;
-  inset-inline-start: 0;
-  justify-content: center;
-  line-height: 1;
-  position: absolute;
-  text-decoration: none;
-  transform: translateY(-50%);
-  width: 1em;
-}
-.heading-anchor [aria-hidden] {
-  font-size: 0.9em;
-}
-.heading-anchor:hover {
-  background-color: #cbe0fb;
-  border-color: #005797;
-  color: #024488;
-}
-.heading-anchor:focus, .heading-anchor:active {
-  background-color: #f9dc4a;
-  border-color: #000;
-  border-width: 3px;
-  color: #000;
+  -webkit-margin-start: 0.25em;
+          margin-inline-start: 0.25em;
+  text-underline-offset: auto;
 }
 
 /*------------------------------------*\
@@ -1750,8 +1723,9 @@ ul[class] {
   padding: 0;
 }
 
-ul:not([class]),
+ul:not([class]), ul.heading-anchor,
 ol:not([class]),
+ol.heading-anchor,
 ol.counter {
   -webkit-margin-after: 1em;
           margin-block-end: 1em;
@@ -1760,12 +1734,17 @@ ol.counter {
   -webkit-padding-start: 2.4em;
           padding-inline-start: 2.4em;
 }
-ul:not([class]) > * + *,
+ul:not([class]) > * + *, ul.heading-anchor > * + *,
 ul:not([class]) li ul,
+ul.heading-anchor li ul,
 ul:not([class]) li ol,
+ul.heading-anchor li ol,
 ol:not([class]) > * + *,
+ol.heading-anchor > * + *,
 ol:not([class]) li ul,
+ol.heading-anchor li ul,
 ol:not([class]) li ol,
+ol.heading-anchor li ol,
 ol.counter > * + *,
 ol.counter li ul,
 ol.counter li ol {
@@ -2042,12 +2021,6 @@ p {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   margin: 0 0 1rem;
-}
-
-h2[id], h3[id], h4[id], h5[id], h6[id] {
-  -webkit-padding-start: 1.1em;
-          padding-inline-start: 1.1em;
-  position: relative;
 }
 
 h1 {
@@ -2431,10 +2404,10 @@ so that either of these properties is applied instead.
   margin-bottom: 0;
   margin-top: 0;
 }
-.global-header .banner__inner a {
+.global-header .banner__inner a, .global-header .banner__inner .heading-anchor {
   color: #024488;
 }
-.global-header .banner__inner a:focus {
+.global-header .banner__inner a:focus, .global-header .banner__inner .heading-anchor:focus {
   color: #000;
 }
 
@@ -2448,7 +2421,7 @@ so that either of these properties is applied instead.
 #lang-nav .l-cluster.l-cluster > * > * {
   margin: 0 0.625rem;
 }
-#lang-nav a {
+#lang-nav a, #lang-nav .heading-anchor {
   font-size: 0.875rem;
   line-height: 1.4285714286;
   color: #111;
@@ -2507,13 +2480,13 @@ so that either of these properties is applied instead.
   #archive-banner .archive-banner__message h3 + * {
     margin-top: 0;
   }
-  #archive-banner a {
+  #archive-banner a, #archive-banner .heading-anchor {
     color: #024488;
   }
-  #archive-banner a:visited {
+  #archive-banner a:visited, #archive-banner .heading-anchor:visited {
     color: #024488;
   }
-  #archive-banner a:focus {
+  #archive-banner a:focus, #archive-banner .heading-anchor:focus {
     background-image: none;
     color: #000;
     outline: solid 2px #000;
@@ -2548,10 +2521,11 @@ so that either of these properties is applied instead.
   }
   #archive-banner a:link,
   #archive-banner a:visited,
-  #archive-banner a {
+  #archive-banner a,
+  #archive-banner .heading-anchor {
     color: #000;
   }
-  #archive-banner a[href]::after {
+  #archive-banner a[href]::after, #archive-banner [href].heading-anchor::after {
     content: " <" attr(href) "> ";
   }
   .archive-banner__message {
@@ -2831,8 +2805,9 @@ so that either of these properties is applied instead.
   height: 11.25rem;
   overflow: auto;
 }
-#archive-nav ul a,
-#category-nav ul a {
+#archive-nav ul a, #archive-nav ul .heading-anchor,
+#category-nav ul a,
+#category-nav ul .heading-anchor {
   display: block;
   padding: 0.625rem;
 }
@@ -2860,7 +2835,7 @@ so that either of these properties is applied instead.
   padding-right: 0;
 }
 
-.breadcrumbs a {
+.breadcrumbs a, .breadcrumbs .heading-anchor {
   font-size: 0.9375rem;
   line-height: 1.5;
   color: #111;
@@ -2868,7 +2843,7 @@ so that either of these properties is applied instead.
   padding-bottom: 0.6875rem;
   padding-top: 0.6875rem;
 }
-.breadcrumbs a:visited, .breadcrumbs a:hover, .breadcrumbs a:active {
+.breadcrumbs a:visited, .breadcrumbs .heading-anchor:visited, .breadcrumbs a:hover, .breadcrumbs .heading-anchor:hover, .breadcrumbs a:active, .breadcrumbs .heading-anchor:active {
   color: #111;
 }
 
@@ -3121,7 +3096,7 @@ main,
   padding-top: 0.625rem;
 }
 
-.translations a {
+.translations a, .translations .heading-anchor {
   display: block;
   padding-bottom: 0.625rem;
   padding-top: 0.625rem;
@@ -3176,7 +3151,7 @@ main,
   padding-right: 0.9375rem;
 }
 
-.toc ul a {
+.toc ul a, .toc ul .heading-anchor {
   display: inline-block;
   padding-bottom: 0.625rem;
   padding-top: 0.625rem;
@@ -3238,7 +3213,7 @@ main,
 .component--image figcaption > * {
   max-width: 33.75rem;
 }
-.component--image figcaption > a {
+.component--image figcaption > a, .component--image figcaption > .heading-anchor {
   align-self: flex-start;
   display: inline-block;
   margin: 0;
@@ -3259,7 +3234,7 @@ main,
 .component--video figcaption > * {
   max-width: 33.75rem;
 }
-.component--video figcaption > a {
+.component--video figcaption > a, .component--video figcaption > .heading-anchor {
   display: inline-block;
   margin: 0;
   padding-bottom: 0.625rem;
@@ -3402,7 +3377,7 @@ main,
   max-width: 41.25rem;
 }
 
-.card__text > a:not([class]) {
+.card__text > a:not([class]), .card__text > .heading-anchor {
   align-self: flex-start;
   margin-top: 0.375rem;
   padding-bottom: 0.625rem;
@@ -3464,7 +3439,7 @@ main,
   margin-bottom: 0;
   margin-top: 0;
 }
-.card--user.l-sidebar .l-cluster a {
+.card--user.l-sidebar .l-cluster a, .card--user.l-sidebar .l-cluster .heading-anchor {
   display: inline-block;
   padding: 0.75rem 0;
 }
@@ -3492,7 +3467,7 @@ main,
 Makes the tag links selectable if card link is stretched
 across entire card using pseudo element
  */
-a.tag {
+a.tag, .tag.heading-anchor {
   position: relative;
   text-decoration: underline;
   z-index: 10;
@@ -3541,7 +3516,7 @@ a.tag {
 .component--fifty-fifty__text .l-box > * + * {
   margin-top: 1rem;
 }
-.component--fifty-fifty__text .l-box a {
+.component--fifty-fifty__text .l-box a, .component--fifty-fifty__text .l-box .heading-anchor {
   align-self: flex-start;
 }
 
@@ -3638,13 +3613,13 @@ a.tag {
 .component--evangelists__list .not-sidebar > * + * {
   margin-top: 0.75em;
 }
-.component--evangelists__list a {
+.component--evangelists__list a, .component--evangelists__list .heading-anchor {
   color: #fff;
 }
-.component--evangelists__list a:visited, .component--evangelists__list a:hover, .component--evangelists__list a:active {
+.component--evangelists__list a:visited, .component--evangelists__list .heading-anchor:visited, .component--evangelists__list a:hover, .component--evangelists__list .heading-anchor:hover, .component--evangelists__list a:active, .component--evangelists__list .heading-anchor:active {
   color: #fff;
 }
-.component--evangelists__list a:focus {
+.component--evangelists__list a:focus, .component--evangelists__list .heading-anchor:focus {
   background-color: #f9dc4a;
   background-image: linear-gradient(to top, #000 3px, #f9dc4a 3px, #f9dc4a);
   color: #000;
@@ -3789,7 +3764,7 @@ a.tag {
   max-width: 10.625rem;
 }
 
-.component--members__grid + a {
+.component--members__grid + a, .component--members__grid + .heading-anchor {
   align-self: flex-start;
 }
 
@@ -3798,11 +3773,11 @@ a.tag {
   margin-top: 1em;
 }
 
-.component--members__cta > * > *:not(a) {
+.component--members__cta > * > *:not(a):not(.heading-anchor) {
   flex-basis: 100%;
 }
 @media screen and (min-width: 48em) {
-  .component--members__cta > * > *:not(a) {
+  .component--members__cta > * > *:not(a):not(.heading-anchor) {
     flex-basis: auto;
   }
 }
@@ -3949,7 +3924,7 @@ a.tag {
   line-height: 1.4;
 }
 
-.crosslinks .component--columns__intro a,
+.crosslinks .component--columns__intro a, .crosslinks .component--columns__intro .heading-anchor,
 .crosslinks .component--columns__intro a:visited,
 .crosslinks .component--columns__intro a:hover,
 .crosslinks .component--columns__intro a:active {
@@ -4126,7 +4101,7 @@ input[type=search] {
     justify-content: center;
   }
 }
-.pagination__list a {
+.pagination__list a, .pagination__list .heading-anchor {
   font-size: 0.9375rem;
   line-height: 1.5;
   color: #000;
@@ -4134,31 +4109,31 @@ input[type=search] {
   text-decoration: none;
   padding: 0.6875rem 1.125rem;
 }
-.pagination__list a:visited {
+.pagination__list a:visited, .pagination__list .heading-anchor:visited {
   color: #000;
 }
-.pagination__list a:focus {
+.pagination__list a:focus, .pagination__list .heading-anchor:focus {
   background-color: #f9dc4a;
   background-image: linear-gradient(to top, #000 3px, #f9dc4a 3px, #f9dc4a);
   color: #000;
   text-decoration: none;
 }
-.pagination__list a[href]:hover {
+.pagination__list a[href]:hover, .pagination__list [href].heading-anchor:hover {
   text-decoration: underline;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
   text-underline-offset: 0.25em;
 }
-.pagination__list a[href][aria-current] {
+.pagination__list a[href][aria-current], .pagination__list [href][aria-current].heading-anchor {
   background-color: #005797;
   color: #fff;
   font-weight: bold;
 }
-.pagination__list a[href][aria-current]:hover {
+.pagination__list a[href][aria-current]:hover, .pagination__list [href][aria-current].heading-anchor:hover {
   color: #fff;
   text-decoration: none;
 }
-.pagination__list a[href][aria-current]:focus {
+.pagination__list a[href][aria-current]:focus, .pagination__list [href][aria-current].heading-anchor:focus {
   color: #000;
 }
 
@@ -4168,7 +4143,7 @@ input[type=search] {
 .rss {
   margin-top: 2.5rem;
 }
-.rss a {
+.rss a, .rss .heading-anchor {
   padding-bottom: 0.625rem;
   padding-top: 0.625rem;
 }
@@ -4321,7 +4296,7 @@ input[type=search] {
   margin-top: 1em;
 }
 
-.pre-footer a {
+.pre-footer a, .pre-footer .heading-anchor {
   display: block;
 }
 
@@ -4342,7 +4317,7 @@ input[type=search] {
 .global-footer .l-center > * + * {
   margin-top: 1rem;
 }
-.global-footer a,
+.global-footer a, .global-footer .heading-anchor,
 .global-footer .copyright {
   font-size: 0.875rem;
   line-height: 1.4285714286;
@@ -4350,10 +4325,10 @@ input[type=search] {
 .global-footer .copyright {
   margin-bottom: 0;
 }
-.global-footer a {
+.global-footer a, .global-footer .heading-anchor {
   color: #111;
 }
-.global-footer a:visited, .global-footer a:hover, .global-footer a:active {
+.global-footer a:visited, .global-footer .heading-anchor:visited, .global-footer a:hover, .global-footer .heading-anchor:hover, .global-footer a:active, .global-footer .heading-anchor:active {
   color: #111;
 }
 
@@ -4377,7 +4352,7 @@ input[type=search] {
 .global-footer__links .l-cluster.l-cluster > * > * {
   margin: 0 0.625rem;
 }
-.global-footer__links a:not([class]) {
+.global-footer__links a:not([class]), .global-footer__links .heading-anchor {
   display: block;
   padding-bottom: 0.75rem;
   padding-top: 0.75rem;
@@ -4454,7 +4429,7 @@ input[type=search] {
   }
 }
 
-.default .related__inner ul a {
+.default .related__inner ul a, .default .related__inner ul .heading-anchor {
   display: inline-block;
   padding-bottom: 0.625rem;
   padding-top: 0.625rem;
@@ -4584,10 +4559,10 @@ input[type=search] {
   font-size: 1rem;
   line-height: 1.3333333333;
 }
-.post .related__inner a {
+.post .related__inner a, .post .related__inner .heading-anchor {
   color: #545454;
 }
-.post .related__inner a:focus {
+.post .related__inner a:focus, .post .related__inner .heading-anchor:focus {
   color: #000;
 }
 
@@ -4787,14 +4762,14 @@ input[type=search] {
 .post-list .l-cluster > * {
   align-items: center;
 }
-.post-list .l-cluster a {
+.post-list .l-cluster a, .post-list .l-cluster .heading-anchor {
   display: inline-block;
   padding: 0.75rem 0;
 }
-.post-list h2 a {
+.post-list h2 a, .post-list h2 .heading-anchor {
   color: #000;
 }
-.post-list h2 a .icon {
+.post-list h2 a .icon, .post-list h2 .heading-anchor .icon {
   height: 0.8em;
   width: 0.8em;
 }
@@ -4969,12 +4944,12 @@ input[type=search] {
   margin-bottom: 2.0625rem;
 }
 
-#group-nav a {
+#group-nav a, #group-nav .heading-anchor {
   display: inline-block;
   padding-bottom: 0.625rem;
   padding-top: 0.625rem;
 }
-#group-nav a[aria-current] {
+#group-nav a[aria-current], #group-nav [aria-current].heading-anchor {
   color: #111;
   text-decoration: none;
 }

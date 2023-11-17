@@ -51,39 +51,9 @@ a.with-icon--after {
 }
 
 .heading-anchor {
-    align-items: center;
-    background-color: $white;
-    border: solid 2px $white;
-    border-radius: 50%;
-    color: $link-color;
-    display: inline-flex;
-    font-size: 0.8em;
+    @extend a, :not([class]);
+
     font-weight: normal;
-    height: 1em;
-    inset-block-start: 50%;
-    inset-inline-start: 0;
-    justify-content: center;
-    line-height: 1;
-    position: absolute;
-    text-decoration: none;
-    transform: translateY(-50%);
-    width: 1em;
-
-    [aria-hidden] {
-        font-size: .9em;
-    }
-
-    &:hover {
-        background-color: $light-blue;
-        border-color: $link-color;
-        color: $link-color--hover;
-    }
-
-    &:focus,
-    &:active {
-        background-color: $focus-color;
-        border-color: $black;
-        border-width: 3px;
-        color: $black;
-    }
+    margin-inline-start: 0.25em;
+    text-underline-offset: auto;
 }
