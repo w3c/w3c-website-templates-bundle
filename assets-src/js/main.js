@@ -6,6 +6,7 @@ import {formErrorSummary} from "./main/form-error-summary";
 import {navigation} from "./main/navigation";
 import {responsiveTables} from "./main/responsive-tables";
 import {flashes} from "./main/flashes";
+import {headingAnchors} from './main/heading-anchors';
 
 function domLoadedActions() {
 	accountMenu();
@@ -15,6 +16,7 @@ function domLoadedActions() {
 	formErrorSummary();
 	responsiveTables();
 	flashes();
+	headingAnchors();
 
 	/* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
 	const navDoubleIntro = document.querySelector('ul[data-component="nav-double-intro"]');

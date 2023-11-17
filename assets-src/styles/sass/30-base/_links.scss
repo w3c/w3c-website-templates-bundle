@@ -49,3 +49,11 @@ a.with-icon--after {
 		outline-width: 0; /* 2 */
 	}
 }
+
+.heading-anchor {
+    @extend a, :not([class]);
+
+    font-weight: normal;
+    margin-inline-start: 0.25em;
+    text-underline-offset: auto;
+}
