@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile template{% endblock %}
+{% block meta_description %}Profile template from the W3C design system{% endblock %}
+
+{% block body_class %}class="profile"{% endblock %}
+
+{% block breadcrumbs %}
+    {% include 'components/breadcrumbs.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+
+        <h1>Profile template</h1>
+
+        {% include 'components/disclosure-button.html.twig' %}
+
+        <nav id="profile-nav" aria-label="Details">
+            <div class="profile-nav__inner">
+                <ul class="clean-list" role="list">
+                    <li><a href="#" aria-current="true">Overview</a></li>
+                    <li><a href="path/to/page">Edit profile</a></li>
+                    <li><a href="path/to/page">Calendar</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="details">
+
+            {% include 'components/text.html.twig' %}
+
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block crosslinks %}
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

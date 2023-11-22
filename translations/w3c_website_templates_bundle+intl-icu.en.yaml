@@ -215,6 +215,9 @@ events:
     website: Website
 alumni:
     date_range: "{start} to {end}"
+profile_page:
+    nav:
+        title: Related pages
 error:
     title: Error {status_code} - {status_text}
     intro: >-

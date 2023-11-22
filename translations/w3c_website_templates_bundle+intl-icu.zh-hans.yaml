@@ -211,6 +211,9 @@ events:
     website: 网站
 alumni:
     date_range: "{start} 到 {end}"
+profile_page:
+    nav:
+        title: __profile_page.nav.title
 error:
     title: 错误{status_code} - {status_text}
     intro: >-

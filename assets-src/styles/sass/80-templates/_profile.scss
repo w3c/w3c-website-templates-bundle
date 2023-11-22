@@ -1,13 +1,13 @@
 /*------------------------------------*\
-    #Group detail
+    #Profile template
 \*------------------------------------*/
 
-.group .content {
+.profile .content {
 	max-width: rem(752);
 }
 
 @supports(grid-column-gap: 8%) {
-	.group .content {
+	.profile .content {
 		max-width: none;
 
 		@include mq($bp-tab-large) {
@@ -21,26 +21,26 @@
 		}
 	}
 
-	.group .content h1 {
+	.profile .content h1 {
 		@include mq($bp-tab-large) {
 			grid-area: title;
 		}
 	}
 
-	.group .content #group-nav {
+	.profile .content #profile-nav {
 		@include mq($bp-tab-large) {
 			grid-area: nav;
 		}
 	}
 
-	.group .content .details {
+	.profile .content .details {
 		@include mq($bp-tab-large) {
 			grid-area: details;
 		}
 	}
 }
 
-.group .group-nav__inner {
+.profile .profile-nav__inner {
 	margin-bottom: rem(33);
 
 	@include mq($bp-tab-large) {
@@ -55,7 +55,7 @@
 	}
 }
 
-.group [data-toggle="true"] {
+.profile [data-toggle="true"] {
 	@include mq($bp-tab-large) {
 		display: none;
 	}
@@ -65,7 +65,7 @@
 	}
 }
 
-#group-nav a {
+#profile-nav a {
 	display: inline-block;
 	padding-bottom: rem(10);
 	padding-top: rem(10);
