@@ -47,7 +47,6 @@ footer:
         system_status: システムステータス
         system_statusurl: https://status.w3.org/
         mastodon: __footer.links.mastodon
-        x: __footer.links.x
         github: __footer.links.github
 banner:
     beta:

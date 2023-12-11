@@ -46,7 +46,6 @@ footer:
         system_status: 系统状态
         system_statusurl: https://status.w3.org/
         mastodon: W3C 在 Mastodon
-        x: W3C 在 X
         github: W3C 在 GitHub
 banner:
     beta:
