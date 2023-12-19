@@ -77,7 +77,7 @@ ecosystems: エコシステム {count}
 listing:
     blog:
         filters:
-            search: _投稿の検索
+            search: 投稿の検索
             search_button: 結果の表示
             all: すべて表示
             categories: カテゴリー一覧
