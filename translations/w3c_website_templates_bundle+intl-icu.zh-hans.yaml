@@ -34,14 +34,12 @@ footer:
         contacturl: https://www.w3.org/zh-hans/contact/
         help: 帮助
         helpurl: https://www.w3.org/zh-hans/help/
-        sponsor: 赞助
-        sponsorurl: https://www.w3.org/zh-hans/sponsor/
         donate: 捐赠
         donateurl: https://www.w3.org/zh-hans/donate/
-        privacy_policy: 隐私条款
-        privacy_policyurl: https://www.w3.org/zh-hans/policies/privacy/
         legal:  政策法规
         legalurl: https://www.w3.org/zh-hans/policies/
+        corporation: __footer.links.corporation
+        corporationurl: https://www.w3.org/zh-hans/about/corporation/
         system_status: 系统状态
         system_statusurl: https://status.w3.org/
         mastodon: W3C 在 Mastodon
