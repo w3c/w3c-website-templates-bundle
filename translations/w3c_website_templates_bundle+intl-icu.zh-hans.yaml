@@ -36,9 +36,9 @@ footer:
         helpurl: https://www.w3.org/zh-hans/help/
         donate: 捐赠
         donateurl: https://www.w3.org/zh-hans/donate/
-        legal:  政策法规
+        legal: 法务与政策
         legalurl: https://www.w3.org/zh-hans/policies/
-        corporation: __footer.links.corporation
+        corporation: 法人实体
         corporationurl: https://www.w3.org/zh-hans/about/corporation/
         system_status: 系统状态
         system_statusurl: https://status.w3.org/
