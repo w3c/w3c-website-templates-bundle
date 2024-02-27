@@ -20,6 +20,10 @@
 	a:active {
 		color: $white;
 	}
+
+	a:focus {
+		color: $off-black;
+	}
 }
 
 .crosslinks .component--columns--images > ul {
