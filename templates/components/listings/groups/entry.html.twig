@@ -6,9 +6,8 @@
             </a>
         </h2>
         {% block group_description %}
-            {% if group.closed %}<p><em>Group closed on {{ w3c_date_format(group.closedDate)|raw }}</em></p>{% endif 
+            {% if group.closed %}<p><em>Group closed on {{ w3c_date_format(group.closedDate)|raw }}</em></p>{% endif %}
             {{ group.description|purify }}
-%}
         {% endblock %}
         {% block group_ecosystems %}
             {% if group.ecosystems is defined and group.ecosystems|length > 0 %}
