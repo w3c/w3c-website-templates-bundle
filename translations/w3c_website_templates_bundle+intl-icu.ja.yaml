@@ -6,9 +6,9 @@ page:
             en: 英語
             ja: 日本語
             zh-hans: 中国語
-    default_title: World Wide Web Consortium (W3C)
+    default_title: ワールド・ワイド・ウェブ・コンソーシアム (W3C)
     default_description: >-
-        World Wide Web Consortium (W3C)は、会員組織、常勤スタッフ、および一般の人々が協力してウェブ標準を開発する国際的なコミュニティです。
+        ワールド・ワイド・ウェブ・コンソーシアム (W3C)は、会員組織、常勤スタッフ、および一般の人々が協力してウェブ標準を開発する国際的なコミュニティです。
     skip_to_content: コンテンツへスキップ
     translations: >-
         言語切り替え：
@@ -22,7 +22,7 @@ page:
         user: このページはあなたに限定されています
 footer:
     copyright: >-
-        <span lang="en">著作権 © {date, date, ::y} <a href="https://www.w3.org/ja/" hreflang="ja">World Wide Web Consortium</a>。<br>
+        <span lang="en">著作権 © {date, date, ::y} <a href="https://www.w3.org/ja/" hreflang="ja">ワールド・ワイド・ウェブ・コンソーシアム</a>。<br>
         <abbr title="World Wide Web Consortium">W3C</abbr><sup>®</sup>
         <a href="https://www.w3.org/policies/#disclaimers">免責事項</a>、
         <a href="https://www.w3.org/policies/#trademarks">商標</a>、および
