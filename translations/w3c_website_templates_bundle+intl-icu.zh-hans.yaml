@@ -21,12 +21,11 @@ page:
         private: 当前页面可见范围有限
         user: 当前页面仅本人可见
 footer:
-    copyright: >-
-        版权所有 &copy; {date, date, ::y} <a hreflang="zh-hans" href="https://www.w3.org/zh-hans/">万维网联盟</a>。<br>
-        遵循 <abbr title="万维网联盟">W3C</abbr><sup>&reg;</sup>
-        <a href="https://www.w3.org/policies/#disclaimers" hreflang="en">责任声明</a>、
-        <a href="https://www.w3.org/policies/#trademarks" hreflang="en">标志使用</a>以及
-        <a rel="license" href="https://www.w3.org/copyright/document-license/"  hreflang="en" title="W3C 软件许可">宽松许可</a>。
+    copyright: "版权所有 &copy; {date, date, ::y}<a hreflang=\"zh-hans\" href=\"https://www.w3.org/zh-hans/\">万维网联盟</a>。<br>\
+        遵循 <abbr title=\"万维网联盟\">W3C</abbr><sup>&reg;</sup>
+        <a href=\"https://www.w3.org/policies/#disclaimers\" hreflang=\"en\">责任声明</a>、\
+        <a href=\"https://www.w3.org/policies/#trademarks\" hreflang=\"en\">标志使用</a>以及\
+        <a rel=\"license\" href=\"https://www.w3.org/copyright/document-license/\"  hreflang=\"en\" title=\"W3C 文档许可\">许可授权</a>。"
     links:
         hreflang: zh-hans
         home: 主页
@@ -35,14 +34,12 @@ footer:
         contacturl: https://www.w3.org/zh-hans/contact/
         help: 帮助
         helpurl: https://www.w3.org/zh-hans/help/
-        sponsor: 赞助
-        sponsorurl: https://www.w3.org/zh-hans/sponsor/
         donate: 捐赠
         donateurl: https://www.w3.org/zh-hans/donate/
-        privacy_policy: 隐私条款
-        privacy_policyurl: https://www.w3.org/zh-hans/policies/privacy/
-        legal:  政策法规
+        legal: 法务与政策
         legalurl: https://www.w3.org/zh-hans/policies/
+        corporation: 法人实体
+        corporationurl: https://www.w3.org/zh-hans/about/corporation/
         system_status: 系统状态
         system_statusurl: https://status.w3.org/
         mastodon: W3C 在 Mastodon
@@ -133,7 +130,7 @@ components:
     members:
         title: W3C 会员
         members_include: "{count}成员组织参与{ecosystem_name}生态系统, 包括:"
-        view_all: 查看所有在{ecosystem_name}中的成员
+        view_all: 查看所有参与{ecosystem_name}中的成员
         get_involved: "如何协作:"
         join: 加入我们
         joinurl: /membership/join

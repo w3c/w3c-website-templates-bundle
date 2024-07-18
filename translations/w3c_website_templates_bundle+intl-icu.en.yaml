@@ -38,14 +38,12 @@ footer:
         contacturl: https://www.w3.org/contact/
         help: <span lang="en" dir="ltr">Help</span>
         helpurl: https://www.w3.org/help/
-        sponsor: <span lang="en" dir="ltr">Sponsor</span>
-        sponsorurl: https://www.w3.org/sponsor/
         donate: <span lang="en" dir="ltr">Donate</span>
         donateurl: https://www.w3.org/donate/
-        privacy_policy: <span lang="en" dir="ltr">Privacy Policy</span>
-        privacy_policyurl: https://www.w3.org/policies/privacy/
-        legal: <span lang="en" dir="ltr">Legal</span>
+        legal: <span lang="en" dir="ltr">Legal &amp; Policies</span>
         legalurl: https://www.w3.org/policies/
+        corporation: <span lang="en" dir="ltr">Corporation</span>
+        corporationurl: https://www.w3.org/about/corporation/
         system_status: <span lang="en" dir="ltr">System Status</span>
         system_statusurl: https://status.w3.org/
         mastodon: <span lang="en" dir="ltr">W3C on Mastodon</span>
@@ -137,7 +135,7 @@ components:
     members:
         title: W3C Members
         members_include: "{count} member organizations are involved in the {ecosystem_name} ecosystem, including:"
-        view_all: View all members of the {ecosystem_name} ecosystem
+        view_all: View all members participating in the {ecosystem_name} ecosystem
         get_involved: "Ways to get involved:"
         join: Join
         joinurl: /membership/join/

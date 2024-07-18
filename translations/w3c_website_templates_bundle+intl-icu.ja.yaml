@@ -32,22 +32,20 @@ footer:
         hreflang: ja
         home: <span lang="ja" dir="ltr">ホーム</span>
         homeurl: https://www.w3.org/ja/
-        contact: <span lang="ja" dir="ltr">お問い合わせ</span>
+        contact: お問い合わせ
         contacturl: https://www.w3.org/ja/contact/
         help: <span lang="ja" dir="ltr">ヘルプ</span>
         helpurl: https://www.w3.org/ja/help/
-        sponsor: <span lang="ja" dir="ltr">スポンサー</span>
-        sponsorurl: https://www.w3.org/ja/sponsor/
-        donate: <span lang="ja" dir="ltr">寄付</span>
+        donate: 寄付
         donateurl: https://www.w3.org/ja/donate/
-        privacy_policy: <span lang="ja" dir="ltr">プライバシーポリシー</span>
-        privacy_policyurl: https://www.w3.org/ja/policies/privacy
-        legal: <span lang="ja" dir="ltr">法的情報</span>
+        legal: 法的事項と方針
         legalurl: https://www.w3.org/ja/policies/
-        system_status: <span lang="ja" dir="ltr">システムステータス</span>
+        corporation: 会社概要
+        corporationurl: https://www.w3.org/ja/about/corporation/
+        system_status: システムステータス
         system_statusurl: https://status.w3.org/
-        mastodon: <span lang="ja" dir="ltr">Mastodon</span>
-        github: <span lang="ja" dir="ltr">GitHub</span>
+        mastodon: Mastodon
+        github: GitHub
 banner:
     beta:
         text: >-
