@@ -30,7 +30,12 @@ class FlashMessageSubscriber implements EventSubscriberInterface
 
     public function onKernelResponse(ResponseEvent $event)
     {
-        if (HttpKernelInterface::MASTER_REQUEST !== $event->getRequestType()) {
+         // @todo remove this when we drop support for SF4, see https://github.com/symfony/http-kernel/blob/7.1/CHANGELOG.md#53
+        if (defined('HttpKernelInterface::MASTER_REQUEST') && HttpKernelInterface::MASTER_REQUEST !== $event->getRequestType()) {
+            return;
+        }
+
+        if (defined('HttpKernelInterface::MAIN_REQUEST') && HttpKernelInterface::MAIN_REQUEST !== $event->getRequestType()) {
             return;
         }
 
@@ -70,9 +75,7 @@ class FlashMessageSubscriber implements EventSubscriberInterface
         $existingTitles = array_keys(
             array_filter(
                 $flashes,
-                function (string $key) {
-                    return strpos($key, 'title-') === 0;
-                },
+                fn(string $key) => strpos($key, 'title-') === 0,
                 ARRAY_FILTER_USE_KEY
             )
         );
