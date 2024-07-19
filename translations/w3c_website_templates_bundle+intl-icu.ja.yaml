@@ -132,7 +132,7 @@ components:
     members:
         title: W3Cメンバー
         members_include: "{count}のメンバー組織が{ecosystem_name}エコシステムに関与しており、以下を含みます："
-        view_all: "{ecosystem_name}エコシステムのすべてのメンバーを見る"
+        view_all: "{ecosystem_name}エコシステムに参加しているすべてのメンバーを見る"
         get_involved: 関与する方法
         join: 参加する
         joinurl: /membership/join/
