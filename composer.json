@@ -8,16 +8,16 @@
         "php": ">=7.4",
         "ext-dom": "*",
         "ext-simplexml": "*",
-        "exercise/htmlpurifier-bundle": "^2.0 || ^4.0",
-        "symfony/http-kernel": "^4.4 || ^5.2 || ^6.0",
-        "symfony/asset": "^4.4 || ^5.2 || ^6.0",
-        "symfony/config": "^4.4 || ^5.2 || ^6.0",
-        "symfony/dependency-injection": "^4.4 || ^5.2 || ^6.0",
-        "symfony/form": "^4.4 || ^5.4 || ^6.0",
-        "symfony/twig-bridge": "^4.4 || ^5.3 || ^6.0",
-        "twig/twig": "^2.14 || ^3.3",
+        "exercise/htmlpurifier-bundle": "^2.0 || ^4.1 || ^5.0",
+        "symfony/http-kernel": "^4.4 || ^5.2 || ^6.0 || ^7.1",
+        "symfony/asset": "^4.4 || ^5.2 || ^6.0 || ^7.1",
+        "symfony/config": "^4.4 || ^5.2 || ^6.0 || ^7.1",
+        "symfony/dependency-injection": "^4.4 || ^5.2 || ^6.0 || ^7.1",
+        "symfony/form": "^4.4 || ^5.2 || ^6.0 || ^7.1",
+        "symfony/twig-bridge": "^4.4 || ^5.2 || ^6.0 || ^7.1",
+        "twig/twig": "^2.14 || ^3.10",
         "twig/intl-extra": "^3.3",
-        "chrisguitarguy/request-id-bundle": "^4.2 || ^5.0"
+        "chrisguitarguy/request-id-bundle": "^4.2 || ^5.0 || ^6.0"
     },
     "autoload": {
         "psr-4": {
@@ -26,6 +26,7 @@
     },
     "require-dev": {
         "studio24/design-system": "dev-main",
-        "studio24/deployer-recipes": "^1.1"
+        "studio24/deployer-recipes": "^v2.0",
+        "rector/rector": "^1.2"
     }
 }
