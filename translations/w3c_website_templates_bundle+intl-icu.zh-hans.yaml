@@ -45,10 +45,10 @@ footer:
         mastodon: W3C 在 Mastodon
         github: W3C 在 GitHub
 banner:
-    beta:
-        text: >-
-            这是一个全新的网站，<a href="https://github.com/w3c/w3c-website">请给予反馈</a>帮助我们建设完善网站。
-        icon: 测试版
+    text: >-
+        <span lang="en" dir="ltr">Please take our 6-minute community 
+        <a href="https://www.w3.org/news/2024/w3c-opens-community-wide-survey/">survey</a>
+        on how we fulfill our mission for the world-wide web.</span>
 header:
     logo_alt: W3C
     logo_link: 访问 W3C 主页

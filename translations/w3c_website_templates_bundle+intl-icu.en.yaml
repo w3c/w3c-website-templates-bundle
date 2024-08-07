@@ -49,11 +49,10 @@ footer:
         mastodon: <span lang="en" dir="ltr">W3C on Mastodon</span>
         github: <span lang="en" dir="ltr">W3C on GitHub</span>
 banner:
-    beta:
-        text: >-
-            <span lang="en" dir="ltr">This is a new website. <a href="https://github.com/w3c/w3c-website">Give feedback</a> to help us
-            improve it.</span>
-        icon: Beta
+    text: >-
+        <span lang="en" dir="ltr">Please take our 6-minute community 
+        <a href="https://www.w3.org/news/2024/w3c-opens-community-wide-survey/">survey</a>
+        on how we fulfill our mission for the world-wide web.</span>
 header:
     logo_alt: W3C
     logo_link: Visit the W3C homepage

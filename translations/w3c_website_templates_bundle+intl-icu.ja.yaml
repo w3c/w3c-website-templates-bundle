@@ -47,10 +47,10 @@ footer:
         mastodon: Mastodon
         github: GitHub
 banner:
-    beta:
-        text: >-
-            これは新しいウェブサイトです。 <a href="https://github.com/w3c/w3c-website">フィードバックを送る</a> ことで、私たちのウェブサイト改善にご協力ください。
-        icon: Beta
+    text: >-
+        <span lang="en" dir="ltr">Please take our 6-minute community 
+        <a href="https://www.w3.org/news/2024/w3c-opens-community-wide-survey/">survey</a>
+        on how we fulfill our mission for the world-wide web.</span>
 header:
     logo_alt: W3C
     logo_link: W3Cのホームページを訪れる
