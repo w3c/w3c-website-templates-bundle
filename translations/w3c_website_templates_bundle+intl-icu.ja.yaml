@@ -48,9 +48,7 @@ footer:
         github: GitHub
 banner:
     text: >-
-        <span lang="en" dir="ltr">Please take our 6-minute community 
-        <a href="https://www.w3.org/news/2024/w3c-opens-community-wide-survey/">survey</a>
-        on how we fulfill our mission for the world-wide web.</span>
+        <a hreflang="en" href="https://www.w3.org/news/2024/w3c-opens-community-wide-survey/">サーベイ</a>の回答完了までは約6分。ワールドワイドウェブの使命を継続して推進していくために、あなたの意見をお聞かせ下さい。
 header:
     logo_alt: W3C
     logo_link: W3Cのホームページを訪れる
