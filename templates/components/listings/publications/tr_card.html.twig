@@ -37,6 +37,17 @@
         </div>
     {% endif %}
     {% endblock translations %}
+    {% block crs %}
+        {% if spec.crd %}
+            {% set cr = spec.specification.lastSpecVersionOfType('CR') %} %}
+            {% if cr %}
+                <div>
+                    <dt>Latest Candidate Recommendation Snapshot</dt>
+                    <dd><a href="{{ cr.uri }}">{{ w3c_date_format(cr.date)|raw }}</a></dd>
+                </div>
+            {% endif %}
+        {% endif %}
+    {% endblock crs %}
     </dl>
     {% block description %}
         {{ spec.specification.description|raw }}
