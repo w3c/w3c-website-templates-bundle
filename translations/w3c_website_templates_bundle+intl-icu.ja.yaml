@@ -48,7 +48,9 @@ footer:
         github: GitHub
 banner:
     text: >-
-        <a href="https://www.w3.org/ja/news/2024/w3c-opens-community-wide-survey/">サーベイ</a>の回答完了までは約6分。ワールドワイドウェブの使命を継続して推進していくために、あなたの意見をお聞かせ下さい。
+        <span lang="en" dir="ltr">Watch online on 25 September at 6-7pm <abbr title=“Pacific Time”>PT</abbr>
+        (1-2am UTC +1) the <a href="https://www.w3.org/2024/09/TPAC/w3c-30.html”>
+        <abbr title="W3C’s 30th anniversary”>W3C@30</abbr></a> talks - 'From impact to imperative'</span>
 header:
     logo_alt: W3C
     logo_link: W3Cのホームページを訪れる

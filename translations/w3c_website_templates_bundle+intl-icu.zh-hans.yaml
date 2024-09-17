@@ -46,7 +46,9 @@ footer:
         github: W3C 在 GitHub
 banner:
     text: >-
-        欢迎填写我们的社区<a href="https://www.w3.org/zh-hans/news/2024/w3c-opens-community-wide-survey/">调查问卷</a>（需要6分钟），您的反馈将推动更好地实现万维网的使命。
+        <span lang="en" dir="ltr">Watch online on 25 September at 6-7pm <abbr title=“Pacific Time”>PT</abbr>
+        (1-2am UTC +1) the <a href="https://www.w3.org/2024/09/TPAC/w3c-30.html”>
+        <abbr title="W3C’s 30th anniversary”>W3C@30</abbr></a> talks - 'From impact to imperative'</span>
 header:
     logo_alt: W3C
     logo_link: 访问 W3C 主页
