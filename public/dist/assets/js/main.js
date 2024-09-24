@@ -957,6 +957,7 @@ let headingAnchors = function () {
           anchor.innerHTML = '<span aria-hidden="true">#</span>';
           anchor.innerHTML += '<span class="visuallyhidden">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('anchor', languageCode) + '</span>';
           heading.appendChild(anchor);
+          heading.id = anchorHref;
         });
       }
     }

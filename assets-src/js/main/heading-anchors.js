@@ -53,6 +53,7 @@ let headingAnchors = function () {
 					anchor.innerHTML = '<span aria-hidden="true">#</span>';
 					anchor.innerHTML += '<span class="visuallyhidden">' + translate.translate('anchor', languageCode) + '</span>';
 					heading.appendChild(anchor);
+					heading.id = anchorHref;
 				});
 			}
 
