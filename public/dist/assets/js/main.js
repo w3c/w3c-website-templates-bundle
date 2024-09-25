@@ -918,12 +918,13 @@ __webpack_require__.r(__webpack_exports__);
  * - do not have an ancestor with the data-anchor="no" attribute
  * - do not themselves have the data-anchor="no" attribute
  *
- * Uses regular expressions on the textContent of the heading to generate a
- * string to use for the anchor href, based on what would be a valid string
- * for an ID.
+ * If a heading does not already possess an ID, use regular expressions
+ * on the textContent of the heading to generate a string that is valid to
+ * use for both the heading ID and the anchor href. Supports non-Latin
+ * scripts by matching any Unicode letter - \p{L} - or number - \p{N}. The
+ * u flag enables Unicode matching, to support characters from any script.
  *
- * Supports non-Latin scripts by matching any Unicode letter - \p{L} - or number - \p{N}.
- * The u flag enables Unicode matching, to support characters from any script.
+ * Otherwise, generate the anchor using the existing heading ID value.
  */
 
 
@@ -947,18 +948,23 @@ let headingAnchors = function () {
       if (targetedHeadings.length > 0) {
         targetedHeadings.forEach(function (heading) {
           let anchor = document.createElement('a');
+          let anchorHref;
 
-          // Generate anchor href from the heading text. Steps are:
-          // - Remove leading/trailing spaces
-          // - Use RegEx to remove invalid characters but keep all Unicode letters/numbers
-          // - Use RegEx to replace spaces with hyphens
-          let anchorHref = heading.textContent.trim().replace(/[^\p{L}\p{N}\s-]/gu, '').replace(/\s+/g, '-');
+          // If the heading already has an ID, use this for constructing the anchor
+          if (heading.getAttribute('id')) {
+            anchorHref = heading.id;
+          } else {
+            // If the heading does not already have an ID, generate anchor href from the heading text. Steps are:
+            // - Remove leading/trailing spaces
+            // - Use RegEx to remove invalid characters but keep all Unicode letters/numbers
+            // - Use RegEx to replace spaces with hyphens
+            anchorHref = heading.textContent.trim().replace(/[^\p{L}\p{N}\s-]/gu, '').replace(/\s+/g, '-');
+            heading.id = anchorHref;
+          }
           anchor.setAttribute('href', '#' + anchorHref);
           anchor.setAttribute('class', 'heading-anchor');
-          anchor.innerHTML = '<span aria-hidden="true">#</span>';
-          anchor.innerHTML += '<span class="visuallyhidden">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('anchor', languageCode) + '</span>';
+          anchor.innerHTML = '<span aria-hidden="true">#</span>' + '<span class="visuallyhidden">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('anchor', languageCode) + '</span>';
           heading.appendChild(anchor);
-          heading.id = anchorHref;
         });
       }
     }
