@@ -8,8 +8,6 @@ Used on various [listing pages](../templates/listings.md).
 
 Note the use of the [cluster layout](../layouts/cluster.md).
 
-The `aria-label` attribute has been added to the `<nav>` element. This is because the main website navigation also uses the `<nav>` element. Where there are multiple`<nav>` elements on a single page, all must be given a unique accessible name via `aria-label`.
+The `aria-labelledby` attribute has been added to the `<nav>` element, which references the ID of the visually-hidden `<h2>` inside the `<nav>`. This is because the main website navigation also uses the `<nav>` element. Where there are multiple `<nav>` elements on a single page, they should all have a unique accessible name.
 
-For all pagination links excluding the current page, `<span class="visuallyhidden">page</span>` is added to provide additional context to the link wording for users of Assistive Technology.
-
-The current page is indicated by `aria-current="page"`. As per the [breadcrumbs component](breadcrumbs.md), it is fully linked so that users of Assistive Technology can find which is the currently active link. The `aria-label`on the current page link provides the same additional context as the visually-hidden span on other pagination links.
+The current page is indicated by `aria-current="page"`. As per the [breadcrumbs component](breadcrumbs.md), it is fully linked so that users of Assistive Technology can find which is the currently active link.
