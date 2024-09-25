@@ -25,7 +25,7 @@ let disclosureWidget = function () {
 
 		});
 
-		if (document.body.classList.contains('group')) {
+		if (document.body.classList.contains('profile')) {
 
 			// Media query event handler
 			let mq = window.matchMedia('(min-width: 64em)');

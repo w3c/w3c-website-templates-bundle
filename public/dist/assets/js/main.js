@@ -54,7 +54,6 @@ const translate = {
     },
     'en': {
       'admin': 'Admin',
-      'anchor': 'anchor',
       'backToMainMenu': 'Back to main menu',
       'cancelReply': 'Cancel reply',
       'controlsDescription': 'carousel controls',
@@ -131,22 +130,21 @@ const translate = {
     },
     'ja': {
       'admin': 'アドミン',
-      'anchor': '__anchor',
-      'backToMainMenu': '__backToMainMenu',
-      'cancelReply': '__cancelReply',
-      'controlsDescription': '__controlsDescription',
-      'logged-in': '__logged-in',
+      'backToMainMenu': 'メインメニューに戻る',
+      'cancelReply': '返信をキャンセル',
+      'controlsDescription': 'コントロールの説明',
+      'logged-in': 'ログイン済み',
       'logout': 'ログアウト',
       'member-site': 'メンバーサイト',
-      'menu': '__menu',
-      'my-account': 'アカウント',
-      'my-calendar': 'カレンダー',
-      'my-organization': '組織',
-      'nextSlide': '__nextSlide',
-      'previousSlide': '__previousSlide',
-      'sign-in': 'ログイン',
-      'sliderDescription': '__sliderDescription',
-      'slideText': '__Slide {x} of {y}',
+      'menu': 'メニュー',
+      'my-account': 'マイアカウント',
+      'my-calendar': 'マイカレンダー',
+      'my-organization': '私の組織',
+      'nextSlide': '次のスライド',
+      'previousSlide': '前のスライド',
+      'sign-in': 'サインイン',
+      'sliderDescription': 'スライダーの説明',
+      'slideText': 'スライド {x} / {y}',
       'team-site': 'チームサイト'
     },
     'pt-br': {
@@ -170,12 +168,11 @@ const translate = {
     },
     'zh-hans': {
       'admin': '管理',
-      'anchor': '__anchor',
       'backToMainMenu': '返回主目录',
       'cancelReply': '取消回复',
       'controlsDescription': '轮播图控件',
-      'logged-in': '已登陆',
-      'logout': '退出登陆',
+      'logged-in': '已登录',
+      'logout': '登出',
       'member-site': '会员页面',
       'menu': '目录',
       'my-account': '我的账号',
@@ -183,7 +180,7 @@ const translate = {
       'my-organization': '我所在的组织',
       'nextSlide': '下一页',
       'previousSlide': '上一页',
-      'sign-in': '登陆',
+      'sign-in': '登录',
       'sliderDescription': '轮播图',
       'slideText': '第{x}/{y}页',
       'team-site': '员工页面'
@@ -469,7 +466,7 @@ let disclosureWidget = function () {
       btn.style = "";
       btn.setAttribute('aria-expanded', 'false');
     });
-    if (document.body.classList.contains('group')) {
+    if (document.body.classList.contains('profile')) {
       // Media query event handler
       let mq = window.matchMedia('(min-width: 64em)');
       mq.addListener(WidthChange);
@@ -902,69 +899,6 @@ const flashes = function () {
 };
 
 
-/***/ }),
-/* 15 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "headingAnchors": () => (/* binding */ headingAnchors)
-/* harmony export */ });
-/* harmony import */ var _translations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
-/**
- * Add anchor links to any H2 - H6 within the <main> element that:
- * - are not children of a <nav> element
- * - do not have an ancestor with the data-anchor="no" attribute
- * - do not themselves have the data-anchor="no" attribute
- *
- * Uses regular expressions on the textContent of the heading to generate a
- * string to use for the anchor href, based on what would be a valid string
- * for an ID.
- *
- * Supports non-Latin scripts by matching any Unicode letter - \p{L} - or number - \p{N}.
- * The u flag enables Unicode matching, to support characters from any script.
- */
-
-
-let headingAnchors = function () {
-  let languageCode = document.documentElement.lang;
-
-  // Only add heading anchor links on "full" sites
-  if (languageCode === 'en' || languageCode === 'ja' || languageCode === 'zh-hans') {
-    let headingsArray = Array.from(document.querySelectorAll('main h2, main h3, main h4, main h5, main h6'));
-    if (headingsArray.length > 0) {
-      // Filter out headings that:
-      // - Are not children of <nav>
-      // - Do not have an ancestor with the data-anchor="no" attribute
-      // - Do not themselves have the data-anchor="no" attribute
-      let targetedHeadings = headingsArray.filter(function (heading) {
-        let insideNav = heading.closest('nav') !== null;
-        let parentHasDataAttribute = heading.closest('[data-anchor="no"]') !== null;
-        let hasDataAttribute = heading.getAttribute('data-anchor') === 'no';
-        return !insideNav && !parentHasDataAttribute && !hasDataAttribute;
-      });
-      if (targetedHeadings.length > 0) {
-        targetedHeadings.forEach(function (heading) {
-          let anchor = document.createElement('a');
-
-          // Generate anchor href from the heading text. Steps are:
-          // - Remove leading/trailing spaces
-          // - Use RegEx to remove invalid characters but keep all Unicode letters/numbers
-          // - Use RegEx to replace spaces with hyphens
-          let anchorHref = heading.textContent.trim().replace(/[^\p{L}\p{N}\s-]/gu, '').replace(/\s+/g, '-');
-          anchor.setAttribute('href', '#' + anchorHref);
-          anchor.innerHTML = '<span aria-hidden="true">#</span>';
-          anchor.innerHTML += '<span class="visuallyhidden">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('anchor', languageCode) + '</span>';
-          heading.appendChild(anchor);
-          heading.id = anchorHref;
-        });
-      }
-    }
-  }
-};
-
-
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -1047,8 +981,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_navigation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(10);
 /* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(13);
 /* harmony import */ var _main_flashes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(14);
-/* harmony import */ var _main_heading_anchors__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(15);
-
 
 
 
@@ -1065,7 +997,6 @@ function domLoadedActions() {
   (0,_main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__.formErrorSummary)();
   (0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__.responsiveTables)();
   (0,_main_flashes__WEBPACK_IMPORTED_MODULE_7__.flashes)();
-  (0,_main_heading_anchors__WEBPACK_IMPORTED_MODULE_8__.headingAnchors)();
 
   /* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
   const navDoubleIntro = document.querySelector('ul[data-component="nav-double-intro"]');

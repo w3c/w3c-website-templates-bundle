@@ -13,21 +13,16 @@
             'url' : 'footer.links.helpurl'|trans({}, 'w3c_website_templates_bundle')
         },
         {
-            'copy': 'footer.links.sponsor'|trans({}, 'w3c_website_templates_bundle'),
-            'url' : 'footer.links.sponsorurl'|trans({}, 'w3c_website_templates_bundle')
-        }
-        ,
-        {
             'copy': 'footer.links.donate'|trans({}, 'w3c_website_templates_bundle'),
             'url' : 'footer.links.donateurl'|trans({}, 'w3c_website_templates_bundle')
         },
         {
-            'copy': 'footer.links.privacy_policy'|trans({}, 'w3c_website_templates_bundle'),
-            'url' : 'footer.links.privacy_policyurl'|trans({}, 'w3c_website_templates_bundle')
-        },
-        {
             'copy': 'footer.links.legal'|trans({}, 'w3c_website_templates_bundle'),
             'url' : 'footer.links.legalurl'|trans({}, 'w3c_website_templates_bundle')
+        },
+        {
+            'copy': 'footer.links.corporation'|trans({}, 'w3c_website_templates_bundle'),
+            'url' : 'footer.links.corporationurl'|trans({}, 'w3c_website_templates_bundle')
         },
         {
             'copy': 'footer.links.system_status'|trans({}, 'w3c_website_templates_bundle'),
@@ -54,11 +49,6 @@
                         <img class="icon icon--larger" src="{{ asset('svg/mastodon.svg', 'website-2021') }}" width="20"
                              height="20" alt aria-hidden="true" loading="lazy"/>
                         <span class="visuallyhidden">{{ 'footer.links.mastodon'|trans({}, 'w3c_website_templates_bundle')|raw }}</span></a>
-                </li>
-                <li><a class="with-icon--larger" href="https://twitter.com/W3C" hreflang="en">
-                        <img class="icon icon--larger" src="{{ asset('svg/x.svg', 'website-2021') }}" width="20"
-                             height="20" alt aria-hidden="true" loading="lazy" />
-                        <span class="visuallyhidden">{{ 'footer.links.x'|trans({}, 'w3c_website_templates_bundle')|raw }}</span></a>
                 </li>
                 <li><a class="with-icon--larger" href="https://github.com/w3c/" hreflang="en">
                         <img class="icon icon--larger" src="{{ asset('svg/github.svg', 'website-2021') }}" width="20"
