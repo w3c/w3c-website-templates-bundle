@@ -50,6 +50,7 @@ let headingAnchors = function () {
 						.replace(/[^\p{L}\p{N}\s-]/gu, '')
 						.replace(/\s+/g, '-');
 					anchor.setAttribute('href', '#' + anchorHref);
+					anchor.setAttribute('class', 'heading-anchor');
 					anchor.innerHTML = '<span aria-hidden="true">#</span>';
 					anchor.innerHTML += '<span class="visuallyhidden">' + translate.translate('anchor', languageCode) + '</span>';
 					heading.appendChild(anchor);
