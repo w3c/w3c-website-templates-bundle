@@ -4,7 +4,7 @@ The table markup must include column and/or row headers (`<th>`). Some screen re
 
 Use the attributes `scope="col"` and `scope="row"` to differentiate between column and row headers respectively.
 
-Where there are both column and row headers, do not leave the first header cell empty as this can produce unexpected behaviour.
+Where there are both column and row headers, do not use an empty table header `<th>` in the first column as this can produce unexpected behaviour. An empty table cell `<td>` is acceptable, if necessary (note the example table which follows).
 
 Use a `<caption>` to label the table correctly. A heading element can be used within the caption if desired.
 
