@@ -34,12 +34,9 @@ table caption {
 }
 
 th {
+    background-color: $deep-blue;
+    color: $white;
     vertical-align: bottom;
-
-    &[scope="col"] {
-        background-color: $deep-blue;
-        color: $white;
-    }
 }
 
 td {
