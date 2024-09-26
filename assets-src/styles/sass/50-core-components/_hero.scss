@@ -30,14 +30,13 @@
 	}
 
 	.lead {
-		margin-bottom: rem(18);
-		margin-top: 0;
+		// margin-bottom: rem(18);
+		// margin-top: 0;
 	}
 
 	img {
 		margin-left: auto;
 		margin-right: auto;
-		//max-width: rem(500);
 
 		@include mq($bp-tab-small) {
 			max-width: rem(500);
@@ -47,11 +46,11 @@
 }
 
 .hero h1 {
-	margin-bottom: 1rem;
+	// margin-bottom: 1rem;
 }
 
 .hero + * {
-	margin-top: rem(50);
+	// margin-top: rem(50);
 }
 
 .hero .button {

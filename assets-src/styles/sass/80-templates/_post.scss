@@ -74,7 +74,7 @@
 
 .post .related__inner > div + div {
 	border-top: solid 1px $border-color;
-	margin-top: rem(24);
+	// margin-top: rem(24);
 	padding-top: rem(15);
 }
 
@@ -89,8 +89,8 @@
 .post {
 	.sub-head {
 		@include txt-pluto;
-		margin-bottom: rem(30);
-		margin-top: rem(-20);
+		// margin-bottom: rem(30);
+		// margin-top: rem(-20);
 	}
 
 	.meta {

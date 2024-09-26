@@ -7,8 +7,8 @@
 table {
     border: 1px solid $border-color;
     border-collapse: collapse;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    // margin-bottom: 1rem;
+    // margin-top: 1rem;
     width: 100%;
 }
 
@@ -54,8 +54,8 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
 @media screen {
     .table-wrap {
         border: 1px solid $border-color;
-        margin-bottom: 1rem;
-        margin-top: 1rem;
+        // margin-bottom: 1rem;
+        // margin-top: 1rem;
         max-width: 100% !important;
 
         &[role][aria-labelledby][tabindex] {

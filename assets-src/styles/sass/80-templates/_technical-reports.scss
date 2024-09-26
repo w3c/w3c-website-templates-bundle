@@ -35,7 +35,7 @@
 
 .tr-list {
 	.tr-list__item {
-		@include stack(0.5em);
+		// @include stack(0.5em);
 		@include txt-pluto;
 		padding-bottom: rem(24);
 		padding-top: rem(24);

@@ -482,10 +482,8 @@ template {
     #Quotes
 \*------------------------------------*/
 blockquote {
-  -webkit-margin-end: 1.5625rem;
-          margin-inline-end: 1.5625rem;
-  -webkit-margin-start: 1.5625rem;
-          margin-inline-start: 1.5625rem;
+  margin-inline-end: 1.5625rem;
+  margin-inline-start: 1.5625rem;
   padding: 0.625rem;
   position: relative;
 }
@@ -497,9 +495,6 @@ blockquote::before {
   position: absolute;
   top: 0;
   width: 0.1875rem;
-}
-blockquote > * + * {
-  margin-top: 1rem;
 }
 blockquote > *:first-child {
   margin-top: 0;
@@ -553,9 +548,7 @@ Styles needed for a sticky footer
 *::after {
   box-sizing: border-box;
   font-family: inherit;
-  margin: 0;
   overflow-wrap: break-word;
-  padding: 0;
 }
 
 /*------------------------------------*\
@@ -868,7 +861,7 @@ select:focus {
 /**
 Select with custom arrow icon
  */
-@supports ((-webkit-padding-start: 1em) or (padding-inline-start: 1em)) {
+@supports (padding-inline-start: 1em) {
   select {
     -webkit-appearance: none;
        -moz-appearance: none;
@@ -877,8 +870,7 @@ Select with custom arrow icon
     background-position: center right 0.625rem;
     background-repeat: no-repeat;
     background-size: 0.9375rem;
-    -webkit-padding-end: 2.125rem;
-            padding-inline-end: 2.125rem;
+    padding-inline-end: 2.125rem;
   }
   [dir=rtl] select {
     background-position: center left 0.625rem;
@@ -1432,8 +1424,7 @@ Progress bar
 .global-header [role=status], .visuallyhidden:not(:focus):not(:active), .skip-link:not(:focus):not(:active) {
   border: 0;
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(100%);
-          clip-path: inset(100%);
+  clip-path: inset(100%);
   height: 1px;
   overflow: hidden;
   padding: 0;
@@ -1567,22 +1558,20 @@ Pay attention to whether the icon is before the text or after.
 .with-icon--before .icon {
   margin-right: 0.5rem;
 }
-@supports ((-webkit-margin-end: 1em) or (margin-inline-end: 1em)) {
+@supports (margin-inline-end: 1em) {
   .with-icon--before .icon {
     margin-right: 0;
-    -webkit-margin-end: 0.5rem;
-            margin-inline-end: 0.5rem; /* 2 */
+    margin-inline-end: 0.5rem; /* 2 */
   }
 }
 
 .with-icon--after .icon {
   margin-left: 0.5rem;
 }
-@supports ((-webkit-margin-start: 1em) or (margin-inline-start: 1em)) {
+@supports (margin-inline-start: 1em) {
   .with-icon--after .icon {
     margin-left: 0;
-    -webkit-margin-start: 0.5rem;
-            margin-inline-start: 0.5rem; /* 2 */
+    margin-inline-start: 0.5rem; /* 2 */
   }
 }
 
@@ -1590,22 +1579,20 @@ Pay attention to whether the icon is before the text or after.
   margin-left: 0.5rem;
   margin-right: 0;
 }
-@supports ((-webkit-margin-start: 1em) or (margin-inline-start: 1em)) {
+@supports (margin-inline-start: 1em) {
   [dir=rtl] .with-icon--before .icon {
     margin-left: 0;
-    -webkit-margin-end: 0.5rem;
-            margin-inline-end: 0.5rem; /* 2 */
+    margin-inline-end: 0.5rem; /* 2 */
   }
 }
 [dir=rtl] .with-icon--after .icon {
   margin-left: 0;
   margin-right: 0.5rem;
 }
-@supports ((-webkit-margin-start: 1em) or (margin-inline-start: 1em)) {
+@supports (margin-inline-start: 1em) {
   [dir=rtl] .with-icon--after .icon {
     margin-right: 0;
-    -webkit-margin-start: 0.5rem;
-            margin-inline-start: 0.5rem; /* 2 */
+    margin-inline-start: 0.5rem; /* 2 */
   }
 }
 
@@ -1719,25 +1706,8 @@ ul[class] {
 ul:not([class]),
 ol:not([class]),
 ol.counter {
-  -webkit-margin-after: 1em;
-          margin-block-end: 1em;
-  -webkit-margin-before: 1em;
-          margin-block-start: 1em;
-  -webkit-padding-start: 2.4em;
-          padding-inline-start: 2.4em;
+  padding-inline-start: 2.4em;
 }
-ul:not([class]) > * + *,
-ul:not([class]) li ul,
-ul:not([class]) li ol,
-ol:not([class]) > * + *,
-ol:not([class]) li ul,
-ol:not([class]) li ol,
-ol.counter > * + *,
-ol.counter li ul,
-ol.counter li ol {
-  margin-top: 0.75em;
-}
-
 ol.counter ::marker {
   content: counters(list-item, ".") ". ";
 }
@@ -1749,31 +1719,19 @@ ol.counter ::marker {
 /**
 Description lists / Definition lists
  */
-dl {
-  -webkit-margin-after: 1em;
-          margin-block-end: 1em;
-  -webkit-margin-before: 1em;
-          margin-block-start: 1em;
-}
 dl dt {
   font-weight: bold;
 }
 dl dd + dt {
   margin-top: 0.5em;
 }
-dl dt + dd,
-dl dd + dd {
-  margin-top: 0.25em;
-}
-
 dl.inline div {
   align-items: baseline;
   display: flex;
   flex-wrap: wrap;
 }
 dl.inline div dt, dl.inline div dd {
-  -webkit-margin-start: 0;
-          margin-inline-start: 0;
+  margin-inline-start: 0;
 }
 dl.inline div dt::after {
   content: ": ";
@@ -1847,8 +1805,7 @@ summary::before {
   border-style: solid;
   border-width: 7px 0 7px 12.124px;
   bottom: 0;
-  -webkit-clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
-          clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
   content: "";
   display: block;
   height: 0;
@@ -1880,15 +1837,6 @@ summary:focus {
 }
 summary:focus span {
   text-decoration: none;
-}
-
-details {
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-}
-
-details[open] > summary {
-  margin-bottom: 1rem;
 }
 
 details[open] > summary::before {
@@ -1929,8 +1877,6 @@ details[open] > summary::before {
 table {
   border: 1px solid #bdbdbd;
   border-collapse: collapse;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
   width: 100%;
 }
 
@@ -1972,8 +1918,6 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
 @media screen {
   .table-wrap {
     border: 1px solid #bdbdbd;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
     max-width: 100% !important;
   }
   .table-wrap[role][aria-labelledby][tabindex] {
@@ -2001,13 +1945,8 @@ body {
   line-height: 1.5;
 }
 
-p {
-  margin: 1rem 0;
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
-  margin: 0 0 1rem;
 }
 
 h1 {
@@ -2388,8 +2327,6 @@ so that either of these properties is applied instead.
 .global-header .banner__inner p {
   font-size: 0.875rem;
   line-height: 1.4285714286;
-  margin-bottom: 0;
-  margin-top: 0;
 }
 .global-header .banner__inner a {
   color: #024488;
@@ -2449,9 +2386,6 @@ so that either of these properties is applied instead.
     flex-grow: 999;
     min-width: calc(80% - 1.5rem);
   }
-  #archive-banner .archive-banner__message > * + * {
-    margin-top: 1rem;
-  }
   #archive-banner .archive-banner__message > * {
     max-width: 41.25rem;
   }
@@ -2463,9 +2397,6 @@ so that either of these properties is applied instead.
   #archive-banner .archive-banner__message h3 {
     font-size: 1rem;
     line-height: 1.3333333333;
-  }
-  #archive-banner .archive-banner__message h3 + * {
-    margin-top: 0;
   }
   #archive-banner a {
     color: #024488;
@@ -2622,15 +2553,13 @@ so that either of these properties is applied instead.
 
 @media screen and (min-width: 70em) {
   li.top-nav-item + li.top-nav-item {
-    -webkit-margin-start: 0.25rem;
-            margin-inline-start: 0.25rem;
+    margin-inline-start: 0.25rem;
   }
 }
 
 @media screen and (min-width: 70em) {
   .global-nav__inner > ul > li:last-child {
-    -webkit-margin-start: auto;
-            margin-inline-start: auto;
+    margin-inline-start: auto;
   }
 }
 
@@ -2669,8 +2598,7 @@ so that either of these properties is applied instead.
 }
 @media screen and (min-width: 70em) {
   .logo-link {
-    -webkit-margin-end: 1.5625rem;
-            margin-inline-end: 1.5625rem;
+    margin-inline-end: 1.5625rem;
     padding-bottom: 0.3125rem;
     position: relative;
   }
@@ -2716,18 +2644,15 @@ so that either of these properties is applied instead.
   color: #000;
 }
 .icon-link .hide-at-max-width {
-  -webkit-margin-start: 0.625rem;
-          margin-inline-start: 0.625rem;
+  margin-inline-start: 0.625rem;
 }
 @media screen and (min-width: 70em) {
   .icon-link .hide-at-max-width {
     border: 0;
     clip: rect(0 0 0 0);
-    -webkit-clip-path: inset(100%);
-            clip-path: inset(100%);
+    clip-path: inset(100%);
     height: 1px;
-    -webkit-margin-start: 0;
-            margin-inline-start: 0;
+    margin-inline-start: 0;
     overflow: hidden;
     padding: 0;
     position: absolute;
@@ -2901,15 +2826,6 @@ main,
   padding: 1.5rem 5vw 6.25rem;
 }
 
-#main .component + .component {
-  margin-top: 5rem;
-}
-@media screen and (min-width: 48em) {
-  #main .component + .component {
-    margin-top: 6.25rem;
-  }
-}
-
 #main .component.u-full-width + .component.u-full-width {
   margin-top: 0;
 }
@@ -2941,10 +2857,6 @@ main,
     max-width: 31.5rem;
   }
 }
-.hero .lead {
-  margin-bottom: 1.125rem;
-  margin-top: 0;
-}
 .hero img {
   margin-left: auto;
   margin-right: auto;
@@ -2953,14 +2865,6 @@ main,
   .hero img {
     max-width: 31.25rem;
   }
-}
-
-.hero h1 {
-  margin-bottom: 1rem;
-}
-
-.hero + * {
-  margin-top: 3.125rem;
 }
 
 .hero .button {
@@ -3094,8 +2998,7 @@ main,
 }
 .landing .translations .sidebar span,
 .ecosystem .translations .sidebar span {
-  -webkit-padding-end: 1em;
-          padding-inline-end: 1em;
+  padding-inline-end: 1em;
 }
 .landing .translations .l-sidebar .not-sidebar,
 .ecosystem .translations .l-sidebar .not-sidebar {
@@ -3110,15 +3013,6 @@ main,
 /*------------------------------------*\
     #Table of contents (TOC)
 \*------------------------------------*/
-.toc + * {
-  margin-top: 1.875rem;
-}
-@media screen and (min-width: 70em) {
-  .toc + * {
-    margin-top: 5rem;
-  }
-}
-
 .toc h2 {
   font-size: 1rem;
   font-weight: normal;
@@ -3148,13 +3042,6 @@ main,
 .component--text > * {
   max-width: 41.25rem;
 }
-.component--text > * + h2,
-.component--text > * + h3,
-.component--text > * + h4,
-.component--text > * + h5,
-.component--text > * + h6 {
-  margin-top: 2em;
-}
 
 /*------------------------------------*\
     #Quotes
@@ -3164,10 +3051,8 @@ main,
   line-height: 1.5;
   color: #005a9c;
   font-weight: bold;
-  -webkit-margin-end: 0;
-          margin-inline-end: 0;
-  -webkit-margin-start: 0.625rem;
-          margin-inline-start: 0.625rem;
+  margin-inline-end: 0;
+  margin-inline-start: 0.625rem;
   padding: 1.25rem;
   position: relative;
 }
@@ -3192,8 +3077,6 @@ main,
 .component--image figcaption {
   font-size: 0.9375rem;
   line-height: 1.5;
-  -webkit-margin-before: 1em;
-          margin-block-start: 1em;
 }
 .component--image figcaption > * {
   max-width: 33.75rem;
@@ -3474,15 +3357,6 @@ a.tag {
     justify-content: space-between;
   }
 }
-.component--fifty-fifty > * + * {
-  margin-top: 1rem;
-}
-@media screen and (min-width: 48em) {
-  .component--fifty-fifty > * + * {
-    margin-top: 0;
-  }
-}
-
 @media screen and (min-width: 48em) {
   .component--fifty-fifty__text {
     flex-basis: 52%;
@@ -3492,19 +3366,6 @@ a.tag {
   .component--fifty-fifty__text {
     flex-basis: 45%;
   }
-}
-
-.component--fifty-fifty__text .l-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin-top: 1.875rem;
-}
-.component--fifty-fifty__text .l-box > * + * {
-  margin-top: 1rem;
-}
-.component--fifty-fifty__text .l-box a {
-  align-self: flex-start;
 }
 
 @media screen and (min-width: 48em) {
@@ -3547,15 +3408,6 @@ a.tag {
     justify-content: space-between;
   }
 }
-.component--evangelists > * + * {
-  margin-top: 1rem;
-}
-@media screen and (min-width: 64em) {
-  .component--evangelists > * + * {
-    margin-top: 0;
-  }
-}
-
 @media screen and (min-width: 64em) {
   .component--evangelists__text {
     flex-basis: 45%;
@@ -3584,21 +3436,11 @@ a.tag {
 .component--evangelists__list li + li {
   border-top: solid 1px #649bc5;
 }
-.component--evangelists__list p {
-  margin-bottom: 0;
-  margin-top: 0;
-}
 .component--evangelists__list .sidebar {
   flex-basis: auto;
 }
 .component--evangelists__list .not-sidebar {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   min-width: calc(65% - 1.5rem);
-}
-.component--evangelists__list .not-sidebar > * + * {
-  margin-top: 0.75em;
 }
 .component--evangelists__list a {
   color: #fff;
@@ -3651,19 +3493,6 @@ a.tag {
   box-shadow: -0.0625rem 0.0625rem 0.25rem rgba(55, 70, 95, 0.12);
   padding: 1.5625rem;
 }
-.component--collapsibles > div + div {
-  margin-top: 1rem;
-}
-
-[data-heading=collapsibles] span {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-[data-heading=collapsibles] span > * + * {
-  margin-top: 1rem;
-}
-
 [data-heading=collapsibles] h3 {
   font-size: 1.125rem;
   line-height: 1.5;
@@ -3674,7 +3503,6 @@ a.tag {
   line-height: 1.5;
   display: block;
   font-weight: normal;
-  margin-top: 1rem;
 }
 
 [data-heading=collapsibles] + * > * {
@@ -3779,15 +3607,6 @@ a.tag {
     justify-content: space-between;
   }
 }
-.slide > * + * {
-  margin-top: 1rem;
-}
-@media screen and (min-width: 64em) {
-  .slide > * + * {
-    margin-top: 0;
-  }
-}
-
 @media screen and (min-width: 64em) {
   .slide__quote,
   .slide__cite {
@@ -3800,8 +3619,7 @@ a.tag {
   font-size: 1.25rem;
   font-weight: bold;
   line-height: 1.6;
-  -webkit-margin-start: 2.1875rem;
-          margin-inline-start: 2.1875rem;
+  margin-inline-start: 2.1875rem;
   padding-top: 0.9375rem;
   position: relative;
 }
@@ -3836,8 +3654,7 @@ a.tag {
 .slide__cite {
   font-size: 0.9375rem;
   line-height: 1.5;
-  -webkit-padding-start: 0.3125rem;
-          padding-inline-start: 0.3125rem;
+  padding-inline-start: 0.3125rem;
 }
 .slide__cite.l-sidebar .sidebar {
   flex-basis: auto;
@@ -3890,12 +3707,7 @@ a.tag {
 .component--slider h2 {
   font-size: 1rem;
   font-weight: normal;
-  margin-bottom: 1.5rem;
 }
-.component--slider ul > li + li {
-  margin-top: 2rem;
-}
-
 /*------------------------------------*\
     #Crosslinks (You may also like)
 \*------------------------------------*/
@@ -3917,6 +3729,9 @@ a.tag {
 .crosslinks .component--columns__intro a:active {
   color: #fff;
 }
+.crosslinks .component--columns__intro a:focus {
+  color: #111;
+}
 
 @media screen and (min-width: 43.75em) {
   .crosslinks .component--columns--images > ul {
@@ -3932,12 +3747,6 @@ a.tag {
     padding: 1.5%;
   }
 }
-@media screen and (min-width: 43.75em) {
-  .crosslinks .component--columns--images > ul li + li {
-    margin-top: 0;
-  }
-}
-
 @media screen and (min-width: 43.75em) {
   .crosslinks .component--columns--images li:nth-last-child(n+3):nth-last-child(-n+3):first-child,
   .crosslinks .component--columns--images li:nth-last-child(n+3):nth-last-child(-n+3):first-child ~ li {
@@ -3999,14 +3808,13 @@ input[type=search] {
   max-width: none;
 }
 
-@supports ((-webkit-padding-start: 1em) or (padding-inline-start: 1em)) {
+@supports (padding-inline-start: 1em) {
   input[type=search] {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs/%3E%3Cpath d='M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z'/%3E%3C/svg%3E");
     background-position: center left 0.5em;
     background-repeat: no-repeat;
     background-size: 1.25rem;
-    -webkit-padding-start: 2.5rem;
-            padding-inline-start: 2.5rem;
+    padding-inline-start: 2.5rem;
   }
   [dir=rtl] input[type=search] {
     background-position: center right 0.5em;
@@ -4035,10 +3843,6 @@ input[type=search] {
 \*------------------------------------*/
 .family-grouping {
   padding-top: 2.5rem;
-}
-
-.family-grouping h2 + * {
-  margin-top: 1rem;
 }
 
 /*------------------------------------*\
@@ -4155,10 +3959,6 @@ input[type=search] {
   border-bottom: solid 1px #bdbdbd;
   padding-bottom: 3.125rem;
 }
-.comment-list > li + li {
-  margin-top: 1.25rem;
-}
-
 .l-sidebar.comment {
   overflow: visible;
 }
@@ -4183,7 +3983,6 @@ input[type=search] {
 
 .reply-list.reply-list {
   margin-left: 4.375rem;
-  margin-top: 1.875rem;
   padding-left: 1.875rem;
   position: relative;
 }
@@ -4200,10 +3999,6 @@ input[type=search] {
 .reply-list.reply-list > li {
   border-top: solid 1px #bdbdbd;
 }
-.reply-list.reply-list > li + li {
-  margin-top: 1.25rem;
-}
-
 [dir=rtl] .reply-list.reply-list {
   margin-left: 0;
   margin-right: 4.375rem;
@@ -4237,17 +4032,10 @@ input[type=search] {
   padding-top: 0.6875rem;
 }
 
-#respond {
-  margin-top: 1rem;
-}
 #respond > div:first-of-type {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-}
-
-.comment-form-wrap {
-  margin-top: 1.875rem;
 }
 
 #comment-form {
@@ -4279,10 +4067,6 @@ input[type=search] {
   width: calc(846400px - 92000%);
 }
 
-.pre-footer h2 + * {
-  margin-top: 1em;
-}
-
 .pre-footer a {
   display: block;
 }
@@ -4296,21 +4080,10 @@ input[type=search] {
   grid-row-end: 3;
   padding: 1.25rem 0 1.5625rem;
 }
-.global-footer .l-center {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-.global-footer .l-center > * + * {
-  margin-top: 1rem;
-}
 .global-footer a,
 .global-footer .copyright {
   font-size: 0.875rem;
   line-height: 1.4285714286;
-}
-.global-footer .copyright {
-  margin-bottom: 0;
 }
 .global-footer a {
   color: #111;
@@ -4329,8 +4102,7 @@ input[type=search] {
 }
 @media screen and (min-width: 64em) {
   .global-footer__links > ul {
-    -webkit-margin-start: auto;
-            margin-inline-start: auto;
+    margin-inline-start: auto;
   }
 }
 .global-footer__links .l-cluster > * {
@@ -4409,8 +4181,7 @@ input[type=search] {
 }
 @media screen and (min-width: 64em) {
   .default .related__inner {
-    -webkit-border-start: solid 1px #bdbdbd;
-            border-inline-start: solid 1px #bdbdbd;
+    border-inline-start: solid 1px #bdbdbd;
     padding-left: 1.25rem;
     padding-right: 1.25rem;
   }
@@ -4433,8 +4204,7 @@ input[type=search] {
   display: flex;
   flex-direction: column;
   margin-bottom: 1.25rem;
-  -webkit-margin-start: 1.875rem;
-          margin-inline-start: 1.875rem;
+  margin-inline-start: 1.875rem;
   position: relative;
 }
 .event .intro::before {
@@ -4560,7 +4330,6 @@ input[type=search] {
 
 .post .related__inner > div + div {
   border-top: solid 1px #bdbdbd;
-  margin-top: 1.5rem;
   padding-top: 0.9375rem;
 }
 
@@ -4575,8 +4344,6 @@ input[type=search] {
 .post .sub-head {
   font-size: 0.9375rem;
   line-height: 1.5;
-  margin-bottom: 1.875rem;
-  margin-top: -1.25rem;
 }
 .post .meta {
   position: relative;
@@ -4761,18 +4528,6 @@ input[type=search] {
   width: 0.8em;
 }
 
-.event-list,
-.member-list,
-.group-list,
-.tr-stats-list {
-  margin-top: 2.5rem;
-}
-.event-list > * + *,
-.member-list > * + *,
-.group-list > * + *,
-.tr-stats-list > * + * {
-  margin-top: 1rem;
-}
 .event-list .card,
 .member-list .card,
 .group-list .card,
@@ -4834,8 +4589,7 @@ input[type=search] {
   max-width: 18.75rem;
 }
 .event-list .date-location img {
-  -webkit-margin-end: 0.75rem;
-          margin-inline-end: 0.75rem;
+  margin-inline-end: 0.75rem;
   width: 1.125rem;
 }
 .event-list .date-location .date-orig {
@@ -4843,10 +4597,8 @@ input[type=search] {
   padding-bottom: 0.625rem;
 }
 .event-list .date-location > div:last-child {
-  -webkit-border-start: solid 1px #bdbdbd;
-          border-inline-start: solid 1px #bdbdbd;
-  -webkit-padding-start: 0.75rem;
-          padding-inline-start: 0.75rem;
+  border-inline-start: solid 1px #bdbdbd;
+  padding-inline-start: 0.75rem;
 }
 
 .member-list .card__text > * {
@@ -4911,8 +4663,7 @@ input[type=search] {
 }
 @media screen and (min-width: 64em) {
   .profile .profile-nav__inner {
-    -webkit-border-start: solid 1px #bdbdbd;
-            border-inline-start: solid 1px #bdbdbd;
+    border-inline-start: solid 1px #bdbdbd;
     margin-bottom: 0;
     padding-left: 1.25rem;
     padding-right: 1.25rem;
@@ -4968,16 +4719,10 @@ input[type=search] {
 }
 
 .tr-list .tr-list__item {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   font-size: 0.9375rem;
   line-height: 1.5;
   padding-bottom: 1.5rem;
   padding-top: 1.5rem;
-}
-.tr-list .tr-list__item > * + * {
-  margin-top: 0.5em;
 }
 .tr-list .tr-list__item > * {
   max-width: 51.25rem;

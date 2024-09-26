@@ -10,12 +10,11 @@
 	}
 
 	> * + * {
-		margin-top: 1rem;
-
-		@include mq($bp-tab-large) {
-			margin-top: 0;
-		}
-
+		// margin-top: 1rem;
+        //
+		// @include mq($bp-tab-large) {
+		// 	margin-top: 0;
+		// }
 	}
 }
 
@@ -50,8 +49,8 @@
 	}
 
 	p {
-		margin-bottom: 0;
-		margin-top: 0;
+		// margin-bottom: 0;
+		// margin-top: 0;
 	}
 
 	.sidebar {
@@ -59,7 +58,7 @@
 	}
 
 	.not-sidebar {
-		@include stack(0.75em);
+		// @include stack(0.75em);
 		min-width: calc(65% - 1.5rem);
 	}
 

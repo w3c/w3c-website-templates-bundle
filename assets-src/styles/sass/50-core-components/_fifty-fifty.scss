@@ -11,11 +11,11 @@
 	}
 
 	> * + * {
-		margin-top: 1rem;
-
-		@include mq($bp-tab-small) {
-			margin-top: 0;
-		}
+		// margin-top: 1rem;
+        //
+		// @include mq($bp-tab-small) {
+		// 	margin-top: 0;
+		// }
 	}
 }
 
@@ -30,12 +30,12 @@
 }
 
 .component--fifty-fifty__text .l-box {
-	@include stack(1rem);
-	margin-top: rem(30);
+	// @include stack(1rem);
+	// margin-top: rem(30);
 
-	a {
-		align-self: flex-start;
-	}
+	// a {
+	// 	align-self: flex-start;
+	// }
 }
 
 .component--fifty-fifty .image,

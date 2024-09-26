@@ -5,11 +5,11 @@
 .component--text > * {
 	max-width: rem($text-measure);
 
-	+ h2,
-	+ h3,
-	+ h4,
-	+ h5,
-	+ h6 {
-		margin-top: 2em;
-	}
+	// + h2,
+	// + h3,
+	// + h4,
+	// + h5,
+	// + h6 {
+	// 	margin-top: 2em;
+	// }
 }

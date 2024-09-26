@@ -3,11 +3,11 @@
 \*------------------------------------*/
 
 .toc + * {
-	margin-top: rem(30);
-
-	@include mq($max-width) {
-		margin-top: rem(80);
-	}
+	// margin-top: rem(30);
+    //
+	// @include mq($max-width) {
+	// 	margin-top: rem(80);
+	// }
 }
 
 .toc h2 {

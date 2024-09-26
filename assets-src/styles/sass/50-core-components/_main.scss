@@ -18,11 +18,11 @@ main,
 }
 
 #main .component + .component {
-	margin-top: rem(80);
-
-	@include mq($bp-tab-small) {
-		margin-top: rem(100);
-	}
+	// margin-top: rem(80);
+    //
+	// @include mq($bp-tab-small) {
+	// 	margin-top: rem(100);
+	// }
 }
 
 #main .component.u-full-width + .component.u-full-width {

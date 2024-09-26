@@ -11,13 +11,13 @@
 	}
 
 	> div + div {
-		margin-top: 1rem;
+		// margin-top: 1rem;
 	}
 
 }
 
 [data-heading="collapsibles"] span {
-	@include stack(1rem);
+	// @include stack(1rem);
 }
 
 [data-heading="collapsibles"] h3 {
@@ -28,7 +28,7 @@
 	@include txt-pluto;
 	display: block;
 	font-weight: normal;
-	margin-top: 1rem;
+	// margin-top: 1rem;
 }
 
 [data-heading="collapsibles"] + * {
