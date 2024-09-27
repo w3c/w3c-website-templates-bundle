@@ -34,9 +34,13 @@ table caption {
 }
 
 th {
+    vertical-align: bottom;
+}
+
+thead th,
+tfoot th {
     background-color: $deep-blue;
     color: $white;
-    vertical-align: bottom;
 }
 
 td {

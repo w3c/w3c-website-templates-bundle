@@ -1939,9 +1939,13 @@ table caption {
 }
 
 th {
+  vertical-align: bottom;
+}
+
+thead th,
+tfoot th {
   background-color: #024488;
   color: #fff;
-  vertical-align: bottom;
 }
 
 td {
