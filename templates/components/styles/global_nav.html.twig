@@ -8,7 +8,7 @@
         </a>
         <button type="button" class="button button--ghost with-icon--after with-icon--larger" data-trigger="mobile-nav"
                 style="display: none;"></button>
-        <ul class="clean-list" data-component="nav-double-intro">
+        <ul data-component="nav-double-intro">
             {% for navItem in navigation %}
                 <li class="top-nav-item has-children">
                     <a href="{{ navItem.titleLink }}" class="nav-link">{{ navItem.title }} <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" height="16" width="16" class="icon icon--submenu" focusable="false" aria-hidden="true" fill="currentColor" style="visibility: hidden"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></a>
@@ -26,7 +26,7 @@
                                 </div>
                             </div>
                             {% if navItem.children is defined and navItem.children|length > 0 %}
-                                <ul class="clean-list" role="list">
+                                <ul>
                                     {% for child in navItem.children %}
                                         <li {{ child.startNewColumn is defined and child.startNewColumn ? 'class="break-after"' : '' }}>
                                             <a class="with-icon--before with-icon--larger" href="{{ child.url }}">

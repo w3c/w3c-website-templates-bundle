@@ -1736,6 +1736,25 @@ that the number of items in a list is announced, add role="list" to the <ul> / <
 }
 
 /**
+Remove bullets, margin and padding from lists inside a <nav> element
+ */
+nav ul,
+nav ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav ul li,
+nav ul ol,
+nav ul ul,
+nav ol li,
+nav ol ol,
+nav ol ul {
+  margin: 0;
+  padding: 0;
+}
+
+/**
 Description lists / Definition lists
  */
 dl {
