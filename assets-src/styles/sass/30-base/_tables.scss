@@ -35,11 +35,12 @@ table caption {
 
 th {
     vertical-align: bottom;
+}
 
-    &[scope="col"] {
-        background-color: $deep-blue;
-        color: $white;
-    }
+thead th,
+tfoot th {
+    background-color: $deep-blue;
+    color: $white;
 }
 
 td {
