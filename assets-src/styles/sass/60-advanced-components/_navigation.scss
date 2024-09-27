@@ -300,34 +300,39 @@
 
 .global-nav__inner .nav__submenu li a {
 	color: $off-black;
+    display: block;
 	font-size: rem(19);
 	line-height: calc(27 / 18);
 	padding-bottom: rem(8);
 	padding-top: rem(8);
 	text-decoration: none;
-	width: 100%;
 
 	@include mq($max-width) {
+        align-items: center;
+        display: inline-flex;
+        padding-inline: rem(2);
 		width: auto;
-	}
 
-	.icon--larger {
-		display: none;
-		fill: $link-color;
-
-		@include mq($max-width) {
-			display: block;
-			height: rem(25);
-			width: rem(25);
-		}
+        // Decorative chevron
+        &::before {
+            block-size: rem(16);
+            border-color: $w3c-blue;
+            border-style: solid;
+            border-width: 0 rem(4) rem(4) 0;
+            content: '';
+            inline-size: rem(16);
+            flex: 0 0 auto;
+            margin-inline-end: rem(16);
+            transform: rotate(-45deg);
+        }
 	}
 
 	&:hover {
 		color: $link-color--hover;
 
-		svg {
-			fill: currentColor;
-		}
+        &::before {
+            border-color: $deep-blue;
+        }
 	}
 
 	&:focus {
@@ -335,28 +340,14 @@
 		background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
 		color: $black;
 
-		svg {
-			fill: currentColor;
-		}
+        &::before {
+            border-color: $black;
+        }
 	}
 }
 
-.global-nav__inner .nav__submenu li.break-after {
-	break-after: column;
-}
-
-.global-nav__inner .nav__submenu a {
-	.chevron-left {
-		display: none;
-	}
-}
-
-[dir='rtl'] {
-	.global-nav__inner .nav__submenu a .chevron-left {
-		display: block;
-	}
-
-	.global-nav__inner .nav__submenu a .chevron-right {
-		display: none;
-	}
+[dir="rtl"] {
+    .global-nav__inner .nav__submenu li a::before {
+        transform: rotate(135deg);
+    }
 }

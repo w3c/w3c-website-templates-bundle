@@ -605,58 +605,49 @@ br {
 
 .global-nav__inner .nav__submenu li a {
   color: #111;
+  display: block;
   font-size: 1.1875rem;
   line-height: 1.5;
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
   text-decoration: none;
-  width: 100%;
 }
 @media screen and (min-width: 70em) {
   .global-nav__inner .nav__submenu li a {
+    align-items: center;
+    display: inline-flex;
+    padding-inline: 0.125rem;
     width: auto;
   }
-}
-.global-nav__inner .nav__submenu li a .icon--larger {
-  display: none;
-  fill: #005797;
-}
-@media screen and (min-width: 70em) {
-  .global-nav__inner .nav__submenu li a .icon--larger {
-    display: block;
-    height: 1.5625rem;
-    width: 1.5625rem;
+  .global-nav__inner .nav__submenu li a::before {
+    block-size: 1rem;
+    border-color: #005a9c;
+    border-style: solid;
+    border-width: 0 0.25rem 0.25rem 0;
+    content: "";
+    inline-size: 1rem;
+    flex: 0 0 auto;
+    margin-inline-end: 1rem;
+    transform: rotate(-45deg);
   }
 }
 .global-nav__inner .nav__submenu li a:hover {
   color: #024488;
 }
-.global-nav__inner .nav__submenu li a:hover svg {
-  fill: currentColor;
+.global-nav__inner .nav__submenu li a:hover::before {
+  border-color: #024488;
 }
 .global-nav__inner .nav__submenu li a:focus {
   background-color: #f9dc4a;
   background-image: linear-gradient(to top, #000 3px, #f9dc4a 3px, #f9dc4a);
   color: #000;
 }
-.global-nav__inner .nav__submenu li a:focus svg {
-  fill: currentColor;
+.global-nav__inner .nav__submenu li a:focus::before {
+  border-color: #000;
 }
 
-.global-nav__inner .nav__submenu li.break-after {
-  -moz-column-break-after: column;
-       break-after: column;
-}
-
-.global-nav__inner .nav__submenu a .chevron-left {
-  display: none;
-}
-
-[dir=rtl] .global-nav__inner .nav__submenu a .chevron-left {
-  display: block;
-}
-[dir=rtl] .global-nav__inner .nav__submenu a .chevron-right {
-  display: none;
+[dir=rtl] .global-nav__inner .nav__submenu li a::before {
+  transform: rotate(135deg);
 }
 
 /*------------------------------------*\
