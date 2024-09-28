@@ -2626,7 +2626,7 @@ so that either of these properties is applied instead.
 
 @media screen and (min-width: 70em) {
   li.top-nav-item + li.top-nav-item {
-    margin-inline-start: 0.25rem;
+    margin-inline-start: 0.5rem;
   }
 }
 
@@ -2662,6 +2662,21 @@ so that either of these properties is applied instead.
 
 .global-nav__inner .top-nav-item > .nav-link {
   font-weight: 600;
+}
+
+.global-nav__inner .has-children > .nav-link {
+  align-items: center;
+  display: flex;
+}
+.global-nav__inner .has-children > .nav-link::after {
+  block-size: 0.5rem;
+  border-color: black;
+  border-style: solid;
+  border-width: 0 0.1875rem 0.1875rem 0;
+  content: "";
+  inline-size: 0.5rem;
+  margin-inline-start: 0.75rem;
+  visibility: hidden;
 }
 
 .logo-link:focus {

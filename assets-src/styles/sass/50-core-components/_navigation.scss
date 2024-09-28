@@ -47,7 +47,7 @@
 
 li.top-nav-item + li.top-nav-item {
 	@include mq($max-width) {
-		margin-inline-start: rem(4);
+		margin-inline-start: rem(8);
 	}
 }
 
@@ -80,7 +80,24 @@ li.top-nav-item + li.top-nav-item {
 }
 
 .global-nav__inner .top-nav-item > .nav-link {
-	font-weight: $emphasis;
+    font-weight: $emphasis;
+}
+
+// Add chevron to links with children - visually hide but retain space.
+.global-nav__inner .has-children > .nav-link {
+    align-items: center;
+    display: flex;
+
+    &::after {
+        block-size: rem(8);
+        border-color: black;
+        border-style: solid;
+        border-width: 0 rem(3) rem(3) 0;
+        content: "";
+        inline-size: rem(8);
+        margin-inline-start: rem(12);
+        visibility: hidden;
+    }
 }
 
 .logo-link {
