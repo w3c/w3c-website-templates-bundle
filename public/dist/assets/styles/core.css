@@ -3113,11 +3113,11 @@ main,
     #Table of contents (TOC)
 \*------------------------------------*/
 .toc + * {
-  margin-top: 1.875rem;
+  margin-block-start: 1.875rem;
 }
 @media screen and (min-width: 70em) {
   .toc + * {
-    margin-top: 5rem;
+    margin-block-start: 5rem;
   }
 }
 
@@ -3126,22 +3126,21 @@ main,
   font-weight: normal;
 }
 
-.toc ul {
-  border-left: solid 3px #f9c818;
-  padding-left: 0.9375rem;
+.toc > ul {
+  border-inline-start: solid 3px #f9c818;
 }
 
-[dir=rtl] .toc ul {
-  border-left: 0;
-  border-right: solid 3px #f9c818;
-  padding-left: 0;
-  padding-right: 0.9375rem;
+.toc ul {
+  padding-inline-start: 0.9375rem;
+}
+.toc ul ul {
+  list-style: circle inside;
+  padding-inline-start: 1.875rem;
 }
 
 .toc ul a {
   display: inline-block;
-  padding-bottom: 0.625rem;
-  padding-top: 0.625rem;
+  padding-block: 0.625rem;
 }
 
 /*------------------------------------*\
