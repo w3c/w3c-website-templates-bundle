@@ -421,18 +421,8 @@ br {
   display: none;
 }
 
-.icon--submenu {
-  margin-inline-start: auto;
-}
-@media screen and (min-width: 70em) {
-  .icon--submenu {
-    margin-inline-start: 0.25rem;
-    transform: rotate(90deg);
-  }
-}
-
-[dir=rtl] .icon--submenu {
-  transform: rotate(180deg);
+.js .global-nav__inner .top-nav-item > .nav-link::after {
+  visibility: visible;
 }
 
 .global-nav__inner [data-trigger=sub-nav] {
@@ -454,6 +444,16 @@ br {
     display: inline-flex;
   }
 }
+.global-nav__inner [data-trigger=sub-nav]::after {
+  margin-inline-start: auto !important;
+  transform: rotate(-45deg);
+}
+@media screen and (min-width: 70em) {
+  .global-nav__inner [data-trigger=sub-nav]::after {
+    margin-inline-start: 0.5rem !important;
+    transform: rotate(45deg);
+  }
+}
 .global-nav__inner [data-trigger=sub-nav]:focus {
   background-color: #f9dc4a;
   background-image: none !important;
@@ -463,8 +463,18 @@ br {
   display: none;
 }
 @media screen and (min-width: 70em) {
-  .global-nav__inner [data-trigger=sub-nav][aria-expanded=true] .icon--submenu {
-    transform: rotate(-90deg);
+  .global-nav__inner [data-trigger=sub-nav][aria-expanded=true]::after {
+    scale: -1;
+  }
+}
+
+[dir=rtl] .global-nav__inner [data-trigger=sub-nav]::after {
+  transform: rotate(135deg);
+}
+@media screen and (min-width: 70em) {
+  [dir=rtl] .global-nav__inner [data-trigger=sub-nav]::after {
+    margin-inline-start: 0.25rem;
+    transform: rotate(45deg);
   }
 }
 
@@ -560,8 +570,10 @@ br {
 .global-nav__inner [data-button=mobile-back] {
   font-size: 1.25rem;
   line-height: 1.6;
+  align-items: center;
   border-bottom: solid 1px #bdbdbd;
   border-radius: 0;
+  display: flex;
   padding: 0.75rem 5vw;
 }
 @media screen and (min-width: 70em) {
@@ -569,15 +581,21 @@ br {
     display: none;
   }
 }
-.global-nav__inner [data-button=mobile-back] .icon--submenu {
-  height: 1.875rem;
-  margin-inline-start: 0;
-  transform: rotate(180deg);
-  width: 1.875rem;
+.global-nav__inner [data-button=mobile-back]::before {
+  block-size: 1rem;
+  border-color: #000;
+  border-style: solid;
+  border-width: 0 0.25rem 0.25rem 0;
+  content: "";
+  inline-size: 1rem;
+  flex: 0 0 auto;
+  margin-inline-end: 0.75rem;
+  margin-inline-start: 0.375rem;
+  transform: rotate(135deg);
 }
 
-[dir=rtl] .global-nav__inner [data-button=mobile-back] .icon--submenu {
-  transform: none;
+[dir=rtl] .global-nav__inner [data-button=mobile-back]::before {
+  transform: rotate(-45deg);
 }
 
 @media screen and (min-width: 70em) {
@@ -605,58 +623,49 @@ br {
 
 .global-nav__inner .nav__submenu li a {
   color: #111;
+  display: block;
   font-size: 1.1875rem;
   line-height: 1.5;
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
   text-decoration: none;
-  width: 100%;
 }
 @media screen and (min-width: 70em) {
   .global-nav__inner .nav__submenu li a {
+    align-items: center;
+    display: inline-flex;
+    padding-inline: 0.125rem;
     width: auto;
   }
-}
-.global-nav__inner .nav__submenu li a .icon--larger {
-  display: none;
-  fill: #005797;
-}
-@media screen and (min-width: 70em) {
-  .global-nav__inner .nav__submenu li a .icon--larger {
-    display: block;
-    height: 1.5625rem;
-    width: 1.5625rem;
+  .global-nav__inner .nav__submenu li a::before {
+    block-size: 1rem;
+    border-color: #005a9c;
+    border-style: solid;
+    border-width: 0 0.25rem 0.25rem 0;
+    content: "";
+    inline-size: 1rem;
+    flex: 0 0 auto;
+    margin-inline-end: 1rem;
+    transform: rotate(-45deg);
   }
 }
 .global-nav__inner .nav__submenu li a:hover {
   color: #024488;
 }
-.global-nav__inner .nav__submenu li a:hover svg {
-  fill: currentColor;
+.global-nav__inner .nav__submenu li a:hover::before {
+  border-color: #024488;
 }
 .global-nav__inner .nav__submenu li a:focus {
   background-color: #f9dc4a;
   background-image: linear-gradient(to top, #000 3px, #f9dc4a 3px, #f9dc4a);
   color: #000;
 }
-.global-nav__inner .nav__submenu li a:focus svg {
-  fill: currentColor;
+.global-nav__inner .nav__submenu li a:focus::before {
+  border-color: #000;
 }
 
-.global-nav__inner .nav__submenu li.break-after {
-  -moz-column-break-after: column;
-       break-after: column;
-}
-
-.global-nav__inner .nav__submenu a .chevron-left {
-  display: none;
-}
-
-[dir=rtl] .global-nav__inner .nav__submenu a .chevron-left {
-  display: block;
-}
-[dir=rtl] .global-nav__inner .nav__submenu a .chevron-right {
-  display: none;
+[dir=rtl] .global-nav__inner .nav__submenu li a::before {
+  transform: rotate(135deg);
 }
 
 /*------------------------------------*\
