@@ -1938,18 +1938,15 @@ table caption {
   text-align: start; /* 1 */
 }
 
-th {
-  vertical-align: bottom;
+td, th {
+  vertical-align: text-top;
 }
 
 thead th,
 tfoot th {
   background-color: #024488;
   color: #fff;
-}
-
-td {
-  vertical-align: text-top;
+  vertical-align: bottom;
 }
 
 /**
