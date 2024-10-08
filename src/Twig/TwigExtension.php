@@ -228,7 +228,11 @@ class TwigExtension extends AbstractExtension
         $sameDay   = $start->format('Y-m-d') === $end->format('Y-m-d');
         //$timezone = $this->intl->getTimezoneName($tz, $locale);
         //$timezone = $this->intl->formatDate($this->twig, $start, 'short', 'zzz', $tz, 'gregorian', $locale);
-        $timezone = $this->intl->formatDate($this->twig, $start, 'short', 'zzzz', $tz, 'gregorian', $locale);
+        if ($tz == 'UTC' || $tz == 'Etc/UTC') {
+            $timezone = 'UTC';
+        } else {
+            $timezone = $this->intl->formatDate($this->twig, $start, 'short', 'zzzz', $tz, 'gregorian', $locale);
+        }
         //$timezone = $start->format('T');
         return $this->translator->trans(
             'events.date_range',

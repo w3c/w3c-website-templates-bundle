@@ -1699,49 +1699,40 @@ a.with-icon--after:active {
 /*------------------------------------*\
     #Lists
 \*------------------------------------*/
-ul,
-ol {
+/**
+Remove default list styles on lists with a class name (e.g. 'nav-list')
+ */
+ol[class],
+ul[class] {
+  list-style: none;
+  padding: 0;
+}
+
+ul:not([class]),
+ol:not([class]),
+ol.counter {
   margin-block-end: 1em;
   margin-block-start: 1em;
   padding-inline-start: 2.4em;
 }
-ul > * + *,
-ul li ul,
-ul li ol,
-ol > * + *,
-ol li ul,
-ol li ol {
-  margin-block-start: 0.75em;
+ul:not([class]) > * + *,
+ul:not([class]) li ul,
+ul:not([class]) li ol,
+ol:not([class]) > * + *,
+ol:not([class]) li ul,
+ol:not([class]) li ol,
+ol.counter > * + *,
+ol.counter li ul,
+ol.counter li ol {
+  margin-top: 0.75em;
 }
 
 ol.counter ::marker {
   content: counters(list-item, ".") ". ";
 }
 
-/**
-Remove bullets, margin and padding from lists inside a <nav> element, and lists with the
-'.clean-list' class/. Note that that this may remove list semantics in some circumstances in
-some WebKit browsers. See https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
-If it's important that the number of items in a list is announced, add role="list" to the <ul> / <ol>
- */
-nav ul,
-nav ol,
-.clean-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-nav ul li,
-nav ul ol,
-nav ul ul,
-nav ol li,
-nav ol ol,
-nav ol ul,
-.clean-list li,
-.clean-list ol,
-.clean-list ul {
-  margin: 0;
-  padding: 0;
+.clean-list li {
+  display: block;
 }
 
 /**
@@ -1755,11 +1746,11 @@ dl dt {
   font-weight: bold;
 }
 dl dd + dt {
-  margin-block-start: 0.5em;
+  margin-top: 0.5em;
 }
 dl dt + dd,
 dl dd + dd {
-  margin-block-start: 0.25em;
+  margin-top: 0.25em;
 }
 
 dl.inline div {
@@ -1789,7 +1780,7 @@ dl.inline div dd:not(:last-child):after {
   dl.grid dd + dt,
   dl.grid dt + dd,
   dl.grid dd + dd {
-    margin-block-start: 0;
+    margin-top: 0;
   }
   dl.grid dt {
     grid-column-start: 1;
@@ -1947,16 +1938,15 @@ table caption {
   text-align: start; /* 1 */
 }
 
-th {
-  vertical-align: bottom;
-}
-th[scope=col] {
-  background-color: #024488;
-  color: #fff;
+td, th {
+  vertical-align: text-top;
 }
 
-td {
-  vertical-align: text-top;
+thead th,
+tfoot th {
+  background-color: #024488;
+  color: #fff;
+  vertical-align: bottom;
 }
 
 /**
@@ -2616,7 +2606,7 @@ so that either of these properties is applied instead.
 
 @media screen and (min-width: 70em) {
   li.top-nav-item + li.top-nav-item {
-    margin-inline-start: 0.5rem;
+    margin-inline-start: 0.25rem;
   }
 }
 
@@ -2652,21 +2642,6 @@ so that either of these properties is applied instead.
 
 .global-nav__inner .top-nav-item > .nav-link {
   font-weight: 600;
-}
-
-.global-nav__inner .has-children > .nav-link {
-  align-items: center;
-  display: flex;
-}
-.global-nav__inner .has-children > .nav-link::after {
-  block-size: 0.5rem;
-  border-color: black;
-  border-style: solid;
-  border-width: 0 0.1875rem 0.1875rem 0;
-  content: "";
-  inline-size: 0.5rem;
-  margin-inline-start: 0.75rem;
-  visibility: hidden;
 }
 
 .logo-link:focus {
@@ -3113,11 +3088,11 @@ main,
     #Table of contents (TOC)
 \*------------------------------------*/
 .toc + * {
-  margin-block-start: 1.875rem;
+  margin-top: 1.875rem;
 }
 @media screen and (min-width: 70em) {
   .toc + * {
-    margin-block-start: 5rem;
+    margin-top: 5rem;
   }
 }
 
@@ -3126,21 +3101,22 @@ main,
   font-weight: normal;
 }
 
-.toc > ul {
-  border-inline-start: solid 3px #f9c818;
+.toc ul {
+  border-left: solid 3px #f9c818;
+  padding-left: 0.9375rem;
 }
 
-.toc ul {
-  padding-inline-start: 0.9375rem;
-}
-.toc ul ul {
-  list-style: circle inside;
-  padding-inline-start: 1.875rem;
+[dir=rtl] .toc ul {
+  border-left: 0;
+  border-right: solid 3px #f9c818;
+  padding-left: 0;
+  padding-right: 0.9375rem;
 }
 
 .toc ul a {
   display: inline-block;
-  padding-block: 0.625rem;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem;
 }
 
 /*------------------------------------*\
