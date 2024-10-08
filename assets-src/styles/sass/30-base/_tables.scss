@@ -33,18 +33,15 @@ table caption {
     }
 }
 
-th {
-    vertical-align: bottom;
+td, th {
+    vertical-align: text-top;
 }
 
 thead th,
 tfoot th {
     background-color: $deep-blue;
     color: $white;
-}
-
-td {
-    vertical-align: text-top;
+    vertical-align: bottom;
 }
 
 
