@@ -33,17 +33,15 @@ table caption {
     }
 }
 
-th {
-    vertical-align: bottom;
-
-    &[scope="col"] {
-        background-color: $deep-blue;
-        color: $white;
-    }
+td, th {
+    vertical-align: text-top;
 }
 
-td {
-    vertical-align: text-top;
+thead th,
+tfoot th {
+    background-color: $deep-blue;
+    color: $white;
+    vertical-align: bottom;
 }
 
 

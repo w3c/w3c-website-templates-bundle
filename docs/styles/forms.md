@@ -165,7 +165,7 @@ The autocomplete script can be configured using <code>data-*</code> attributes o
 
 Note the link to a specific JavaScript file for the auto-complete functionality in the preceding example.
 
-In practice, add the following script before the closing body tag </body> for the auto-complete to work correctly:
+In practice, add the following script before the closing body tag `</body>` for the auto-complete to work correctly:
 
 ```
 <script src="dist/assets/js/multiselect.js"></script>
