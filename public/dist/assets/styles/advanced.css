@@ -158,7 +158,8 @@ article {
 [data-trigger=account-menu] .sr-only, .visuallyhidden:not(:focus):not(:active) {
   border: 0;
   clip: rect(0 0 0 0);
-  clip-path: inset(100%);
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
   height: 1px;
   overflow: hidden;
   padding: 0;
@@ -225,7 +226,8 @@ br {
 }
 @media screen and (min-width: 70em) {
   [data-trigger=account-menu] {
-    margin-inline-start: auto;
+    -webkit-margin-start: auto;
+            margin-inline-start: auto;
     padding: 0.5rem 0.1875rem 0.3125rem 0.1875rem;
   }
   [data-trigger=account-menu]:hover::before {
@@ -252,7 +254,8 @@ br {
   [data-trigger=account-menu] .sr-only {
     border: initial;
     clip: auto;
-    clip-path: none;
+    -webkit-clip-path: none;
+            clip-path: none;
     height: auto;
     margin: initial;
     overflow: initial;
@@ -264,7 +267,8 @@ br {
 }
 @media screen and (min-width: 70em) {
   [data-trigger=account-menu] .avatar {
-    margin-inline-start: 0.5rem;
+    -webkit-margin-start: 0.5rem;
+            margin-inline-start: 0.5rem;
   }
 }
 
@@ -422,11 +426,13 @@ br {
 }
 
 .icon--submenu {
-  margin-inline-start: auto;
+  -webkit-margin-start: auto;
+          margin-inline-start: auto;
 }
 @media screen and (min-width: 70em) {
   .icon--submenu {
-    margin-inline-start: 0.25rem;
+    -webkit-margin-start: 0.25rem;
+            margin-inline-start: 0.25rem;
     transform: rotate(90deg);
   }
 }
@@ -571,7 +577,8 @@ br {
 }
 .global-nav__inner [data-button=mobile-back] .icon--submenu {
   height: 1.875rem;
-  margin-inline-start: 0;
+  -webkit-margin-start: 0;
+          margin-inline-start: 0;
   transform: rotate(180deg);
   width: 1.875rem;
 }
@@ -891,7 +898,8 @@ br {
 }
 
 #js-cancel-reply {
-  margin-inline-start: 0.625rem;
+  -webkit-margin-start: 0.625rem;
+          margin-inline-start: 0.625rem;
 }
 
 /*------------------------------------*\
