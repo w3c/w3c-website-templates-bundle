@@ -17,7 +17,7 @@ $config = [
         'Styles'                => '/styles/',
         'Layouts'               => '/layouts/',
         'Components'            => '/components/',
-        'Third party plugins'   => '/third-party-plugins/',
+        'Scripts'  												 => '/scripts/',
         'Templates'             => '/templates/',
     ],
     'templates_path'    => 'design-system-templates',
