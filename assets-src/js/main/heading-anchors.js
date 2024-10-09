@@ -52,10 +52,12 @@ let headingAnchors = function () {
 						// - Remove leading/trailing spaces
 						// - Use RegEx to remove invalid characters but keep all Unicode letters/numbers
 						// - Use RegEx to replace spaces with hyphens
+						// - convert to lowercase as per URL policy
 						anchorHref = heading.textContent
 							.trim()
 							.replace(/[^\p{L}\p{N}\s-]/gu, '')
-							.replace(/\s+/g, '-');
+							.replace(/\s+/g, '-')
+							.toLowerCase();
 						heading.id = anchorHref;
 					}
 
