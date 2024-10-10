@@ -61,11 +61,12 @@ header:
 breadcrumbs:
     home: Home
 pagination:
+    label: Pagination
     first: First Page
-    previous: Previous<span class="visuallyhidden">page</span>
-    next: Next <span class="visuallyhidden">page</span>
+    previous: Previous
+    next: Next
     last: Last Page
-    page: "<span class=\"visuallyhidden\">page</span> {page}"
+    page: "{page}"
     current_page: "{page}"
     summary: >-
         {to, select,
