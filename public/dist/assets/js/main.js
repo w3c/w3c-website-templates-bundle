@@ -915,11 +915,13 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Add anchor links to any H2 - H6 within the <main> element that:
  * - are not children of a <nav> element
- * - do not have an ancestor with the data-anchor="no" attribute
- * - do not themselves have the data-anchor="no" attribute
+ * - do not have an ancestor with the data-anchor="no" attribute, with
+ * the `hidden` attribute or with the .visuallyhidden class
+ * - do not themselves have the data-anchor="no" attribute, the `hidden`
+ * attribute or the .visuallyhidden class
  *
- * If a heading does not already possess an ID, use regular expressions
- * on the textContent of the heading to generate a string that is valid to
+ * If a heading does not already possess an ID, use regular expressions on
+ * the textContent of the heading to generate a string that is valid to
  * use for both the heading ID and the anchor href. Supports non-Latin
  * scripts by matching any Unicode letter - \p{L} - or number - \p{N}. The
  * u flag enables Unicode matching, to support characters from any script.
@@ -938,12 +940,20 @@ let headingAnchors = function () {
       // Filter out headings that:
       // - Are not children of <nav>
       // - Do not have an ancestor with the data-anchor="no" attribute
+      // - Do not have an ancestor with the `hidden` attribute
+      // - Do not have an ancestor with the `.visuallyhidden` class
       // - Do not themselves have the data-anchor="no" attribute
+      // - Do not themselves have the `hidden` attribute
+      // - Do not themselves have the `.visuallyhidden` class
       let targetedHeadings = headingsArray.filter(function (heading) {
         let insideNav = heading.closest('nav') !== null;
         let parentHasDataAttribute = heading.closest('[data-anchor="no"]') !== null;
+        let hiddenParent = heading.closest('[hidden]') !== null;
+        let visuallyhiddenParent = heading.closest('.visuallyhidden') !== null;
         let hasDataAttribute = heading.getAttribute('data-anchor') === 'no';
-        return !insideNav && !parentHasDataAttribute && !hasDataAttribute;
+        let isHidden = heading.getAttribute('hidden');
+        let isVisuallyhidden = heading.classList.contains('visuallyhidden');
+        return !insideNav && !parentHasDataAttribute && !hiddenParent && !visuallyhiddenParent && !hasDataAttribute && !isHidden && !isVisuallyhidden;
       });
       if (targetedHeadings.length > 0) {
         targetedHeadings.forEach(function (heading) {
@@ -964,7 +974,7 @@ let headingAnchors = function () {
           }
           anchor.setAttribute('href', '#' + anchorHref);
           anchor.setAttribute('class', 'heading-anchor');
-          anchor.innerHTML = '<span aria-hidden="true">#</span>' + '<span class="visuallyhidden">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('anchor', languageCode) + '</span>';
+          anchor.innerHTML = '<span aria-hidden="true">&sect;</span>' + '<span class="visuallyhidden">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('anchor', languageCode) + '</span>';
           heading.appendChild(anchor);
         });
       }
