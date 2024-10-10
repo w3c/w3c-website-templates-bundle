@@ -89,12 +89,12 @@ li.top-nav-item + li.top-nav-item {
     display: flex;
 
     &::after {
-        block-size: rem(8);
+        block-size: rem(7);
         border-color: black;
         border-style: solid;
-        border-width: 0 rem(3) rem(3) 0;
+        border-width: 0 rem(2) rem(2) 0;
         content: "";
-        inline-size: rem(8);
+        inline-size: rem(7);
         margin-inline-start: rem(12);
         visibility: hidden;
     }

@@ -139,6 +139,7 @@
         transform: rotate(-45deg);
 
         @include mq($max-width) {
+            margin-block-start: rem(-3);
             margin-inline-start: rem(8) !important;
             transform: rotate(45deg);
         }
@@ -157,6 +158,7 @@
 	&[aria-expanded='true'] {
 		@include mq($max-width) {
             &::after {
+                margin-block-start: 0;
                 scale: -1;
             }
 		}

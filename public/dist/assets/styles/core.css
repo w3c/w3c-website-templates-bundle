@@ -2658,12 +2658,12 @@ so that either of these properties is applied instead.
   display: flex;
 }
 .global-nav__inner .has-children > .nav-link::after {
-  block-size: 0.5rem;
+  block-size: 0.4375rem;
   border-color: black;
   border-style: solid;
-  border-width: 0 0.1875rem 0.1875rem 0;
+  border-width: 0 0.125rem 0.125rem 0;
   content: "";
-  inline-size: 0.5rem;
+  inline-size: 0.4375rem;
   margin-inline-start: 0.75rem;
   visibility: hidden;
 }

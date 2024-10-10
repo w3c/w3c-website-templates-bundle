@@ -450,6 +450,7 @@ br {
 }
 @media screen and (min-width: 70em) {
   .global-nav__inner [data-trigger=sub-nav]::after {
+    margin-block-start: -0.1875rem;
     margin-inline-start: 0.5rem !important;
     transform: rotate(45deg);
   }
@@ -464,6 +465,7 @@ br {
 }
 @media screen and (min-width: 70em) {
   .global-nav__inner [data-trigger=sub-nav][aria-expanded=true]::after {
+    margin-block-start: 0;
     scale: -1;
   }
 }
