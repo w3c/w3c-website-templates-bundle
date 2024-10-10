@@ -3,12 +3,12 @@
     {% set query = app.request.attributes.get('_route_params')|merge(app.request.query) %}
 
     <nav class="l-cluster pagination" aria-labelledby="pagination">
-        <h2 id="pagination" class="visuallyhidden">{{ pagination.label }}</h2>
+        <h2 id="pagination" class="visuallyhidden">{{ 'pagination.label'|trans({}, 'w3c_website_templates_bundle') }}</h2>
         <ul class="pagination__list">
             {% if not pagination.firstPage %}
                 <li>
                     <a rel="prev" href="{{ path(route, query|merge({page: pagination.previous})) }}">
-                        Previous
+                        {{ 'pagination.previous'|trans({}, 'w3c_website_templates_bundle') }}
                     </a>
                 </li>
             {% endif %}
@@ -17,7 +17,7 @@
                 <li>
                     <a class="pagination__list__first"
                        href="{{ path(route, query|merge({page: pagination.first})) }}">
-                        {{ pagination.first }}
+                        {{ 'pagination.first'|trans({}, 'w3c_website_templates_bundle') }}
                     </a>
                 </li>
 
@@ -28,12 +28,14 @@
                 {% if page != pagination.page %}
                     <li>
                         <a href="{{ path(route, query|merge({page: page})) }}">
-                            {{ page }}
+                            {{ 'pagination.page'|trans({page: page}, 'w3c_website_templates_bundle') }}
                         </a>
                     </li>
                 {% else %}
                     <li>
-                        <a href="{{ path(route, query|merge({page: page})) }}" aria-current="page">{{ page }}</a>
+                        <a href="{{ path(route, query|merge({page: page})) }}" aria-current="page">
+                            {{ 'pagination.current_page'|trans({page: page}, 'w3c_website_templates_bundle') }}
+                        </a>
                     </li>
                 {% endif %}
             {% endfor %}
@@ -44,7 +46,7 @@
                 <li>
                     <a class="pagination__list__last"
                        href="{{ path(route, query|merge({page: pagination.last})) }}">
-                        {{ pagination.last }}
+                        {{ 'pagination.last'|trans({}, 'w3c_website_templates_bundle') }}
                     </a>
                 </li>
             {% endif %}
@@ -52,7 +54,7 @@
             {% if not pagination.lastPage %}
                 <li>
                     <a rel="next" href="{{ path(route, query|merge({page: pagination.next})) }}">
-                        Next
+                        {{ 'pagination.next'|trans({}, 'w3c_website_templates_bundle') }}
                     </a>
                 </li>
             {% endif %}
