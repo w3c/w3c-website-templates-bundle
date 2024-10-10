@@ -62,10 +62,10 @@ breadcrumbs:
     home: Home
 pagination:
     label: Pagination
-    first: First Page
+    first: First
     previous: Previous
     next: Next
-    last: Last Page
+    last: Last
     page: "{page}"
     current_page: "{page}"
     summary: >-
