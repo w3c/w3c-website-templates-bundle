@@ -2,18 +2,8 @@
     #Lists
 \*------------------------------------*/
 
-/**
-Remove default list styles on lists with a class name (e.g. 'nav-list')
- */
-ol[class],
-ul[class] {
-	list-style: none;
-	padding: 0;
-}
-
-ul:not([class]),
-ol:not([class]),
-ol.counter {
+ul,
+ol {
 	margin-block-end: 1em;
 	margin-block-start: 1em;
 	padding-inline-start: 2.4em;
@@ -21,7 +11,7 @@ ol.counter {
 	> * + *,
 	li ul,
 	li ol {
-		margin-top: 0.75em;
+		margin-block-start: 0.75em;
 	}
 }
 
@@ -32,11 +22,25 @@ ol.counter {
 }
 
 
-// No bullets or numbering
+/**
+Remove bullets, margin and padding from lists inside a <nav> element, and lists with the
+'.clean-list' class/. Note that that this may remove list semantics in some circumstances in
+some WebKit browsers. See https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
+If it's important that the number of items in a list is announced, add role="list" to the <ul> / <ol>
+ */
+nav ul,
+nav ol,
 .clean-list {
-	li {
-		display: block;
-	}
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li,
+    ol,
+    ul {
+        margin: 0;
+        padding: 0;
+    }
 }
 
 
@@ -52,12 +56,12 @@ dl {
 	}
 
 	dd + dt {
-		margin-top: 0.5em;
+		margin-block-start: 0.5em;
 	}
 
 	dt + dd,
 	dd + dd {
-		margin-top: 0.25em;
+		margin-block-start: 0.25em;
 	}
 }
 
@@ -95,7 +99,7 @@ dl.grid {
 		dd + dt,
 		dt + dd,
 		dd + dd {
-			margin-top: 0;
+			margin-block-start: 0;
 		}
 
 		dt {

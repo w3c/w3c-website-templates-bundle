@@ -712,8 +712,8 @@ const navigation = function (menu, options) {
     // Insert a "back" button
     const backButton = document.createElement('button');
     backButton.setAttribute('data-button', 'mobile-back');
-    backButton.setAttribute('class', 'button button--ghost u-full-width with-icon--before with-icon--larger');
-    backButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" height="16" width="16" class="icon icon--submenu" focusable="false" aria-hidden="true" fill="currentColor">' + '<path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/>' + '</svg>' + _translations__WEBPACK_IMPORTED_MODULE_2__.translate.translate('backToMainMenu', languageCode);
+    backButton.setAttribute('class', 'button button--ghost u-full-width');
+    backButton.innerHTML = _translations__WEBPACK_IMPORTED_MODULE_2__.translate.translate('backToMainMenu', languageCode);
     if (settings.submenuIntro === true) {
       subMenu.parentNode.insertBefore(backButton, subMenu.parentNode.children[0]);
     } else subMenu.parentNode.insertBefore(backButton, subMenu);
