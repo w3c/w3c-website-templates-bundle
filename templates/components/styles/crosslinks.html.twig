@@ -7,7 +7,7 @@
                     <p>{{ crosslinks['text'] }}</p>
                 {% endblock %}
             </div>
-            <ul class="clean-list" role="presentation" data-anchor="no">
+            <ul class="clean-list" role="presentation">
                 {% for crosslink in crosslinks['links'] %}
                     {{ include('@W3CWebsiteTemplates/components/styles/crosslink.html.twig', {'crosslink': crosslink}) }}
                 {% endfor %}
