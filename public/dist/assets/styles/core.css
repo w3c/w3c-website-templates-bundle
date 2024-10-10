@@ -1698,7 +1698,6 @@ a.with-icon--after:active {
 .heading-anchor {
   color: #545454;
   font-weight: normal;
-  margin-inline-start: 0.25em;
   opacity: 0.82;
   text-underline-offset: auto;
 }

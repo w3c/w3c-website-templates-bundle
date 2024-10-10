@@ -76,6 +76,7 @@ let headingAnchors = function () {
 					anchor.innerHTML = '<span aria-hidden="true">&sect;</span>'
 						+'<span class="visuallyhidden">'
 						+ translate.translate('anchor', languageCode) + '</span>';
+					heading.textContent += '\xa0';
 					heading.appendChild(anchor);
 
 				});
