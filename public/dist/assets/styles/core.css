@@ -3130,6 +3130,7 @@ main,
 }
 
 .toc ul {
+  line-height: 1em;
   padding-inline-start: 0.9375rem;
 }
 .toc ul ul {
