@@ -47,9 +47,9 @@
 
 		</article>
 
-		<section class="related">
-			<div class="related__inner">
-				<h2 class="txt-jupiter">Related to this post</h2>
+		<div class="related">
+			<nav class="related__inner" aria-labelledby="related-label">
+				<h2 id="related-label" class="txt-jupiter">Related to this post</h2>
 				<div>
 					<h3>Tags</h3>
 					<ul class="clean-list" role="list">
@@ -79,8 +79,8 @@
 						<li><a href="path/to/page">Specification 2</a></li>
 					</ul>
 				</div>
-			</div>
-		</section>
+			</nav>
+		</div>
 
 	</div>
 	{% include 'components/rss.html.twig' %}

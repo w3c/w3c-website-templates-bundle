@@ -68,7 +68,7 @@
             {% block breadcrumbs %}
             {% endblock %}
 
-            <main id="main">
+            <main id="main" {% block extra_main_attributes %}{% endblock %}>
                 {% block content %}
                 {% endblock %}
             </main>

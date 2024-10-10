@@ -1,5 +1,5 @@
 {% if objects is not empty %}
-    <div class="component--collapsibles" data-component="collapsibles">
+    <div class="component--collapsibles" data-component="collapsibles" data-anchor="no">
         {% for object in objects %}
             <div>
                 <h3 data-heading="collapsibles">{% block title %}{% endblock title %}<span>{% block subtitle %}{% endblock subtitle %}</span></h3>

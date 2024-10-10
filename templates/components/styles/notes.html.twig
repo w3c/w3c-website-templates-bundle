@@ -1,7 +1,7 @@
 {%- macro notes(type, title, notes) -%}
     {% if (notes|length > 0) %}
         <div class="l-box note note--{{ type }}" role="{{ type == 'error' ? 'alert' : 'status' }}" aria-labelledby="{{ type }}-summary-title" tabindex="-1"
-             data-component="{{ type }}-summary">
+             data-component="{{ type }}-summary" data-anchor="no">
             <h2 id="{{ type }}-summary-title" class="txt-saturn">{{ title }}</h2>
             <ul class="clean-list" role="list">
                 {% for note in notes %}

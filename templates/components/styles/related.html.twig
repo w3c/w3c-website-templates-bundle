@@ -1,7 +1,7 @@
 {% if related_links|length > 0 %}
-<section class="related">
-    <div class="related__inner">
-        <h2 class="txt-jupiter">{{ 'page.related_content'|trans({}, 'w3c_website_templates_bundle') }}</h2>
+<div class="related">
+    <nav class="related__inner" aria-labelledby="related-label">
+        <h2 id="related-label" class="txt-jupiter">{{ 'page.related_content'|trans({}, 'w3c_website_templates_bundle') }}</h2>
         <ul class="clean-list" role="list">
             {% set currentPath = path(app.request.attributes.get('_route'),
                 app.request.attributes.get('_route_params')|merge(app.request.query)) %}
@@ -13,6 +13,6 @@
                 {% endif %}
             {% endfor %}
         </ul>
-    </div>
-</section>
+    </nav>
+</div>
 {% endif %}

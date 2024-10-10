@@ -152,7 +152,7 @@
                     'breadcrumbs': page.breadcrumbs is defined ? page.breadcrumbs : {}
                 } %}{% endembed %}
         {% endblock breadcrumbs %}
-        <main id="main">
+        <main id="main" {% block extra_main_attributes %}{{ extra_main_attributes|default('')|raw }}{% endblock %}>
             {% import '@W3CWebsiteTemplates/components/styles/notes.html.twig' as notes %}
             {{ notes.errors(error_notes) }}
             {{ notes.successes(success_notes) }}

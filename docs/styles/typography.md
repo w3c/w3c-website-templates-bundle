@@ -33,3 +33,7 @@ Heading | Class
 Eight classes are available in total. Note that the font size and line-height of `.txt-mercury`, `.txt-venus` and `.txt-earth` increase at the `$bp-tab-small` media query breakpoint, defined in [Settings](../settings/README.md).
 
 <example title="Font override classes" src="components/font-overrides.html.twig" />
+
+### Heading anchors
+
+There is a script which automatically adds anchor links to headings level H2-H6, with some exceptions. Read the [heading anchors documentation](../scripts/heading-anchors.md).
