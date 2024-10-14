@@ -15,11 +15,22 @@
 [data-toggle="true"] {
 	@include txt-pluto;
 	align-items: center;
+    display: inline-flex;
 	font-weight: bold;
 
-	svg {
-		pointer-events: none;
-	}
+    // Decorative chevron
+    &::after {
+        block-size: rem(7);
+        border-color: black;
+        border-style: solid;
+        border-width: 0 rem(2) rem(2) 0;
+        content: "";
+        inline-size: rem(7);
+        margin-block-start: rem(-3);
+        margin-inline-end: rem(3);
+        margin-inline-start: rem(12);
+        transform: rotate(45deg);
+    }
 
 	&:hover {
 		box-shadow: 0 0 4px 2px rgba(84,84,84,0.25);
@@ -33,19 +44,16 @@
 }
 
 [data-toggle="true"][aria-expanded="false"] {
-	.angle-up {
-		display: none;
-	}
-
 	+ * {
 		display: none;
 	}
 }
 
 [data-toggle="true"][aria-expanded="true"] {
-	.angle-down {
-		display: none;
-	}
+	&::after {
+        margin-block-start: rem(4);
+        scale: -1;
+    }
 
 	+ * {
 		display: block;

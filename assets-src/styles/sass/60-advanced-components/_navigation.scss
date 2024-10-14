@@ -111,19 +111,9 @@
 	display: none;
 }
 
-.icon--submenu {
-	margin-inline-start: auto;
-
-	@include mq($max-width) {
-		margin-inline-start: rem(4);
-		transform: rotate(90deg);
-	}
-}
-
-[dir='rtl'] {
-	.icon--submenu {
-		transform: rotate(180deg);
-	}
+// Show chevron
+.js .global-nav__inner .top-nav-item > .nav-link::after {
+    visibility: visible;
 }
 
 .global-nav__inner [data-trigger='sub-nav'] {
@@ -144,6 +134,17 @@
 		display: inline-flex;
 	}
 
+    &::after {
+        margin-inline-start: auto !important;
+        transform: rotate(-45deg);
+
+        @include mq($max-width) {
+            margin-block-start: rem(-3);
+            margin-inline-start: rem(8) !important;
+            transform: rotate(45deg);
+        }
+    }
+
 	&:focus {
 		background-color: $focus-color;
 		background-image: none !important;
@@ -156,11 +157,23 @@
 
 	&[aria-expanded='true'] {
 		@include mq($max-width) {
-			.icon--submenu {
-				transform: rotate(-90deg);
-			}
+            &::after {
+                margin-block-start: 0;
+                scale: -1;
+            }
 		}
 	}
+}
+
+[dir='rtl'] {
+    .global-nav__inner [data-trigger='sub-nav']::after {
+        transform: rotate(135deg);
+
+        @include mq($max-width) {
+            margin-inline-start: rem(4);
+            transform: rotate(45deg);
+        }
+    }
 }
 
 .global-nav__inner .nav__submenu {
@@ -253,27 +266,34 @@
 
 .global-nav__inner [data-button='mobile-back'] {
 	@include txt-jupiter;
-	border-bottom: solid 1px $border-color;
+	align-items: center;
+    border-bottom: solid 1px $border-color;
 	border-radius: 0;
+    display: flex;
 	padding: rem(12) 5vw;
 
 	@include mq($max-width) {
 		display: none;
 	}
 
-	.icon--submenu {
-		height: rem(30);
-		margin-inline-start: 0;
-		transform: rotate(180deg);
-		width: rem(30);
-	}
+    // Decorative chevron
+    &::before {
+        block-size: rem(16);
+        border-color: $black;
+        border-style: solid;
+        border-width: 0 rem(4) rem(4) 0;
+        content: '';
+        inline-size: rem(16);
+        flex: 0 0 auto;
+        margin-inline-end: rem(12);
+        margin-inline-start: rem(6);
+        transform: rotate(135deg);
+    }
 }
 
 [dir='rtl'] {
-	.global-nav__inner [data-button='mobile-back'] {
-		.icon--submenu {
-			transform: none;
-		}
+	.global-nav__inner [data-button='mobile-back']::before {
+        transform: rotate(-45deg);
 	}
 }
 
@@ -300,34 +320,40 @@
 
 .global-nav__inner .nav__submenu li a {
 	color: $off-black;
+    display: block;
 	font-size: rem(19);
 	line-height: calc(27 / 18);
 	padding-bottom: rem(8);
 	padding-top: rem(8);
 	text-decoration: none;
-	width: 100%;
 
 	@include mq($max-width) {
+        align-items: flex-start;
+        display: inline-flex;
+        padding-inline: rem(2);
 		width: auto;
-	}
 
-	.icon--larger {
-		display: none;
-		fill: $link-color;
-
-		@include mq($max-width) {
-			display: block;
-			height: rem(25);
-			width: rem(25);
-		}
+        // Decorative chevron
+        &::before {
+            block-size: rem(16);
+            border-color: $w3c-blue;
+            border-style: solid;
+            border-width: 0 rem(4) rem(4) 0;
+            content: '';
+            flex: 0 0 auto;
+            inline-size: rem(16);
+            margin-block-start: rem(6);
+            margin-inline-end: rem(16);
+            transform: rotate(-45deg);
+        }
 	}
 
 	&:hover {
 		color: $link-color--hover;
 
-		svg {
-			fill: currentColor;
-		}
+        &::before {
+            border-color: $deep-blue;
+        }
 	}
 
 	&:focus {
@@ -335,28 +361,14 @@
 		background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
 		color: $black;
 
-		svg {
-			fill: currentColor;
-		}
+        &::before {
+            border-color: $black;
+        }
 	}
 }
 
-.global-nav__inner .nav__submenu li.break-after {
-	break-after: column;
-}
-
-.global-nav__inner .nav__submenu a {
-	.chevron-left {
-		display: none;
-	}
-}
-
-[dir='rtl'] {
-	.global-nav__inner .nav__submenu a .chevron-left {
-		display: block;
-	}
-
-	.global-nav__inner .nav__submenu a .chevron-right {
-		display: none;
-	}
+[dir="rtl"] {
+    .global-nav__inner .nav__submenu li a::before {
+        transform: rotate(135deg);
+    }
 }
