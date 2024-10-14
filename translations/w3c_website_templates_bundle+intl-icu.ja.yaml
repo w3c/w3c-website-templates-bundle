@@ -59,11 +59,12 @@ header:
 breadcrumbs:
     home: ホーム
 pagination:
+    label: Pagination
     first: 最初のページ
-    previous: 前の<span class="visuallyhidden">ページ</span>
-    next: 次の<span class="visuallyhidden">ページ</span>
+    previous: 前の
+    next: 次の
     last: 最後のページ
-    page: "{page}ページ"
+    page: "{page}"
     current_page: "{page}"
     summary: >-
         {to, select,

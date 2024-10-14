@@ -420,7 +420,7 @@ let collapsibles = function () {
       // Loop through headings
       headingsArray.forEach(function (heading, index) {
         // Insert a button for opening/closing the collapsible section
-        heading.innerHTML = '<button type="button" class="button--ghost" aria-expanded="false">' + heading.innerHTML + '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="30px" height="30px"><path class="angle-down" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/><path class="angle-up" d="M177 159.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 255.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 329.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1z"/></svg></button>';
+        heading.innerHTML = '<button type="button" class="button button--ghost" aria-expanded="false">' + heading.innerHTML + '</svg></button>';
 
         // Add appropriate aria role to the collapsible section
         heading.nextElementSibling.setAttribute('aria-hidden', 'true');
@@ -715,8 +715,8 @@ const navigation = function (menu, options) {
     // Insert a "back" button
     const backButton = document.createElement('button');
     backButton.setAttribute('data-button', 'mobile-back');
-    backButton.setAttribute('class', 'button button--ghost u-full-width with-icon--before with-icon--larger');
-    backButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" height="16" width="16" class="icon icon--submenu" focusable="false" aria-hidden="true" fill="currentColor">' + '<path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/>' + '</svg>' + _translations__WEBPACK_IMPORTED_MODULE_2__.translate.translate('backToMainMenu', languageCode);
+    backButton.setAttribute('class', 'button button--ghost u-full-width');
+    backButton.innerHTML = _translations__WEBPACK_IMPORTED_MODULE_2__.translate.translate('backToMainMenu', languageCode);
     if (settings.submenuIntro === true) {
       subMenu.parentNode.insertBefore(backButton, subMenu.parentNode.children[0]);
     } else subMenu.parentNode.insertBefore(backButton, subMenu);
