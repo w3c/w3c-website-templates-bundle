@@ -31,6 +31,11 @@
 		background-color: $white;
 	}
 
+    // Close visual gap between end of visible text and CSS-inserted colon caused by visuallyhidden <span>
+    // Only works while there is a single visuallyhidden <span> as the last child in the <dt>
+    .translation-list dt:has(span.visuallyhidden)::after {
+        margin-inline-start: rem(-4);
+    }
 }
 
 .tr-list {

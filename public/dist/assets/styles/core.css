@@ -4933,6 +4933,9 @@ input[type=search] {
 .technical-reports .radio-item label::before {
   background-color: #fff;
 }
+.technical-reports .translation-list dt:has(span.visuallyhidden, span.skip-link)::after {
+  margin-inline-start: -0.25rem;
+}
 
 .tr-list .tr-list__item {
   display: flex;
