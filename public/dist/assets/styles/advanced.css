@@ -695,6 +695,16 @@ br {
   order: 2;
   width: 100%;
 }
+.js .component--collapsibles [data-heading=collapsibles] button::after {
+  block-size: 0.875rem;
+  border-color: black;
+  border-style: solid;
+  border-width: 0 0.25rem 0.25rem 0;
+  content: "";
+  inline-size: 0.875rem;
+  margin-block-start: 0.25rem;
+  transform: rotate(45deg);
+}
 .js .component--collapsibles [data-heading=collapsibles] button:hover {
   text-decoration: underline; /* 1 */
   -webkit-text-decoration-skip: ink;
@@ -706,14 +716,9 @@ br {
   background-color: #f9dc4a;
   text-decoration: none;
 }
-.js .component--collapsibles [data-heading=collapsibles] button[aria-expanded=false] .angle-up {
-  display: none;
-}
-.js .component--collapsibles [data-heading=collapsibles] button[aria-expanded=true] .angle-down {
-  display: none;
-}
-.js .component--collapsibles [data-heading=collapsibles] button svg {
-  flex-shrink: 0;
+.js .component--collapsibles [data-heading=collapsibles] button[aria-expanded=true]::after {
+  margin-block-start: 0.625rem;
+  scale: -1;
 }
 .js .component--collapsibles [data-heading=collapsibles] + *[aria-hidden=true] {
   display: none;

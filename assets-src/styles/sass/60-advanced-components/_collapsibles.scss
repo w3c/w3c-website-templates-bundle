@@ -27,6 +27,18 @@
 			width: 100%;
 		}
 
+       // Decorative chevron
+        &::after {
+            block-size: rem(14);
+            border-color: black;
+            border-style: solid;
+            border-width: 0 rem(4) rem(4) 0;
+            content: "";
+            inline-size: rem(14);
+            margin-block-start: rem(4);
+            transform: rotate(45deg);
+        }
+
 		&:hover {
 			text-decoration: underline; /* 1 */
 			text-decoration-skip-ink: auto; // Not supported by Safari
@@ -38,19 +50,14 @@
 			background-color: $focus-color;
 			text-decoration: none;
 		}
-
-		&[aria-expanded="false"] .angle-up {
-			display: none;
-		}
-
-		&[aria-expanded="true"] .angle-down {
-			display: none;
-		}
-
-		svg {
-			flex-shrink: 0;
-		}
 	}
+
+    [data-heading="collapsibles"] button[aria-expanded="true"] {
+        &::after {
+            margin-block-start: rem(10);
+            scale: -1;
+        }
+    }
 
 	[data-heading="collapsibles"] + * {
 		&[aria-hidden="true"] {
