@@ -634,7 +634,7 @@ br {
 }
 @media screen and (min-width: 70em) {
   .global-nav__inner .nav__submenu li a {
-    align-items: center;
+    align-items: flex-start;
     display: inline-flex;
     padding-inline: 0.125rem;
     width: auto;
@@ -645,8 +645,9 @@ br {
     border-style: solid;
     border-width: 0 0.25rem 0.25rem 0;
     content: "";
-    inline-size: 1rem;
     flex: 0 0 auto;
+    inline-size: 1rem;
+    margin-block-start: 0.375rem;
     margin-inline-end: 1rem;
     transform: rotate(-45deg);
   }

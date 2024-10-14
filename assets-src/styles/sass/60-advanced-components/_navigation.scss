@@ -328,7 +328,7 @@
 	text-decoration: none;
 
 	@include mq($max-width) {
-        align-items: center;
+        align-items: flex-start;
         display: inline-flex;
         padding-inline: rem(2);
 		width: auto;
@@ -340,8 +340,9 @@
             border-style: solid;
             border-width: 0 rem(4) rem(4) 0;
             content: '';
-            inline-size: rem(16);
             flex: 0 0 auto;
+            inline-size: rem(16);
+            margin-block-start: rem(6);
             margin-inline-end: rem(16);
             transform: rotate(-45deg);
         }
