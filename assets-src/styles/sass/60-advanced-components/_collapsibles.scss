@@ -15,7 +15,7 @@
 		line-height: calc(27 / 18);
 		justify-content: space-between;
 		margin-top: 0;
-		padding: 0;
+		padding: rem(3);
 		width: 100%;
 
 		> span {
@@ -36,6 +36,7 @@
             content: "";
             inline-size: rem(14);
             margin-block-start: rem(4);
+            margin-inline-end: rem(2);
             transform: rotate(45deg);
         }
 

@@ -684,7 +684,7 @@ br {
   line-height: 1.5;
   justify-content: space-between;
   margin-top: 0;
-  padding: 0;
+  padding: 0.1875rem;
   width: 100%;
 }
 .js .component--collapsibles [data-heading=collapsibles] button > span {
@@ -703,6 +703,7 @@ br {
   content: "";
   inline-size: 0.875rem;
   margin-block-start: 0.25rem;
+  margin-inline-end: 0.125rem;
   transform: rotate(45deg);
 }
 .js .component--collapsibles [data-heading=collapsibles] button:hover {
