@@ -1,12 +1,12 @@
-# Access Control Banner
+# Access control banner
 
-Access Control Banners are used to display information about the page access restrictions.
-They are an enhancement of the banner component, and thus are placed in a `.global-header` element.
+Access control banners are used to display information about the page access restrictions. They are an enhancement of the banner that is found within the [header component](header.md), and thus are placed inside `<header class="global-header">`.
 
-Different types of access control banners are available:
-- `access-control-banner--member` - for member-only pages
-- `access-control-banner--team` - for team-only pages
-- `access-control-banner--user` - for pages restricted to the current user
-- `access-control-banner--private` - for other access control restrictions
+Different types of access control banners are available, using different classes:
+
+- `.banner--access-control.acl-member` - for member-only pages
+- `.banner--access-control.acl-team` - for team-only pages
+- `.banner--access-control.acl-user` - for pages restricted to the current user
+- `.banner--access-control.acl-private` - for other access control restrictions
 
 <example title="Access Control" src="components/access-control.html.twig" />
