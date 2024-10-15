@@ -219,14 +219,16 @@ ol:not([class]) li ol,
 ol:not([class]) {
   counter-reset: count;
   list-style-type: none;
-  padding-inline-start: 15pt;
+  -webkit-padding-start: 15pt;
+          padding-inline-start: 15pt;
 }
 ol:not([class]) > li {
   counter-increment: count;
 }
 ol:not([class]) > li::before {
   content: counters(count, ".") " ";
-  padding-inline-end: 6pt;
+  -webkit-padding-end: 6pt;
+          padding-inline-end: 6pt;
 }
 
 form > * + *,
@@ -467,8 +469,10 @@ figure {
 }
 
 .component--quote {
-  border-inline-start: solid 4pt;
-  padding-inline-start: 8pt;
+  -webkit-border-start: solid 4pt;
+          border-inline-start: solid 4pt;
+  -webkit-padding-start: 8pt;
+          padding-inline-start: 8pt;
 }
 .component--quote blockquote {
   font-size: 14pt;
