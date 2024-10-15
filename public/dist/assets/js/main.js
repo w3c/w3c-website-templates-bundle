@@ -54,6 +54,7 @@ const translate = {
     },
     'en': {
       'admin': 'Admin',
+      'anchor': 'anchor',
       'backToMainMenu': 'Back to main menu',
       'cancelReply': 'Cancel reply',
       'controlsDescription': 'carousel controls',
@@ -130,6 +131,7 @@ const translate = {
     },
     'ja': {
       'admin': 'アドミン',
+      'anchor': '__anchor',
       'backToMainMenu': 'メインメニューに戻る',
       'cancelReply': '返信をキャンセル',
       'controlsDescription': 'コントロールの説明',
@@ -168,6 +170,7 @@ const translate = {
     },
     'zh-hans': {
       'admin': '管理',
+      'anchor': '__anchor',
       'backToMainMenu': '返回主目录',
       'cancelReply': '取消回复',
       'controlsDescription': '轮播图控件',
@@ -901,6 +904,88 @@ const flashes = function () {
 };
 
 
+/***/ }),
+/* 15 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "headingAnchors": () => (/* binding */ headingAnchors)
+/* harmony export */ });
+/* harmony import */ var _translations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+/**
+ * Add anchor links to any H2 - H6 within the <main> element that:
+ * - are not children of a <nav> element
+ * - do not have an ancestor with the data-anchor="no" attribute, with
+ * the `hidden` attribute or with the .visuallyhidden class
+ * - do not themselves have the data-anchor="no" attribute, the `hidden`
+ * attribute or the .visuallyhidden class
+ *
+ * If a heading does not already possess an ID, use regular expressions on
+ * the textContent of the heading to generate a string that is valid to
+ * use for both the heading ID and the anchor href. Supports non-Latin
+ * scripts by matching any Unicode letter - \p{L} - or number - \p{N}. The
+ * u flag enables Unicode matching, to support characters from any script.
+ *
+ * Otherwise, generate the anchor using the existing heading ID value.
+ */
+
+
+let headingAnchors = function () {
+  let languageCode = document.documentElement.lang;
+
+  // Only add heading anchor links on "full" sites
+  if (languageCode === 'en' || languageCode === 'ja' || languageCode === 'zh-hans') {
+    let headingsArray = Array.from(document.querySelectorAll('main h2, main h3, main h4, main h5, main h6'));
+    if (headingsArray.length > 0) {
+      // Filter out headings that:
+      // - Are not children of <nav>
+      // - Do not have an ancestor with the data-anchor="no" attribute
+      // - Do not have an ancestor with the `hidden` attribute
+      // - Do not have an ancestor with the `.visuallyhidden` class
+      // - Do not themselves have the data-anchor="no" attribute
+      // - Do not themselves have the `hidden` attribute
+      // - Do not themselves have the `.visuallyhidden` class
+      let targetedHeadings = headingsArray.filter(function (heading) {
+        let insideNav = heading.closest('nav') !== null;
+        let parentHasDataAttribute = heading.closest('[data-anchor="no"]') !== null;
+        let hiddenParent = heading.closest('[hidden]') !== null;
+        let visuallyhiddenParent = heading.closest('.visuallyhidden') !== null;
+        let hasDataAttribute = heading.getAttribute('data-anchor') === 'no';
+        let isHidden = heading.getAttribute('hidden');
+        let isVisuallyhidden = heading.classList.contains('visuallyhidden');
+        return !insideNav && !parentHasDataAttribute && !hiddenParent && !visuallyhiddenParent && !hasDataAttribute && !isHidden && !isVisuallyhidden;
+      });
+      if (targetedHeadings.length > 0) {
+        targetedHeadings.forEach(function (heading) {
+          let anchor = document.createElement('a');
+          let anchorHref;
+
+          // If the heading already has an ID, use this for constructing the anchor
+          if (heading.getAttribute('id')) {
+            anchorHref = heading.id;
+          } else {
+            // If the heading does not already have an ID, generate anchor href from the heading text. Steps are:
+            // - Remove leading/trailing spaces
+            // - Use RegEx to remove invalid characters but keep all Unicode letters/numbers
+            // - Use RegEx to replace spaces with hyphens
+            // - convert to lowercase as per URL policy
+            anchorHref = heading.textContent.trim().replace(/[^\p{L}\p{N}\s-]/gu, '').replace(/\s+/g, '-').toLowerCase();
+            heading.id = anchorHref;
+          }
+          anchor.setAttribute('href', '#' + anchorHref);
+          anchor.setAttribute('class', 'heading-anchor');
+          anchor.innerHTML = '<span aria-hidden="true">&sect;</span>' + '<span class="visuallyhidden">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('anchor', languageCode) + '</span>';
+          heading.textContent += '\xa0';
+          heading.appendChild(anchor);
+        });
+      }
+    }
+  }
+};
+
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -983,6 +1068,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_navigation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(10);
 /* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(13);
 /* harmony import */ var _main_flashes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(14);
+/* harmony import */ var _main_heading_anchors__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(15);
+
 
 
 
@@ -999,6 +1086,7 @@ function domLoadedActions() {
   (0,_main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__.formErrorSummary)();
   (0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__.responsiveTables)();
   (0,_main_flashes__WEBPACK_IMPORTED_MODULE_7__.flashes)();
+  (0,_main_heading_anchors__WEBPACK_IMPORTED_MODULE_8__.headingAnchors)();
 
   /* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
   const navDoubleIntro = document.querySelector('ul[data-component="nav-double-intro"]');

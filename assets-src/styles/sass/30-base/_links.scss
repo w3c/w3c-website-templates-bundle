@@ -18,8 +18,7 @@ a.with-icon--after {
 	border: 0;
 	color: $link-color;
 	cursor: pointer;
-	padding-left: rem(2);
-	padding-right: rem(2);
+	padding-inline: rem(2);
 	text-decoration: underline; /* 1 */
 	text-decoration-skip-ink: auto; // Not supported by Safari
 	text-underline-offset: 0.25em; // Supported by Safari
@@ -48,4 +47,27 @@ a.with-icon--after {
 		color: $black;
 		outline-width: 0; /* 2 */
 	}
+}
+
+.heading-anchor {
+    @extend a, :not([class]);
+
+    color: $storm-gray;
+    font-weight: normal;
+    opacity: 0.82;
+    text-underline-offset: auto;
+
+    &:visited {
+        color: $storm-gray;
+    }
+
+    &:hover {
+        color: $storm-gray;
+        opacity: 1;
+    }
+
+    &:focus {
+        color: $black;
+        opacity: 1;
+    }
 }

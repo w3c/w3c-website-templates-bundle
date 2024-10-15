@@ -78,9 +78,9 @@
                 or (page.ecosystems is defined and page.ecosystems is not empty)
                 or (page.groups is defined and page.groups is not empty)
                 or (page.specifications is defined and page.groups is not empty) %}
-				<section class="related">
-					<div class="related__inner">
-						<h2 class="txt-jupiter">{{ 'post.related.heading'|trans({}, 'w3c_website_templates_bundle') }}</h2>
+				<div class="related">
+					<nav class="related__inner" aria-labelledby="related-label">
+						<h2 id="related-label" class="txt-jupiter">{{ 'post.related.heading'|trans({}, 'w3c_website_templates_bundle') }}</h2>
 						{% if page.tags is defined and page.tags %}
 							<div>
 								<h3>{{ 'post.related.heading_tags'|trans({}, 'w3c_website_templates_bundle') }}</h3>
@@ -121,8 +121,8 @@
 								</ul>
 							</div>
 						{% endif %}
-					</div>
-				</section>
+					</nav>
+				</div>
 			{% endif %}
 		{% endblock %}
 	</div>
