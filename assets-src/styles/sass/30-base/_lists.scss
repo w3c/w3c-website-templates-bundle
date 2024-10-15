@@ -55,6 +55,10 @@ dl {
 		font-weight: bold;
 	}
 
+    dd {
+        margin-inline-start: rem(40);
+    }
+
 	dd + dt {
 		margin-block-start: 0.5em;
 	}

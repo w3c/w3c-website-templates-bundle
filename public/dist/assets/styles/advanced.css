@@ -158,8 +158,7 @@ article {
 [data-trigger=account-menu] .sr-only, .visuallyhidden:not(:focus):not(:active) {
   border: 0;
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(100%);
-          clip-path: inset(100%);
+  clip-path: inset(100%);
   height: 1px;
   overflow: hidden;
   padding: 0;
@@ -226,8 +225,7 @@ br {
 }
 @media screen and (min-width: 70em) {
   [data-trigger=account-menu] {
-    -webkit-margin-start: auto;
-            margin-inline-start: auto;
+    margin-inline-start: auto;
     padding: 0.5rem 0.1875rem 0.3125rem 0.1875rem;
   }
   [data-trigger=account-menu]:hover::before {
@@ -254,8 +252,7 @@ br {
   [data-trigger=account-menu] .sr-only {
     border: initial;
     clip: auto;
-    -webkit-clip-path: none;
-            clip-path: none;
+    clip-path: none;
     height: auto;
     margin: initial;
     overflow: initial;
@@ -267,8 +264,7 @@ br {
 }
 @media screen and (min-width: 70em) {
   [data-trigger=account-menu] .avatar {
-    -webkit-margin-start: 0.5rem;
-            margin-inline-start: 0.5rem;
+    margin-inline-start: 0.5rem;
   }
 }
 
@@ -449,16 +445,13 @@ br {
   }
 }
 .global-nav__inner [data-trigger=sub-nav]::after {
-  -webkit-margin-start: auto !important;
-          margin-inline-start: auto !important;
+  margin-inline-start: auto !important;
   transform: rotate(-45deg);
 }
 @media screen and (min-width: 70em) {
   .global-nav__inner [data-trigger=sub-nav]::after {
-    -webkit-margin-before: -0.1875rem;
-            margin-block-start: -0.1875rem;
-    -webkit-margin-start: 0.5rem !important;
-            margin-inline-start: 0.5rem !important;
+    margin-block-start: -0.1875rem;
+    margin-inline-start: 0.5rem !important;
     transform: rotate(45deg);
   }
 }
@@ -472,8 +465,7 @@ br {
 }
 @media screen and (min-width: 70em) {
   .global-nav__inner [data-trigger=sub-nav][aria-expanded=true]::after {
-    -webkit-margin-before: 0;
-            margin-block-start: 0;
+    margin-block-start: 0;
     scale: -1;
   }
 }
@@ -483,8 +475,7 @@ br {
 }
 @media screen and (min-width: 70em) {
   [dir=rtl] .global-nav__inner [data-trigger=sub-nav]::after {
-    -webkit-margin-start: 0.25rem;
-            margin-inline-start: 0.25rem;
+    margin-inline-start: 0.25rem;
     transform: rotate(45deg);
   }
 }
@@ -600,10 +591,8 @@ br {
   content: "";
   inline-size: 1rem;
   flex: 0 0 auto;
-  -webkit-margin-end: 0.75rem;
-          margin-inline-end: 0.75rem;
-  -webkit-margin-start: 0.375rem;
-          margin-inline-start: 0.375rem;
+  margin-inline-end: 0.75rem;
+  margin-inline-start: 0.375rem;
   transform: rotate(135deg);
 }
 
@@ -658,10 +647,8 @@ br {
     content: "";
     flex: 0 0 auto;
     inline-size: 1rem;
-    -webkit-margin-before: 0.375rem;
-            margin-block-start: 0.375rem;
-    -webkit-margin-end: 1rem;
-            margin-inline-end: 1rem;
+    margin-block-start: 0.375rem;
+    margin-inline-end: 1rem;
     transform: rotate(-45deg);
   }
 }
@@ -715,10 +702,8 @@ br {
   border-width: 0 0.25rem 0.25rem 0;
   content: "";
   inline-size: 0.875rem;
-  -webkit-margin-before: 0.25rem;
-          margin-block-start: 0.25rem;
-  -webkit-margin-end: 0.125rem;
-          margin-inline-end: 0.125rem;
+  margin-block-start: 0.25rem;
+  margin-inline-end: 0.125rem;
   transform: rotate(45deg);
 }
 .js .component--collapsibles [data-heading=collapsibles] button:hover {
@@ -733,8 +718,7 @@ br {
   text-decoration: none;
 }
 .js .component--collapsibles [data-heading=collapsibles] button[aria-expanded=true]::after {
-  -webkit-margin-before: 0.625rem;
-          margin-block-start: 0.625rem;
+  margin-block-start: 0.625rem;
   scale: -1;
 }
 .js .component--collapsibles [data-heading=collapsibles] + *[aria-hidden=true] {
@@ -882,12 +866,9 @@ br {
   border-width: 0 0.125rem 0.125rem 0;
   content: "";
   inline-size: 0.4375rem;
-  -webkit-margin-before: -0.1875rem;
-          margin-block-start: -0.1875rem;
-  -webkit-margin-end: 0.1875rem;
-          margin-inline-end: 0.1875rem;
-  -webkit-margin-start: 0.75rem;
-          margin-inline-start: 0.75rem;
+  margin-block-start: -0.1875rem;
+  margin-inline-end: 0.1875rem;
+  margin-inline-start: 0.75rem;
   transform: rotate(45deg);
 }
 [data-toggle=true]:hover {
@@ -904,8 +885,7 @@ br {
 }
 
 [data-toggle=true][aria-expanded=true]::after {
-  -webkit-margin-before: 0.25rem;
-          margin-block-start: 0.25rem;
+  margin-block-start: 0.25rem;
   scale: -1;
 }
 [data-toggle=true][aria-expanded=true] + * {
@@ -937,8 +917,7 @@ br {
 }
 
 #js-cancel-reply {
-  -webkit-margin-start: 0.625rem;
-          margin-inline-start: 0.625rem;
+  margin-inline-start: 0.625rem;
 }
 
 /*------------------------------------*\
