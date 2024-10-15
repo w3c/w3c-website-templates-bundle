@@ -54,7 +54,6 @@ a.with-icon--after {
 
     color: $storm-gray;
     font-weight: normal;
-    //margin-inline-start: 0.25em;
     opacity: 0.82;
     text-underline-offset: auto;
 
@@ -63,6 +62,7 @@ a.with-icon--after {
     }
 
     &:hover {
+        color: $storm-gray;
         opacity: 1;
     }
 

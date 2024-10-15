@@ -1705,6 +1705,7 @@ a.with-icon--after:active {
   color: #545454;
 }
 .heading-anchor:hover {
+  color: #545454;
   opacity: 1;
 }
 .heading-anchor:focus {
