@@ -227,6 +227,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let accountMenu = function () {
   let userInfo = null;
+  let maxWidth = 1120;
   const buildAccountMenu = function (userInfo) {
     if (userInfo == null || userInfo.length < 1) {
       return;
@@ -271,7 +272,8 @@ let accountMenu = function () {
     toggleButton.innerHTML = '<span class="sr-only">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('my-account', languageCode) + ' <span class="visuallyhidden">(' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('logged-in', languageCode) + ')</span></span><div class="avatar avatar--small icon"><img alt="" src="' + userInfo.avatar.thumbnail + '"/></div>';
 
     // Media query event handler
-    let mq = window.matchMedia('(min-width: 71.25em)');
+    let mqValue = maxWidth / 16;
+    let mq = window.matchMedia('(min-width: ' + mqValue + 'em)');
     mq.addListener(insertAccountBtn);
     insertAccountBtn(mq);
     function insertAccountBtn(mq) {

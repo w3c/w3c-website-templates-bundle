@@ -3,6 +3,7 @@ import {translate} from "./translations";
 let accountMenu = function () {
 
 	let userInfo = null;
+	let maxWidth = 1120;
 
 	const buildAccountMenu = function(userInfo) {
 		if (userInfo == null || userInfo.length < 1) {
@@ -54,7 +55,8 @@ let accountMenu = function () {
 		toggleButton.innerHTML = '<span class="sr-only">' + translate.translate('my-account', languageCode) + ' <span class="visuallyhidden">(' + translate.translate( 'logged-in' , languageCode) + ')</span></span><div class="avatar avatar--small icon"><img alt="" src="' + userInfo.avatar.thumbnail + '"/></div>';
 
 		// Media query event handler
-		let mq = window.matchMedia('(min-width: 71.25em)');
+		let mqValue = maxWidth / 16;
+		let mq = window.matchMedia('(min-width: ' + mqValue + 'em)');
 		mq.addListener(insertAccountBtn);
 		insertAccountBtn(mq);
 
