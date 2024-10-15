@@ -42,7 +42,7 @@
 	.tr-list__item {
 		@include stack(0.5em);
 		@include txt-pluto;
-        border-block-end: 1px solid $twiki-gray;
+		border-block-end: 1px solid $twiki-gray;
 		padding-block-end: rem(8);
 		padding-block-start: rem(20);
 
