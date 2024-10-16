@@ -977,7 +977,8 @@ let headingAnchors = function () {
           anchor.setAttribute('href', '#' + anchorHref);
           anchor.setAttribute('class', 'heading-anchor');
           anchor.innerHTML = '<span aria-hidden="true">&sect;</span>' + '<span class="visuallyhidden">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('anchor', languageCode) + '</span>';
-          heading.textContent += '\xa0';
+          console.log(heading.textContent);
+          heading.append('\xa0');
           heading.appendChild(anchor);
         });
       }
