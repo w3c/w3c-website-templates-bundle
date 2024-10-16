@@ -3,7 +3,7 @@
 namespace Deployer;
 
 require 'recipe/common.php';
-require 'vendor/studio24/deployer-recipes/all.php';
+require 'vendor/studio24/deployer-recipes/recipe/common.php';
 
 /**
  * Deployment configuration variables - set on a per-project basis
@@ -40,16 +40,16 @@ set('default_stage', 'staging');
  */
 
 host('production')
-    ->stage('production')
-    ->hostname('proteus.w3.internal')
-    ->user('studio24')
+    ->set('labels', ['stage' => 'production'])
+    ->set('hostname', 'proteus.w3.internal')
+    ->set('remote_user', 'studio24')
     ->set('deploy_path','/srv/design-system.w3.org')
     ->set('url', 'https://design-system.w3.org/');
 
 host('staging')
-    ->stage('staging')
-    ->hostname('proteus.w3.internal')
-    ->user('studio24')
+    ->set('labels', ['stage' => 'staging'])
+    ->set('hostname', 'proteus.w3.internal')
+    ->set('remote_user', 'studio24')
     ->set('deploy_path','/srv/staging-design-system.w3.org')
     ->set('url', 'https://staging-design-system.w3.org/');
 
