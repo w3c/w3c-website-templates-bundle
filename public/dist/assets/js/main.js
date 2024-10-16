@@ -887,7 +887,7 @@ const flashes = function () {
     if (type.startsWith('title-') || type === 'length' || !flashes.hasOwnProperty(type)) {
       continue;
     }
-    html += '<div class="l-box note note--' + type + '" role="' + (type === 'error' ? 'alert' : 'status') + '" aria-labelledby="' + type + '-summary-title" tabindex="-1" data-component = "' + type + '-summary" >';
+    html += '<div class="l-box note note--' + type + '" role="' + (type === 'error' ? 'alert' : 'status') + '" aria-labelledby="' + type + '-summary-title" tabindex="-1" ' + 'data-component = "' + type + '-summary" data-anchor="no">';
     html += '<h2 id="' + type + '-summary-title" class="txt-saturn">' + flashes['title-' + type] + '</h2>';
     html += '<ul class="clean-list" role="list">';
     for (let i in flashes[type]) {
@@ -977,7 +977,6 @@ let headingAnchors = function () {
           anchor.setAttribute('href', '#' + anchorHref);
           anchor.setAttribute('class', 'heading-anchor');
           anchor.innerHTML = '<span aria-hidden="true">&sect;</span>' + '<span class="visuallyhidden">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('anchor', languageCode) + '</span>';
-          console.log(heading.textContent);
           heading.append('\xa0');
           heading.appendChild(anchor);
         });
