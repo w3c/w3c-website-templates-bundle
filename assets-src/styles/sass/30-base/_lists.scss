@@ -114,6 +114,7 @@ dl.grid {
 		dd {
 			grid-column-start: 2;
 			grid-column-end: 3;
+            margin-inline-start: 0;
 		}
 	}
 }
