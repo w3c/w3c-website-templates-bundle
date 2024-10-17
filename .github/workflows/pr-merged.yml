@@ -9,19 +9,11 @@ jobs:
     env:
       destination: assets/website-2021/pr-${{ github.event.number }}/
     steps:
-      - name: Delete PR assets from the cdn.w3.org bucket
+      - name: Delete PR assets from the cdn-dev.w3.org bucket
         if: success()
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-1'
         run:
-          aws s3 rm --recursive  s3://cdn.w3.org/${{ env.destination }}
-
-      - name: Purge cache for www.w3.org
-        uses: nathanvaughn/actions-cloudflare-purge@master
-        if: success()
-        with:
-          cf_zone: ${{ secrets.CLOUDFLARE_ZONE }}
-          cf_auth: ${{ secrets.CLOUDFLARE_CACHEPURGE_TOKEN }}
-          prefixes: www.w3.org/${{ env.destination }}
+          aws s3 rm --recursive  s3://cdn-dev.w3.org/${{ env.destination }}
