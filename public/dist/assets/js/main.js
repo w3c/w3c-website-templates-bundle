@@ -916,19 +916,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _translations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
 /**
  * Add anchor links to any H2 - H6 within the <main> element that:
+ * - have an id
  * - are not children of a <nav> element
  * - do not have an ancestor with the data-anchor="no" attribute, with
  * the `hidden` attribute or with the .visuallyhidden class
  * - do not themselves have the data-anchor="no" attribute, the `hidden`
  * attribute or the .visuallyhidden class
  *
- * If a heading does not already possess an ID, use regular expressions on
- * the textContent of the heading to generate a string that is valid to
- * use for both the heading ID and the anchor href. Supports non-Latin
- * scripts by matching any Unicode letter - \p{L} - or number - \p{N}. The
- * u flag enables Unicode matching, to support characters from any script.
- *
- * Otherwise, generate the anchor using the existing heading ID value.
+ * Generate the anchor using the existing heading ID value.
  */
 
 
@@ -937,7 +932,7 @@ let headingAnchors = function () {
 
   // Only add heading anchor links on "full" sites
   if (languageCode === 'en' || languageCode === 'ja' || languageCode === 'zh-hans') {
-    let headingsArray = Array.from(document.querySelectorAll('main h2, main h3, main h4, main h5, main h6'));
+    let headingsArray = Array.from(document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id], main h6[id]'));
     if (headingsArray.length > 0) {
       // Filter out headings that:
       // - Are not children of <nav>
@@ -960,21 +955,7 @@ let headingAnchors = function () {
       if (targetedHeadings.length > 0) {
         targetedHeadings.forEach(function (heading) {
           let anchor = document.createElement('a');
-          let anchorHref;
-
-          // If the heading already has an ID, use this for constructing the anchor
-          if (heading.getAttribute('id')) {
-            anchorHref = heading.id;
-          } else {
-            // If the heading does not already have an ID, generate anchor href from the heading text. Steps are:
-            // - Remove leading/trailing spaces
-            // - Use RegEx to remove invalid characters but keep all Unicode letters/numbers
-            // - Use RegEx to replace spaces with hyphens
-            // - convert to lowercase as per URL policy
-            anchorHref = heading.textContent.trim().replace(/[^\p{L}\p{N}\s-]/gu, '').replace(/\s+/g, '-').toLowerCase();
-            heading.id = anchorHref;
-          }
-          anchor.setAttribute('href', '#' + anchorHref);
+          anchor.setAttribute('href', '#' + heading.id);
           anchor.setAttribute('class', 'heading-anchor');
           anchor.innerHTML = '<span aria-hidden="true">&sect;</span>' + '<span class="visuallyhidden">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('anchor', languageCode) + '</span>';
           heading.append('\xa0');
