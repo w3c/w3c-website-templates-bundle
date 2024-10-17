@@ -55,6 +55,10 @@ dl {
 		font-weight: bold;
 	}
 
+    dd {
+        margin-inline-start: rem(40);
+    }
+
 	dd + dt {
 		margin-block-start: 0.5em;
 	}
@@ -110,6 +114,7 @@ dl.grid {
 		dd {
 			grid-column-start: 2;
 			grid-column-end: 3;
+            margin-inline-start: 0;
 		}
 	}
 }
