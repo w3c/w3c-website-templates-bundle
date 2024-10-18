@@ -54,6 +54,7 @@ const translate = {
     },
     'en': {
       'admin': 'Admin',
+      'anchor': 'anchor',
       'backToMainMenu': 'Back to main menu',
       'cancelReply': 'Cancel reply',
       'controlsDescription': 'carousel controls',
@@ -130,6 +131,7 @@ const translate = {
     },
     'ja': {
       'admin': 'アドミン',
+      'anchor': '__anchor',
       'backToMainMenu': 'メインメニューに戻る',
       'cancelReply': '返信をキャンセル',
       'controlsDescription': 'コントロールの説明',
@@ -168,6 +170,7 @@ const translate = {
     },
     'zh-hans': {
       'admin': '管理',
+      'anchor': '__anchor',
       'backToMainMenu': '返回主目录',
       'cancelReply': '取消回复',
       'controlsDescription': '轮播图控件',
@@ -227,6 +230,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let accountMenu = function () {
   let userInfo = null;
+  let maxWidth = 1120;
   const buildAccountMenu = function (userInfo) {
     if (userInfo == null || userInfo.length < 1) {
       return;
@@ -271,7 +275,8 @@ let accountMenu = function () {
     toggleButton.innerHTML = '<span class="sr-only">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('my-account', languageCode) + ' <span class="visuallyhidden">(' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('logged-in', languageCode) + ')</span></span><div class="avatar avatar--small icon"><img alt="" src="' + userInfo.avatar.thumbnail + '"/></div>';
 
     // Media query event handler
-    let mq = window.matchMedia('(min-width: 71.25em)');
+    let mqValue = maxWidth / 16;
+    let mq = window.matchMedia('(min-width: ' + mqValue + 'em)');
     mq.addListener(insertAccountBtn);
     insertAccountBtn(mq);
     function insertAccountBtn(mq) {
@@ -882,7 +887,7 @@ const flashes = function () {
     if (type.startsWith('title-') || type === 'length' || !flashes.hasOwnProperty(type)) {
       continue;
     }
-    html += '<div class="l-box note note--' + type + '" role="' + (type === 'error' ? 'alert' : 'status') + '" aria-labelledby="' + type + '-summary-title" tabindex="-1" data-component = "' + type + '-summary" >';
+    html += '<div class="l-box note note--' + type + '" role="' + (type === 'error' ? 'alert' : 'status') + '" aria-labelledby="' + type + '-summary-title" tabindex="-1" ' + 'data-component = "' + type + '-summary" data-anchor="no">';
     html += '<h2 id="' + type + '-summary-title" class="txt-saturn">' + flashes['title-' + type] + '</h2>';
     html += '<ul class="clean-list" role="list">';
     for (let i in flashes[type]) {
@@ -896,6 +901,69 @@ const flashes = function () {
   // remove the cookie to not show flashes again
   // the cookie path is controlled by the fos_http_cache.flash_message.path configuration option
   document.cookie = "flashes=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
+};
+
+
+/***/ }),
+/* 15 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "headingAnchors": () => (/* binding */ headingAnchors)
+/* harmony export */ });
+/* harmony import */ var _translations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+/**
+ * Add anchor links to any H2 - H6 within the <main> element that:
+ * - have an id
+ * - are not children of a <nav> element
+ * - do not have an ancestor with the data-anchor="no" attribute, with
+ * the `hidden` attribute or with the .visuallyhidden class
+ * - do not themselves have the data-anchor="no" attribute, the `hidden`
+ * attribute or the .visuallyhidden class
+ *
+ * Generate the anchor using the existing heading ID value.
+ */
+
+
+let headingAnchors = function () {
+  let languageCode = document.documentElement.lang;
+
+  // Only add heading anchor links on "full" sites
+  if (languageCode === 'en' || languageCode === 'ja' || languageCode === 'zh-hans') {
+    let headingsArray = Array.from(document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id], main h6[id]'));
+    if (headingsArray.length > 0) {
+      // Filter out headings that:
+      // - Are not children of <nav>
+      // - Do not have an ancestor with the data-anchor="no" attribute
+      // - Do not have an ancestor with the `hidden` attribute
+      // - Do not have an ancestor with the `.visuallyhidden` class
+      // - Do not themselves have the data-anchor="no" attribute
+      // - Do not themselves have the `hidden` attribute
+      // - Do not themselves have the `.visuallyhidden` class
+      let targetedHeadings = headingsArray.filter(function (heading) {
+        let insideNav = heading.closest('nav') !== null;
+        let parentHasDataAttribute = heading.closest('[data-anchor="no"]') !== null;
+        let hiddenParent = heading.closest('[hidden]') !== null;
+        let visuallyhiddenParent = heading.closest('.visuallyhidden') !== null;
+        let hasDataAttribute = heading.getAttribute('data-anchor') === 'no';
+        let isHidden = heading.getAttribute('hidden');
+        let isVisuallyhidden = heading.classList.contains('visuallyhidden');
+        return !insideNav && !parentHasDataAttribute && !hiddenParent && !visuallyhiddenParent && !hasDataAttribute && !isHidden && !isVisuallyhidden;
+      });
+      if (targetedHeadings.length > 0) {
+        targetedHeadings.forEach(function (heading) {
+          let anchor = document.createElement('a');
+          anchor.setAttribute('href', '#' + heading.id);
+          anchor.setAttribute('class', 'heading-anchor');
+          anchor.innerHTML = '<span aria-hidden="true">&sect;</span>' + '<span class="visuallyhidden">' + _translations__WEBPACK_IMPORTED_MODULE_0__.translate.translate('anchor', languageCode) + '</span>';
+          heading.append('\xa0');
+          heading.appendChild(anchor);
+        });
+      }
+    }
+  }
 };
 
 
@@ -981,6 +1049,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_navigation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(10);
 /* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(13);
 /* harmony import */ var _main_flashes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(14);
+/* harmony import */ var _main_heading_anchors__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(15);
+
 
 
 
@@ -997,6 +1067,7 @@ function domLoadedActions() {
   (0,_main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__.formErrorSummary)();
   (0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__.responsiveTables)();
   (0,_main_flashes__WEBPACK_IMPORTED_MODULE_7__.flashes)();
+  (0,_main_heading_anchors__WEBPACK_IMPORTED_MODULE_8__.headingAnchors)();
 
   /* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
   const navDoubleIntro = document.querySelector('ul[data-component="nav-double-intro"]');

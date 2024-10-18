@@ -12,7 +12,7 @@
             {% if page.related_pages|length > 0 %}
                 <nav id="profile-nav" aria-label="{{ profile_nav_title|default('profile_page.nav.title'|trans({}, 'w3c_website_templates_bundle')) }}">
                     <div class="profile-nav__inner">
-                        <ul class="clean-list" role="list">
+                        <ul>
                             {% block profile_nav_entries %}
                                 {% for link in page.related_pages %}
                                     {% if link.current is defined and link.current %}

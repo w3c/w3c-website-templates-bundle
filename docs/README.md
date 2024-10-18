@@ -25,7 +25,7 @@ More generic and wide-reaching styles sit within the lower numbered levels, with
 - **40-layouts:**<br> heavily influenced by [Every Layout](https://every-layout.dev/), these are the styles for the basic layout types, which can be combined and customised to make a variety of components and templates - [more about layouts](layouts/README.md)
 - **50-core-components:**<br> the basic components available for use, un-enhanced by JavaScript - [more about components](components/README.md)
 - **60-advanced-components:**<br> components that are enhanced in some way with JavaScript - [more about components](components/README.md)
-- **70-third-party-plugins:**<br> any functionality that comes from external sources - [more about third-party plugins](third-party-plugins/README.md)
+- **70-third-party-plugins:**<br> styles for components/functionality from sources external to the design system, typically via scripts. They may include some customisations specifically required to fit in with the design system.
 - **80-templates:**<br> styles required for specific page templates and/or content types - [more about templates](templates/README.md)
 - **90-utilities:**<br> overrides or helper classes - [more about utilities](styles/utilities.md)
 
