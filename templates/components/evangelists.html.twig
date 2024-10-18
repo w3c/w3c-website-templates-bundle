@@ -2,7 +2,7 @@
 	{% if (title is defined and title) or (introduction is defined and introduction) %}
 	<div class="component--evangelists__text">
 		{% if (title is defined and title) %}
-		<h2 class="txt-earth">{{ title }}</h2>
+		<h2 class="txt-earth" id="contact">{{ title }}</h2>
 		{% endif %}
 		{% if (introduction is defined and introduction) %}
 		{{ introduction|raw }}

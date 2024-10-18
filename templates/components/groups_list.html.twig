@@ -3,7 +3,7 @@
         {% if (list_title is defined and list_title) or (list_introduction is defined and list_introduction)  %}
         <div class="component--group-list__intro">
             {% if (list_title is defined and list_title) %}
-            <h2>{{ list_title }}</h2>
+            <h2 id="groups">{{ list_title }}</h2>
             {% endif %}
             {% if (list_introduction is defined and list_introduction) %}
             <p>{{ list_introduction }}</p>
