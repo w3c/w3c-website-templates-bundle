@@ -4089,11 +4089,11 @@ input[type=search] {
     #Family/Series list
 \*------------------------------------*/
 .family-grouping {
-  padding-top: 2.5rem;
+  padding-block-start: 1.75rem;
 }
 
 .family-grouping h2 + * {
-  margin-top: 1rem;
+  margin-block-start: 1rem;
 }
 
 /*------------------------------------*\
@@ -5004,8 +5004,8 @@ input[type=search] {
 }
 .technical-reports .hero {
   background-color: #fff;
-  margin-bottom: 1.25rem;
-  padding-bottom: 2.5rem;
+  margin-block-end: 1.25rem;
+  padding-block-end: 0;
 }
 .technical-reports .hero .l-box {
   background-color: #f3f3f6;
@@ -5021,6 +5021,9 @@ input[type=search] {
 .technical-reports .radio-item label::before {
   background-color: #fff;
 }
+.technical-reports .translation-list dt:has(span.visuallyhidden, span.skip-link)::after {
+  margin-inline-start: -0.25rem;
+}
 
 .tr-list .tr-list__item {
   display: flex;
@@ -5028,8 +5031,9 @@ input[type=search] {
   justify-content: flex-start;
   font-size: 0.9375rem;
   line-height: 1.5;
-  padding-bottom: 1.5rem;
-  padding-top: 1.5rem;
+  border-block-end: 1px solid #bdbdbd;
+  padding-block-end: 0.5rem;
+  padding-block-start: 1.25rem;
 }
 .tr-list .tr-list__item > * + * {
   margin-top: 0.5em;
@@ -5041,9 +5045,6 @@ input[type=search] {
   font-size: 1.5rem;
   line-height: 1.4;
 }
-.tr-list .tr-list__item + .tr-list__item {
-  border-top: 1px solid #bdbdbd;
-}
 .tr-list .tr-list__item__header {
   display: flex;
   flex-direction: column;
@@ -5054,11 +5055,11 @@ input[type=search] {
   margin-top: 1em;
 }
 .tr-list .tr-list__item__header h3 {
-  margin-bottom: 0;
-  margin-top: 0.3125rem;
+  margin-block-end: 0;
+  margin-block-start: 0.3125rem;
 }
 .tr-list .tr-list__item__header h3 + * {
-  margin-top: 0;
+  margin-block-start: 0;
   order: -1;
 }
 
