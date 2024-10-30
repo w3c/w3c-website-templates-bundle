@@ -2,7 +2,7 @@
     <div>
         <div class="not-sidebar">
             <div>
-                <{{ heading|default('h3') }} id="{{ user.login }}" class="{{ heading_class|default('txt-mars') }}">
+                <{{ heading|default('h3') }} id="{{ user.login }}" class="{{ heading_class|default('txt-mars') }}" data-anchor="no">
                     {% block name %}
                         {% block given %}{{ user.given }}{% endblock%}
                         {% block family %}{{ user.family }}{% endblock %}
