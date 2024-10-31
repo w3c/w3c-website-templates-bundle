@@ -27,7 +27,8 @@ const flashes = (function () {
         }
 
         html += '<div class="l-box note note--' + type + '" role="' + (type === 'error' ? 'alert' : 'status')
-            + '" aria-labelledby="' + type + '-summary-title" tabindex="-1" data-component = "' + type + '-summary" >';
+            + '" aria-labelledby="' + type + '-summary-title" tabindex="-1" ' +
+            'data-component = "' + type + '-summary" data-anchor="no">';
         html += '<h2 id="' + type + '-summary-title" class="txt-saturn">' + flashes['title-' + type] + '</h2>';
         html += '<ul class="clean-list" role="list">';
         for (let i in flashes[type]) {

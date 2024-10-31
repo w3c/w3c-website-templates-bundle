@@ -1,10 +1,10 @@
-<div class="people-list" data-anchor="no">
+<div class="people-list">
     {% for alumnus in alumni %}
-        <div class="l-sidebar card--user" id="{{ alumnus.slug }}">
+        <div class="l-sidebar card--user">
             <div class="alumni">
                 <div class="not-sidebar">
                     <div>
-                        <h2 class="txt-mars">{{ alumnus.given }} {{ alumnus.last }}</h2>
+                        <h2 class="txt-mars" id="{{ alumnus.slug }}">{{ alumnus.given }} {{ alumnus.last }}</h2>
                         <p>{{ 'alumni.date_range'|trans({'start': alumnus.start|date('F Y'), 'end': alumnus.end|date('F Y')}, 'w3c_website_templates_bundle') }}</p>
                         {{ alumnus.biography|purify }}
                     </div>
