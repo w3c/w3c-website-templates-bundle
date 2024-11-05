@@ -198,7 +198,7 @@ const MultiselectButtons = function (selectEl, params) {
   ulCombo.setAttribute('aria-multiselectable', 'true');
   ulCombo.id = baseId + '-listbox';
   ulCombo.setAttribute('aria-labelledby', baseId + '-label');
-  ulCombo.classList.add('combo-menu');
+  ulCombo.classList.add('combo-menu', 'clean-list');
   div.appendChild(divComboBox);
   div.appendChild(ulCombo);
   if (selectEl.multiple) {

@@ -3602,6 +3602,9 @@ a.tag, .tag.heading-anchor {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
+.component--evangelists__list .l-box {
+  padding: 1.5rem;
+}
 .component--evangelists__list li + li {
   border-top: solid 1px #649bc5;
 }
