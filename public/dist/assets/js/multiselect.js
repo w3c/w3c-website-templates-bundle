@@ -151,15 +151,15 @@ const MultiselectButtons = function (selectEl, params) {
   selectEl.parentNode.appendChild(span);
 
   // hide the original label/hint and create new ones for the new combobox
-  const selectLabel = document.querySelector("label[for=".concat(selectEl.id, "]"));
+  const selectLabel = document.querySelector(`label[for=${selectEl.id}]`);
   selectLabel.hidden = true;
-  const selectHint = document.querySelector("#hint-".concat(selectEl.id));
+  const selectHint = document.querySelector(`#hint-${selectEl.id}`);
   if (selectHint) {
     selectHint.hidden = true;
   }
   const div = document.createElement('div');
   div.classList.add('combo');
-  div.id = "".concat(selectEl.id, "-js-multi-buttons");
+  div.id = `${selectEl.id}-js-multi-buttons`;
   const divComboBox = document.createElement('div');
   divComboBox.setAttribute('role', 'combobox');
   divComboBox.setAttribute('aria-haspopup', 'listbox');
@@ -172,7 +172,7 @@ const MultiselectButtons = function (selectEl, params) {
   input.setAttribute('aria-controls', baseId + '-listbox');
   input.id = baseId + "-input";
   if (selectHint) {
-    input.setAttribute('aria-describedby', "hint-".concat(input.id));
+    input.setAttribute('aria-describedby', `hint-${input.id}`);
   }
   input.classList.add('combo-input');
   input.setAttribute('autocomplete', 'off');
@@ -191,14 +191,14 @@ const MultiselectButtons = function (selectEl, params) {
   const hintComboBox = selectHint ? selectHint.cloneNode(true) : null;
   if (selectHint) {
     hintComboBox.hidden = false;
-    hintComboBox.id = "hint-".concat(input.id);
+    hintComboBox.id = `hint-${input.id}`;
   }
   const ulCombo = document.createElement('ul');
   ulCombo.setAttribute('role', 'listbox');
   ulCombo.setAttribute('aria-multiselectable', 'true');
   ulCombo.id = baseId + '-listbox';
   ulCombo.setAttribute('aria-labelledby', baseId + '-label');
-  ulCombo.classList.add('combo-menu');
+  ulCombo.classList.add('combo-menu', 'clean-list');
   div.appendChild(divComboBox);
   div.appendChild(ulCombo);
   if (selectEl.multiple) {
@@ -248,12 +248,12 @@ const MultiselectButtons = function (selectEl, params) {
       const listItem = document.createElement('li');
       buttonEl.className = 'remove-option';
       buttonEl.type = 'button';
-      buttonEl.id = "".concat(this.idBase, "-remove-").concat(index);
+      buttonEl.id = `${this.idBase}-remove-${index}`;
       buttonEl.dataset.value = option.value;
       buttonEl.addEventListener('click', () => {
         this.removeOption(option);
       });
-      buttonEl.innerHTML = "<span class=\"visuallyhidden\">Remove </span>".concat(option.text, " ");
+      buttonEl.innerHTML = `<span class="visuallyhidden">Remove </span>${option.text} `;
       listItem.appendChild(buttonEl);
       this.selectedEl.appendChild(listItem);
     } else {
@@ -281,7 +281,7 @@ MultiselectButtons.prototype.init = function () {
         hint = document.createElement('li');
         hint.setAttribute('role', 'alert');
       }
-      hint.innerText = "Please enter ".concat(this.minInput, " or more characters");
+      hint.innerText = `Please enter ${this.minInput} or more characters`;
       if (!alreadyExists) {
         this.listboxEl.prepend(hint);
       }
@@ -320,7 +320,7 @@ MultiselectButtons.prototype.filterOptions = async function (value) {
         optionEl.setAttribute('aria-setsize', count);
         optionEl.setAttribute('aria-posinset', k + 1);
       }
-      optionEl.id = "".concat(this.idBase, "-").concat(this.options.indexOf(o));
+      optionEl.id = `${this.idBase}-${this.options.indexOf(o)}`;
       optionEl.className = 'combo-option';
       optionEl.setAttribute('aria-selected', alreadySelected);
       optionEl.dataset.value = o.value;
@@ -356,7 +356,7 @@ MultiselectButtons.prototype.filterOptions = async function (value) {
 };
 MultiselectButtons.prototype.updateResults = async function () {
   const url = new URL(this.source, window.location.protocol + '//' + window.location.host);
-  url.search = "".concat(url.search ? url.search + '&' : '?', "q=").concat(this.inputEl.value, "&page=").concat(this.page);
+  url.search = `${url.search ? url.search + '&' : '?'}q=${this.inputEl.value}&page=${this.page}`;
   const response = await fetch(url);
   const data = await response.json();
   if (this.page === 1) {
@@ -364,7 +364,7 @@ MultiselectButtons.prototype.updateResults = async function () {
   }
   data.results.forEach(c => {
     this.ajaxResultCount = data.total;
-    if (!this.select.querySelector("option[value=\"".concat(c.id, "\"]"))) {
+    if (!this.select.querySelector(`option[value="${c.id}"]`)) {
       const o = document.createElement('option');
       o.value = c.id;
       o.innerText = c.text;
@@ -395,11 +395,10 @@ MultiselectButtons.prototype.onInput = async function () {
         await this.updateResults();
         hint.remove();
       } else {
-        var _hint;
         this.clearOptions();
-        (_hint = hint) !== null && _hint !== void 0 ? _hint : hint = document.createElement('li');
+        hint ??= document.createElement('li');
         hint.setAttribute('role', 'alert');
-        hint.innerText = "Please enter ".concat(this.minInput, " or more characters");
+        hint.innerText = `Please enter ${this.minInput} or more characters`;
         this.listboxEl.prepend(hint);
         showHint = true;
       }
@@ -467,11 +466,11 @@ MultiselectButtons.prototype.onInputBlur = function () {
 };
 MultiselectButtons.prototype.onOptionChange = function (index) {
   this.activeIndex = index;
-  this.inputEl.setAttribute('aria-activedescendant', "".concat(this.idBase, "-").concat(index));
+  this.inputEl.setAttribute('aria-activedescendant', `${this.idBase}-${index}`);
 
   // update active style
   const options = this.el.querySelectorAll('[role=option]');
-  const currentOptions = this.el.querySelector("[id=".concat(this.idBase, "-").concat(index, "]"));
+  const currentOptions = this.el.querySelector(`[id=${this.idBase}-${index}]`);
   [...options].forEach(optionEl => {
     optionEl.classList.remove('option-current');
   });
@@ -502,7 +501,7 @@ MultiselectButtons.prototype.removeOption = function (option) {
   // const index = this.options.indexOf(option);
 
   // update aria-selected
-  const o = this.el.querySelector("[data-value=\"".concat(option.value, "\"]"));
+  const o = this.el.querySelector(`[data-value="${option.value}"]`);
   if (o) {
     o.setAttribute('aria-selected', 'false');
     o.classList.remove('option-selected');
@@ -510,7 +509,7 @@ MultiselectButtons.prototype.removeOption = function (option) {
 
   // remove button
   if (this.selectedEl) {
-    const buttonEl = this.selectedEl.querySelector("[data-value=\"".concat(option.value, "\"]"));
+    const buttonEl = this.selectedEl.querySelector(`[data-value="${option.value}"]`);
     this.selectedEl.removeChild(buttonEl.parentElement);
   }
   this.select.querySelector('option[value="' + option.value + '"]').removeAttribute('selected');
@@ -521,7 +520,7 @@ MultiselectButtons.prototype.selectOption = function (option) {
   this.activeIndex = index;
 
   // update aria-selected
-  const o = this.el.querySelector("[id=".concat(this.idBase, "-").concat(index, "]"));
+  const o = this.el.querySelector(`[id=${this.idBase}-${index}]`);
   o.setAttribute('aria-selected', 'true');
   o.classList.add('option-selected');
 
@@ -530,7 +529,7 @@ MultiselectButtons.prototype.selectOption = function (option) {
   const listItem = document.createElement('li');
   buttonEl.className = 'remove-option';
   buttonEl.type = 'button';
-  buttonEl.id = "".concat(this.idBase, "-remove-").concat(index);
+  buttonEl.id = `${this.idBase}-remove-${index}`;
   buttonEl.dataset.value = selected.value;
   buttonEl.addEventListener('click', () => {
     const sibling = listItem.nextSibling;
@@ -541,7 +540,7 @@ MultiselectButtons.prototype.selectOption = function (option) {
       this.inputEl.focus();
     }
   });
-  buttonEl.innerHTML = "<span class=\"visuallyhidden\">Remove </span> ".concat(selected.text, " ");
+  buttonEl.innerHTML = `<span class="visuallyhidden">Remove </span> ${selected.text} `;
   listItem.appendChild(buttonEl);
   if (this.select.multiple) {
     this.selectedEl.appendChild(listItem);
@@ -552,7 +551,7 @@ MultiselectButtons.prototype.selectOption = function (option) {
   this.select.querySelector('option[value="' + option.value + '"]').setAttribute('selected', 'selected');
 };
 MultiselectButtons.prototype.updateOption = function (index) {
-  const optionEl = this.el.querySelector("[id=".concat(this.idBase, "-").concat(index, "]"));
+  const optionEl = this.el.querySelector(`[id=${this.idBase}-${index}]`);
   const isSelected = optionEl.getAttribute('aria-selected') === 'true';
   this.inputEl.value = '';
   if (isSelected) {
@@ -567,7 +566,7 @@ MultiselectButtons.prototype.updateOption = function (index) {
 };
 MultiselectButtons.prototype.updateMenuState = function (open) {
   this.open = open;
-  this.comboEl.setAttribute('aria-expanded', "".concat(open));
+  this.comboEl.setAttribute('aria-expanded', `${open}`);
   open ? this.el.classList.add('open') : this.el.classList.remove('open');
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MultiselectButtons);
