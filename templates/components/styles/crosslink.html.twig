@@ -4,12 +4,16 @@
             <h3 class="card__heading">
                 <a href="{{ crosslink['url'] }}" class="card__link">{{ crosslink['title'] }}</a>
             </h3>
-            <p>
-                {% if crosslink['text'] is defined %}{{ crosslink['text']|raw }}{% endif %}
-            </p>
-            <p class="txt-pluto">
-                {% if crosslink['category'] is defined %}{{ crosslink['category']|crosslink_type|trans({}, 'w3c_website_templates_bundle') }}{% endif %}
-            </p>
+            {% if crosslink['text'] is defined %}
+                <p>
+                    {{ crosslink['text']|raw }}
+                </p>
+            {% endif %}
+            {% if crosslink['category'] is defined %}
+                <p class="txt-pluto">
+                    {{ crosslink['category']|crosslink_type|trans({}, 'w3c_website_templates_bundle') }}
+                </p>
+            {% endif %}
         </div>
         {% if crosslink['img'] is defined and crosslink['img'] %}
             <div class="l-frame l-frame--16-9 card__image">
