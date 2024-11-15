@@ -163,7 +163,7 @@
             {% block pre_footer %}{% endblock %}
         </main>
         {% block crosslinks %}
-            {% if crosslinks is defined and crosslinks|length > 0 %}
+            {% if crosslinks is defined and crosslinks['links'] is defined and crosslinks['links']|length > 0 %}
                 {{ include('@W3CWebsiteTemplates/components/styles/crosslinks.html.twig') }}
             {% endif %}
         {% endblock crosslinks %}
