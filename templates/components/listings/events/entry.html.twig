@@ -6,11 +6,11 @@
                 <div>
                     <div class="not-sidebar">
                         {% block event_main_content %}
-                            <h2 class="card__heading" id="event-{{ index }}-title">
+                            <{{ event_heading|default('h2') }} class="card__heading" id="event-{{ index }}-title" data-anchor="no">
                                 <a class="card__link" href="{% block event_url %}{{ entry.url }}{% endblock %}">
                                     {% block event_title %}{{ entry.title }}{% endblock %}
                                 </a>
-                            </h2>
+                            </{{ event_heading|default('h2') }}>
                             <div>
                                 {% block event_excerpt %}
                                     {{ entry.excerpt }}

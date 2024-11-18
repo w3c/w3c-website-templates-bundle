@@ -18,6 +18,11 @@
             {% block filters %}{% endblock %}
         </div>
     </div>
+    {% block toc %}
+        {% if page.displayOnThisPageNavigation is defined and page.displayOnThisPageNavigation and toc is defined %}
+            {{ include('@W3CWebsiteTemplates/components/styles/toc.html.twig') }}
+        {% endif %}
+    {% endblock %}
     {% block list %}{% endblock %}
     {% block pagination %}
         {% include '@W3CWebsiteTemplates/components/styles/pagination.html.twig' %}
