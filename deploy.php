@@ -2,42 +2,40 @@
 
 namespace Deployer;
 
-require 'recipe/common.php';
-require 'vendor/studio24/deployer-recipes/recipe/common.php';
+/**
+ * 1. Deployer recipes we are using for this website
+ */
+require 'vendor/studio24/deployer-recipes/recipe/default.php';
+
 
 /**
- * Deployment configuration variables - set on a per-project basis
+ * 2. Deployment configuration variables
  */
 
-// Friendly project name
-$project_name = 'W3C Design System documentation website';
+// Project name
+set('application', 'W3C Design System documentation website');
 
-// The repo for the project
-$repository = 'git@github.com:w3c/w3c-website-templates-bundle.git';
+// Git repo
+set('repository', 'git@github.com:w3c/w3c-website-templates-bundle.git');
 
-/**
- * Apply configuration to Deployer
- *
- * Don't edit beneath here unless you know what you're doing!
- */
-
-set('application', $project_name);
-set('repository', $repository);
+// Default deployment and HTTP users
+set('remote_user', 'studio24');
 set('http_user', 'apache');
 set('webroot', '');
 set('keep_releases', 10);
-set('git_tty', true);
-set('allow_anonymous_stats', false);
 
 // Folder to help build clean copy of design system site
 set('build_root', getenv('HOME') . '/.deployer');
 
 // Default stage - prevents accidental deploying to production with dep deploy
-set('default_stage', 'staging');
+set('default_selector', 'stage=staging');
+
 
 /**
- * Hosts
+ * 3. Hosts
  */
+
+localhost('local');
 
 host('production')
     ->set('labels', ['stage' => 'production'])
@@ -53,40 +51,22 @@ host('staging')
     ->set('deploy_path','/srv/staging-design-system.w3.org')
     ->set('url', 'https://staging-design-system.w3.org/');
 
+
 /**
- * Deployment task
- * The task that will be run when using dep deploy
+ * 4. Deployment tasks
  */
 
-desc('Deploy ' . get('application'));
-task('deploy', [
-
-    // Check that we are using local deployer
-    's24:check-local-deployer',
-
-    // Run initial checks
+// Overwrite deploy:prepare to build and upload static site
+desc('Prepares a new release');
+task('deploy:prepare', [
     'deploy:info',
-    's24:check-branch',
-    's24:display-disk-space',
-
-    // Request confirmation to continue (default N)
-    's24:confirm-continue',
-
-    // Deploy site
-    'deploy:prepare',
+    'deploy:setup',
     'deploy:lock',
     'deploy:release',
     'local:build',
-    'deploy:update_code',
-
-    // Build complete, deploy is live once deploy:symlink runs
-    'deploy:symlink',
-
-    // Cleanup
-    'deploy:unlock',
-    'cleanup',
-    'success'
+    'deploy:update_code'
 ]);
+
 
 // Build tasks
 desc('Build Design System website');
@@ -95,29 +75,30 @@ task('local:build', function () {
     //  Set local Deployment directory
     $buildRoot = get('build_root');
 
+    //  Set project root directory for build
+    $buildPath = $buildRoot.'/'.run('basename {{repository}} .git');
+
     //  Create local Deployment directory
-    if (!file_exists($buildRoot)) {
+    if (!file_exists($buildPath)) {
         writeln('Creating Deployment Directory');
-        mkdir($buildRoot);
+        mkdir($buildPath, recursive: true);
     } else {
         writeln('Deployment Directory exists, skipping');
     }
 
-    //  Set project root directory for build
-    $buildPath = $buildRoot.'/'.run('basename {{repository}} .git');
-
     //  Remove previous local build
-    if (!file_exists($buildPath)) {
+    if (!file_exists($buildPath . '/README.md')) {
         writeln('No previous build');
     } else {
-        run('rm -rf '.$buildPath);
+        run(sprintf('rm -rf %s/*', $buildPath));
         writeln('Removed previous build');
     }
 
     writeln('Cloning Repository (Branch: <info>{{branch}}</info>)');
 
     //  Clone the required branch to the local build directory
-    run('git clone --single-branch --branch {{branch}} {{repository}} '.$buildPath);
+    //run('git clone --single-branch --branch {{branch}} {{repository}} '.$buildPath);
+    run(sprintf("git archive {{branch}} | tar -x -f - -C %s 2>&1", $buildPath));
     writeln('Clone complete');
 
     cd($buildPath);
@@ -131,7 +112,7 @@ task('local:build', function () {
 
     writeln('Build complete.');
 
-})->local();
+})>select('local');
 
 desc('Copy static website files to remote server');
 task('deploy:update_code', function () {
@@ -142,7 +123,4 @@ task('deploy:update_code', function () {
     writeln("<info>Uploading files to server</info>");
     upload($buildRoot.'/'.$directory.'/_dist/', '{{release_path}}');
 });
-
-// Add unlock to failed deployment event.
-after('deploy:failed', 'deploy:unlock');
 
