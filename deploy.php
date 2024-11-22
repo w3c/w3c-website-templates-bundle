@@ -112,7 +112,7 @@ task('local:build', function () {
 
     writeln('Build complete.');
 
-})>select('local');
+})->select('local');
 
 desc('Copy static website files to remote server');
 task('deploy:update_code', function () {
