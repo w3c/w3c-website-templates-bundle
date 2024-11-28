@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Landing with new logo v2 template{% endblock %}
+{% block meta_description %}Landing page template from the W3C design system{% endblock %}
+
+{% block body_class %}class="landing"{% endblock %}
+
+{% block breadcrumbs %}
+	{% include 'components/breadcrumbs.html.twig' %}
+{% endblock %}
+
+{% block header %}
+	{% include 'components/header-new-logo-v2.html.twig' %}
+{% endblock %}
+
+{% block content %}
+
+	{% include 'components/hero-landing.html.twig' %}
+
+	<div class="component component--columns component--columns--images">
+        <h2>Section heading for these teasers</h2>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+		<ul class="clean-list" role="presentation">
+			<li>
+				{% include 'components/card-simple-image.html.twig' %}
+			</li>
+			<li>
+				{% include 'components/card-simple-image.html.twig' %}
+			</li>
+			<li>
+				{% include 'components/card-simple-image.html.twig' %}
+			</li>
+			<li>
+				{% include 'components/card-simple-image.html.twig' %}
+			</li>
+			<li>
+				{% include 'components/card-simple-image.html.twig' %}
+			</li>
+			<li>
+				{% include 'components/card-simple-image.html.twig' %}
+			</li>
+		</ul>
+	</div>
+
+	<div class="component component--columns component--columns--icons">
+        <h2>Section heading for these teasers</h2>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+		<ul class="clean-list" role="presentation">
+			<li>
+				{% include 'components/card-simple-icon.html.twig' %}
+			</li>
+			<li>
+				{% include 'components/card-simple-icon.html.twig' %}
+			</li>
+			<li>
+				{% include 'components/card-simple-icon.html.twig' %}
+			</li>
+			<li>
+				{% include 'components/card-simple-icon.html.twig' %}
+			</li>
+			<li>
+				{% include 'components/card-simple-icon.html.twig' %}
+			</li>
+			<li>
+				{% include 'components/card-simple-icon.html.twig' %}
+			</li>
+			<li>
+				{% include 'components/card-simple-icon.html.twig' %}
+			</li>
+		</ul>
+	</div>
+
+	{% include 'components/fifty-fifty.html.twig' %}
+
+	{% include 'components/fifty-fifty-reversed.html.twig' %}
+
+	{% include 'components/text.html.twig' %}
+
+	{% include 'components/image.html.twig' %}
+
+	{% include 'components/video.html.twig' %}
+
+	{% include 'components/quote.html.twig' %}
+
+{% endblock %}
+
+{% block crosslinks %}
+	{% include 'components/crosslinks.html.twig' %}
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
