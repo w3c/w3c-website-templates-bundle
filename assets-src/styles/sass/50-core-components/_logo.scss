@@ -4,14 +4,18 @@
 
 .logo {
 	display: block;
-	height: rem(44);
 	position: relative;
-	width: rem(66);
-
-	@include mq($bp-tab-large) {
-		height: rem(52);
-		width: rem(78);
+	max-width: rem(80);
+	
+	> img {
+		display: block;
+		width: 100%;
 	}
+
+	@include mq($bp-lap){
+		max-width: rem(115);
+	}
+
 }
 
 .logo--member {
