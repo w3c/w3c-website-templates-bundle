@@ -4,7 +4,7 @@
 
 .component--quote {
 	@include txt-saturn;
-	color: $deep-blue;
+	color: $purple;
 	font-weight: bold;
 	margin-inline-end: 0;
 	margin-inline-start: rem(10);
@@ -12,7 +12,7 @@
 	position: relative;
 
 	&::before {
-		background-color: $deep-blue;
+		background-color: $purple;
 		border-radius: rem(5);
 		left: rem(-10);
 		width: rem(10);
