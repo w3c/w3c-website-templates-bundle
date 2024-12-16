@@ -3,10 +3,10 @@
 \*------------------------------------*/
 
 .toc + * {
-	margin-top: rem(30);
+	margin-block-start: rem(30);
 
 	@include mq($max-width) {
-		margin-top: rem(80);
+        margin-block-start: rem(80);
 	}
 }
 
@@ -15,22 +15,22 @@
 	font-weight: normal;
 }
 
-.toc ul {
-	border-left: solid 3px $deep-yellow;
-	padding-left: rem(15);
+// Only apply the border to the top level list
+.toc > ul {
+	border-inline-start: solid 3px $deep-yellow;
 }
 
-[dir="rtl"] {
-	.toc ul {
-		border-left: 0;
-		border-right: solid 3px $deep-yellow;
-		padding-left: 0;
-		padding-right: rem(15);
-	}
+.toc ul {
+    line-height: 1em;
+    padding-inline-start: rem(15);
+
+    ul {
+        list-style: circle inside;
+        padding-inline-start: rem(30);
+    }
 }
 
 .toc ul a {
 	display: inline-block;
-	padding-bottom: rem(10);
-	padding-top: rem(10);
+	padding-block: rem(10);
 }

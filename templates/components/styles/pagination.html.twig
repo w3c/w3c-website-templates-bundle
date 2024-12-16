@@ -24,17 +24,23 @@
                 <li><a class="ellipsis">&#8230;</a></li>
             {% endif %}
 
-            {% for page in pagination.pageLinks %}
+            {% for pageInfo in pagination.pageLinks %}
+                {% if pageInfo is iterable %}
+                    {% set page = pageInfo.value %}
+                    {% set label = pageInfo.label %}
+                {% else %}
+                    {% set page = pageInfo %}
+                {% endif %}
                 {% if page != pagination.page %}
                     <li>
                         <a href="{{ path(route, query|merge({page: page})) }}">
-                            {{ 'pagination.page'|trans({page: page}, 'w3c_website_templates_bundle') }}
+                            {{ label|default('pagination.page'|trans({page: page}, 'w3c_website_templates_bundle')) }}
                         </a>
                     </li>
                 {% else %}
                     <li>
                         <a href="{{ path(route, query|merge({page: page})) }}" aria-current="page">
-                            {{ 'pagination.current_page'|trans({page: page}, 'w3c_website_templates_bundle') }}
+                            {{ label|default('pagination.current_page'|trans({page: page}, 'w3c_website_templates_bundle')) }}
                         </a>
                     </li>
                 {% endif %}

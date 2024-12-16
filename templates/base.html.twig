@@ -152,7 +152,7 @@
                     'breadcrumbs': page.breadcrumbs is defined ? page.breadcrumbs : {}
                 } %}{% endembed %}
         {% endblock breadcrumbs %}
-        <main id="main">
+        <main id="main" {% block extra_main_attributes %}{{ extra_main_attributes|default('')|raw }}{% endblock %}>
             {% import '@W3CWebsiteTemplates/components/styles/notes.html.twig' as notes %}
             {{ notes.errors(error_notes) }}
             {{ notes.successes(success_notes) }}
@@ -163,7 +163,7 @@
             {% block pre_footer %}{% endblock %}
         </main>
         {% block crosslinks %}
-            {% if crosslinks is defined and crosslinks|length > 0 %}
+            {% if crosslinks is defined and crosslinks['links'] is defined and crosslinks['links']|length > 0 %}
                 {{ include('@W3CWebsiteTemplates/components/styles/crosslinks.html.twig') }}
             {% endif %}
         {% endblock crosslinks %}

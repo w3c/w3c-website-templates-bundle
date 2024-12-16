@@ -1,8 +1,10 @@
 {%- macro notes(type, title, notes) -%}
     {% if (notes|length > 0) %}
         <div class="l-box note note--{{ type }}" role="{{ type == 'error' ? 'alert' : 'status' }}" aria-labelledby="{{ type }}-summary-title" tabindex="-1"
-             data-component="{{ type }}-summary">
-            <h2 id="{{ type }}-summary-title" class="txt-saturn">{{ title }}</h2>
+             data-component="{{ type }}-summary" data-anchor="no">
+            {% if title != '' %}
+                <h2 id="{{ type }}-summary-title" class="txt-saturn">{{ title }}</h2>
+            {% endif %}
             <ul class="clean-list" role="list">
                 {% for note in notes %}
                     <li>
@@ -33,7 +35,7 @@
 {% endmacro %}
 
 {% macro warnings(messages, title = null) %}
-    {% if title == null %}
+    {% if title is same as null %}
         {% set title = 'notes.warnings.default_title'|trans({}, 'w3c_website_templates_bundle') %}
     {% endif %}
     {{ _self.notes('warning', title, messages) }}
