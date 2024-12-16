@@ -16,6 +16,34 @@
 
 * https://staging-design-system.w3.org/
 
+## Directory structure
+
+Files used in the Design system website:
+
+```
+.github/workflows           - GitHub actions to deploy assets to cdn.w3.org
+assets-src                  - Design System frontend assets source files 
+design-system-templates     - Design System website templates
+docs                        - Design System website page content
+public                      - Design System document root
+```
+
+Files used in the Symfony template bundle:
+
+```
+.github/workflows           - GitHub actions to deploy assets to cdn.w3.org
+assets-src                  - Design System frontend assets source files 
+config                      - Symfony bundle config 
+src                         - Symfony bundle PHP code
+templates                   - Symfony bundle templates
+translations                - Symfony bundle translation files
+```
+
+Please note the HTML templates are duplicated across `design-system-templates` (for the Design System website) and 
+`templates` (the templates used on w3.org via a Symfony bundle).
+
+Frontend assets for both the Design System and w3.org website are stored in `assets-src`. 
+
 ## Installing
 
 Install the required libraries via [Composer](https://getcomposer.org/). These are only loaded for local development. Please 
@@ -23,6 +51,20 @@ note this requires PHP 7.4+
 
 ```
 composer install
+```
+
+### Deployment setup
+To deploy the website you need to add the following to your `~/.ssh/config` file:
+
+```
+Host *.w3.internal
+ProxyJump studio24@ssh-aws.w3.org
+```
+
+You can test this works by:
+
+```
+dep ssh staging
 ```
 
 ## Making changes
