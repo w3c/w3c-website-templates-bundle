@@ -1,14 +1,19 @@
 {% if site is defined and site %}
-<nav id="lang-nav" aria-label="{{ 'page.lang.options'|trans({}, 'w3c_website_templates_bundle') }}">
-    <div class="l-center">
-        <div class="l-cluster">
-            <ul class="clean-list" role="list">
-                {% for code, data in site.getData('siteLink', true) %}
-                    {% set targetwebsitename = 'page.lang.targetname.' ~ code %}
-                    <li><a href="{{ data.url }}" hreflang="{{ code }}" lang="{{ code }}">{{ data.label }}<span class="visuallyhidden" lang="{{ site.locale|default('en') }}">{{ targetwebsitename|trans({}, 'w3c_website_templates_bundle') }}</span></a></li>
-                {% endfor %}
-            </ul>
+    <nav id="lang-nav" aria-label="{{ 'page.lang.options'|trans({}, 'w3c_website_templates_bundle') }}">
+        <div class="l-center">
+            <div class="l-cluster">
+                <ul class="clean-list" role="list">
+                    {%~ for code, data in site.getData('siteLink', true) %}
+                        {%- set targetwebsitename = 'page.lang.targetname.' ~ code %}
+                        <li>{#--#}
+                            <a href="{{ data.url }}" hreflang="{{ code }}" lang="{{ code }}">{#- -#}
+                                {{ data.label }}<span class="visuallyhidden" {# -#}
+                                                      lang="{{ site.locale|default('en') }}">{{ targetwebsitename|trans({}, 'w3c_website_templates_bundle') }}</span>{# -#}
+                            </a>{#- -#}
+                        </li>
+                    {%~ endfor %}
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 {% endif %}
