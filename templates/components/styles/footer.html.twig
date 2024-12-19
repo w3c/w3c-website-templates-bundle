@@ -1,4 +1,4 @@
-{% if links is empty %}
+{% if links is not defined or links is empty -%}
     {% set links = [
         {
             'copy': 'footer.links.home'|trans({}, 'w3c_website_templates_bundle'),
