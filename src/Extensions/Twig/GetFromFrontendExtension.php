@@ -56,12 +56,17 @@ class GetFromFrontendExtension extends AbstractExtension
 
     public function globalNav(): string
     {
-        return $this->fromFrontend('/global-nav/');
+        return $this->fromFrontend('/_fragments/global-nav/');
     }
 
     public function langNav(): string
     {
-        return $this->fromFrontend('/lang-nav/');
+        return $this->fromFrontend('/_fragments/lang-nav/');
+    }
+
+    public function footer(): string
+    {
+        return $this->fromFrontend('/_fragments/footer/');
     }
 }
 
