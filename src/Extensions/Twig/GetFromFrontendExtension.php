@@ -29,7 +29,8 @@ class GetFromFrontendExtension extends AbstractExtension
     {
         return [
             new TwigFunction('global_nav', [$this, 'globalNav']),
-            new TwigFunction('lang_nav', [$this, 'langNav'])
+            new TwigFunction('lang_nav', [$this, 'langNav']),
+            new TwigFunction('footer', [$this, 'footer'])
         ];
     }
 
