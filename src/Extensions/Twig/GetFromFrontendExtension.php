@@ -30,7 +30,8 @@ class GetFromFrontendExtension extends AbstractExtension
         return [
             new TwigFunction('global_nav', [$this, 'globalNav']),
             new TwigFunction('lang_nav', [$this, 'langNav']),
-            new TwigFunction('footer', [$this, 'footer'])
+            new TwigFunction('footer', [$this, 'footer']),
+            new TwigFunction('common-head', [$this, 'commonHead'])
         ];
     }
 
@@ -68,6 +69,11 @@ class GetFromFrontendExtension extends AbstractExtension
     public function footer(): string
     {
         return $this->fromFrontend('/_fragments/footer/');
+    }
+
+    public function commonHead(): string
+    {
+        return $this->fromFrontend('/_fragments/common-head/');
     }
 }
 
