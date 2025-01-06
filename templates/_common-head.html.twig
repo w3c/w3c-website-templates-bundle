@@ -1,45 +1,45 @@
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="home" href="https://www.w3.org/"/>
-    <link rel="icon" type="image/png" href="https://www.w3.org/assets/logos/w3c/favicon-32.png"/>
-    <link rel="apple-touch-icon" type="image/png" href="https://www.w3.org/assets/logos/w3c/favicon-180.png"/>
+<link rel="home" href="https://www.w3.org/"/>
+<link rel="icon" type="image/png" href="https://www.w3.org/assets/logos/w3c/favicon-32.png"/>
+<link rel="apple-touch-icon" type="image/png" href="https://www.w3.org/assets/logos/w3c/favicon-180.png"/>
 
-    <link rel="stylesheet" href="{{ asset('styles/core.css?ver=1.4', 'website-2021') }}" media="screen"/>
+<link rel="stylesheet" href="{{ asset('styles/core.css?ver=1.4', 'website-2021') }}" media="screen"/>
 
-    <!--
-    CSS Mustard Cut
-    Print (Edge doesn't apply to print otherwise)
-    Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~11.8+
-    FF 47+
-    -->
-    <link rel="stylesheet" id="advanced-stylesheet"
-          href="{{ asset('styles/advanced.css?ver=1.4', 'website-2021') }}" media="
-                only print,
-                only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
-                only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
-            ">
-    <link rel="stylesheet" href="{{ asset('styles/print.css', 'website-2021') }}" media="print"/>
+<!--
+CSS Mustard Cut
+Print (Edge doesn't apply to print otherwise)
+Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~11.8+
+FF 47+
+-->
+<link rel="stylesheet" id="advanced-stylesheet"
+      href="{{ asset('styles/advanced.css?ver=1.4', 'website-2021') }}" media="
+            only print,
+            only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+            only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
+        ">
+<link rel="stylesheet" href="{{ asset('styles/print.css', 'website-2021') }}" media="print"/>
 
-    <script src="{{ asset('js/libraries/fontfaceobserver.js', 'website-2021') }}"></script>
+<script src="{{ asset('js/libraries/fontfaceobserver.js', 'website-2021') }}"></script>
 
-    <script>
-        var myFont = new FontFaceObserver('Noto Sans');
+<script>
+    var myFont = new FontFaceObserver('Noto Sans');
 
-        Promise.all([myFont.load()]).then(function () {
-            document.documentElement.className += " fonts-loaded";
-        });
+    Promise.all([myFont.load()]).then(function () {
+        document.documentElement.className += " fonts-loaded";
+    });
 
-        (function () {
-            var linkEl = document.getElementById('advanced-stylesheet');
-            if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
-                var script = document.createElement('script');
-                script.src = '{{ asset('js/main.js?ver=1.4', 'website-2021') }}';
-                script.defer = true;
-                document.querySelector('head').appendChild(script);
-                (function (H) {
-                    H.className = H.className.replace(/\bno-js\b/, 'js')
-                })(document.documentElement);
-            }
-        })();
-    </script>
+    (function () {
+        var linkEl = document.getElementById('advanced-stylesheet');
+        if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+            var script = document.createElement('script');
+            script.src = '{{ asset('js/main.js?ver=1.4', 'website-2021') }}';
+            script.defer = true;
+            document.querySelector('head').appendChild(script);
+            (function (H) {
+                H.className = H.className.replace(/\bno-js\b/, 'js')
+            })(document.documentElement);
+        }
+    })();
+</script>
