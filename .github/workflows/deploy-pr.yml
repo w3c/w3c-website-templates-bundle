@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       source: public/dist/assets
-      destination: assets/website-2021/pr-${{ github.event.number }}/
+      destination: assets/website-2021-dev/pr-${{ github.event.number }}/
     steps:
       - name: Checkout source Git branch
         uses: actions/checkout@v2
