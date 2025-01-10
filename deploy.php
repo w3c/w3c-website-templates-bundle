@@ -26,9 +26,6 @@ set('remote_user', 'studio24');
 set('http_user', 'apache');
 set('keep_releases', 10);
 
-// Default stage - prevents accidental deploying to production with dep deploy
-set('default_selector', 'stage=staging');
-
 // Directory that contains built website files
 set("build_folder", "_dist");
 

@@ -1,4 +1,4 @@
-{% if links is empty %}
+{% if links is not defined or links is empty -%}
     {% set links = [
         {
             'copy': 'footer.links.home'|trans({}, 'w3c_website_templates_bundle'),
@@ -35,25 +35,27 @@
         <div class="global-footer__links">
             <div class="l-cluster">
                 <ul class="clean-list" role="list">
-                    {% for link in links %}
-                        <li>
+                    {%~ for link in links %}
+                        <li>{# -#}
                             <a href="{{ link.url }}" hreflang="{{ 'footer.links.hreflang'|trans({}, 'w3c_website_templates_bundle') }}">
-                                {{ link.copy|raw }}
-                            </a>
+                                {{- link.copy|raw -}}
+                            </a>{# -#}
                         </li>
-                    {% endfor %}
+                    {%~ endfor %}
                 </ul>
             </div>
             <ul class="clean-list" role="list">
-                <li><a class="with-icon--larger" href="https://w3c.social/@w3c" hreflang="en">
-                        <img class="icon icon--larger" src="{{ asset('svg/mastodon.svg', 'website-2021') }}" width="20"
-                             height="20" alt aria-hidden="true" loading="lazy"/>
-                        <span class="visuallyhidden">{{ 'footer.links.mastodon'|trans({}, 'w3c_website_templates_bundle')|raw }}</span></a>
+                <li>
+                    <a class="with-icon--larger" href="https://w3c.social/@w3c" hreflang="en">
+                        <img class="icon icon--larger" src="{{ absolute_url(asset('svg/mastodon.svg', 'website-2021')) }}" width="20" height="20" alt aria-hidden="true" loading="lazy"/>
+                        <span class="visuallyhidden">{{ 'footer.links.mastodon'|trans({}, 'w3c_website_templates_bundle')|raw }}</span>
+                    </a>
                 </li>
-                <li><a class="with-icon--larger" href="https://github.com/w3c/" hreflang="en">
-                        <img class="icon icon--larger" src="{{ asset('svg/github.svg', 'website-2021') }}" width="20"
-                             height="20" alt aria-hidden="true" loading="lazy"/>
-                        <span class="visuallyhidden">{{ 'footer.links.github'|trans({}, 'w3c_website_templates_bundle')|raw }}</span></a>
+                <li>
+                    <a class="with-icon--larger" href="https://github.com/w3c/" hreflang="en">
+                        <img class="icon icon--larger" src="{{ absolute_url(asset('svg/github.svg', 'website-2021')) }}" width="20" height="20" alt aria-hidden="true" loading="lazy"/>
+                        <span class="visuallyhidden">{{ 'footer.links.github'|trans({}, 'w3c_website_templates_bundle')|raw }}</span>
+                    </a>
                 </li>
             </ul>
         </div>
