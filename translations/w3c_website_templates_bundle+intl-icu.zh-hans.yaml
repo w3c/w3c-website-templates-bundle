@@ -11,7 +11,7 @@ page:
         万维网联盟 (W3C) 是一个国际标准组织。众多会员组织、全职员工及广大社区通力合作，制定并完善网络标准。
     skip_to_content: 转到内容
     translations: >-
-        切换语言：
+        <span lang="zh-hans">切换语言：</span>
     translationsarialabel: 翻译
     toc: 页面内容
     related_content: 相关内容

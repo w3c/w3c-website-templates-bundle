@@ -11,7 +11,7 @@ page:
         ワールド・ワイド・ウェブ・コンソーシアム (W3C)は、会員組織、常勤スタッフ、および一般の人々が協力してウェブ標準を開発する国際的なコミュニティです。
     skip_to_content: コンテンツへスキップ
     translations: >-
-        言語切り替え：
+        <span lang="ja">言語切り替え：</span>
     translationsarialabel: 翻訳
     toc: ページの内容
     related_content: 関連コンテンツ
