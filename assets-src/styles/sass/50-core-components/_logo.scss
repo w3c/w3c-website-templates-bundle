@@ -5,15 +5,11 @@
 .logo {
 	display: block;
 	position: relative;
-	max-width: rem(80);
-	
+	width: rem(115);
+	height: rem(115);
 	> img {
 		display: block;
 		width: 100%;
-	}
-
-	@include mq($bp-lap){
-		max-width: rem(115);
 	}
 
 }

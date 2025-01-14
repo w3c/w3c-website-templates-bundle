@@ -13,7 +13,7 @@
 
 	@include mq($max-width) {
 		padding-bottom: 0;
-		padding-top: rem(20);
+		padding-top: 0;
 	}
 }
 
@@ -106,8 +106,6 @@ li.top-nav-item + li.top-nav-item {
 	}
 
 	@include mq($max-width) {
-		margin-inline-end: rem(25);
-		padding-bottom: rem(5);
 		position: relative;
 
 		&::before {
