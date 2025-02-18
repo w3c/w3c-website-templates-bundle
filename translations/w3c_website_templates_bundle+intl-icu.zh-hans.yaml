@@ -124,9 +124,9 @@ components:
     evangelists:
         list_title: >-
             我们的{ecosystem_name} { count, plural,
-                =0 { 布道者 }
-                one { 布道者 }
-                other { 布道者 }
+                =0 {布道者}
+                one {布道者}
+                other {布道者}
             }
     members:
         title: W3C 会员
