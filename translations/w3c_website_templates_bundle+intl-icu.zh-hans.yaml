@@ -123,7 +123,7 @@ components:
         email: "邮箱: <a href=\"mailto:{email}\">{email}</a>"
     evangelists:
         list_title: >-
-            我们的 {ecosystem_name} { count, plural,
+            我们的{ecosystem_name} { count, plural,
                 =0 { 布道者 }
                 one { 布道者 }
                 other { 布道者 }
@@ -131,8 +131,8 @@ components:
     members:
         title: W3C 会员
         members_include: "{count}成员组织参与{ecosystem_name}生态系统, 包括:"
-        view_all: 查看所有参与{ecosystem_name}中的成员
-        get_involved: "如何协作:"
+        view_all: 查看所有参与{ecosystem_name}生态的成员
+        get_involved: "参与方式:"
         join: 加入我们
         joinurl: /membership/join
         donate: 捐赠
