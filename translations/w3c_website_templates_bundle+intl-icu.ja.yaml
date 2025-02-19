@@ -74,7 +74,7 @@ pagination:
 ecosystems: >-
     { count, plural,
         =0 { エコシステム }
-        one { エコシステム }
+        =1 { エコシステム }
         other { エコシステム }
     }
 listing:
@@ -127,7 +127,7 @@ components:
         list_title: >-
             私たちの {ecosystem_name} { count, plural,
                 =0 { のエヴァンジェリスト }
-                one { のエヴァンジェリスト }
+                =1 { のエヴァンジェリスト }
                 other { のエヴァンジェリストたち }
             }
     members:

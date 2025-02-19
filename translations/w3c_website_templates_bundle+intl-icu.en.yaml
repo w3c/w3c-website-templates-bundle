@@ -76,7 +76,7 @@ pagination:
 ecosystems: >-
     { count, plural,
        =0 { Ecosystems }
-       one { Ecosystem }
+       =1 { Ecosystem }
        other { Ecosystems }
     }
 listing:
@@ -129,7 +129,7 @@ components:
         list_title: >-
             Our {ecosystem_name} { count, plural,
                 =0 { evangelists }
-                one { evangelist }
+                =1 { evangelist }
                 other { evangelists }
             } 
     members:
