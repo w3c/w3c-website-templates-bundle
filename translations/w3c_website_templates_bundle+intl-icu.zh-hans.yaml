@@ -123,10 +123,10 @@ components:
         email: "邮箱: <a href=\"mailto:{email}\">{email}</a>"
     evangelists:
         list_title: >-
-            我们的{ecosystem_name} { count, plural,
-                =0 { 布道者 }
-                one { 布道者 }
-                other { 布道者 }
+            我们的{ecosystem_name}{ count, plural,
+                =0 {布道者}
+                one {布道者}
+                other {布道者}
             }
     members:
         title: W3C 会员
