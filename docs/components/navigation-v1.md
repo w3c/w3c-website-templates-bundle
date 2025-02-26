@@ -1,4 +1,4 @@
-# Navigation with new logo v1
+# Navigation with new logo
 
 The following example shows how the global navigation sits within the [header component](header.md).
 
