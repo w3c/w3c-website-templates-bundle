@@ -39,7 +39,13 @@
                 </li>
             {%~ endfor %}
             <li class="top-nav-item">
-                <a hreflang="en" href="https://www.w3.org/help/search/" class="nav-link icon-link">
+                {% set locale = site.locale|default('en') %}
+                {% if locale == 'zh-hans' or locale == 'ja' %}
+                    {% set search_url = 'https://www.w3.org/' ~ locale ~ '/help/search/' %}
+                {% else %}
+                    {% set search_url = 'https://www.w3.org/help/search/' %}
+                {% endif %}
+                <a hreflang="en" href="{{ search_url }}" class="nav-link icon-link">
                     <img class="icon" src="{{ absolute_url(asset('svg/search.svg', 'website-2021')) }}" width="24" height="24" alt aria-hidden="true">{# -#}
 	                <span class="hide-at-max-width">{{ 'header.search_link'|trans({}, 'w3c_website_templates_bundle') }}</span>
                 </a>
