@@ -3,15 +3,9 @@
 \*------------------------------------*/
 
 .logo {
-	display: block;
-	position: relative;
-	width: rem(115);
-	height: rem(115);
-	> img {
-		display: block;
-		width: 100%;
-	}
-
+    display: block;
+    position: relative;
+	width: clamp(3.75rem, 2.51rem + 6.198vw, 7.5rem);
 }
 
 .logo--member {

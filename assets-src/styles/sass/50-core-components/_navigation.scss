@@ -8,19 +8,15 @@
 
 #global-nav {
 	display: block;
-	padding-bottom: rem(18);
-	padding-top: rem(18);
-
-	@include mq($max-width) {
-		padding-bottom: 0;
-		padding-top: 0;
-	}
+	padding-bottom: rem(60);
+	padding-top: rem(60);
 }
 
 .global-nav__inner {
 	align-items: center;
 	display: flex;
 	flex-wrap: wrap;
+	gap: rem(60);
 
 	@include mq($max-width) {
 		flex-wrap: nowrap;
@@ -110,7 +106,7 @@ li.top-nav-item + li.top-nav-item {
 
 		&::before {
 			background-color: $w3c-blue;
-			bottom: 0;
+			bottom: rem(-3);
 			content:'';
 			display: none;
 			height: rem(3);
