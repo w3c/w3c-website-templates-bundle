@@ -183,7 +183,7 @@
                     {% for child in form %}
                     <div>
                         {%- set type = form.vars.multiple ? 'checkbox' : 'radio' -%}
-                        <input type="{{ type }}" class="input--{{ type }}" id="{{ child.vars.id }}" name="{{ child.vars.full_name }}"{% if child.vars.value is defined %} value="{{ child.vars.value }}"{% endif %}{% if child.vars.checked %} checked="checked"{% endif %} />
+                        <input type="{{ type }}" class="input--{{ type }}" id="{{ child.vars.id }}" name="{{ child.vars.full_name }}"{% if child.vars.value is defined %} value="{{ child.vars.value }}"{% endif %}{% if child.vars.checked %} checked="checked"{% endif %} {% if child.vars.disabled %} disabled="disabled"{% endif  %}/>
                         <label for="{{ child.vars.id }}">
                             <span class="segmented-label">
                                 <span>{{ child.vars.label }}</span>
