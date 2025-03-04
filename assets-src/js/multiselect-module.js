@@ -177,6 +177,13 @@ const MultiselectButtons = function (selectEl, params) {
     input.style.backgroundRepeat = 'no-repeat';
     input.style.backgroundPosition = 'center right 0.625rem';
     input.style.backgroundSize = '0.9375rem';
+
+    // if selectEl is disabled, disable the input as well
+    if (selectEl.disabled) {
+        input.setAttribute('disabled', 'disabled');
+    }
+
+
     divComboBox.appendChild(input);
 
     const labelComboBox = document.createElement('label');
