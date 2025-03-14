@@ -8,15 +8,15 @@
 
 #global-nav {
 	display: block;
-	padding-bottom: rem(60);
-	padding-top: rem(60);
+	padding-bottom: 1.6em;
+	padding-top: 1.6em;
 }
 
 .global-nav__inner {
 	align-items: center;
 	display: flex;
 	flex-wrap: wrap;
-	gap: rem(60);
+	gap: 3em;
 
 	@include mq($max-width) {
 		flex-wrap: nowrap;
@@ -103,6 +103,18 @@ li.top-nav-item + li.top-nav-item {
 
 	@include mq($max-width) {
 		position: relative;
+		
+		&::after {
+			border: rem(1) solid $black;
+			border-radius: rem(8);
+			content: '';
+			display: block;
+			height: 100%;
+			pointer-events: none; 
+			position: absolute;
+			right: -1.5em;
+			top: 0;
+		}
 
 		&::before {
 			background-color: $w3c-blue;
