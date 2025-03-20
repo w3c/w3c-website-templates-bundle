@@ -104,18 +104,6 @@ li.top-nav-item + li.top-nav-item {
 	@include mq($max-width) {
 		position: relative;
 		
-		&::after {
-			border: rem(1) solid $black;
-			border-radius: rem(8);
-			content: '';
-			display: block;
-			height: 100%;
-			pointer-events: none; 
-			position: absolute;
-			right: rem(-24);
-			top: 0;
-		}
-
 		&::before {
 			background-color: $w3c-blue;
 			bottom: rem(-3);
