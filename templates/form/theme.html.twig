@@ -14,9 +14,13 @@
         {%- set widget_attr = {attr: {'aria-describedby': "hint-" ~ id}} -%}
     {%- endif -%}
     {%- if form.vars.errors|length > 0 -%}
+        {% set aria_errors = '' %}
+        {% for e in form.vars.errors %}
+            {% set aria_errors = aria_errors ~ ' error-' ~ form.vars.id ~ '_' ~ loop.index %}
+        {% endfor %}
         {% set widget_attr = {
             attr: {
-                'aria-describedby': (widget_attr.attr['aria-describedby']|default('') ~ ' error-' ~ form.vars.id)|trim
+                'aria-describedby': (widget_attr.attr['aria-describedby']|default('') ~ aria_errors)|trim
             }
         } %}
         {% set row_attr = row_attr|merge({class: (row_attr.class|default('') ~ ' field--error')|trim}) %}
@@ -87,11 +91,11 @@
 
 {%- block form_errors -%}
     {%- if errors|length > 0 -%}
-        <span class="field-error-msg" id="error-{{ form.vars.id }}">
             {%- for error in errors -%}
-                <span class="visuallyhidden">{{ 'Error'|trans({}, 'validators') }}</span> {{ error.message|raw }}
+                <span class="field-error-msg" id="error-{{ form.vars.id }}_{{ loop.index }}">
+                    <span class="visuallyhidden">{{ 'Error'|trans({}, 'validators') }}</span> {{ error.message|raw }}
+                </span>
             {%- endfor -%}
-        </span>
     {%- endif -%}
 {%- endblock form_errors -%}
 
