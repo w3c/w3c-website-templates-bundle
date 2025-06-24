@@ -20,12 +20,12 @@
                     <div>
                         {% block email %}
                             <div>
-                                <a href="mailto:{{ user.preferredEmail }}" class="with-icon--before">
+                                <a href="mailto:{{ user.preferredEmail|obfuscate }}" class="with-icon--before">
                                     <img class="icon" src="{{ asset('svg/envelope.svg', 'website-2021') }}"
                                          width="20"
                                          height="20"
                                          alt aria-hidden="true"/>
-                                    {{ user.preferredEmail }}
+                                    {{ user.preferredEmail|obfuscate }}
                                 </a>
                             </div>
                         {% endblock %}

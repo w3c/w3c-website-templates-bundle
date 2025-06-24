@@ -72,6 +72,7 @@ class TwigExtension extends AbstractExtension
             new TwigFilter('strip_group_type', [$this, 'stripGroupType']),
             new TwigFilter('locale_to_bcp47', [$this, 'localeToBcp47']),
             new TwigFilter('bcp47_to_locale', [$this, 'bcp47ToLocale']),
+            new TwigFilter('obfuscate', [$this, 'obfuscate'], ['is_safe' => ['html']]),
         ];
     }
 
@@ -290,5 +291,11 @@ class TwigExtension extends AbstractExtension
     public function bcp47ToLocale(string $locale): string
     {
         return str_replace('-', '_', $locale);
+    }
+
+    public function obfuscate(string $text): string
+    {
+        // Obfuscate string by replacing all characters with their HTML entity equivalents
+        return mb_encode_numericentity($text, [0x000000, 0x10ffff, 0, 0xffffff], 'UTF-8');
     }
 }
