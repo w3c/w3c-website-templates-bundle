@@ -29,7 +29,7 @@
 							<p>{{ 'components.people.tel'|trans({'number': evangelist.phone}, 'w3c_website_templates_bundle')|raw }}</p>
 							{% endif %}
 							{% if evangelist.email %}
-							<p>{{ 'components.people.email'|trans({'email': evangelist.email}, 'w3c_website_templates_bundle')|raw }}</p>
+							<p>{{ 'components.people.email'|trans({'email': evangelist.email|obfuscate}, 'w3c_website_templates_bundle')|raw }}</p>
 							{% endif %}
 						</div>
 					</div>
