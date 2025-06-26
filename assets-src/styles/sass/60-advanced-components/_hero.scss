@@ -7,3 +7,31 @@
 		display: none;
 	}
 }
+
+.js .hero video {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+  
+@media screen and (min-width: 48em) {
+	.js .hero video {
+		max-width: 31.25rem;
+	}
+}
+  
+[data-video-control="hero"] > * {
+	pointer-events: none;
+}
+
+[data-video-control="hero"] .pause-icon {
+	display: none;
+}
+
+[data-video-control="hero"].js-play-video .pause-icon {
+	display: block;
+}
+
+[data-video-control="hero"].js-play-video .play-icon {
+	display: none;
+}
