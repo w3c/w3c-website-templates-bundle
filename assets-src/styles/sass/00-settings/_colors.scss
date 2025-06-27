@@ -24,7 +24,7 @@ $teal: #39cccc;
 $aqua: #7fdbff;
 $blue: #0073d8;
 $navy: #001f3f;
-$purple: #920ba6;
+$purple: #75336c;
 $fuchsia: #f012be;
 $grey: #aaa;
 $mercury-grey: #e5e5e5;
@@ -38,21 +38,17 @@ $red: #e93737;
 $light-red: #ec7070;
 $coral: #fc7750;
 $light-coral: #fea78d;
-$deep-yellow: #f9c818;
 $yellow: #f9dc4a;
 $deep-green: #0a4343;
 $teal-green: #237978;
 $aqua: #1bc0d7;
 $light-blue: #cbe0fb;
-$sky-blue: #6bc8fe;
-$azure: #0075ff;
 $w3c-blue: #005a9c;
-$blue: #005797;
-$deep-blue: #024488;
+$deep-blue: #002a56;
 $pink: #ddb0c8;
 $light-pink: #eeccdc;
 $storm-gray: #545454;
-$twiki-gray: #bdbdbd;
+$twiki-gray: #cac9c9;
 $mist-gray: #f8f8fb;
 
 
@@ -63,12 +59,12 @@ $border-color:                  $twiki-gray;
 $input-border-color:            $storm-gray;
 $focus-color:                   $yellow;
 
-$link-color:                    $blue;
+$link-color:                    $w3c-blue;
 $link-color--visited:           $purple;
 $link-color--hover:             $deep-blue;
 
 $success-color:                 #046704;
-$info-color:                    $w3c-blue;
+$info-color:                    $deep-blue;
 $warning-color:                 #c28605;
 $error-color:                   #a82615;
 
