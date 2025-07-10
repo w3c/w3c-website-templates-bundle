@@ -1,6 +1,6 @@
 name: w3c-website-templates-bundle
 type: php
-docroot: ""
+docroot: "public"
 php_version: "8.3"
 webserver_type: nginx-fpm
 xdebug_enabled: false
