@@ -1,6 +1,9 @@
 # Design System
 
+How to make changes to the W3C design system.
+
 * [Site URLs](#site-urls)
+* [Directory structure](#directory-structure)
 * [Installing](#installing)
 * [Making changes](#making-changes)
 * [Testing the documentation locally](#testing-the-documentation-locally)
@@ -15,6 +18,10 @@
 ### Staging
 
 * https://staging-design-system.w3.org/
+
+### Local
+
+* https://w3c-website-templates-bundle.ddev.site
 
 ## Directory structure
 
@@ -46,14 +53,7 @@ Frontend assets for both the Design System and w3.org website are stored in `ass
 
 ## Installing
 
-Install the required libraries via [Composer](https://getcomposer.org/). These are only loaded for local development. Please 
-note this requires PHP 7.4+ 
-
-```
-composer install
-```
-
-### Deployment setup
+### SSH setup
 To deploy the website you need to add the following to your `~/.ssh/config` file:
 
 ```
@@ -64,7 +64,32 @@ ProxyJump studio24@ssh-aws.w3.org
 You can test this works by:
 
 ```
-dep ssh staging
+./vendor/bin/dep ssh staging
+```
+
+### Local PHP
+
+Install the required libraries via [Composer](https://getcomposer.org/). These are only loaded for local development. Please 
+note this requires PHP 7.4+ 
+
+```
+composer install
+nvm use
+npm install
+```
+
+### DDEV
+
+```
+ddev start
+ddev composer install
+ddev npm install
+```
+
+You can launch the website on https://w3c-website-templates-bundle.ddev.site via:
+
+```shell
+ddev launch
 ```
 
 ## Making changes
@@ -76,31 +101,22 @@ in the `package.json` file. The compiled assets can be found in the `public/dist
 
 #### Installing the build tools and running them
 
-Make sure you are using the right version of npm to both install packages and run scripts. We strongly recommend using [nvm](https://github.com/nvm-sh/nvm)
-to do so.
-
-The npm version to use is defined in  the `.nvmrc` file. To switch to that version, use the command:
-
-```bash
-nvm use
-```
-
-To install the build tools, use the following commands:
-
-```bash
-npm install
-```
-
-To build the assets once, use the command:
+To build the assets, use the command:
 
 ```bash
 npm run build
+
+## DDEV
+ddev npm run build
 ```
 
 For the build tools to run every time you make a change to the assets source, please use:
 
 ```bash
 npm run watch
+
+## DDEV
+ddev npm run watch
 ```
 
 ### Front-end standards and components usage
