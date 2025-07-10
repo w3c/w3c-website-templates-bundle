@@ -51,9 +51,7 @@ Please note the HTML templates are duplicated across `design-system-templates` (
 
 Frontend assets for both the Design System and w3.org website are stored in `assets-src`. 
 
-## Installing
-
-### SSH setup
+## SSH setup
 To deploy the website you need to add the following to your `~/.ssh/config` file:
 
 ```
@@ -67,7 +65,7 @@ You can test this works by:
 ./vendor/bin/dep ssh staging
 ```
 
-### Local PHP
+## Installing
 
 Install the required libraries via [Composer](https://getcomposer.org/). These are only loaded for local development. Please 
 note this requires PHP 7.4+ 
@@ -78,19 +76,13 @@ nvm use
 npm install
 ```
 
-### DDEV
+Launch the local website via:
 
 ```
-ddev start
-ddev composer install
-ddev npm install
+php -S localhost:8001 -t _dist
 ```
 
-You can launch the website on https://w3c-website-templates-bundle.ddev.site via:
-
-```shell
-ddev launch
-```
+You can test this works via: http://localhost:8001/dist/assets/images/w3c-opengraph-image.png
 
 ## Making changes
 
@@ -105,18 +97,12 @@ To build the assets, use the command:
 
 ```bash
 npm run build
-
-## DDEV
-ddev npm run build
 ```
 
 For the build tools to run every time you make a change to the assets source, please use:
 
 ```bash
 npm run watch
-
-## DDEV
-ddev npm run watch
 ```
 
 ### Front-end standards and components usage
@@ -214,10 +200,10 @@ To rebuild the documentation locally run:
 ./vendor/bin/design-system -v
 ```
 
-And to view at http://localhost:8000 run:
+And to view at http://localhost:8001 run:
 
 ```
-php -S localhost:8000 -t _dist
+php -S localhost:8001 -t _dist
 ```
 
 This repo uses the [Design System build tool](https://github.com/studio24/design-system), see further 
