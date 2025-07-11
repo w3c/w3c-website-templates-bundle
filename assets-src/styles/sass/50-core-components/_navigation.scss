@@ -7,24 +7,18 @@
 }
 
 #global-nav {
-	border-bottom: solid 1px $border-color;
 	display: block;
-	padding-bottom: rem(18);
-	padding-top: rem(18);
-
-	@include mq($max-width) {
-		padding-bottom: 0;
-		padding-top: rem(20);
-	}
+	padding-bottom: em(26);
+	padding-top: em(26);
 }
 
 .global-nav__inner {
 	align-items: center;
 	display: flex;
 	flex-wrap: wrap;
+	gap: em(48);
 
 	@include mq($max-width) {
-		align-items: flex-end;
 		flex-wrap: nowrap;
 		position: relative;
 	}
@@ -108,13 +102,11 @@ li.top-nav-item + li.top-nav-item {
 	}
 
 	@include mq($max-width) {
-		margin-inline-end: rem(25);
-		padding-bottom: rem(5);
 		position: relative;
-
+		
 		&::before {
 			background-color: $w3c-blue;
-			bottom: 0;
+			bottom: rem(-3);
 			content:'';
 			display: none;
 			height: rem(3);
