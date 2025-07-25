@@ -11,10 +11,7 @@
         <ul data-component="nav-double-intro">
             {%~ for navItem in navigation %}
                 <li class="top-nav-item has-children">
-                    {% if site.localeData('siteLink') is defined and navItem.language is not same as site.localeData('siteLink') %}
-                        {% set navItemLang = navItem.language %}
-                    {% endif %}
-                    <a href="{{ navItem.titleLink }}" class="nav-link"{% if navItemLang is defined %}hreflang="{{ navItemLang }}"{% endif %}>{{ navItem.title }}</a>
+                    <a href="{{ navItem.titleLink }}" class="nav-link" hreflang="{{ navItem.language }}">{{ navItem.title }}</a>
                     <div class="nav__submenu" data-nav="submenu" style="display: none;">
                         <div class="l-center">
                             <div class="nav__submenu__intro">
@@ -31,11 +28,8 @@
                             {% if navItem.children is defined and navItem.children|length > 0 -%}
                                 <ul>
                                     {%~ for child in navItem.children %}
-                                        {% if site.localeData('siteLink') is defined and child.language is not same as site.localeData('siteLink') %}
-                                            {% set childLang = child.language %}
-                                        {% endif %}
                                         <li{{ child.startNewColumn is defined and child.startNewColumn ? ' class="break-after"' : '' }}>{# -#}
-                                            <a href="{{ child.url }}"{% if childLang is defined %}hreflang="{{ childLang }}"{% endif %}>{{ child.title }}</a>{# -#}
+                                            <a href="{{ child.url }}" hreflang="{{ child.language }}">{{ child.title }}</a>{# -#}
                                         </li>
                                     {%~ endfor %}
                                 </ul>
