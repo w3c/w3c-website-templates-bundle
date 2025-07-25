@@ -11,7 +11,8 @@
         <ul data-component="nav-double-intro">
             {%~ for navItem in navigation %}
                 <li class="top-nav-item has-children">
-                    <a href="{{ navItem.titleLink }}" class="nav-link" hreflang="{{ navItem.language }}">{{ navItem.title }}</a>
+                    {% if navItem.language is defined %}{{ navItem.language }}{% endif %}
+                    <a href="{{ navItem.titleLink }}" class="nav-link">{{ navItem.title }}</a>
                     <div class="nav__submenu" data-nav="submenu" style="display: none;">
                         <div class="l-center">
                             <div class="nav__submenu__intro">
@@ -29,7 +30,7 @@
                                 <ul>
                                     {%~ for child in navItem.children %}
                                         <li{{ child.startNewColumn is defined and child.startNewColumn ? ' class="break-after"' : '' }}>{# -#}
-                                            <a href="{{ child.url }}" hreflang="{{ child.language }}">{{ child.title }}</a>{# -#}
+                                            <a href="{{ child.url }}">{{ child.title }}</a>{# -#}
                                         </li>
                                     {%~ endfor %}
                                 </ul>
