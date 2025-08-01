@@ -1,7 +1,9 @@
 /*------------------------------------*\
     #Buttons
 
-    1. High contrast themes tend to eliminate background-color.
+    1. Prevent `.button` going full-width if a child of a flex column.
+
+    2. High contrast themes tend to eliminate background-color.
     With no border set, we need to apply a transparent outline to
     maintain the button shape. The negative outline-offset moves
     the outline inside the perimeter so it behaves like a border.
@@ -9,16 +11,18 @@
 
 button,
 .button {
+    align-items: center;
+    align-self: start; /* 1 */
 	background-color: $link-color;
 	border: solid 2px $link-color;
 	border-radius: rem(24);
 	color: $white;
-	display: inline-block;
+	display: inline-flex;
 	font-size: rem(14);
 	font-weight: $emphasis;
-	line-height: 1.5;
-	outline: 2px solid transparent; /* 1 */
-	outline-offset: -2px; /* 1 */
+    justify-content: center;
+	outline: 2px solid transparent; /* 2 */
+	outline-offset: -2px; /* 2 */
 	padding: rem(11) rem(24);
 
 	&:hover {
@@ -34,10 +38,6 @@ button,
 	}
 }
 
-button:not([type="submit"]) {
-	text-align: start;
-}
-
 
 /**
 Remove link styling from links styled as buttons.
@@ -47,19 +47,9 @@ Remove link styling from links styled as buttons.
 }
 
 
-/**
-Remove link styling from actual buttons styled as buttons.
- */
-button.button,
-input[type="submit"].button {
-	text-decoration: none;
-}
-
-
 // Full-width buttons
-.button--wide {
-	text-align: center;
-	width: 100%;
+.button--wide.button--wide {
+	inline-size: 100%;
 }
 
 
@@ -101,6 +91,7 @@ input[type="submit"].button {
 
 
 // Disabled buttons
+.button[disabled],
 .button[disabled],
 .button.js-disabled {
 	background-color: $twiki-gray;

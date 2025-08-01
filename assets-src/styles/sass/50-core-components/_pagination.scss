@@ -47,8 +47,6 @@
 
 	a[href]:hover {
 		text-decoration: underline;
-		text-decoration-skip-ink: auto; // Not supported by Safari
-		text-underline-offset: 0.25em; // Supported by Safari
 	}
 
 	a[href][aria-current] {

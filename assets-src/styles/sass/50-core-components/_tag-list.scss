@@ -29,6 +29,4 @@ a.tag {
 	position: relative;
 	text-decoration: underline;
 	z-index: 10;
-	text-decoration-skip-ink: auto; // Not supported by Safari
-	text-underline-offset: 0.25em; // Supported by Safari
 }

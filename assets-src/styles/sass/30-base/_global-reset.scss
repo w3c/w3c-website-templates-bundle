@@ -1,0 +1,210 @@
+/*------------------------------------*\
+    #Global CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
+
+/**
+Wildcard selector means these styles apply everywhere.
+1: Use a more intuitive box-sizing model
+2: Control hyphenation when used - see https://clagnut.com/blog/2395/
+3: Avoid text overflow
+ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* 1 */
+    hyphenate-limit-chars: 6 3 2; /* 2 */
+    overflow-wrap: break-word; /* 3 */
+}
+
+
+
+
+
+/**
+HTML or :root element.
+1: Prevent layout shift if a classic scrollbar is invoked
+2: Prevent font size inflation with change of orientation
+3: Enable keyword animations
+ */
+html {
+    scrollbar-gutter: stable; /* 1 */
+    text-size-adjust: none; /* 2 */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        interpolate-size: allow-keywords; /* 3 */
+    }
+}
+
+
+
+
+
+/**
+Set core body defaults.
+1: Improve text rendering
+2: A minimum line-height of 1.5 is needed for accessibility.
+3: Supported by Safari - anything using `text-decoration: underline` will inherit this
+4: Not supported by Safari - anything using `text-decoration: underline` will inherit this
+ */
+body {
+    -moz-osx-font-smoothing: grayscale; /* 1 */
+    -webkit-font-smoothing: antialiased; /* 1 */
+    line-height: 1.5; /* 2 */
+    margin: 0;
+    min-block-size: 100vh;
+    text-decoration-skip: auto; /* 3 */
+    text-decoration-skip-ink: auto; /* 4 */
+}
+
+
+
+
+
+/* Inherit our preferred font settings */
+button,
+input,
+select,
+textarea {
+    font: inherit;
+    letter-spacing: inherit;
+    word-spacing: inherit;
+}
+
+
+
+
+
+/* Reduce the line-height for specific elements (headings are managed in 30-base/_typography.scss) */
+input,
+label,
+optgroup,
+select,
+textarea {
+    line-height: 1.25;
+}
+
+button {
+    line-height: 1.15;
+}
+
+
+
+
+
+// /* Remove margins in favour of better control by our authored CSS */
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6,
+// p,
+// blockquote,
+// dl,
+// dd {
+//     margin-block: 0;
+// }
+
+figure {
+    margin-inline: 0;
+}
+
+
+
+
+
+/* Improve default styles for horizontal rule */
+hr {
+    block-size: 0;
+    border: 0;
+    border-block-start: 1px solid $twiki-gray;
+    overflow: visible;
+}
+
+
+
+
+
+/**
+ Improve media defaults.
+ 1: Block display is usually what we want
+ 2: Responsive by default
+ 3: Removes strange space-below in case authors overwrite the display value
+ */
+audio,
+canvas,
+embed,
+iframe,
+img,
+object,
+svg,
+video {
+    display: block; /* 1 */
+    max-inline-size: 100%; /* 2 */
+    vertical-align: middle; /* 3 */
+}
+
+
+/* There's no good reason the audio element defaults to 300px */
+audio {
+    inline-size: 100%;
+}
+
+/* Audio without `[controls]` remains hidden by default */
+audio:not([controls]) {
+    display: none;
+}
+
+
+/* Remove iframe border */
+iframe {
+    border: 0;
+}
+
+
+/* Maintain intrinsic aspect ratios when `max-inline-size` is applied */
+canvas,
+img,
+svg,
+video {
+    block-size: auto;
+}
+
+
+/* Remove the unnecessary wrapping `picture`, while maintaining contents */
+picture {
+    display: contents;
+}
+
+
+/* Source elements have nothing to display, so hide them entirely */
+source {
+    display: none;
+}
+
+
+/* Don't allow SVGs in flex contexts to shrink */
+svg {
+    flex-shrink: 0;
+}
+
+
+video {
+    aspect-ratio: 16/9;
+}
+
+
+
+
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+    scroll-margin-block: 5ex;
+}

@@ -2,12 +2,6 @@
     #HTML elements
 \*------------------------------------*/
 
-abbr {
-	text-decoration-skip-ink: auto; // Not supported by Safari
-	text-underline-offset: 0.25em; // Supported by Safari
-}
-
-
 dfn {
 	font-style: normal;
 	font-weight: $emphasis;

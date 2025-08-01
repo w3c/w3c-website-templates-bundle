@@ -4,15 +4,15 @@
 
 ul,
 ol {
-	margin-block-end: 1em;
-	margin-block-start: 1em;
+	// margin-block-end: 1em;
+	// margin-block-start: 1em;
 	padding-inline-start: 2.4em;
 
-	> * + *,
-	li ul,
-	li ol {
-		margin-block-start: 0.75em;
-	}
+	// > * + *,
+	// li ul,
+	// li ol {
+	// 	margin-block-start: 0.75em;
+	// }
 }
 
 ol.counter {

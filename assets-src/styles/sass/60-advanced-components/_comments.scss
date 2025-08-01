@@ -5,9 +5,7 @@
 .button[data-replylink],
 #js-cancel-reply {
 	@include txt-pluto;
-	text-decoration: underline; /* 1 */
-	text-decoration-skip-ink: auto; // Not supported by Safari
-	text-underline-offset: 0.25em; // Supported by Safari
+	text-decoration: underline;
 
 	&:hover {
 		box-shadow: 0 0 4px 2px rgba(84,84,84,0.25);
