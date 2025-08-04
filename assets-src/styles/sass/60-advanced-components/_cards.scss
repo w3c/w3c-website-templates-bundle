@@ -15,12 +15,12 @@
 	Minimum spacing between the penultimate and last child elements.
 	Matches the measure used for the stack mixin on `.card__text`
 	 */
-	> :nth-last-child(2) {
-		margin-bottom: 1rem;
-	}
+	// > :nth-last-child(2) {
+	// 	margin-block-end: 1rem;
+	// }
 
 	> :last-child {
-		margin-bottom: 0;
-		margin-top: auto;
+		margin-block-end: 0;
+		margin-block-start: auto;
 	}
 }

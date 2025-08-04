@@ -12,19 +12,19 @@
 		flex-wrap: wrap;
 		font-size: rem(18);
 		font-weight: bold;
+        inline-size: 100%;
 		line-height: calc(27 / 18);
 		justify-content: space-between;
-		margin-top: 0;
+		// margin-block-start: 0;
 		padding: rem(3);
-		width: 100%;
 
 		> span {
 			font-size: rem(15);
 			font-weight: normal;
+            inline-size: 100%;
 			line-height: calc(22.5 / 15);
 			color: #333;
 			order: 2;
-			width: 100%;
 		}
 
        // Decorative chevron

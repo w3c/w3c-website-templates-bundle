@@ -17,8 +17,7 @@
 
 	.js-slider > ul {
 		display: flex;
-		padding-bottom: rem(10);
-		padding-top: rem(10);
+		padding-block: rem(10);
 		position: relative;
 
 		> li {
@@ -33,9 +32,9 @@
 			visibility: hidden;
 		}
 
-		> li + li {
-			margin-top: 0;
-		}
+		// > li + li {
+		// 	margin-block-start: 0;
+		// }
 	}
 }
 

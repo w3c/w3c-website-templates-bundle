@@ -10,12 +10,12 @@
 .combo-menu {
 	background-color: #f5f5f5;
 	display: none;
-	left: 0;
-	max-height: rem(300);
+    inline-size: 100%;
+    inset-block-start: 100%;
+	inset-inline-start: 0;
+	max-block-size: rem(300);
 	overflow-y: scroll;
 	position: absolute;
-	top: 100%;
-	width: 100%;
 	z-index: 100;
 }
 
@@ -38,33 +38,33 @@
 }
 
 .combo-option.option-selected {
-	padding-right: rem(30);
+	padding-inline-end: rem(30);
 	position: relative;
 }
 
 .combo-option.option-selected::after {
-	border-bottom: 2px solid $black;
-	border-right: 2px solid $black;
+    block-size: rem(16);
+	border-block-end: 2px solid $black;
+	border-inline-end: 2px solid $black;
 	content: '';
-	height: rem(16);
+    inline-size: rem(8);
+    inset-block-start: 50%;
+    inset-inline-end: rem(15);
 	position: absolute;
-	right: rem(15);
-	top: 50%;
 	transform: translate(0, -50%) rotate(45deg);
-	width: rem(8);
 }
 
 .selected-options {
 	list-style-type: none;
 	margin: 0;
-	max-width: rem(400);
+	max-inloine-size: rem(400);
 	padding: 0;
 }
 
 .selected-options {
 	li {
 		display: inline-block;
-		margin-bottom: rem(5);
+		margin-block-end: rem(5);
 	}
 }
 
@@ -75,8 +75,8 @@
 	color: #fff;
 	font-size: 0.75em;
 	font-weight: bold;
-	margin-bottom: rem(6);
-	margin-right: rem(6);
+	margin-block-end: rem(6);
+	margin-inline-end: rem(6);
 	padding: 0.25em 1.75em 0.25em 0.25em;
 	position: relative;
 }
@@ -89,13 +89,13 @@
 
 .remove-option::before,
 .remove-option::after {
-	border-right: 2px solid #fff;
+	border-inline-end: 2px solid #fff;
 	content: "";
-	height: 1em;
-	right: 0.75em;
+	block-size: 1em;
+    inline-size: 0;
+    inset-block-start: 50%;
+	inset-inline-end: 0.75em;
 	position: absolute;
-	top: 50%;
-	width: 0;
 }
 
 .remove-option::before {

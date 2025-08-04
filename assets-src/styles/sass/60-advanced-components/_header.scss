@@ -4,31 +4,31 @@
 
 [data-trigger="account-menu"] {
 	border-radius: 0;
-	margin-left: auto;
+	margin-inline-start: auto;
 	padding: rem(7);
 	position: relative;
 
 	&::before {
 		background-color: $w3c-blue;
+        block-size: rem(3);
 		bottom: rem(-2);
 		content:'';
 		display: none;
-		height: rem(3);
-		left: 0;
+        inline-size: 100%;
+		inset-inline-start: 0;
 		position: absolute;
-		width: 100%;
 	}
 
 	&.js-has-msg::after {
 		background-color: $red;
+        block-size: 15px;
 		border: solid 3px $white;
 		border-radius: 50%;
 		content: '';
-		height: 15px;
+        inline-size: 15px;
+        inset-block-start: 3px;
+        inset-inline-end: 3px;
 		position: absolute;
-		right: 3px;
-		top: 3px;
-		width: 15px;
 	}
 
 	@include mq($max-width) {
@@ -82,40 +82,27 @@
 	}
 }
 
-[dir="rtl"] {
-	[data-trigger="account-menu"] {
-		margin-left: 0;
-		margin-right: auto;
-
-		&.js-has-msg::after {
-			left: 3px;
-			right: auto;
-		}
-	}
-}
-
 .account-menu {
 	background-color: $white;
 	border: solid 1px $border-color;
 	box-shadow: 0 8px 16px 0 rgba(55,70,95,0.07);
+    inline-size: rem(250);
+    inset-block-start: 100%;
+    max-inline-size: calc(100% - 10vw);
 	position: absolute;
-	right: 5vw;
-	top: 100%;
-	max-width: calc(100% - 10vw);
-	min-width: rem(250);
+    right: 5vw;
 	z-index: 10;
 }
 
 [dir="rtl"] {
 	.account-menu {
 		left: 5vw;
-		right: auto;
+        right: auto;
 	}
 }
 
 .account-menu ul {
-	padding-bottom: rem(10);
-	padding-top: rem(10);
+	padding-block: rem(10);
 
 	li {
 		padding: rem(10) rem(20);
@@ -127,15 +114,14 @@
 }
 
 .account-menu li:nth-child(3) {
-	padding-top: 0;
+	padding-block-start: 0;
 }
 
 .account-menu li:last-of-type {
-	padding-bottom: 0;
+	padding-block-end: 0;
 }
 
 .account-menu a {
 	display: block;
-	padding-bottom: rem(10);
-	padding-top: rem(10);
+	padding-block: rem(10);
 }
