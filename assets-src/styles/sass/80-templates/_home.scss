@@ -8,11 +8,10 @@
 	}
 
 	.component--members {
-		padding-bottom: rem(40);
-		padding-top: rem(40);
+		padding-block: rem(40);
 	}
 
-	.component--members__grid {
-		margin-top: rem(40);
-	}
+	// .component--members__grid {
+	// 	margin-block-start: rem(40);
+	// }
 }

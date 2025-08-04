@@ -3,24 +3,24 @@
 \*------------------------------------*/
 
 .event .content {
-	max-width: rem(752);
+	max-inline-size: rem(752);
 }
 
 .event .intro {
 	display: flex;
 	flex-direction: column;
-	margin-bottom: rem(20);
+	margin-block-end: rem(20);
 	margin-inline-start: rem(30);
 	position: relative;
 
 	&::before {
+        block-size: 100%;
 		border-radius: rem(5);
 		content: '';
-		height: 100%;
-		left: rem(-28);
+        inline-size: rem(5);
+        inset-block-start: 0;
+		inset-inline-start: rem(-28);
 		position: absolute;
-		top: 0;
-		width: rem(5);
 	}
 
 	&.conference::before {
@@ -39,25 +39,18 @@
 		background-color: $red;
 	}
 
-	h1 {
-		margin-bottom: 0;
-	}
+	// h1 {
+	// 	margin-block-end: 0;
+	// }
 
 	h1 + * {
 		@include txt-mars;
-		margin-bottom: rem(10);
+		// margin-block-end: rem(10);
 		order: -1;
 	}
 }
 
-[dir="rtl"] {
-	.event .intro::before {
-		left: auto;
-		right: rem(-28);
-	}
-}
-
-.event .lead,
-.event .calendar-link {
-	margin-bottom: rem(20);
-}
+// .event .lead,
+// .event .calendar-link {
+// 	margin-block-end: rem(20);
+// }
