@@ -15,8 +15,7 @@
 
 .global-header .banner {
 	background-color: $light-blue;
-	padding-bottom: rem(10);
-	padding-top: rem(10);
+	padding-block: rem(10);
 }
 
 .global-header .banner__inner {
@@ -25,8 +24,7 @@
 
 	p {
 		@include txt-eris;
-		margin-bottom: 0;
-		margin-top: 0;
+		// margin-block: 0;
 	}
 
 	a {
@@ -54,8 +52,7 @@
 		@include txt-eris;
 		color: $off-black;
 		display: block;
-		padding-bottom: rem(12);
-		padding-top: rem(12);
+		padding-block: rem(12);
 	}
 }
 

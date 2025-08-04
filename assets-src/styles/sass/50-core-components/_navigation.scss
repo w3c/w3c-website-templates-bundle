@@ -7,14 +7,13 @@
 }
 
 #global-nav {
-	border-bottom: solid 1px $border-color;
+	border-block-end: solid 1px $border-color;
 	display: block;
-	padding-bottom: rem(18);
-	padding-top: rem(18);
+	padding-block: rem(18);
 
 	@include mq($max-width) {
-		padding-bottom: 0;
-		padding-top: rem(20);
+		padding-block-end: 0;
+		padding-block-start: rem(20);
 	}
 }
 
@@ -35,13 +34,13 @@
 	display: flex;
 	flex-basis: 100%;
 	flex-wrap: wrap;
-	padding-bottom: rem(45);
-	width: 100%;
+    inline-size: 100%;
+	padding-block-end: rem(45);
 
 	@include mq($max-width) {
 		flex-basis: auto;
 		flex-wrap: nowrap;
-		padding-bottom: 0;
+        padding-block-end: 0;
 	}
 }
 
@@ -62,7 +61,7 @@ li.top-nav-item + li.top-nav-item {
 	flex-basis: 100%;
 
 	@include mq($max-width) {
-		border-bottom: none;
+		border-block-end: none;
 		flex-basis: auto;
 	}
 }
@@ -109,18 +108,18 @@ li.top-nav-item + li.top-nav-item {
 
 	@include mq($max-width) {
 		margin-inline-end: rem(25);
-		padding-bottom: rem(5);
+		padding-block-end: rem(5);
 		position: relative;
 
 		&::before {
 			background-color: $w3c-blue;
-			bottom: 0;
-			content:'';
-			display: none;
-			height: rem(3);
-			left: 0;
+            block-size: rem(3);
+            content:'';
+            display: none;
+            inline-size: 100%;
+			inset-block-end: 0;
+            inset-inline-start: 0;
 			position: absolute;
-			width: 100%;
 		}
 
 		&:hover::before {
@@ -133,18 +132,18 @@ li.top-nav-item + li.top-nav-item {
 	align-items: center;
 	color: $off-black;
 	display: flex;
-	min-height: rem(44);
+	min-block-size: rem(44);
 	text-decoration: none !important;
 
 	@include mq($max-width) {
+        block-size: 100%;
 		display: inline-flex;
 		justify-content: center;
-		height: 100%;
-		min-width: rem(44);
+		min-inline-sizeh: rem(44);
 	}
 
 	&::before {
-		bottom: 0 !important;
+		inset-block-end: 0 !important;
 	}
 
 	&:visited,
@@ -162,16 +161,16 @@ li.top-nav-item + li.top-nav-item {
 		margin-inline-start: rem(10);
 
 		@include mq($max-width) {
+            block-size: 1px;
 			border: 0;
 			clip: rect(0 0 0 0);
 			clip-path: inset(100%);
-			height: 1px;
+            inline-size: 1px;
 			margin-inline-start: 0;
 			overflow: hidden;
 			padding: 0;
 			position: absolute;
 			white-space: nowrap;
-			width: 1px;
 		}
 	}
 }
@@ -182,15 +181,14 @@ li.top-nav-item + li.top-nav-item {
 
 	@include mq($max-width) {
 		flex-basis: auto;
-		padding-bottom: rem(10);
-		padding-top: rem(10);
+		padding-block: rem(10);
 	}
 }
 
 .global-nav__inner .top-nav-item > *:first-child {
 	@include mq($max-width) {
+        block-size: 100%;
 		font-size: 1rem;
-		height: 100%;
 		line-height: rem(27);
 		padding: rem(10) rem(5) rem(7) !important;
 		position: relative;
@@ -198,13 +196,13 @@ li.top-nav-item + li.top-nav-item {
 
 		&::before {
 			background-color: $w3c-blue;
-			bottom: rem(-2);
+            block-size: rem(3);
 			content:'';
 			display: none;
-			height: rem(3);
-			left: 0;
+            inline-size: 100%;
+            inset-block-end: rem(-2);
+			inset-inline-start: 0;
 			position: absolute;
-			width: 100%;
 		}
 
 		&:hover::before {
@@ -230,8 +228,8 @@ li.top-nav-item + li.top-nav-item {
 #archive-nav ul,
 #category-nav ul {
 	background-color: $white;
+    block-size: rem(180);
 	border: solid 1px $border-color;
-	height: rem(180);
 	overflow: auto;
 
 	a {

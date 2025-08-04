@@ -3,22 +3,17 @@
 \*------------------------------------*/
 
 .component--video {
-	iframe {
-		border: 0;
-	}
-
 	figcaption {
 		@include txt-pluto;
 
 		> * {
-			max-width: rem(540);
+			max-inline-size: rem(540);
 		}
 
 		> a {
 			display: inline-block;
-			margin: 0;
-			padding-bottom: rem(10);
-			padding-top: rem(10);
+			// margin: 0;
+			padding-block: rem(10);
 		}
 	}
 }

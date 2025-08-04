@@ -4,8 +4,7 @@
 
 .comments {
 	background-color: $mist-gray;
-	padding-bottom: rem(50);
-	padding-top: rem(50);
+	padding-block: rem(50);
 
 	h2 {
 		@include txt-mars;
@@ -14,16 +13,16 @@
 }
 
 .comment-list {
-	margin-top: rem(30);
+	// margin-block-start: rem(30);
 
 	> li {
-		border-bottom: solid 1px $border-color;
-		padding-bottom: rem(50);
+		border-block-end: solid 1px $border-color;
+		padding-block-end: rem(50);
 	}
 
-	> li + li {
-		margin-top: rem(20);
-	}
+	// > li + li {
+	// 	margin-block-start: rem(20);
+	// }
 
 }
 
@@ -40,57 +39,43 @@
 		order: -1;
 
 		img {
-			width: rem(50);
+			inline-size: rem(50);
 		}
 	}
 
 	.not-sidebar {
-		min-width: calc(80% - 1.5rem);
+		min-inline-size: calc(80% - 1.5rem);
 	}
 }
 
 .reply-list.reply-list {
-	margin-left: rem(70);
-	margin-top: rem(30);
-	padding-left: rem(30);
+    // margin-block-start: rem(30);
+	margin-inline-start: rem(70);
+	padding-inline-start: rem(30);
 	position: relative;
 
 	&::before {
 		background-color: $w3c-blue;
+        block-size: 100%;
 		border-radius: rem(3);
 		content: '';
-		height: 100%;
-		left: 0;
+        inline-size: rem(3);
+        inset-block-start: 0;
+		inset-inline-start: 0;
 		position: absolute;
-		top: 0;
-		width: rem(3);
 	}
 
 	> li {
-		border-top: solid 1px $border-color;
+		border-block-start: solid 1px $border-color;
 	}
 
-	> li + li {
-		margin-top: rem(20);
-	}
-}
-
-[dir="rtl"] {
-	.reply-list.reply-list {
-		margin-left: 0;
-		margin-right: rem(70);
-		padding-left: 0;
-		padding-right: rem(30);
-
-		&::before {
-			left: auto;
-			right: 0;
-		}
-	}
+	// > li + li {
+	// 	margin-block-start: rem(20);
+	// }
 }
 
 .reply-list .comment {
-	padding-top: rem(20);
+	padding-block-start: rem(20);
 }
 
 .comment__author {
@@ -100,18 +85,17 @@
 }
 
 .comment__body {
-	max-width: rem($text-measure);
+	max-inline-size: rem($text-measure);
 }
 
 [data-replylink] {
 	@include txt-pluto;
 	align-self: flex-start;
-	padding-bottom: rem(11);
-	padding-top: rem(11);
+	padding-block: rem(11);
 }
 
 #respond {
-	margin-top: 1rem;
+	// margin-block-start: 1rem;
 
 	> div:first-of-type {
 		align-items: center;
@@ -121,11 +105,11 @@
 }
 
 .comment-form-wrap {
-	margin-top: rem(30);
+	// margin-block-start: rem(30);
 }
 
 #comment-form {
-	max-width: rem($text-measure);
+	max-inline-size: rem($text-measure);
 
 	.l-switcher {
 		overflow: visible;
@@ -137,7 +121,7 @@
 	}
 
 	.l-switcher > * > * {
+        inline-size: calc(660px * 660 - 100% * 660);
 		padding: rem(10);
-		width: calc(660px * 660 - 100% * 660);
 	}
 }

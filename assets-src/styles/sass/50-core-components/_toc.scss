@@ -2,13 +2,13 @@
     #Table of contents (TOC)
 \*------------------------------------*/
 
-.toc + * {
-	margin-block-start: rem(30);
-
-	@include mq($max-width) {
-        margin-block-start: rem(80);
-	}
-}
+// .toc + * {
+// 	margin-block-start: rem(30);
+//
+// 	@include mq($max-width) {
+//         margin-block-start: rem(80);
+// 	}
+// }
 
 .toc h2 {
 	font-size: 1rem;

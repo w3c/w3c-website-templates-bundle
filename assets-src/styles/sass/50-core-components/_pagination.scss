@@ -2,23 +2,21 @@
     #Pagination
 \*------------------------------------*/
 
-.pagination {
-	margin-top: rem(40);
-}
+// .pagination {
+// 	margin-block-start: rem(40);
+// }
 
-.l-cluster.pagination > * {
-	margin-bottom: 0;
-	margin-top: 0;
-}
+// .l-cluster.pagination > * {
+// 	margin-block: 0;
+// }
 
-.l-cluster.pagination > * > * {
-	margin-bottom: 0;
-	margin-top: 0;
-}
+// .l-cluster.pagination > * > * {
+// 	margin-block: 0;
+// }
 
 .pagination + * {
-	border-top: solid 1px $border-color;
-	margin-top: rem(33);
+	border-block-start: solid 1px $border-color;
+	// margin-block-start: rem(33);
 }
 
 .pagination__list {

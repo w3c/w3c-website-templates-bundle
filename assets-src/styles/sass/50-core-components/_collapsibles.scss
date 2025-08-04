@@ -10,15 +10,15 @@
 		padding: rem(25);
 	}
 
-	> div + div {
-		margin-top: 1rem;
-	}
+	// > div + div {
+	// 	margin-top: 1rem;
+	// }
 
 }
 
-[data-heading="collapsibles"] span {
-	@include stack(1rem);
-}
+// [data-heading="collapsibles"] span {
+// 	@include stack(1rem);
+// }
 
 [data-heading="collapsibles"] h3 {
 	@include txt-saturn;
@@ -28,12 +28,12 @@
 	@include txt-pluto;
 	display: block;
 	font-weight: normal;
-	margin-top: 1rem;
+	// margin-block-start: 1rem;
 }
 
 [data-heading="collapsibles"] + * {
 	// Restrict line-length for readability
 	> * {
-		max-width: rem($text-measure);
+		max-inline-size: rem($text-measure);
 	}
 }

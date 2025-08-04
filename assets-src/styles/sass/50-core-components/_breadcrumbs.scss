@@ -4,8 +4,7 @@
 \*------------------------------------*/
 
 #breadcrumb {
-	padding-bottom: rem(15);
-	padding-top: rem(10);
+    padding-block: rem(10) rem(15);
 
 	.l-cluster > * {
 		margin: 0 rem(-11);
@@ -13,25 +12,17 @@
 
 	.l-cluster.l-cluster > * > * {
 		margin: 0 0 0 rem(11);
-		padding-right: 1em;
+		padding-inline-end: 1em;
 		position: relative;
 	}
 }
 
-[dir="rtl"] {
-	#breadcrumb .l-cluster.l-cluster > * > * {
-		margin: 0 rem(11) 0 0;
-		padding-left: 1em;
-		padding-right: 0;
-	}
-}
 
 .breadcrumbs a {
 	@include txt-pluto;
 	color: $off-black;
 	display: block;
-	padding-bottom: rem(11);
-	padding-top: rem(11);
+	padding-block: rem(11);
 
 	&:visited,
 	&:hover,
@@ -69,9 +60,6 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 	}
 }
 
-// .breadcrumbs li:not(:last-child) {
-// 	&::after {}
-// }
 
 [dir="rtl"] {
 	.breadcrumbs li:not(:last-child) {

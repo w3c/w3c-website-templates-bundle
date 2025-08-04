@@ -5,18 +5,15 @@
 @media screen {
 	#archive-banner {
 		background-color: #f9dc4a;
-		padding-bottom: 1.25rem;
-		padding-top: 1.25rem;
+		padding-block: 1.25rem;
 	}
 
 	#archive-banner .centered {
 		box-sizing: content-box;
-		margin-left: auto;
-		margin-right: auto;
-		max-width: 70rem;
+		margin-inline: auto;
+		max-winline-size: 70rem;
 		overflow: hidden;
-		padding-left: 5vw;
-		padding-right: 5vw;
+		padding-inline: 5vw;
 	}
 
 	#archive-banner .centered > * {
@@ -33,15 +30,15 @@
 	#archive-banner .archive-banner__message {
 		flex-basis: 0;
 		flex-grow: 999;
-		min-width: calc(80% - 1.5rem);
+		min-inline-size: calc(80% - 1.5rem);
 	}
 
 	#archive-banner .archive-banner__message > * + * {
-		margin-top: 1rem;
+		margin-block-start: 1rem;
 	}
 
 	#archive-banner .archive-banner__message > * {
-		max-width: 41.25rem;
+		max-inline-size: 41.25rem;
 	}
 
 	#archive-banner .archive-banner__message h2 {
@@ -56,7 +53,7 @@
 	}
 
 	#archive-banner .archive-banner__message h3 + * {
-		margin-top: 0;
+		margin-block-start: 0;
 	}
 
 	#archive-banner a {
@@ -83,16 +80,16 @@
 
 	#archive-banner .archive-banner__logo > span {
 		display: block;
-		height: 2.75rem;
+		block-size: 2.75rem;
 		position: relative;
-		width: 4.125rem;
+		inline-size: 4.125rem;
 	}
 }
 
 @media screen and (min-width: 64em) {
 	#archive-banner .archive-banner__logo > span {
-		height: 3.25rem;
-		width: 4.875rem;
+        block-size: 3.25rem;
+        inline-size: 4.875rem;
 	}
 }
 
@@ -116,27 +113,17 @@
 	}
 
 	.archive-banner__message {
-		min-height: 40pt;
-		padding-left: 62pt;
+		min-block-size: 40pt;
+		padding-inline-start: 62pt;
 	}
 
 	.archive-banner__message > * + * {
-		margin-top: 8pt;
-	}
-
-	[dir="rtl"] .archive-banner__message {
-		padding-left: 0;
-		padding-right: 60pt;
+		margin-block-start: 8pt;
 	}
 
 	.archive-banner__logo {
-		left: 8pt;
+        inset-block-start: 8pt;
+		inset-inline-start: 8pt;
 		position: absolute;
-		top: 8pt;
-	}
-
-	[dir="rtl"] .archive-banner__logo {
-		left: auto;
-		right: 8pt;
 	}
 }

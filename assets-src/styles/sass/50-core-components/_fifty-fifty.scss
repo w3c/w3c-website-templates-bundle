@@ -10,13 +10,13 @@
 		justify-content: space-between;
 	}
 
-	> * + * {
-		margin-top: 1rem;
-
-		@include mq($bp-tab-small) {
-			margin-top: 0;
-		}
-	}
+	// > * + * {
+	// 	margin-block-start: 1rem;
+    //
+	// 	@include mq($bp-tab-small) {
+    //         margin-block-start: 0;
+	// 	}
+	// }
 }
 
 .component--fifty-fifty__text {
@@ -30,8 +30,8 @@
 }
 
 .component--fifty-fifty__text .l-box {
-	@include stack(1rem);
-	margin-top: rem(30);
+	// @include stack(1rem);
+	margin-block-start: rem(30);
 
 	a {
 		align-self: flex-start;
@@ -52,15 +52,15 @@
 }
 
 .component--fifty-fifty .image .l-frame {
-	padding-bottom: 66.67%;
+	padding-block-end: 66.67%;
 
 	@include mq($bp-tab-small) {
-		padding-bottom: 100%;
+		padding-block-end: 100%;
 	}
 }
 
 .component--fifty-fifty .illustration .l-frame {
-	padding-bottom: 75%;
+	padding-block-end: 75%;
 }
 
 .component--fifty-fifty.reversed {

@@ -5,8 +5,7 @@
 .crosslinks {
 	background-color: $w3c-blue;
 	color: $white;
-	padding-bottom: rem(50);
-	padding-top: rem(50);
+	padding-block: rem(50);
 }
 
 .crosslinks .component--columns__intro h2 {
@@ -36,16 +35,16 @@
 	> li {
 		@include mq(700) {
 			flex: 1 0 50%;
-			max-width: 50%;
+			max-inline-size: 50%;
 			padding: 1.5%;
 		}
 	}
 
-	li + li {
-		@include mq(700) {
-			margin-top: 0;
-		}
-	}
+	// li + li {
+	// 	@include mq(700) {
+	// 		margin-block-start: 0;
+	// 	}
+	// }
 }
 
 .crosslinks .component--columns--images {
