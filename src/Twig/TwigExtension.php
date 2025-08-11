@@ -106,7 +106,7 @@ class TwigExtension extends AbstractExtension
      * @return bool|string
      * @throws Exception
      */
-    public function markupAttrs(string $markup, array $attrs = null)
+    public function markupAttrs(string $markup, ?array $attrs = null)
     {
         try {
             $xml = new SimpleXMLElement($markup);
@@ -205,7 +205,7 @@ class TwigExtension extends AbstractExtension
         string $tz,
         string $locale,
         bool $utc = false,
-        string $id = null
+        ?string $id = null
     ): string {
         if ($locale == 'en') {
             $locale = 'en-GB';
