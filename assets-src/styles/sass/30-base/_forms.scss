@@ -425,7 +425,7 @@ show all available options outright, rather than hide them behind a <select>
 	}
 
 	.segmented-label {
-		@include stack(.5em);
+		//@include stack(.5em);
 		display: block;
 		padding: rem(10);
 		padding-inline-start: rem(44);
