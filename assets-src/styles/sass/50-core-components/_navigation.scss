@@ -188,7 +188,7 @@ li.top-nav-item + li.top-nav-item {
 .global-nav__inner .top-nav-item > *:first-child {
 	@include mq($max-width) {
         block-size: 100%;
-		font-size: 1rem;
+		font-size: var(--w3c-text-0);
 		line-height: rem(27);
 		padding: rem(10) rem(5) rem(7) !important;
 		position: relative;

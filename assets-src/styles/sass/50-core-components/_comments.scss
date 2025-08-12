@@ -80,7 +80,7 @@
 }
 
 .comment__author {
-	font-size: 1rem;
+	font-size: var(--w3c-text-0);
 	font-weight: bold;
 	line-height: calc(32 / 24);
 }

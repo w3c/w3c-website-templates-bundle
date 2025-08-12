@@ -45,7 +45,7 @@
 .translations h3,
 .translations h5,
 .translations .sidebar span {
-	font-size: 1rem;
+	font-size: var(--w3c-text-0);
 	font-weight: normal;
 	padding-block: rem(10);
 }
