@@ -25,23 +25,23 @@ h1, h2, h3, h4, h5, h6 {
 // 	margin-bottom: 1em;
 // }
 
-:where(h1, .venus, .h1) {
+:where(h1, .h1 .venus) {
 	font-size: var(--w3c-text-5);
 }
 
-:where(h2, .txt-earth, .h2) {
+:where(h2, .h2, .txt-earth) {
 	font-size: var(--w3c-text-4);
 }
 
-:where(h3, .txt-mars, .h3) {
+:where(h3, .h3, .txt-mars) {
 	font-size: var(--w3c-text-3);
 }
 
-:where(h4, .txt-jupiter, .h4) {
+:where(h4, .h4, .txt-jupiter) {
 	font-size: var(--w3c-text-2);
 }
 
-:where(h5, .txt-saturn, .h5) {
+:where(h5, .h5, .txt-saturn) {
 	font-size: var(--w3c-text-1);
 }
 
