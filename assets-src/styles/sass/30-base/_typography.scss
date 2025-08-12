@@ -7,7 +7,6 @@ body {
 	font-size: var(--w3c-text-0);
 	font-style: $font-style;
 	font-weight: $font-weight;
-	line-height: 1.5;
 }
 
 
@@ -18,6 +17,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: $emphasis;
+	line-height: 1.2;
 	// margin: 0 0 1rem;
 }
 

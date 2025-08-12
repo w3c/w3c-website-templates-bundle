@@ -13,7 +13,7 @@
 		font-size: var(--w3c-text-0);
 		font-weight: bold;
         inline-size: 100%;
-		line-height: calc(27 / 18);
+		//line-height: calc(27 / 18);
 		justify-content: space-between;
 		// margin-block-start: 0;
 		padding: rem(3);
@@ -22,7 +22,7 @@
 			font-size: var(--w3c-text-01);
 			font-weight: normal;
             inline-size: 100%;
-			line-height: calc(22.5 / 15);
+			//line-height: calc(22.5 / 15);
 			color: #333;
 			order: 2;
 		}

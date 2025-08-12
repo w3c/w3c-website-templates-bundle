@@ -189,7 +189,7 @@ li.top-nav-item + li.top-nav-item {
 	@include mq($max-width) {
         block-size: 100%;
 		font-size: var(--w3c-text-0);
-		line-height: rem(27);
+		//line-height: rem(27);
 		padding: rem(10) rem(5) rem(7) !important;
 		position: relative;
 		white-space: nowrap;
