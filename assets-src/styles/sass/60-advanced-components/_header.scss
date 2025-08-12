@@ -59,7 +59,7 @@
 
 	.sr-only {
 		@extend %visuallyhidden;
-		font-size: rem(14);
+		font-size: var(--w3c-text-01);
 
 		@include mq($max-width) {
 			border: initial;

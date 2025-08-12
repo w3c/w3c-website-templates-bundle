@@ -177,7 +177,7 @@ li.top-nav-item + li.top-nav-item {
 
 .account-login {
 	flex-basis: 100%;
-	font-size: rem(14) !important;
+	font-size: var(--w3c-text-01) !important;
 
 	@include mq($max-width) {
 		flex-basis: auto;

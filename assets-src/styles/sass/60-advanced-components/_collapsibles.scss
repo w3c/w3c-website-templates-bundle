@@ -10,7 +10,7 @@
 		border-radius: 0;
 		display: flex;
 		flex-wrap: wrap;
-		font-size: rem(18);
+		font-size: var(--w3c-text-0);
 		font-weight: bold;
         inline-size: 100%;
 		line-height: calc(27 / 18);
@@ -19,7 +19,7 @@
 		padding: rem(3);
 
 		> span {
-			font-size: rem(15);
+			font-size: var(--w3c-text-01);
 			font-weight: normal;
             inline-size: 100%;
 			line-height: calc(22.5 / 15);

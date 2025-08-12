@@ -27,17 +27,11 @@
 
 .slide__quote {
 	background: url('../images/quote-bg.png') no-repeat 0 0;
-	font-size: rem(20);
+	font-size: var(--w3c-text-2);
 	font-weight: bold;
-	line-height: calc(32 / 20);
 	margin-inline-start: rem(35);
 	padding-block-start: rem(15);
 	position: relative;
-
-	@include mq($bp-tab-small) {
-		font-size: rem(24);
-		line-height: calc(33.6 / 24);
-	}
 
 	&::before {
 		background-color: $w3c-blue;

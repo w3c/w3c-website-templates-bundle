@@ -43,7 +43,7 @@
 
 	#archive-banner .archive-banner__message h2 {
 		display: block;
-		font-size: rem(19);
+		font-size: var(--w3c-text-1);
 		line-height: calc(32 / 19);
 	}
 

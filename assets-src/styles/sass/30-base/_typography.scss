@@ -50,8 +50,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .lead {
-	font-size: rem(23);
-	line-height: calc(33.6 / 24);
+	font-size: var(--w3c-text-2);
 }
 
 :where(.txt-pluto, .txt-eris, .text-sm) {

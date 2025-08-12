@@ -20,7 +20,7 @@
 
 [data-trigger='mobile-nav'] {
 	display: inline-flex;
-	font-size: rem(14);
+	font-size: var(--w3c-text-01);
 	padding: rem(7) 0;
 
 	&:focus {
@@ -303,8 +303,7 @@
 .global-nav__inner .nav__submenu li a {
 	color: $off-black;
     display: block;
-	font-size: rem(19);
-	line-height: calc(27 / 18);
+	font-size: var(--w3c-text-1);
 	padding-block: rem(8);
 	text-decoration: none;
 

@@ -49,13 +49,11 @@
 	padding: rem(28) rem(20);
 
 	h2 {
-		font-size: rem(19);
-		line-height: calc(33 / 17);
+		font-size: var(--w3c-text-1);
 	}
 
 	h3 {
-		font-size: 1rem;
-		line-height: calc(32 / 24);
+		font-size: var(--w3c-text-0);
 	}
 
 	a {
