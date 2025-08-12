@@ -23,7 +23,8 @@
 	display: flex;
 
 	p {
-		@include txt-eris;
+		//@include txt-eris;
+		font-size: var(--w3c-text-01);
 		// margin-block: 0;
 	}
 
@@ -49,9 +50,10 @@
 	}
 
 	a {
-		@include txt-eris;
+		//@include txt-eris;
 		color: $off-black;
 		display: block;
+		font-size: var(--w3c-text-01);
 		padding-block: rem(12);
 	}
 }

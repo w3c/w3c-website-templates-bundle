@@ -9,7 +9,8 @@
 }
 
 .crosslinks .component--columns__intro h2 {
-	@include txt-mars;
+	//@include txt-mars;
+	font-size: var(--w3c-text-3);
 }
 
 .crosslinks .component--columns__intro {

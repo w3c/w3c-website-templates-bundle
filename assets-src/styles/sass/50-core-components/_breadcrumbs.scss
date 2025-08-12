@@ -19,9 +19,10 @@
 
 
 .breadcrumbs a {
-	@include txt-pluto;
+	//@include txt-pluto;
 	color: $off-black;
 	display: block;
+	font-size: var(--w3c-text-01);
 	padding-block: rem(11);
 
 	&:visited,

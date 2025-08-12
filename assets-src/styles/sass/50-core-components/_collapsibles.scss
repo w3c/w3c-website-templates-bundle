@@ -21,12 +21,14 @@
 // }
 
 [data-heading="collapsibles"] h3 {
-	@include txt-saturn;
+	//@include txt-saturn;
+	font-size: var(--w3c-text-1);
 }
 
 [data-heading="collapsibles"] > * {
-	@include txt-pluto;
+	//@include txt-pluto;
 	display: block;
+	font-size: var(--w3c-text-01);
 	font-weight: normal;
 	// margin-block-start: 1rem;
 }

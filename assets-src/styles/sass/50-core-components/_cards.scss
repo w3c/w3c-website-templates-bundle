@@ -57,7 +57,8 @@
 }
 
 .card__heading {
-	@include txt-saturn;
+	//@include txt-saturn;
+	font-size: var(--w3c-text-1);
 }
 
 .card__image img {

@@ -25,9 +25,10 @@
 	}
 
 	a {
-		@include txt-pluto;
+		//@include txt-pluto;
 		color: $black;
 		display: block;
+		font-size: var(--w3c-text-01);
 		text-decoration: none;
 		padding: rem(11) rem(18);
 

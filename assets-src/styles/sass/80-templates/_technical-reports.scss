@@ -41,8 +41,9 @@
 .tr-list {
 	.tr-list__item {
 		//@include stack(0.5em);
-		@include txt-pluto;
+		//@include txt-pluto;
 		border-block-end: 1px solid $twiki-gray;
+		font-size: var(--w3c-text-01);
 		padding-block-end: rem(8);
 		padding-block-start: rem(20);
 
@@ -52,7 +53,8 @@
 	}
 
 	.tr-list__item h3 {
-		@include txt-mars;
+		//@include txt-mars;
+		font-size: var(--w3c-text-3);
 	}
 
 	.tr-list__item__header {

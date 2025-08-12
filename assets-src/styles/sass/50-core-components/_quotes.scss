@@ -3,8 +3,9 @@
 \*------------------------------------*/
 
 .component--quote {
-	@include txt-saturn;
+	//@include txt-saturn;
 	color: $w3c-blue;
+	font-size: var(--w3c-text-1);
 	font-weight: bold;
 	margin-inline-end: 0;
 	margin-inline-start: rem(10);

@@ -11,12 +11,13 @@
 }
 
 .tag {
-	@include txt-eris;
+	//@include txt-eris;
 	background-color: rgba(#cecdcd, 0.5);
 	background-clip: padding-box;
 	border: solid 2px rgba(#cecdcd, 0.5);
 	border-radius: rem(4);
 	display: inline-block;
+	font-size: var(--w3c-text-01);
 	padding: rem(2.5) rem(5) rem(2.5) rem(5);
 }
 

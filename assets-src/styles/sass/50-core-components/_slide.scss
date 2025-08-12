@@ -64,7 +64,8 @@
 
 
 .slide__cite {
-	@include txt-pluto;
+	//@include txt-pluto;
+	font-size: var(--w3c-text-01);
 	padding-inline-start: rem(5);
 
 	&.l-sidebar .sidebar {

@@ -196,14 +196,15 @@
 	}
 
 	> h2 {
-		@include txt-jupiter;
+		//@include txt-jupiter;
 		color: $off-black;
+		font-size: var(--w3c-text-4);
 		font-weight: $emphasis;
 		margin-block-start: rem(25);
 		padding-block: rem(6);
 
 		@include mq($max-width) {
-			font-size: rem(34);
+			//font-size: rem(34);
 			line-height: calc(43 / 34);
 			margin-block-end: rem(25);
             margin-block-start: 0;
@@ -212,7 +213,8 @@
 }
 
 .global-nav__inner .nav__submenu__intro__text {
-	@include txt-saturn;
+	//@include txt-saturn;
+	font-size: var(--w3c-text-1);
 
 	*:not(a) {
 		display: none;
@@ -247,11 +249,12 @@
 }
 
 .global-nav__inner [data-button='mobile-back'] {
-	@include txt-jupiter;
+	//@include txt-jupiter;
 	align-items: center;
     border-block-start: solid 1px $border-color;
 	border-radius: 0;
     display: flex;
+	font-size: var(--w3c-text-2);
 	padding: rem(12) 5vw;
 
 	@include mq($max-width) {

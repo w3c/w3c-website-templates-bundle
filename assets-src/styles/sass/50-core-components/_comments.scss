@@ -7,7 +7,8 @@
 	padding-block: rem(50);
 
 	h2 {
-		@include txt-mars;
+		//@include txt-mars;
+		font-size: var(--w3c-text-3);
 	}
 
 }
@@ -89,8 +90,9 @@
 }
 
 [data-replylink] {
-	@include txt-pluto;
+	//@include txt-pluto;
 	align-self: flex-start;
+	font-size: var(--w3c-text-01);
 	padding-block: rem(11);
 }
 

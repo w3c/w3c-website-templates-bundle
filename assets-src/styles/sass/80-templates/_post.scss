@@ -79,7 +79,8 @@
 }
 
 .post .related__inner li {
-	@include txt-pluto;
+	//@include txt-pluto;
+	font-size: var(--w3c-text-01);
 
 	// + li {
 	// 	margin-block-start: rem(22);
@@ -88,7 +89,8 @@
 
 .post {
 	.sub-head {
-		@include txt-pluto;
+		//@include txt-pluto;
+		font-size: var(--w3c-text-01);
 		margin-block-end: rem(30);
 		margin-block-start: rem(-20);
 	}

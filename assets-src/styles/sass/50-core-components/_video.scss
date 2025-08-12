@@ -4,7 +4,8 @@
 
 .component--video {
 	figcaption {
-		@include txt-pluto;
+		//@include txt-pluto;
+		font-size: var(--w3c-text-01);
 
 		> * {
 			max-inline-size: rem(540);

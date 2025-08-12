@@ -45,7 +45,8 @@ Group inputs to line up side-by-side
 }
 
 .field-legend {
-	@include txt-saturn;
+	//@include txt-saturn;
+	font-size: var(--w3c-text-1);
 	font-weight: bold;
 }
 
@@ -76,7 +77,8 @@ label,
 }
 
 .field-hint {
-	@include txt-pluto;
+	//@include txt-pluto;
+	font-size: var(--w3c-text-01);
 	color: $storm-gray;
 	// margin-block-end: 0.25rem;
 	max-inline-size: rem($text-measure);
@@ -597,7 +599,8 @@ Progress bar
 	}
 
 	> span {
-		@include txt-pluto;
+		//@include txt-pluto;
+		font-size: var(--w3c-text-01);
 		padding: rem(10);
 
 		@include mq($bp-tab-small) {

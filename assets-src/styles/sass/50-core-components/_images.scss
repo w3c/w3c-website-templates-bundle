@@ -4,7 +4,8 @@
 
 .component--image {
 	figcaption {
-		@include txt-pluto;
+		//@include txt-pluto;
+		font-size: var(--w3c-text-01);
 		margin-block-start: 1em;
 
 		> * {

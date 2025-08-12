@@ -4,7 +4,7 @@
 
 body {
 	font-family: $font-family;
-	font-size: 1rem; // Equivalent to 16px browser default
+	font-size: var(--w3c-text-0);
 	font-style: $font-style;
 	font-weight: $font-weight;
 	line-height: 1.5;
@@ -25,33 +25,28 @@ h1, h2, h3, h4, h5, h6 {
 // 	margin-bottom: 1em;
 // }
 
-h1,
-.txt-venus {
-	@include txt-venus;
+:where(h1, .venus, .h1) {
+	font-size: var(--w3c-text-5);
 }
 
-h2,
-.txt-earth {
-	@include txt-earth;
+:where(h2, .txt-earth, .h2) {
+	font-size: var(--w3c-text-4);
 }
 
-h3,
-.txt-mars {
-	@include txt-mars;
+:where(h3, .txt-mars, .h3) {
+	font-size: var(--w3c-text-3);
 }
 
-h4,
-.txt-jupiter {
-	@include txt-jupiter;
+:where(h4, .txt-jupiter, .h4) {
+	font-size: var(--w3c-text-2);
 }
 
-h5,
-.txt-saturn {
-	@include txt-saturn;
+:where(h5, .txt-saturn, .h5) {
+	font-size: var(--w3c-text-1);
 }
 
-h6 {
-	font-size: 1rem;
+:where(h6, .h6) {
+	font-size: var(--w3c-text-0);
 }
 
 .lead {
@@ -59,12 +54,8 @@ h6 {
 	line-height: calc(33.6 / 24);
 }
 
-.txt-pluto {
-	@include txt-pluto;
-}
-
-.txt-eris {
-	@include txt-eris;
+:where(.txt-pluto, .txt-eris, .text-sm) {
+	font-size: var(--w3c-text-01);
 }
 
 

@@ -44,7 +44,8 @@
 	// }
 
 	h1 + * {
-		@include txt-mars;
+		//@include txt-mars;
+		font-size: var(--w3c-text-3);
 		// margin-block-end: rem(10);
 		order: -1;
 	}

@@ -127,8 +127,9 @@
 	}
 
 	.card .l-cluster > * {
-		@include txt-pluto;
+		//@include txt-pluto;
 		align-items: center;
+		font-size: var(--w3c-text-01);
 	}
 
 	.card.l-sidebar .l-sidebar .sidebar {
@@ -155,9 +156,10 @@
 	}
 
 	.date-location {
-		@include txt-pluto;
+		//@include txt-pluto;
 		display: flex;
 		flex-wrap: nowrap;
+		font-size: var(--w3c-text-01);
 		max-inline-size: rem(300);
 	}
 

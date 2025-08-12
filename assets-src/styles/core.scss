@@ -9,6 +9,7 @@
 @import "sass/00-settings/colors";
 //@import "sass/00-settings/debug";
 @import "sass/00-settings/fonts";
+@import "sass/00-settings/font-sizes";
 @import "sass/00-settings/typesetting";
 
 
@@ -24,7 +25,6 @@
 /*------------------------------------*\
     #Mixins
 \*------------------------------------*/
-@import "sass/20-mixins/font-sizes";
 @import "sass/20-mixins/media-query";
 @import "sass/20-mixins/stack";
 

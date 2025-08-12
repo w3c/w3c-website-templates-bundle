@@ -24,7 +24,8 @@ i {
 small,
 .small,
 .small-caps {
-	@include txt-eris;
+	//@include txt-eris;
+	font-size: var(--w3c-text-01);
 }
 
 

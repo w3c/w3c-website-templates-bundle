@@ -43,7 +43,8 @@
 }
 
 .component--members__grid figcaption {
-	@include txt-pluto;
+	//@include txt-pluto;
+	font-size: var(--w3c-text-01);
 	font-weight: bold;
 	margin: rem(10);
 	text-align: center;
