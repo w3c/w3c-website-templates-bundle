@@ -2,21 +2,13 @@
     #Image component
 \*------------------------------------*/
 
-.component--image {
-	figcaption {
-		//@include txt-pluto;
-		font-size: var(--w3c-text-01);
-		margin-block-start: 1em;
-
-		> * {
-			max-inline-size: rem(540);
-		}
-
-		> a {
-			align-self: flex-start;
-			display: inline-block;
-			margin: 0;
-			padding-block: rem(10);
-		}
-	}
-}
+//.component--image {
+//	figcaption {
+//
+//		> a {
+//			display: inline-block;
+//			margin: 0;
+//			padding-block: rem(10);
+//		}
+//	}
+//}

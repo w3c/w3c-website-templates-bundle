@@ -2,19 +2,13 @@
     #Video component
 \*------------------------------------*/
 
-.component--video {
-	figcaption {
-		//@include txt-pluto;
-		font-size: var(--w3c-text-01);
-
-		> * {
-			max-inline-size: rem(540);
-		}
-
-		> a {
-			display: inline-block;
-			// margin: 0;
-			padding-block: rem(10);
-		}
-	}
-}
+//.component--video {
+//	figcaption {
+//
+//		> a {
+//			display: inline-block;
+//			margin: 0;
+//			padding-block: rem(10);
+//		}
+//	}
+//}

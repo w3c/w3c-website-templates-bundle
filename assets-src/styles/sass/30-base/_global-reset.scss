@@ -99,22 +99,16 @@ button {
 
 
 
-// /* Remove margins in favour of better control by our authored CSS */
-// h1,
-// h2,
-// h3,
-// h4,
-// h5,
-// h6,
-// p,
-// blockquote,
-// dl,
-// dd {
-//     margin-block: 0;
-// }
-
 figure {
     margin: 1rem 0;
+
+    figcaption {
+        font-size: var(--w3c-text-01);
+
+        > * {
+            max-inline-size: rem(540);
+        }
+    }
 }
 
 
