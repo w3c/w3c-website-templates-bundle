@@ -21,9 +21,13 @@ h1, h2, h3, h4, h5, h6 {
 	// margin: 0 0 1rem;
 }
 
-// h1 {
-// 	margin-bottom: 1em;
-// }
+ h1 {
+ 	margin-block-start: 0;
+ }
+
+ h2, h3, h4, h5, h6 {
+	 margin-block-start: 1em;
+ }
 
 :where(h1, .h1 .venus) {
 	font-size: var(--w3c-text-5);
