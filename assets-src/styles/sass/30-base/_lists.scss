@@ -11,6 +11,10 @@ ol {
 		max-inline-size: rem($text-measure);
 	}
 
+	li + li {
+		margin-block-start: 0.75rem;
+	}
+
 	// > * + *,
 	// li ul,
 	// li ol {
