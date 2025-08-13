@@ -4,8 +4,7 @@
 
 ul,
 ol {
-	// margin-block-end: 1em;
-	// margin-block-start: 1em;
+	margin-block: 1rem;
 	padding-inline-start: 2.4em;
 
 	// > * + *,
@@ -48,8 +47,7 @@ nav ol,
 Description lists / Definition lists
  */
 dl {
-	margin-block-end: 1em;
-	margin-block-start: 1em;
+	margin-block: 1rem;
 
 	dt {
 		font-weight: bold;
