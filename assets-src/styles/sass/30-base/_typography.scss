@@ -12,21 +12,17 @@ body {
 
 p {
 	margin-block: 1rem;
-	max-inline-size: 60ch;
-	text-wrap: pretty;
+	max-inline-size: rem($text-measure);
 }
 
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: $emphasis;
+	max-inline-size: rem($text-measure);
 }
 
  h1 {
  	margin-block-start: 0;
- }
-
- :where(h1, h2, h3, h4) {
-	 text-wrap: balance;
  }
 
  :where(h2, h3, h4, h5, h6) {
@@ -41,19 +37,16 @@ h1, h2, h3, h4, h5, h6 {
 :where(h1, .h1 .venus) {
 	font-size: var(--w3c-text-5);
 	line-height: 1.2;
-	max-inline-size: 20ch;
 }
 
 :where(h2, .h2, .txt-earth) {
 	font-size: var(--w3c-text-4);
 	line-height: 1.2;
-	max-inline-size: 35ch;
 }
 
 :where(h3, .h3, .txt-mars) {
 	font-size: var(--w3c-text-3);
 	line-height: 1.2;
-	max-inline-size: 35ch;
 }
 
 :where(h4, .h4, .txt-jupiter) {
@@ -73,7 +66,7 @@ h1, h2, h3, h4, h5, h6 {
 .lead {
 	font-size: var(--w3c-text-2);
 	line-height: 1.4;
-	text-wrap: balance;
+	max-inline-size: rem($text-measure);
 }
 
 :where(.txt-pluto, .txt-eris, .text-sm) {

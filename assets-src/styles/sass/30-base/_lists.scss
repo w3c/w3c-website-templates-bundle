@@ -8,8 +8,7 @@ ol {
 	padding-inline-start: 2.4em;
 
 	li {
-		max-inline-size: 60ch;
-		text-wrap: pretty;
+		max-inline-size: rem($text-measure);
 	}
 
 	// > * + *,
@@ -53,8 +52,7 @@ Description lists / Definition lists
  */
 dl {
 	margin-block: 1rem;
-	max-inline-size: 60ch;
-	text-wrap: pretty;
+	max-inline-size: rem($text-measure);
 
 	dt {
 		font-weight: bold;
