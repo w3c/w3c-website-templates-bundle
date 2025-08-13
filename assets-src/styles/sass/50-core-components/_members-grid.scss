@@ -4,21 +4,20 @@
 
 .component--members {
 	background-color: $mist-gray;
-	padding-bottom: rem(25);
-	padding-top: rem(25);
+	padding-block: rem(25);
 }
 
 .component--members .l-center {
 	> h2,
 	> p {
-		max-width: rem($text-measure);
+		max-inline-size: rem($text-measure);
 	}
 }
 
 .component--members__grid {
 	display: flex;
 	flex-wrap: wrap;
-	margin-bottom: 1rem;
+	// margin-block-end: 1rem;
 
 	@supports (display: grid) {
 		display: grid;
@@ -33,9 +32,8 @@
 	background-color: $white;
 	display: flex;
 	justify-content: center;
-	margin-bottom: rem(20);
-	margin-left: rem(10);
-	margin-right: rem(10);
+	margin-block-end: rem(20);
+	margin-inline: rem(10);
 	flex: 1 1 rem(170);
 	position: relative;
 
@@ -45,14 +43,15 @@
 }
 
 .component--members__grid figcaption {
-	@include txt-pluto;
+	//@include txt-pluto;
+	font-size: var(--w3c-text-01);
 	font-weight: bold;
 	margin: rem(10);
 	text-align: center;
 }
 
 .component--members__grid .l-box {
-	max-width: rem(170);
+	max-inline-size: rem(170);
 }
 
 .component--members__grid + a {
@@ -61,7 +60,7 @@
 
 .component--members__cta > * {
 	align-items: center;
-	margin-top: 1em;
+	margin-block-start: 1em;
 }
 
 .component--members__cta > * > *:not(a) {

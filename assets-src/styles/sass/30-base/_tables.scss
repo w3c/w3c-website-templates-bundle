@@ -1,14 +1,11 @@
 /*------------------------------------*\
     #Tables
-
-    1. Logical property allows text-direction to change with 'dir'
 \*------------------------------------*/
 
 table {
     border: 1px solid $border-color;
     border-collapse: collapse;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    margin-block: 1rem;
     width: 100%;
 }
 
@@ -20,17 +17,7 @@ th,
 td,
 table caption {
     padding: 0.75rem;
-    text-align: left; // Fallback for next rule for ltr languages
-    text-align: start; /* 1 */
-}
-
-[dir="rtl"] {
-    th,
-    td,
-    table caption {
-        text-align: right; // Fallback for next rule
-        text-align: start; /* 1 */
-    }
+    text-align: start;
 }
 
 td, th {
@@ -52,9 +39,8 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
 @media screen {
     .table-wrap {
         border: 1px solid $border-color;
-        margin-bottom: 1rem;
-        margin-top: 1rem;
-        max-width: 100% !important;
+        margin-block: 1rem;
+        max-inline-size: 100% !important;
 
         &[role][aria-labelledby][tabindex] {
             overflow: auto;
@@ -62,8 +48,7 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
 
         table {
             border: 0;
-            margin-bottom: 0;
-            margin-top: 0;
+            margin-block: 0;
         }
 
         &:focus {
