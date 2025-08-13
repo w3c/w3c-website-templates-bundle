@@ -7,6 +7,11 @@ ol {
 	margin-block: 1rem;
 	padding-inline-start: 2.4em;
 
+	li {
+		max-inline-size: 60ch;
+		text-wrap: pretty;
+	}
+
 	// > * + *,
 	// li ul,
 	// li ol {
@@ -48,6 +53,8 @@ Description lists / Definition lists
  */
 dl {
 	margin-block: 1rem;
+	max-inline-size: 60ch;
+	text-wrap: pretty;
 
 	dt {
 		font-weight: bold;
