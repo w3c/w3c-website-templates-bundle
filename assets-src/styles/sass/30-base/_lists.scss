@@ -4,34 +4,32 @@
 
 ul,
 ol {
-	margin-block: 1rem;
-	padding-inline-start: 2.4em;
+    margin-block: 1rem;
+    padding-inline-start: 2.4em;
 
-	li {
-		max-inline-size: rem($text-measure);
-	}
+    li {
+        max-inline-size: rem($text-measure);
+    }
 
-	li + li {
-		margin-block-start: 0.75rem;
-	}
+    li + li {
+        margin-block-start: 0.75rem;
+    }
 }
 
 ol.counter {
-	::marker {
-		content: counters(list-item, ".") ". ";
-	}
+    ::marker {
+        content: counters(list-item, ".") ". ";
+    }
 }
 
 
 /**
-Remove bullets, margin and padding from lists inside a <nav> element, and lists with the
-'.clean-list' class/. Note that that this may remove list semantics in some circumstances in
-some WebKit browsers. See https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
+Remove bullets, margin and padding from lists inside a <nav> element.
+Note that that this may remove list semantics in some circumstances in some
+WebKit browsers. See https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
 If it's important that the number of items in a list is announced, add role="list" to the <ul> / <ol>
  */
-nav ul,
-nav ol,
-.clean-list {
+nav :is(ul, ol) {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -44,78 +42,88 @@ nav ol,
     }
 }
 
+/**
+Remove bullets from lists with the `.clean-list, class.
+Note that that this may remove list semantics in some circumstances in some
+WebKit browsers. See https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
+If it's important that the number of items in a list is announced, add role="list" to the <ul> / <ol>
+ */
+.clean-list {
+    list-style: none;
+}
+
 
 /**
 Description lists / Definition lists
  */
 dl {
-	margin-block: 1rem;
-	max-inline-size: rem($text-measure);
+    margin-block: 1rem;
+    max-inline-size: rem($text-measure);
 
-	dt {
-		font-weight: bold;
-	}
+    dt {
+        font-weight: bold;
+    }
 
     dd {
         margin-inline-start: rem(40);
     }
 
-	dd + dt {
-		margin-block-start: 0.5em;
-	}
+    dd + dt {
+        margin-block-start: 0.5em;
+    }
 
-	dt + dd,
-	dd + dd {
-		margin-block-start: 0.25em;
-	}
+    dt + dd,
+    dd + dd {
+        margin-block-start: 0.25em;
+    }
 }
 
 // display items on the same line (comma-separated)
 dl.inline {
-	div {
-		align-items: baseline;
-		display: flex;
-		flex-wrap: wrap;
+    div {
+        align-items: baseline;
+        display: flex;
+        flex-wrap: wrap;
 
- 		dt, dd {
-			margin-inline-start: 0;
-		}
+        dt, dd {
+            margin-inline-start: 0;
+        }
 
-		dt::after {
-			content: ":\00a0 ";
-		}
+        dt::after {
+            content: ":\00a0 ";
+        }
 
-		dd:not(:last-child):after {
-			content: ',\00a0 ';
-		}
-	}
+        dd:not(:last-child):after {
+            content: ',\00a0 ';
+        }
+    }
 }
 
 // With a grid layout for a more tabulated feel
 
 dl.grid {
-	@supports (grid-row-start: auto) {
-		column-gap: 1rem;
-		display: grid;
-		grid-template-columns: max-content;
-		grid-template-rows: 1fr;
-		row-gap: 1rem;
+    @supports (grid-row-start: auto) {
+        column-gap: 1rem;
+        display: grid;
+        grid-template-columns: max-content;
+        grid-template-rows: 1fr;
+        row-gap: 1rem;
 
-		dd + dt,
-		dt + dd,
-		dd + dd {
-			margin-block-start: 0;
-		}
+        dd + dt,
+        dt + dd,
+        dd + dd {
+            margin-block-start: 0;
+        }
 
-		dt {
-			grid-column-start: 1;
-			grid-column-end: 2;
-		}
+        dt {
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
 
-		dd {
-			grid-column-start: 2;
-			grid-column-end: 3;
+        dd {
+            grid-column-start: 2;
+            grid-column-end: 3;
             margin-inline-start: 0;
-		}
-	}
+        }
+    }
 }
