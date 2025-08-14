@@ -59,7 +59,7 @@ class TwigExtension extends AbstractExtension
         $this->loginUrlInfo = $loginUrlInfo;
     }
 
-    public function getFilters()
+    public function getFilters(): array
     {
         return [
             new TwigFilter('preg_replace', [$this, 'pregReplace']),
@@ -76,7 +76,7 @@ class TwigExtension extends AbstractExtension
         ];
     }
 
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new TwigFunction('date_range', [$this, 'dateRange']),

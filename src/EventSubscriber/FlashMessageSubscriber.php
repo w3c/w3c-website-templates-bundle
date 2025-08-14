@@ -20,7 +20,7 @@ class FlashMessageSubscriber implements EventSubscriberInterface
         $this->translator   = $translator;
     }
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             // we want that to run early (before the Session->Cookie transformation)
