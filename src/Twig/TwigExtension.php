@@ -73,6 +73,7 @@ class TwigExtension extends AbstractExtension
             new TwigFilter('locale_to_bcp47', [$this, 'localeToBcp47']),
             new TwigFilter('bcp47_to_locale', [$this, 'bcp47ToLocale']),
             new TwigFilter('obfuscate', [$this, 'obfuscate'], ['is_safe' => ['html']]),
+            new TwigFilter('i_to_em', [$this, 'iToEm'])
         ];
     }
 
@@ -298,4 +299,18 @@ class TwigExtension extends AbstractExtension
         // Obfuscate string by replacing all characters with their HTML entity equivalents
         return mb_encode_numericentity($text, [0x000000, 0x10ffff, 0, 0xffffff], 'UTF-8');
     }
+
+    public function iToEm($text)
+    {
+        // Replace <i> with <em>
+        return preg_replace([
+            '/<i>/i',
+            '/<\/i>/i'
+        ], [
+            '<em>',
+            '</em>'
+        ], $text);
+    }
+
+
 }
