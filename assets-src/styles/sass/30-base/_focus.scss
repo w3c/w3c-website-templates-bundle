@@ -13,8 +13,8 @@
 }
 
 /**
-Where focus is moved to the target via JavaScript, it is
-acceptable not to show a focus outline.
+Where focus is programmatically moved to a target element that is not interactive, we
+suppress the focus styles. See https://github.com/twbs/bootstrap/issues/29875#issuecomment-582648069
  */
 main:focus,
 #main:focus,

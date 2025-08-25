@@ -9,14 +9,14 @@
 		justify-content: space-between;
 	}
 
-	> * + * {
-		margin-top: 1rem;
-
-		@include mq($bp-tab-large) {
-			margin-top: 0;
-		}
-
-	}
+	// > * + * {
+	// 	margin-block-start: 1rem;
+    //
+	// 	@include mq($bp-tab-large) {
+    //         margin-block-start: 0;
+	// 	}
+    //
+	// }
 }
 
 .component--evangelists__text {
@@ -25,7 +25,7 @@
 	}
 
 	h2 ~ * {
-		max-width: rem($text-measure);
+		max-inline-size: rem($text-measure);
 	}
 }
 
@@ -34,15 +34,14 @@
 	border-radius: rem(6);
 	color: $white;
 	overflow: hidden;
-	padding-top: rem(24);
+	padding-block-start: rem(24);
 
 	@include mq($bp-tab-large) {
 		flex-basis: 45%;
 	}
 
 	h3 {
-		padding-left: rem(24);
-		padding-right: rem(24);
+		padding-inline: rem(24);
 	}
 
     .l-box {
@@ -50,12 +49,11 @@
     }
 
 	li + li {
-		border-top: solid 1px #649bc5;
+		border-block-start: solid 1px #649bc5;
 	}
 
 	p {
-		margin-bottom: 0;
-		margin-top: 0;
+		margin-block: 0;
 	}
 
 	.sidebar {
@@ -63,8 +61,8 @@
 	}
 
 	.not-sidebar {
-		@include stack(0.75em);
-		min-width: calc(65% - 1.5rem);
+		// @include stack(0.75em);
+		min-inline-size: calc(65% - 1.5rem);
 	}
 
 	a {

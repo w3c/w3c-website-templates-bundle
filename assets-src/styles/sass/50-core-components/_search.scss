@@ -3,7 +3,7 @@
 \*------------------------------------*/
 
 input[type=search] {
-	max-width: none;
+	max-inline-size: none;
 	position: relative;
 	z-index: 1;
 }
@@ -25,11 +25,11 @@ input[type=search] {
 }
 
 .l-sidebar.search form .not-sidebar {
-	min-width: 70%;
+	min-inline-size: 70%;
 }
 
 .l-sidebar.search input[type="search"] {
-	max-width: none;
+	max-inline-size: none;
 }
 
 @supports (padding-inline-start: 1em) {

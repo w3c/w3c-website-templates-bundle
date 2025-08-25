@@ -9,13 +9,13 @@
 		justify-content: space-between;
 	}
 
-	> * + * {
-		margin-top: 1rem;
-
-		@include mq($bp-tab-large) {
-			margin-top: 0;
-		}
-	}
+	// > * + * {
+	// 	margin-block-start: 1rem;
+    //
+	// 	@include mq($bp-tab-large) {
+    //         margin-block-start: 0;
+	// 	}
+	// }
 }
 
 .slide__quote,
@@ -27,31 +27,25 @@
 
 .slide__quote {
 	background: url('../images/quote-bg.png') no-repeat 0 0;
-	font-size: rem(20);
+	font-size: var(--w3c-text-2);
 	font-weight: bold;
-	line-height: calc(32 / 20);
 	margin-inline-start: rem(35);
-	padding-top: rem(15);
+	padding-block-start: rem(15);
 	position: relative;
-
-	@include mq($bp-tab-small) {
-		font-size: rem(24);
-		line-height: calc(33.6 / 24);
-	}
 
 	&::before {
 		background-color: $w3c-blue;
+        block-size: 100%;
 		border-radius: rem(5);
 		content: '';
-		height: 100%;
-		left: rem(-33);
+        inline-size: rem(4);
+        inset-block-start: 0;
+		inset-inline-start: rem(-33);
 		position: absolute;
-		top: 0;
-		width: rem(4);
 	}
 
 	> * {
-		max-width: rem($text-measure);
+		max-inline-size: rem($text-measure);
 	}
 
 }
@@ -59,17 +53,13 @@
 [dir="rtl"] {
 	.slide__quote {
 		background-position-x: 100%;
-
-		&::before {
-			left: auto;
-			right: rem(-33);
-		}
 	}
 }
 
 
 .slide__cite {
-	@include txt-pluto;
+	//@include txt-pluto;
+	font-size: var(--w3c-text-01);
 	padding-inline-start: rem(5);
 
 	&.l-sidebar .sidebar {
@@ -78,38 +68,38 @@
 
 	&.l-sidebar .not-sidebar {
 		align-items: flex-start;
-		min-width: calc(70% - 1.5rem);
+		min-inline-size: calc(70% - 1.5rem);
 
 		p:first-child {
 			font-weight: bold;
 		}
 
-		p:first-child + p {
-			margin-top: 0;
-		}
+		// p:first-child + p {
+		// 	margin-block-start: 0;
+		// }
 	}
 }
 
 
 .slide__logo {
 	background-color: $white;
-	height: rem(120);
+	block-size: rem(120);
+    inline-size: rem(180);
 	padding: rem(24);
 	position: relative;
-	width: rem(180);
 
 	> img {
-		bottom: 0;
-		left: 0;
+		inset-block-end: 0;
+        inset-block-start: 0;
+		inset-inline-end: 0;
+        inset-inline-start: 0;
 		margin: auto;
-		max-width: 100%;
+		max-inline-size: 100%;
 		position: absolute;
-		right: 0;
-		top: 0;
 
 		@supports (object-fit: contain) {
-			height: 100%;
-			max-width: none;
+			block-size: 100%;
+			max-inline-size: none;
 			object-fit: contain;
 			position: static;
 		}

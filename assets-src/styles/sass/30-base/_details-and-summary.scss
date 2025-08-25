@@ -6,24 +6,23 @@ summary {
 	color: $link-color;
 	cursor: pointer;
 	display: inline-block;
-	padding-left: rem(25);
+    padding-block: rem(10);
+    padding-inline-start: rem(25);
 	position: relative;
 
 	&::before {
-		border-color: transparent;
-		border-left-color: inherit;
-		border-style: solid;
-		border-width: 7px 0 7px 12.124px;
-		bottom: 0;
-		clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
-		content: '';
-		display: block;
-		height: 0;
-		left: 0;
-		margin: auto;
-		position: absolute;
-		top: rem(-1);
-		width: 0;
+        block-size: 0;
+        border-color: transparent;
+        border-inline-start-color: inherit;
+        border-style: solid;
+        border-width: 7px 0 7px 12.124px;
+        content: '';
+        display: block;
+        inline-size: 0;
+        inset-block: rem(-1) 0;
+        inset-inline-start: 0;
+        margin: auto;
+        position: absolute;
 	}
 
 	&::-webkit-details-marker {
@@ -36,11 +35,7 @@ summary {
 
 	span {
 		display: inline-block;
-		padding-bottom: rem(10);
-		padding-top: rem(10);
-		text-decoration: underline; /* 1 */
-		text-decoration-skip-ink: auto; // Not supported by Safari
-		text-underline-offset: 0.25em; // Supported by Safari
+		text-decoration: underline;
 	}
 
 	&:focus {
@@ -55,28 +50,24 @@ summary {
 
 }
 
-details {
-	margin-bottom: 1rem;
-	margin-top: 1rem;
+// details {
+// 	margin-bottom: 1rem;
+// 	margin-top: 1rem;
+// }
+
+// details[open] > summary {
+// 	margin-bottom: 1rem;
+// }
+
+[dir="rtl"] summary::before {
+    border-width: 7px 12.124px 7px 0;
 }
 
-details[open] > summary {
-	margin-bottom: 1rem;
-}
 
 details[open] > summary::before {
-	transform: rotate(90deg);
+    transform: rotate(90deg);
 }
 
-[dir="rtl"] {
-	summary {
-		padding-left: 0;
-		padding-right: rem(25);
-
-		&::before {
-			left: auto;
-			right: 0;
-			transform: rotate(180deg);
-		}
-	}
+[dir="rtl"] details[open] > summary::before {
+    transform: rotate(-90deg);
 }
