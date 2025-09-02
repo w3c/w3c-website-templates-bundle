@@ -150,6 +150,11 @@ components:
             pressrelease: 媒体新闻稿
             pressreleases: 媒体新闻稿
             page: 页面
+    hero:
+        video:
+            play: __components.hero.video.play__
+            pause: __components.hero.video.pause__
+            not_supported: __components.hero.video.not_supported__ {video_url}
 post:
     meta:
         credit: >
