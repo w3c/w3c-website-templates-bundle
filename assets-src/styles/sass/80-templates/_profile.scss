@@ -3,12 +3,12 @@
 \*------------------------------------*/
 
 .profile .content {
-	max-width: rem(752);
+	max-inline-size: rem(752);
 }
 
 @supports(grid-column-gap: 8%) {
 	.profile .content {
-		max-width: none;
+		max-inline-size: none;
 
 		@include mq($bp-tab-large) {
 			display: grid;
@@ -41,13 +41,12 @@
 }
 
 .profile .profile-nav__inner {
-	margin-bottom: rem(33);
+	margin-block-end: rem(33);
 
 	@include mq($bp-tab-large) {
 		border-inline-start: solid 1px $border-color;
-		margin-bottom: 0;
-		padding-left: rem(20);
-		padding-right: rem(20);
+        margin-block-end: 0;
+		padding-inline: rem(20);
 	}
 
 	[aria-current] {
@@ -61,14 +60,13 @@
 	}
 
 	&[aria-expanded="false"] {
-		margin-bottom: rem(33);
+		margin-block-end: rem(33);
 	}
 }
 
 #profile-nav a {
 	display: inline-block;
-	padding-bottom: rem(10);
-	padding-top: rem(10);
+	padding-block: rem(10);
 
 	&[aria-current] {
 		color: $off-black;
