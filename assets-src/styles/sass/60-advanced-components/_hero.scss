@@ -7,3 +7,28 @@
 		display: none;
 	}
 }
+
+
+
+
+.js .hero--video [data-video-control="hero"] {
+	margin-block-start: 1rem;
+}
+  
+.js .hero--video [data-video-control="hero"] > * {
+	pointer-events: none;
+}
+
+.js .hero--video [data-video-control="hero"] .pause-icon {
+	display: none;
+}
+
+.js .hero--video [data-video-control="hero"].js-play-video {
+	.pause-icon {
+		display: block;
+	}
+
+	.play-icon {
+		display: none;
+	}
+}

@@ -131,7 +131,7 @@ components:
                 =0 { evangelists }
                 =1 { evangelist }
                 other { evangelists }
-            } 
+            }
     members:
         title: W3C Members
         members_include: "{count} member organizations are involved in the {ecosystem_name} ecosystem, including:"
@@ -154,6 +154,11 @@ components:
             pressrelease: Press release
             pressreleases: Press releases
             page: Page
+    hero:
+        video:
+            play: Play
+            pause: Pause
+            not_supported: "Sorry, your browser does not support embedded videos. Here is a <a href=\"{video_url}\">link to the video</a> instead."
 post:
     meta:
         credit: >

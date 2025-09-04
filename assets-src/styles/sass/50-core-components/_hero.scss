@@ -55,7 +55,21 @@
 }
 
 .hero .button {
+	align-items: center;
 	align-self: flex-start;
+	display: inline-flex;
+	justify-content: center;
+}
+
+
+.hero--video .sidebar__video {
+	margin-inline: auto;
+	max-inline-size: rem(500);
+	position: relative;
+}
+
+.hero--video video {
+	display: block;
 }
 
 .hero--listing {

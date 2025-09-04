@@ -13,9 +13,9 @@
 		"title": "Links",
 		"colors": [
 			{
-				"color": "#005797",
+				"color": "#005a9c",
 				"variable": "$link-color",
-				"alt-variable": "$blue",
+				"alt-variable": "$w3c-blue",
 				"notes": "Link default color"
 			},
 			{
@@ -25,7 +25,7 @@
 				"notes": "Link hover color"
 			},
 			{
-				"color": "#920ba6",
+				"color": "#75336c",
 				"variable": "$link-color--visited",
 				"alt-variable": "$purple",
 				"notes": "Link visited color"
@@ -62,9 +62,9 @@
 		"title": "Notifications",
 		"colors": [
 			{
-				"color": "#005a9c",
+				"color": "#002a56",
 				"variable": "$info-color",
-				"alt-variable": "$w3c-blue",
+				"alt-variable": "$deep-blue",
 				"notes": "Border color for 'info' messages"
 			},
 			{
@@ -104,10 +104,6 @@
 				"variable": "$light-coral"
 			},
 			{
-				"color": "#f9c818",
-				"variable": "$deep-yellow"
-			},
-			{
 				"color": "#f9dc4a",
 				"variable": "$yellow"
 			},
@@ -128,28 +124,16 @@
 				"variable": "$light-blue"
 			},
 			{
-				"color": "#6bc8fe",
-				"variable": "$sky-blue"
-			},
-			{
-				"color": "#0075ff",
-				"variable": "$azure"
-			},
-			{
 				"color": "#005a9c",
 				"variable": "$w3c-blue",
 				"notes": "Main brand color"
 			},
 			{
-				"color": "#005797",
-				"variable": "$blue"
-			},
-			{
-				"color": "#024488",
+				"color": "#002a56",
 				"variable": "$deep-blue"
 			},
 			{
-				"color": "#920ba6",
+				"color": "#75336c",
 				"variable": "$purple"
 			},
 			{
@@ -173,7 +157,7 @@
 				"variable": "$storm-gray"
 			},
 			{
-				"color": "#bdbdbd",
+				"color": "#cac9c9",
 				"variable": "$twiki-gray"
 			},
 			{
