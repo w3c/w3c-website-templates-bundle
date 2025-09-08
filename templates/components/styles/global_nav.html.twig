@@ -19,11 +19,12 @@
                             {% if navItem.targetLinkLanguage is not same as siteLang %}
                                 {% set langDiff = true %}
 
-                                {% if navItem.targetLinkLanguage == 'zh-Hans' %}
+                                {# {% if navItem.targetLinkLanguage == 'zh-Hans' %}
                                     {% set targetLangLabel = "Chinese" %}
                                 {% else %}
                                     {% set targetLangLabel = "English" %}
-                                {% endif %}
+                                {% endif %} #}
+                            {% set targetLangLabel = navItem.targetLinkLanguage|replace('-', '_')|language_name(siteLang) %}
                             {% endif %}
                         {% endif %}
                     <a href="{{ navItem.titleLink }}" class="nav-link"{% if langDiff is defined and langDiff %} hreflang="{{ navItem.targetLinkLanguage }}"{% endif %}>
@@ -55,11 +56,12 @@
                                                 {% set targetLangLabel = '' %}
 
                                                 {% if childLangDiff == true %}
-                                                    {% if child.targetLinkLanguage == 'zh-Hans' %}
+                                                    {# {% if child.targetLinkLanguage == 'zh-Hans' %}
                                                         {% set targetLangLabel = "Chinese" %}
                                                     {% else %}
                                                         {% set targetLangLabel = "English" %}
-                                                    {% endif %}
+                                                    {% endif %} #}
+                                                    {% set targetLangLabel = child.targetLinkLanguage|replace('-', '_')|language_name(siteLang) %}
                                                 {% endif %}
                                             {% endif %}
 
