@@ -1,0 +1,18 @@
+/*------------------------------------*\
+    #Component
+
+    Extra vertical margin on anything with a class of `.component`
+\*------------------------------------*/
+
+.component {
+    margin-block: rem(80);
+
+    @include mq($bp-tab-small) {
+        margin-block: rem(100);
+    }
+}
+
+/* Full width components tend to have a background colour, where we don't want white space in between */
+.component.u-full-width + .component.u-full-width {
+    margin-block: 0;
+}
