@@ -15,8 +15,7 @@
 
 .global-header .banner {
 	background-color: $light-blue;
-	padding-bottom: rem(10);
-	padding-top: rem(10);
+	padding-block: rem(10);
 }
 
 .global-header .banner__inner {
@@ -24,9 +23,9 @@
 	display: flex;
 
 	p {
-		@include txt-eris;
-		margin-bottom: 0;
-		margin-top: 0;
+		//@include txt-eris;
+		font-size: var(--w3c-text-01);
+		// margin-block: 0;
 	}
 
 	a {
@@ -51,11 +50,11 @@
 	}
 
 	a {
-		@include txt-eris;
+		//@include txt-eris;
 		color: $off-black;
 		display: block;
-		padding-bottom: rem(12);
-		padding-top: rem(12);
+		font-size: var(--w3c-text-01);
+		padding-block: rem(12);
 	}
 }
 

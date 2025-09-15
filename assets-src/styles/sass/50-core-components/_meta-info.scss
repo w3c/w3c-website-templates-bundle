@@ -3,17 +3,15 @@
 \*------------------------------------*/
 
 .meta {
-	border-bottom: solid 1px $border-color;
-	border-top: solid 1px $border-color;
-	margin-bottom: rem(50);
+	border-block: solid 1px $border-color;
+	// margin-block-end: rem(50);
 	padding: rem(24) 0;
 
-	dl {
-		margin-bottom: 0;
-	}
+	// dl {
+	// 	margin-block-end: 0;
+	// }
 }
 
 .meta .with-link {
-	padding-bottom: rem(10);
-	padding-top: rem(10);
+	padding-block: rem(10);
 }

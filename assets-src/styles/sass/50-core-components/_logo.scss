@@ -4,33 +4,32 @@
 
 .logo {
 	display: block;
-	height: rem(44);
+	block-size: rem(44);
+    inline-size: rem(66);
 	position: relative;
-	width: rem(66);
 
 	@include mq($bp-tab-large) {
-		height: rem(52);
-		width: rem(78);
+        block-size: rem(52);
+        inline-size: rem(78);
 	}
 }
 
 .logo--member {
 	height: rem(84);
-	padding-left: rem(20);
-	padding-right: rem(20);
+    inline-size: rem(150);
+	padding-inline: rem(20);
 	position: relative;
-	width: rem(150);
 
 	> img {
-		bottom: 0;
-		height: auto;
-		left: 0;
+		inset-block-end: 0;
+        iinset-block-start: 0;
+		block-size: auto;
+        inline-size: auto;
+        inset-inline-end: 0;
+		inset-inline-start: 0;
 		margin: auto 0;
-		max-height: 100%;
-		max-width: calc(100% - 40px);
+		max-block-size: 100%;
+		max-inline-size: calc(100% - 40px);
 		position: absolute;
-		right: 0;
-		top: 0;
-		width: auto;
 	}
 }

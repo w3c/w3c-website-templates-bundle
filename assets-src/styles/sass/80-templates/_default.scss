@@ -3,12 +3,12 @@
 \*------------------------------------*/
 
 .default .content {
-	max-width: rem(752);
+	max-inline-size: rem(752);
 }
 
 @supports(grid-column-gap: 8%) {
 	.default .content {
-		max-width: none;
+		max-inline-size: none;
 
 		@include mq($bp-tab-large) {
 			display: grid;
@@ -32,9 +32,9 @@
 }
 
 .default .related {
-	border-top: solid 10px $w3c-blue;
-	margin-top: rem(40);
-	padding-top: rem(20);
+	border-block-start: solid 10px $w3c-blue;
+	// margin-block-start: rem(40);
+	padding-block-start: rem(20);
 }
 
 .related [aria-current] {
@@ -44,22 +44,20 @@
 
 @supports(grid-column-gap: 8%) {
 	.default .related {
-		@include mq($bp-tab-large) {
-			margin-top: 0;
-		}
+		// @include mq($bp-tab-large) {
+		// 	margin-block-start: 0;
+		// }
 	}
 }
 
 .default .related__inner {
 	@include mq($bp-tab-large) {
 		border-inline-start: solid 1px $border-color;
-		padding-left: rem(20);
-		padding-right: rem(20);
+		padding-inline: rem(20);
 	}
 }
 
 .default .related__inner ul a {
 	display: inline-block;
-	padding-bottom: rem(10);
-	padding-top: rem(10);
+	padding-block: rem(10);
 }

@@ -4,8 +4,8 @@
 
 .note {
 	border-width: 5px;
-	margin-bottom: rem(30);
-	max-width: rem(752); // Matches max width of main content region on two-column templates
+	// margin-block-end: rem(30);
+	max-inline-size: rem(752); // Matches max width of main content region on two-column templates
 }
 
 .note--error {

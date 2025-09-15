@@ -7,15 +7,15 @@
 }
 
 .pre-footer.l-switcher > * > * {
-	margin-top: rem(40);
-	min-width: 33.333%;
+    inline-size: calc(920px * 920 - 100% * 920);
+	margin-block-start: rem(40);
+	min-inline-size: 33.333%;
 	padding: rem(20);
-	width: calc(920px * 920 - 100% * 920);
 }
 
-.pre-footer h2 + * {
-	margin-top: 1em;
-}
+// .pre-footer h2 + * {
+// 	margin-block-start: 1em;
+// }
 
 .pre-footer a {
 	display: block;

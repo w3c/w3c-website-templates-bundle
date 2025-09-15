@@ -4,16 +4,15 @@
 
 .component--slider {
 	background-color: $mist-gray;
-	padding-bottom: rem(50);
-	padding-top: rem(50);
+	padding-block: rem(50);
 
 	h2 {
-		font-size: 1rem;
+		font-size: var(--w3c-text-0);
 		font-weight: normal;
-		margin-bottom: rem(24);
+		// margin-block-end: rem(24);
 	}
 
-	ul > li + li {
-		margin-top: 2rem;
-	}
+	// ul > li + li {
+	// 	margin-block-start: 2rem;
+	// }
 }

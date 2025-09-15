@@ -1,0 +1,36 @@
+/*------------------------------------*\
+    #Avatars
+\*------------------------------------*/
+
+.avatar {
+    background-color: $white;
+    block-size: rem(100);
+    border: solid 1px $w3c-blue;
+    border-radius: 50%;
+    inline-size: rem(100);
+    overflow: hidden;
+
+    img {
+        block-size: 100%;
+        inline-size: 100%;
+        object-fit: cover;
+    }
+}
+
+.avatar--med {
+    block-size: rem(50);
+    inline-size: rem(50);
+
+    img {
+        margin-block-start: 0;
+    }
+}
+
+.avatar--small {
+    block-size: rem(32);
+    inline-size: rem(32);
+
+    img {
+        margin-block-start: 0;
+    }
+}

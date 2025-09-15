@@ -3,8 +3,9 @@
 \*------------------------------------*/
 
 .component--quote {
-	@include txt-saturn;
+	//@include txt-saturn;
 	color: $w3c-blue;
+	font-size: var(--w3c-text-1);
 	font-weight: bold;
 	margin-inline-end: 0;
 	margin-inline-start: rem(10);
@@ -14,18 +15,11 @@
 	&::before {
 		background-color: $w3c-blue;
 		border-radius: rem(5);
-		left: rem(-10);
-		width: rem(10);
+        inline-size: rem(10);
+		inset-inline-start: rem(-10);
 	}
 
 	> * {
-		max-width: rem(630);
-	}
-}
-
-[dir="rtl"] {
-	.component--quote::before {
-		left: auto;
-		right: rem(-10);
+		max-inline-size: rem(630);
 	}
 }

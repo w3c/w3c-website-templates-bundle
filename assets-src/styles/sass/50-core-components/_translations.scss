@@ -9,13 +9,11 @@
 
 .translations .l-sidebar > * {
 	align-items: center;
-	margin-bottom: 0;
-	margin-top: 0;
+	// margin-block: 0;
 }
 
 .translations .l-sidebar > * > * {
-	margin-bottom: 0;
-	margin-top: 0;
+	// margin-block: 0;
 }
 
 .translations .l-sidebar .sidebar {
@@ -23,7 +21,7 @@
 }
 
 .translations .l-sidebar .not-sidebar {
-	min-width: 70%;
+	min-inline-size: 70%;
 }
 
 .translations.l-cluster {
@@ -36,9 +34,9 @@
 	}
 }
 
-.translations + * {
-	margin-top: rem(30);
-}
+// .translations + * {
+// 	margin-block-start: rem(30);
+// }
 
 /*
  * For the TR card, the language subheading is h5 for Family view and h3 for Search results view
@@ -47,33 +45,31 @@
 .translations h3,
 .translations h5,
 .translations .sidebar span {
-	font-size: 1rem;
+	font-size: var(--w3c-text-0);
 	font-weight: normal;
-	padding-bottom: rem(10);
-	padding-top: rem(10);
+	padding-block: rem(10);
 }
 
 .translations a {
 	display: block;
-	padding-bottom: rem(10);
-	padding-top: rem(10);
+	padding-block: rem(10);
 }
 
 .landing .translations,
 .ecosystem .translations {
 	padding: 0;
-	margin-top: 0;
+	// margin-block-start: 0;
 
 	.sidebar span {
 		padding-inline-end: 1em;
 	}
 
 	.l-sidebar .not-sidebar {
-		min-width: 70%;
-		padding-bottom: 0;
+		min-inline-size: 70%;
+		padding-block-end: 0;
 	}
 
-	+ * {
-		margin-top: 2em;
-	}
+	// + * {
+	// 	margin-block-start: 2em;
+	// }
 }

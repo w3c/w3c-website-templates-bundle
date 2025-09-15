@@ -15,20 +15,18 @@
 .l-cover {
 	display: flex;
 	flex-direction: column;
-	min-height: 30vh;
+	min-block-size: 30vh;
 	padding: 1rem;
 }
 
 
 .l-cover > * {
-	margin-top: 1rem;
-	margin-bottom: 1rem;
+	margin-block: 1rem;
 }
 
 
 .l-cover > .principal {
-	margin-top: auto;
-	margin-bottom: auto;
+	margin-block: auto;
 }
 
 
@@ -37,9 +35,9 @@ These styles space out an optional header/footer area without
 disturbing the vertically centered element.
  */
 .l-cover > :first-child:not(.principal) {
-	margin-top: 0;
+	margin-block-start: 0;
 }
 
 .l-cover > :last-child:not(.principal) {
-	margin-bottom: 0;
+	margin-block-end: 0;
 }
