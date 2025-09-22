@@ -59,7 +59,7 @@ class TwigExtension extends AbstractExtension
         $this->loginUrlInfo = $loginUrlInfo;
     }
 
-    public function getFilters()
+    public function getFilters(): array
     {
         return [
             new TwigFilter('preg_replace', [$this, 'pregReplace']),
@@ -76,7 +76,7 @@ class TwigExtension extends AbstractExtension
         ];
     }
 
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new TwigFunction('date_range', [$this, 'dateRange']),
@@ -106,7 +106,7 @@ class TwigExtension extends AbstractExtension
      * @return bool|string
      * @throws Exception
      */
-    public function markupAttrs(string $markup, array $attrs = null)
+    public function markupAttrs(string $markup, ?array $attrs = null)
     {
         try {
             $xml = new SimpleXMLElement($markup);
@@ -205,7 +205,7 @@ class TwigExtension extends AbstractExtension
         string $tz,
         string $locale,
         bool $utc = false,
-        string $id = null
+        ?string $id = null
     ): string {
         if ($locale == 'en') {
             $locale = 'en-GB';
