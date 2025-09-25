@@ -13,7 +13,7 @@ let videoHero = function () {
 
     // Helper to update button text
     function updateButtonState(isPlaying) {
-        const label = isPlaying ? "Pause" : "Play";
+        const label = isPlaying ? heroVidControl.dataset.videoPause : heroVidControl.dataset.videoPlay;
         heroVidControl.querySelector("span").innerText = label;
         heroVidControl.classList.toggle("js-play-video", isPlaying);
     }
