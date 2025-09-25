@@ -16,7 +16,6 @@
 	align-items: center;
 	display: flex;
 	flex-wrap: wrap;
-	gap: em(48);
 
 	@include mq($max-width) {
 		flex-wrap: nowrap;
@@ -35,6 +34,7 @@
 	@include mq($max-width) {
 		flex-basis: auto;
 		flex-wrap: nowrap;
+		margin-inline-start: em(48);
 		padding-bottom: 0;
 	}
 }
