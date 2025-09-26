@@ -1,4 +1,4 @@
-<div class="u-full-width hero">
+<div class="u-full-width hero {% if page.heroVideo is defined and page.heroVideo %}hero--video{% endif %}">
     <div class="l-center">
         <div class="l-sidebar">
             <div>
@@ -11,7 +11,25 @@
                         <p class="lead">{{ page.pageLead|raw }}</p>
                     {% endblock %}
                 </div>
-                {% if page.heroIllustration is defined and page.heroIllustration %}
+                {% if page.heroVideo is defined and page.heroVideo %}
+                    <div class="sidebar">
+                        <div class="sidebar__video">
+                            <div class="l-frame l-frame--16-9">
+                                <video controls loop muted playsinline preload="metadata" data-video="hero">
+                                    <source src="{{ page.heroVideo[0].url }}" type="video/mp4">
+                                    {{ 'components.hero.video.not_supported'|trans({video_url: page.heroVideo[0].url}, 'w3c_website_templates_bundle') }}
+                                </video>
+                            </div>
+                            <button class="button" hidden data-video-control="hero" data-video-play="{{ 'components.hero.video.play'|trans({}, 'w3c_website_templates_bundle') }}" data-video-pause="{{ 'components.hero.video.pause'|trans({}, 'w3c_website_templates_bundle') }}">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 640" height="20" width="20" aria-hidden="true" focusable="false">
+                                    <!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                                    <path class="play-icon" d="M187.2 100.9c-12.4-6.8-27.4-6.5-39.6.7-12.2 7.2-19.6 20.3-19.6 34.4v368c0 14.1 7.5 27.2 19.6 34.4 12.1 7.2 27.2 7.5 39.6.7l336-184c12.8-7 20.8-20.5 20.8-35.1 0-14.6-8-28.1-20.8-35.1l-336-184z"/>
+                                    <path class=pause-icon d="M176 96c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h64c26.5 0 48-21.5 48-48V144c0-26.5-21.5-48-48-48h-64zm224 0c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h64c26.5 0 48-21.5 48-48V144c0-26.5-21.5-48-48-48h-64z"/></svg>
+                                <span class="visuallyhidden">{{ 'components.hero.video.play'|trans({}, 'w3c_website_templates_bundle') }}</span>
+                            </button>
+                        </div>
+                    </div>
+                {% elseif page.heroIllustration is defined and page.heroIllustration %}
                     <div class="sidebar">
                         <img src="{{ page.heroIllustration.url }}" alt/>
                     </div>
