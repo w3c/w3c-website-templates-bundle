@@ -7,6 +7,7 @@ import {navigation} from "./main/navigation";
 import {responsiveTables} from "./main/responsive-tables";
 import {flashes} from "./main/flashes";
 import {headingAnchors} from './main/heading-anchors';
+import {videoHero} from './main/video-hero';
 
 function domLoadedActions() {
 	accountMenu();
@@ -17,6 +18,7 @@ function domLoadedActions() {
 	responsiveTables();
 	flashes();
 	headingAnchors();
+	videoHero();
 
 	/* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
 	const navDoubleIntro = document.querySelector('ul[data-component="nav-double-intro"]');

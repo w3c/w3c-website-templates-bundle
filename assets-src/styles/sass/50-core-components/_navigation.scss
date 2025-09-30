@@ -16,6 +16,7 @@
 	align-items: center;
 	display: flex;
 	flex-wrap: wrap;
+	gap: em(48);
 
 	@include mq($max-width) {
 		flex-wrap: nowrap;
