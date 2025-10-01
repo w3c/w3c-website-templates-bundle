@@ -35,6 +35,7 @@
 	@include mq($max-width) {
 		flex-basis: auto;
 		flex-wrap: nowrap;
+		margin-inline-start: em(48);
 		padding-bottom: 0;
 	}
 }
