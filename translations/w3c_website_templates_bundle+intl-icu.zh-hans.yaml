@@ -35,7 +35,7 @@ footer:
         help: 帮助
         helpurl: https://www.w3.org/zh-hans/help/
         donate: 捐赠
-        donateurl: https://www.w3.org/zh-hans/donate/
+        donateurl: https://www.w3.org/support-us/donate/
         legal: 法务与政策
         legalurl: https://www.w3.org/zh-hans/policies/
         corporation: 法人实体
@@ -134,7 +134,7 @@ components:
         join: 加入我们
         joinurl: /membership/join
         donate: 捐赠
-        donateurl: /donate/
+        donateurl: /support-us/donate/
     content_slider:
         title: 来自其他组织的评价
     crosslinks:

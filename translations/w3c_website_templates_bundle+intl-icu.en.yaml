@@ -39,7 +39,7 @@ footer:
         help: <span lang="en" dir="ltr">Help</span>
         helpurl: https://www.w3.org/help/
         donate: <span lang="en" dir="ltr">Donate</span>
-        donateurl: https://www.w3.org/donate/
+        donateurl: https://www.w3.org/support-us/donate/
         legal: <span lang="en" dir="ltr">Legal &amp; Policies</span>
         legalurl: https://www.w3.org/policies/
         corporation: <span lang="en" dir="ltr">Corporation</span>
@@ -138,7 +138,7 @@ components:
         join: Join
         joinurl: /membership/join/
         donate: Donate
-        donateurl: /donate/
+        donateurl: /support-us/donate/
     content_slider:
         title: What organizations think about us
     crosslinks:
