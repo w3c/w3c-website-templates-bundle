@@ -34,7 +34,7 @@ footer:
         contacturl: https://www.w3.org/zh-hans/contact/
         help: 帮助
         helpurl: https://www.w3.org/zh-hans/help/
-        donate: 捐赠
+        donate: 支持我们
         donateurl: https://www.w3.org/support-us/
         legal: 法务与政策
         legalurl: https://www.w3.org/zh-hans/policies/
@@ -133,7 +133,7 @@ components:
         get_involved: "参与方式:"
         join: 加入我们
         joinurl: /membership/join
-        donate: 捐赠
+        donate: 支持我们
         donateurl: /support-us/
     content_slider:
         title: 来自其他组织的评价
