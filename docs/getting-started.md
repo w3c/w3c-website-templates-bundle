@@ -22,5 +22,3 @@ Minimised versions exist at the same URL but with the suffix `.min.js` instead o
 ## Logos
 
 Visit the main W3C website for [logos and icons](https://www.w3.org/policies/logos/).
-
-_Todo: discuss strategy on the different environments (dev, staging and prod)
