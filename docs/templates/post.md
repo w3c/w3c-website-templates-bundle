@@ -2,9 +2,9 @@
 
 This example shows the minimum markup of a post template. It does not include:
 
-- the complete [global navigation](../components/navigation.md)
+- the complete [global navigation](../components/navigation.md) as per the live site
 - the optional [translations component](../components/translations.md)
-- the complete list of site links for the [footer](../components/footer.md).
+- the complete list of site links for the [footer](../components/footer.md) as per the live site.
 
 It does show the markup of the post meta details, the sidebar links to related content, and the comments section.
 

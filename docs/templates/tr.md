@@ -2,9 +2,9 @@
 
 This example shows the minimum markup of the technical reports template. It does not include:
 
-- the complete [global navigation](../components/navigation.md)
+- the complete [global navigation](../components/navigation.md) as per the live site
 - the optional [translations component](../components/translations.md)
-- the complete list of site links for the [footer](../components/footer.md).
+- the complete list of site links for the [footer](../components/footer.md) as per the live site.
 
 <example title="Technical reports page" src="example-pages/tr.html.twig" standalone />
 

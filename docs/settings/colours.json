@@ -19,7 +19,7 @@
 				"notes": "Link default color"
 			},
 			{
-				"color": "#024488",
+				"color": "#002a56",
 				"variable": "$link-color--hover",
 				"alt-variable": "$deep-blue",
 				"notes": "Link hover color"

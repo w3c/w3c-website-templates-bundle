@@ -25,7 +25,7 @@
         }
     },
     "require-dev": {
-        "studio24/design-system": "dev-main",
+        "studio24/design-system": "^2.0",
         "studio24/deployer-recipes": "^v2.1",
         "rector/rector": "^1.2"
     }
