@@ -36,8 +36,8 @@ footer:
         contacturl: https://www.w3.org/ja/contact/
         help: <span lang="ja" dir="ltr">ヘルプ</span>
         helpurl: https://www.w3.org/ja/help/
-        donate: 寄付
-        donateurl: https://www.w3.org/ja/donate/
+        donate: ご支援を
+        donateurl: https://www.w3.org/support-us/
         legal: 法的事項と方針
         legalurl: https://www.w3.org/ja/policies/
         corporation: 会社概要
@@ -135,8 +135,8 @@ components:
         get_involved: 関与する方法
         join: 参加する
         joinurl: /membership/join/
-        donate: 寄付する
-        donateurl: /donate/
+        donate: ご支援を
+        donateurl: /support-us/
     content_slider:
         title: 組織が私たちについてどう考えているか
     crosslinks:
