@@ -10,7 +10,7 @@ jobs:
       destination: assets/website-2021-dev/pr-${{ github.event.number }}/
     steps:
       - name: Checkout source Git branch
-        uses: actions/checkout@v2
+        uses: actions/checkout@v5
         with:
           ref: ${{github.event.pull_request.head.ref}}
           persist-credentials: false
