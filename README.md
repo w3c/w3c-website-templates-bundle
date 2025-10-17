@@ -67,6 +67,11 @@ handle `@W3CWebsiteTemplates`. E.g.
 {% extends '@W3CWebsiteTemplates/base.html.twig' %}
 ```
 
+
+### Note on development deployments
+
+If you're testing work to the development server, please ensure that you have merged your work into the `development` branch first. This is because the frontend codebase on the development server will reference the development branch when it includes this repo in composer.
+
 ### Overriding the templates
 
 Templates can be overridden in the `templates/bundles/w3cwebsitetemplates/` directory in your 
