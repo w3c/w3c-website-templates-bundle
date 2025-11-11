@@ -5,7 +5,7 @@
 {% block title %}{{ 'error.404.title'|trans({}, 'w3c_website_templates_bundle') }}{% endblock %}
 
 {% block intro %}
-    {% embed '@W3CWebsiteTemplates/components/text.html.twig' %}
+    {% embed '@W3CWebsiteTemplates/components/text.html.twig' with {id: 'message'} %}
         {% block text %}
             {{ 'error.intro'|trans({'status_code': status_code, 'status_text': status_text}, 'w3c_website_templates_bundle')|raw }}
         {% endblock %}
