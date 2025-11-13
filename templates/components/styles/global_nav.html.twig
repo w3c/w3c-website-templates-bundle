@@ -1,6 +1,8 @@
 <nav id="global-nav" aria-label="Main">
     <div class="global-nav__inner l-center">
-        <a class="logo-link" href="{% block homepage_link %}/{% endblock %}" hreflang="{% block homepage_hreflang %}en{% endblock %}">
+        {# {% set siteLang %}{% block homepage_hreflang %}en{% endblock %}{% endset %} #}
+        {% set siteLang = site.locale|default('en')|trans %}
+        <a class="logo-link" href="{% block homepage_link %}/{% endblock %}" hreflang="{{ siteLang }}">
             <span class="logo">
                 <img src="{{ absolute_url(asset('w3c-2025/svg/w3c.svg', 'logos')) }}" alt="{{ 'header.logo_alt'|trans({}, 'w3c_website_templates_bundle') }}" role="img"/>
             </span>
@@ -11,7 +13,26 @@
         <ul data-component="nav-double-intro">
             {%~ for navItem in navigation %}
                 <li class="top-nav-item has-children">
-                    <a href="{{ navItem.titleLink }}" class="nav-link">{{ navItem.title }}</a>
+                        {% if navItem.targetLinkLanguage is not empty %}
+                            {% set targetLangLabel = '' %}
+                            {% set langDiff = false %}
+                            {% if navItem.targetLinkLanguage is not same as siteLang %}
+                                {% set langDiff = true %}
+
+                                {# {% if navItem.targetLinkLanguage == 'zh-Hans' %}
+                                    {% set targetLangLabel = "Chinese" %}
+                                {% else %}
+                                    {% set targetLangLabel = "English" %}
+                                {% endif %} #}
+                            {% set targetLangLabel = navItem.targetLinkLanguage|replace('-', '_')|language_name(siteLang) %}
+                            {% endif %}
+                        {% endif %}
+                    <a href="{{ navItem.titleLink }}" class="nav-link"{% if langDiff is defined and langDiff %} hreflang="{{ navItem.targetLinkLanguage }}"{% endif %}>
+                        {{ navItem.title }}
+                        {% if navItem.targetLinkLanguage is not empty %}
+                            {{ (langDiff is defined and langDiff) ? '(' ~ targetLangLabel ~ ')' : '' }}
+                        {% endif %}
+                    </a>
                     <div class="nav__submenu" data-nav="submenu" style="display: none;">
                         <div class="l-center">
                             <div class="nav__submenu__intro">
@@ -29,7 +50,27 @@
                                 <ul>
                                     {%~ for child in navItem.children %}
                                         <li{{ child.startNewColumn is defined and child.startNewColumn ? ' class="break-after"' : '' }}>{# -#}
-                                            <a href="{{ child.url }}">{{ child.title }}</a>{# -#}
+
+                                            {% if child.targetLinkLanguage is not empty %}
+                                                {% set childLangDiff = siteLang != child.targetLinkLanguage %}
+                                                {% set targetLangLabel = '' %}
+
+                                                {% if childLangDiff == true %}
+                                                    {# {% if child.targetLinkLanguage == 'zh-Hans' %}
+                                                        {% set targetLangLabel = "Chinese" %}
+                                                    {% else %}
+                                                        {% set targetLangLabel = "English" %}
+                                                    {% endif %} #}
+                                                    {% set targetLangLabel = child.targetLinkLanguage|replace('-', '_')|language_name(siteLang) %}
+                                                {% endif %}
+                                            {% endif %}
+
+                                            <a href="{{ child.url }}"{% if childLangDiff is defined and childLangDiff == true %} hreflang="{{ child.targetLinkLanguage }}{% endif %}">
+                                                {{ child.title }}
+                                                {% if child.targetLinkLanguage is not empty %}
+                                                    {{ (childLangDiff is defined and childLangDiff) ? '(' ~ targetLangLabel ~ ')' : '' }}
+                                                {% endif %}
+                                            </a>{# -#}
                                         </li>
                                     {%~ endfor %}
                                 </ul>
