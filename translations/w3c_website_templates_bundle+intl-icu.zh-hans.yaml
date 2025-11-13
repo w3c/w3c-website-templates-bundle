@@ -243,16 +243,13 @@ error:
             <p>如果仍有问题，请在<a href="https://www.w3.org/zh-hans/help/">帮助页</a>咨询或者联系<a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>。</p>
     404:
         title: 页面丢失
-#        message: >-
-#          <p>很抱歉，您试图访问的页面不存在。您可以参考下面的步骤来查找页面：</p>
-#          <ul>
-#          <li>如果您是手动输入的 URL 网址，请确认网址是否正确。</li>
-#          <li>如果您在寻找某一特定主题的信息，请在<a href="https://www.w3.org/zh-hans/">W3C 主页</a>检索。</li>
-#          <li>请尝试用本页面顶部的搜索图标来搜索网站。</li>
-#          </ul>
         message: >-
-            <p>新版中文网站目前正在开发中。欢迎继续访问现有中文网站。</p>
-            <p lang="en">The new Chinese site is under development. Please continue to visit our <a href="https://www.chinaw3c.org" hreflang="zh-hans">current Chinese site</a>.</p>
+          <p>很抱歉，您试图访问的页面不存在。您可以参考下面的步骤来查找页面：</p>
+          <ul>
+          <li>如果您是手动输入的 URL 网址，请确认网址是否正确。</li>
+          <li>如果您在寻找某一特定主题的信息，请在<a href="https://www.w3.org/zh-hans/">W3C 主页</a>检索。</li>
+          <li>请尝试用本页面顶部的搜索图标来搜索网站。</li>
+          </ul>
         contact: >-
             <p>如果您仍然有问题，请在<a href="https://www.w3.org/zh-hans/help/">帮助页</a>咨询。</p>
     410:
