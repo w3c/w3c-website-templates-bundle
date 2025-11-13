@@ -40,11 +40,11 @@ class GetFromFrontendExtension extends AbstractExtension
      *
      * @return string
      */
-    private function fromFrontend(string $path, string $lang = 'en'): string
+    private function fromFrontend(string $path, ?string $lang = 'en'): string
     {
         $content = '';
         try {
-            $response = $this->client->request('GET', $this->baseUrl . ($lang === 'en' ? '' : '/' . $lang) . $path);
+            $response = $this->client->request('GET', $this->baseUrl . ((!$lang || $lang === 'en') ? '' : '/' . $lang) . $path);
 
             $statusCode = $response->getStatusCode();
 
@@ -56,22 +56,22 @@ class GetFromFrontendExtension extends AbstractExtension
         return $content;
     }
 
-    public function globalNav(string $lang = 'en'): string
+    public function globalNav(?string $lang = 'en'): string
     {
         return $this->fromFrontend('/_fragments/global-nav/', $lang);
     }
 
-    public function langNav(string $lang = 'en'): string
+    public function langNav(?string $lang = 'en'): string
     {
         return $this->fromFrontend('/_fragments/lang-nav/', $lang);
     }
 
-    public function footer(string $lang = 'en'): string
+    public function footer(?string $lang = 'en'): string
     {
         return $this->fromFrontend('/_fragments/footer/', $lang);
     }
 
-    public function commonHead(string $lang = 'en'): string
+    public function commonHead(?string $lang = 'en'): string
     {
         return $this->fromFrontend('/_fragments/common-head/', $lang);
     }
