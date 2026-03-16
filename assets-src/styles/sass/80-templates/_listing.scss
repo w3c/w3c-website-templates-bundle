@@ -46,9 +46,13 @@
 		padding-block-start: rem(40);
 	}
 
-	> li:last-child {
-		border-block-end: solid 1px $border-color;
+	> * h2 {
+		margin-block-start: 0;
 	}
+
+	//> li:last-child {
+	//	border-block-end: solid 1px $border-color;
+	//}
 
 	.l-sidebar .sidebar {
 		flex-basis: auto;
