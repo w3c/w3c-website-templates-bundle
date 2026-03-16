@@ -21,8 +21,7 @@
 	}
 }
 
-.people-list,
-.post-list {
+:where(.people-list, .post-list) {
 	> * + * {
 		border-block-start: solid 1px $border-color;
 	}
@@ -102,10 +101,7 @@
 	}
 }
 
-.event-list,
-.member-list,
-.group-list,
-.tr-stats-list {
+:where(.event-list, .member-list, .group-list, .tr-stats-list) {
 	margin-block-start: rem(40);
 
 	> * + * {
