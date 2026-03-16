@@ -44,10 +44,6 @@
 	flex-grow: 1;
 	order: 1;
 	padding-block-start: 1rem;
-
-	> *:first-child {
-		margin-block-start: 0;
-	}
 }
 
 .card--group .card__text {
@@ -63,6 +59,7 @@
 .card__heading {
 	//@include txt-saturn;
 	font-size: var(--w3c-text-1);
+	margin-block-start: 0;
 }
 
 .card__image img {
