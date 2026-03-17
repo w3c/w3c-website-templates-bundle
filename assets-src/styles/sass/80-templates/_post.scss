@@ -112,27 +112,36 @@
 	.meta dl {
 		margin-block-end: 0;
 
-		dd:first-of-type {
-			@include mq($bp-tab-small) {
-				padding-inline-end: rem(150);
-			}
-		}
+		//dd:first-of-type {
+		//	@include mq($bp-tab-small) {
+		//		padding-inline-end: rem(150);
+		//	}
+		//}
 
 		 dd:not(:only-of-type), dt:not(:only-of-type) {
 			 margin-block: 0;
-			 padding-block-end: rem(6);
-			 padding-block-start: rem(3);
+			 padding-block: rem(6);
+			 //padding-block-end: rem(6);
+			 //padding-block-start: rem(3);
 		 }
 
-		// dt:first-of-type,
-		// dd:first-of-type {
-		// 	padding-block-start: rem(8);
-		// }
+		 dt:first-of-type,
+		 dd:first-of-type {
+		 	padding-block-start: rem(8);
+		 }
 
 		dt {
 			float: left;
 			font-weight: normal;
 			margin-inline-end: 1em;
+		}
+
+		dd.l-cluster > * {
+			margin: -0.25rem
+		}
+
+		dd.l-cluster > * > * {
+			margin: 0.25rem
 		}
 	}
 
