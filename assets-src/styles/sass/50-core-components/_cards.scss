@@ -2,7 +2,7 @@
     #Cards
 \*------------------------------------*/
 
-.card {
+.card:not(.card--user) {
 	background-color: $white;
     block-size: 100%;
 	border-radius: rem(4);
@@ -11,18 +11,13 @@
 	overflow: hidden;
 }
 
-.card--event {
-	border-inline-start: solid rem(6);
-}
-
-.card--event,
-.card--member,
-.card--news,
-.card--group {
+:where(.card--event, .card--member, .card--news, .card--group) {
 	box-shadow: -1px 1px 4px 0 rgba(55,70,95,0.12);
 }
 
 .card--event {
+	border-inline-start: solid rem(6);
+
 	&.conference {
 		border-color: $teal-green;
 	}
@@ -83,6 +78,10 @@
 	}
 }
 
+.card--user .card__heading {
+	font-size: var(--w3c-text-3);
+}
+
 .card--user.l-sidebar {
     padding-block: rem(40) rem(30);
 
@@ -102,23 +101,25 @@
 	.not-sidebar > div {
 		max-inline-size: rem($text-measure);
 
-		// > * + * {
-		// 	margin-block-start: rem(20);
-		// }
+		 > * + * {
+		 	margin-block-start: 1rem;
+		 }
 	}
+}
 
-	.l-cluster > * {
-		align-items: center;
-	}
+.card--user .l-cluster > * {
+	align-items: center;
+}
 
-	// .l-cluster > *,
-	// .l-cluster.l-cluster > * > * {
-	// 	margin-block: 0;
-	// }
+//.card--user .l-cluster > *,
+//.card--user .l-cluster.l-cluster > * > * {
+//	margin-block: 0;
+//}
 
-	.l-cluster a {
-		display: inline-block;
-		padding-block: rem(12);
-        padding-inline: 0;
-	}
+.card--user .l-cluster a {
+	align-items: center;
+	display: inline-flex;
+	//padding-block: rem(12);
+	//padding-inline: 0;
+	padding: 0;
 }

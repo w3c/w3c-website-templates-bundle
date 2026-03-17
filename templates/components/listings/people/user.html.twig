@@ -1,8 +1,8 @@
-<div class="l-sidebar card--user">
+<div class="l-sidebar card card--user">
     <div>
         <div class="not-sidebar">
             <div>
-                <{{ heading|default('h3') }} id="{{ user.login }}" class="{{ heading_class|default('txt-mars') }}" data-anchor="no">
+                <{{ heading|default('h3') }} id="{{ user.login }}" class="{{ heading_class|default('card__heading') }}" data-anchor="no">
                     {% block name %}
                         {% block given %}{{ user.given }}{% endblock%}
                         {% block family %}{{ user.family }}{% endblock %}

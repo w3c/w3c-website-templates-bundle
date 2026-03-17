@@ -35,7 +35,8 @@
 	.groups .sidebar h3 {
 		font-size: var(--w3c-text-0);
 		font-weight: normal;
-		//line-height: rem(44);
+		line-height: 1.5em;
+		margin-block-start: 0;
 	}
 }
 
