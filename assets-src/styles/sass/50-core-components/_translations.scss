@@ -4,6 +4,7 @@
 
 .translations {
 	background-color: $mist-gray;
+	font-size: var(--w3c-text-1);
 	padding: rem(20);
 }
 
@@ -18,10 +19,6 @@
 
 .translations .l-sidebar .sidebar {
 	flex-basis: auto;
-}
-
-.translations .l-sidebar .not-sidebar {
-	min-inline-size: 70%;
 }
 
 .translations.l-cluster {
