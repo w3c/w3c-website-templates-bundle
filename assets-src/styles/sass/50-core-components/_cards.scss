@@ -45,6 +45,14 @@
 	max-inline-size: rem($text-measure);
 }
 
+.card--group dl {
+	font-size: var(--w3c-text-01);
+
+	dd {
+		margin-inline-start: 0;
+	}
+}
+
 .card__text > a:not([class]) {
 	align-self: flex-start;
 	// margin-block-start: rem(6);
