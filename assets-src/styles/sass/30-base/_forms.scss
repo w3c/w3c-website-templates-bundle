@@ -25,7 +25,7 @@ legend {
 
 /**
 Manage vertical spacing inside forms. Space is added above every element that is a direct
-child of `.w3c-form` apart from the first instance. Space is also added evenly above every `.field`
+child of a form, apart from the first instance. Space is also added evenly above every `.field`
 element that comes immediately after another `.field`. It doesn't matter if `.field` is a direct
 child of the parent form or part of a nested container.
  */
@@ -33,6 +33,22 @@ form > * + *,
 .field + .field {
 	margin-block-start: 1.75rem;
 }
+
+/**
+More spacing between field-groups
+ */
+.field-group + .field-group {
+	margin-top: 2.5rem;
+}
+
+.field-group > *:first-child {
+	margin-block-start: 0;
+}
+
+.field-group__heading {
+	font-size: var(--w3c-text-3);
+}
+
 
 /**
 Where the `.l-box` layout is a direct child of a form and used to visually group a subset of
