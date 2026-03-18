@@ -15,4 +15,9 @@ main,
 	max-inline-size: rem($max-width);
 	padding-block: rem(24) rem(100);
     padding-inline: 5vw;
+
+	/* Remove bottom margin from last component child of main */
+	> .component:last-child {
+		margin-block-end: 0;
+	}
 }
