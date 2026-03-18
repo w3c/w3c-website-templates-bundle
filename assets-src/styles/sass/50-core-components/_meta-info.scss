@@ -12,3 +12,7 @@
 		max-inline-size: none;
 	}
 }
+
+.meta + .component {
+	margin-block-start: 0;
+}
