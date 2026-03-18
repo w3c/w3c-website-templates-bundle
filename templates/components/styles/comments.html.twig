@@ -46,7 +46,7 @@
         </div>
     </article>
     {% if comment.children is defined and comment.children|length > 0 %}
-        <ul class="clean-list reply-list" role="list">
+        <ul class="nomarkers-list reply-list" role="list">
             {% for child in comment.children %}
                 <li>
                     {{ _self.comment(child, post, reply_to, rendered_form, comments_open, locale) }}
@@ -86,7 +86,7 @@
             {% if comments_open %}
                 <a class="skip-to-comment-form" href="#respond">{{ 'post.comments.skip_to_form'|trans({}, 'w3c_website_templates_bundle') }}</a>
             {% endif %}
-            <ol class="clean-list comment-list" role="list">
+            <ol class="nomarkers-list comment-list" role="list">
                 {% for comment in comments %}
                 <li>
                     {{ _self.comment(comment, post, reply_to, rendered_form, comments_open, locale) }}

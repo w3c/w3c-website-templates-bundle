@@ -15,7 +15,7 @@
 }
 
 .comment-list {
-	margin-block-start: rem(30);
+	padding-inline-start: 0;
 
 	li {
 		max-inline-size: none;
@@ -54,7 +54,6 @@
 }
 
 .reply-list.reply-list {
-    margin-block-start: rem(30);
 	margin-inline-start: rem(70);
 	padding-inline-start: rem(30);
 	position: relative;
