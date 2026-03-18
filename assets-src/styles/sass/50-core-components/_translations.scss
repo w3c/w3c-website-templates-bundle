@@ -4,7 +4,7 @@
 
 .translations {
 	background-color: $mist-gray;
-	font-size: var(--w3c-text-1);
+	font-size: var(--w3c-text-01);
 	padding: rem(20);
 }
 
@@ -19,6 +19,10 @@
 
 .translations .l-sidebar .sidebar {
 	flex-basis: auto;
+}
+
+.translations .l-sidebar .not-sidebar {
+	min-inline-size: 70%;
 }
 
 .translations.l-cluster {
@@ -42,7 +46,7 @@
 .translations h3,
 .translations h5,
 .translations .sidebar span {
-	font-size: var(--w3c-text-0);
+	font-size: var(--w3c-text-01);
 	font-weight: normal;
 	padding-block: rem(10);
 }
