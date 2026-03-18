@@ -192,6 +192,6 @@
 	padding-block-start: rem(20);
 
 	h3 {
-		@extend .txt-saturn;
+		font-size: var(--w3c-text-1);
 	}
 }
