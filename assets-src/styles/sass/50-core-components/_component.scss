@@ -5,7 +5,7 @@
 \*------------------------------------*/
 
 .component {
-    background-color: lightsalmon; // Temporary bg colour to help assess spacing
+    //background-color: lightsalmon; // Temporary bg colour to help assess spacing
     margin-block: rem(80);
 
     @include mq($bp-tab-small) {
