@@ -3,7 +3,11 @@
 \*------------------------------------*/
 
 .rss {
-	// margin-block-start: rem(40);
+	margin-block-start: rem(40);
+
+	> *:first-child {
+		margin-block-start: 0;
+	}
 
 	a {
 		padding-block: rem(10);

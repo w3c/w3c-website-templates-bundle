@@ -13,6 +13,6 @@
 	padding: rem(20);
 }
 
-// .pre-footer h2 + * {
-// 	margin-block-start: 1em;
-// }
+.pre-footer.l-switcher > * > * > *:first-child {
+	margin-block-start: 0;
+}
