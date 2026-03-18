@@ -10,15 +10,13 @@
 /**
 Wildcard selector means these styles apply everywhere.
 1: Use a more intuitive box-sizing model
-2: Control hyphenation when used - see https://clagnut.com/blog/2395/
-3: Avoid text overflow
+2: Avoid text overflow
  */
 *,
 *::before,
 *::after {
     box-sizing: border-box; /* 1 */
-    hyphenate-limit-chars: 6 3 2; /* 2 */
-    overflow-wrap: break-word; /* 3 */
+    overflow-wrap: break-word; /* 2 */
 }
 
 
