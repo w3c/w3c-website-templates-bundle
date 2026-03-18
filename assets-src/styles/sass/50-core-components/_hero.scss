@@ -75,9 +75,9 @@
 	margin-block-end: rem(20);
 	padding-block-end: rem(40);
 
-	// + * {
-	// 	margin-block-start: 0;
-	// }
+	+ * {
+		margin-block-start: 0;
+	}
 }
 
 .hero--listing .filters.l-switcher {
