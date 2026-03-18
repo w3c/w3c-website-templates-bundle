@@ -20,6 +20,16 @@ table caption {
     text-align: start;
 }
 
+table caption {
+    > *:first-child {
+        margin-block-start: 0;
+    }
+
+    > *:last-child {
+        margin-block-end: 0;
+    }
+}
+
 td, th {
     vertical-align: text-top;
 }
