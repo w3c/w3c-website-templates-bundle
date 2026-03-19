@@ -34,6 +34,16 @@ h1, h2, h3, h4, h5, h6 {
 	 margin-block-start: 1em;
 }
 
+.text-xl {
+	font-size: var(--w3c-text-7);
+	line-height: 1.2;
+}
+
+.text-l {
+	font-size: var(--w3c-text-6);
+	line-height: 1.2;
+}
+
 :where(h1, .h1 .txt-venus) {
 	font-size: var(--w3c-text-5);
 	line-height: 1.2;
