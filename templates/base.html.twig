@@ -88,53 +88,48 @@
 
 <body {% block body_classes %}class="{{ body_classes|default('default') }}"{% endblock %}>
 <a class="skip-link" href="#main">{{ 'page.skip_to_content'|trans({}, 'w3c_website_templates_bundle') }}</a>
-<div class="grid-wrap">
-    <div class="wrap">
-        <header class="global-header">
-            <span role="status" aria-live="polite"></span>
-            {% block banner %}
-                {{ include('@W3CWebsiteTemplates/components/styles/banner.html.twig') }}
-            {% endblock banner %}
-            {% block access_control %}
-                {{ include('@W3CWebsiteTemplates/components/styles/access_control.html.twig') }}
-            {% endblock %}
-            {% block lang_nav %}
-                {{ include('@W3CWebsiteTemplates/components/styles/lang_nav.html.twig') }}
-            {% endblock lang_nav %}
-            {% block global_nav %}
-                {% embed '@W3CWebsiteTemplates/components/styles/global_nav.html.twig' with {
-                    'navigation': navigation|default([])
-                } %}{% endembed %}
-            {% endblock global_nav %}
-        </header>
-        {% block breadcrumbs %}
-                {% embed '@W3CWebsiteTemplates/components/styles/breadcrumbs.html.twig' with {
-                    'breadcrumbs': page.breadcrumbs is defined ? page.breadcrumbs : {}
-                } %}{% endembed %}
-        {% endblock breadcrumbs %}
-        <main id="main" {% block extra_main_attributes %}{{ extra_main_attributes|default('')|raw }}{% endblock %}>
-            {% import '@W3CWebsiteTemplates/components/styles/notes.html.twig' as notes %}
-            {{ notes.errors(error_notes) }}
-            {{ notes.successes(success_notes) }}
-            {{ notes.warnings(warning_notes) }}
-            {{ notes.info(info_notes) }}
-            {% block notes %}{% endblock %}
-            {% block main %}{% endblock %}
-            {% block pre_footer %}{% endblock %}
-        </main>
-        {% block crosslinks %}
-            {% if crosslinks is defined and crosslinks['links'] is defined and crosslinks['links']|length > 0 %}
-                {{ include('@W3CWebsiteTemplates/components/styles/crosslinks.html.twig') }}
-            {% endif %}
-        {% endblock crosslinks %}
-    </div>
-    {% block footer %}
-        {% embed '@W3CWebsiteTemplates/components/styles/footer.html.twig' with {
-            'links': footerlinks is defined ? footerlinks : {}
-        } %}{% endembed %}
+<header class="global-header">
+    <span role="status" aria-live="polite"></span>
+    {% block banner %}
+        {{ include('@W3CWebsiteTemplates/components/styles/banner.html.twig') }}
+    {% endblock banner %}
+    {% block access_control %}
+        {{ include('@W3CWebsiteTemplates/components/styles/access_control.html.twig') }}
     {% endblock %}
-</div>
-
+    {% block lang_nav %}
+        {{ include('@W3CWebsiteTemplates/components/styles/lang_nav.html.twig') }}
+    {% endblock lang_nav %}
+    {% block global_nav %}
+        {% embed '@W3CWebsiteTemplates/components/styles/global_nav.html.twig' with {
+            'navigation': navigation|default([])
+        } %}{% endembed %}
+    {% endblock global_nav %}
+</header>
+{% block breadcrumbs %}
+    {% embed '@W3CWebsiteTemplates/components/styles/breadcrumbs.html.twig' with {
+        'breadcrumbs': page.breadcrumbs is defined ? page.breadcrumbs : {}
+    } %}{% endembed %}
+{% endblock breadcrumbs %}
+<main id="main" {% block extra_main_attributes %}{{ extra_main_attributes|default('')|raw }}{% endblock %}>
+    {% import '@W3CWebsiteTemplates/components/styles/notes.html.twig' as notes %}
+    {{ notes.errors(error_notes) }}
+    {{ notes.successes(success_notes) }}
+    {{ notes.warnings(warning_notes) }}
+    {{ notes.info(info_notes) }}
+    {% block notes %}{% endblock %}
+    {% block main %}{% endblock %}
+    {% block pre_footer %}{% endblock %}
+</main>
+{% block crosslinks %}
+    {% if crosslinks is defined and crosslinks['links'] is defined and crosslinks['links']|length > 0 %}
+        {{ include('@W3CWebsiteTemplates/components/styles/crosslinks.html.twig') }}
+    {% endif %}
+{% endblock crosslinks %}
+{% block footer %}
+    {% embed '@W3CWebsiteTemplates/components/styles/footer.html.twig' with {
+        'links': footerlinks is defined ? footerlinks : {}
+    } %}{% endembed %}
+{% endblock %}
 {% block closing_body_scripts %}{% endblock %}
 </body>
 

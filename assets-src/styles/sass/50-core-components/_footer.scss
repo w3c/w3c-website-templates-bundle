@@ -4,8 +4,6 @@
 
 .global-footer {
 	border-block-start: solid 1px $border-color;
-	grid-row-start: 2; // Needed for sticky footer
-	grid-row-end: 3; // Needed for sticky footer
     padding-block: rem(20) rem(25);
 
 	.l-center {

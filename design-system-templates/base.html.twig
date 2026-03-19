@@ -58,35 +58,29 @@
 
 <body {% block body_class %}{% endblock %}>
     <a class="skip-link" href="#main">Skip to content</a>
-    <div class="grid-wrap">
-        <div class="wrap">
 
-            {% block header %}
-                {% include 'components/header-nav.html.twig' %}
-            {% endblock %}
+    {% block header %}
+        {% include 'components/header-nav.html.twig' %}
+    {% endblock %}
 
-            {% block breadcrumbs %}
-            {% endblock %}
+    {% block breadcrumbs %}
+    {% endblock %}
 
-            <main id="main" {% block extra_main_attributes %}{% endblock %}>
-                {% block content %}
-                {% endblock %}
-            </main>
-
-            {% block crosslinks %}
-            {% endblock %}
-
-            {% block comments %}
-            {% endblock %}
-
-        </div>
-
-        {% include 'components/footer.html.twig' %}
-
-    </div>
-
-        {% block scripts %}
+    <main id="main" {% block extra_main_attributes %}{% endblock %}>
+        {% block content %}
         {% endblock %}
+    </main>
+
+    {% block crosslinks %}
+    {% endblock %}
+
+    {% block comments %}
+    {% endblock %}
+
+    {% include 'components/footer.html.twig' %}
+
+    {% block scripts %}
+    {% endblock %}
     {{ javascript|raw }}
 </body>
 

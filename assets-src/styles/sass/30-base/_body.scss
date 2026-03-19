@@ -10,13 +10,3 @@ body {
 	color: $off-black;
 	overflow-x: hidden;
 }
-
-/**
-Styles needed for a sticky footer
- */
-.grid-wrap {
-	display: grid;
-	grid-template-columns: 100%;
-	grid-template-rows: 1fr auto;
-	min-block-size: 100vh;
-}
