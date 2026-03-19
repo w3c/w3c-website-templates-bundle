@@ -83,7 +83,7 @@
 						<h2 id="related-label" class="txt-jupiter">{{ 'post.related.heading'|trans({}, 'w3c_website_templates_bundle') }}</h2>
 						{% if page.tags is defined and page.tags %}
 							<h3>{{ 'post.related.heading_tags'|trans({}, 'w3c_website_templates_bundle') }}</h3>
-							<ul class="clean-list" role="list">
+							<ul class="clean-list">
 								{% for tag in page.tags %}
 									<li><a href="{{ tag.url }}">{{ tag.title }}</a></li>
 								{% endfor %}
@@ -91,7 +91,7 @@
 						{% endif %}
 						{% if page.ecosystems is defined and page.ecosystems %}
 							<h3>{{ 'post.related.heading_ecosystems'|trans({}, 'w3c_website_templates_bundle') }}</h3>
-							<ul class="clean-list" role="list">
+							<ul class="clean-list">
 								{% for ecosystem in page.ecosystems %}
 									<li><a href="{{ ecosystem.url }}">{{ ecosystem.title }}</a></li>
 								{% endfor %}
@@ -99,7 +99,7 @@
 						{% endif %}
 						{% if page.groups is defined and page.groups %}
 							<h3>{{ 'post.related.heading_groups'|trans({}, 'w3c_website_templates_bundle') }}</h3>
-							<ul class="clean-list" role="list">
+							<ul class="clean-list">
 								{% for group in page.groups %}
 									<li><a href="{{ group.url }}">{{ group.title }}</a></li>
 								{% endfor %}
@@ -107,7 +107,7 @@
 						{% endif %}
 						{% if page.specifications is defined and page.specifications %}
 							<h3>{{ 'post.related.heading_specifications'|trans({}, 'w3c_website_templates_bundle') }}</h3>
-							<ul class="clean-list" role="list">
+							<ul class="clean-list">
 								{% for spec in page.specifications %}
 									<li><a href="{{ spec.url }}">{{ spec.title }}</a></li>
 								{% endfor %}

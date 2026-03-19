@@ -8,7 +8,7 @@
                     {{ 'listing.press_releases.filters.archives'|trans({}, 'w3c_website_templates_bundle') }}
                 </button>
                 <nav id="archive-nav" aria-label="{{ 'listing.press_releases.filters.archives_label'|trans({}, 'w3c_website_templates_bundle') }}">
-                    <ul class="clean-list" role="list">
+                    <ul class="clean-list">
                         {% for archive in archives %}
                             <li>
                                 <a href="{{ archive.url }}">{{ archive.title }}</a>

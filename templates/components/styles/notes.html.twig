@@ -5,7 +5,7 @@
             {% if title != '' %}
                 <h2 id="{{ type }}-summary-title" class="txt-saturn">{{ title }}</h2>
             {% endif %}
-            <ul class="clean-list" role="list">
+            <ul class="clean-list">
                 {% for note in notes %}
                     <li>
                         {% if note.options.href is defined %}

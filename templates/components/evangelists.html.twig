@@ -12,7 +12,7 @@
 	{% if evangelists is not empty %}
 	<div class="component--evangelists__list">
 		<h3>{{ 'components.evangelists.list_title'|trans({'ecosystem_name': ecosystem_name, 'count': evangelists|length}, 'w3c_website_templates_bundle') }}</h3>
-		<ul class="clean-list" role="list">
+		<ul class="clean-list">
 			{% for evangelist in evangelists %}
 			<li class="l-box l-box--no-border">
 				<div class="l-sidebar">
