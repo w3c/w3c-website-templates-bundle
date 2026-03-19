@@ -2,56 +2,42 @@
 
 namespace W3C\WebsiteTemplatesBundle\Extensions\Twig;
 
-use Symfony\Component\HttpClient\CachingHttpClient;
+use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\HttpCache\Store;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
-use Throwable;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
+#[AutoconfigureTag('twig.extension')]
 class GetFromFrontendExtension extends AbstractExtension
 {
-    private string $baseUrl;
-    private HttpClientInterface $client;
-
-    public function __construct(string $baseUrl, HttpClientInterface $client, string $cachePath)
+    public function __construct(private readonly HttpClientInterface $client)
     {
-        $this->baseUrl = $baseUrl;
-        $store  = new Store($cachePath);
-        $this->client = new CachingHttpClient($client, $store, ['default_ttl' => 86400]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getFunctions(): array
     {
         return [
             new TwigFunction('global_nav', [$this, 'globalNav']),
             new TwigFunction('lang_nav', [$this, 'langNav']),
             new TwigFunction('footer', [$this, 'footer']),
-            new TwigFunction('common-head', [$this, 'commonHead'])
+            new TwigFunction('common-head', [$this, 'commonHead']),
         ];
     }
 
-    /**
-     * @param string $path
-     *
-     * @return string
-     */
     private function fromFrontend(string $path, ?string $lang = 'en'): string
     {
         $content = '';
         try {
-            $response = $this->client->request('GET', $this->baseUrl . ((!$lang || $lang === 'en') ? '' : '/' . $lang) . $path);
+            $response = $this->client->request('GET', ((!$lang || 'en' === $lang) ? '' : '/'.$lang).$path);
 
             $statusCode = $response->getStatusCode();
 
-            if ($statusCode === Response::HTTP_OK) {
+            if (Response::HTTP_OK === $statusCode) {
                 $content = $response->getContent();
             }
-        } catch (Throwable $e) {}
+        } catch (\Throwable $e) {
+        }
 
         return $content;
     }
@@ -76,4 +62,3 @@ class GetFromFrontendExtension extends AbstractExtension
         return $this->fromFrontend('/_fragments/common-head/', $lang);
     }
 }
-
