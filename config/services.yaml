@@ -29,3 +29,11 @@ services:
             $translator: '@translator'
         tags:
             - { name: kernel.event_subscriber }
+
+when@test:
+    services:
+        W3C\WebsiteTemplatesBundle\HttpClient\FakeFrontendHttpClient:
+            autowire: true
+        W3C\WebsiteTemplatesBundle\Extensions\Twig\GetFromFrontendExtension:
+            arguments:
+                $client: '@W3C\WebsiteTemplatesBundle\HttpClient\FakeFrontendHttpClient'
