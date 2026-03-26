@@ -32,8 +32,8 @@ services:
 
 when@test:
     services:
-        W3C\WebsiteTemplatesBundle\HttpClient\FakeFrontendHttpClient:
+        W3C\WebsiteTemplatesBundle\HttpClient\FakeFragmentsHttpClient:
             autowire: true
         W3C\WebsiteTemplatesBundle\Extensions\Twig\GetFromFrontendExtension:
             arguments:
-                $client: '@W3C\WebsiteTemplatesBundle\HttpClient\FakeFrontendHttpClient'
+                $client: '@W3C\WebsiteTemplatesBundle\HttpClient\FakeFragmentsHttpClient'
