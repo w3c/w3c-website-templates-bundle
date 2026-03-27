@@ -10,13 +10,13 @@ jobs:
       destination: assets/website-2021-dev/pr-${{ github.event.number }}/
     steps:
       - name: Checkout source Git branch
-        uses: actions/checkout@v2
+        uses: actions/checkout@v6
         with:
           ref: ${{github.event.pull_request.head.ref}}
           persist-credentials: false
 
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v6
         with:
           node-version: '16'
 
@@ -34,3 +34,18 @@ jobs:
           AWS_REGION: 'us-east-1'
         run:
           aws s3 sync --no-progress ${{ env.source }} s3://cdn-dev.w3.org/${{ env.destination }}
+
+      - name: Add comment to PR
+        uses: actions/github-script@v8
+        env:
+          COMPOSER: 'composer require w3c/website-templates-bundle:dev-${{ github.ref }'
+          ASSETS: 'ASSETS_WEBSITE_2021=https://www-dev.w3.org/${{ env.destination }}/'
+          BODY_TEXT: 'Assets published to https://www-dev.w3.org/${{ env.destination }}\n\nLoad in your application via:\n\n${{ env.COMPOSER }}\n\n${{ env.ASSETS }}'
+        with:
+          script: |
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              issue_number: context.issue.number,
+              repo: context.repo.repo,
+              body: process.env.BODY_TEXT
+            })
