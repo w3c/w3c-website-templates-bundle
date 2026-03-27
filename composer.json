@@ -32,7 +32,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "7.*"
+            "require": "7.4.*"
         }
     }
 }
