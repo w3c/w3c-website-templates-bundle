@@ -39,7 +39,7 @@ jobs:
         uses: actions/github-script@v8
         if: ${{ github.event.action == 'opened'}}
         env:
-          COMPOSER: 'composer require w3c/website-templates-bundle:dev-${{ github.ref }'
+          COMPOSER: 'composer require w3c/website-templates-bundle:dev-${{ github.ref }}'
           ASSETS: 'ASSETS_WEBSITE_2021=https://www-dev.w3.org/${{ env.destination }}/'
           BODY_TEXT: 'Assets published to https://www-dev.w3.org/${{ env.destination }}\n\nLoad in your application via:\n\n${{ env.COMPOSER }}\n\n${{ env.ASSETS }}'
         with:
