@@ -39,7 +39,7 @@ jobs:
         uses: actions/github-script@v8
         #if: ${{ github.event.action == 'opened'}}
         env:
-          BODY_TEXT: 'Assets published to: https://www-dev.w3.org/${{ env.destination }} and available via Composer package: w3c/website-templates-bundle:dev-${{ github.ref }}'
+          BODY_TEXT: 'Assets published to: https://www-dev.w3.org/${{ env.destination }} and available via Composer package: `w3c/website-templates-bundle:dev-${{ github.head_ref }}`'
         with:
           script: |
             github.rest.issues.createComment({
