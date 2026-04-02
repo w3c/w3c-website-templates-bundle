@@ -12,7 +12,7 @@
                     </time>
                 </div>
                 <div class="comment__body">
-                    {% if post.typeHandle == 'importedEntries' %}
+                    {% if post.typeHandle == 'blogPosts_importedEntries' %}
                         <p>{{ comment.comment|raw }}</p>
                     {% else %}
                         <p>{{ comment.comment|nl2br }}</p>

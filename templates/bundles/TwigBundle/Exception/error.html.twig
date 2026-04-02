@@ -3,7 +3,7 @@
 {% block main %}
     <h1>{% block title %}{{ page.title|default('error.title'|trans({'status_code': status_code, 'status_text': status_text}, 'w3c_website_templates_bundle')) }} | W3C{% endblock %}</h1>
     {% block intro %}
-        {% embed '@W3CWebsiteTemplates/components/text.html.twig' %}
+        {% embed '@W3CWebsiteTemplates/components/text.html.twig' with {id: 'intro'} %}
             {% block text %}
                 {{ 'error.intro'|trans({'status_code': status_code, 'status_text': status_text}, 'w3c_website_templates_bundle')|raw }}
             {% endblock %}
@@ -30,9 +30,14 @@ Date: {{ "now"|date('c') }}
             {%- endapply -%}
         {%- endset %}
 
-        {% embed '@W3CWebsiteTemplates/components/text.html.twig' %}
+        {% embed '@W3CWebsiteTemplates/components/text.html.twig' with {id: 'contact'} %}
             {% block text %}
                 {{ ('error.' ~ status_code ~ '.contact')|trans({'params': "?subject=" ~ subject ~ "&amp;body=" ~ body}, 'w3c_website_templates_bundle')|raw }}
+            {% endblock %}
+        {% endembed %}
+
+        {% embed '@W3CWebsiteTemplates/components/text.html.twig' with {id: 'request_id'} %}
+            {% block text %}
                 {{ 'error.request_id'|trans({'request_id': request_id()}, 'w3c_website_templates_bundle')|raw }}
             {% endblock %}
         {% endembed %}

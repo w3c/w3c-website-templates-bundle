@@ -2,8 +2,8 @@
 
 An example of the landing page template. This example does not include:
 
-- the complete [global navigation](../components/navigation.md)
-- the complete list of site links for the [footer](../components/footer.md).
+- the complete [global navigation](../components/navigation.md) as per the live site
+- the complete list of site links for the [footer](../components/footer.md) as per the live site.
 
 <example title="Landing page" src="example-pages/landing.html.twig" standalone />
 

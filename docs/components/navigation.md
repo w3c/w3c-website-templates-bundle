@@ -1,6 +1,6 @@
 # Navigation
 
-The following example shows how the global navigation sits within the [header component](header.md).
+The following example shows how the global navigation sits within the [header component](header.md). It does not reflect the full list of links shown on the live site, as which links are included and how they are named can be changed.
 
 <example title="Header including main navigation" src="components/header-nav.html.twig" />
 

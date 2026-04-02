@@ -10,4 +10,4 @@ The `<iframe>` markup in this example is a YouTube embed code with the privacy-e
 
 ### Transcript
 
-All pre-recorded videos should have a transcript, for accessibility. The best way to provide transcripts is as HTML. If it needs to be something downloadable, then Rich Text Format (RTF) is the preferred choice. An [accessible PDF](https://helpx.adobe.com/uk/acrobat/using/creating-accessible-pdfs.html) would be acceptable.
+All pre-recorded videos should have a transcript, for accessibility. The best way to provide transcripts is as HTML. If it needs to be something downloadable, then Rich Text Format (RTF) is the preferred choice.

@@ -4,6 +4,7 @@ namespace W3C\WebsiteTemplatesBundle\EventSubscriber;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpFoundation\Session\FlashBagAwareSessionInterface;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\KernelEvents;
@@ -17,20 +18,20 @@ class FlashMessageSubscriber implements EventSubscriberInterface
     public function __construct(RequestStack $requestStack, TranslatorInterface $translator)
     {
         $this->requestStack = $requestStack;
-        $this->translator   = $translator;
+        $this->translator = $translator;
     }
 
     public static function getSubscribedEvents(): array
     {
         return [
             // we want that to run early (before the Session->Cookie transformation)
-            KernelEvents::RESPONSE => ['onKernelResponse', 10]
+            KernelEvents::RESPONSE => ['onKernelResponse', 10],
         ];
     }
 
     public function onKernelResponse(ResponseEvent $event)
     {
-         // @todo remove this when we drop support for SF4, see https://github.com/symfony/http-kernel/blob/7.1/CHANGELOG.md#53
+        // @todo remove this when we drop support for SF4, see https://github.com/symfony/http-kernel/blob/7.1/CHANGELOG.md#53
         if (defined('HttpKernelInterface::MASTER_REQUEST') && HttpKernelInterface::MASTER_REQUEST !== $event->getRequestType()) {
             return;
         }
@@ -57,9 +58,11 @@ class FlashMessageSubscriber implements EventSubscriberInterface
             return;
         }
 
+        assert($session instanceof FlashBagAwareSessionInterface);
+
         $flashBag = $session->getFlashBag();
         // Use peekAll because we want to keep existing messages in the bag
-        $flashes  = $flashBag->peekAll();
+        $flashes = $flashBag->peekAll();
 
         if (empty($flashes)) {
             return;
@@ -68,30 +71,30 @@ class FlashMessageSubscriber implements EventSubscriberInterface
         $titleKeys = [
             'success' => 'successes',
             'warning' => 'warnings',
-            'error'   => 'errors',
-            'info'    => 'info'
+            'error' => 'errors',
+            'info' => 'info',
         ];
 
         $existingTitles = array_keys(
             array_filter(
                 $flashes,
-                fn(string $key) => strpos($key, 'title-') === 0,
+                fn (string $key) => 0 === strpos($key, 'title-'),
                 ARRAY_FILTER_USE_KEY
             )
         );
 
-        foreach(array_keys($flashes) as $type) {
+        foreach (array_keys($flashes) as $type) {
             // $type is not a title and its corresponding title doesn't already exist
             if (
-                strpos($type, 'title-') === false &&
-                !in_array('title-' . $type, $existingTitles) &&
-                array_key_exists($type, $titleKeys)
+                false === strpos($type, 'title-')
+                && !in_array('title-'.$type, $existingTitles)
+                && array_key_exists($type, $titleKeys)
             ) {
                 $flashBag->add(
-                    'title-' . $type,
-                    $this->translator->trans('notes.' . $titleKeys[$type] . '.default_title', [], 'w3c_website_templates_bundle')
+                    'title-'.$type,
+                    $this->translator->trans('notes.'.$titleKeys[$type].'.default_title', [], 'w3c_website_templates_bundle')
                 );
-                $existingTitles[] = 'title-' . $type;
+                $existingTitles[] = 'title-'.$type;
             }
         }
     }

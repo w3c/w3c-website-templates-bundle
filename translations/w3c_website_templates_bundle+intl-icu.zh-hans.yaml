@@ -11,7 +11,7 @@ page:
         万维网联盟 (W3C) 是一个国际标准组织。众多会员组织、全职员工及广大社区通力合作，制定并完善网络标准。
     skip_to_content: 转到内容
     translations: >-
-        <span lang="zh-hans">切换语言：</span>
+        切换语言：
     translationsarialabel: 翻译
     toc: 页面内容
     related_content: 相关内容
@@ -21,11 +21,12 @@ page:
         private: 当前页面可见范围有限
         user: 当前页面仅本人可见
 footer:
-    copyright: "版权所有 &copy; {date, date, ::y}<a hreflang=\"zh-hans\" href=\"https://www.w3.org/zh-hans/\">万维网联盟</a>。<br>\
-        遵循 <abbr title=\"万维网联盟\">W3C</abbr><sup>&reg;</sup>
-        <a href=\"https://www.w3.org/policies/#disclaimers\" hreflang=\"en\">责任声明</a>、\
-        <a href=\"https://www.w3.org/policies/#trademarks\" hreflang=\"en\">标志使用</a>以及\
-        <a rel=\"license\" href=\"https://www.w3.org/copyright/document-license/\"  hreflang=\"en\" title=\"W3C 文档许可\">许可授权</a>。"
+    copyright: >-
+        版权所有 &copy; {date, date, ::y} <a href="https://www.w3.org/zh-hans/">万维网联盟</a>。<br>
+        遵循 <abbr title="万维网联盟">W3C</abbr><sup>&reg;</sup>
+        <a href="https://www.w3.org/policies/#disclaimers" hreflang="en">责任声明</a>、
+        <a href="https://www.w3.org/policies/#trademarks" hreflang="en">标志使用</a>以及
+        <a rel="license" href="https://www.w3.org/copyright/document-license/" hreflang="en" title="W3C 文档许可">许可授权</a>。
     links:
         hreflang: zh-hans
         home: 主页
@@ -34,8 +35,8 @@ footer:
         contacturl: https://www.w3.org/zh-hans/contact/
         help: 帮助
         helpurl: https://www.w3.org/zh-hans/help/
-        donate: 捐赠
-        donateurl: https://www.w3.org/zh-hans/donate/
+        donate: 支持我们
+        donateurl: https://www.w3.org/zh-hans/support-us/
         legal: 法务与政策
         legalurl: https://www.w3.org/zh-hans/policies/
         corporation: 法人实体
@@ -46,9 +47,7 @@ footer:
         github: W3C 在 GitHub
 banner:
     text: >-
-        <span lang="en" dir="ltr">Watch online on 26 September at 1-2am <abbr title="Coordinated Universal Time">UTC</abbr> the
-        <a href="https://www.w3.org/2024/09/TPAC/w3c-30.html"><abbr title="W3C’s 30th anniversary">W3C@30</abbr></a> 
-        talks - &apos;From impact to imperative&apos;</span>
+        我们换新Logo了！<a href="https://www.w3.org/zh-hans/press-releases/2025/new-logo/">了解详情</a>
 header:
     logo_alt: W3C
     logo_link: 访问 W3C 主页
@@ -135,8 +134,8 @@ components:
         get_involved: "参与方式:"
         join: 加入我们
         joinurl: /membership/join
-        donate: 捐赠
-        donateurl: /donate/
+        donate: 支持我们
+        donateurl: /support-us/
     content_slider:
         title: 来自其他组织的评价
     crosslinks:
@@ -150,6 +149,11 @@ components:
             pressrelease: 媒体新闻稿
             pressreleases: 媒体新闻稿
             page: 页面
+    hero:
+        video:
+            play: 播放
+            pause: 暂停
+            not_supported: "抱歉，您的浏览器不支持内嵌视频。您可以点击<a href=\"{video_url}\">此处查看视频</a>。"
 post:
     meta:
         credit: >
@@ -222,8 +226,8 @@ error:
         message: >-
             <p>您需要提供一个 W3C 账号才能继续访问请求页面。</p>
             <ul>
-            <li>如果您没有账号，请<a href="/account/request/" hreflang="en">申请一个新账号</a>。</li>
-            <li>如果您已有账号但是忘记了密码，请<a href="/account/recover/" hreflang="en">恢复密码</a>。</li>
+            <li>如果您没有账号，请<a href="https://www.w3.org/account/request/" hreflang="en">申请一个新账号</a>。</li>
+            <li>如果您已有账号但是忘记了密码，请<a href="https://www.w3.org/account/recover/" hreflang="en">恢复密码</a>。</li>
             <li>如果您的 W3C 账号出现了问题，请发送邮件至
             <a href="mailto:sysreq@w3.org">sysreq@w3.org</a>。
             </li>
@@ -240,16 +244,13 @@ error:
             <p>如果仍有问题，请在<a href="https://www.w3.org/zh-hans/help/">帮助页</a>咨询或者联系<a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>。</p>
     404:
         title: 页面丢失
-#        message: >-
-#          <p>很抱歉，您试图访问的页面不存在。您可以参考下面的步骤来查找页面：</p>
-#          <ul>
-#          <li>如果您是手动输入的 URL 网址，请确认网址是否正确。</li>
-#          <li>如果您在寻找某一特定主题的信息，请在<a href="https://www.w3.org/zh-hans/">W3C 主页</a>检索。</li>
-#          <li>请尝试用本页面顶部的搜索图标来搜索网站。</li>
-#          </ul>
         message: >-
-            <p>新版中文网站目前正在开发中。欢迎继续访问现有中文网站。</p>
-            <p lang="en">The new Chinese site is under development. Please continue to visit our <a href="https://www.chinaw3c.org" hreflang="zh-hans">current Chinese site</a>.</p>
+          <p>很抱歉，您试图访问的页面不存在。您可以参考下面的步骤来查找页面：</p>
+          <ul>
+          <li>如果您是手动输入的 URL 网址，请确认网址是否正确。</li>
+          <li>如果您在寻找某一特定主题的信息，请在<a href="https://www.w3.org/zh-hans/">W3C 主页</a>检索。</li>
+          <li>请尝试用本页面顶部的搜索图标来搜索网站。</li>
+          </ul>
         contact: >-
             <p>如果您仍然有问题，请在<a href="https://www.w3.org/zh-hans/help/">帮助页</a>咨询。</p>
     410:

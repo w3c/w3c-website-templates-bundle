@@ -2,11 +2,11 @@
 
 The following example shows the minimum required for a listing page. This example does not include:
 
-- the complete [global navigation](../components/navigation.md)
+- the complete [global navigation](../components/navigation.md) as per the live site
 - the exact markup of any search and filters and the listings themselves (variations for [posts](#posts), [events](#events), [members](#members), [people](#people) and [groups](#groups) are covered separately)
 - the [pagination component](../components/pagination.md)
 - the optional [pre-footer component](../components/pre-footer.md)
-- the complete list of site links for the [footer](../components/footer.md).
+- the complete list of site links for the [footer](../components/footer.md) as per the live site.
 
 <example title="Bare bones listing template" src="example-pages/listing-base.html.twig" standalone />
 
