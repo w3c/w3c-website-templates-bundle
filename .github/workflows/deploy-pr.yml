@@ -27,6 +27,7 @@ jobs:
         run: npm run build
 
       - name: Upload to cdn-dev.w3.org bucket
+        id: cdn_upload
         if: success()
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -37,9 +38,9 @@ jobs:
 
       - name: Add comment to PR
         uses: actions/github-script@v8
-        #if: ${{ github.event.action == 'opened'}}
+        if: steps.cdn_upload.conclusion == 'success'
         env:
-          BODY_TEXT: 'Assets published to: https://www-dev.w3.org/${{ env.destination }} and available via Composer package: `w3c/website-templates-bundle:dev-${{ github.head_ref }}`'
+          BODY_TEXT: 'Assets published to https://www-dev.w3.org/${{ env.destination }} and Composer package `w3c/website-templates-bundle:dev-${{ github.head_ref }}`'
         with:
           script: |
             github.rest.issues.createComment({
