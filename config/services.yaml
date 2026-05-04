@@ -29,10 +29,11 @@ services:
             $translator: '@translator'
         tags:
             - { name: kernel.event_subscriber }
-    W3C\WebsiteTemplatesBundle\Extensions\Twig\GetFromFrontendExtension:
-        arguments:
-            $baseUrl: '%env(default:frontend_base_url:FRONTEND_BASE_URL)%'
-            $client: '@http_client'
-            $cachePath: '%kernel.project_dir%/var/storage/menus/'
-        tags:
-            - { name: twig.extension }
+
+when@test:
+    services:
+        W3C\WebsiteTemplatesBundle\HttpClient\FakeFragmentsHttpClient:
+            autowire: true
+        W3C\WebsiteTemplatesBundle\Extensions\Twig\GetFromFrontendExtension:
+            arguments:
+                $client: '@W3C\WebsiteTemplatesBundle\HttpClient\FakeFragmentsHttpClient'
