@@ -2,17 +2,17 @@
     #Pre-footer items
 \*------------------------------------*/
 
-.pre-footer.l-switcher {
+.pre-footer .l-switcher {
 	margin: rem(-20);
 }
 
-.pre-footer.l-switcher > * > * {
+.pre-footer .l-switcher > * > * {
     inline-size: calc(920px * 920 - 100% * 920);
 	margin-block-start: rem(40);
 	min-inline-size: 33.333%;
 	padding: rem(20);
 }
 
-.pre-footer.l-switcher > * > * > *:first-child {
+.pre-footer .l-switcher > * > * > *:first-child {
 	margin-block-start: 0;
 }
