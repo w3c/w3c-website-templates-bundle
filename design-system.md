@@ -1,6 +1,19 @@
 # Design System
 
+W3C Design system (front-end templates) for [w3.org](https://www.w3.org/)
+
+Also see:
+* [w3c/w3c-website-frontend](https://github.com/w3c/w3c-website-frontend/) - W3C frontend website
+* [w3c/w3c-website-craft](https://github.com/w3c/w3c-website-craft) - Craft CMS (private repo)
+
+## Reporting issues
+
+Please report any issues to the [w3c-website](https://github.com/w3c/w3c-website/issues) repo.
+
+### In this document
+
 * [Site URLs](#site-urls)
+* [Directory structure](#directory-structure)
 * [Installing](#installing)
 * [Making changes](#making-changes)
 * [Testing the documentation locally](#testing-the-documentation-locally)
@@ -53,19 +66,22 @@ note this requires PHP 7.4+
 composer install
 ```
 
-### Deployment setup
-To deploy the website you need to add the following to your `~/.ssh/config` file:
+### Note on SSH setup
 
-```
+In order to deploy to the W3C hosting environment you need to update your local ssh config (`.ssh/config`) with the following code:
+
+````
 Host *.w3.internal
 ProxyJump studio24@ssh-aws.w3.org
-```
+````
 
 You can test this works by:
 
 ```
-dep ssh staging
+dep ssh development
 ```
+
+The W3C team also need to ensure your SSH key is set up for the `studio24` user.
 
 ## Making changes
 
@@ -226,7 +242,9 @@ To deploy a specific branch use:
 vendor/bin/dep deploy <environment> --branch=<branch_name>
 ````
 
-### Testing a development branch on your front-end website
+## Testing a development branch on your front-end website
+
+See 
 
 It can be useful to test changes to the design system on the [W3C front-end website](https://github.com/w3c/w3c-website-frontend).
 A guide on this is below:

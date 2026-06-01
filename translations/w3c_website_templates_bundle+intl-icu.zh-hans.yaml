@@ -11,7 +11,7 @@ page:
         万维网联盟 (W3C) 是一个国际标准组织。众多会员组织、全职员工及广大社区通力合作，制定并完善网络标准。
     skip_to_content: 转到内容
     translations: >-
-        <span lang="zh-hans">切换语言：</span>
+        切换语言：
     translationsarialabel: 翻译
     toc: 页面内容
     related_content: 相关内容
@@ -21,11 +21,12 @@ page:
         private: 当前页面可见范围有限
         user: 当前页面仅本人可见
 footer:
-    copyright: "版权所有 &copy; {date, date, ::y}<a hreflang=\"zh-hans\" href=\"https://www.w3.org/zh-hans/\">万维网联盟</a>。<br>\
-        遵循 <abbr title=\"万维网联盟\">W3C</abbr><sup>&reg;</sup>
-        <a href=\"https://www.w3.org/policies/#disclaimers\" hreflang=\"en\">责任声明</a>、\
-        <a href=\"https://www.w3.org/policies/#trademarks\" hreflang=\"en\">标志使用</a>以及\
-        <a rel=\"license\" href=\"https://www.w3.org/copyright/document-license/\"  hreflang=\"en\" title=\"W3C 文档许可\">许可授权</a>。"
+    copyright: >-
+        版权所有 &copy; {date, date, ::y} <a href="https://www.w3.org/zh-hans/">万维网联盟</a>。<br>
+        遵循 <abbr title="万维网联盟">W3C</abbr><sup>&reg;</sup>
+        <a href="https://www.w3.org/policies/#disclaimers" hreflang="en">责任声明</a>、
+        <a href="https://www.w3.org/policies/#trademarks" hreflang="en">标志使用</a>以及
+        <a rel="license" href="https://www.w3.org/copyright/document-license/" hreflang="en" title="W3C 文档许可">许可授权</a>。
     links:
         hreflang: zh-hans
         home: 主页
@@ -35,7 +36,7 @@ footer:
         help: 帮助
         helpurl: https://www.w3.org/zh-hans/help/
         donate: 支持我们
-        donateurl: https://www.w3.org/support-us/
+        donateurl: https://www.w3.org/zh-hans/support-us/
         legal: 法务与政策
         legalurl: https://www.w3.org/zh-hans/policies/
         corporation: 法人实体
@@ -225,8 +226,8 @@ error:
         message: >-
             <p>您需要提供一个 W3C 账号才能继续访问请求页面。</p>
             <ul>
-            <li>如果您没有账号，请<a href="/account/request/" hreflang="en">申请一个新账号</a>。</li>
-            <li>如果您已有账号但是忘记了密码，请<a href="/account/recover/" hreflang="en">恢复密码</a>。</li>
+            <li>如果您没有账号，请<a href="https://www.w3.org/account/request/" hreflang="en">申请一个新账号</a>。</li>
+            <li>如果您已有账号但是忘记了密码，请<a href="https://www.w3.org/account/recover/" hreflang="en">恢复密码</a>。</li>
             <li>如果您的 W3C 账号出现了问题，请发送邮件至
             <a href="mailto:sysreq@w3.org">sysreq@w3.org</a>。
             </li>

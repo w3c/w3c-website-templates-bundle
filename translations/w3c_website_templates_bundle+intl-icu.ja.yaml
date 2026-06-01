@@ -11,7 +11,7 @@ page:
         ワールド・ワイド・ウェブ・コンソーシアム (W3C)は、会員組織、常勤スタッフ、および一般の人々が協力してウェブ標準を開発する国際的なコミュニティです。
     skip_to_content: コンテンツへスキップ
     translations: >-
-        <span lang="ja">言語切り替え：</span>
+        言語切り替え：
     translationsarialabel: 翻訳
     toc: ページの内容
     related_content: 関連コンテンツ
@@ -22,22 +22,22 @@ page:
         user: このページはあなたに限定されています
 footer:
     copyright: >-
-        <span lang="en">著作権 © {date, date, ::y} <a href="https://www.w3.org/ja/" hreflang="ja">ワールド・ワイド・ウェブ・コンソーシアム</a>。<br>
-        <abbr title="World Wide Web Consortium">W3C</abbr><sup>®</sup>
-        <a href="https://www.w3.org/policies/#disclaimers">免責事項</a>、
-        <a href="https://www.w3.org/policies/#trademarks">商標</a>、および
-        <a rel="license" href="https://www.w3.org/copyright/document-license/" title="W3C 文書ライセンス">寛容なライセンス</a>
-        の規則が適用されます。</span>
+        著作権 &copy; {date, date, ::y} <a href="https://www.w3.org/" hreflang="en">ワールド・ワイド・ウェブ・コンソーシアム</a>。<br>
+        <abbr title="World Wide Web Consortium">W3C</abbr><sup>&reg;</sup>
+        <a href="https://www.w3.org/policies/#disclaimers" hreflang="en">免責事項</a>、
+        <a href="https://www.w3.org/policies/#trademarks" hreflang="en">商標</a>、および
+        <a rel="license" href="https://www.w3.org/copyright/document-license/" hreflang="en" title="W3C 文書ライセンス">寛容なライセンス</a>
+        の規則が適用されます。
     links:
         hreflang: ja
-        home: <span lang="ja" dir="ltr">ホーム</span>
+        home: ホーム
         homeurl: https://www.w3.org/ja/
         contact: お問い合わせ
         contacturl: https://www.w3.org/ja/contact/
-        help: <span lang="ja" dir="ltr">ヘルプ</span>
+        help: ヘルプ
         helpurl: https://www.w3.org/ja/help/
         donate: ご支援を
-        donateurl: https://www.w3.org/support-us/
+        donateurl: https://www.w3.org/ja/support-us/
         legal: 法的事項と方針
         legalurl: https://www.w3.org/ja/policies/
         corporation: 会社概要
@@ -227,46 +227,46 @@ error:
         message: >-
             <p>リクエストされたページにアクセスするにはW3Cアカウントが必要です。</p>
             <ul>
-            <li>もしお持ちでなければ、<a href="/account/request/">新しいアカウントをリクエストしてください</a>。</li>
-            <li>アカウントをお持ちでパスワードを忘れた場合は、<a href="/account/recover/">パスワードを回復してください</a>。</li>
+            <li>もしお持ちでなければ、<a href="https://www.w3.org/account/request/" hreflang="en">新しいアカウントをリクエストしてください</a>。</li>
+            <li>アカウントをお持ちでパスワードを忘れた場合は、<a href="https://www.w3.org/account/recover/" hreflang="en">パスワードを回復してください</a>。</li>
             <li>W3Cアカウントに関するトラブルがある場合は、<a href="mailto:sysreq@w3.org">sysreq@w3.org</a>までメールを送ってください。</li>
             </ul>
         contact: >-
-            <p>当サイトの既知の問題については、<a href="https://status.w3.org/">システムステータスページ</a>をご覧ください。</p>
-            <p>質問がある場合は、<a href="https://www.w3.org/help/">ヘルプページ</a>をご覧いただくか、<a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>までお問い合わせください。</p>
+            <p>当サイトの既知の問題については、<a href="https://status.w3.org/" hreflang="en">システムステータスページ</a>をご覧ください。</p>
+            <p>質問がある場合は、<a href="https://www.w3.org/ja/help/">ヘルプページ</a>をご覧いただくか、<a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>までお問い合わせください。</p>
     403:
         title: アクセスが拒否されました
         message: >-
             <p>リクエストしたページにアクセス権限がありません：<strong>{message}</strong></p>
         contact: >-
-            <p>当サイトの既知の問題に関する情報は、<a href="https://status.w3.org/">システムステータスページ</a>を参照してください。</p>
-            <p>質問がある場合は、<a href="https://www.w3.org/help/">ヘルプページ</a>をご覧いただくか、<a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>までお問い合わせください。</p>
+            <p>当サイトの既知の問題に関する情報は、<a href="https://status.w3.org/" hreflang="en">システムステータスページ</a>を参照してください。</p>
+            <p>質問がある場合は、<a href="https://www.w3.org/ja/help/">ヘルプページ</a>をご覧いただくか、<a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>までお問い合わせください。</p>
     404:
         title: ページが見つかりません
         message: >-
             <p>申し訳ありませんが、アクセスしようとしたページは存在しません。以下は、お探しのページを見つけるために試すことができるいくつかのステップです:</p>
             <ul>
             <li>URLを手入力した場合は、正確な形式で入力されていることを確認してください。</li>
-            <li>特定のトピックの情報をお探しの場合は、<a href="https://www.w3.org/">W3Cホームページ</a>から始めてください。</li>
+            <li>特定のトピックの情報をお探しの場合は、<a href="https://www.w3.org/" hreflang="en">W3Cホームページ</a>から始めてください。</li>
             <li>このページの上部にある検索アイコンを使用してサイトを検索してみてください。</li>
             </ul>
         contact: >-
-            <p>質問がある場合は、<a href="https://www.w3.org/help/">ヘルプページ</a>をご参照いただくか、お問い合わせください。</p>
+            <p>質問がある場合は、<a href="https://www.w3.org/ja/help/">ヘルプページ</a>をご参照いただくか、お問い合わせください。</p>
     410:
         title: 削除済み
         message: >-
             <p>要求されたリソースはこのサーバーで利用できなくなり、
             転送先のアドレスもありません。このリソースへの参照をすべて削除してください。</p>
             <p>必要な情報を見つけるために、<a
-            href="https://www.w3.org/">W3Cホームページ</a>を参照するか、
+            href="https://www.w3.org/" hreflang="en">W3Cホームページ</a>を参照するか、
             このページの上部にある検索アイコンを使用してサイトを検索できるかもしれません。</p>
         contact: >-
-            <p>質問がある場合は、<a href="https://www.w3.org/help/">ヘルプページ</a>をご参照いただくか、お問い合わせください。</p>
+            <p>質問がある場合は、<a href="https://www.w3.org/ja/help/">ヘルプページ</a>をご参照いただくか、お問い合わせください。</p>
     500:
         title: サーバーエラー
         message: >-
             <p>サーバーは内部エラーまたは設定ミスを検出し、リクエストを完了できませんでした。</p>
         contact: >-
-            <p>当サイトの既知の問題に関する情報については、<a href="https://status.w3.org/">システムステータスページ</a>をご覧ください。</p>
+            <p>当サイトの既知の問題に関する情報については、<a href="https://status.w3.org/" hreflang="en">システムステータスページ</a>をご覧ください。</p>
             <p>そのページに記載されていない問題を報告するには、<a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>にお問い合わせください。</p>
             
