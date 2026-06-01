@@ -49,6 +49,11 @@
 	> * {
 		max-inline-size: rem(820);
 	}
+
+	+ .tr-list__item {
+		content-visibility: auto;
+		contain-intrinsic-size: 1px 300px;
+	}
 }
 
 .tr-list__item__header {
