@@ -75,6 +75,8 @@ Host *.w3.internal
 ProxyJump studio24@ssh-aws.w3.org
 ````
 
+If you have further issues with SSH access then please contact W3C for assistance.
+
 You can test this works by:
 
 ```
