@@ -78,7 +78,7 @@ ProxyJump studio24@ssh-aws.w3.org
 You can test this works by:
 
 ```
-dep ssh development
+./vendor/bin/dep ssh staging
 ```
 
 The W3C team also need to ensure your SSH key is set up for the `studio24` user.
