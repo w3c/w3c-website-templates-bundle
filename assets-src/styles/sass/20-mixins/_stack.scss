@@ -27,6 +27,6 @@ article {
 	justify-content: flex-start;
 
 	& > * + * {
-		margin-top: $measure;
+		margin-block-start: $measure;
 	}
 }

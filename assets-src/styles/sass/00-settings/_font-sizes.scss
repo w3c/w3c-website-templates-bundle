@@ -1,0 +1,20 @@
+/*------------------------------------*\
+    #Font sizes
+
+    Fluid type calculations generated using Utopia:
+    https://utopia.fyi/type/calculator/?c=320,16,1.125,1120,18,1.125,7,1,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12
+
+    CSS custom property names have been adapted from Utopia, add namespacing, give explicit usage context and use kebab case.
+\*------------------------------------*/
+
+:root {
+    --w3c-text-01: clamp(0.8889rem, 0.8444rem + 0.2222vw, 1rem);
+    --w3c-text-0: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    --w3c-text-1: clamp(1.125rem, 1.0688rem + 0.2813vw, 1.2656rem);
+    --w3c-text-2: clamp(1.2656rem, 1.2023rem + 0.3164vw, 1.4238rem);
+    --w3c-text-3: clamp(1.4238rem, 1.3526rem + 0.356vw, 1.6018rem);
+    --w3c-text-4: clamp(1.6018rem, 1.5217rem + 0.4005vw, 1.802rem);
+    --w3c-text-5: clamp(1.802rem, 1.7119rem + 0.4505vw, 2.0273rem);
+    --w3c-text-6: clamp(2.0273rem, 1.9259rem + 0.5068vw, 2.2807rem);
+    --w3c-text-7: clamp(2.2807rem, 2.1667rem + 0.5702vw, 2.5658rem);
+}

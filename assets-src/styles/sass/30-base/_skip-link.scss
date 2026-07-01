@@ -8,25 +8,17 @@
 	border: solid 3px $black;
 	color: $black;
 	padding: em(10) em(15);
+    position: absolute;
 	text-decoration: none;
 
 	&:active,
 	&:focus {
-		left: 0;
-		position: absolute;
-		top: 0;
+        inset-block-start: 0;
+        inset-inline-start: 0;
 		z-index: 999;
 
 		span {
 			box-shadow: 0 -1px 0 0 inset;
 		}
-	}
-}
-
-[dir="rtl"] {
-	.skip-link &:active,
-	.skip-link &:focus {
-		left: auto;
-		right: 0;
 	}
 }

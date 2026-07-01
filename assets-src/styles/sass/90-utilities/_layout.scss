@@ -7,12 +7,10 @@ The parent must be exactly centered in the browser in order for this
 to work - see https://css-tricks.com/full-width-containers-limited-width-parents/
  */
 .u-full-width {
-	left: 50%;
-	margin-left: -50vw;
-	margin-right: -50vw;
-	position: relative;
-	right: 50%;
-	width: 100vw;
+    inline-size: 100vw;
+    inset-inline: 50%;
+    margin-inline: -50vw;
+    position: relative;
 }
 
 
@@ -21,7 +19,6 @@ to work - see https://css-tricks.com/full-width-containers-limited-width-parents
 To horizontally center a block-level item
  */
 .u-center {
-	margin-left: auto;
-	margin-right: auto;
+	margin-inline: auto;
 	position: relative;
 }

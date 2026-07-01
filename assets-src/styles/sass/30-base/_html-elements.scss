@@ -2,12 +2,6 @@
     #HTML elements
 \*------------------------------------*/
 
-abbr {
-	text-decoration-skip-ink: auto; // Not supported by Safari
-	text-underline-offset: 0.25em; // Supported by Safari
-}
-
-
 dfn {
 	font-style: normal;
 	font-weight: $emphasis;
@@ -30,7 +24,8 @@ i {
 small,
 .small,
 .small-caps {
-	@include txt-eris;
+	//@include txt-eris;
+	font-size: var(--w3c-text-01);
 }
 
 
@@ -47,8 +42,7 @@ pre {
 	font-size: .9em;
 	hyphens: none;
 	orphans: 3;
-	padding-left: rem(3);
-	padding-right: rem(3);
+	padding-inline: rem(3);
 	page-break-before: avoid;
 	text-transform: none;
 	widows: 3;

@@ -13,7 +13,7 @@ This repo contains the design system documentation, frontend assets and example 
 
 For documentation on how to use the W3C design system, see the [Design System website](https://design-system.w3.org/).
 
-For documentation on how to make updates to the design system codebase, see the [design-system.md README](design-system.md).
+For documentation on how to make updates to the design system codebase (including how to deploy changes), see the [design-system.md README](design-system.md).
 
 ## Template bundle
 

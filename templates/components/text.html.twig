@@ -1,3 +1,3 @@
-<div class="component component--text"{% if id is defined and id %} id="{{ id }}"{% endif %}>
+<div {% if id is defined and id %} id="{{ id }}"{% endif %}>
     {% block text %}{% endblock %}
 </div>

@@ -8,8 +8,7 @@
 
 #global-nav {
 	display: block;
-	padding-bottom: em(26);
-	padding-top: em(26);
+	padding-block: rem(26);
 }
 
 .global-nav__inner {
@@ -28,14 +27,14 @@
 	display: flex;
 	flex-basis: 100%;
 	flex-wrap: wrap;
-	padding-bottom: rem(45);
-	width: 100%;
+    inline-size: 100%;
+	padding-block-end: rem(45);
 
 	@include mq($max-width) {
 		flex-basis: auto;
 		flex-wrap: nowrap;
 		margin-inline-start: em(48);
-		padding-bottom: 0;
+        padding-block-end: 0;
 	}
 }
 
@@ -52,11 +51,11 @@ li.top-nav-item + li.top-nav-item {
 }
 
 .global-nav__inner .top-nav-item {
-	border-bottom: solid 1px $border-color;
+	border-block-end: solid 1px $border-color;
 	flex-basis: 100%;
 
 	@include mq($max-width) {
-		border-bottom: none;
+		border-block-end: none;
 		flex-basis: auto;
 	}
 }
@@ -103,16 +102,16 @@ li.top-nav-item + li.top-nav-item {
 
 	@include mq($max-width) {
 		position: relative;
-		
+
 		&::before {
 			background-color: $w3c-blue;
-			bottom: rem(-3);
+            block-size: rem(3);
 			content:'';
 			display: none;
-			height: rem(3);
-			left: 0;
+            inline-size: 100%;
+            inset-block-end: rem(-3);
+			inset-inline-start: 0;
 			position: absolute;
-			width: 100%;
 		}
 
 		&:hover::before {
@@ -125,18 +124,18 @@ li.top-nav-item + li.top-nav-item {
 	align-items: center;
 	color: $off-black;
 	display: flex;
-	min-height: rem(44);
+	min-block-size: rem(44);
 	text-decoration: none !important;
 
 	@include mq($max-width) {
+        block-size: 100%;
 		display: inline-flex;
 		justify-content: center;
-		height: 100%;
-		min-width: rem(44);
+		min-inline-size: rem(44);
 	}
 
 	&::before {
-		bottom: 0 !important;
+		inset-block-end: 0 !important;
 	}
 
 	&:visited,
@@ -154,49 +153,48 @@ li.top-nav-item + li.top-nav-item {
 		margin-inline-start: rem(10);
 
 		@include mq($max-width) {
+            block-size: 1px;
 			border: 0;
 			clip: rect(0 0 0 0);
 			clip-path: inset(100%);
-			height: 1px;
+            inline-size: 1px;
 			margin-inline-start: 0;
 			overflow: hidden;
 			padding: 0;
 			position: absolute;
 			white-space: nowrap;
-			width: 1px;
 		}
 	}
 }
 
 .account-login {
 	flex-basis: 100%;
-	font-size: rem(14) !important;
+	font-size: var(--w3c-text-01) !important;
 
 	@include mq($max-width) {
 		flex-basis: auto;
-		padding-bottom: rem(10);
-		padding-top: rem(10);
+		padding-block: rem(10);
 	}
 }
 
 .global-nav__inner .top-nav-item > *:first-child {
 	@include mq($max-width) {
-		font-size: 1rem;
-		height: 100%;
-		line-height: rem(27);
+        block-size: 100%;
+		font-size: var(--w3c-text-01);
+		//line-height: rem(27);
 		padding: rem(10) rem(5) rem(7) !important;
 		position: relative;
 		white-space: nowrap;
 
 		&::before {
 			background-color: $w3c-blue;
-			bottom: rem(-2);
+            block-size: rem(3);
 			content:'';
 			display: none;
-			height: rem(3);
-			left: 0;
+            inline-size: 100%;
+            inset-block-end: rem(-2);
+			inset-inline-start: 0;
 			position: absolute;
-			width: 100%;
 		}
 
 		&:hover::before {
@@ -222,8 +220,8 @@ li.top-nav-item + li.top-nav-item {
 #archive-nav ul,
 #category-nav ul {
 	background-color: $white;
+    block-size: rem(180);
 	border: solid 1px $border-color;
-	height: rem(180);
 	overflow: auto;
 
 	a {

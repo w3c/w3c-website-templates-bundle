@@ -4,8 +4,8 @@
 
 .family-grouping {
     padding-block-start: rem(28);
-}
 
-.family-grouping h2 + * {
-    margin-block-start: 1rem;
+    > *:first-child {
+        margin-block-start: 0;
+    }
 }
