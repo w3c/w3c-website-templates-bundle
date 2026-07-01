@@ -25,7 +25,7 @@ function domLoadedActions() {
 
 	if (navDoubleIntro) {
 		let siteNav = new navigation(navDoubleIntro, {
-			breakpoint: 1120,
+			breakpoint: 1200,
 			cloneTopLevelLink: false,
 			submenuIntro: true
 		});
