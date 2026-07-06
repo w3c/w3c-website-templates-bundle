@@ -75,6 +75,10 @@
 	margin-block-end: rem(20);
 	padding-block-end: rem(40);
 
+	p {
+		max-inline-size: none;
+	}
+
 	+ * {
 		margin-block-start: 0;
 	}
