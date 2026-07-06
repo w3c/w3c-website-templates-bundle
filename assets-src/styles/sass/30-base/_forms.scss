@@ -30,7 +30,8 @@ element that comes immediately after another `.field`. It doesn't matter if `.fi
 child of the parent form or part of a nested container.
  */
 form > * + *,
-.field + .field {
+.field + .field,
+legend + .field {
 	margin-block-start: 1.75rem;
 }
 
