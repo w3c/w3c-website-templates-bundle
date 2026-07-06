@@ -9,6 +9,7 @@
 .event .intro {
 	display: flex;
 	flex-direction: column;
+	margin-block-end: rem(20);
 	margin-inline-start: rem(30);
 	position: relative;
 
@@ -38,9 +39,9 @@
 		background-color: $red;
 	}
 
-	// h1 {
-	// 	margin-block-end: 0;
-	// }
+	 h1 {
+	 	margin-block-end: 0;
+	 }
 
 	h1 + * {
 		//@include txt-mars;
