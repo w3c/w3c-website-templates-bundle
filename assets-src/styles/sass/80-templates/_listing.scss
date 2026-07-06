@@ -3,16 +3,15 @@
 \*------------------------------------*/
 
 .listing {
-	.wrap {
-		background-color: $mist-gray;
-	}
-
 	#breadcrumb {
 		background-color: $white;
 	}
 
 	main,
 	#main {
+		background-color: $mist-gray;
+		box-shadow: 0 0 0 100vmax $mist-gray;
+		clip-path: inset(0 -100vmax);
 		padding-block-start: 0;
 	}
 
