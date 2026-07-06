@@ -427,8 +427,8 @@ show all available options outright, rather than hide them behind a <select>
 			display: block;
 		}
 
-		span:last-of-type {
-			font-weight: normal;
+		span:first-child {
+			font-weight: $emphasis;
 		}
 	}
 
