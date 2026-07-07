@@ -9,7 +9,7 @@
 {%- endblock form -%}
 
 {%- block form_start -%}
-    {% set attr = attr|merge({class: attr.class|default('') ~ 'l-switcher filters', novalidate: ''}) %}
+    {% set attr = attr|merge({class: attr.class|default('') ~ 'filters', novalidate: ''}) %}
     {{ parent() }}
         <div>
 {%- endblock form_start -%}
