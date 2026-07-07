@@ -16,7 +16,7 @@
 	display: flex;
 	flex-wrap: wrap;
 
-	@include mq($max-width) {
+	@include mq($bp-lap) {
 		flex-wrap: nowrap;
 		position: relative;
 	}
@@ -30,7 +30,7 @@
     inline-size: 100%;
 	padding-block-end: rem(45);
 
-	@include mq($max-width) {
+	@include mq($bp-lap) {
 		flex-basis: auto;
 		flex-wrap: nowrap;
 		margin-inline-start: em(48);
@@ -39,13 +39,13 @@
 }
 
 li.top-nav-item + li.top-nav-item {
-	@include mq($max-width) {
+	@include mq($bp-lap) {
 		margin-inline-start: rem(8);
 	}
 }
 
 .global-nav__inner > ul > li:last-child {
-	@include mq($max-width) {
+	@include mq($bp-lap) {
 		margin-inline-start: auto;
 	}
 }
@@ -54,7 +54,7 @@ li.top-nav-item + li.top-nav-item {
 	border-block-end: solid 1px $border-color;
 	flex-basis: 100%;
 
-	@include mq($max-width) {
+	@include mq($bp-lap) {
 		border-block-end: none;
 		flex-basis: auto;
 	}
@@ -67,7 +67,7 @@ li.top-nav-item + li.top-nav-item {
 	position: relative;
 	text-decoration: none;
 
-	@include mq($max-width) {
+	@include mq($bp-lap) {
 		display: inline-block;
 	}
 }
@@ -100,7 +100,7 @@ li.top-nav-item + li.top-nav-item {
 		outline-offset: 3px;
 	}
 
-	@include mq($max-width) {
+	@include mq($bp-lap) {
 		position: relative;
 
 		&::before {
@@ -127,7 +127,7 @@ li.top-nav-item + li.top-nav-item {
 	min-block-size: rem(44);
 	text-decoration: none !important;
 
-	@include mq($max-width) {
+	@include mq($bp-lap) {
         block-size: 100%;
 		display: inline-flex;
 		justify-content: center;
@@ -152,7 +152,7 @@ li.top-nav-item + li.top-nav-item {
 	.hide-at-max-width {
 		margin-inline-start: rem(10);
 
-		@include mq($max-width) {
+		@include mq($bp-lap) {
             block-size: 1px;
 			border: 0;
 			clip: rect(0 0 0 0);
@@ -171,14 +171,14 @@ li.top-nav-item + li.top-nav-item {
 	flex-basis: 100%;
 	font-size: var(--w3c-text-01) !important;
 
-	@include mq($max-width) {
+	@include mq($bp-lap) {
 		flex-basis: auto;
 		padding-block: rem(10);
 	}
 }
 
 .global-nav__inner .top-nav-item > *:first-child {
-	@include mq($max-width) {
+	@include mq($bp-lap) {
         block-size: 100%;
 		font-size: var(--w3c-text-01);
 		//line-height: rem(27);

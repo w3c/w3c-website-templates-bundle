@@ -48,7 +48,7 @@
 		display: flex;
 	}
 
-	@include mq($max-width) {
+	@include mq($bp-lap) {
 		display: none;
 	}
 }
@@ -79,7 +79,7 @@
 	padding-inline: 5vw;
 	position: absolute;
 
-	@include mq($max-width) {
+	@include mq($bp-lap) {
 		border: none;
 		box-shadow: none;
 		flex-basis: auto;
@@ -113,7 +113,7 @@
 	outline-offset: -1px;
 	padding: rem(12) 0;
 
-	@include mq($max-width) {
+	@include mq($bp-lap) {
 		display: inline-flex;
 	}
 
@@ -121,7 +121,7 @@
         margin-inline-start: auto !important;
         transform: rotate(-45deg);
 
-        @include mq($max-width) {
+        @include mq($bp-lap) {
             margin-block-start: rem(-3);
             margin-inline-start: rem(8) !important;
             transform: rotate(45deg);
@@ -139,7 +139,7 @@
 	}
 
 	&[aria-expanded='true'] {
-		@include mq($max-width) {
+		@include mq($bp-lap) {
             &::after {
                 margin-block-start: 0;
                 scale: -1;
@@ -152,7 +152,7 @@
     .global-nav__inner [data-trigger='sub-nav']::after {
         transform: rotate(135deg);
 
-        @include mq($max-width) {
+        @include mq($bp-lap) {
             margin-inline-start: rem(4);
             transform: rotate(45deg);
         }
@@ -172,7 +172,7 @@
 	position: absolute;
 	z-index: 5;
 
-	@include mq($max-width) {
+	@include mq($bp-lap) {
 		border-block-end: solid 1px $border-color;
 		border-block-start: solid 1px $border-color;
 		inset-block-start: calc(100% + rem(26));
@@ -184,14 +184,14 @@
 }
 
 .global-nav__inner .nav__submenu .l-center {
-	@include mq($max-width) {
+	@include mq($bp-lap) {
 		display: flex;
 		justify-content: space-between;
 	}
 }
 
 .global-nav__inner .nav__submenu__intro {
-	@include mq($max-width) {
+	@include mq($bp-lap) {
 		inline-size: 30%;
 	}
 
@@ -203,7 +203,7 @@
 		margin-block-start: rem(25);
 		padding-block: rem(6);
 
-		@include mq($max-width) {
+		@include mq($bp-lap) {
 			//font-size: rem(34);
 			//line-height: calc(43 / 34);
 			margin-block-end: rem(25);
@@ -219,7 +219,7 @@
 	*:not(a) {
 		display: none;
 
-		@include mq($max-width) {
+		@include mq($bp-lap) {
 			display: block;
 		}
 	}
@@ -232,7 +232,7 @@
 		padding-block-end: rem(9);
 		padding-block-start: 0;
 
-		@include mq($max-width) {
+		@include mq($bp-lap) {
             margin-block-end: 0;
             margin-block-start: 1rem;
             padding-block-start: rem(9);
@@ -257,7 +257,7 @@
 	font-size: var(--w3c-text-2);
 	padding: rem(12) 5vw;
 
-	@include mq($max-width) {
+	@include mq($bp-lap) {
 		display: none;
 	}
 
@@ -283,7 +283,7 @@
 }
 
 .global-nav__inner .nav__submenu ul {
-	@include mq($max-width) {
+	@include mq($bp-lap) {
 		columns: 2;
 		column-gap: rem(40);
 		width: 65%;
@@ -294,7 +294,7 @@
 	border-block-end: solid 1px $border-color;
 	padding-block: rem(3);
 
-	@include mq($max-width) {
+	@include mq($bp-lap) {
         border-block-end: 0;
         padding-block: 0;
 	}
@@ -307,7 +307,7 @@
 	padding-block: rem(8);
 	text-decoration: none;
 
-	@include mq($max-width) {
+	@include mq($bp-lap) {
         align-items: flex-start;
         display: inline-flex;
         inline-size: auto;
