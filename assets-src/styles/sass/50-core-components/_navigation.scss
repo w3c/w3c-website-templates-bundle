@@ -180,7 +180,6 @@ li.top-nav-item + li.top-nav-item {
 .global-nav__inner .top-nav-item > *:first-child {
 	@include mq($bp-lap) {
         block-size: 100%;
-		font-size: var(--w3c-text-01);
 		//line-height: rem(27);
 		padding: rem(10) rem(5) rem(7) !important;
 		position: relative;
