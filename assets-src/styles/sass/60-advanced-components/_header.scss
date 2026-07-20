@@ -32,7 +32,6 @@
 	}
 
 	@include mq($max-width) {
-		align-self: center;
 		margin-inline-start: auto;
 		padding: rem(8) rem(3) rem(5) rem(3);
 
