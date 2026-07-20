@@ -1,9 +1,7 @@
 /*------------------------------------*\
     #Buttons
 
-    1. Prevent `.button` going full-width if a child of a flex column.
-
-    2. High contrast themes tend to eliminate background-color.
+    1. High contrast themes tend to eliminate background-color.
     With no border set, we need to apply a transparent outline to
     maintain the button shape. The negative outline-offset moves
     the outline inside the perimeter so it behaves like a border.
@@ -12,7 +10,6 @@
 button,
 .button {
     align-items: center;
-    align-self: start; /* 1 */
 	background-color: $link-color;
 	border: solid 2px $link-color;
 	border-radius: rem(24);
@@ -21,8 +18,8 @@ button,
 	font-size: var(--w3c-text-01);
 	font-weight: $emphasis;
     justify-content: center;
-	outline: 2px solid transparent; /* 2 */
-	outline-offset: -2px; /* 2 */
+	outline: 2px solid transparent; /* 1 */
+	outline-offset: -2px; /* 1 */
 	padding: rem(11) rem(24);
 
 	&:hover {
