@@ -1,7 +1,7 @@
 /**
 * Print stylesheet
 * @version         1.1
-* @lastmodified    08.09.2021
+* @lastmodified    22.07.2026
 
 We aim to:
 - Hide everything that is irrelevant for print
@@ -121,8 +121,9 @@ ul {
 	page-break-before: avoid;
 }
 
-ul:not([class]),
-ol:not([class]),
+ul,
+ol,
+.nomarkers-list,
 .clean-list {
 	> * + *,
 	li ul,
@@ -131,22 +132,13 @@ ol:not([class]),
 	}
 }
 
-.clean-list {
+.nomarkers-list {
 	padding: 0;
 }
 
-ol:not([class]) {
-	counter-reset: count;
-	list-style-type: none;
-	padding-inline-start: 15pt;
-
-	> li {
-		counter-increment: count;
-
-		&::before {
-			content: counters(count, ".") " ";
-			padding-inline-end: 6pt;
-		}
+ol.counter {
+	::marker {
+		content: counters(list-item, ".") ". ";
 	}
 }
 
@@ -346,10 +338,6 @@ figure {
 			right: auto;
 		}
 	}
-}
-
-.card--event .icon {
-	display: none !important;
 }
 
 .component + .component {
@@ -552,7 +540,7 @@ figure {
 }
 
 .avatar {
-	border-radius: 50%;
+	border-radius: 0;
 	height: 75pt;
 	overflow: hidden !important;
 	position: relative;
@@ -618,24 +606,24 @@ figure {
 }
 
 .component--evangelists__list,
-.people-list {
+.card--user {
 	a[href^=mailto]::after,
 	a[href^=tel]::after {
 		display: none;
 	}
 }
 
-.people-list > li + li {
-	margin-top: 30pt;
-}
-
-.people-list .l-cluster > * > * {
+.card--user .l-cluster > * > * {
 	display: block;
 }
 
-.people-list > li > div:not(.alumni) {
+.card--user > div:not(.alumni) {
 	padding-top: 75pt;
 	position: relative;
+
+	.not-sidebar {
+		margin-bottom: 20pt;
+	}
 
 	h2, h3 {
 		margin-top: 12pt;
@@ -647,23 +635,27 @@ figure {
 	}
 }
 
-.people-list .sidebar {
+.card--user .sidebar {
 	width: 75pt;
 }
 
-.event-list .card__image {
+.card--event .card__image {
 	width: 120pt;
 }
 
-.group-list a[href]::after {
+.card--event .icon {
+	display: none !important;
+}
+
+.card--group a[href]::after {
 	display: block;
 }
 
-.member-list .logo--member {
+.card--member .logo--member {
 	display: none;
 }
 
-.post-list > li > div {
+.card--post:has(.l-frame) {
 	min-height: 5cm;
 	padding-right: 6cm;
 	position: relative;
@@ -681,7 +673,7 @@ figure {
 }
 
 [dir="rtl"] {
-	.post-list > li > div {
+	.card--post:has(.l-frame){
 		padding-right: 0;
 		padding-left: 6cm;
 
@@ -737,9 +729,9 @@ footer {
 .date-location img,
 .card--group dl,
 .card--group .l-cluster,
-.people-list .icon,
-.post-list .icon,
-.post-list .tag,
+.card--user .icon,
+.card--post .icon,
+.card--post .tag,
 .post .rss .icon,
 .comments,
 .pre-footer,
