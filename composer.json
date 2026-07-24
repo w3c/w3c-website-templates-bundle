@@ -4,6 +4,12 @@
     "description": "W3C Website Templates",
     "homepage": "https://github.com/w3c/w3c-website-templates-bundle",
     "license": "W3C-20150513",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Seros/RequestIdBundle.git"
+        }
+    ],
     "require": {
         "php": ">=8.2",
         "ext-dom": "*",
@@ -17,7 +23,7 @@
         "symfony/twig-bridge": "*",
         "twig/twig": "^3.10",
         "twig/intl-extra": "^3.3",
-        "chrisguitarguy/request-id-bundle": "^6.0"
+        "chrisguitarguy/request-id-bundle": "dev-support-symfony-8"
     },
     "autoload": {
         "psr-4": {
@@ -32,7 +38,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "7.4.*"
+            "require": "7.4.*|8.0.*"
         }
     }
 }
