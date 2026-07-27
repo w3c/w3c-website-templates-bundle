@@ -24,13 +24,14 @@ ol.counter {
 
 
 /**
-Remove bullets/numbering from lists with the `.nomarkers-list` class.
+Remove bullets/numbering from lists and padding on leading edge with the `.nomarkers-list` class.
 This may remove list semantics in some circumstances in older WebKit browsers.
 See https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
 If it's important that the number of items in a list is announced, add role="list" to the <ul>/<ol>
  */
 .nomarkers-list {
     list-style: none;
+    padding-inline-start: 0;
 }
 
 
