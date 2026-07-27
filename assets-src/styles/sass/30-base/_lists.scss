@@ -31,6 +31,14 @@ If it's important that the number of items in a list is announced, add role="lis
  */
 .nomarkers-list {
     list-style: none;
+}
+
+
+/**
+Remove padding from the leading edge of lists with the `.noindent-list` class.
+The extra specificity is to ensure this is not used as a utility class on other elems.
+ */
+:where(ul, ol).noindent-list {
     padding-inline-start: 0;
 }
 
