@@ -93,7 +93,7 @@
         <header class="global-header">
             <span role="status" aria-live="polite"></span>
             {% block banner %}
-                {# { include('@W3CWebsiteTemplates/components/styles/banner.html.twig') }#}
+                {{ include('@W3CWebsiteTemplates/components/styles/banner.html.twig') }}
             {% endblock banner %}
             {% block access_control %}
                 {{ include('@W3CWebsiteTemplates/components/styles/access_control.html.twig') }}
