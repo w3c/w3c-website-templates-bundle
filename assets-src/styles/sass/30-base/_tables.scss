@@ -9,6 +9,14 @@ table {
     width: 100%;
 }
 
+.col-border tr :where(td, th) {
+    border-inline-end: 1px solid $border-color;
+
+    &:last-child {
+        border-inline-end: none;
+    }
+}
+
 tr:nth-child(even) {
     background-color: rgba(#cecdcd, 0.5);
 }
