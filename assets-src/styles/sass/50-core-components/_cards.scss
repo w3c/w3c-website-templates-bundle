@@ -2,7 +2,7 @@
     #Cards
 \*------------------------------------*/
 
-.card:not(.card--user, .card--post) {
+.card:not(.card--user, .card--post, .card--event) {
 	background-color: $white;
     block-size: 100%;
 	border-radius: rem(4);
@@ -58,6 +58,7 @@
 }
 
 
+// Event card
 .card--event {
 	border-inline-start: solid rem(6);
 	padding: 1rem;
@@ -82,21 +83,21 @@
 		margin-block-start: 1rem;
 	}
 
-	.not-sidebar {
-		min-inline-size: calc(70% - 1.5rem);
-
-		.not-sidebar {
-			min-inline-size: calc(55% - 1.5rem);
-		}
-
-		.sidebar {
-			flex-basis: rem(275);
-		}
-	}
-
-	.sidebar {
-		flex-basis: auto;
-	}
+	//.sidebar {
+	//	flex-basis: auto;
+	//}
+	//
+	//.not-sidebar {
+	//	min-inline-size: calc(70% - 1.5rem);
+	//
+	//	.not-sidebar {
+	//		min-inline-size: calc(55% - 1.5rem);
+	//	}
+	//
+	//	.sidebar {
+	//		flex-basis: rem(275);
+	//	}
+	//}
 
 	.card__text {
 		padding-block-start: 0;
@@ -159,11 +160,25 @@
 }
 
 
+// Post card
 .card--post {
 	margin-block-end: rem(30);
 
 	+ .card--post {
 		border-block-start: solid 1px $border-color;
+	}
+
+	.sidebar {
+		flex-basis: auto;
+	}
+
+	.sidebar .l-frame {
+		block-size: rem(146);
+		inline-size: rem(200);
+
+		img {
+			border-radius: rem(4);
+		}
 	}
 
 	.not-sidebar {
@@ -183,19 +198,6 @@
 		}
 	}
 
-	.sidebar {
-		flex-basis: auto;
-	}
-
-	.sidebar .l-frame {
-		block-size: rem(146);
-		inline-size: rem(200);
-
-		img {
-			border-radius: rem(4);
-		}
-	}
-
 	.l-cluster > * {
 		align-items: center;
 	}
@@ -211,6 +213,7 @@
 }
 
 
+// Group card
 .card--group {
 	padding: 1rem;
 
@@ -240,11 +243,21 @@
 }
 
 
+// User card
 .card--user {
 	padding-block: rem(40) rem(30);
 
 	+ .card--user {
 		border-block-start: solid 1px $border-color;
+	}
+
+	.sidebar {
+		flex-basis: auto;
+		order: -1;
+
+		img {
+			inline-size: rem(100);
+		}
 	}
 
 	.not-sidebar {
@@ -259,15 +272,6 @@
 		//> * + * {
 		//	margin-block-start: 1rem;
 		//}
-	}
-
-	.sidebar {
-		flex-basis: auto;
-		order: -1;
-
-		img {
-			inline-size: rem(100);
-		}
 	}
 
 	.card__heading {
@@ -304,6 +308,7 @@
 }
 
 
+// Member card
 .card--member {
 	padding: 1rem;
 
