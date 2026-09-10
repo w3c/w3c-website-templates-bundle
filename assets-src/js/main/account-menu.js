@@ -2,8 +2,9 @@ import {translate} from "./translations";
 
 let accountMenu = function () {
 
+	// maxWidth value needs to match breakpoint value used for global nav
 	let userInfo = null;
-	let maxWidth = 1120;
+	let maxWidth = 1280;
 
 	const buildAccountMenu = function(userInfo) {
 		if (userInfo == null || userInfo.length < 1) {
