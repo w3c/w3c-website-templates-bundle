@@ -44,7 +44,7 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 1.2;
 }
 
-:is(h1, .h1 .txt-venus) {
+:is(h1, .h1, .txt-venus) {
 	font-size: var(--w3c-text-5);
 	line-height: 1.2;
 }
@@ -79,7 +79,7 @@ h1, h2, h3, h4, h5, h6 {
 	max-inline-size: rem($text-measure);
 }
 
-:is(.txt-pluto, .txt-eris, .text-sm) {
+:is(.text-sm, .txt-pluto, .txt-eris) {
 	font-size: var(--w3c-text-01);
 }
 
