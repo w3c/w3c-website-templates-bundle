@@ -9,14 +9,15 @@
 
 button,
 .button {
+    align-items: center;
 	background-color: $link-color;
 	border: solid 2px $link-color;
 	border-radius: rem(24);
 	color: $white;
-	display: inline-block;
-	font-size: rem(14);
+	display: inline-flex;
+	font-size: var(--w3c-text-01);
 	font-weight: $emphasis;
-	line-height: 1.5;
+    justify-content: center;
 	outline: 2px solid transparent; /* 1 */
 	outline-offset: -2px; /* 1 */
 	padding: rem(11) rem(24);
@@ -34,7 +35,7 @@ button,
 	}
 }
 
-button:not([type="submit"]) {
+button:not([type=submit]) {
 	text-align: start;
 }
 
@@ -47,19 +48,9 @@ Remove link styling from links styled as buttons.
 }
 
 
-/**
-Remove link styling from actual buttons styled as buttons.
- */
-button.button,
-input[type="submit"].button {
-	text-decoration: none;
-}
-
-
 // Full-width buttons
-.button--wide {
-	text-align: center;
-	width: 100%;
+.button--wide.button--wide {
+	inline-size: 100%;
 }
 
 
@@ -90,8 +81,7 @@ input[type="submit"].button {
 	border-radius: 0;
 	color: $black;
 	font-weight: normal;
-	padding-left: 0;
-	padding-right: 0;
+	padding-inline: 0;
 
 	&:hover {
 		background-color: transparent;
@@ -101,6 +91,7 @@ input[type="submit"].button {
 
 
 // Disabled buttons
+.button[disabled],
 .button[disabled],
 .button.js-disabled {
 	background-color: $twiki-gray;

@@ -55,14 +55,14 @@
                             <dd>{{ page.host }}</dd>
                         {% endif %}
                         {% if page.category %}
-                            <dt class="with-link">{{ 'events.category'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
-                            <dd class="with-link">
+                            <dt>{{ 'events.category'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
+                            <dd>
                                 <a href="{{ page.category.url }}">{{ page.category.title }}</a>
                             </dd>
                         {% endif %}
                         {% if page.tags %}
-                            <dt class="with-link">{{ 'post.related.heading_tags'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
-                            <dd class="l-cluster with-link">
+                            <dt>{{ 'post.related.heading_tags'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
+                            <dd class="l-cluster">
                                 <ul class="clean-list">
                                     {% for tag in page.tags %}
                                     <li><a href="{{ tag.url }}">{{ tag.title }}</a></li>
@@ -71,8 +71,8 @@
                             </dd>
                         {% endif %}
                         {% if page.website is not empty %}
-                            <dt class="with-link">{{ 'events.website'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
-                            <dd class="with-link"><a href="{{ page.website.url }}">{{ (page.website.name is not empty)? page.website.name : page.website.url }}</a></dd>
+                            <dt>{{ 'events.website'|trans({}, 'w3c_website_templates_bundle') }}:</dt>
+                            <dd><a href="{{ page.website.url }}">{{ (page.website.name is not empty)? page.website.name : page.website.url }}</a></dd>
                         {% endif %}
                     </dl>
                 {% endblock %}

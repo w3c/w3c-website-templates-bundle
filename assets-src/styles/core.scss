@@ -9,6 +9,7 @@
 @import "sass/00-settings/colors";
 //@import "sass/00-settings/debug";
 @import "sass/00-settings/fonts";
+@import "sass/00-settings/font-sizes";
 @import "sass/00-settings/typesetting";
 
 
@@ -24,7 +25,6 @@
 /*------------------------------------*\
     #Mixins
 \*------------------------------------*/
-@import "sass/20-mixins/font-sizes";
 @import "sass/20-mixins/media-query";
 @import "sass/20-mixins/stack";
 
@@ -32,21 +32,17 @@
 
 /*------------------------------------*\
     #Base
-
-    Normalize comes first for the cascade
 \*------------------------------------*/
-@import "../../node_modules/normalize.css/normalize";
+@import "sass/30-base/global-reset";
 @import "sass/30-base/animation";
 @import "sass/30-base/quotes";
 @import "sass/30-base/body";
-@import "sass/30-base/box-sizing";
 @import "sass/30-base/buttons";
 @import "sass/30-base/focus";
 @import "sass/30-base/forms";
 @import "sass/30-base/hide-and-show";
 @import "sass/30-base/html-elements";
 @import "sass/30-base/icons";
-@import "sass/30-base/images";
 @import "sass/30-base/links";
 @import "sass/30-base/lists";
 @import "sass/30-base/skip-link";
@@ -73,6 +69,8 @@
 /*------------------------------------*\
     #Core components
 \*------------------------------------*/
+@import "sass/50-core-components/component";
+@import "sass/50-core-components/avatars";
 @import "sass/50-core-components/header";
 @import "sass/50-core-components/archive-banner";
 @import "sass/50-core-components/logo";

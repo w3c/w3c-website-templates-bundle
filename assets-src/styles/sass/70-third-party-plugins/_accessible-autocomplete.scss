@@ -13,7 +13,7 @@
 	appearance: none;
 	border: 2px solid;
 	border-radius: 0; /* Safari 10 on iOS adds implicit border rounding. */
-	margin-bottom: 0; /* BUG: Safari 10 on macOS seems to add an implicit margin. */
+	margin-block-end: 0; /* BUG: Safari 10 on macOS seems to add an implicit margin. */
 	width: 100%;
 }
 
@@ -39,46 +39,32 @@
 }
 
 .autocomplete__input--show-all-values {
-	padding: 5px 34px 5px 5px; /* Space for arrow. Other padding should match .autocomplete__input--default. */
+	padding: 5px;
+    padding-inline-end: 34px; /* Space for arrow. Other padding should match .autocomplete__input--default. */
 	cursor: pointer;
 }
 
-[dir="rtl"] {
-	.autocomplete__input--show-all-values {
-		padding-left: 34px;
-		padding-right: 5px;
-	}
-}
-
 .autocomplete__dropdown-arrow-down {
+    block-size: 24px;
 	display: inline-block;
+    inline-size: 24px;
 	position: absolute;
-	right: 8px;
-	width: 24px;
-	height: 24px;
-	top: 12px;
+    inset-block-start: 12px;
+	inset-inline-end: 8px;
 	pointer-events: none; // To account for removal of negative z-index
-	//z-index: -1;
-}
-
-[dir="rtl"] {
-	.autocomplete__dropdown-arrow-down {
-		right: auto;
-		left: 8px;
-	}
 }
 
 .autocomplete__menu {
 	background-color: #fff;
 	border: 2px solid;
-	border-top: 0;
+	border-block-start: 0;
 	color: $off-black;
+    inline-size: 100%;
+    inline-size: calc(100% - 4px);
 	margin: 0;
-	max-height: 342px;
+	max-block-size: 342px;
 	overflow-x: hidden;
 	padding: 0;
-	width: 100%;
-	width: calc(100% - 4px);
 }
 
 .autocomplete__menu--visible {
@@ -90,10 +76,10 @@
 }
 
 .autocomplete__menu--overlay {
-	box-shadow: rgba(0, 0, 0, 0.256863) 0px 2px 6px;
-	left: 0;
+	box-shadow: rgba(0, 0, 0, 0.256863) 0 2px 6px;
+    inset-block-start: 100%;
+	inset-inline-start: 0;
 	position: absolute;
-	top: 100%;
 	z-index: 100;
 }
 
@@ -102,7 +88,7 @@
 }
 
 .autocomplete__option {
-	border-bottom: solid $twiki-gray;
+	border-block-end: solid $twiki-gray;
 	border-width: 1px 0;
 	cursor: pointer;
 	display: block;
@@ -114,11 +100,11 @@
 }
 
 .autocomplete__option:first-of-type {
-	border-top-width: 0;
+	border-block-start-width: 0;
 }
 
 .autocomplete__option:last-of-type {
-	border-bottom-width: 0;
+	border-block-end-width: 0;
 }
 
 .autocomplete__option--odd {
@@ -142,7 +128,7 @@
 .autocomplete__hint,
 .autocomplete__input,
 .autocomplete__option {
-	line-height: 1.25;
+	//line-height: 1.25;
 }
 
 .autocomplete__hint,

@@ -75,10 +75,12 @@ Host *.w3.internal
 ProxyJump studio24@ssh-aws.w3.org
 ````
 
+If you have further issues with SSH access then please contact W3C for assistance.
+
 You can test this works by:
 
 ```
-dep ssh development
+./vendor/bin/dep ssh staging
 ```
 
 The W3C team also need to ensure your SSH key is set up for the `studio24` user.

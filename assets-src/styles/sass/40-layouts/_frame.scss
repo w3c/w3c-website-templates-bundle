@@ -20,21 +20,19 @@
 
 .l-frame > * {
 	align-items: center;
-	bottom: 0;
+	inset-block: 0;
+    inset-inline: 0;
 	display: flex;
 	justify-content: center;
-	left: 0;
 	position: absolute;
-	right: 0;
-	top: 0;
 }
 
 
 .l-frame > iframe,
 .l-frame > img,
 .l-frame > video {
-	height: 100%;
-	width: 100%;
+	block-size: 100%;
+	inline-size: 100%;
 }
 
 .l-frame > img,
@@ -45,17 +43,17 @@
 
 /* Common aspect ratios */
 .l-frame--16-9 {
-	padding-bottom: 56.25%;
+	padding-block-end: 56.25%;
 }
 
 .l-frame--3-2 {
-	padding-bottom: 66.67%;
+	padding-block-end: 66.67%;
 }
 
 .l-frame--4-3 {
-	padding-bottom: 75%;
+	padding-block-end: 75%;
 }
 
 .l-frame--square {
-	padding-bottom: 100%;
+	padding-block-end: 100%;
 }

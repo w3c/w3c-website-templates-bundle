@@ -1,50 +1,48 @@
-<div class="l-sidebar">
+<div class="l-sidebar card card--post">
     <div>
         <div class="not-sidebar">
-            <div>
-                <h2 class="txt-mars"><a href="{{ entry.url }}">{{ entry.title }}</a></h2>
-                <div class="l-cluster">
-                    <div>
-                        {% if entry.category is defined and entry.category %}
-                            <div>
-                                <a href="{{ entry.category.url }}">{{ entry.category.title }}</a>
-                            </div>
-                        {% endif %}
-                        {% if entry.date %}
-                            <div>
-                                <p>
-                                    <span class="visuallyhidden">{{ 'post.meta.published'|trans([], 'w3c_website_templates_bundle') }}</span>
-                                    {% set locale = site.locale|default('en') %}
-                                    {% set locale = locale == 'en' ? 'en-GB' : locale %}
-                                    <time datetime="{{ entry.date|date('Y-m-d') }}">
-                                        {{ entry.date|format_date('long', locale=locale) }}
-                                    </time>
-                                </p>
-                            </div>
-                        {% endif %}
+            <h2><a href="{{ entry.url }}">{{ entry.title }}</a></h2>
+            <div class="l-cluster">
+                <div>
+                    {% if entry.category is defined and entry.category %}
+                        <div>
+                            <a href="{{ entry.category.url }}">{{ entry.category.title }}</a>
+                        </div>
+                    {% endif %}
+                    {% if entry.date %}
+                        <div>
+                            <p>
+                                <span class="visuallyhidden">{{ 'post.meta.published'|trans([], 'w3c_website_templates_bundle') }}</span>
+                                {% set locale = site.locale|default('en') %}
+                                {% set locale = locale == 'en' ? 'en-GB' : locale %}
+                                <time datetime="{{ entry.date|date('Y-m-d') }}">
+                                    {{ entry.date|format_date('long', locale=locale) }}
+                                </time>
+                            </p>
+                        </div>
+                    {% endif %}
 
-                        {% if entry.authors is defined and entry.authors|length > 0 %}
-                            <div>
-                                <p>
-                                    By: {{ entry.authors|map(a => a.name)|join(', ', ' and ') }}
-                                </p>
-                            </div>
-                        {% endif %}
-                    </div>
+                    {% if entry.authors is defined and entry.authors|length > 0 %}
+                        <div>
+                            <p>
+                                By: {{ entry.authors|map(a => a.name)|join(', ', ' and ') }}
+                            </p>
+                        </div>
+                    {% endif %}
                 </div>
-                <p>{{ entry.excerpt }}</p>
-                {% if entry.tags|length > 0 %}
+            </div>
+            <p>{{ entry.excerpt }}</p>
+            {% if entry.tags|length > 0 %}
                 <div class="l-cluster">
                     <ul class="clean-list">
                         {% for tag in entry.tags %}
-                        <li>
-                            <span class="tag">{{ tag.title }}</span>
-                        </li>
+                            <li>
+                                <span class="tag">{{ tag.title }}</span>
+                            </li>
                         {% endfor %}
                     </ul>
                 </div>
-                {% endif %}
-            </div>
+            {% endif %}
         </div>
         {% if entry.thumbnailImage is defined and entry.thumbnailImage %}
             <div class="sidebar">

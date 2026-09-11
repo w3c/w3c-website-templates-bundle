@@ -11,7 +11,7 @@
         {% endblock %}
         {% block group_ecosystems %}
             {% if group.ecosystems is defined and group.ecosystems|length > 0 %}
-                <dl class="txt-pluto">
+                <dl>
                     <dt class="visuallyhidden">{{ 'ecosystems'|trans({'count': group.ecosystems|length}, 'w3c_website_templates_bundle') }}</dt>
                     {% for ecosystem in group.ecosystems %}
                         <dd>{% block group_ecosystem %}{{ ecosystem|replace({' Ecosystem': ''}) }}{% endblock %}</dd>
@@ -19,20 +19,6 @@
                 </dl>
             {% endif %}
         {% endblock %}
-        {% block group_tags %}{#
-            <div class="l-cluster">
-                <ul class="clean-list">
-                    <li>
-                        <span class="tag">Accessibility</span>
-                    </li>
-                    <li>
-                        <span class="tag">Privacy</span>
-                    </li>
-                    <li>
-                        <span class="tag">Security</span>
-                    </li>
-                </ul>
-            </div> #}
-        {% endblock %}
+        {% block group_tags %}{% endblock %}
     </div>
 </div>

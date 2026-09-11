@@ -2,203 +2,215 @@
     #Listing templates
 \*------------------------------------*/
 
-.listing {
-	.wrap {
-		background-color: $mist-gray;
-	}
-
+.listing:not(.technical-reports) {
 	#breadcrumb {
 		background-color: $white;
 	}
 
 	main,
 	#main {
-		padding-top: 0;
+		background-color: $mist-gray;
+		box-shadow: 0 0 0 100vmax $mist-gray;
+		clip-path: inset(0 -100vmax);
+		padding-block-start: 0;
 	}
 }
 
-.people-list,
-.post-list {
-	> * + * {
-		border-top: solid 1px $border-color;
-	}
-}
+//:where(.people-list, .post-list) {
+//	> * + * {
+//		border-block-start: solid 1px $border-color;
+//	}
+//}
 
-.people-list {
-	.groups .sidebar {
-		flex-basis: auto;
-	}
+//.people-list {
+	//.groups .sidebar {
+	//	flex-basis: auto;
+	//}
 
-	.groups .sidebar h3 {
-		font-size: 1rem;
-		font-weight: normal;
-		line-height: rem(44);
-	}
-}
+	//.groups .sidebar h3 {
+	//	font-size: var(--w3c-text-0);
+	//	font-weight: normal;
+	//	line-height: 1.5em;
+	//	margin-block-start: 0;
+	//}
+//}
 
-.post-list {
-	> * {
-		padding-bottom: rem(30);
-		padding-top: rem(40);
-	}
+//.post-list {
+	//> * {
+	//	padding-block-end: rem(30);
+	//	padding-block-start: rem(40);
+	//}
 
-	> li:last-child {
-		border-bottom: solid 1px $border-color;
-	}
+	//> * h2 {
+	//	margin-block-start: 0;
+	//}
 
-	.l-sidebar .sidebar {
-		flex-basis: auto;
-	}
+	//> li:last-child {
+	//	border-block-end: solid 1px $border-color;
+	//}
 
-	.l-sidebar .not-sidebar {
-		min-width: calc(70% - 1.5rem);
-	}
+	//.l-sidebar .sidebar {
+	//	flex-basis: auto;
+	//}
 
-	.l-sidebar .not-sidebar > div {
-		max-width: rem($text-measure);
+	//.l-sidebar .not-sidebar {
+	//	min-inline-size: calc(70% - 1.5rem);
+	//}
 
-		@include mq($bp-tab-large) {
-			margin-bottom: rem(40);
-		}
+	//.l-sidebar .not-sidebar > div {
+	//	max-inline-size: rem($text-measure);
 
-		> * + * {
-			margin-top: rem(20);
-		}
-	}
+		// @include mq($bp-tab-large) {
+		// 	margin-block-end: rem(40);
+		// }
 
-	.l-sidebar .sidebar .l-frame {
-		height: rem(146);
-		width: rem(200);
+		// > * + * {
+		// 	margin-block-start: rem(20);
+		// }
+	//}
 
-		img {
-			border-radius: rem(4);
-		}
-	}
+	//.l-sidebar .sidebar .l-frame {
+	//	block-size: rem(146);
+	//	inline-size: rem(200);
+	//
+	//	img {
+	//		border-radius: rem(4);
+	//	}
+	//}
 
-	.l-cluster > * {
-		align-items: center;
-	}
+	//.l-cluster > * {
+	//	align-items: center;
+	//}
 
-	.l-cluster a {
-		display: inline-block;
-		padding: rem(12) 0;
-	}
+	//.l-cluster a {
+	//	display: inline-block;
+	//	padding: rem(12) 0;
+	//}
 
-	h2 a {
-		color: $black;
+	//h2 a {
+	//	color: $black;
+	//
+	//	.icon {
+	//		block-size: 0.8em;
+	//		inline-size: 0.8em;
+	//	}
+	//}
+//}
 
-		.icon {
-			height: 0.8em;
-			width: 0.8em;
-		}
-	}
-}
+//.tr-stats-list {
+//	margin-block-start: rem(40);
+//
+//	> * + * {
+//		margin-block-start: 1rem;
+//	}
+//
+//	.card {
+//		padding: 1rem;
+//	}
+//
+//	.card.l-sidebar .sidebar {
+//		flex-basis: auto;
+//	}
+//
+//	.card.l-sidebar .not-sidebar {
+//		min-inline-size: calc(70% - 1.5rem);
+//	}
+//
+//	.card__text {
+//		padding-block-start: 0;
+//	}
+//}
 
-.event-list,
-.member-list,
-.group-list,
-.tr-stats-list {
-	margin-top: rem(40);
+//.event-list {
+	//.card .l-cluster {
+	//	// margin-block-start: 1rem;
+	//}
 
-	> * + * {
-		margin-top: 1rem;
-	}
+	//.card .l-cluster > * {
+	//	//@include txt-pluto;
+	//	align-items: center;
+	//	font-size: var(--w3c-text-01);
+	//}
 
-	.card {
-		padding: 1rem;
-	}
+	//.card.l-sidebar .sidebar {
+	//	flex-basis: rem(320);
+	//}
 
-	.card.l-sidebar .sidebar {
-		flex-basis: auto;
-	}
+	//.card.l-sidebar .not-sidebar {
+	//	min-inline-size: calc(55% - 1.5rem);
+	//}
 
-	.card.l-sidebar .not-sidebar {
-		min-width: calc(70% - 1.5rem);
-	}
+	//.card__image {
+	//	align-self: flex-start;
+	//	block-size: rem(100);
+	//	inline-size: rem(100);
+	//
+	//	@include mq($bp-tab-large) {
+    //        block-size: rem(200);
+    //        inline-size: rem(200);
+	//	}
+	//}
 
-	.card__text {
-		padding-top: 0;
-	}
-}
+	//.card__image img {
+	//	border-radius: 0;
+	//}
 
-.event-list {
-	.card .l-cluster {
-		margin-top: 1rem;
-	}
+	//.date-location {
+	//	//@include txt-pluto;
+	//	display: flex;
+	//	flex-wrap: nowrap;
+	//	font-size: var(--w3c-text-01);
+	//	max-inline-size: rem(300);
+	//}
+	//
+	//.date-location img {
+    //    inline-size: rem(18);
+	//	margin-inline-end: rem(12);
+	//}
+	//
+	//.date-location p:first-child {
+	//	margin-block-start: 0;
+	//}
+	//
+	//.date-location p:last-child {
+	//	margin-block-end: 0;
+	//}
+	//
+	//.date-location > div:first-child {
+	//	flex: 0 0 auto;
+	//}
+	//
+	//.date-location > div:last-child {
+	//	border-inline-start: solid 1px $border-color;
+	//	padding-inline-start: rem(12);
+	//}
+//}
 
-	.card .l-cluster > * {
-		@include txt-pluto;
-		align-items: center;
-	}
+//.member-list {
+//	.card__text > * {
+//		max-inline-size: rem($text-measure);
+//	}
+//
+//	.logo--member {
+//		margin-inline: auto;
+//	}
+//}
 
-	.card.l-sidebar .l-sidebar .sidebar {
-		flex-basis: rem(320);
-	}
+//.js .member-list {
+//	[data-component="card"] .card__text > :last-child {
+//		margin-block-end: rem(40);
+//		margin-block-start: 0;
+//	}
+//}
 
-	.card.l-sidebar .l-sidebar .not-sidebar {
-		min-width: calc(55% - 1.5rem);
-	}
+ //.group-list {
+ //    margin-block-start: 0;
+ //}
 
-	.card__image {
-		align-self: flex-start;
-		height: rem(100);
-		width: rem(100);
+.archive-links h2 {
+	margin-block-start: 0;
 
-		@include mq($bp-tab-large) {
-			height: rem(200);
-			width: rem(200);
-		}
-	}
-
-	.card__image img {
-		border-radius: 0;
-	}
-
-	.date-location {
-		@include txt-pluto;
-		display: flex;
-		flex-wrap: nowrap;
-		max-width: rem(300);
-	}
-
-	.date-location img {
-		margin-inline-end: rem(12);
-		width: rem(18);
-	}
-
-	.date-location .date-orig {
-		display: inline-block;
-		padding-bottom: rem(10);
-	}
-
-	.date-location > div:last-child {
-		border-inline-start: solid 1px $border-color;
-		padding-inline-start: rem(12);
-	}
-}
-
-.member-list {
-	.card__text > * {
-		max-width: rem($text-measure);
-	}
-
-	.logo--member {
-		margin-left: auto;
-		margin-right: auto;
-	}
-}
-
-.js .member-list {
-	[data-component="card"] .card__text > :last-child {
-		margin-bottom: rem(40);
-		margin-top: 0;
-	}
-}
-
-.group-list {
-	margin-top: 0;
-}
-
-.archive-links h2 + * {
-	margin-top: 0.8em;
+	//+ * {
+	//	margin-block-start: 0.8em;
+	//}
 }

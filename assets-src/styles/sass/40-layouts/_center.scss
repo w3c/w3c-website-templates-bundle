@@ -14,9 +14,7 @@ to our global box-sizing rule.
  */
 .l-center.l-center {
 	box-sizing: content-box /* 1 */;
-	margin-left: auto;
-	margin-right: auto;
-	max-width: rem($max-width);
-	padding-left: 5vw;
-	padding-right: 5vw;
+	margin-inline: auto;
+	max-inline-size: rem($max-width);
+	padding-inline: 5vw;
 }
