@@ -48,7 +48,8 @@ footer:
         github: GitHub
 banner:
     text: >-
-        新しいロゴです！<a href="https://www.w3.org/ja/press-releases/2025/new-logo/">詳細はこちら</a>.
+        皆様の意見は常に重要です。ぜひW3Cの<a 
+        href="https://www.w3.org/ja/news/2026/w3c-opens-2026-community-wide-survey/">2026年コミュニティ調査</a>にご協力ください！
 header:
     logo_alt: W3C
     logo_link: W3Cのホームページを訪れる
