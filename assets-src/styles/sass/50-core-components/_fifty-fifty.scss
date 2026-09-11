@@ -29,7 +29,9 @@
 	}
 
 	> *:first-child {
-		margin-block-start: 0;
+		@include mq($bp-tab-small) {
+			margin-block-start: 0;
+		}
 	}
 }
 
