@@ -53,7 +53,7 @@
 
 
 /* Card variants */
-:where(.card--event, .card--member, .card--news, .card--group) {
+:where(.card--event, .card--member, .card--group) {
 	box-shadow: -1px 1px 4px 0 rgba(55,70,95,0.12);
 }
 
@@ -155,10 +155,6 @@
 	}
 }
 
-:nth-child(1 of .card--event) {
-	margin-block-start: rem(40);
-}
-
 
 // Post card
 .card--post {
@@ -206,10 +202,6 @@
 		display: inline-block;
 		padding: rem(12) 0;
 	}
-}
-
-:nth-last-child(1 of .card--post) {
-	margin-block-end: 0;
 }
 
 
