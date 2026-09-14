@@ -48,6 +48,6 @@ pre {
 	widows: 3;
 }
 
-pre code {
+pre :where(code, samp, kbd) {
 	padding: 0;
 }
