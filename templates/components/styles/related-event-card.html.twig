@@ -3,10 +3,10 @@
         <h3 class="card__heading">
             <a class="card__link" href="{{ entry.url }}">{{ entry.title }}</a>
         </h3>
-        <p class="txt-pluto with-icon--before">
+        <p class="text-sm with-icon--before">
             <img class="icon" src="{{ asset('svg/calendar.svg', 'website-2021') }}" width="18px" height="20px" alt aria-hidden="true"/>
             <span>{{ date_range(entry.start, entry.end, entry.tz, site.locale)|raw }}</span>
         </p>
-        <p class="txt-pluto">{{ entry.type.title }}</p>
+        <p class="text-sm">{{ entry.type.title }}</p>
     </div>
 </div>

@@ -50,7 +50,7 @@
 						{% endif %}
 					</dl>
 					{% if comments is defined and comments|length > 0 %}
-						<a href="#comments" class="skip-to-comments txt-pluto">{{ 'post.meta.skiplink'|trans({'count': commentsCount}, 'w3c_website_templates_bundle')|raw }}</a>
+						<a href="#comments" class="skip-to-comments text-sm">{{ 'post.meta.skiplink'|trans({'count': commentsCount}, 'w3c_website_templates_bundle')|raw }}</a>
 					{% endif %}
 				</section>
 			{% endif %}
@@ -80,7 +80,7 @@
                 or (page.specifications is defined and page.groups is not empty) %}
 				<div class="related">
 					<nav class="related__inner" aria-labelledby="related-label">
-						<h2 id="related-label" class="txt-jupiter">{{ 'post.related.heading'|trans({}, 'w3c_website_templates_bundle') }}</h2>
+						<h2 id="related-label" class="h4">{{ 'post.related.heading'|trans({}, 'w3c_website_templates_bundle') }}</h2>
 						{% if page.tags is defined and page.tags %}
 							<h3>{{ 'post.related.heading_tags'|trans({}, 'w3c_website_templates_bundle') }}</h3>
 							<ul class="clean-list">
