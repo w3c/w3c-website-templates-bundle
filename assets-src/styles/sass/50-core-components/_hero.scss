@@ -29,11 +29,6 @@
 		}
 	}
 
-	// .lead {
-	// 	margin-block-end: rem(18);
-	// 	margin-block-start: 0;
-	// }
-
 	img {
 		margin-block-end: rem(40);
 		margin-inline: auto;
@@ -43,10 +38,6 @@
 		}
 	}
 }
-
-// .hero h1 {
-// 	margin-block-end: 1rem;
-// }
 
 .hero + * {
 	margin-block-start: rem(50);
@@ -95,12 +86,6 @@
 			align-self: center;
 		}
 	}
-
-
-	// .field {
-	// 	margin-block-start: 0;
-	// }
-
 
 	.button--ghost {
 		padding-inline: rem(3);

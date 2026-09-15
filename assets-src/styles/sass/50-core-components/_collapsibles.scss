@@ -16,12 +16,7 @@
 
 }
 
-//[data-heading="collapsibles"] span {
-//	@include stack(1rem);
-//}
-
 h3[data-heading="collapsibles"] {
-	//@include txt-saturn;
 	font-size: var(--w3c-text-1);
 	line-height: 1.5;
 	margin-block-start: 0;
@@ -29,11 +24,9 @@ h3[data-heading="collapsibles"] {
 }
 
 [data-heading="collapsibles"] > * {
-	//@include txt-pluto;
 	display: block;
 	font-size: var(--w3c-text-01);
 	font-weight: normal;
-	// margin-block-start: 1rem;
 }
 
 [data-heading="collapsibles"] + * {

@@ -11,7 +11,7 @@
 	#archive-banner .centered {
 		box-sizing: content-box;
 		margin-inline: auto;
-		max-winline-size: 70rem;
+		max-inline-size: 70rem;
 		overflow: hidden;
 		padding-inline: 5vw;
 	}
@@ -44,7 +44,6 @@
 	#archive-banner .archive-banner__message h2 {
 		display: block;
 		font-size: var(--w3c-text-1);
-		//line-height: calc(32 / 19);
 	}
 
 	#archive-banner .archive-banner__message h3 {

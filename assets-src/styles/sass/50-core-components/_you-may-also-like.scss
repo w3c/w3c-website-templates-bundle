@@ -18,7 +18,6 @@
 	}
 
 	h2 {
-		//@include txt-mars;
 		font-size: var(--w3c-text-3);
 	}
 
@@ -48,12 +47,6 @@
 			padding: 1.5%;
 		}
 	}
-
-	// li + li {
-	// 	@include mq(700) {
-	// 		margin-block-start: 0;
-	// 	}
-	// }
 }
 
 .crosslinks .component--columns--images {

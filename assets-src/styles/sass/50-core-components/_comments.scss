@@ -7,7 +7,6 @@
 	padding-block: rem(50);
 
 	h2 {
-		//@include txt-mars;
 		font-size: var(--w3c-text-3);
 		margin-block-start: 0;
 	}
@@ -72,10 +71,6 @@
 	> li {
 		border-block-start: solid 1px $border-color;
 	}
-
-	// > li + li {
-	// 	margin-block-start: rem(20);
-	// }
 }
 
 .reply-list .comment {
@@ -85,7 +80,6 @@
 .comment__author {
 	font-size: var(--w3c-text-0);
 	font-weight: bold;
-	//line-height: calc(32 / 24);
 }
 
 .comment__body {
@@ -93,24 +87,17 @@
 }
 
 [data-replylink] {
-	//@include txt-pluto;
 	align-self: flex-start;
 	font-size: var(--w3c-text-01);
 	padding-block: rem(11);
 }
 
 #respond {
-	// margin-block-start: 1rem;
-
 	> div:first-of-type {
 		align-items: center;
 		display: flex;
 		flex-wrap: wrap;
 	}
-}
-
-.comment-form-wrap {
-	// margin-block-start: rem(30);
 }
 
 #comment-form {

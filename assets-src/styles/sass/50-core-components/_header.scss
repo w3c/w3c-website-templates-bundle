@@ -22,7 +22,6 @@
 	display: flex;
 
 	p {
-		//@include txt-eris;
 		font-size: var(--w3c-text-01);
 		margin-block: 0.5em;
 	}
@@ -49,7 +48,6 @@
 	}
 
 	a {
-		//@include txt-eris;
 		color: $off-black;
 		display: block;
 		font-size: var(--w3c-text-01);

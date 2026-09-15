@@ -15,7 +15,6 @@
 
 	.translations {
 		padding: 0;
-		// margin-block-start: 0;
 
 		.sidebar span {
 			padding-inline-end: 1em;
@@ -24,17 +23,11 @@
 		.l-sidebar .not-sidebar {
 			padding-block-end: 0;
 		}
-
-		// + * {
-		// 	margin-block-start: 2em;
-		// }
 	}
 
-	//.component--text,
 	.component--image,
 	.component--video,
 	.component--quote {
-		//margin-inline: auto;
 		max-inline-size: rem(711);
 	}
 

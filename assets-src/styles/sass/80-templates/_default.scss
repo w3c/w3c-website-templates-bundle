@@ -42,14 +42,6 @@
 	text-decoration: none;
 }
 
-//@supports(grid-column-gap: 8%) {
-//	.default .related {
-//		 @include mq($bp-tab-large) {
-//		 	margin-block-start: 0;
-//		 }
-//	}
-//}
-
 .default .related__inner {
 	@include mq($bp-tab-large) {
 		border-inline-start: solid 1px $border-color;

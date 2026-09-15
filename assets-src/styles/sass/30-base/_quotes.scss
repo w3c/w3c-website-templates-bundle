@@ -3,8 +3,6 @@
 \*------------------------------------*/
 
 blockquote {
-	// margin-inline-end: rem(25);
-	// margin-inline-start: rem(25);
 	padding: rem(10);
 	position: relative;
 
@@ -17,10 +15,6 @@ blockquote {
 		inset-inline-start: rem(-3);
 		position: absolute;
 	}
-
-	// > * + * {
-	// 	margin-top: 1rem;
-	// }
 
     > *:first-child {
         margin-block-start: 0;

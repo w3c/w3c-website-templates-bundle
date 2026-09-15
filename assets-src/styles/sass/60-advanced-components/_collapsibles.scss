@@ -15,14 +15,12 @@
         inline-size: 100%;
 		line-height: 1.5;
 		justify-content: space-between;
-		// margin-block-start: 0;
 		padding: rem(3);
 
 		> span {
 			font-size: var(--w3c-text-01);
 			font-weight: normal;
             inline-size: 100%;
-			//line-height: calc(22.5 / 15);
 			color: #333;
 			order: 2;
 		}

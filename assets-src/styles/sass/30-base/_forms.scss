@@ -99,7 +99,6 @@ label,
 }
 
 .field-hint {
-	//@include txt-pluto;
 	font-size: var(--w3c-text-01);
 	color: $storm-gray;
 	margin-block: 0.25rem;
@@ -121,7 +120,6 @@ label,
 	border: 2px solid;
 	border-radius: 0;
 	inline-size: 100%;
-	//line-height: 1.25;
 	padding: rem(5);
 
 	&:focus {
@@ -157,7 +155,6 @@ select {
 	border: 2px solid;
 	border-radius: 0;
 	inline-size: 100%;
-	//line-height: 1.25;
 	padding: rem(5);
 
 	&:focus {
@@ -589,7 +586,6 @@ Progress bar
 	}
 
 	> span {
-		//@include txt-pluto;
 		font-size: var(--w3c-text-01);
 		padding: rem(10);
 

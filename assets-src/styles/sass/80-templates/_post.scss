@@ -36,14 +36,6 @@
 	margin-block-end: rem(40);
 }
 
-// @supports(grid-column-gap: 8%) {
-// 	.post .content .related {
-// 		@include mq($bp-tab-large) {
-// 			margin-block-start: 0;
-// 		}
-// 	}
-// }
-
 .post .related__inner {
 	background-color: $mist-gray;
 	padding: rem(28) rem(20);
@@ -69,17 +61,6 @@
 	}
 }
 
-// .post .related__inner > div,
-// .post .related__inner h3 + * {
-// 	margin-block-start: rem(18);
-// }
-
-//.post .related__inner > div + div {
-//	border-block-start: solid 1px $border-color;
-//	margin-block-start: rem(24);
-//	padding-block-start: rem(15);
-//}
-
 .post .related__inner ul:not(:last-of-type) {
 	border-block-end: solid 1px $border-color;
 	padding-block-end: rem(24);
@@ -90,7 +71,6 @@
 }
 
 .post .related__inner li {
-	//@include txt-pluto;
 	font-size: var(--w3c-text-01);
 
 	+ li {
@@ -100,7 +80,6 @@
 
 .post {
 	.sub-head {
-		//@include txt-pluto;
 		font-size: var(--w3c-text-01);
 		margin-block-end: rem(24);
 	}
@@ -112,17 +91,9 @@
 	.meta dl {
 		margin-block-end: 0;
 
-		//dd:first-of-type {
-		//	@include mq($bp-tab-small) {
-		//		padding-inline-end: rem(150);
-		//	}
-		//}
-
 		 dd:not(:only-of-type), dt:not(:only-of-type) {
 			 margin-block: 0;
 			 padding-block: rem(6);
-			 //padding-block-end: rem(6);
-			 //padding-block-start: rem(3);
 		 }
 
 		 dt:first-of-type,

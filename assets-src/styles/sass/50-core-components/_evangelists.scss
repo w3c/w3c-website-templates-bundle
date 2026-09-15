@@ -8,15 +8,6 @@
 		flex-wrap: wrap;
 		justify-content: space-between;
 	}
-
-	// > * + * {
-	// 	margin-block-start: 1rem;
-    //
-	// 	@include mq($bp-tab-large) {
-    //         margin-block-start: 0;
-	// 	}
-    //
-	// }
 }
 
 .component--evangelists__text {
@@ -67,7 +58,6 @@
 	}
 
 	.not-sidebar {
-		// @include stack(0.75em);
 		min-inline-size: calc(65% - 1.5rem);
 	}
 
