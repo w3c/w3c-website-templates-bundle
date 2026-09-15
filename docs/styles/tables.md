@@ -1,14 +1,18 @@
 # Tables
 
-The table markup must include column and/or row headers (`<th>`). Some screen readers that encounter a table without headers will treat it as a ‘layout table’ and communicate it quite differently.
+Use column and/or row headers (`<th>`) in the markup as appropriate. Some screen readers that encounter a table without headers will treat it as a ‘layout table’ and communicate it quite differently.
 
 Use the attributes `scope="col"` and `scope="row"` to differentiate between column and row headers respectively.
 
-Where there are both column and row headers, do not use an empty table header `<th>` in the first column as this can produce unexpected behaviour. An empty table cell `<td>` is acceptable, if necessary (note the example table which follows).
+Where there are both column and row headers, do not use an empty table header `<th>` in the first column as this can produce unexpected behavior. An empty table cell `<td>` is acceptable, if necessary (note the example table which follows).
 
 Use a `<caption>` to label the table correctly. A heading element can be used within the caption if desired.
 
 <example title="Basic table" src="components/table.html.twig" />
+
+Column borders can be added by applying the `.col-border` class to the table:
+
+<example title="Basic table" src="components/table-border.html.twig" />
 
 ## Responsive tables
 

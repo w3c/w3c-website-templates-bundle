@@ -2,6 +2,8 @@
 
 Use lists to make blocks of text easier to read, and to break information into manageable chunks.
 
+Note that lists that are a descendant of the `<nav>` element have all margins, padding and list item markers removed by default.
+
 ## Unordered lists
 
 <example title="Unordered list with markers" src="components/list-ul.html.twig" />
@@ -10,25 +12,29 @@ Use lists to make blocks of text easier to read, and to break information into m
 
 <example title="Ordered list with markers" src="components/list-ol.html.twig" />
 
-### Using a counter for decimal numbering
+## Classes to modify list styles
+
+The `.clean-list` class removes all margin and padding and list item markers:
+
+<example title="Unordered list without spacing and bullets" src="components/list-clean.html.twig" />
+
+The `.nomarkers-list` class removes list item markers only:
+
+<example title="Unordered list without bullets" src="components/list-nomarkers.html.twig" />
+
+The `.noindent-list` class removes padding from the leading edge of lists:
+
+<example title="Unordered list without bullets" src="components/list-noindent.html.twig" />
 
 Adding the `.counter` class to an ordered list will ensure that any nested ordered lists are displayed as decimals, with the first digit corresponding to the number of the parent list item:
 
 <example title="Ordered list with a counter" src="components/list-ol-counter.html.twig" />
 
-#### Considerations
+## Considerations
 
-The counter supports the `"start"` and `"reversed"` attributes on the ordered list, but does not support the `"type"` attribute, e.g. for roman numerals. Ordered lists with the `.counter` class will always use decimal numbers for the markers.
+The `.clean-list` and `.nomarkers-list` classes that remove list item markers also [remove list semantics in Webkit browsers](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html), as noted by Scott O'Hara. If list semantics are important for your users, add `role="list"` to restore them.
 
-## Clean list
-
-Adding the `.clean-list` class to an unordered or ordered list will remove the list markers and all margin and padding:
-
-<example title="Unordered list without bullets" src="components/list-clean.html.twig" />
-
-### Considerations
-
-As noted by Scott O'Hara, the CSS used for the `.clean-list` class to remove the markers also [removes the list semantics in Webkit browsers](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html). If the list semantics are important for your users, add `role="list"` to restore them.
+The `.counter` class supports the `"start"` and `"reversed"` attributes on the ordered list, but does not support the `"type"` attribute, e.g. for Roman numerals. Ordered lists with the `.counter` class will always use decimal numbers for the markers.
 
 ## Description lists
 
