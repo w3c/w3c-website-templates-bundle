@@ -11,6 +11,14 @@
 	}
 }
 
+.slide > * + * {
+	margin-top: 1rem;
+
+	@include mq($bp-tab-large) {
+		margin-top: 0;
+	}
+}
+
 .slide__quote,
 .slide__cite {
 	@include mq($bp-tab-large) {
