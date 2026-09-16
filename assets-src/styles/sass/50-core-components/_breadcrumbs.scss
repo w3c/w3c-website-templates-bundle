@@ -7,12 +7,13 @@
     padding-block: rem(10) rem(15);
 
 	.l-cluster > * {
-		margin: 0 rem(-11);
+		margin: 0 rem(-5);
 	}
 
 	.l-cluster.l-cluster > * > * {
-		margin: 0 0 0 rem(11);
-		padding-inline-end: 1em;
+		margin: 0;
+		margin-inline-start: rem(5);
+		padding-inline-end: rem(15);
 		position: relative;
 	}
 }
