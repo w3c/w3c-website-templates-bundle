@@ -16,8 +16,14 @@ main,
 	padding-block: rem(24) rem(100);
     padding-inline: 5vw;
 
-	/* Remove bottom margin from last component child of main */
-	> .component:last-child {
+	/* Remove bottom margin from last child of content area */
+	> *:last-child {
 		margin-block-end: 0;
+	}
+
+	.content > article > *:last-child {
+		@include mq($bp-tab-large) {
+			margin-block-end: 0;
+		}
 	}
 }
