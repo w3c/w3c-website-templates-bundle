@@ -42,6 +42,17 @@ More spacing between field-groups
 	margin-top: 2.5rem;
 }
 
+/**
+Reduced spacing around <details>
+ */
+form details {
+	margin-block-start: 1rem;
+
+	+ * {
+		margin-block-start: 1rem;
+	}
+}
+
 .field-group > *:first-child {
 	margin-block-start: 0;
 }
