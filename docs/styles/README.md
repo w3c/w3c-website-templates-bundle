@@ -1,3 +1,3 @@
 # Styles
 
-The essential styles of your project, like typography, reset and global elements like links and lists, and print styles.
+The essential styles forming a solid base for building upon, such as typography and starter styles for HTML elements like links and lists.

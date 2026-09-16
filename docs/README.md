@@ -1,33 +1,34 @@
 # Welcome to the W3C design system
 
-This design system documents the styles, components and templates available to use on your website.
+This design system documents the styles, components and templates available to use.
 
-Find out how to [get started](getting-started.md).
+- [How to get started](getting-started.md).
+- [Changelog](changelog.md)
 
-How the front end assets (CSS and JavaScript) are organised and compiled is discussed below.
+The organization and compilation of front end assets (CSS and JavaScript) is discussed below.
 
 ## CSS
 
-The design system uses [Sass](https://sass-lang.com/) (specifically the [SCSS syntax](https://sass-lang.com/documentation/syntax)) - which is compiled into CSS files. The CSS approach is heavily influenced by [Andy Bell's](https://github.com/andy-piccalilli/) [CUBE CSS](https://cube.fyi/). This has some similarities with the [BEM Methodology](http://getbem.com/) but with a more judicious use of class names.
+The design system uses [Sass](https://sass-lang.com/) - specifically the [SCSS syntax](https://sass-lang.com/documentation/syntax) - which is compiled into CSS files. The CSS approach is heavily influenced by [Andy Bell's](https://github.com/Andy-set-studio) [CUBE CSS](https://cube.fyi/). This has some similarities with the [BEM Methodology](http://getbem.com/) but with a more judicious use of class names.
 
 ### CSS architecture
 
-All CSS is found within `/assets-src/styles/sass`.
+CSS is managed within `/assets-src/styles/sass`.
 
-The architecture is split into a series of levels, each level representing a directory containing Sass split out into multiple [partial files](https://sass-lang.com/guide#topic-4).
+The architecture is split into a series of levels, each level representing a directory containing Sass, split out into multiple [partial files](https://sass-lang.com/guide#topic-4).
 
 More generic and wide-reaching styles sit within the lower numbered levels, with specificity increasing with each level:
 
 - **00-settings:**<br> global [Sass variables](https://sass-lang.com/documentation/variables) for your project - [more about settings](settings/README.md)
 - **10-functions:**<br> global [Sass functions](https://sass-lang.com/documentation/values/functions) e.g. em/rem calculation, unit stripping
-- **20-mixins:**<br> global [Sass mixins](https://sass-lang.com/documentation/at-rules/mixin) for font size/line-height combinations, media queries and vertical spacing
-- **30-base:**<br> essential styles forming the base of your project, like typography, reset and global elements like links and lists. Print styles also reside here - [more about styles](styles/README.md)
-- **40-layouts:**<br> heavily influenced by [Every Layout](https://every-layout.dev/), these are the styles for the basic layout types, which can be combined and customised to make a variety of components and templates - [more about layouts](layouts/README.md)
-- **50-core-components:**<br> the basic components available for use, un-enhanced by JavaScript - [more about components](components/README.md)
-- **60-advanced-components:**<br> components that are enhanced in some way with JavaScript - [more about components](components/README.md)
-- **70-third-party-plugins:**<br> styles for components/functionality from sources external to the design system, typically via scripts. They may include some customisations specifically required to fit in with the design system.
-- **80-templates:**<br> styles required for specific page templates and/or content types - [more about templates](templates/README.md)
-- **90-utilities:**<br> overrides or helper classes - [more about utilities](styles/utilities.md)
+- **20-mixins:**<br> global [Sass mixins](https://sass-lang.com/documentation/at-rules/mixin) for viewport media queries and vertical spacing
+- **30-base:**<br> essential styles forming a solid base for building upon. Includes a global reset, typography, plus starter styles for HTML elements like links and lists. Print styles also reside here - [more about base styles](styles/README.md)
+- **40-layouts:**<br> drawing on the techniques of [Every Layout](https://every-layout.dev/), these are styles for the basic layout types, which can be combined and customized to make a variety of content components and page templates - [more about layouts](layouts/README.md)
+- **50-core-components:**<br> styles for the basic page components available in the design system, un-enhanced by JavaScript - [more about components](components/README.md)
+- **60-advanced-components:**<br> styles for components that are enhanced in some way with JavaScript - [more about components](components/README.md)
+- **70-third-party-plugins:**<br> styles for components/functionality from sources external to the design system, typically via scripts. They may include some customizations specifically required to work with the design system.
+- **80-templates:**<br> styles for specific page templates - [more about templates](templates/README.md)
+- **90-utilities:**<br> specific overrides and helper classes - [more about utilities](styles/utilities.md)
 
 ### CSS compilation
 
@@ -47,11 +48,11 @@ The Sass files are compiled into three separate CSS stylesheets:
     - Third party plugins involving JavaScript
 - `print.css` (print stylesheet)
 
-The files `core.scss` and `advanced.scss` determine which Sass files will be compiled into the relevant stylesheet. CSS is organised in specificity order, from low to high. The individual Sass partials are included using the [`@import` directive](https://sass-lang.com/documentation/at-rules/import#partials) in the order denoted by the level in which they reside, remembering the impact of the [CSS cascade](https://wattenberger.com/blog/css-cascade). 
+The files `core.scss` and `advanced.scss` determine which Sass files will be compiled into the relevant stylesheet. CSS is organized in specificity order, from low to high. The individual Sass partials are included using the [`@import` directive](https://sass-lang.com/documentation/at-rules/import#partials) in the order denoted by the level in which they reside, remembering the impact of the [CSS cascade](https://wattenberger.com/blog/css-cascade). 
 
-Print styles are a slight exception - as noted previously, they reside in **30-base** but are included in `print.scss`.
+Print styles are a slight exception; they reside in **30-base** but are included in `print.scss`.
 
-Both `core.css` and `print.css` are served to all browsers. `advanced.css`, is only served to browsers that meet the following CSS media query that sits within `<head>`:
+Both `core.css` and `print.css` are served to all browsers. `advanced.css`, is only served to browsers that support the following CSS media query that sits within `<head>`:
 
 ```
 <!--
@@ -61,13 +62,13 @@ Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~
 FF 47+
 -->
 <link rel="stylesheet" id="advanced-stylesheet" href="../dist/assets/styles/advanced.css" media="
-        only print,
-        only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
-        only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
+    only print,
+    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+    only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
 ">
 ```
 
-This technique is known as [‘cutting the mustard’](https://www.zeldman.com/2015/09/01/youre-welcome-cutting-the-mustard-then-and-now/). It can be done via a JavaScript query but the design system, inspired by the [Springer Nature Frontend Playbook](https://github.com/springernature/frontend-playbook/blob/main/practices/graded-browser-support.md), uses the [CSS Only Mustard Cut](https://github.com/Fall-Back/CSS-Mustard-Cut).
+This technique is known as [‘cutting the mustard’](https://www.zeldman.com/2015/09/01/youre-welcome-cutting-the-mustard-then-and-now/). While this can be done via a JavaScript query, the design system, inspired by the [Springer Nature Frontend Playbook](https://github.com/springernature/frontend-playbook/blob/main/practices/graded-browser-support.md), uses the [CSS Only Mustard Cut](https://github.com/Fall-Back/CSS-Mustard-Cut).
 
 ## JavaScript (JS)
 
@@ -80,7 +81,7 @@ There are two general rules for JS:
 
 The architecture takes inspiration from Chris Ferdinandi's [How I structure my vanilla JS projects](https://gomakethings.com/how-i-structure-my-vanilla-js-projects/).
 
-All JS is found within `/assets-src/js`. This directory contains a mixture of individual files, and the following subdirectories:
+JS is managed within `/assets-src/js`. This directory contains a mixture of individual files, and the following subdirectories:
 
 - `/libraries`: contains third party scripts, e.g. [Font Face Observer](https://fontfaceobserver.com/) and [Accessible autocomplete](https://github.com/alphagov/accessible-autocomplete).
 - `/libraries-extensions`: contains any custom implementations for the third party scripts that may be required to work with the design system.
@@ -92,7 +93,7 @@ Scripts within `/main` are concatenated together into `main.js` and `main.min.js
 
 Individual files are minified into files of the same name, but are kept separate. They are typically used on only one or two templates.
 
-Webpack is used to concatenate and minify JS. the configuration files sit within the project root: `webpack.config.js` and `webpack.config.min.js`
+Webpack is used to concatenate and minify JS. The configuration files sit within the project root: `webpack.config.js` and `webpack.config.min.js`
 
 ## Twig filters
 

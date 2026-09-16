@@ -5,11 +5,13 @@ An example of the business ecosystem page template. This example does not includ
 - the complete [global navigation](../components/navigation.md) as per the live site
 - the complete list of site links for the [footer](../components/footer.md) as per the live site.
 
+The beta banner is contained within `<div class="banner">` and can be removed when no longer required.
+
 <example title="Business ecosystem page" src="example-pages/business-ecosystem.html.twig" standalone />
 
 ## Considerations
 
-Note the `.ecosystem` class applied to `<body>`. The `<h1>` on this template uses the larger `.txt-mercury` font-size.
+Note the `.ecosystem` class applied to `<body>`.
 
 If the carousel is being used, the following script must be added before the closing body tag `</body>`:
 

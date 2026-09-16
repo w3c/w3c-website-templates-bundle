@@ -98,7 +98,7 @@ The purpose is to show all available options outright, rather than hiding them b
 
 ### Considerations
 
-The basis of this pattern is the [switcher layout](../layouts/switcher.md). The default styles assume that there are three choices and are optimised for this. In the event of fewer or more choices, you can override the default `min-width` percentage by applying an additional class.
+The basis of this pattern is the [switcher layout](../layouts/switcher.md). The default styles assume that there are three choices and are optimized for this. In the event of fewer or more choices, you can override the default `min-width` percentage by applying an additional class.
 
 ## Select
 

@@ -2,13 +2,10 @@
     #Social links
 \*------------------------------------*/
 
-//ul.social-links {}
-
-
 .social-links__item {
-	height: rem(48);
+	block-size: rem(48);
 	padding: rem(14);
-	width: rem(48);
+	inline-size: rem(48);
 
 	.icon {
 		height: rem(20);
@@ -19,19 +16,3 @@
 		color: $link-color--hover;
 	}
 }
-
-//.social-links__item.with-icon {
-//	align-items: center;
-//	color: $link-color;
-//
-//	.icon {
-//		background-color: transparent;
-//		height: 1em;
-//		padding: 0;
-//		width: 1em;
-//	}
-//
-//	&:hover {
-//		text-decoration: none;
-//	}
-//}

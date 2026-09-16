@@ -1,5 +1,3 @@
-<div class="post-list">
-    {% for entry in entries %}
-        {% include '@W3CWebsiteTemplates/components/listings/blog/entry.html.twig' with { 'entry': entry } %}
-    {% endfor %}
-</div>
+{% for entry in entries %}
+    {% include '@W3CWebsiteTemplates/components/listings/blog/entry.html.twig' with { 'entry': entry } %}
+{% endfor %}
