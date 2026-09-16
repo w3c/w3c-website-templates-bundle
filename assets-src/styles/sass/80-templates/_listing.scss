@@ -2,6 +2,13 @@
     #Listing templates
 \*------------------------------------*/
 
+.listing {
+	main,
+	#main {
+		padding-block-start: 0;
+	}
+}
+
 .listing:not(.technical-reports) {
 	#breadcrumb {
 		background-color: $white;
@@ -12,7 +19,6 @@
 		background-color: $mist-gray;
 		box-shadow: 0 0 0 100vmax $mist-gray;
 		clip-path: inset(0 -100vmax);
-		padding-block-start: 0;
 	}
 
 	:nth-child(1 of .card--event) {
