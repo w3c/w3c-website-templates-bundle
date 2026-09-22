@@ -29,10 +29,7 @@
     }
 }
 
-.toc li + li {
-    margin-block-start: 0.75rem;
-}
-
 .toc li a {
 	display: inline-block;
+    padding-block: rem(10);
 }
