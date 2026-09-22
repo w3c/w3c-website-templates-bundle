@@ -135,6 +135,10 @@
 	}
 }
 
+:nth-child(1 of .card--event) {
+	margin-block-start: rem(40);
+}
+
 
 // Post card
 .card--post {
