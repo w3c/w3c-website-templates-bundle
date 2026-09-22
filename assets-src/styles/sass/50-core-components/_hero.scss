@@ -5,10 +5,6 @@
 .hero {
 	background-color: $mist-gray;
 
-	@include mq($max-width) {
-		padding-block-start: rem(46);
-	}
-
 	.l-sidebar > *,
 	.l-sidebar > * > * {
 		margin: 0;
