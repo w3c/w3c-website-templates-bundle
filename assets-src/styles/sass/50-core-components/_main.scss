@@ -13,7 +13,7 @@ main,
 	box-sizing: content-box /* 1 */;
 	margin-inline: auto;
 	max-inline-size: rem($max-width);
-	padding-block: rem(24) rem(100);
+	padding-block: rem(8) rem(48);
     padding-inline: 5vw;
 
 	/* Remove bottom margin from last child of content area */
