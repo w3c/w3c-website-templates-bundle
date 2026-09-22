@@ -50,10 +50,13 @@
 
 	h3 {
 		font-size: var(--w3c-text-0);
+		margin-block-end: rem(6);
 	}
 
 	a {
 		color: $storm-gray;
+		display: inline-block;
+		padding-block: rem(10);
 
 		&:focus {
 			color: $black;
@@ -63,7 +66,7 @@
 
 .post .related__inner ul:not(:last-of-type) {
 	border-block-end: solid 1px $border-color;
-	padding-block-end: rem(24);
+	padding-block-end: rem(14);
 
 	+ h3 {
 		margin-block-start: rem(24);
@@ -72,10 +75,6 @@
 
 .post .related__inner li {
 	font-size: var(--w3c-text-01);
-
-	+ li {
-		margin-block-start: 0.75rem;
-	}
 }
 
 .post {

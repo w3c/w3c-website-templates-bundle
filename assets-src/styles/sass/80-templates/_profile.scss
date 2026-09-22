@@ -67,6 +67,10 @@
 		margin-block-start: 0.75rem;
 	}
 
+	a {
+		padding-block: rem(10)
+	}
+
 	[aria-current] {
 		color: $off-black;
 		text-decoration: none;
