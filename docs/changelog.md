@@ -41,9 +41,9 @@ This change was introduced to simplify the overall page markup.
 
 ### Changes to the text component
 
-Prior to this update, a dedicated text [component](components) was used to wrap blocks of prose content inside `<div class="component component--text">`. This was part of a strategy for managing vertical space between components and elements, in which the reset styles removed the default block margins applied to HTML elements.
+Prior to this update, a dedicated text [component](components) was used to wrap blocks of prose content inside `<div class="component component--text">`. This was part of a strategy for managing vertical space between components and elements, in which the reset styles removed the default block margins applied to HTML elements. It also acted as a target for CSS to set a maximum width on the content of the text component, to prevent excessive line lengths and improve readability.
 
-With this update, block margins have been reintroduced and there is no longer a need for this wrapping container, which has been removed.
+With this update, block margins have been reintroduced and there is no longer a need for this wrapping container, which has been removed. A maximum line length is now set directly on `<h*>`, `<p>`, `<li>` and `<dl>`.
 
 The W3C content management system continues to provide a text component for entering prose content amongst other page components, but no wrapper is added in the resulting markup.
 
