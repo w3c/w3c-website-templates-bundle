@@ -1,6 +1,6 @@
 # Columns
 
-Columns are used to gather groups of [cards](cards.md) into listings. They rely on Flexbox.
+Columns are used to gather groups of [cards](cards.md). They rely on Flexbox.
 
 ## Columns for cards with images
 ```

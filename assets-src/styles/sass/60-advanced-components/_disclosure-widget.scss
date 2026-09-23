@@ -13,9 +13,9 @@
 }
 
 [data-toggle="true"] {
-	@include txt-pluto;
 	align-items: center;
     display: inline-flex;
+	font-size: var(--w3c-text-01);
 	font-weight: bold;
 
     // Decorative chevron
@@ -57,5 +57,6 @@
 
 	+ * {
 		display: block;
+		margin-block-start: rem(10);
 	}
 }

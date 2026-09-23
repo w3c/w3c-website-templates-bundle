@@ -1,5 +1,3 @@
-<div class="event-list">
-    {% for entry in entries %}
-        {% include '@W3CWebsiteTemplates/components/listings/events/entry.html.twig' with { 'entry': entry, 'index': entry.id } %}
-    {% endfor %}
-</div>
+{% for entry in entries %}
+    {% include '@W3CWebsiteTemplates/components/listings/events/entry.html.twig' with { 'entry': entry, 'index': entry.id } %}
+{% endfor %}

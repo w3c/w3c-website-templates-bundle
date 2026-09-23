@@ -6,10 +6,11 @@
     <div class="content">
         <h1>{% block title %}{{ page.title|default('W3C') }}{% endblock %}</h1>
 
-        {% block disclosure_button %}{% endblock %}
-
         {% block profile_nav %}
-            {% if page.related_pages|length > 0 %}
+            {% if page.related_pages is defined and page.related_pages|length > 0 %}
+                <button type="button" class="button button--ghost" style="display:none;" data-toggle="true">Toggle
+                    content
+                </button>
                 <nav id="profile-nav" aria-label="{{ profile_nav_title|default('profile_page.nav.title'|trans({}, 'w3c_website_templates_bundle')) }}">
                     <div class="profile-nav__inner">
                         <ul>

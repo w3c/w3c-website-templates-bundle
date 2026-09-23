@@ -3,9 +3,9 @@
         <div class="l-box note note--{{ type }}" role="{{ type == 'error' ? 'alert' : 'status' }}" aria-labelledby="{{ type }}-summary-title" tabindex="-1"
              data-component="{{ type }}-summary" data-anchor="no">
             {% if title != '' %}
-                <h2 id="{{ type }}-summary-title" class="txt-saturn">{{ title }}</h2>
+                <h2 id="{{ type }}-summary-title" class="h5">{{ title }}</h2>
             {% endif %}
-            <ul class="clean-list" role="list">
+            <ul class="clean-list">
                 {% for note in notes %}
                     <li>
                         {% if note.options.href is defined %}

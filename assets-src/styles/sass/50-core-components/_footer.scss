@@ -3,22 +3,12 @@
 \*------------------------------------*/
 
 .global-footer {
-	border-top: solid 1px $border-color;
-	grid-row-start: 2; // Needed for sticky footer
-	grid-row-end: 3; // Needed for sticky footer
-	padding: rem(20) 0 rem(25);
-
-	.l-center {
-		@include stack(1rem);
-	}
+	border-block-start: solid 1px $border-color;
+    padding-block: rem(20) rem(25);
 
 	a,
 	.copyright {
-		@include txt-eris;
-	}
-
-	.copyright {
-		margin-bottom: 0;
+		font-size: var(--w3c-text-01);
 	}
 
 	a {
@@ -55,16 +45,15 @@
 
 	a:not([class]) {
 		display: block;
-		padding-bottom: rem(12);
-		padding-top: rem(12);
+		padding-block: rem(12);
 	}
 
 	.with-icon--larger {
 		padding: rem(12);
 
 		img {
-			height: rem(20);
-			width: rem(20);
+			block-size: rem(20);
+			inline-size: rem(20);
 		}
 
 		&:focus {

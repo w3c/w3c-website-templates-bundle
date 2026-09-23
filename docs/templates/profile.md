@@ -11,4 +11,4 @@ An example of the profile template. This example does not include:
 
 Note the `.profile` class applied to `<body>`.
 
-Note the inclusion of the [disclosure button](../components/disclosure-button.md) on this template. This is optional.
+Note the inclusion of the [disclosure button](../components/disclosure-button.md) on this template.

@@ -75,10 +75,12 @@ Host *.w3.internal
 ProxyJump studio24@ssh-aws.w3.org
 ````
 
+If you have further issues with SSH access then please contact W3C for assistance.
+
 You can test this works by:
 
 ```
-dep ssh development
+./vendor/bin/dep ssh staging
 ```
 
 The W3C team also need to ensure your SSH key is set up for the `studio24` user.
@@ -241,6 +243,11 @@ To deploy a specific branch use:
 ````
 vendor/bin/dep deploy <environment> --branch=<branch_name>
 ````
+
+### Caching
+
+Please note the production and staging Design System websites sit behind Cloudflare, which has full page caching enabled. 
+This is set to cache pages for up to 24 hours. Which means any changes to pages will require the Cloudflare cache to be purged.
 
 ## Testing a development branch on your front-end website
 

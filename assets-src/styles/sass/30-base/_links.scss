@@ -1,16 +1,8 @@
 /*------------------------------------*\
     #Links
+
+    1. Remove the outline on focused links when they are also active/hovered.
 \*------------------------------------*/
-
-/**
-Default global link styles that do not interfere with component link styles
-- see https://alexcarpenter.me/screencasts/2019/02/global-link-styles/
-
-1. Don't rely on colour alone for styling links - see
-https://www.w3.org/TR/2016/NOTE-WCAG20-TECHS-20161007/F73
-
-2. Remove the outline on focused links when they are also active/hovered.
- */
 
 a:not([class]),
 a.with-icon--before,
@@ -19,9 +11,6 @@ a.with-icon--after {
 	color: $link-color;
 	cursor: pointer;
 	padding-inline: rem(2);
-	text-decoration: underline; /* 1 */
-	text-decoration-skip-ink: auto; // Not supported by Safari
-	text-underline-offset: 0.25em; // Supported by Safari
 
 	svg {
 		fill: currentColor;
@@ -33,7 +22,7 @@ a.with-icon--after {
 
 	&:hover {
 		color: $link-color--hover;
-		outline-width: 0; /* 2 */
+		outline-width: 0; /* 1 */
 	}
 
 	&:focus {
@@ -45,7 +34,7 @@ a.with-icon--after {
 
 	&:active {
 		color: $black;
-		outline-width: 0; /* 2 */
+		outline-width: 0; /* 1 */
 	}
 }
 
