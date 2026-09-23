@@ -244,6 +244,11 @@ To deploy a specific branch use:
 vendor/bin/dep deploy <environment> --branch=<branch_name>
 ````
 
+### Caching
+
+Please note the production and staging Design System websites sit behind Cloudflare, which has full page caching enabled. 
+This is set to cache pages for up to 24 hours. Which means any changes to pages will require the Cloudflare cache to be purged.
+
 ## Testing a development branch on your front-end website
 
 See 
