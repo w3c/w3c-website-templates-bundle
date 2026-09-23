@@ -7,7 +7,7 @@
         <h1>{% block title %}{{ page.title|default('W3C') }}{% endblock %}</h1>
 
         {% block profile_nav %}
-            {% if page.related_pages|length > 0 %}
+            {% if page.related_pages is defined and page.related_pages|length > 0 %}
                 <button type="button" class="button button--ghost" style="display:none;" data-toggle="true">Toggle
                     content
                 </button>
