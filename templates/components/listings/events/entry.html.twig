@@ -40,13 +40,13 @@
             </div>
             {% block event_category %}
                 {% if entry.category %}
-                    <p class="txt-pluto">
+                    <p class="text-sm">
                         <a href="{{ entry.category.url }}">{{ entry.category.title }}</a>
                     </p>
                 {% endif %}
             {% endblock %}
             {% block event_type %}
-                <p class="txt-pluto">{{ entry.type.title }}</p>
+                <p class="text-sm">{{ entry.type.title }}</p>
             {% endblock %}
         </div>
         {% if hasThumbnail %}

@@ -3,12 +3,12 @@
 \*------------------------------------*/
 
 .tr-list {
-    padding-top: 0;
+    padding-block-start: 0;
 }
 
 // if you put links in this list, you'll need to use .tag-list (links needs more space around them for a11y)
 .tr-meta.tr-meta {
-    margin-top: 0.5rem;
+    margin-block-start: 0.5rem;
 }
 
 .tr-meta li {

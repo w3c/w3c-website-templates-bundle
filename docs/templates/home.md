@@ -9,4 +9,6 @@ An example of the home page template. It is broadly similar to the landing page 
 
 ## Considerations
 
-Note the `.home` class applied to `<body>`. The `<h1>` on this template uses the larger `.txt-mercury` font-size.
+Note the `.home` class applied to `<body>`.
+
+Two versions of the hero - with an illustration, and with a video - are shown for comparison. Ordinarily only one of these would be used.

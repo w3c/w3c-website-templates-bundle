@@ -65,12 +65,12 @@ a viewport media query.
 .l-sidebar .not-sidebar {
 	flex-basis: 0;
 	flex-grow: 999;
-	min-width: calc(55% - 1.5rem);
+	min-inline-size: calc(55% - 1.5rem);
 }
 
 
 .l-sidebar--expanded {
-	width: 100%;
+	inline-size: 100%;
 }
 
 .l-sidebar .sidebar--compact {

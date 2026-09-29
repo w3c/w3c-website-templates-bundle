@@ -6,7 +6,7 @@ In the context of this design system, utility classes are used as overrides or h
 
 Although they reside in **90-utilities** rather than **30-base** in the architecture, they are discussed here along with other styles that are available to all browsers.
 
-Utility classes are organised into groups with a similar purpose or remit, as detailed below. If you have a requirement that you feel would be best covered by a utility class that does not yet exist, feel free to add to the current selection available in the design system.
+Utility classes are organized into groups with a similar purpose or remit, as detailed below. If you have a requirement that you feel would be best covered by a utility class that does not yet exist, feel free to add to the current selection available in the design system.
 
 ## Alignments
 

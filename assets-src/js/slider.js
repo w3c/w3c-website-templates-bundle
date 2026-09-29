@@ -85,7 +85,7 @@ let contentSlider = (function () {
 					let liveRegion = document.createElement('div');
 					liveRegion.setAttribute('role', 'status');
 					liveRegion.setAttribute('aria-live', 'polite');
-					liveRegion.setAttribute('class', 'txt-pluto');
+					liveRegion.setAttribute('class', 'text-sm');
 					liveRegion.style.display = 'inline-block';
 					liveRegion.style.paddingLeft = '0.625rem';
 					liveRegion.style.paddingRight = '0.625rem';

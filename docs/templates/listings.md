@@ -16,7 +16,7 @@ Note the `.listing` class applied to `<body>`.
 
 ### Posts
 
-#### Search and filtering options for the hero
+#### Post search and filtering options
 
 <example title="Post search/filter options" src="components/filters-posts.html.twig" />
 
@@ -24,16 +24,13 @@ Note the `.listing` class applied to `<body>`.
 
 <example title="Post listings" src="components/listings-posts.html.twig" />
 
-Note the `.post-list` class applied to the listings container.
+Note how each item in the listing has the `.card--post` class.
 
-Note that the individual listings are not given the `.card` class. This is a deliberate omission, as the `.card` class includes various styles that are not needed for post listings and so would need to be overridden.
-They do however have the `.card--user` class.
-
-Where there are two links to the same post destination, one in the heading and one wrapped around an image, note how image link is given `tabindex="-1"` and `aria-hidden="true"`. This is to [optimise keyboard navigation](https://www.sarasoueidan.com/blog/keyboard-friendlier-article-listings/).
+Where there are two links to the same post destination, one in the heading and one wrapped around an image, note how the image link is given `tabindex="-1"` and `aria-hidden="true"`. This is to [optimize keyboard navigation](https://www.sarasoueidan.com/blog/keyboard-friendlier-article-listings/). The alt text for the linked image is used to communicate the link destination, not to describe the image.
 
 ### Events
 
-#### Filtering options for the hero
+#### Event filtering options
 
 <example title="Event filter options" src="components/filters-events.html.twig" />
 
@@ -41,15 +38,18 @@ Where there are two links to the same post destination, one in the heading and o
 
 <example title="Event listings" src="components/listings-events.html.twig" />
 
-Note the `.event-list` class applied to the listings container.
+Note how each event is a [card component](../components/cards.md) with the `.card--event` class and a nested [sidebar layout](../layouts/sidebar.md). Modifier classes are available to change the color of the stripe on the leading edge for different event types:
 
-Note how the individual listings take the basics of the [card component](../components/cards.md), and incorporate the [sidebar layout](../layouts/sidebar.md) to adjust their appearance.
+- `.conference`
+- `.meeting`
+- `.talk`
+- `.workshop`
 
-Note the use of `aria-labelledby` to provide more context for each event listing
+Note the use of `aria-labelledby` to provide more context for each event listing.
 
 ### Members
 
-#### Filtering options for the hero
+#### Member filtering options
 
 <example title="Member filter options" src="components/filters-members.html.twig" />
 
@@ -71,13 +71,11 @@ The country `<select>` can be enhanced into an auto-complete via JavaScript. To 
 
 <example title="Member listings" src="components/listings-members.html.twig" />
 
-Note the `.member-list` class applied to the listings container.
-
-Note how the individual listings take the basics of the [card component](../components/cards.md), and incorporate the [sidebar layout](../layouts/sidebar.md) to adjust their appearance.
+Note how each item in the listing has the `.card--member` class.
 
 ### People
 
-#### Filtering options for the hero
+#### People filtering options
 
 <example title="People filter options" src="components/filters-people.html.twig" />
 
@@ -99,14 +97,14 @@ The working group `<select>` can be enhanced into an auto-complete via JavaScrip
 
 <example title="People listings" src="components/listings-people.html.twig" />
 
-Note the `.people-list` class applied to the listings container.
-
-Note that the individual listings are not given the `.card` class. This is a deliberate omission, as the `.card` class includes various styles that are not needed for people listings and so would need to be overridden.
+Note how each item in the listing has the `.card--user` class.
 
 ### Groups
 
-The Groups listing template does not have any search or filter options:
+The Groups listing template does not have any search or filter options.
 
-<example title="Groups listing template" src="example-pages/listing-groups.html.twig" standalone />
+#### List of groups
 
-Note the `.group-list` class applied to the listings container.
+<example title="Group listings" src="components/listings-groups.html.twig" />
+
+Note how each item in the listing has the `.card--group` class.

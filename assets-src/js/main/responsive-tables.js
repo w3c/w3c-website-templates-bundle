@@ -23,7 +23,7 @@ var responsiveTables = function () {
 
 			// Comparison: true if the container is wider than the table
 			var noScroll = containerWidth >= tableWidth;
-			var ariaLabel = item.querySelector('caption').id;
+			var ariaLabel = item.querySelector('caption');
 
 			// Only make the container focusable if it needs scrolling
 			if (noScroll === true) {
@@ -35,7 +35,11 @@ var responsiveTables = function () {
 			} else {
 
 				item.setAttribute('role', 'region');
-				item.setAttribute('aria-labelledby', ariaLabel);
+
+				if (ariaLabel) {
+					item.setAttribute('aria-labelledby', ariaLabel.id);
+				}
+
 				item.setAttribute('tabindex', '0');
 
 			}

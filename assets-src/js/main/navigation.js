@@ -10,7 +10,7 @@ import {translate} from './translations';
  *
  * @param {Element} menu - the top level navigation <ul>
  * @param {Object} options - configuration options for the navigation
- * @param {number} [options.breakpoint=1024] - pixel value at which the button for toggling the mobile navigation is hidden. Is converted to em (assumes 16px browser default).
+ * @param {number} [options.breakpoint=1024] - pixel value at which the button for toggling mobile navigation is hidden. Converted to em (assumes 16px browser default). Note: if value changes, remember to update value of `maxWidth` in account-menu.js
  * @param {boolean} [options.cloneTopLevelLink=true] - whether to copy the link to be replaced with a button and add it to the sub menu.
  * @param {string} [options.mobileIcon] - SVG icon used for the button to show/hide the navigation on mobile.
  * @param {boolean} [options.submenuIntro=false] - whether the sub menu includes introductory text.

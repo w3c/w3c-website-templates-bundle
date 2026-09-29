@@ -13,8 +13,7 @@ An unordered list of slides which, when enhanced with JavaScript, acts as a cont
 
 Carousels are highly interactive components, requiring a solid, semantic HTML base, and considered use of JavaScript and ARIA to make them accessible. The patterns above were tested in 2021 by the [Digital Accessibility Centre](https://digitalaccessibilitycentre.org/)
 
-In the preceding example, the script to make the carousel work has been added directly after the HTML. When using it on a project, 
-it's best to add the following script before the closing body tag (`</body>`) instead:
+In the preceding example, the script to make the carousel work has been added directly after the HTML. When using it on a project, it's best to add the following script before the closing body tag (`</body>`) instead:
 
 ```
 <script>

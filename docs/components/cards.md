@@ -21,22 +21,32 @@ These are found on the [landing page](../templates/landing.md) template. The fol
 
 ### Considerations
 
-Additional modifier classes can be added to cards:
+The following `.card--type-of-card` modifier classes are available:
 
-- `.card--event`, `.card--member`, `.card--news` and `.card--group` add a `box-shadow` style.
-- For event cards, the following additional classes change the color strip:
-  - `.conference`,
-  - `.meeting`,
-  - `.talk`,
-  - `.workshop`
+- `.card--post`
+- `.card--event`
+- `.card--member`
+- `.card--user`
+- `.card--group`
 
-In the markup, the card text is first in the source order to prioritise it over the icon/image. Flexbox is used to place the icon/image ahead of the card text visually, via the `order` property.
+They are responsible for styling each card type accordingly and for handling vertical spacing between multiple cards of the same type. Different types of cards can be nested inside each other.
+
+For event cards, the following additional classes change the color strip:
+
+- `.conference`,
+- `.meeting`,
+- `.talk`,
+- `.workshop`
+
+In the markup, the card text is first in the source order to prioritize it over the icon/image. Flexbox is used to place the icon/image ahead of the card text visually, via the `order` property.
+
+Examples of these modifier classes can be found in the [listing templates documentation](../templates/listings.md)
 
 Where generic link text is used visually, this is enhanced for Assistive Technology users with the `<span class="visuallyhidden">` providing descriptive link text.
 
 ## Block link cards
 
-A simple card is enhanced into a selectable card by adding the data attribute `data-component="card"`. When this is present, JavaScript will [enhance the card into a block link](https://css-tricks.com/block-links-the-search-for-a-perfect-solution/).
+Adding the `data-component="card"` attribute to a simple card will [enhance the card into a block link](https://css-tricks.com/block-links-the-search-for-a-perfect-solution/) when JavaScript is available.
 
 Do not wrap the contents of a card inside a singular `<a>` element. This can result in the entire contents of the card being read out to screen reader users.
 
