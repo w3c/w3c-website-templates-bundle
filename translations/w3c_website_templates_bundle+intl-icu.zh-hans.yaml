@@ -223,6 +223,13 @@ error:
         <p>服务器返回"{status_code} - {status_text}"错误。</p>
     request_id: >-
         <p>请求ID: {request_id}</p>
+    400:
+        title: Bad Request
+        message: >-
+            <p>The server could not understand the request due to invalid syntax: <strong>{message}</strong></p>
+        contact: >-
+            <p>如需获取更多网站已知问题，请参阅<a href="https://status.w3.org/" hreflang="en">系统状态页</a>。</p>
+            <p>如果仍有问题，请在<a href="https://www.w3.org/zh-hans/help/">帮助页</a>咨询或者联系<a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>。</p>
     401:
         title: 需要身份验证
         message: >-

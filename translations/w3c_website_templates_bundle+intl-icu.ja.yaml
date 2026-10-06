@@ -223,6 +223,13 @@ error:
         <p>サーバーから「{status_code} - {status_text}」エラーが返されました。</p>
     request_id: >-
         <p>リクエストID: {request_id}</p>
+    400:
+        title: Bad Request
+        message: >-
+            <p>The server could not understand the request due to invalid syntax: <strong>{message}</strong></p>
+        contact: >-
+            <p>当サイトの既知の問題については、<a href="https://status.w3.org/" hreflang="en">システムステータスページ</a>をご覧ください。</p>
+            <p>質問がある場合は、<a href="https://www.w3.org/ja/help/">ヘルプページ</a>をご覧いただくか、<a href="mailto:sysreq@w3.org{params}">sysreq@w3.org</a>までお問い合わせください。</p>
     401:
         title: 認証が必要です
         message: >-

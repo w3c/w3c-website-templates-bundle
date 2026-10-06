@@ -1,0 +1,13 @@
+{% extends '@W3CWebsiteTemplates/bundles/TwigBundle/Exception/error.html.twig' %}
+
+{% block documenttitle %}{{ 'error.400.title'|trans({}, 'w3c_website_templates_bundle') }} | W3C{% endblock documenttitle %}
+
+{% block title %}{{ 'error.400.title'|trans({}, 'w3c_website_templates_bundle') }}{% endblock title %}
+
+{% block content %}
+    {% embed '@W3CWebsiteTemplates/components/text.html.twig' with {id: 'message'} %}
+        {% block text %}
+            {{ 'error.400.message'|trans({'message': exception.message}, 'w3c_website_templates_bundle')|raw }}
+        {% endblock %}
+    {% endembed %}
+{% endblock content %}

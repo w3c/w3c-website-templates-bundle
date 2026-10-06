@@ -226,6 +226,13 @@ error:
         <p>The server returned a "{status_code} - {status_text}" error.</p>
     request_id: >-
         <p>Request ID: {request_id}</p>
+    400:
+        title: Bad Request
+        message: >-
+            <p>The server could not understand the request due to invalid syntax: <strong>{message}</strong></p>
+        contact: >-
+            <p>For information on known issues with our site please see our <a href="https://status.w3.org/">System status page</a>.</p>
+            <p>If you still have a question, please consult our <a href="https://www.w3.org/help/">Help page</a> or contact <a href="mailto:sysreq@w3.org">sysreq@w3.org</a>.</p>
     401:
         title: Authentication Required
         message: >-
