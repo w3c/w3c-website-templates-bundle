@@ -243,7 +243,7 @@ const MultiselectButtons = function (selectEl, params) {
     this.searchTextOnly = params.searchTextOnly !== "off";
 
     // state
-    this.activeIndex = 0;
+    this.activeIndex = -1;
     this.open = false;
 
     selectedOptions.forEach(value => {
@@ -495,8 +495,8 @@ MultiselectButtons.prototype.onInputBlur = function () {
 
 
 MultiselectButtons.prototype.onOptionChange = function (index) {
-    this.activeIndex = index;
-    this.inputEl.setAttribute('aria-activedescendant', `${this.idBase}-${index}`);
+    this.activeIndex = -1;
+    this.inputEl.removeAttribute('aria-activedescendant');
 
     // update active style
     const options = this.el.querySelectorAll('[role=option]');
@@ -505,6 +505,8 @@ MultiselectButtons.prototype.onOptionChange = function (index) {
         optionEl.classList.remove('option-current');
     });
     if (currentOptions) {
+        this.activeIndex = index;
+        this.inputEl.setAttribute('aria-activedescendant', currentOptions.id);
         currentOptions.classList.add('option-current');
 
         if (this.open && isScrollable(this.listboxEl)) {
@@ -514,6 +516,9 @@ MultiselectButtons.prototype.onOptionChange = function (index) {
 }
 
 MultiselectButtons.prototype.clearOptions = function () {
+    this.filteredOptions = [];
+    this.activeIndex = -1;
+    this.inputEl.removeAttribute('aria-activedescendant');
     const options = this.el.querySelectorAll('[role=option]');
     [...options].forEach(optionEl => {
         optionEl.remove();
@@ -572,7 +577,7 @@ MultiselectButtons.prototype.selectOption = function (option) {
         const sibling = listItem.nextSibling;
         this.removeOption(option);
         if (sibling) {
-            siblling.firstChild.focus();
+            sibling.firstChild.focus();
         } else {
             this.inputEl.focus();
         }
@@ -591,6 +596,9 @@ MultiselectButtons.prototype.selectOption = function (option) {
 
 MultiselectButtons.prototype.updateOption = function (index) {
     const optionEl = this.el.querySelector(`[id=${this.idBase}-${index}]`);
+    if (!optionEl) {
+        return;
+    }
     const isSelected = optionEl.getAttribute('aria-selected') === 'true';
 
     this.inputEl.value = '';
@@ -609,6 +617,9 @@ MultiselectButtons.prototype.updateOption = function (index) {
 
 MultiselectButtons.prototype.updateMenuState = function (open) {
     this.open = open;
+    if (!open) {
+        this.onOptionChange(-1);
+    }
 
     this.comboEl.setAttribute('aria-expanded', `${open}`);
     open ? this.el.classList.add('open') : this.el.classList.remove('open');
