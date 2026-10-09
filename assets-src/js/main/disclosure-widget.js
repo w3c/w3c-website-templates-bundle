@@ -8,6 +8,9 @@ let disclosureWidget = function () {
 
 			if (btn.getAttribute('aria-expanded') === 'true') {
 
+				if (btn.nextElementSibling.contains(document.activeElement)) {
+					btn.focus();
+				}
 				btn.setAttribute('aria-expanded', 'false');
 
 			}
