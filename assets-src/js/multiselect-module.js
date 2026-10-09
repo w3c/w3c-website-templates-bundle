@@ -361,7 +361,9 @@ MultiselectButtons.prototype.filterOptions = async function (value) {
                         if (visible) {
                             this.page++;
                             await this.updateResults();
+                            const activeIndex = this.open && this.inputEl.value === value ? this.activeIndex : -1;
                             this.filterOptions(value);
+                            this.onOptionChange(activeIndex);
                             hint.remove();
                         }
                     });
