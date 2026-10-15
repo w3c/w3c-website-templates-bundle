@@ -5,11 +5,36 @@ let accountMenu = function () {
 	// maxWidth value needs to match breakpoint value used for global nav
 	let userInfo = null;
 	let maxWidth = 1280;
+	const cacheKey = 'w3c-user-menu';
+
+	// current menu elements, kept so the menu can be rebuilt or removed
+	let toggleButton = null;
+	let accMenu = null;
+	let mq = null;
+	let mqListener = null;
+	let listenersAdded = false;
+
+	const removeAccountMenu = function() {
+		if (mq && mqListener) {
+			mq.removeListener(mqListener);
+		}
+		if (toggleButton) {
+			toggleButton.remove();
+		}
+		if (accMenu) {
+			accMenu.remove();
+		}
+		toggleButton = accMenu = mq = mqListener = null;
+		document.querySelector('body').classList.remove('signed-in');
+	};
 
 	const buildAccountMenu = function(userInfo) {
 		if (userInfo == null || userInfo.length < 1) {
 			return;
 		}
+
+		// remove any menu built earlier on this page (e.g. from the cache)
+		removeAccountMenu();
 
 		//getting the page language
 		let languageCode = document.documentElement.lang;
@@ -18,8 +43,8 @@ let accountMenu = function () {
 		let fragment = document.createDocumentFragment();
 		let status = document.querySelector('.global-header [role="status"]');
 		let statusText;
-		let toggleButton = document.createElement('button');
-		let accMenu = document.createElement('div');
+		toggleButton = document.createElement('button');
+		accMenu = document.createElement('div');
 		accMenu.setAttribute('class', 'account-menu');
 
 		let list = document.createElement('ul');
@@ -57,7 +82,8 @@ let accountMenu = function () {
 
 		// Media query event handler
 		let mqValue = maxWidth / 16;
-		let mq = window.matchMedia('(min-width: ' + mqValue + 'em)');
+		mq = window.matchMedia('(min-width: ' + mqValue + 'em)');
+		mqListener = insertAccountBtn;
 		mq.addListener(insertAccountBtn);
 		insertAccountBtn(mq);
 
@@ -82,9 +108,9 @@ let accountMenu = function () {
 		}
 
 		//add toggling action to button
-		let accountToggler = document.querySelector('[data-trigger="account-menu"]');
-
-		if (accountToggler) {
+		// (added once per page; the handlers act on whichever menu is current)
+		if (!listenersAdded) {
+			listenersAdded = true;
 
 			// @todo Not sure if this is sufficient or whether there needs to be a re-usable function to check this. This is for the visual styling on button
 			// if (profile.messages === true) {
@@ -109,8 +135,8 @@ let accountMenu = function () {
 
 				} else {
 
-					if (accountToggler.getAttribute('aria-expanded') === 'true') {
-						accountToggler.setAttribute('aria-expanded', false);
+					if (toggleButton && toggleButton.getAttribute('aria-expanded') === 'true') {
+						toggleButton.setAttribute('aria-expanded', false);
 						accMenu.setAttribute('aria-hidden', 'true');
 					}
 
@@ -128,8 +154,8 @@ let accountMenu = function () {
 
 				if (key === 'Escape' || key === 'Esc' || key === 27) {
 
-					if (accountToggler.getAttribute('aria-expanded') === 'true') {
-						accountToggler.setAttribute('aria-expanded', false);
+					if (toggleButton && toggleButton.getAttribute('aria-expanded') === 'true') {
+						toggleButton.setAttribute('aria-expanded', false);
 						accMenu.setAttribute('aria-hidden', 'true');
 					}
 
@@ -145,16 +171,57 @@ let accountMenu = function () {
 	if (loginLink) {
 		loginLink.href = 'https://auth.w3.org/?url=' + encodeURI(window.location.href);
 		loginLink.firstChild.textContent = translate.translate('sign-in', document.documentElement.lang);
+
+		// Build the menu from the cached response right away, in the same task
+		// that sets "Sign in", so "Sign in" is never painted for a signed-in user
+		let cachedResponse = null;
+		try {
+			cachedResponse = localStorage.getItem(cacheKey);
+		} catch (e) {}
+		if (cachedResponse) {
+			try {
+				buildAccountMenu(JSON.parse(cachedResponse));
+			} catch (e) {
+				cachedResponse = null;
+				removeAccountMenu();
+			}
+		}
+
+		// the cache check is done, so the login link can be shown if no menu was built
+		document.documentElement.classList.add('account-ready');
+
 		let userInfoRequest = new XMLHttpRequest();
 		userInfoRequest.open('GET', 'https://www.w3.org/account/user-menu/', true)
 		userInfoRequest.withCredentials = true;
 
 		userInfoRequest.onload = function () {
+			let response;
 			if (this.status === 200) {
-				if (this.response.length > 0) {
-					userInfo = JSON.parse(this.response);
-					buildAccountMenu(userInfo);
-				}
+				response = this.response;
+			} else if (this.status === 401 || this.status === 403) {
+				// treat as signed out
+				response = '';
+			} else {
+				// transient error: keep whatever is showing
+				return;
+			}
+
+			// unchanged since it was cached: nothing to do
+			if (response === (cachedResponse || '')) {
+				return;
+			}
+
+			if (response.length > 0) {
+				userInfo = JSON.parse(response);
+				buildAccountMenu(userInfo);
+				try {
+					localStorage.setItem(cacheKey, response);
+				} catch (e) {}
+			} else {
+				removeAccountMenu();
+				try {
+					localStorage.removeItem(cacheKey);
+				} catch (e) {}
 			}
 		}
 
