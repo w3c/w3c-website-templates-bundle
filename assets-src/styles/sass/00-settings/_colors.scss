@@ -53,6 +53,18 @@ $mist-gray: #f8f8fb;
 
 
 /**
+Incubation theme colors.
+Used by the incubation subsite in place of $w3c-blue (primary), $deep-blue
+(dark/hover) and $light-blue (tint) respectively. $rust is the color used
+for the bottom border of the global navigation.
+ */
+$terracotta: #9d3718;
+$rust: #ca400d;
+$midnight: #102b43;
+$sand: #f4f0e7;
+
+
+/**
 Sass variables.
  */
 $border-color:                  $twiki-gray;
