@@ -85,6 +85,26 @@
 		]
 	},
 	{
+		"title": "Incubation theme colors",
+		"colors": [
+			{
+				"color": "#9d3718",
+				"variable": "$terracotta",
+				"notes": "Incubation subsite main color. Replaces $w3c-blue"
+			},
+			{
+				"color": "#102b43",
+				"variable": "$midnight",
+				"notes": "Incubation subsite dark/hover color. Replaces $deep-blue"
+			},
+			{
+				"color": "#f4f0e7",
+				"variable": "$sand",
+				"notes": "Incubation subsite light tint. Replaces $light-blue"
+			}
+		]
+	},
+	{
 		"title": "All theme colors",
 		"colors": [
 			{
