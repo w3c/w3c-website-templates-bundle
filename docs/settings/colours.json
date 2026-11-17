@@ -93,6 +93,11 @@
 				"notes": "Incubation subsite main color. Replaces $w3c-blue"
 			},
 			{
+				"color": "#ca400d",
+				"variable": "$rust",
+				"notes": "Incubation subsite navigation bottom border"
+			},
+			{
 				"color": "#102b43",
 				"variable": "$midnight",
 				"notes": "Incubation subsite dark/hover color. Replaces $deep-blue"
