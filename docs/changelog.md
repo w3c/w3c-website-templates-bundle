@@ -1,5 +1,11 @@
 # Changelog
 
+## November 2026
+
+### New incubation theme colors
+
+Four colors have been added for the incubation subsite's identity: `$terracotta` (`#9d3718`), `$rust` (`#ca400d`), `$midnight` (`#102b43`) and `$sand` (`#f4f0e7`). `$terracotta`, `$midnight` and `$sand` stand in for `$w3c-blue`, `$deep-blue` and `$light-blue` respectively; `$rust` is used for the bottom border of the global navigation.
+
 ## September 2026
 
 ### Replacing Normalize CSS reset
