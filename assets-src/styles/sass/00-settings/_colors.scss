@@ -65,6 +65,13 @@ $sand: #f4f0e7;
 
 
 /**
+Theme. Set $theme before importing core.scss or advanced.scss to switch palette
+(see incubation-core.scss). The default theme leaves the colors above untouched.
+ */
+$theme: default !default;
+
+
+/**
 Sass variables.
  */
 $border-color:                  $twiki-gray;
@@ -92,3 +99,10 @@ $pinterest: #bd081c;
 $twitter: #1da1f2;
 $whatsapp: #25d366;
 $youtube: #ff0000;
+
+
+/**
+Theme overrides, applied only when $theme is set. Must stay at the end of this file so that variables derived
+from the palette above are re-assigned.
+ */
+@import "theme-incubation";

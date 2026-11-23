@@ -1,0 +1,9 @@
+/*------------------------------------*\
+    #Incubation theme: core overrides
+\*------------------------------------*/
+@if $theme == incubation {
+	main h1,
+	main h2 {
+		color: $terracotta;
+	}
+}
