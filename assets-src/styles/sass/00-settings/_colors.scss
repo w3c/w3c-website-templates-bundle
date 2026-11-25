@@ -100,11 +100,17 @@ from the compiled CSS.
 $heading-color:                 null;
 $global-nav-background:         null;
 $global-nav-border:             null;
+$banner-background:             $light-blue;
+$banner-color:                  null;
+$banner-link-color:             $deep-blue;
 
 @if $theme == incubation {
 	$heading-color:             $terracotta;
 	$global-nav-background:     $sand;
 	$global-nav-border:         4px solid $rust;
+	$banner-background:         $terracotta;
+	$banner-color:              $white;
+	$banner-link-color:         $white;
 }
 
 

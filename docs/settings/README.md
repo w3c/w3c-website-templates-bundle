@@ -61,7 +61,7 @@ The `incubation-core.scss` and `incubation-advanced.scss` entry files do exactly
 The theme is applied in `00-settings/_colors.scss`, so components need no theme-specific selectors. When `$theme` is `incubation`:
 
 - `$w3c-blue`, `$deep-blue` and `$light-blue` are re-assigned to `$terracotta`, `$midnight` and `$sand`, before the variables derived from them (`$link-color`, `$link-color--hover`, `$info-color`) are set.
-- The optional variables `$heading-color` (main `h1` and `h2`), `$global-nav-background` and `$global-nav-border` are set. They default to `null`, which makes Sass omit the properties that use them, so the default build is unchanged.
+- The optional variables `$heading-color` (main `h1` and `h2`), `$global-nav-background`, `$global-nav-border`, `$banner-background`, `$banner-color` and `$banner-link-color` (global header banner) are set. Those without a color by default are `null`, which makes Sass omit the properties that use them, and the others default to the colors the components already used, so the default build is unchanged.
 
 To add another theme, add an `@if $theme == <name>` block next to the incubation one in `_colors.scss` and a matching pair of `incubation-*.scss`-style entry files.
 
