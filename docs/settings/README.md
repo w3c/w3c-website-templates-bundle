@@ -47,6 +47,24 @@ Only use the variables in the context they’re designed for. In all other cases
 
 <colors src="settings/colours.json" />
 
+### Themes
+
+The default palette can be swapped for the incubation theme (terracotta) without touching any component. Brand colors are Sass variables, so a theme is a separate compile, selected by the `$theme` variable:
+
+```scss
+$theme: incubation;
+@import "core";
+```
+
+The `incubation-core.scss` and `incubation-advanced.scss` entry files do exactly this. `npm run css` compiles them to `incubation-core(.min).css` and `incubation-advanced(.min).css` next to the default files. Load these instead of `core` and `advanced` on the incubation subsite. The print stylesheet has no brand colors, so it is shared.
+
+The theme is applied in `00-settings/_colors.scss`, so components need no theme-specific selectors. When `$theme` is `incubation`:
+
+- `$w3c-blue`, `$deep-blue` and `$light-blue` are re-assigned to `$terracotta`, `$midnight` and `$sand`, before the variables derived from them (`$link-color`, `$link-color--hover`, `$info-color`) are set.
+- The optional variables `$heading-color` (main `h1` and `h2`), `$global-nav-background`, `$global-nav-border`, `$banner-background`, `$banner-color` and `$banner-link-color` (global header banner) are set. Those without a color by default are `null`, which makes Sass omit the properties that use them, and the others default to the colors the components already used, so the default build is unchanged.
+
+To add another theme, add an `@if $theme == <name>` block next to the incubation one in `_colors.scss` and a matching pair of `incubation-*.scss`-style entry files.
+
 ## Debug
 
 `$pesticide` is a useful variable which, when enabled, can help you [debug your CSS layouts](https://github.com/mrmrs/pesticide).

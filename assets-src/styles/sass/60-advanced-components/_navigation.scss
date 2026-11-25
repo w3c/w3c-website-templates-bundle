@@ -62,11 +62,14 @@
 }
 
 #global-nav {
+	background-color: $global-nav-background;
+	border-block-end: $global-nav-border;
 	position: relative;
 	z-index: 2;
 }
 
 .global-nav__inner > ul {
+	background-color: $global-nav-background;
 	border-block-end: solid 1px $border-color;
 	box-shadow: 0 8px 16px -5px rgba(55,70,95,0.07);
 	display: flex;

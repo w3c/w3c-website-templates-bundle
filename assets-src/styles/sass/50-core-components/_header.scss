@@ -14,7 +14,8 @@
 }
 
 .global-header .banner {
-	background-color: $light-blue;
+	background-color: $banner-background;
+	color: $banner-color;
 }
 
 .global-header .banner__inner {
@@ -27,7 +28,7 @@
 	}
 
 	a {
-		color: $deep-blue;
+		color: $banner-link-color;
 
 		&:focus {
 			color: $black;

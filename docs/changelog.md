@@ -6,6 +6,12 @@
 
 Four colors have been added for the incubation subsite's identity: `$terracotta` (`#9d3718`), `$rust` (`#ca400d`), `$midnight` (`#102b43`) and `$sand` (`#f4f0e7`). `$terracotta`, `$midnight` and `$sand` stand in for `$w3c-blue`, `$deep-blue` and `$light-blue` respectively; `$rust` is used for the bottom border of the global navigation.
 
+### Incubation theme stylesheets
+
+A Sass theme switch (`$theme`) and the `incubation-core.scss` and `incubation-advanced.scss` entry files compile terracotta versions of the core and advanced stylesheets. The output files are `incubation-core.css`, `incubation-advanced.css` and their `.min.css` versions. The theme is applied entirely through variables in `_colors.scss`, so no theme-specific selectors are needed. The default stylesheets are unchanged.
+
+[Read about themes](settings/README.md#themes)
+
 ## September 2026
 
 ### Replacing Normalize CSS reset
