@@ -16,6 +16,11 @@ main,
 	padding-block: rem(8) rem(48);
     padding-inline: 5vw;
 
+	h1,
+	h2 {
+		color: $heading-color;
+	}
+
 	/* Remove bottom margin from last child of content area */
 	> *:last-child {
 		margin-block-end: 0;

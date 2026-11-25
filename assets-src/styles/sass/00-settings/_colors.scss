@@ -70,6 +70,12 @@ Theme. Set $theme before importing core.scss or advanced.scss to switch palette
  */
 $theme: default !default;
 
+@if $theme == incubation {
+	$w3c-blue: $terracotta;
+	$deep-blue: $midnight;
+	$light-blue: $sand;
+}
+
 
 /**
 Sass variables.
@@ -87,6 +93,20 @@ $info-color:                    $deep-blue;
 $warning-color:                 #c28605;
 $error-color:                   #a82615;
 
+/**
+Optional theme variables. When null, the properties that use them are omitted
+from the compiled CSS.
+ */
+$heading-color:                 null;
+$global-nav-background:         null;
+$global-nav-border:             null;
+
+@if $theme == incubation {
+	$heading-color:             $terracotta;
+	$global-nav-background:     $sand;
+	$global-nav-border:         4px solid $rust;
+}
+
 
 /**
 Social media colours that might be useful.
@@ -100,9 +120,3 @@ $twitter: #1da1f2;
 $whatsapp: #25d366;
 $youtube: #ff0000;
 
-
-/**
-Theme overrides, applied only when $theme is set. Must stay at the end of this file so that variables derived
-from the palette above are re-assigned.
- */
-@import "theme-incubation";

@@ -8,7 +8,7 @@ Four colors have been added for the incubation subsite's identity: `$terracotta`
 
 ### Incubation theme stylesheets
 
-A Sass theme switch (`$theme`) and the `incubation-core.scss` and `incubation-advanced.scss` entry files compile terracotta versions of the core and advanced stylesheets (`incubation-core.css`, `incubation-advanced.css` and their `.min.css` versions). The default stylesheets are unchanged.
+A Sass theme switch (`$theme`) and the `incubation-core.scss` and `incubation-advanced.scss` entry files compile terracotta versions of the core and advanced stylesheets. The output files are `incubation-core.css`, `incubation-advanced.css` and their `.min.css` versions. The theme is applied entirely through variables in `_colors.scss`, so no theme-specific selectors are needed. The default stylesheets are unchanged.
 
 [Read about themes](settings/README.md#themes)
 
