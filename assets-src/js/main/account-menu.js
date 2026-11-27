@@ -143,7 +143,13 @@ let accountMenu = function () {
 
 	const loginLink = document.querySelector('#account-login-link');
 	if (loginLink) {
-		loginLink.href = 'https://auth.w3.org/?url=' + encodeURI(window.location.href);
+		// The login form returns to whatever `url` names, so it must arrive
+		// intact (`encodeURI()` leaves `&` and `#` unescaped) and never name
+		// auth.w3.org itself, which would replace the visitor's real
+		// destination stored by the server.
+		loginLink.href = window.location.hostname === 'auth.w3.org'
+			? 'https://auth.w3.org/login'
+			: 'https://auth.w3.org/?url=' + encodeURIComponent(window.location.href);
 		loginLink.firstChild.textContent = translate.translate('sign-in', document.documentElement.lang);
 		let userInfoRequest = new XMLHttpRequest();
 		userInfoRequest.open('GET', 'https://www.w3.org/account/user-menu/', true)
