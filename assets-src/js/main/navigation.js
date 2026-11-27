@@ -45,6 +45,9 @@ const navigation = function(menu, options) {
 	function closeSubmenus() {
 		let subNavTriggers = Array.prototype.slice.call(menu.querySelectorAll('[data-trigger="sub-nav"]'));
 		subNavTriggers.forEach(function (trigger) {
+			if (trigger.nextElementSibling.contains(document.activeElement)) {
+				trigger.focus();
+			}
 			trigger.setAttribute('aria-expanded', 'false');
 		});
 	}
@@ -71,7 +74,9 @@ const navigation = function(menu, options) {
 				}
 			}
 		} else if (event.target.matches('[data-button="mobile-back"]')) {
-			event.target.closest('li').querySelector('[data-trigger="sub-nav"]').setAttribute('aria-expanded', 'false');
+			const trigger = event.target.closest('li').querySelector('[data-trigger="sub-nav"]');
+			trigger.focus();
+			trigger.setAttribute('aria-expanded', 'false');
 		} else {
 			closeSubmenus();
 		}
@@ -96,6 +101,9 @@ const navigation = function(menu, options) {
 			}
 
 			if (result && mobileToggle.style.display === 'inline-flex') {
+				if (menu.contains(document.activeElement)) {
+					mobileToggle.focus();
+				}
 				mobileToggle.setAttribute('aria-expanded', 'false');
 			} else {
 				closeSubmenus();
