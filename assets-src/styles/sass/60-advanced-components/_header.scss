@@ -2,6 +2,28 @@
     #Global header advanced
 \*------------------------------------*/
 
+/*
+    Hide the static login link until main.js has decided which state to show
+    (signed in or out), to avoid a visible switch from "Sign in" to the avatar.
+    `.account-ready` is added to <html> by account-menu.js. The animation is a
+    fallback that reveals the link if main.js fails to load or run.
+*/
+.js #account-login-link {
+	animation: account-link-reveal 0s 1s forwards;
+	visibility: hidden;
+}
+
+.js.account-ready #account-login-link {
+	animation: none;
+	visibility: visible;
+}
+
+@keyframes account-link-reveal {
+	to {
+		visibility: visible;
+	}
+}
+
 [data-trigger="account-menu"] {
 	border-radius: 0;
 	margin-inline-start: auto;
