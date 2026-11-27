@@ -153,13 +153,12 @@ const MultiselectButtons = function (selectEl, params) {
     div.id = `${selectEl.id}-js-multi-buttons`;
 
     const divComboBox = document.createElement('div');
-    divComboBox.setAttribute('role', 'combobox');
-    divComboBox.setAttribute('aria-haspopup', 'listbox');
-    divComboBox.setAttribute('aria-expanded', 'false');
-    divComboBox.setAttribute('aria-owns', baseId + '-listbox');
     divComboBox.classList.add('input-wrapper');
 
     const input = document.createElement('input');
+    input.setAttribute('role', 'combobox');
+    input.setAttribute('aria-haspopup', 'listbox');
+    input.setAttribute('aria-expanded', 'false');
     input.setAttribute('aria-activedescendant', '');
     input.setAttribute('aria-autocomplete', 'list');
     input.setAttribute('aria-controls', baseId + '-listbox');
@@ -187,6 +186,7 @@ const MultiselectButtons = function (selectEl, params) {
     divComboBox.appendChild(input);
 
     const labelComboBox = document.createElement('label');
+    labelComboBox.id = input.id + '-label';
     labelComboBox.setAttribute('for', input.id);
     labelComboBox.innerHTML = selectLabel.innerHTML;
     const hintComboBox = selectHint ? selectHint.cloneNode(true) : null;
@@ -197,9 +197,9 @@ const MultiselectButtons = function (selectEl, params) {
 
     const ulCombo = document.createElement('ul');
     ulCombo.setAttribute('role', 'listbox');
-    ulCombo.setAttribute('aria-multiselectable', 'true');
+    ulCombo.setAttribute('aria-multiselectable', `${selectEl.multiple}`);
     ulCombo.id = baseId + '-listbox';
-    ulCombo.setAttribute('aria-labelledby', baseId + '-label');
+    ulCombo.setAttribute('aria-labelledby', labelComboBox.id);
     ulCombo.classList.add('combo-menu', 'clean-list');
 
     div.appendChild(divComboBox);
